@@ -43,6 +43,9 @@ isolated Temurin 21 at `~/tools/ghidra-jdk`. System Java remains 8. The
 Ghidra toolkit uses the current user's home for its external cache and JDK.
 GitHub access for this checkout uses an existing SSH identity via its local Git
 configuration; no credentials were copied into the repository.
+The project `4pda` MCP uses `4pda-mcp` from PATH; the remote uv tool was
+installed from `https://github.com/mishannn/4pda-mcp` at commit
+`7ee79e7fa5712b05556cb653604c41f2cb8085fb` and connected with three tools.
 
 The project copy does not include the previous host's private caches under
 `/home/stfu/.cache/opencode-tmp/opencode`. Some historical DSI/capture scripts
