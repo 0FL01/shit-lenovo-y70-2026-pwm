@@ -1,0 +1,33 @@
+STATE 3600 120.00001
+ESD_INITIAL reg_read
+ESD_ACTIVE esd_sw_sim_success
+GATE_OK 0
+GATE_OK 1
+GATE_OK 2
+GATE_OK 3
+P85_LONG3 0x15 0x00 0x00
+GATE_OK 3
+GATE_OK 4
+TRACE_BEGIN
+printf-1 [000] d.... 1.000000: entry_012345abcdef: (symbol) pending=0 length=11 flags=0
+printf-1 [000] d.... 1.000000: ctrl_012345abcdef: (symbol) rc=0
+printf-1 [000] d.... 1.000000: tx_012345abcdef: (symbol) rc=0
+printf-9 [000] d.... 1.000000: hardware_012345abcdef: (symbol) hw_status=0x90000 read_bytes=16 mrps=3
+printf-9 [000] d.... 1.000000: header_012345abcdef: (symbol) header=0x1600031c requested=3 count=9 allocation=16 disp_op=0
+printf-9 [000] d.... 1.000000: ctrl_012345abcdef: (symbol) rc=3
+printf-2 [000] d.... 1.000000: entry_012345abcdef: (symbol) pending=0 length=11 flags=0
+printf-2 [000] d.... 1.000000: ctrl_012345abcdef: (symbol) rc=0
+printf-2 [000] d.... 1.000000: tx_012345abcdef: (symbol) rc=0
+printf-3 [000] d.... 1.000000: entry_012345abcdef: (symbol) pending=0 length=11 flags=0
+printf-3 [000] d.... 1.000000: ctrl_012345abcdef: (symbol) rc=0
+printf-3 [000] d.... 1.000000: tx_012345abcdef: (symbol) rc=0
+TRACE_END
+PROFILE_BEGIN
+header_012345abcdef 1 0
+hardware_012345abcdef 1 0
+ctrl_012345abcdef 4 0
+tx_012345abcdef 3 0
+entry_012345abcdef 3 0
+PROFILE_END
+ESD_RESTORED reg_read
+CLEANUP_OK

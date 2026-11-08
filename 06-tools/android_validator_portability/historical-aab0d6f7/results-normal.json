@@ -1,0 +1,55 @@
+{
+  "status": "HOST_ONLY_PASS",
+  "android_qualified": false,
+  "independent_review": "PENDING",
+  "manifest_sha256": "aab0d6f74a934a9ed126625e595fad6be65ccf343185bb5c0b5acbb2126c4a5f",
+  "elapsed_seconds": 13.2,
+  "tests": [
+    {
+      "test": "baseline",
+      "cases": 56,
+      "bytes": 66995
+    },
+    {
+      "test": "timeout_stops_dispatch",
+      "passed": true
+    },
+    {
+      "test": "launch_collision",
+      "passed": true
+    },
+    {
+      "test": "source_and_manifest_mismatch",
+      "passed": true
+    },
+    {
+      "test": "status",
+      "passed": true
+    },
+    {
+      "test": "lf",
+      "passed": true
+    },
+    {
+      "test": "nul",
+      "passed": true
+    },
+    {
+      "test": "cleanup_status",
+      "passed": true
+    },
+    {
+      "test": "cleanup_lf",
+      "passed": true
+    },
+    {
+      "test": "cleanup_nul",
+      "passed": true
+    },
+    {
+      "test": "cleanup_remnant_quarantine",
+      "passed": true
+    }
+  ],
+  "runtime_source_blobs_unchanged": 13
+}

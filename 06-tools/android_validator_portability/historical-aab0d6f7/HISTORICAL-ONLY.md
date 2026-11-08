@@ -1,0 +1,1 @@
+SUPERSEDED HOST-ONLY HOLD. Preserved original snapshot aab0d6f7. Original PASS reports missed outer finite_timeout bypass and malformed-envelope collision masking. Do not use this snapshot for launch. See parent README and corrected review-snapshot.

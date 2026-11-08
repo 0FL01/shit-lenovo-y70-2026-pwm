@@ -1,0 +1,28 @@
+STATE 3600 120.00001
+ESD_INITIAL reg_read
+ESD_ACTIVE esd_sw_sim_success
+WRITE_GATE_OK 0
+WRITE_GATE_OK 1
+WRITE_GATE_OK 2
+WRITE_GATE_OK 3
+WRITE_GATE_OK 3
+TRACE_BEGIN
+printf-1 [000] d.... 1.000000: entry_012345abcdef: (symbol) pending=0 length=11 flags=0
+printf-1 [000] d.... 1.000000: ctrl_012345abcdef: (symbol) rc=0
+printf-1 [000] d.... 1.000000: tx_012345abcdef: (symbol) rc=0
+printf-2 [000] d.... 1.000000: entry_012345abcdef: (symbol) pending=0 length=9 flags=0
+printf-2 [000] d.... 1.000000: ctrl_012345abcdef: (symbol) rc=0
+printf-2 [000] d.... 1.000000: tx_012345abcdef: (symbol) rc=0
+printf-3 [000] d.... 1.000000: entry_012345abcdef: (symbol) pending=0 length=11 flags=0
+printf-3 [000] d.... 1.000000: ctrl_012345abcdef: (symbol) rc=0
+printf-3 [000] d.... 1.000000: tx_012345abcdef: (symbol) rc=0
+TRACE_END
+PROFILE_BEGIN
+header_012345abcdef 0 0
+hardware_012345abcdef 0 0
+ctrl_012345abcdef 3 0
+tx_012345abcdef 3 0
+entry_012345abcdef 3 0
+PROFILE_END
+ESD_RESTORED reg_read
+CLEANUP_OK

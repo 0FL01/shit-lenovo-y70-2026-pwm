@@ -1,0 +1,59 @@
+{
+  "status": "INDEPENDENT_HOST_ONLY_PASS_ANDROID_BATCH_HOLD",
+  "supersedes_manifest": "5707e9cefe4a683bb8d2d71a101b5631ed11dfa91e2e05bac77424f733df93d7",
+  "files": {
+    "build.py": {
+      "sha256": "f09a6e1e7b809e626ad9a6d8fd9061baf0c31564e0651af30d158e9183701773",
+      "git_blob": "18674261e07ca7a6d813454103769b3c0cc2410f"
+    },
+    "test_host.py": {
+      "sha256": "2e2740f7d17f1ccb13b47c76ee001b93da0a2c80c2e523be4cd78829d4d15789",
+      "git_blob": "1cc5ec394598406ffd335ce522d1a06ddd775629"
+    },
+    "README.md": {
+      "sha256": "80cf1070384b49edd8eb30b541990a518d60ca4e86120feba54ee8f34d74d299",
+      "git_blob": "f8e0690f546e0859383920bad3227b30079cab81"
+    },
+    "launch-contract-proposal.md": {
+      "sha256": "4d446dbaae57d714fe046b164aba63bcd8ed81c424399dbe406d20129c7fc9b4",
+      "git_blob": "65c899b789dc47752d4fc8cd80d02b9949d976b3"
+    },
+    "manifest.json": {
+      "sha256": "d12695ad3e0701e50dac38c27fe7bbc8e03c021230619c932dd4cd4825417c67",
+      "git_blob": "8f2811c4f0a2481d8d38a72a4bb1cb3118a88a06"
+    },
+    "bundle/probe.sh": {
+      "sha256": "e3d6f8689e1260554348ac460a13388f664a558e9a074fadbeb8c046d95f257c",
+      "git_blob": "3d4c33fb7f24c0602bc28cef82b2e31a3758e7a7"
+    },
+    "bundle/SHA256SUMS": {
+      "sha256": "ef6a972c948e12a917bf811ec2fe8208415cc6c8394718737ca8915923402cc6",
+      "git_blob": "520016039aaaa550d798774fd865c8e718306750"
+    },
+    "results-normal.json": {
+      "sha256": "1a727fa394824db427bc0db5fd2f0dbf1d072a084852665ba27bc6c8fceceb62",
+      "git_blob": "0462380b8492b1c6961d512f93989023b85fe178"
+    },
+    "results-optimized.json": {
+      "sha256": "c47342634ecae7b2585e745bbc1fee79d4b84f5c53e84ec327e1d9088943657a",
+      "git_blob": "00064509c63f52c21dcf8bc39bc8ba7f4cb382fe"
+    },
+    "observations-normal.json": {
+      "sha256": "0de0f6b36af5da8f7d9ecd096b6c0f43b7c7c96faf47dfb89a1b05fb8db134a9",
+      "git_blob": "dbd9fb932c5eadd9745e81f38ca36ba33ac566a4"
+    },
+    "observations-optimized.json": {
+      "sha256": "a61c768d3f893e25e74644af9fb6351785603ed4cd152abe4664ed4bf9bd375c",
+      "git_blob": "9c93ce44e85d6a7eee48f9cd4918d1bdca9748b0"
+    },
+    "reproducibility.json": {
+      "sha256": "aadfa6904ef96488c3ff7e84f26311e850668aebce180f2d3bcf1d1e23ab643b",
+      "git_blob": "d588d5d107055a2114a96322e718d9b20eae4c70"
+    },
+    "independent-review.md": {
+      "sha256": "5cf6ac4a315973f81ef19a42a9be84261d0c58894c3838945317c8aa22e48833",
+      "git_blob": "28848b588ee70416d6f13d0be9dd44e0b4a91839"
+    }
+  },
+  "independent_review": "independent-review.md"
+}

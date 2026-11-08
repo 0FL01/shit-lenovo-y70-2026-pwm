@@ -1,5 +1,16 @@
 # Возобновление R3 — 2026-11-08
 
+Checkpoint 2026-11-08, **portability bundle независимо проверен на host; read-only Android inventory завершён, полный batch HOLD.**
+
+- [Независимый review](../06-tools/android_validator_portability/independent-review.md): 57 shell cases + 20 checks normal/-O, exact104-file rebuild, runtime13 unchanged; manifest d12695ad3e0701e50dac38c27fe7bbc8e03c021230619c932dd4cd4825417c67. Superseded historical fixtures/results сохранены, текущие executable/manifest/results bytes не изменены. Последний опубликованный checkpoint: 2db5ae1691c205903823b13c932fb0179aafe446; эта запись ещё не утверждает публикацию.
+- **Последнее physical action теперь limited timeout, не DSI:** [результат](android_timeout_microprobe_20261108_01/result.md) завершён 23:14:03.907659 UTC, один запуск. Независимый saved-evidence replay PASS: 13 sequential events /708 B, timeout124 при wrapper0, отдельный own-PID proc-read NOT_VISIBLE_OBSERVATION_ONLY. Exact commands/events/streams сохранены приватно; preflight/binding flags опираются на frozen source + lead record, отдельный raw host preflight transcript отсутствует. Whole preflight sequence10.013545 s; timeout event1.5742278120014817 s, proc-read0.5673554780660197 s, не universal bounds.
+- Acquisition8 и microprobe5 host tests normal/-O независимо PASS; deadline проверяется на каждом recv/exit, cap до payload; retained partials только complete frames. Host deadline не remote cancellation. Boot unchanged, mutex absent, identity/root/module/panel/Enforcing совпали; camera только3getprops. Нет device files/settings/DSI/traces/reboot; brightness/current restore не измерены. Full57 HOLD, P85=14 disabled, PWM>=2000 Hz не доказаны. Последний experimental DSI всё ещё timedstock03 19:07:07.888880 UTC с восстановлением native828 тогда.
+- [Inventory](android_portability_inventory_20261108_01/result.md): 27 read-only calls / 4514 B, 22:35:54.674177–22:36:11.366415 UTC; fresh identity/root/module/BOE-v4/Enforcing, unchanged boot и absent mutex before/after. Device files/locks/settings/camera/traces/DSI/signals/reboot не менялись. UID2000 paths /system/bin; timeout --help rc125 unsupported-or-unknown, limits unlimited, units unknown. Raw consistency совпала; raw alone не доказывает command text/rc/order/guarded acquisition, полный inline script/log не сохранён.
+- Последний experimental DSI: timedstock03, завершён 19:07:07.888880 UTC с восстановлением исходного native828 тогда. Новый inventory не измерял brightness/current restore. Full57 Android batch остаётся HOLD: whole lifetime, process reconciliation, storage и owned cleanup не квалифицированы. Продолжение: отдельно reviewed finite primitives, не full batch; первый fixed sleep2 / timeout1 / -k1 теперь завершён с ограниченным результатом выше.
+- Unknown P85=14 disabled, 37/45/8/60 и overall600 не ослаблены; физические >=2000 Hz не доказаны. Никакого live-runtime изменения этим checkpoint нет.
+
+## Предыдущий resume (исторический контекст)
+
 Статус: **R3 активна; физические PWM >=2000 Гц не доказаны.**
 
 Завершена [инертная модель stock-only sequence](../06-tools/offline_local_sequence_model/README.md)

@@ -1,0 +1,6 @@
+set -u
+umask 077
+LC_ALL=C; export LC_ALL
+sh "$B/components/envelope/decode.sh" "$B/fixtures/envelope" "$B/fixtures/plan" 012345abcdef 0 "$B/fixtures/empty" "$W/decoded" || exit $?
+cmp -s "$W/decoded/section01" "$B/fixtures/payload" || exit 4
+cat "$W/decoded/SUCCESS"

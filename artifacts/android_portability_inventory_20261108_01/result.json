@@ -1,0 +1,317 @@
+{
+  "accepted_response_bytes": 4514,
+  "android_behavior_qualified": false,
+  "boot_unchanged": true,
+  "capabilities": {
+    "awk": {
+      "path": "/system/bin/awk",
+      "rc": 0,
+      "resolution_kind": "trusted_system_executable_path"
+    },
+    "df": {
+      "help_bytes": 674,
+      "help_identification_only": true,
+      "help_rc": 0,
+      "help_status": "observed",
+      "path": "/system/bin/df",
+      "rc": 0,
+      "resolution_kind": "trusted_system_executable_path"
+    },
+    "kill": {
+      "rc": 0,
+      "resolution_kind": "shell_builtin_or_name_only"
+    },
+    "ps": {
+      "help_bytes": 1073,
+      "help_identification_only": true,
+      "help_rc": 0,
+      "help_status": "observed",
+      "mentions_PGID_SID": false,
+      "path": "/system/bin/ps",
+      "rc": 0,
+      "resolution_kind": "trusted_system_executable_path"
+    },
+    "setsid": {
+      "help_bytes": 228,
+      "help_identification_only": true,
+      "help_rc": 0,
+      "help_status": "observed",
+      "mentions_session": true,
+      "path": "/system/bin/setsid",
+      "rc": 0,
+      "resolution_kind": "trusted_system_executable_path"
+    },
+    "sh": {
+      "path": "/system/bin/sh",
+      "rc": 0,
+      "resolution_kind": "trusted_system_executable_path"
+    },
+    "sha256sum": {
+      "path": "/system/bin/sha256sum",
+      "rc": 0,
+      "resolution_kind": "trusted_system_executable_path"
+    },
+    "stat": {
+      "help_bytes": 1369,
+      "help_identification_only": true,
+      "help_rc": 0,
+      "help_status": "observed",
+      "path": "/system/bin/stat",
+      "rc": 0,
+      "resolution_kind": "trusted_system_executable_path"
+    },
+    "timeout": {
+      "help_bytes": 665,
+      "help_identification_only": true,
+      "help_rc": 125,
+      "help_status": "unsupported_or_unknown",
+      "mentions_kill_after_option": true,
+      "path": "/system/bin/timeout",
+      "rc": 0,
+      "resolution_kind": "trusted_system_executable_path"
+    }
+  },
+  "device_files_written": false,
+  "events": [
+    {
+      "cap_bytes": 256,
+      "elapsed_seconds": 0.5810038190102205,
+      "label": "camera_identity",
+      "rc": 0,
+      "stderr_bytes": 0,
+      "stdout_bytes": 16
+    },
+    {
+      "cap_bytes": 1024,
+      "elapsed_seconds": 0.5718180070398375,
+      "label": "target_identity",
+      "rc": 0,
+      "stderr_bytes": 0,
+      "stdout_bytes": 98
+    },
+    {
+      "cap_bytes": 16,
+      "elapsed_seconds": 0.5668406619224697,
+      "label": "root_identity",
+      "rc": 0,
+      "stderr_bytes": 0,
+      "stdout_bytes": 2
+    },
+    {
+      "cap_bytes": 128,
+      "elapsed_seconds": 0.46794027206487954,
+      "label": "panel_identity",
+      "rc": 0,
+      "stderr_bytes": 0,
+      "stdout_bytes": 39
+    },
+    {
+      "cap_bytes": 256,
+      "elapsed_seconds": 0.5674024379113689,
+      "label": "module_identity",
+      "rc": 0,
+      "stderr_bytes": 0,
+      "stdout_bytes": 97
+    },
+    {
+      "cap_bytes": 16,
+      "elapsed_seconds": 0.5719479620456696,
+      "label": "mutex_absent_before",
+      "rc": 0,
+      "stderr_bytes": 0,
+      "stdout_bytes": 0
+    },
+    {
+      "cap_bytes": 64,
+      "elapsed_seconds": 0.5678633149946108,
+      "label": "boot_before",
+      "rc": 0,
+      "stderr_bytes": 0,
+      "stdout_bytes": 37
+    },
+    {
+      "cap_bytes": 16,
+      "elapsed_seconds": 0.5715648930054158,
+      "label": "shell_uid",
+      "rc": 0,
+      "stderr_bytes": 0,
+      "stdout_bytes": 5
+    },
+    {
+      "cap_bytes": 1024,
+      "elapsed_seconds": 0.571490942966193,
+      "label": "resolve_timeout",
+      "rc": 0,
+      "stderr_bytes": 0,
+      "stdout_bytes": 20
+    },
+    {
+      "cap_bytes": 1024,
+      "elapsed_seconds": 0.5667370250448585,
+      "label": "resolve_setsid",
+      "rc": 0,
+      "stderr_bytes": 0,
+      "stdout_bytes": 19
+    },
+    {
+      "cap_bytes": 1024,
+      "elapsed_seconds": 0.5630856279749423,
+      "label": "resolve_kill",
+      "rc": 0,
+      "stderr_bytes": 0,
+      "stdout_bytes": 5
+    },
+    {
+      "cap_bytes": 1024,
+      "elapsed_seconds": 0.5712323810439557,
+      "label": "resolve_ps",
+      "rc": 0,
+      "stderr_bytes": 0,
+      "stdout_bytes": 15
+    },
+    {
+      "cap_bytes": 1024,
+      "elapsed_seconds": 0.5712405440863222,
+      "label": "resolve_stat",
+      "rc": 0,
+      "stderr_bytes": 0,
+      "stdout_bytes": 17
+    },
+    {
+      "cap_bytes": 1024,
+      "elapsed_seconds": 0.4712857559788972,
+      "label": "resolve_df",
+      "rc": 0,
+      "stderr_bytes": 0,
+      "stdout_bytes": 15
+    },
+    {
+      "cap_bytes": 1024,
+      "elapsed_seconds": 0.5687008639797568,
+      "label": "resolve_sh",
+      "rc": 0,
+      "stderr_bytes": 0,
+      "stdout_bytes": 15
+    },
+    {
+      "cap_bytes": 1024,
+      "elapsed_seconds": 0.5713006349978969,
+      "label": "resolve_awk",
+      "rc": 0,
+      "stderr_bytes": 0,
+      "stdout_bytes": 16
+    },
+    {
+      "cap_bytes": 1024,
+      "elapsed_seconds": 0.5674218060448766,
+      "label": "resolve_sha256sum",
+      "rc": 0,
+      "stderr_bytes": 0,
+      "stdout_bytes": 22
+    },
+    {
+      "cap_bytes": 32,
+      "elapsed_seconds": 0.5710644290084019,
+      "label": "hard_file_limit",
+      "rc": 0,
+      "stderr_bytes": 0,
+      "stdout_bytes": 10
+    },
+    {
+      "cap_bytes": 32,
+      "elapsed_seconds": 0.5744453839724883,
+      "label": "soft_file_limit",
+      "rc": 0,
+      "stderr_bytes": 0,
+      "stdout_bytes": 10
+    },
+    {
+      "cap_bytes": 8192,
+      "elapsed_seconds": 0.5672950129956007,
+      "label": "help_timeout",
+      "rc": 125,
+      "stderr_bytes": 0,
+      "stdout_bytes": 665
+    },
+    {
+      "cap_bytes": 8192,
+      "elapsed_seconds": 0.5751877729780972,
+      "label": "help_setsid",
+      "rc": 0,
+      "stderr_bytes": 0,
+      "stdout_bytes": 228
+    },
+    {
+      "cap_bytes": 8192,
+      "elapsed_seconds": 0.5686930709052831,
+      "label": "help_ps",
+      "rc": 0,
+      "stderr_bytes": 0,
+      "stdout_bytes": 1073
+    },
+    {
+      "cap_bytes": 8192,
+      "elapsed_seconds": 0.5623056190088391,
+      "label": "help_stat",
+      "rc": 0,
+      "stderr_bytes": 0,
+      "stdout_bytes": 1369
+    },
+    {
+      "cap_bytes": 8192,
+      "elapsed_seconds": 0.48410705698188394,
+      "label": "help_df",
+      "rc": 0,
+      "stderr_bytes": 0,
+      "stdout_bytes": 674
+    },
+    {
+      "cap_bytes": 64,
+      "elapsed_seconds": 0.5665537250461057,
+      "label": "boot_after",
+      "rc": 0,
+      "stderr_bytes": 0,
+      "stdout_bytes": 37
+    },
+    {
+      "cap_bytes": 16,
+      "elapsed_seconds": 0.571147931041196,
+      "label": "mutex_absent_after",
+      "rc": 0,
+      "stderr_bytes": 0,
+      "stdout_bytes": 0
+    },
+    {
+      "cap_bytes": 32,
+      "elapsed_seconds": 0.5718708609929308,
+      "label": "enforcing_after",
+      "rc": 0,
+      "stderr_bytes": 0,
+      "stdout_bytes": 10
+    }
+  ],
+  "existing_server_preflight_passed": true,
+  "experiment_id": "android_portability_inventory_20261108_01",
+  "experimental_dsi_sent": false,
+  "finished_at_utc": "2026-11-08T22:36:11.366415+00:00",
+  "fixture_batch_admitted": false,
+  "hard_file_limit": {
+    "reported_value": "unlimited",
+    "supported": true,
+    "units_unqualified": true
+  },
+  "identity_module_panel_root_enforcing_verified": true,
+  "inventory_uid": 2000,
+  "mutex_absent_before_after": true,
+  "schema": "read_only_android_capability_inventory_v1",
+  "scope": "read_only_inventory_not_fixture_qualification",
+  "settings_camera_reboot_operations": false,
+  "soft_file_limit": {
+    "reported_value": "unlimited",
+    "supported": true,
+    "units_unqualified": true
+  },
+  "started_at_utc": "2026-11-08T22:35:54.674177+00:00",
+  "status": "read_only_inventory_completed",
+  "target_and_camera_distinctly_bound": true
+}

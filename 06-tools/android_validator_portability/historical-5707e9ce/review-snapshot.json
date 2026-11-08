@@ -1,0 +1,54 @@
+{
+  "status": "CORRECTED_HOST_ONLY_FROZEN_REVIEW_PENDING",
+  "supersedes_manifest": "aab0d6f74a934a9ed126625e595fad6be65ccf343185bb5c0b5acbb2126c4a5f",
+  "files": {
+    "build.py": {
+      "sha256": "53949cdbd8a2b6d5bd7088c01298ed30b3df56c4a7b9542d8348b4f3057089b7",
+      "git_blob": "0e66942a1846e382d035018fbc9720321e938048"
+    },
+    "test_host.py": {
+      "sha256": "ee01aeb4ad3a601499141b9b3c9ac127643c5c67149ded8bc6e044adfe98c1ee",
+      "git_blob": "be52dedb545ea398cc2b548bd7fa9d7db071e6c3"
+    },
+    "README.md": {
+      "sha256": "8e937b012d40b1107e9417fa4f059e6112f61c8396f8402f1c4c1d8b391f8501",
+      "git_blob": "c892173c17511007328243af9eb334b4a66ede53"
+    },
+    "launch-contract-proposal.md": {
+      "sha256": "691da60a261d975ada6c16f602f2a8a9597b05faa6ece0d86c3c791a7e5564ce",
+      "git_blob": "a3faf58fa7754435c259f04bf1f5af3f60f53b27"
+    },
+    "manifest.json": {
+      "sha256": "5707e9cefe4a683bb8d2d71a101b5631ed11dfa91e2e05bac77424f733df93d7",
+      "git_blob": "104d4b026f4420513f54e8e0b938d1cb10dbc670"
+    },
+    "bundle/probe.sh": {
+      "sha256": "261636b3aac206b176246a86ebd466759b653d35c27438957dd6af459c1db1e2",
+      "git_blob": "0c6fb158cd4ab08ce60238364a2ae8dad673f566"
+    },
+    "bundle/SHA256SUMS": {
+      "sha256": "3c281e98ba1e61ea4644231fb2cba9f41c222e5ebf6fcd25112589491f5b7321",
+      "git_blob": "505a99d32c41b8005066b9b853422cb64245cf3c"
+    },
+    "results-normal.json": {
+      "sha256": "b6446027f17fc6df2192b1d9da751d3e50f68547024c04929378524e19159595",
+      "git_blob": "869a7eed5dc6a6bec712fcfdf5361f3975d80f15"
+    },
+    "results-optimized.json": {
+      "sha256": "89f5bf0a64e0d5668752f313929dac64f0cc3632aca640ff50c4186741faf2d8",
+      "git_blob": "21156cf75ca2c15a9941319dda3f4bd12d37c729"
+    },
+    "observations-normal.json": {
+      "sha256": "ccfcf4824b2e413596b22acfdfffdb8d8dbbb6f5b5c747bcf1f00c9ff1400ca9",
+      "git_blob": "0f7244dbc546f5ae68312d7cdc64dec9706eb794"
+    },
+    "observations-optimized.json": {
+      "sha256": "c29e45df9de327a7e5e2ba4fc3a887b7c4107d4ed5088a84f7ba4fddc8268c8d",
+      "git_blob": "b421a687427fffe9a1400f5da4e10ce7eb1692e6"
+    },
+    "reproducibility.json": {
+      "sha256": "5f62d79a4c0e875fc20e20bdf31ad504f5aaa4403b9620b713f01be997f146f4",
+      "git_blob": "eb0fa7fe9eaf54ace4e61c8d08bba3c2b8dd691f"
+    }
+  }
+}

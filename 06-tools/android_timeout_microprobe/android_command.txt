@@ -1,0 +1,8 @@
+/system/bin/sh -c '/system/bin/timeout -k 1s 1s /system/bin/sh -c '"'"'printf '"'"'"'"'"'"'"'"'M1 PID %s\n'"'"'"'"'"'"'"'"' "$$"
+IFS= read -r statline < "/proc/$$/stat" || exit 111
+printf '"'"'"'"'"'"'"'"'M1 STAT %s\n'"'"'"'"'"'"'"'"' "$statline"
+exec /system/bin/sleep 2s'"'"'
+rc=$?
+printf '"'"'M1 TIMEOUT_RC %s\n'"'"' "$rc"
+printf '"'"'M1 END\n'"'"'
+exit 0'
