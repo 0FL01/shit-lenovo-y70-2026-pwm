@@ -1,0 +1,434 @@
+{
+  "experiment_id": "p85_stock_a001_20261108_02",
+  "marker": "PWM_P85_p85_stock_a001_20261108_02",
+  "module_sha256": "1bec69faec736e7288f38e4cb83314c37c60d33e6b383213316fd880aa0b1804",
+  "stock_dc": 0,
+  "software_refresh_hz": 120,
+  "anchor": [
+    90,
+    120
+  ],
+  "camera_touched": true,
+  "unknown_register_writes": false,
+  "recovery": "same-target ordinary reboot; device watchdog600s",
+  "pwm_hz": null,
+  "scope": "p85-stock-only",
+  "started_at_utc": "2026-11-08T17:16:22.586827+00:00",
+  "status": "failed; inspect recovery and retained watchdog/owner",
+  "captures": [],
+  "events": [
+    {
+      "label": "identity",
+      "at_utc": "2026-11-08T17:16:24.033130+00:00",
+      "raw_record": "0001-identity",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "root",
+      "at_utc": "2026-11-08T17:16:24.635027+00:00",
+      "raw_record": "0002-root",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "panel",
+      "at_utc": "2026-11-08T17:16:25.304022+00:00",
+      "raw_record": "0003-panel",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "module",
+      "at_utc": "2026-11-08T17:16:26.297248+00:00",
+      "raw_record": "0004-module",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "prior-kernel",
+      "at_utc": "2026-11-08T17:16:32.732767+00:00",
+      "raw_record": "0010-prior-kernel",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "acquire-owner",
+      "at_utc": "2026-11-08T17:16:33.632430+00:00",
+      "raw_record": "0011-acquire-owner",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "before-setting",
+      "at_utc": "2026-11-08T17:16:34.256827+00:00",
+      "raw_record": "0012-before-setting",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "before-setting",
+      "at_utc": "2026-11-08T17:16:34.978314+00:00",
+      "raw_record": "0013-before-setting",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "before-setting",
+      "at_utc": "2026-11-08T17:16:35.636917+00:00",
+      "raw_record": "0014-before-setting",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "before-setting",
+      "at_utc": "2026-11-08T17:16:36.328693+00:00",
+      "raw_record": "0015-before-setting",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "before-setting",
+      "at_utc": "2026-11-08T17:16:36.945284+00:00",
+      "raw_record": "0016-before-setting",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "before-dbv",
+      "at_utc": "2026-11-08T17:16:37.587998+00:00",
+      "raw_record": "0017-before-dbv",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "before-logger",
+      "at_utc": "2026-11-08T17:16:38.252389+00:00",
+      "raw_record": "0018-before-logger",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "before-boot",
+      "at_utc": "2026-11-08T17:16:38.888567+00:00",
+      "raw_record": "0019-before-boot",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "state",
+      "at_utc": "2026-11-08T17:16:39.578836+00:00",
+      "raw_record": "0020-state",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "display",
+      "at_utc": "2026-11-08T17:16:40.259336+00:00",
+      "raw_record": "0021-display",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "boot",
+      "at_utc": "2026-11-08T17:16:40.920699+00:00",
+      "raw_record": "0022-boot",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "owner",
+      "at_utc": "2026-11-08T17:16:41.561698+00:00",
+      "raw_record": "0023-owner",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "fresh-temp",
+      "at_utc": "2026-11-08T17:16:42.208682+00:00",
+      "raw_record": "0024-fresh-temp",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "create-temp",
+      "at_utc": "2026-11-08T17:16:42.819378+00:00",
+      "raw_record": "0025-create-temp",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "initial-esd",
+      "at_utc": "2026-11-08T17:16:43.358962+00:00",
+      "raw_record": "0026-initial-esd",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "overall-watchdog",
+      "at_utc": "2026-11-08T17:16:43.997112+00:00",
+      "raw_record": "0027-overall-watchdog",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "enable-logger",
+      "at_utc": "2026-11-08T17:16:44.651490+00:00",
+      "raw_record": "0028-enable-logger",
+      "mutation": true,
+      "return_code": 0
+    },
+    {
+      "label": "extend-timeout",
+      "at_utc": "2026-11-08T17:16:45.326224+00:00",
+      "raw_record": "0029-extend-timeout",
+      "mutation": true,
+      "return_code": 0
+    },
+    {
+      "label": "home",
+      "at_utc": "2026-11-08T17:16:45.979099+00:00",
+      "raw_record": "0030-home",
+      "mutation": true,
+      "return_code": 0
+    },
+    {
+      "label": "display-settings",
+      "at_utc": "2026-11-08T17:16:46.607709+00:00",
+      "raw_record": "0031-display-settings",
+      "mutation": true,
+      "return_code": 0
+    },
+    {
+      "label": "awake",
+      "at_utc": "2026-11-08T17:16:47.293757+00:00",
+      "raw_record": "0032-awake",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "restore-power",
+      "at_utc": "2026-11-08T17:16:48.582199+00:00",
+      "raw_record": "0034-restore-power",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "restore-peak",
+      "at_utc": "2026-11-08T17:16:49.098112+00:00",
+      "raw_record": "0035-restore-peak",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "restore-setting",
+      "at_utc": "2026-11-08T17:16:49.733443+00:00",
+      "raw_record": "0036-restore-setting",
+      "mutation": true,
+      "return_code": 0
+    },
+    {
+      "label": "restore-setting",
+      "at_utc": "2026-11-08T17:16:50.396901+00:00",
+      "raw_record": "0037-restore-setting",
+      "mutation": true,
+      "return_code": 0
+    },
+    {
+      "label": "restore-setting",
+      "at_utc": "2026-11-08T17:16:51.006284+00:00",
+      "raw_record": "0038-restore-setting",
+      "mutation": true,
+      "return_code": 0
+    },
+    {
+      "label": "restore-setting",
+      "at_utc": "2026-11-08T17:16:51.639775+00:00",
+      "raw_record": "0039-restore-setting",
+      "mutation": true,
+      "return_code": 0
+    },
+    {
+      "label": "restore-setting",
+      "at_utc": "2026-11-08T17:16:52.263463+00:00",
+      "raw_record": "0040-restore-setting",
+      "mutation": true,
+      "return_code": 0
+    },
+    {
+      "label": "restore-dbv",
+      "at_utc": "2026-11-08T17:16:52.791166+00:00",
+      "raw_record": "0041-restore-dbv",
+      "mutation": true,
+      "return_code": 0
+    },
+    {
+      "label": "poll",
+      "at_utc": "2026-11-08T17:16:53.564810+00:00",
+      "raw_record": "0042-poll",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "poll",
+      "at_utc": "2026-11-08T17:16:55.223870+00:00",
+      "raw_record": "0043-poll",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "verify-setting",
+      "at_utc": "2026-11-08T17:16:55.744369+00:00",
+      "raw_record": "0044-verify-setting",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "verify-setting",
+      "at_utc": "2026-11-08T17:16:56.409286+00:00",
+      "raw_record": "0045-verify-setting",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "verify-setting",
+      "at_utc": "2026-11-08T17:16:57.043504+00:00",
+      "raw_record": "0046-verify-setting",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "verify-setting",
+      "at_utc": "2026-11-08T17:16:57.710713+00:00",
+      "raw_record": "0047-verify-setting",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "verify-setting",
+      "at_utc": "2026-11-08T17:16:58.423366+00:00",
+      "raw_record": "0048-verify-setting",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "state",
+      "at_utc": "2026-11-08T17:16:59.038731+00:00",
+      "raw_record": "0049-state",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "display",
+      "at_utc": "2026-11-08T17:16:59.707505+00:00",
+      "raw_record": "0050-display",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "boot",
+      "at_utc": "2026-11-08T17:17:00.394395+00:00",
+      "raw_record": "0051-boot",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "owner",
+      "at_utc": "2026-11-08T17:17:01.043664+00:00",
+      "raw_record": "0052-owner",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "restore-logger",
+      "at_utc": "2026-11-08T17:17:01.697608+00:00",
+      "raw_record": "0053-restore-logger",
+      "mutation": true,
+      "return_code": 0
+    },
+    {
+      "label": "verify-logger",
+      "at_utc": "2026-11-08T17:17:02.338778+00:00",
+      "raw_record": "0054-verify-logger",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "final-esd",
+      "at_utc": "2026-11-08T17:17:02.980165+00:00",
+      "raw_record": "0055-final-esd",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "disarm-watchdog",
+      "at_utc": "2026-11-08T17:17:03.696873+00:00",
+      "raw_record": "0056-disarm-watchdog",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "remove-owned-temp",
+      "at_utc": "2026-11-08T17:17:04.377194+00:00",
+      "raw_record": "0057-remove-owned-temp",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "release-owner",
+      "at_utc": "2026-11-08T17:17:05.015238+00:00",
+      "raw_record": "0058-release-owner",
+      "mutation": false,
+      "return_code": 0
+    }
+  ],
+  "physical_operation_attempted": true,
+  "stages": [],
+  "qualification": null,
+  "unknown_value_write_attempted": false,
+  "candidate_attempts": 0,
+  "register85_writes_attempted": [],
+  "limit": "No physical Hz or optical recovery conclusion from this runner.",
+  "source_commit": "47a7782490f940560525865fefffdf38d8e4f728",
+  "source_blob_ids": {
+    "06-tools/a9_reproduction.py": "94c1a26ad66b509438261a4b9f98247f11fd7e02",
+    "06-tools/camera_capture_metadata.py": "46c9366103580f38a5f571360bc20f6dca6329bd",
+    "06-tools/capture_ddic_c1.py": "fa93fefb8e2ddd1062d96105c6b54e6476a0b6d6",
+    "06-tools/dsi_trial_transaction.py": "64b85ce49f80cb10ca50e85da6cb581968954764",
+    "06-tools/guarded_adb_socket.py": "530b34a883d9e6d7a0fabcc67e9e16d2b2f61c68",
+    "06-tools/p85_guarded_trial.py": "e3073105b7c8e502e305bac81657091d52218ae0",
+    "06-tools/p85_single_bit_plan.py": "d69e3a68d9f346716d04bc744652b965b278663a",
+    "06-tools/run_dsi_mode_trial.py": "e1d3b1af4e1616c9d2f67a8a2ea11f126d0d0181",
+    "06-tools/run_p85_guarded_trial.py": "2c53df06e595b5f65fa9ea92cdcaa8e86941ea3d",
+    "06-tools/stock_c1_sweep.py": "b37529b22da7991bc55cc8a73a387787c6926058"
+  },
+  "source_worktree_clean_for_runner": true,
+  "source_tracked_paths": [
+    "06-tools/run_p85_guarded_trial.py",
+    "06-tools/p85_guarded_trial.py",
+    "06-tools/stock_c1_sweep.py",
+    "06-tools/capture_ddic_c1.py",
+    "06-tools/p85_single_bit_plan.py",
+    "06-tools/dsi_trial_transaction.py",
+    "06-tools/a9_reproduction.py",
+    "06-tools/camera_capture_metadata.py",
+    "06-tools/run_dsi_mode_trial.py",
+    "06-tools/guarded_adb_socket.py"
+  ],
+  "before": {
+    "screen_brightness": "98",
+    "screen_brightness_mode": "0",
+    "min_refresh_rate": "120.0",
+    "peak_refresh_rate": "120.0",
+    "screen_off_timeout": "1800000",
+    "native_dbv": 828,
+    "logger": 0
+  },
+  "watchdog_state": "disarmed_verified",
+  "error_type": "ValueError",
+  "camera_ui_temp_removed": true,
+  "original_settings_dbv_logger_restored": true,
+  "watchdog_disarmed": true,
+  "mutex_released": true,
+  "finished_at_utc": "2026-11-08T17:17:05.667940+00:00"
+}

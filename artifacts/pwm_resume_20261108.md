@@ -240,3 +240,22 @@ gate не проходит. Лимиты 45/60 с не увеличивалис�
 использует только заводской 15; неизвестный 14 требует отдельного успешного
 stock video review и допустимого измеренного timing budget. Аппаратная frequency
 семантика 85 и физические >=2000 Гц остаются unknown.
+
+### P85 setup 02–03 и строгое ожидание камеры
+
+[02](p85_stock_a001_20261108_02/result.md) остановилась до native anchor из-за
+post-reboot keyguard. Штатный OS dismiss затем прошёл, две проверки показали
+ON/AWAKE/unlocked; credentials и security settings не изменялись.
+[03](p85_stock_a001_20261108_03/result.md) начала запись, но первый dump ещё
+содержал PREVIEW result, старый skew и нулевые encoder frames. Guard остановил
+выполнение до baseline/P85. В обеих попытках исходные settings/native828/logger,
+watchdog/mutex и, для03, остановка камеры проверены без reboot;85 writes нет.
+
+Новый startup helper сначала ждёт2с после единственного start-tap. Затем
+допускает максимум5 read-only dumps в8с, две последовательные fully-valid
+recording snapshots с progress и одним session. Только ID mismatch при уже
+правильных остальных полях может дать retry. Состояние из03 остаётся fatal;
+PREVIEW/old skew/zero encoder frames не принимаются и не скрываются ожиданием.
+Startup-only alarm прерывает зависший transport, не меняя shared ADB или
+candidate budget; handler/timer восстанавливаются до внешнего cleanup.
+Нужны committed/clean source и новая stock-only квалификация, не повтор failed ID.

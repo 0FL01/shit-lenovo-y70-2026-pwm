@@ -1,11 +1,12 @@
 # Long-lived agent progress journal
 
-Checkpoint 2026-11-08, **P85 stock-only 01 остановлена до writer DSI; восстановление проверено.**
+Checkpoint 2026-11-08, **P85 stock-only 01–03 остановлены до parameter write; восстановление проверено.**
 
 - [Failed qualification 01](artifacts/p85_stock_a001_20261108_01/result.md): baseline при DBV 3600/native actual 120 дал qualified P85 `15 00 00` и C1 `00 00 60`. Writer gate0 затем упёрся в Android external printf argv limit на retained dmesg; его trace/profile пусты. Параметр 85 не записан, 14 не использовался. Один штатный reboot и полный original settings/native 828/logger/ESD/camera/watchdog/mutex cleanup проверены.
+- [02](artifacts/p85_stock_a001_20261108_02/result.md) остановилась на post-reboot keyguard до native anchor; обычный OS dismiss затем дважды проверен без credentials/security-setting changes. [03](artifacts/p85_stock_a001_20261108_03/result.md) остановилась на первом recording dump: ещё PREVIEW, старый skew и нулевые encoder frames. Обе попытки полностью восстановлены без reboot, zero85 writes. Startup исправлен узко: initial2s wait, максимум5 read-only dumps/8s, только otherwise-valid ID mismatch retry, две строгие последовательные recording snapshots. PREVIEW/old skew/zero frames остаются fatal; startup-only alarm ограничивает зависший transport и снимается до cleanup.
 - [Новый P85 runner](artifacts/p85_guarded_runner_20261108.md) теперь использует exact owned files для dmesg/trace/profile/prefix, без очистки логов и ослабления guards. Ошибка воспроизведена external printf с 2 MiB журнала, исправление и отказ на oversized/read-error проверены независимо. Перед следующим live run обязателен committed/clean набор десяти executable Git blobs, записываемый в отчёт.
 - [Отдельный optical analyzer](artifacts/p85_optical_qualification_20261108.md) требует завершённого cleanup, нового ROI review и временных границ по metadata/PTS; failed01 не выдаётся за пригодную stock/sham/return серию. Raw video/screenshots остаются приватными. Абсолютные Hz не выводятся из image rows или C1.
-- Candidate по-прежнему не квалифицирован: measured baseline 34.389 с не проходит текущий conservative 45 с budget при отдельном 60 с watchdog. Следующий опыт — снова только заводской 15, после commit исправленного кода и fresh preflight. Прежний опубликованный checkpoint: `a78d2e8f1af0c555b7d19cb380600330cf2fc2dd`. R3 >=2000 Гц не решена.
+- Candidate по-прежнему не квалифицирован: measured baseline 34.389 с не проходит текущий conservative 45 с budget при отдельном 60 с watchdog. Следующий опыт — снова только заводской 15, после commit исправленного кода и fresh preflight. Прежний опубликованный checkpoint: `47a7782490f940560525865fefffdf38d8e4f728`. R3 >=2000 Гц не решена.
 
 Checkpoint 2026-11-08, **stock brightness map завершена; C1 не является установленным счётчиком частоты.**
 

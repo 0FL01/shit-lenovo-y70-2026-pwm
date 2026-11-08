@@ -1,0 +1,23 @@
+{
+  "normal_os_dismiss_requested_once": true,
+  "command_success": true,
+  "security_settings_changed": false,
+  "credential_attempts": 0,
+  "samples": [
+    {
+      "read_ok": true,
+      "screen_on": true,
+      "awake": true,
+      "keyguard_showing": false,
+      "keyguard_dismissed": true
+    },
+    {
+      "read_ok": true,
+      "screen_on": true,
+      "awake": true,
+      "keyguard_showing": false,
+      "keyguard_dismissed": true
+    }
+  ],
+  "dismiss_verified": true
+}

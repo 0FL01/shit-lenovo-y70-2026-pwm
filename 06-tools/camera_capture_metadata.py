@@ -19,6 +19,17 @@ class CaptureMetadataError(ValueError):
     """Missing, ambiguous, stale or unexpected capture evidence."""
 
 
+class RequestResultNotSettled(CaptureMetadataError):
+    """Rejected ID-only mismatch after all other guards; NEVER accepted evidence.
+
+    The snapshot is for internal continuity checks during explicit bounded startup
+    settling only. Existing callers still receive a CaptureMetadataError.
+    """
+    def __init__(self, snapshot):
+        super().__init__('Request/result not settled to same request')
+        self.continuity_snapshot=snapshot
+
+
 FIELDS = {
     'exposure_ns': ('android.sensor.exposureTime', int, 1),
     'iso': ('android.sensor.sensitivity', int, 1),
@@ -184,7 +195,6 @@ def validate_capture(
         _need(metadata['frame_duration_ns'] > 0 and
               abs(1e9 / metadata['frame_duration_ns'] / expected_fps - 1) < .03,
               f'Unexpected {name} frame duration')
-    _need(request['request_id'] == result['request_id'], 'Request/result not settled to same request')
     _need(request['capture_intent'] == result['capture_intent'], 'Request/result capture-intent mismatch')
     _need(result['frame_count'] >= 0 and result['timestamp_ns'] > 0, 'Missing result progress')
     _need(0 < result['rolling_shutter_skew_ns'] <= result['frame_duration_ns'], 'Invalid rolling-shutter skew')
@@ -229,6 +239,8 @@ def validate_capture(
                 _need(stream['frames_produced'] > before.get('frames_produced', stream['frames_produced']) and
                       stream['last_timestamp_ns'] > before.get('last_timestamp_ns', stream['last_timestamp_ns']),
                       'Encoder stream did not advance')
+    if request['request_id'] != result['request_id']:
+        raise RequestResultNotSettled(snapshot)
     return snapshot
 
 

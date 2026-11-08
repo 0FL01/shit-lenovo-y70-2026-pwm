@@ -23,6 +23,7 @@ class SetupTrial(r.Trial):
     def identity(self):pass
     def camera_identity(self):pass
     def metadata(self,label):pass
+    def settle_recording(self):pass
     def camera_tap(self,label):pass
     def camera_ui(self):return ET.fromstring('<root><node content-desc="Start recording video"/><node content-desc="Switch to front camera"/></root>')
     def cam(self,command,label,timeout=15):return ''

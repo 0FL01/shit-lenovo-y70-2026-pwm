@@ -16,17 +16,19 @@ import shlex
 import signal
 import subprocess
 import time
+import threading
 import uuid
 import xml.etree.ElementTree as ET
 
 import p85_guarded_trial as p85
 import stock_c1_sweep as s
-from camera_capture_metadata import validate_capture
+from camera_capture_metadata import validate_capture, RequestResultNotSettled
 from run_dsi_mode_trial import new_camera_video
 
 check=s.check
 q=shlex.quote
 HOLD=4.5
+_USE_LAST_CAMERA=object()
 PROFILE={'exposure_ns':100000,'iso':6400,'focus_diopters':2.03874850,
          'crop':(0,0,4080,3072),'zoom':1.0,'camera_id':'0','expected_fps':30.0}
 
@@ -210,21 +212,83 @@ class Trial(s.Sweep):
         a,b,c,d=map(int,bounds.groups());check(c>a and d>b,'Empty control')
         self.cam(f'input tap {(a+c)//2} {(b+d)//2}','tap')
 
-    def metadata(self,label):
+    def metadata(self,label,*,timeout=15,previous=_USE_LAST_CAMERA):
         begin=self.monotonic();begin_utc=s.now()
-        raw=self.cam('dumpsys media.camera',label)
+        raw=self.cam('dumpsys media.camera',label,timeout=timeout)
         end=self.monotonic();end_utc=s.now()
-        result=validate_capture(raw,
-            previous=self.last_camera if self.recording else None,**PROFILE,
-            expected_size=(1280,720) if self.recording else None,require_recording=self.recording)
+        reference=(self.last_camera if self.recording else None) if previous is _USE_LAST_CAMERA else previous
+        rejected=None
+        try:
+            result=validate_capture(raw,previous=reference,**PROFILE,
+                expected_size=(1280,720) if self.recording else None,require_recording=self.recording)
+        except RequestResultNotSettled as error:
+            rejected=error;result=error.continuity_snapshot
         result.update(host_call_start_utc=begin_utc,host_call_end_utc=end_utc,host_call_elapsed_seconds=end-begin)
         result['host_capture_bounds']={'begin_monotonic':begin,'end_monotonic':end,
             'begin_utc':begin_utc,'end_utc':end_utc,
             'limit':'Call bounds only, not synchronized sensor/encoded PTS or per-frame metadata.'}
         if self.recording:
             check(result['rolling_shutter_skew_ns']==15047630,'Recording skew changed')
-            self.last_camera=result
+        if rejected is not None:raise rejected
+        if self.recording:self.last_camera=result
         return result
+
+    def settle_recording(self):
+        """Setup-only read polling. Never retry transport/profile/session failures."""
+        check(self.recording and self.last_camera is None and not self.report['stages']
+              and not self.report['register85_writes_attempted'] and 'recording_settle' not in self.report,
+              'Startup settling once only before baseline')
+        check(threading.current_thread() is threading.main_thread(),'Startup alarm requires main thread')
+        check(signal.getitimer(signal.ITIMER_REAL)==(0.0,0.0),'Existing real-time alarm: refuse startup settling')
+        original_handler=signal.getsignal(signal.SIGALRM)
+        installed=False
+        def startup_timeout(signum,frame):
+            raise TimeoutError('Recording startup wall-clock deadline exhausted')
+        started=self.monotonic();deadline=started+8.0
+        reference=None;accepted=[]
+        record={'status':'active','deadline_seconds':8.0,'initial_settle_seconds':2.0,'maximum_dumps':5,'attempts':[]}
+        self.report['recording_settle']=record
+        try:
+            signal.signal(signal.SIGALRM,startup_timeout);installed=True
+            signal.setitimer(signal.ITIMER_REAL,max(.001,deadline-self.monotonic()))
+            record['wall_clock_alarm_seconds']=8.0;self.save()
+            self.sleep(2.0)  # Single bounded delay after the one start tap; inside8s.
+            for attempt in range(1,6):
+                remaining=deadline-self.monotonic()
+                check(remaining>0,'Recording startup deadline exhausted')
+                item={'attempt':attempt,'private_label':f'recording-settle-{attempt}'}
+                record['attempts'].append(item)
+                try:
+                    snapshot=self.metadata(item['private_label'],timeout=remaining,previous=reference)
+                except RequestResultNotSettled as error:
+                    reference=error.continuity_snapshot
+                    accepted=[]
+                    item.update(status='rejected_request_id_mismatch',
+                                host_call_start_utc=reference['host_call_start_utc'],
+                                host_call_end_utc=reference['host_call_end_utc'],
+                                host_call_elapsed_seconds=reference['host_call_elapsed_seconds'])
+                else:
+                    reference=snapshot;accepted.append(snapshot)
+                    item.update(status='fully_valid',host_call_start_utc=snapshot['host_call_start_utc'],
+                                host_call_end_utc=snapshot['host_call_end_utc'],
+                                host_call_elapsed_seconds=snapshot['host_call_elapsed_seconds'])
+                check(self.monotonic()<=deadline,'Recording startup deadline exhausted')
+                if len(accepted)==2:
+                    self.report['recording_preflight']=accepted
+                    record['status']='qualified';return accepted
+                if attempt<5:
+                    remaining=deadline-self.monotonic()
+                    check(remaining>0,'Recording startup deadline exhausted')
+                    self.sleep(min(.25,remaining))
+            raise ValueError('Recording startup attempt cap exhausted')
+        except BaseException as error:
+            record.update(status='failed',error_type=type(error).__name__)
+            raise
+        finally:
+            if installed:
+                signal.setitimer(signal.ITIMER_REAL,0.0)
+                signal.signal(signal.SIGALRM,original_handler)
+            record['elapsed_seconds']=self.monotonic()-started;self.save()
 
     def camera_identity(self):
         check(self.cam('getprop ro.product.device; getprop ro.boot.hardware.sku; getprop ro.product.model','identity').splitlines()==['Galaga','ROW','A001'],'Wrong camera')
@@ -270,8 +334,7 @@ class Trial(s.Sweep):
         self.report['recording_start_host_bounds']={'begin_monotonic':self.monotonic(),'begin_utc':s.now()}
         self.camera_tap('Start recording video')
         self.report['recording_start_host_bounds'].update(end_monotonic=self.monotonic(),end_utc=s.now())
-        first=self.metadata('recording-first');self.sleep(.25);second=self.metadata('recording-second')
-        self.report['recording_preflight']=[first,second];self.save()
+        self.settle_recording()
 
     def observe_stage(self,label):
         check(not self.pending_read and not self.inflight and not self.observation_failed

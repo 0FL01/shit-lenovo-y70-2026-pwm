@@ -189,3 +189,46 @@ device I/O, если relevant runner/helpers untracked/изменены. Коо�
 Нерелевантные untracked артефакты не влияют. Docs-only commit может изменить HEAD,
 но не blob map; candidate qualification сравнивает именно map исполняемых файлов.
 Offline CLI остаётся без device I/O и создания output каталогов.
+
+## Camera startup после failed stock-only03
+
+Координатор подтвердил полный cleanup03, без baseline/P85 reads/writes и без14.
+Сохранённый первый recording dump03 содержит request300/VIDEO_RECORD и latest
+result299/PREVIEW, старый preview skew15596307ns, encoder frames0/timestamp0.
+Он не является пригодным recording evidence и остаётся fatal при offline replay.
+Failed03 и исходные raw/report не изменялись.
+
+Новая узкая подготовка выполняет один фиксированный2s delay после единственного
+start-recording tap, затем максимум5 read-only `dumpsys media.camera` в8s budget,
+включающем delay. Retry разрешён только `RequestResultNotSettled` после прохождения
+всех остальных profile/session/geometry/active-stream/progress guards и exact
+recording skew15047630. PREVIEW, старый skew, нулевой encoder, transport error или
+любая иная ошибка не retryable. Нет второго tap, settings/DSI changes/retries.
+
+Shared parser по-прежнему отвергает несовпадающие request/result IDs; typed error
+наследует прежний CaptureMetadataError и возникает лишь после остальных проверок.
+Его snapshot используется только для continuity в текущем setup, не является
+accepted recording evidence. Повторный вызов settling после ошибки запрещён.
+`recording_preflight` содержит только две подряд полностью валидные advancing
+VIDEO_RECORD snapshots с совпадающими IDs и сохранёнными истинными host call bounds.
+Все неуспешные raw dumps сохраняются приватно с уникальными labels.
+
+Synthetic regressions проверяют mismatch→success, reset consecutive pair,
+perpetual mismatch/attempt cap, deadline/late success, fatal profile/session/
+geometry/skew/transport, no retap/DSI, exact2s delay и03-shaped preview rejection.
+Actual saved03 raw также replayed offline и отвергнут как capture-intent mismatch.
+Для строгого wall-clock deadline setup-only helper временно использует SIGALRM:
+только main thread, отказ при любом existing ITIMER_REAL до изменения handler,
+8s timer включает2s initial delay; TimeoutError фатален и не retryable. Finally
+отменяет свой timer и восстанавливает прежний handler до report/камера/target cleanup.
+Это ограничивает и внутренний12s ADB version-read, не меняя shared ADB. Monotonic
+acceptance checks сохранены. Реальный offline socketpair.recv без timeout прерван
+около8s; проверены restoration на success/exception/KeyboardInterrupt, сохранность
+чужого30s alarm и отказ non-main thread. Ни stage, ни candidate budget не менялись.
+
+Финальный offline checkpoint startup fix: full suite181 tests PASS,2 skips;
+focused107 PASS обычно и с `-O`. Independent reviewer: stock-only04 startup delta
+READY после reviewed-source commit/clean preflight;37 metadata/startup/integration
+tests независимо PASS обычно/`-O`, включая реальный blocked socket deadline.
+Candidate не квалифицирован, прежние latency limits остаются. Device operations,
+commit/push в этой подготовке не выполнялись.
