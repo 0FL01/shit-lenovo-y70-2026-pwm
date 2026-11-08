@@ -1,5 +1,12 @@
 # Long-lived agent progress journal
 
+Checkpoint 2026-11-08, **R3 возобновлена новым автономным заданием владельца.**
+
+- Новая миссия разрешает конечные ADB/root/DSI/settings/camera/reboot эксперименты на обоих устройствах без отдельного вопроса на каждый тест. Историческая пауза снята; safeguards и bootchain/flash проверки остаются. [Краткий текущий checkpoint](artifacts/pwm_resume_20261108.md).
+- Текущие target/camera и приватный ADB tunnel проверены; обычная перезагрузка восстановила прежний root/Enforcing/build/slot/stock DC. Новый existing-server-only транспорт исключает запуск случайного ADB daemon; active-session camera parser различает preview и recording.
+- Подготовлены новый same-video A9-only runner с проверенным redraw, stock-return и независимым reboot-watchdog, а также bounded C1 framing reader. 67 offline tests, 2 skips. Это ещё не новый PWM результат; ни частота>=2000Гц, ни C1 semantics не доказаны.
+
+
 Checkpoint 2026-11-08, **remote ADB tunnel installed; two devices verified.**
 
 - `03-investigation/adb-remote.md`: private user-service SSH tunnel to the USB host is enabled; directory/socket permissions 0700/0600. Read-only tests identified the target and separate optical camera, exercised shell, binary `exec-out` and `pull`, and confirmed recovery after a controlled service restart and simulated SSH exit. Fastboot binary is present on the USB host, but no device was in bootloader mode. No phone settings, DSI, camera recording, reboot or flash were changed.

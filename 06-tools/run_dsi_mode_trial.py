@@ -118,6 +118,30 @@ def new_camera_video(before, after):
 
 
 def main():
+    global TMP
+    reproduction = len(sys.argv) > 1 and sys.argv[1] == '--a9-reproduce'
+    guarded = None
+    trial_dbv = 3600
+    if reproduction:
+        from a9_reproduction import prepare
+        config, fresh_out, fresh_private, fresh_programs, fresh_scope = prepare(ROOT, sys.argv[2:])
+        if config.offline_check:
+            print(json.dumps(fresh_scope, indent=2))
+            return
+        from guarded_adb_socket import GuardedADB
+        guarded = GuardedADB()
+        guarded.preflight()
+        guarded.bind(config.target)
+        guarded.bind(config.camera)
+        # Reserve both names before any device command; never reuse a partial run.
+        fresh_private.parent.mkdir(mode=0o700, parents=True, exist_ok=True)
+        fresh_private.mkdir(mode=0o700)
+        fresh_out.mkdir()
+        (fresh_out / 'authorization_scope.json').write_text(json.dumps(fresh_scope, indent=2) + '\n')
+        trial_dbv = config.dbv
+        TMP = '/data/local/tmp/' + config.experiment_id
+        sys.argv = [sys.argv[0], str(config.target), str(config.camera), '--coupled-9d']
+    adb_run = guarded.run if guarded else subprocess.run
     assert len(sys.argv) in (3, 4), 'Usage: run_dsi_mode_trial.py TARGET_TRANSPORT CAMERA_TRANSPORT [--blocks|--blocks-redraw|--selector-split|--coupled-on|--coupled-9d|--coupled-on-view|--coupled-on-return|--coupled-9d-view|--coupled-9d-return|--stock-on|--stock-on-dbv|--stock-on-redraw]'
     option = sys.argv[3] if len(sys.argv) == 4 else ''
     assert option in ('', '--blocks', '--blocks-redraw', '--selector-split', '--coupled-on', '--coupled-9d', '--coupled-on-view', '--coupled-on-return', '--coupled-9d-view', '--coupled-9d-return', '--stock-on', '--stock-on-dbv', '--stock-on-redraw')
@@ -163,7 +187,12 @@ def main():
         elif replay_dbv:
             out = out / 'with_dbv_replay'
             private_dir = Path(str(private_dir) + '-dbv')
-    authorization = json.loads(((out.parent if owner_return else out) / 'authorization.json').read_text())
+    if reproduction:
+        out, private_dir = fresh_out, fresh_private
+        authorization = fresh_scope  # Public scope only; owner quote remains in private source.
+        blocks_redraw = True
+    else:
+        authorization = json.loads(((out.parent if owner_return else out) / 'authorization.json').read_text())
     view_report = None
     if manual_session:
         assert authorization.get('owner_view_approved') is True
@@ -177,7 +206,10 @@ def main():
     assert not report_path.exists(), 'One-shot experiment; do not repeat'
     parse = runpy.run_path(str(ROOT / '06-tools/inspect_cn_dtbo.py'))['packets']
     ranges = [[0, 253], [253, 500], [500, 754], [754, 864], [864, 875]]
-    if coupled_on:
+    if reproduction:
+        programs = fresh_programs
+        stages = [('baseline', 'stock'), ('a9_only', 'a9_only'), ('return_a9_only', 'stock')]
+    elif coupled_on:
         source = ROOT / 'artifacts/dsi_coupled_9d_20261107' if coupled_9d else ROOT / 'artifacts/dsi_coupled_on_20261107'
         programs, stages = coupled_on_programs(source, authorization, keep_9d_on=coupled_9d)
         if owner_view:
@@ -243,7 +275,8 @@ def main():
             assert parse(program[start:end]) and end - start < 256
     if owner_return:
         out.mkdir()
-    private_dir.mkdir(mode=0o700)
+    if not reproduction:
+        private_dir.mkdir(mode=0o700)
     chunks_dir = private_dir / 'chunks'
     chunks_dir.mkdir(mode=0o700)
     for name, program in programs.items():
@@ -255,10 +288,15 @@ def main():
               'candidate_attempts': 0,
               'candidate_attempts_by_name': {name: 0 for name in programs if name != 'stock'},
               'stages': [], 'events': [], 'pwm_hz': 'unknown'}
+    if reproduction:
+        report.update(mode='a9_reproduction', experiment_id=config.experiment_id,
+                      trial_native_dbv=trial_dbv, transport='existing_private_unix_socket_only',
+                      adb_protocol=41, live_transport_validation='coordinator-qualified read-only separately')
     created_probes = []
     instance_created = tmp_created = settings_changed = logger_on = recording = False
     pending_uncertain = candidate_active = False
     reader_started = False
+    lock_acquired = False
     entry_count = 0
     before = {}
     camera_files_before = ''
@@ -278,13 +316,18 @@ def main():
     if redraw_control:
         marker = 'PWM_STOCK_ON_REDRAW'
 
+    if reproduction:
+        marker = 'PWM_A9_REPRODUCTION'
+
     def save():
         report_path.write_text(json.dumps(report, ensure_ascii=False, indent=2) + '\n')
 
     def shell(device, command, *, root=False, private=None, timeout=25):
         remote = 'su -c ' + shlex.quote(command) if root else command
-        p = subprocess.run(['adb', '-t', str(transports[device]), 'shell', remote],
+        p = adb_run(['adb', '-t', str(transports[device]), 'shell', remote],
                            capture_output=True, text=True, timeout=timeout)
+        if reproduction and private is None:
+            private = 'event-' + str(len(report['events'])) + '.txt'
         if private:
             path = private_dir / private
             path.write_text(p.stdout)
@@ -292,7 +335,7 @@ def main():
         report['events'].append({'at_utc': now(), 'device': device, 'command': remote,
                                  'exit_code': p.returncode,
                                  'stdout': '<private ' + private + '>' if private else p.stdout.strip(),
-                                 'stderr': p.stderr.strip()})
+                                 'stderr': '<redacted>' if reproduction else p.stderr.strip()})
         save()
         if p.returncode:
             raise RuntimeError('Command failed: ' + command)
@@ -318,7 +361,18 @@ def main():
         a, b, c, d = map(int, re.findall(r'\d+', nodes[0].get('bounds')))
         shell('camera', f'input tap {(a+c)//2} {(b+d)//2}')
 
+    last_capture = None
     def camera_metadata(label):
+        nonlocal last_capture
+        if reproduction:
+            from camera_capture_metadata import validate_capture
+            text = shell('camera', 'dumpsys media.camera', private=label + '-camera.txt')
+            captured = validate_capture(text, previous=last_capture if recording else None,
+                                        expected_size=(1280, 720) if recording else None,
+                                        require_recording=recording)
+            if recording:
+                last_capture = captured
+            return captured
         keys = ('android.sensor.exposureTime', 'android.sensor.sensitivity',
                  'android.control.aeMode', 'android.control.afMode', 'android.lens.focusDistance',
                  'android.sensor.rollingShutterSkew', 'android.sensor.timestamp',
@@ -358,11 +412,13 @@ def main():
             'XT2611-1', 'W3WWS36.65-64-4-1', '_b',
             '6.12.58-android16-6-g09eda8c8505a-dirty-ab15950084-4k', 'Enforcing']
         assert target('id', root=True).startswith('uid=0(')
+        if reproduction:
+            assert target('getprop ro.product.device') == 'avr'
         assert target('cat ' + CON + 'panelName', root=True) == 'boe_ili97701A_682_1440x3168_dsc_cmd_v4'
         assert target('sha256sum /vendor/lib/modules/msm_drm.ko', root=True).split()[0] == MODULE_SHA
 
     def state():
-        assert target('cat ' + BL + 'brightness', root=True) == '3600'
+        assert target('cat ' + BL + 'brightness', root=True) == str(trial_dbv)
         assert target('cat ' + BL + 'bl_power', root=True) == '0'
         assert target('cat ' + CON + 'panelDC', root=True) == '0'
         assert target('getenforce') == 'Enforcing'
@@ -400,7 +456,7 @@ def main():
                 assert match[1] not in values
                 values[match[1]] = list(bytes.fromhex(match[2].replace('0x', '')))
         expected = {'23:A9': [0x8e if name == 'a9_only' else 0x0e],
-                     '24:9D': [0x8e if name in ('9d_only', 'a0d1c1') else 0x0e], '00:52': [0x0e, 0x10]}
+                     '24:9D': [0x8e if name in ('9d_only', 'a0d1c1') else 0x0e], '00:52': list(trial_dbv.to_bytes(2, 'big'))}
         assert values == expected, (values, expected)
         text = target('cat ' + TRACE + '/trace', root=True, private=label + '-readback-trace.txt')
         entries = re.findall(r'\bmode_entry:.*?pending=(\d+) length=(\d+) flags=(\d+)', text)
@@ -446,16 +502,24 @@ def main():
         state()
         if not manual_session:
             stage['camera_start'] = camera_metadata(label + '-start')
+        if reproduction:
+            target("printf '<6>" + marker + '_HOLD_BEGIN_' + label + "\\n' > /dev/kmsg", root=True)
         stage['hold_start_utc'] = now()
         save()
         print(json.dumps({'stage': label, 'packets': stage.get('native_packets_matched', 0), 'hold_start_utc': stage['hold_start_utc']}), flush=True)
         time.sleep(1 if manual_session else 7)  # Bounded completion check; manual inspection follows cleanup.
         stage['hold_end_utc'] = now()
+        if reproduction:
+            target("printf '<6>" + marker + '_HOLD_END_' + label + "\\n' > /dev/kmsg", root=True)
         state()
         if not manual_session:
             stage['camera_end'] = camera_metadata(label + '-end')
         text = target('dmesg', root=True, private=label + '-kernel.txt')
         assert 'Command transfer failed' not in text[text.index(marker + '_BEGIN_' + label):], 'Native DMA failure during hold'
+        if reproduction:
+            hold = text.split(marker + '_HOLD_BEGIN_' + label, 1)[1].split(marker + '_HOLD_END_' + label, 1)[0]
+            assert 'dsi_ctrl_cmd_transfer len=' not in hold, 'Unexpected native DSI write during optical hold'
+            stage['hold_no_native_dsi_writes_verified'] = True
         stage['completion_error_log_checked_through_utc'] = now()
         return text
 
@@ -517,26 +581,36 @@ def main():
         stage.update(native_packets_matched=75, transmission_verified_at_utc=now())
         if replay_dbv:
             target("printf '<6>" + marker + '_DBV_BEGIN_' + label + "\\n' > /dev/kmsg", root=True)
-            target("printf '3600\\n' > " + BL + 'brightness', root=True)
-            wait_target('cat ' + BL + 'brightness', '3600')
+            target("printf '%s\\n' " + str(trial_dbv) + " > " + BL + 'brightness', root=True)
+            wait_target('cat ' + BL + 'brightness', str(trial_dbv))
             target("printf '<6>" + marker + '_DBV_END_' + label + "\\n' > /dev/kmsg", root=True)
             text = target('dmesg', root=True, private=label + '-dbv-kernel.txt')
             begin = text.index(marker + '_DBV_BEGIN_' + label)
             section = text[begin:text.index(marker + '_DBV_END_' + label, begin)]
             writes = re.findall(r'dsi-ctrl-1: dsi_ctrl_cmd_transfer len=(\d+), type=0x([0-9a-fA-F]+) (hs|lp) cmds= ([0-9A-Fa-f ]+)', section)
             decoded = [(int(n), int(k, 16), mode, bytes.fromhex(data)) for n, k, mode, data in writes]
-            assert decoded.count((3, 0x39, 'hs', bytes.fromhex('51 0e 10'))) == 1
+            assert decoded.count((3, 0x39, 'hs', bytes([0x51]) + trial_dbv.to_bytes(2, 'big'))) == 1
             assert 'Command transfer failed' not in section
-            stage['same_dbv_replay'] = {'at_utc': now(), 'dbv': 3600,
+            stage['same_dbv_replay'] = {'at_utc': now(), 'dbv': trial_dbv,
                                         'observed_writes': [{'length': n, 'type': k, 'mode': mode, 'payload': data.hex(' ')} for n, k, mode, data in decoded]}
         if blocks_redraw or (redraw_control and name == 'stock'):
+            if reproduction:
+                target("printf '<6>" + marker + '_REDRAW_BEGIN_' + label + "\\n' > /dev/kmsg", root=True)
             repaint_settings(label)
+            if reproduction:
+                target("printf '<6>" + marker + '_REDRAW_END_' + label + "\\n' > /dev/kmsg", root=True)
+                from a9_reproduction import verify_redraw_interval
+                redraw_log = target('dmesg', root=True, private=label + '-redraw-kernel.txt')
+                stage['redraw_audit'] = verify_redraw_interval(redraw_log, marker, label)
+                save()
             stage['redraw_completed'] = True
             if name == 'stock':
                 stage['stock_redraw_completed'] = True
         if short_read_control:
             stage['readback'] = selector_readback(label, name)
         observe_stage(stage, label)
+        if reproduction:
+            stage['readback_after_hold'] = selector_readback(label + '_after_hold', name)
         pending_uncertain = False
         report['pending_bytes_may_exist'] = False
         if name == 'stock':
@@ -548,23 +622,33 @@ def main():
         nonlocal pending_uncertain, candidate_active, instance_created, logger_on
         report['recovery_reboot_requested_at_utc'] = now()
         save()
-        p = subprocess.run(['adb', '-t', str(transports['target']), 'reboot'],
+        p = adb_run(['adb', '-t', str(transports['target']), 'reboot'],
                            capture_output=True, text=True, timeout=15)
         assert p.returncode == 0, 'Recovery reboot not accepted'
-        transports['target'] = wait_for_rebooted_target(target_serial)
+        if guarded:
+            guarded.wait_target(target_serial)  # Keep immutable role aliases bound to serials.
+        else:
+            transports['target'] = wait_for_rebooted_target(target_serial)
         wait_target('getprop sys.boot_completed', '1', seconds=60)
         identity()
         assert target('cat ' + CON + 'panelDC', root=True) == '0'
         pending_uncertain = candidate_active = instance_created = logger_on = False
         created_probes.clear()
         report['recovery_reboot_verified'] = True
+        if reproduction and report.get('watchdog_armed'):
+            target(f'rmdir {TMP}/watchdog_armed', root=True)
+            report['watchdog_disarmed_after_recovery'] = True
         report['pending_bytes_may_exist'] = report['candidate_may_be_active'] = False
         save()
 
     keys = ('screen_brightness', 'screen_brightness_mode', 'min_refresh_rate', 'peak_refresh_rate', 'screen_off_timeout')
     try:
         identity()
-        serial_check = subprocess.run(['adb', '-t', str(transports['target']), 'get-serialno'],
+        if reproduction:
+            target('mkdir -m 700 /data/local/tmp/legion-pwm-research.lock', root=True)
+            lock_acquired = True
+            report['exclusive_device_lock_acquired'] = True
+        serial_check = adb_run(['adb', '-t', str(transports['target']), 'get-serialno'],
                                       capture_output=True, text=True, timeout=10)
         assert serial_check.returncode == 0 and serial_check.stdout.strip() not in ('', 'unknown'), 'Target serial unavailable for recovery'
         target_serial = serial_check.stdout.strip()  # In memory only; never log the serial.
@@ -576,6 +660,10 @@ def main():
                 assert shell('camera', 'getprop ro.product.device; getprop ro.boot.hardware.sku').splitlines() == ['Galaga', 'ROW']
             else:
                 assert shell('camera', 'getprop ro.product.device') == 'PacmanPro'
+            if reproduction:
+                assert shell('camera', 'getprop ro.product.model') == 'A001'
+                package = shell('camera', 'dumpsys package net.sourceforge.opencamera', private='camera-package.txt')
+                assert re.search(r'\bversionName=1\.56\.2(?:\s|$)', package)
             camera_metadata('preflight')
             ui_nodes = list(camera_ui().iter('node'))
             assert any(n.get('content-desc') == 'Start recording video' for n in ui_nodes)
@@ -600,7 +688,7 @@ def main():
         tmp_created = True
         if short_read_control:
             assert esd_mode() == 'reg_read', 'Native ESD must be restored before this experiment'
-        subprocess.run(['adb', '-t', str(transports['target']), 'push', str(chunks_dir), TMP + '/'],
+        adb_run(['adb', '-t', str(transports['target']), 'push', str(chunks_dir), TMP + '/'],
                        check=True, capture_output=True, timeout=25)
         for path in chunks_dir.iterdir():
             actual = target('sha256sum ' + TMP + '/chunks/' + path.name).split()[0]
@@ -614,7 +702,10 @@ def main():
             target(f"printf '1\\n' > {TRACE}/events/pwm_mode/{name}/enable", root=True)
         target(f"printf '1\\n' > {TRACE}/tracing_on", root=True)
         settings_changed = True
-        target('settings put system screen_brightness_mode 0; settings put system screen_brightness 52; settings put system min_refresh_rate 120.0; settings put system peak_refresh_rate 120.0; settings put system screen_off_timeout 600000; input keyevent 224')
+        if reproduction:
+            target('settings put system min_refresh_rate 120.0; settings put system peak_refresh_rate 120.0; settings put system screen_off_timeout 600000; input keyevent 224')
+        else:
+            target('settings put system screen_brightness_mode 0; settings put system screen_brightness 52; settings put system min_refresh_rate 120.0; settings put system peak_refresh_rate 120.0; settings put system screen_off_timeout 600000; input keyevent 224')
         wait_target("dumpsys window policy | grep -F 'screenState='", 'screenState=SCREEN_STATE_ON')
         wait_target("dumpsys window policy | grep -F 'interactiveState='", 'interactiveState=INTERACTIVE_STATE_AWAKE')
         target('wm dismiss-keyguard')
@@ -624,13 +715,13 @@ def main():
             # HOME + explicit Settings launch was independently observed to restore DBV3584.
             target('input keyevent 3')
         target('am start -W --activity-clear-top -n ' + shlex.quote('com.android.settings/.Settings$DisplaySettingsActivity'))
-        if not owner_return:
+        if not owner_return and not reproduction:
             wait_target('cat ' + BL + 'brightness', '3584')
         display = target('dumpsys display', private='target-display.txt')
         assert re.search(r'mActiveSfDisplayMode=[^\n]*peakRefreshRate=120\.', display)
-        target("printf '3600\\n' > " + BL + 'brightness', root=True)
-        wait_target('cat ' + BL + 'brightness', '3600')
-        if redraw_control or blocks_redraw:
+        target("printf '%s\\n' " + str(trial_dbv) + " > " + BL + 'brightness', root=True)
+        wait_target('cat ' + BL + 'brightness', str(trial_dbv))
+        if (redraw_control or blocks_redraw) and not reproduction:
             repaint_settings('preflight')
         logger_on = True
         target("printf '1\\n' > " + CON + 'mipi_cmd_log_en', root=True)
@@ -643,11 +734,28 @@ def main():
             recording = True
             camera_tap('Start recording video')
             assert any(n.get('content-desc') == 'Stop recording video' for n in camera_ui().iter('node'))
+        if reproduction:
+            report['recording_preflight'] = [camera_metadata('recording-preflight-1')]
+            time.sleep(.2)
+            report['recording_preflight'].append(camera_metadata('recording-preflight-2'))
+            save()
+            # Independent bounded recovery never writes a DSI table into an unknown queue.
+            # The owner separately approves this ordinary reboot even on host/tunnel loss.
+            watchdog = f'sleep 600; if test -d {TMP}/watchdog_armed; then /system/bin/reboot; fi'
+            target(f'set -e; mkdir {TMP}/watchdog_armed; nohup /system/bin/sh -c ' + shlex.quote(watchdog) +
+                   f' >{TMP}/watchdog.log 2>&1 </dev/null & echo $! >{TMP}/watchdog.pid', root=True)
+            target(f'test -d {TMP}/watchdog_armed; kill -0 $(cat {TMP}/watchdog.pid)', root=True)
+            report['watchdog_armed'] = True
+            save()
         for label, name in stages:
             apply_program(label, name, programs[name])
             if redraw_control and name == 'native_on':
                 observe_redraw()
         report['stock_return_verified'] = not owner_view
+        if reproduction:
+            assert esd_mode() == 'reg_read'
+            target(f'rmdir {TMP}/watchdog_armed', root=True)
+            report['watchdog_disarmed_after_stock_return'] = True
         profile = target('cat /sys/kernel/tracing/kprobe_profile', root=True, private='probe-profile.txt')
         for name in PROBES:
             rows = re.findall(r'^\s*' + name + r'\s+(\d+)\s+(\d+)\s*$', profile, re.M)
@@ -658,7 +766,11 @@ def main():
         else:
             report['redraw_control_complete' if redraw_control else 'series_complete' if blocks or coupled_on else 'three_stages_complete'] = True
     except BaseException as error:
-        report['error'] = type(error).__name__ + ': ' + str(error)
+        if reproduction:
+            failure = private_dir / 'failure.txt'
+            failure.write_text(type(error).__name__ + ': ' + str(error) + '\n')
+            failure.chmod(0o600)
+        report['error'] = type(error).__name__ + (': private details withheld' if reproduction else ': ' + str(error))
         save()
         if pending_uncertain or candidate_active:
             try:
@@ -669,10 +781,19 @@ def main():
             try:
                 recover_reboot()
             except Exception as recovery_error:
-                report['recovery_error'] = str(recovery_error)
+                report['recovery_error'] = type(recovery_error).__name__ if reproduction else str(recovery_error)
                 save()
     finally:
         errors = []
+        if reproduction and not pending_uncertain and not candidate_active:
+            try:
+                # Also covers an uncertain watchdog launch before the first table.
+                # Never disarm while panel/queue recovery is still uncertain.
+                if tmp_created:
+                    target(f'if test -d {TMP}/watchdog_armed; then rmdir {TMP}/watchdog_armed; fi; test ! -e {TMP}/watchdog_armed', root=True)
+                    report['watchdog_disarmed_no_pending_candidate'] = True
+            except Exception as error:
+                errors.append('Watchdog disarm: ' + str(error))
         if recording:
             try:
                 if any(n.get('content-desc') == 'Stop recording video' for n in camera_ui().iter('node')):
@@ -740,6 +861,9 @@ def main():
                     errors.append('Target settings: ' + str(error))
             if tmp_created:
                 try:
+                    if reproduction:
+                        assert report.get('watchdog_disarmed_no_pending_candidate'), 'Preserve watchdog evidence until disarm verified'
+                        target(f'rm -f {TMP}/watchdog.log {TMP}/watchdog.pid', root=True)
                     paths = ' '.join(TMP + '/chunks/' + p.name for p in chunks_dir.iterdir())
                     if redraw_control or blocks_redraw:
                         target('rm -f ' + TMP + '/redraw-ui.xml')
@@ -775,8 +899,10 @@ def main():
                                     else 'artifacts/optical/pacman_dsi_stock_on_20261106.mp4')
                 if redraw_control:
                     dest = ROOT / 'artifacts/optical/pacman_dsi_stock_on_redraw_20261106.mp4'
+                if reproduction:
+                    dest = private_dir / (config.experiment_id + '.mp4')
                 assert not dest.exists()
-                subprocess.run(['adb', '-t', str(transports['camera']), 'pull', source, str(dest)],
+                adb_run(['adb', '-t', str(transports['camera']), 'pull', source, str(dest)],
                                check=True, capture_output=True, timeout=100)
                 dest.chmod(0o600)
                 assert dest.stat().st_size == int(size)
@@ -790,7 +916,7 @@ def main():
                     assert (probe['streams'][0]['width'], probe['streams'][0]['height']) == (1280, 720)
                     duration = round(float(probe['format']['duration']) * 1000)
                     assert duration > 0
-                report.update(video=str(dest.relative_to(ROOT)), video_bytes=int(size), duration_ms=int(duration))
+                report.update(video=('<private video>' if reproduction else str(dest.relative_to(ROOT))), video_bytes=int(size), duration_ms=int(duration))
             except Exception as error:
                 errors.append('Video acquisition: ' + str(error))
         if owner_view and report.get('owner_view_active'):
@@ -806,8 +932,14 @@ def main():
                     recover_reboot()
                     report['owner_view_active'] = False
                 except Exception as recovery_error:
-                    report['recovery_error'] = str(recovery_error)
-        report.update(cleanup_errors=errors, finished_at_utc=now())
+                    report['recovery_error'] = type(recovery_error).__name__ if reproduction else str(recovery_error)
+        if reproduction and lock_acquired and not pending_uncertain and not candidate_active and not errors and not report.get('recovery_error'):
+            try:
+                target('rmdir /data/local/tmp/legion-pwm-research.lock', root=True)
+                report['exclusive_device_lock_released'] = True
+            except Exception as error:
+                errors.append('Device lock: ' + str(error))
+        report.update(cleanup_errors=([e.split(':', 1)[0] + ': private details withheld' for e in errors] if reproduction else errors), finished_at_utc=now())
         save()
     print(json.dumps({k: v for k, v in report.items() if k not in ('events', 'authorization')}, indent=2), flush=True)
     if report.get('error') or report.get('recovery_error') or report['cleanup_errors']:
