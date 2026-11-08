@@ -1,0 +1,807 @@
+{
+  "scope": "offline saved target DT + one pinned official public source corpus",
+  "target_saved_property_count": 425,
+  "target_panel_type": "dsi_cmd_mode",
+  "target_gate_paths": {
+    "qcom,mdss-esync": [],
+    "qcom,mdss-esync-emsync-fps": [],
+    "qcom,mdss-dsi-panel-esync-emsync-switch-enabled": [],
+    "qcom,mdss-dsi-esync-post-on-commands": [],
+    "qcom,mdss-dsi-em-pulse-switch-command": []
+  },
+  "source_dt_commit": "f088523dfba85c95c15f43726fcf972c0c7a957a",
+  "source_driver_commit": "fa008c43c070ff20faa33853649f5dfd4c427e99",
+  "source_archive_file_count": 407,
+  "exact_ili97701_files": [
+    {
+      "path": "display/dsi-panel-mot-boe-ili97701A-682-1440x3168-dsc-cmd-common_v0.dtsi",
+      "esync_matches": []
+    },
+    {
+      "path": "display/dsi-panel-mot-boe-ili97701A-682-1440x3168-dsc-cmd-common_v1.dtsi",
+      "esync_matches": []
+    },
+    {
+      "path": "display/dsi-panel-mot-boe-ili97701A-682-1440x3168-dsc-cmd-common_v2.dtsi",
+      "esync_matches": []
+    },
+    {
+      "path": "display/dsi-panel-mot-boe-ili97701A-682-1440x3168-dsc-cmd-common_v3.dtsi",
+      "esync_matches": []
+    },
+    {
+      "path": "display/dsi-panel-mot-boe-ili97701A-682-1440x3168-dsc-cmd-common_v4.dtsi",
+      "esync_matches": []
+    }
+  ],
+  "source_esync_matches": [
+    {
+      "path": "bindings/mdss-dsi-panel.yaml",
+      "matches": [
+        {
+          "line": 671,
+          "text": "qcom,mdss-esync:"
+        },
+        {
+          "line": 673,
+          "text": "Boolean entry to enable esync. \"qcom,mdss-esync-hsync-milli-pulse-width\""
+        },
+        {
+          "line": 676,
+          "text": "qcom,mdss-esync-milli-skew:"
+        },
+        {
+          "line": 678,
+          "text": "u32 entry to specify the skew between the esync signal and the timing"
+        },
+        {
+          "line": 680,
+          "text": "qcom,mdss-esync-milli-skew = <150>;"
+        },
+        {
+          "line": 681,
+          "text": "This would set the esync signal to precede the timing engine's output by"
+        },
+        {
+          "line": 685,
+          "text": "qcom,mdss-esync-hsync-milli-pulse-width:"
+        },
+        {
+          "line": 687,
+          "text": "u32 entry to specify the pulse width of the hsync portion of the esync"
+        },
+        {
+          "line": 689,
+          "text": "qcom,mdss-esync-hsync-milli-pulse-width = <750>;"
+        },
+        {
+          "line": 690,
+          "text": "This would set the esync line high for 0.75 of a pulse period, every hsync."
+        },
+        {
+          "line": 692,
+          "text": "qcom,mdss-esync-emsync-fps:"
+        },
+        {
+          "line": 694,
+          "text": "u32 entry to specify how frequently the esync signal should be modulated"
+        },
+        {
+          "line": 697,
+          "text": "qcom,mdss-esync-emsync-milli-pulse-width:"
+        },
+        {
+          "line": 699,
+          "text": "u32 entry to specify the pulse width of the modulated esync signal, in"
+        },
+        {
+          "line": 700,
+          "text": "1/1000ths of a pulse period. See \"qcom,mdss-esync-hsync-milli-pulse-width\"."
+        },
+        {
+          "line": 737,
+          "text": "qcom,mdss-dsi-esync-post-on-commands:"
+        },
+        {
+          "line": 739,
+          "text": "List of panel resume commands that need to be sent after the esync"
+        },
+        {
+          "line": 816,
+          "text": "qcom,mdss-dsi-panel-esync-emsync-switch-enabled:"
+        },
+        {
+          "line": 819,
+          "text": "set along with \"qcom,mdss-esync\", otherwise it won't take effect."
+        },
+        {
+          "line": 1918,
+          "text": "qcom,mdss-esync;"
+        },
+        {
+          "line": 1919,
+          "text": "qcom,mdss-dsi-panel-esync-emsync-switch-enabled;"
+        },
+        {
+          "line": 1920,
+          "text": "qcom,mdss-esync-milli-skew = <150>;"
+        },
+        {
+          "line": 1921,
+          "text": "qcom,mdss-esync-hsync-milli-pulse-width = <750>;"
+        },
+        {
+          "line": 1922,
+          "text": "qcom,mdss-esync-emsync-fps = <240>;"
+        },
+        {
+          "line": 1923,
+          "text": "qcom,mdss-esync-emsync-milli-pulse-width = <300>;"
+        },
+        {
+          "line": 1991,
+          "text": "qcom,mdss-dsi-esync-post-on-commands = [05 01 00 00 a0 00 02 11 00"
+        },
+        {
+          "line": 2019,
+          "text": "qcom,mdss-esync-milli-skew = <150>;"
+        },
+        {
+          "line": 2020,
+          "text": "qcom,mdss-esync-hsync-milli-pulse-width = <750>;"
+        },
+        {
+          "line": 2021,
+          "text": "qcom,mdss-esync-emsync-fps = <240>;"
+        },
+        {
+          "line": 2022,
+          "text": "qcom,mdss-esync-emsync-milli-pulse-width = <300>;"
+        }
+      ]
+    },
+    {
+      "path": "display/alor-sde-display-common.dtsi",
+      "matches": [
+        {
+          "line": 476,
+          "text": "qcom,mdss-esync-hsync-milli-pulse-width = <500>;"
+        },
+        {
+          "line": 477,
+          "text": "qcom,mdss-esync-emsync-fps = <120>;"
+        },
+        {
+          "line": 478,
+          "text": "qcom,mdss-esync-emsync-milli-pulse-width = <500>;"
+        },
+        {
+          "line": 487,
+          "text": "qcom,mdss-esync-hsync-milli-pulse-width = <500>;"
+        },
+        {
+          "line": 488,
+          "text": "qcom,mdss-esync-emsync-fps = <360>;"
+        },
+        {
+          "line": 489,
+          "text": "qcom,mdss-esync-emsync-milli-pulse-width = <500>;"
+        },
+        {
+          "line": 498,
+          "text": "qcom,mdss-esync-hsync-milli-pulse-width = <500>;"
+        },
+        {
+          "line": 499,
+          "text": "qcom,mdss-esync-emsync-fps = <90>;"
+        },
+        {
+          "line": 500,
+          "text": "qcom,mdss-esync-emsync-milli-pulse-width = <500>;"
+        }
+      ]
+    },
+    {
+      "path": "display/alor-sde-display-pinctrl.dtsi",
+      "matches": [
+        {
+          "line": 115,
+          "text": "pmx_sde_esync: pmx_sde_esync {"
+        },
+        {
+          "line": 116,
+          "text": "sde_esync0_active: sde_esync0_active {"
+        },
+        {
+          "line": 119,
+          "text": "function = \"mdp_esync0_out\";"
+        },
+        {
+          "line": 129,
+          "text": "sde_esync0_suspend: sde_esync0_suspend {"
+        },
+        {
+          "line": 132,
+          "text": "function = \"mdp_esync0_out\";"
+        },
+        {
+          "line": 142,
+          "text": "sde_esync1_active: sde_esync1_active {"
+        },
+        {
+          "line": 145,
+          "text": "function = \"mdp_esync1_out\";"
+        },
+        {
+          "line": 155,
+          "text": "sde_esync1_suspend: sde_esync1_suspend {"
+        },
+        {
+          "line": 158,
+          "text": "function = \"mdp_esync1_out\";"
+        }
+      ]
+    },
+    {
+      "path": "display/alor-sde-display.dtsi",
+      "matches": [
+        {
+          "line": 60,
+          "text": "* The esync clk RCG is only necessary here to set its parent"
+        },
+        {
+          "line": 65,
+          "text": "<&dispcc DISP_CC_ESYNC0_CLK_SRC>;"
+        },
+        {
+          "line": 68,
+          "text": "\"mdp_core_clk\", \"esync_clk_rcg\";"
+        },
+        {
+          "line": 73,
+          "text": "pinctrl-names = \"panel_active\", \"panel_active_with_esync\", \"panel_suspend\";"
+        },
+        {
+          "line": 74,
+          "text": "pinctrl-0 = <&sde_dsi_active &sde_te_active &sde_esync0_suspend>;"
+        },
+        {
+          "line": 75,
+          "text": "pinctrl-1 = <&sde_dsi_active &sde_te_active &sde_esync0_active>;"
+        },
+        {
+          "line": 76,
+          "text": "pinctrl-2 = <&sde_dsi_suspend &sde_te_suspend &sde_esync0_suspend>;"
+        },
+        {
+          "line": 100,
+          "text": "* The esync clk RCG is only necessary here to set its parent"
+        },
+        {
+          "line": 105,
+          "text": "<&dispcc DISP_CC_ESYNC1_CLK_SRC>;"
+        },
+        {
+          "line": 108,
+          "text": "\"mdp_core_clk\", \"esync_clk_rcg\";"
+        },
+        {
+          "line": 113,
+          "text": "pinctrl-names = \"panel_active\", \"panel_active_with_esync\", \"panel_suspend\";"
+        },
+        {
+          "line": 114,
+          "text": "pinctrl-0 = <&sde_dsi1_active &sde_te1_active &sde_esync1_suspend>;"
+        },
+        {
+          "line": 115,
+          "text": "pinctrl-1 = <&sde_dsi1_active &sde_te1_active &sde_esync1_active>;"
+        },
+        {
+          "line": 116,
+          "text": "pinctrl-2 = <&sde_dsi1_suspend &sde_te1_suspend &sde_esync1_suspend>;"
+        },
+        {
+          "line": 301,
+          "text": "qcom,mdss-esync;"
+        },
+        {
+          "line": 302,
+          "text": "qcom,mdss-esync-hsync-milli-pulse-width = <450>;"
+        },
+        {
+          "line": 303,
+          "text": "qcom,mdss-esync-emsync-fps = <240>;"
+        },
+        {
+          "line": 304,
+          "text": "qcom,mdss-esync-emsync-milli-pulse-width = <200>;"
+        }
+      ]
+    },
+    {
+      "path": "display/alor-sde.dtsi",
+      "matches": [
+        {
+          "line": 334,
+          "text": "<&dispcc DISP_CC_ESYNC0_CLK>,"
+        },
+        {
+          "line": 339,
+          "text": "\"pixel_clk\", \"pixel_clk_rcg\", \"esync_clk\", \"osc_clk\","
+        },
+        {
+          "line": 351,
+          "text": "<&dispcc DISP_CC_ESYNC1_CLK>,"
+        },
+        {
+          "line": 356,
+          "text": "\"pixel_clk\", \"pixel_clk_rcg\", \"esync_clk\", \"osc_clk\","
+        }
+      ]
+    },
+    {
+      "path": "display/canoe-sde-display-common.dtsi",
+      "matches": [
+        {
+          "line": 492,
+          "text": "qcom,mdss-esync-hsync-milli-pulse-width = <500>;"
+        },
+        {
+          "line": 493,
+          "text": "qcom,mdss-esync-emsync-fps = <120>;"
+        },
+        {
+          "line": 494,
+          "text": "qcom,mdss-esync-emsync-milli-pulse-width = <500>;"
+        },
+        {
+          "line": 503,
+          "text": "qcom,mdss-esync-hsync-milli-pulse-width = <500>;"
+        },
+        {
+          "line": 504,
+          "text": "qcom,mdss-esync-emsync-fps = <360>;"
+        },
+        {
+          "line": 505,
+          "text": "qcom,mdss-esync-emsync-milli-pulse-width = <500>;"
+        },
+        {
+          "line": 514,
+          "text": "qcom,mdss-esync-hsync-milli-pulse-width = <500>;"
+        },
+        {
+          "line": 515,
+          "text": "qcom,mdss-esync-emsync-fps = <90>;"
+        },
+        {
+          "line": 516,
+          "text": "qcom,mdss-esync-emsync-milli-pulse-width = <500>;"
+        }
+      ]
+    },
+    {
+      "path": "display/canoe-sde-display-hfi.dtsi",
+      "matches": [
+        {
+          "line": 33,
+          "text": "pinctrl-names = \"panel_active\", \"panel_active_with_esync\", \"panel_suspend\";"
+        },
+        {
+          "line": 34,
+          "text": "pinctrl-0 = <&sde_dsi_active &sde_te_active &sde_esync0_suspend"
+        },
+        {
+          "line": 37,
+          "text": "pinctrl-1 = <&sde_dsi_active &sde_te_active &sde_esync0_active"
+        },
+        {
+          "line": 40,
+          "text": "pinctrl-2 = <&sde_dsi_suspend &sde_te_suspend &sde_esync0_suspend"
+        },
+        {
+          "line": 51,
+          "text": "pinctrl-names = \"panel_active\", \"panel_active_with_esync\", \"panel_suspend\";"
+        },
+        {
+          "line": 52,
+          "text": "pinctrl-0 = <&sde_dsi1_active &sde_te1_active &sde_esync1_suspend>;"
+        },
+        {
+          "line": 53,
+          "text": "pinctrl-1 = <&sde_dsi1_active &sde_te1_active &sde_esync1_active>;"
+        },
+        {
+          "line": 54,
+          "text": "pinctrl-2 = <&sde_dsi1_suspend &sde_te1_suspend &sde_esync1_suspend>;"
+        }
+      ]
+    },
+    {
+      "path": "display/canoe-sde-display-pinctrl-common.dtsi",
+      "matches": [
+        {
+          "line": 141,
+          "text": "pmx_sde_esync: pmx_sde_esync {"
+        },
+        {
+          "line": 142,
+          "text": "sde_esync0_active: sde_esync0_active {"
+        },
+        {
+          "line": 145,
+          "text": "function = \"mdp_esync0_out\";"
+        },
+        {
+          "line": 155,
+          "text": "sde_esync0_suspend: sde_esync0_suspend {"
+        },
+        {
+          "line": 158,
+          "text": "function = \"mdp_esync0_out\";"
+        },
+        {
+          "line": 168,
+          "text": "sde_esync1_active: sde_esync1_active {"
+        },
+        {
+          "line": 171,
+          "text": "function = \"mdp_esync1_out\";"
+        },
+        {
+          "line": 181,
+          "text": "sde_esync1_suspend: sde_esync1_suspend {"
+        },
+        {
+          "line": 184,
+          "text": "function = \"mdp_esync1_out\";"
+        }
+      ]
+    },
+    {
+      "path": "display/canoe-sde-display.dtsi",
+      "matches": [
+        {
+          "line": 108,
+          "text": "* The esync clk RCG is only necessary here to set its parent"
+        },
+        {
+          "line": 113,
+          "text": "<&dispcc DISP_CC_ESYNC0_CLK_SRC>;"
+        },
+        {
+          "line": 116,
+          "text": "\"mdp_core_clk\", \"esync_clk_rcg\";"
+        },
+        {
+          "line": 122,
+          "text": "pinctrl-names = \"panel_active\", \"panel_active_with_esync\", \"panel_active_with_esync_without_te\", \"panel_suspend\";"
+        },
+        {
+          "line": 123,
+          "text": "pinctrl-0 = <&sde_dsi_active &sde_te_active &sde_esync0_suspend"
+        },
+        {
+          "line": 126,
+          "text": "pinctrl-1 = <&sde_dsi_active &sde_te_active &sde_esync0_active"
+        },
+        {
+          "line": 129,
+          "text": "pinctrl-2 = <&sde_dsi_active &sde_te_function0 &sde_esync0_active"
+        },
+        {
+          "line": 132,
+          "text": "pinctrl-3 = <&sde_dsi_suspend &sde_te_suspend &sde_esync0_suspend"
+        },
+        {
+          "line": 158,
+          "text": "* The esync clk RCG is only necessary here to set its parent"
+        },
+        {
+          "line": 163,
+          "text": "<&dispcc DISP_CC_ESYNC1_CLK_SRC>;"
+        },
+        {
+          "line": 166,
+          "text": "\"mdp_core_clk\", \"esync_clk_rcg\";"
+        },
+        {
+          "line": 172,
+          "text": "pinctrl-names = \"panel_active\", \"panel_active_with_esync\", \"panel_active_with_esync_without_te\", \"panel_suspend\";"
+        },
+        {
+          "line": 173,
+          "text": "pinctrl-0 = <&sde_dsi1_active &sde_te1_active &sde_esync1_suspend>;"
+        },
+        {
+          "line": 174,
+          "text": "pinctrl-1 = <&sde_dsi1_active &sde_te1_active &sde_esync1_active>;"
+        },
+        {
+          "line": 175,
+          "text": "pinctrl-2 = <&sde_dsi1_active &sde_te1_function0 &sde_esync1_active>;"
+        },
+        {
+          "line": 176,
+          "text": "pinctrl-3 = <&sde_dsi1_suspend &sde_te1_suspend &sde_esync1_suspend>;"
+        },
+        {
+          "line": 361,
+          "text": "qcom,mdss-esync;"
+        },
+        {
+          "line": 362,
+          "text": "qcom,mdss-esync-hsync-milli-pulse-width = <450>;"
+        },
+        {
+          "line": 363,
+          "text": "qcom,mdss-esync-emsync-fps = <240>;"
+        },
+        {
+          "line": 364,
+          "text": "qcom,mdss-esync-emsync-milli-pulse-width = <200>;"
+        },
+        {
+          "line": 374,
+          "text": "qcom,mdss-esync;"
+        },
+        {
+          "line": 375,
+          "text": "qcom,mdss-dsi-panel-esync-emsync-switch-enabled;"
+        },
+        {
+          "line": 385,
+          "text": "qcom,mdss-esync;"
+        },
+        {
+          "line": 386,
+          "text": "qcom,mdss-esync-hsync-milli-pulse-width = <500>;"
+        },
+        {
+          "line": 387,
+          "text": "qcom,mdss-esync-emsync-fps = <240>;"
+        },
+        {
+          "line": 388,
+          "text": "qcom,mdss-esync-emsync-milli-pulse-width = <200>;"
+        }
+      ]
+    },
+    {
+      "path": "display/canoe-sde.dtsi",
+      "matches": [
+        {
+          "line": 352,
+          "text": "<&dispcc DISP_CC_ESYNC0_CLK>,"
+        },
+        {
+          "line": 357,
+          "text": "\"pixel_clk\", \"pixel_clk_rcg\", \"esync_clk\", \"osc_clk\","
+        },
+        {
+          "line": 370,
+          "text": "<&dispcc DISP_CC_ESYNC1_CLK>,"
+        },
+        {
+          "line": 375,
+          "text": "\"pixel_clk\", \"pixel_clk_rcg\", \"esync_clk\", \"osc_clk\","
+        }
+      ]
+    },
+    {
+      "path": "display/dsi-panel-nt37802-amoled-video-psr-vhm.dtsi",
+      "matches": [
+        {
+          "line": 177,
+          "text": "// panel esync"
+        },
+        {
+          "line": 517,
+          "text": "// panel esync"
+        },
+        {
+          "line": 857,
+          "text": "// panel esync"
+        }
+      ]
+    },
+    {
+      "path": "display/dsi-panel-sim-sl-video-vhm.dtsi",
+      "matches": [
+        {
+          "line": 62,
+          "text": "qcom,mdss-dsi-esync-post-on-commands ="
+        }
+      ]
+    },
+    {
+      "path": "display/dsi-panel-ss-video-psr-vid-vhm.dtsi",
+      "matches": [
+        {
+          "line": 90,
+          "text": "qcom,mdss-dsi-esync-post-on-commands = ["
+        }
+      ]
+    },
+    {
+      "path": "display/sun-sde-display-common.dtsi",
+      "matches": [
+        {
+          "line": 136,
+          "text": "pinctrl-names = \"panel_active\", \"panel_active_with_esync\", \"panel_suspend\";"
+        },
+        {
+          "line": 137,
+          "text": "pinctrl-0 = <&sde_dsi_active &sde_te_active &sde_esync0_suspend>;"
+        },
+        {
+          "line": 138,
+          "text": "pinctrl-1 = <&sde_dsi_active &sde_te_active &sde_esync0_active>;"
+        },
+        {
+          "line": 139,
+          "text": "pinctrl-2 = <&sde_dsi_suspend &sde_te_suspend &sde_esync0_suspend>;"
+        },
+        {
+          "line": 156,
+          "text": "pinctrl-names = \"panel_active\", \"panel_active_with_esync\", \"panel_suspend\";"
+        },
+        {
+          "line": 157,
+          "text": "pinctrl-0 = <&sde_dsi1_active &sde_te1_active &sde_esync1_suspend>;"
+        },
+        {
+          "line": 158,
+          "text": "pinctrl-1 = <&sde_dsi1_active &sde_te1_active &sde_esync1_active>;"
+        },
+        {
+          "line": 159,
+          "text": "pinctrl-2 = <&sde_dsi1_suspend &sde_te1_suspend &sde_esync1_suspend>;"
+        }
+      ]
+    },
+    {
+      "path": "display/sun-sde-display-pinctrl.dtsi",
+      "matches": [
+        {
+          "line": 115,
+          "text": "pmx_sde_esync: pmx_sde_esync {"
+        },
+        {
+          "line": 116,
+          "text": "sde_esync0_active: sde_esync0_active {"
+        },
+        {
+          "line": 119,
+          "text": "function = \"mdp_esync0_out\";"
+        },
+        {
+          "line": 129,
+          "text": "sde_esync0_suspend: sde_esync0_suspend {"
+        },
+        {
+          "line": 132,
+          "text": "function = \"mdp_esync0_out\";"
+        },
+        {
+          "line": 142,
+          "text": "sde_esync1_active: sde_esync1_active {"
+        },
+        {
+          "line": 145,
+          "text": "function = \"mdp_esync1_out\";"
+        },
+        {
+          "line": 155,
+          "text": "sde_esync1_suspend: sde_esync1_suspend {"
+        },
+        {
+          "line": 158,
+          "text": "function = \"mdp_esync1_out\";"
+        }
+      ]
+    },
+    {
+      "path": "display/sun-sde-display.dtsi",
+      "matches": [
+        {
+          "line": 101,
+          "text": "* The esync clk RCG is only necessary here to set its parent"
+        },
+        {
+          "line": 106,
+          "text": "<&dispcc DISP_CC_ESYNC0_CLK_SRC>;"
+        },
+        {
+          "line": 109,
+          "text": "\"mdp_core_clk\", \"esync_clk_rcg\";"
+        },
+        {
+          "line": 137,
+          "text": "* The esync clk RCG is only necessary here to set its parent"
+        },
+        {
+          "line": 142,
+          "text": "<&dispcc DISP_CC_ESYNC1_CLK_SRC>;"
+        },
+        {
+          "line": 145,
+          "text": "\"mdp_core_clk\", \"esync_clk_rcg\";"
+        }
+      ]
+    },
+    {
+      "path": "display/sun-sde.dtsi",
+      "matches": [
+        {
+          "line": 323,
+          "text": "<&dispcc DISP_CC_ESYNC0_CLK>,"
+        },
+        {
+          "line": 328,
+          "text": "\"pixel_clk\", \"pixel_clk_rcg\", \"esync_clk\", \"osc_clk\","
+        },
+        {
+          "line": 340,
+          "text": "<&dispcc DISP_CC_ESYNC1_CLK>,"
+        },
+        {
+          "line": 345,
+          "text": "\"pixel_clk\", \"pixel_clk_rcg\", \"esync_clk\", \"osc_clk\","
+        }
+      ]
+    },
+    {
+      "path": "display/trustedvm-alor-avf-required-subnodes.dtsi",
+      "matches": [
+        {
+          "line": 90,
+          "text": "&pmx_sde_esync"
+        },
+        {
+          "line": 205,
+          "text": "&sde_esync0_active"
+        },
+        {
+          "line": 206,
+          "text": "&sde_esync0_suspend"
+        },
+        {
+          "line": 207,
+          "text": "&sde_esync1_active"
+        },
+        {
+          "line": 208,
+          "text": "&sde_esync1_suspend"
+        }
+      ]
+    },
+    {
+      "path": "display/trustedvm-canoe-avf-required-subnodes.dtsi",
+      "matches": [
+        {
+          "line": 90,
+          "text": "&pmx_sde_esync"
+        },
+        {
+          "line": 208,
+          "text": "&sde_esync0_active"
+        },
+        {
+          "line": 209,
+          "text": "&sde_esync0_suspend"
+        },
+        {
+          "line": 210,
+          "text": "&sde_esync1_active"
+        },
+        {
+          "line": 211,
+          "text": "&sde_esync1_suspend"
+        }
+      ]
+    }
+  ],
+  "claim_limit": "No target board connectivity, DDIC external-sync capability or physical PWM measurement established."
+}

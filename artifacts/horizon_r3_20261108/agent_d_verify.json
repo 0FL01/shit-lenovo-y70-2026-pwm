@@ -1,0 +1,305 @@
+{
+  "scope": "Independent offline verification. No new physical measurement.",
+  "methods": {
+    "packet_parser": "struct.unpack_from >5BH",
+    "rank": "exact integer orthogonality of six Walsh design rows",
+    "interpolants": "Boolean subset Moebius inversion",
+    "optics": "eight-node Gauss-Legendre integration generated through Legendre root iteration"
+  },
+  "primary_program_binding": [
+    {
+      "vertex": "000",
+      "path": "artifacts/device_tree/selected_boe_v4/qcom,mdss-dsi-dc-off-command",
+      "bytes": 875,
+      "packets": 75,
+      "changed_bytes": 0,
+      "changed_packets": 0
+    },
+    {
+      "vertex": "100",
+      "path": "artifacts/dsi_selector_split_20261107/a9_only.bin",
+      "bytes": 875,
+      "packets": 75,
+      "changed_bytes": 1,
+      "changed_packets": 1
+    },
+    {
+      "vertex": "010",
+      "path": "artifacts/dsi_selector_split_20261107/9d_only.bin",
+      "bytes": 875,
+      "packets": 75,
+      "changed_bytes": 1,
+      "changed_packets": 1
+    },
+    {
+      "vertex": "110",
+      "path": "artifacts/dsi_block_trials_20261106/thresholds.bin",
+      "bytes": 875,
+      "packets": 75,
+      "changed_bytes": 2,
+      "changed_packets": 2
+    },
+    {
+      "vertex": "001",
+      "path": "artifacts/dsi_coupled_on_20261107/on_keep_pwm_selectors.bin",
+      "bytes": 875,
+      "packets": 75,
+      "changed_bytes": 83,
+      "changed_packets": 32
+    },
+    {
+      "vertex": "111",
+      "path": "artifacts/device_tree/selected_boe_v4/qcom,mdss-dsi-dc-on-command",
+      "bytes": 875,
+      "packets": 75,
+      "changed_bytes": 85,
+      "changed_packets": 34
+    },
+    {
+      "vertex": "011",
+      "path": "artifacts/dsi_coupled_9d_20261107/on_keep_a9_off.bin",
+      "bytes": 875,
+      "packets": 75,
+      "changed_bytes": 84,
+      "changed_packets": 33
+    }
+  ],
+  "A_offset": 68,
+  "D_offset": 97,
+  "C_bytes": 83,
+  "C_packets": 32,
+  "selected_command_corpus": {
+    "arrays": 52,
+    "packets": 1101,
+    "writers": {
+      "4F:80": [],
+      "4F:81": [
+        {
+          "path": "artifacts/device_tree/selected_boe_v4/qcom,mdss-dsi-dc-off-command",
+          "packet": {
+            "start": 31,
+            "header": [
+              57,
+              0,
+              0,
+              64,
+              0,
+              2
+            ],
+            "page": 79,
+            "opcode": 129,
+            "payload": "8110"
+          }
+        },
+        {
+          "path": "artifacts/device_tree/selected_boe_v4/qcom,mdss-dsi-dc-on-command",
+          "packet": {
+            "start": 31,
+            "header": [
+              57,
+              0,
+              0,
+              64,
+              0,
+              2
+            ],
+            "page": 79,
+            "opcode": 129,
+            "payload": "8110"
+          }
+        },
+        {
+          "path": "artifacts/device_tree/selected_boe_v4/qcom,mdss-dsi-display-timings/timing@4/qcom,mdss-dsi-timing-switch-command",
+          "packet": {
+            "start": 31,
+            "header": [
+              57,
+              0,
+              0,
+              64,
+              0,
+              2
+            ],
+            "page": 79,
+            "opcode": 129,
+            "payload": "8106"
+          }
+        },
+        {
+          "path": "artifacts/device_tree/selected_boe_v4/qcom,mdss-dsi-display-timings/timing@5/qcom,mdss-dsi-timing-switch-command",
+          "packet": {
+            "start": 31,
+            "header": [
+              57,
+              0,
+              0,
+              64,
+              0,
+              2
+            ],
+            "page": 79,
+            "opcode": 129,
+            "payload": "8106"
+          }
+        }
+      ],
+      "4F:C0": [],
+      "4F:C1": [],
+      "4F:C8": [],
+      "4F:C9": [],
+      "4F:D0": [],
+      "4F:D1": [],
+      "4F:D8": [],
+      "4F:D9": [],
+      "07:EC": [],
+      "23:C1": []
+    }
+  },
+  "target_esync_gate": {
+    "property_count": 425,
+    "panel_type": "64 73 69 5f 63 6d 64 5f 6d 6f 64 65 00",
+    "named_properties": []
+  },
+  "qualitative_design": {
+    "rank": 6,
+    "columns": 8,
+    "walsh_gram_matrix": [
+      [
+        8,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        8,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        8,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        8,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        8,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        8
+      ]
+    ],
+    "completions": [
+      {
+        "u": 0,
+        "v": 0,
+        "coefficients": {
+          "000": 0,
+          "001": 0,
+          "010": 0,
+          "011": 0,
+          "100": 1,
+          "101": -1,
+          "110": 0,
+          "111": 1
+        }
+      },
+      {
+        "u": 0,
+        "v": 1,
+        "coefficients": {
+          "000": 0,
+          "001": 0,
+          "010": 0,
+          "011": 0,
+          "100": 1,
+          "101": 0,
+          "110": 0,
+          "111": 0
+        }
+      },
+      {
+        "u": 1,
+        "v": 0,
+        "coefficients": {
+          "000": 0,
+          "001": 0,
+          "010": 0,
+          "011": 1,
+          "100": 1,
+          "101": -1,
+          "110": 0,
+          "111": 0
+        }
+      },
+      {
+        "u": 1,
+        "v": 1,
+        "coefficients": {
+          "000": 0,
+          "001": 0,
+          "010": 0,
+          "011": 1,
+          "100": 1,
+          "101": 0,
+          "110": 0,
+          "111": -1
+        }
+      }
+    ],
+    "limitation": "Historical state exchangeability is assumed, not proven. ABA measures whole profile."
+  },
+  "redraw_timing": {
+    "source": "artifacts/dsi_stock_on_control_20261106/with_redraw/run.json",
+    "on_verified": "2026-11-06T21:33:03.348524+00:00",
+    "replay": "2026-11-06T21:33:03.630454+00:00",
+    "before_hold_start": 0.357375,
+    "before_hold_end": 7.357898,
+    "after_hold_start": 14.796735,
+    "after_hold_end": 21.800891,
+    "new_table": false,
+    "logged_control_writes": []
+  },
+  "optics": {
+    "parameter_source": "artifacts/horizon_r3_20261108/agent_c_identifiability.json",
+    "grids": 3,
+    "samples_per_grid": 37500,
+    "quadrature_points_per_sample": 8,
+    "max_abs_equal_exposure_difference": 2.476463478728874e-12,
+    "positive_irradiance_lower_bound": 0.7837629807348696,
+    "fixed_emitters_second_exposure_seconds": 0.0004,
+    "second_exposure_max_pair_difference": 0.17128092177599152,
+    "broad_quadrature_max_abs_difference": 3.455014052633487e-13,
+    "broad_positive_irradiance_lower_bound": 0.6974168261730309,
+    "limited_claim": "Equal sampled image at one granted exposure/fps/geometry does not uniquely identify f.",
+    "exclusions": [
+      "No fit to archived movie or complete exposure sweep.",
+      "No physically implementable DDIC waveform is established.",
+      "Sinusoidal local emission is a modulation counterexample; not a discovered rectangular PWM mode."
+    ]
+  }
+}

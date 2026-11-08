@@ -1,0 +1,449 @@
+{
+  "scope": "offline-only; exact committed corpus; no device executor",
+  "source_head": "fffb0feeda534add90dfaf7056964d40adefc183",
+  "packet_arrays": 52,
+  "packet_count": 1101,
+  "native_writers": {
+    "4F:80": [],
+    "4F:81": [
+      {
+        "path": "artifacts/device_tree/selected_boe_v4/qcom,mdss-dsi-dc-off-command",
+        "packet": 3,
+        "offset": 31,
+        "page": 79,
+        "opcode": 129,
+        "payload": "81 10",
+        "data": "10",
+        "selector": false,
+        "header": "39 00 00 40 00 00 02"
+      },
+      {
+        "path": "artifacts/device_tree/selected_boe_v4/qcom,mdss-dsi-dc-on-command",
+        "packet": 3,
+        "offset": 31,
+        "page": 79,
+        "opcode": 129,
+        "payload": "81 10",
+        "data": "10",
+        "selector": false,
+        "header": "39 00 00 40 00 00 02"
+      },
+      {
+        "path": "artifacts/device_tree/selected_boe_v4/qcom,mdss-dsi-display-timings/timing@4/qcom,mdss-dsi-timing-switch-command",
+        "packet": 3,
+        "offset": 31,
+        "page": 79,
+        "opcode": 129,
+        "payload": "81 06",
+        "data": "06",
+        "selector": false,
+        "header": "39 00 00 40 00 00 02"
+      },
+      {
+        "path": "artifacts/device_tree/selected_boe_v4/qcom,mdss-dsi-display-timings/timing@5/qcom,mdss-dsi-timing-switch-command",
+        "packet": 3,
+        "offset": 31,
+        "page": 79,
+        "opcode": 129,
+        "payload": "81 06",
+        "data": "06",
+        "selector": false,
+        "header": "39 00 00 40 00 00 02"
+      }
+    ],
+    "4F:C0": [],
+    "4F:C1": [],
+    "4F:C8": [],
+    "4F:C9": [],
+    "4F:D0": [],
+    "4F:D1": [],
+    "4F:D8": [],
+    "4F:D9": [],
+    "07:EC": [],
+    "23:C1": []
+  },
+  "transaction_skeletons": [
+    {
+      "path": "artifacts/device_tree/selected_boe_v4/qcom,mdss-dsi-dc-off-command",
+      "sequence": [
+        {
+          "packet": 1,
+          "offset": 11,
+          "page": 8,
+          "opcode": 152,
+          "payload": "98 02",
+          "data": "02",
+          "selector": false,
+          "header": "39 00 00 40 00 00 02"
+        },
+        {
+          "packet": 3,
+          "offset": 31,
+          "page": 79,
+          "opcode": 129,
+          "payload": "81 10",
+          "data": "10",
+          "selector": false,
+          "header": "39 00 00 40 00 00 02"
+        },
+        {
+          "packet": 4,
+          "offset": 40,
+          "page": 79,
+          "opcode": 136,
+          "payload": "88 78",
+          "data": "78",
+          "selector": false,
+          "header": "39 00 00 40 00 00 02"
+        },
+        {
+          "packet": 36,
+          "offset": 440,
+          "page": 8,
+          "opcode": 152,
+          "payload": "98 a6",
+          "data": "a6",
+          "selector": false,
+          "header": "39 00 00 40 00 00 02"
+        },
+        {
+          "packet": 40,
+          "offset": 480,
+          "page": 79,
+          "opcode": 139,
+          "payload": "8b 78",
+          "data": "78",
+          "selector": false,
+          "header": "39 00 00 40 00 00 02"
+        }
+      ]
+    },
+    {
+      "path": "artifacts/device_tree/selected_boe_v4/qcom,mdss-dsi-dc-on-command",
+      "sequence": [
+        {
+          "packet": 1,
+          "offset": 11,
+          "page": 8,
+          "opcode": 152,
+          "payload": "98 02",
+          "data": "02",
+          "selector": false,
+          "header": "39 00 00 40 00 00 02"
+        },
+        {
+          "packet": 3,
+          "offset": 31,
+          "page": 79,
+          "opcode": 129,
+          "payload": "81 10",
+          "data": "10",
+          "selector": false,
+          "header": "39 00 00 40 00 00 02"
+        },
+        {
+          "packet": 4,
+          "offset": 40,
+          "page": 79,
+          "opcode": 136,
+          "payload": "88 78",
+          "data": "78",
+          "selector": false,
+          "header": "39 00 00 40 00 00 02"
+        },
+        {
+          "packet": 36,
+          "offset": 440,
+          "page": 8,
+          "opcode": 152,
+          "payload": "98 a6",
+          "data": "a6",
+          "selector": false,
+          "header": "39 00 00 40 00 00 02"
+        },
+        {
+          "packet": 40,
+          "offset": 480,
+          "page": 79,
+          "opcode": 139,
+          "payload": "8b 78",
+          "data": "78",
+          "selector": false,
+          "header": "39 00 00 40 00 00 02"
+        }
+      ]
+    },
+    {
+      "path": "artifacts/device_tree/selected_boe_v4/qcom,mdss-dsi-display-timings/timing@4/qcom,mdss-dsi-timing-switch-command",
+      "sequence": [
+        {
+          "packet": 1,
+          "offset": 11,
+          "page": 8,
+          "opcode": 152,
+          "payload": "98 02",
+          "data": "02",
+          "selector": false,
+          "header": "39 00 00 40 00 00 02"
+        },
+        {
+          "packet": 3,
+          "offset": 31,
+          "page": 79,
+          "opcode": 129,
+          "payload": "81 06",
+          "data": "06",
+          "selector": false,
+          "header": "39 00 00 40 00 00 02"
+        },
+        {
+          "packet": 4,
+          "offset": 40,
+          "page": 79,
+          "opcode": 136,
+          "payload": "88 78",
+          "data": "78",
+          "selector": false,
+          "header": "39 00 00 40 00 00 02"
+        },
+        {
+          "packet": 19,
+          "offset": 189,
+          "page": 79,
+          "opcode": 138,
+          "payload": "8a 78",
+          "data": "78",
+          "selector": false,
+          "header": "39 00 00 40 00 00 02"
+        },
+        {
+          "packet": 24,
+          "offset": 240,
+          "page": 8,
+          "opcode": 152,
+          "payload": "98 a6",
+          "data": "a6",
+          "selector": false,
+          "header": "39 00 00 40 00 00 02"
+        },
+        {
+          "packet": 28,
+          "offset": 280,
+          "page": 79,
+          "opcode": 139,
+          "payload": "8b 78",
+          "data": "78",
+          "selector": false,
+          "header": "39 00 00 40 00 00 02"
+        }
+      ]
+    },
+    {
+      "path": "artifacts/device_tree/selected_boe_v4/qcom,mdss-dsi-display-timings/timing@5/qcom,mdss-dsi-timing-switch-command",
+      "sequence": [
+        {
+          "packet": 1,
+          "offset": 11,
+          "page": 8,
+          "opcode": 152,
+          "payload": "98 02",
+          "data": "02",
+          "selector": false,
+          "header": "39 00 00 40 00 00 02"
+        },
+        {
+          "packet": 3,
+          "offset": 31,
+          "page": 79,
+          "opcode": 129,
+          "payload": "81 06",
+          "data": "06",
+          "selector": false,
+          "header": "39 00 00 40 00 00 02"
+        },
+        {
+          "packet": 4,
+          "offset": 40,
+          "page": 79,
+          "opcode": 136,
+          "payload": "88 78",
+          "data": "78",
+          "selector": false,
+          "header": "39 00 00 40 00 00 02"
+        },
+        {
+          "packet": 19,
+          "offset": 189,
+          "page": 79,
+          "opcode": 138,
+          "payload": "8a 78",
+          "data": "78",
+          "selector": false,
+          "header": "39 00 00 40 00 00 02"
+        },
+        {
+          "packet": 24,
+          "offset": 240,
+          "page": 8,
+          "opcode": 152,
+          "payload": "98 a6",
+          "data": "a6",
+          "selector": false,
+          "header": "39 00 00 40 00 00 02"
+        },
+        {
+          "packet": 28,
+          "offset": 280,
+          "page": 79,
+          "opcode": 139,
+          "payload": "8b 78",
+          "data": "78",
+          "selector": false,
+          "header": "39 00 00 40 00 00 02"
+        }
+      ]
+    }
+  ],
+  "factor_binding": [
+    {
+      "vertex_ADC": "000",
+      "path": "artifacts/device_tree/selected_boe_v4/qcom,mdss-dsi-dc-off-command",
+      "different_bytes_from_off": 0,
+      "different_packets_from_off": 0,
+      "observed": true
+    },
+    {
+      "vertex_ADC": "100",
+      "path": "artifacts/dsi_selector_split_20261107/a9_only.bin",
+      "different_bytes_from_off": 1,
+      "different_packets_from_off": 1,
+      "observed": true
+    },
+    {
+      "vertex_ADC": "010",
+      "path": "artifacts/dsi_selector_split_20261107/9d_only.bin",
+      "different_bytes_from_off": 1,
+      "different_packets_from_off": 1,
+      "observed": true
+    },
+    {
+      "vertex_ADC": "110",
+      "path": "artifacts/dsi_block_trials_20261106/thresholds.bin",
+      "different_bytes_from_off": 2,
+      "different_packets_from_off": 2,
+      "observed": true
+    },
+    {
+      "vertex_ADC": "001",
+      "path": "artifacts/dsi_coupled_on_20261107/on_keep_pwm_selectors.bin",
+      "different_bytes_from_off": 83,
+      "different_packets_from_off": 32,
+      "observed": true
+    },
+    {
+      "vertex_ADC": "111",
+      "path": "artifacts/device_tree/selected_boe_v4/qcom,mdss-dsi-dc-on-command",
+      "different_bytes_from_off": 85,
+      "different_packets_from_off": 34,
+      "observed": true
+    },
+    {
+      "vertex_ADC": "011",
+      "path": "artifacts/dsi_coupled_9d_20261107/on_keep_a9_off.bin",
+      "different_bytes_from_off": 84,
+      "different_packets_from_off": 33,
+      "observed": false
+    }
+  ],
+  "C_changed_bytes": 83,
+  "factor_model": {
+    "response": "binary qualitative fine-train suppression, not Hz or amplitude",
+    "observed_design_rank": 6,
+    "saturated_columns": 8,
+    "unobserved_vertices": [
+      "011",
+      "101"
+    ],
+    "admissible_binary_completions": [
+      {
+        "unobserved_011_suppressed": 0,
+        "unobserved_101_suppressed": 0,
+        "coefficients_1_A_D_C_AD_AC_DC_ADC": [
+          0,
+          1,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          1
+        ]
+      },
+      {
+        "unobserved_011_suppressed": 0,
+        "unobserved_101_suppressed": 1,
+        "coefficients_1_A_D_C_AD_AC_DC_ADC": [
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "unobserved_011_suppressed": 1,
+        "unobserved_101_suppressed": 0,
+        "coefficients_1_A_D_C_AD_AC_DC_ADC": [
+          0,
+          1,
+          0,
+          0,
+          0,
+          -1,
+          1,
+          0
+        ]
+      },
+      {
+        "unobserved_011_suppressed": 1,
+        "unobserved_101_suppressed": 1,
+        "coefficients_1_A_D_C_AD_AC_DC_ADC": [
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          -1
+        ]
+      }
+    ],
+    "identifiable_011_contrast": "beta_DC = F011 - F010 - F001 + F000; with archived qualitative labels beta_DC=F011",
+    "identifiable_101_contrast": "beta_AC = F101 - F100 - F001 + F000; with archived qualitative labels beta_AC=F101-1",
+    "uniform_completion_prior_only_information_bits_each_missing_vertex": 1,
+    "not_a_success_probability": true,
+    "limitations": [
+      "Six response classes are from different archived trials.",
+      "Only nominal DBV/refresh/camera context aligns; full dynamic state equivalence is not proved.",
+      "C is a 32-packet/83-byte grouped intervention, not one decoded physical register.",
+      "Binary suppression label discards residual amplitude and cannot measure PWM frequency."
+    ]
+  },
+  "redraw_timing": {
+    "source": "artifacts/dsi_stock_on_control_20261106/with_redraw/run.json",
+    "native_on_table_verified_utc": "2026-11-06T21:33:03.348524+00:00",
+    "same_dbv_replay_utc": "2026-11-06T21:33:03.630454+00:00",
+    "pre_redraw_hold_seconds": 7.000523,
+    "dbv_replay_to_pre_redraw_hold_end_seconds": 7.357898,
+    "dbv_replay_to_post_redraw_hold_start_seconds": 14.796735,
+    "new_table_sent_at_redraw": false,
+    "logged_control_writes_during_redraw": [],
+    "limit": "Archived host timestamps and summaries only; no raw video/trace revalidation. No sham-delay comparator; frame-update latch is a hypothesis, not identified uniquely."
+  },
+  "pwm_hz": null,
+  "new_frequency_setter_found": false
+}

@@ -1,0 +1,80 @@
+{
+  "scope": "offline integration validation, no device I/O",
+  "base_commit": "fffb0feeda534add90dfaf7056964d40adefc183",
+  "reproductions": [
+    {
+      "artifact": "artifacts/horizon_r3_20261108/agent_a_factorization.json",
+      "byte_exact": true
+    },
+    {
+      "artifact": "artifacts/horizon_r3_20261108/root_offline_audit.json",
+      "byte_exact": true
+    },
+    {
+      "artifact": "artifacts/horizon_r3_20261108/agent_c_identifiability.json",
+      "byte_exact": true
+    },
+    {
+      "artifact": "artifacts/horizon_r3_20261108/agent_d_verify.json",
+      "byte_exact": true
+    },
+    {
+      "artifact": "artifacts/horizon_r3_20261108/agent_b_esync_audit.json",
+      "byte_exact": true
+    },
+    {
+      "artifact": "artifacts/horizon_r3_20261108/agent_b_esync_primary_excerpts.md",
+      "byte_exact": true
+    }
+  ],
+  "syntax": {
+    "python_ast_files": 5,
+    "json_files_before_this_record": 8,
+    "all_valid": true
+  },
+  "links": {
+    "relative_markdown_links_checked": 70,
+    "broken": []
+  },
+  "registry": {
+    "candidate_count": 8,
+    "top_three": [
+      "L1_a0d1c1_conditional_profile",
+      "L2_frame_event_cadence",
+      "L3_external_emsync"
+    ],
+    "evidence_paths_exist": true,
+    "hardware_run_now": false
+  },
+  "history": {
+    "changed_tracked_files": [
+      "WORKSTATE.md"
+    ],
+    "workstate_insert_bytes": 1239,
+    "original_workstate_bytes_preserved": true,
+    "historical_baseline_and_device_code_untouched": true
+  },
+  "authorization": {
+    "a0d1c1_authorization_exists": false,
+    "a0d1c1_run_exists": false
+  },
+  "independent_review": {
+    "report": "artifacts/horizon_r3_20261108/agent_d_review.md",
+    "substantive_blockers_after_corrections": [],
+    "integrated_corrections": [
+      "Composite profile effect separated from causal9D/interaction",
+      "Known row-time counterexample restricted to fixed exposure",
+      "External EMSYNC reference/target gates and line-relative width",
+      "24:9D distinguished from4F:D9",
+      "Return from A0D1C1 remains untested",
+      "Optical reproduction command includes mandatory output",
+      ">=2000 lower bound must account for measurement uncertainty"
+    ]
+  },
+  "limits": [
+    "Exact reproduction is not new physical evidence",
+    "No target ELF or original video reverified",
+    "No numeric success probability inferred",
+    "No live state inspected"
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "scope": "Existing A0D1C1 byte/scope validation and fail-before-process checks only",
+  "device_io": false,
+  "hardware_authorization_created": false,
+  "hardware_runner_changed": false,
+  "records": [
+    {
+      "check": 0,
+      "result": {
+        "status": "fulfilled",
+        "value": {
+          "chunk_id": "fcd75b",
+          "wall_time_seconds": 0.115504941,
+          "exit_code": 0,
+          "original_token_count": 62,
+          "output": "test_a0d1c1_requires_its_own_scope_and_preserves_on_9d (test_coupled_on.CoupledOnTests.test_a0d1c1_requires_its_own_scope_and_preserves_on_9d) ... ok\n\n----------------------------------------------------------------------\nRan 1 test in 0.001s\n\nOK\n"
+        }
+      }
+    },
+    {
+      "check": 1,
+      "result": {
+        "status": "fulfilled",
+        "value": {
+          "chunk_id": "67b4ad",
+          "wall_time_seconds": 0.113708283,
+          "exit_code": 0,
+          "original_token_count": 17,
+          "output": "PASS: missing exact authorization rejected; subprocess calls = 0\n"
+        }
+      }
+    },
+    {
+      "check": 2,
+      "result": {
+        "status": "fulfilled",
+        "value": {
+          "chunk_id": "15cadd",
+          "wall_time_seconds": 0.410679737,
+          "exit_code": 0,
+          "original_token_count": 14,
+          "output": "PASS: optimized Python rejected; subprocess calls = 0\n"
+        }
+      }
+    }
+  ]
+}

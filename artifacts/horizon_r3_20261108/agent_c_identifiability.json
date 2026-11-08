@@ -1,0 +1,87 @@
+{
+  "additional_model_assumptions": {
+    "hypothetical_known_seconds_per_output_row": 2.0899486111111113e-05,
+    "output_height": 720,
+    "sensor": "linear rectangular exposure, identity ISP",
+    "spatial_emission_phase": "unknown linear phase gradient per term",
+    "synthetic_image_amplitude": 0.2,
+    "synthetic_mean_irradiance": 1,
+    "uniform_sensor_fps": 30
+  },
+  "archive_values_used_only_to_set_an_illustrative_grid": {
+    "exposure_seconds": 0.0001,
+    "frames": 75,
+    "reference_period_rows": 93.43,
+    "reported_camera_phase_alias_cycles_per_second": 1.3362964859887891,
+    "reported_skew_ns": 15047630,
+    "rows": 500
+  },
+  "broad_component_exchange": {
+    "claim": "same movie in this model; not a model fit to measured broad phase",
+    "exact_alias_difference_cycles_per_frame": 16,
+    "max_abs_image_difference": 4.198048159098633e-13,
+    "minimum_irradiance_lower_bound": 0.6974168261730309,
+    "same_temporal_frequency_model_hz": [
+      721.3362964859888,
+      721.3362964859888
+    ],
+    "separate_lower_frequency_model_hz": [
+      721.3362964859888,
+      241.33629648598878
+    ],
+    "spatial_cycles_per_row": [
+      0.010703200256876806,
+      0.0035677334189589353
+    ]
+  },
+  "frequency_exchange_models": [
+    {
+      "equivalent_propagation_delay_over_roi_seconds": 0.003024673067835328,
+      "local_temporal_frequency_hz_hypothetical": 721.3362964859888,
+      "optical_amplitude": 0.20172211588464606,
+      "optical_spatial_phase_cycles_per_output_row": -0.004372357652972444,
+      "phase_offset_radians": 0.14338551901919486
+    },
+    {
+      "equivalent_propagation_delay_over_roi_seconds": 0.006723326029087794,
+      "local_temporal_frequency_hz_hypothetical": 1441.336296485989,
+      "optical_amplitude": 0.20700163609880645,
+      "optical_spatial_phase_cycles_per_output_row": -0.019419987652972447,
+      "phase_offset_radians": -0.08280915203927025
+    },
+    {
+      "equivalent_propagation_delay_over_roi_seconds": 0.007957734868376021,
+      "local_temporal_frequency_hz_hypothetical": 2161.336296485989,
+      "optical_amplitude": 0.21623701926513036,
+      "optical_spatial_phase_cycles_per_output_row": -0.034467617652972446,
+      "phase_offset_radians": -0.30900382309773544
+    }
+  ],
+  "limits": [
+    "Does not reproduce the real video, real DDIC timing or all exposure-sweep stages.",
+    "The 30 fps grid and skew/output mapping are deliberately granted, not established on target.",
+    "Strict common linear/phase assumptions across multiple exposures can reject particular models.",
+    "This does not assert that the ILI97701A can implement the constructed optical fields.",
+    "No numeric frequency, low envelope or PWM improvement on the target is established."
+  ],
+  "scope": "Formal synthetic counterexample, not a fit or target measurement",
+  "source_summaries": {
+    "exposure": "artifacts/exposure_notch_20261107/supported/analysis.json",
+    "phase": "artifacts/temporal_alias_20261108/analysis.json",
+    "run": "artifacts/exposure_notch_20261107/supported/run.json",
+    "selector": "artifacts/dsi_selector_split_20261107/analysis_spatial_v2.json"
+  },
+  "verification": {
+    "exact_alias_cycles_per_frame_from_rational_arithmetic": [
+      0,
+      24,
+      48
+    ],
+    "independent_simpson_cases": 27,
+    "max_abs_image_difference": 2.1581902931444574e-12,
+    "max_abs_simpson_analytic_difference": 5.131173264061317e-13,
+    "minimum_irradiance_lower_bound": 0.7837629807348696,
+    "samples_per_model": 37500,
+    "simpson_intervals_per_exposure": 512
+  }
+}

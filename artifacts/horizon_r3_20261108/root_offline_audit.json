@@ -1,0 +1,247 @@
+{
+  "base_commit": "fffb0feeda534add90dfaf7056964d40adefc183",
+  "device_io": false,
+  "physical_pwm_hz": null,
+  "greater_equal_2000_hz_verified": false,
+  "candidate_identity": {
+    "bytes": 875,
+    "hashes": {
+      "stock": "b5ed66ba69e6221de5fdeaf4d003c9628602d743880acd1c8e2cf7198facd193",
+      "candidate": "8604d62cb74646105413c94105a5d66273e865bda2be0e0225f5dc3f69eac62e"
+    },
+    "changed_offsets_from_native_on": [
+      68
+    ],
+    "changed_byte_count_from_stock": 84,
+    "authorization_present": false,
+    "run_present": false,
+    "scope_source": "artifacts/dsi_coupled_9d_20261107/proposal.md"
+  },
+  "qualitative_design": {
+    "source": "artifacts/dsi_coupled_9d_20261107/proposal.md:12-24",
+    "known_cell_count": 6,
+    "unobserved_cells": [
+      [
+        0,
+        1,
+        1
+      ],
+      [
+        1,
+        0,
+        1
+      ]
+    ],
+    "saturated_design_rank": 6,
+    "saturated_parameter_count": 8,
+    "unrestricted_boolean_completions": 4,
+    "witnesses": [
+      {
+        "name": "A_only",
+        "agrees_with_all_six_qualitative_cells": true,
+        "missing_cell_predictions": [
+          {
+            "A_D_C": [
+              0,
+              1,
+              1
+            ],
+            "suppression": 0
+          },
+          {
+            "A_D_C": [
+              1,
+              0,
+              1
+            ],
+            "suppression": 1
+          }
+        ]
+      },
+      {
+        "name": "A_or_D_and_C",
+        "agrees_with_all_six_qualitative_cells": true,
+        "missing_cell_predictions": [
+          {
+            "A_D_C": [
+              0,
+              1,
+              1
+            ],
+            "suppression": 1
+          },
+          {
+            "A_D_C": [
+              1,
+              0,
+              1
+            ],
+            "suppression": 1
+          }
+        ]
+      },
+      {
+        "name": "A_and_D_or_not_C",
+        "agrees_with_all_six_qualitative_cells": true,
+        "missing_cell_predictions": [
+          {
+            "A_D_C": [
+              0,
+              1,
+              1
+            ],
+            "suppression": 0
+          },
+          {
+            "A_D_C": [
+              1,
+              0,
+              1
+            ],
+            "suppression": 0
+          }
+        ]
+      }
+    ],
+    "limits": [
+      "Historical runs are not a randomized simultaneous factorial trial.",
+      "Suppression is a qualitative image outcome, not an emission-frequency result.",
+      "No probability distribution over Boolean completions is justified.",
+      "Stock versus A0D1C1 changes 33 packets; a positive result identifies a profile effect, not 9D alone."
+    ]
+  },
+  "archived_summary_arithmetic": [
+    {
+      "source": "artifacts/dsi_selector_split_20261107/analysis_spatial_v2.json",
+      "raw_video_redecoded": false,
+      "results": [
+        {
+          "stage": "a9_only",
+          "ratio_recomputed": 0.22640672181213267,
+          "ratio_recorded": 0.22640672181213273,
+          "absolute_error": 5.551115123125783e-17,
+          "input_json_pointer": "/stages/1"
+        },
+        {
+          "stage": "9d_only",
+          "ratio_recomputed": 1.0214237646270796,
+          "ratio_recorded": 1.0214237646270794,
+          "absolute_error": 2.220446049250313e-16,
+          "input_json_pointer": "/stages/3"
+        }
+      ]
+    },
+    {
+      "source": "artifacts/dsi_coupled_on_20261107/analysis_spatial_v2.json",
+      "raw_video_redecoded": false,
+      "results": [
+        {
+          "stage": "s0c1",
+          "ratio_recomputed": 0.9363479490548713,
+          "ratio_recorded": 0.9363479490548708,
+          "absolute_error": 4.440892098500626e-16,
+          "input_json_pointer": "/stages/1"
+        }
+      ]
+    },
+    {
+      "source": "artifacts/dsi_block_trials_20261106/with_redraw/analysis_spatial_v2.json",
+      "raw_video_redecoded": false,
+      "results": [
+        {
+          "stage": "mode90",
+          "ratio_recomputed": 0.9811989352346672,
+          "ratio_recorded": 0.9811989352346676,
+          "absolute_error": 4.440892098500626e-16,
+          "input_json_pointer": "/stages/1"
+        },
+        {
+          "stage": "thresholds",
+          "ratio_recomputed": 0.3934185317673131,
+          "ratio_recorded": 0.39341853176731323,
+          "absolute_error": 1.1102230246251565e-16,
+          "input_json_pointer": "/stages/3"
+        },
+        {
+          "stage": "page53",
+          "ratio_recomputed": 1.0713741341478886,
+          "ratio_recorded": 1.0713741341478888,
+          "absolute_error": 2.220446049250313e-16,
+          "input_json_pointer": "/stages/5"
+        },
+        {
+          "stage": "page63",
+          "ratio_recomputed": 0.9996705205699009,
+          "ratio_recorded": 0.9996705205699005,
+          "absolute_error": 4.440892098500626e-16,
+          "input_json_pointer": "/stages/7"
+        }
+      ]
+    }
+  ],
+  "control_logger_coverage": {
+    "runner_probes": {
+      "mode_entry": "p:pwm_mode/mode_entry msm_drm:dsi_display_cmd_transfer pending=+0x694($arg2):u32 length=$arg4:u32 flags=+3($arg3):u8",
+      "mode_return": "r:pwm_mode/mode_return msm_drm:dsi_display_cmd_transfer rc=$retval:s32",
+      "mode_ctrl_return": "r:pwm_mode/mode_ctrl_return msm_drm:dsi_ctrl_cmd_transfer rc=$retval:s32"
+    },
+    "watched_functions": [
+      "dsi_display_cmd_transfer",
+      "dsi_display_cmd_transfer",
+      "dsi_ctrl_cmd_transfer"
+    ],
+    "frame_kickoff_is_a_runner_probe": false,
+    "source_semantic_check": "root_cadence.md",
+    "target_archived_symbols": [
+      {
+        "symbol": "sde_encoder_phys_cmd_trigger_start",
+        "archive_matches": [
+          {
+            "line": 16526,
+            "record": "00000000000b367c 0000000000000158 t sde_encoder_phys_cmd_trigger_start"
+          }
+        ],
+        "body_reverified_from_target_elf": false
+      },
+      {
+        "symbol": "sde_encoder_helper_trigger_start",
+        "archive_matches": [
+          {
+            "line": 16429,
+            "record": "00000000000962e0 000000000000013c T sde_encoder_helper_trigger_start"
+          }
+        ],
+        "body_reverified_from_target_elf": false
+      },
+      {
+        "symbol": "sde_hw_ctl_trigger_start",
+        "archive_matches": [
+          {
+            "line": 16913,
+            "record": "000000000013dbb0 000000000000003c t sde_hw_ctl_trigger_start"
+          }
+        ],
+        "body_reverified_from_target_elf": false
+      },
+      {
+        "symbol": "_sde_encoder_phys_cmd_config_autorefresh",
+        "archive_matches": [
+          {
+            "line": 16489,
+            "record": "00000000000b5a00 00000000000001f4 t _sde_encoder_phys_cmd_config_autorefresh"
+          }
+        ],
+        "body_reverified_from_target_elf": false
+      }
+    ],
+    "limits": [
+      "Symbol presence does not prove the reference source matches the target function body.",
+      "No saved pixel-transfer cadence, TE edges or physical emission timebase is recovered by this audit."
+    ]
+  },
+  "unmaterialized_inputs": [
+    "artifacts/kernel/gki_r59/target_vendor/msm_drm.ko",
+    "artifacts/optical/pacman_dsi_selector_split_20261107.mp4",
+    "05-safety/optical_measurement.md"
+  ]
+}

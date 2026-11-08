@@ -1,5 +1,9 @@
 # Long-lived agent progress journal
 
+Checkpoint 2026-11-08 10:32 UTC+3, **HORIZON/R3 active; offline leverage synthesis and independent review completed.**
+
+- [Leverage analysis](artifacts/horizon_leverage_analysis.md), [machine registry](artifacts/horizon_leverage_candidates.json), [one exact next proposal](artifacts/horizon_next_experiment.md): four independent branches + synthesis. New: target-program factorization rank6/8; control-DSI observer misses reference pixel kickoff path and historical redraw lacks equal-delay sham; external Qualcomm ESYNC period/width/pin semantics recovered with exact-panel wiring/input blocker; positive fixed-exposure optical alias counterexample independently integrated and bounded by a changed-exposure falsifier. TOP-3: prepared A0D1C1 → frame-event/cadence → external EMSYNC. Six generated outputs reproduced byte-exact; distinct parser/Walsh/GL-quadrature review passed with causal limits. A9-only q93ratio0.2264067 remains intermediate; physical PWM>=2000Hz unverified. A0D1C1 **NOT AUTHORIZED / NOT RUN**; no new device/ADB/DSI/camera/settings/reboot/flash actions, no panel-code or historical-evidence changes. Base main `fffb0feeda534add90dfaf7056964d40adefc183`; research branch `research/horizon-r3-leverage-20261108`.
+
 Checkpoint 2026-11-08, **HORIZON/R3 active; UEFI detection copy thunk checked offline.**
 
 - [Bounded reference Ghidra check](artifacts/uefi_panel_recon_20261107/selection_followup.md): saved GLOBAL64 `DisplayDxe` detection thunk `0x1f8c4→FUN_00005668→FUN_00005a4c` guards length then copies memory; allowed briefs/excerpts have no direct EFI `DisplayPanelVer` SetVariable call. Independent scoped review PASS. This closes only the direct-writer hypothesis for this path, not other UEFI producers, current owner boot or physical PWM Hz. A9-only q93ratio0.2264067 remains intermediate; A0D1C1 exact approval/run absent; no device/DSI/camera action.

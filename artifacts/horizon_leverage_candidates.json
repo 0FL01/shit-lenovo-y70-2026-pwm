@@ -1,0 +1,276 @@
+{
+  "schema_version": 1,
+  "research": "HORIZON R3 PWM leverage discovery",
+  "date_local": "2026-11-08",
+  "timezone": "UTC+03:00",
+  "base_commit": "fffb0feeda534add90dfaf7056964d40adefc183",
+  "branch": "research/horizon-r3-leverage-20261108",
+  "scope": {
+    "device": "XT2611-1 PVT; GLOBAL W3WWS36.65-64-4-1; BOE ILI97701A selected cmd_v4 ID d2",
+    "goal": "Controllable physical OLED PWM >=2000 Hz",
+    "mode": "offline_only",
+    "device_io_performed": false,
+    "new_hardware_authorization_created": false,
+    "new_dsi_payload_created": false,
+    "panel_code_changed": false,
+    "physical_pwm_hz": null,
+    "goal_achieved": false,
+    "baseline_changed": false,
+    "state_caveat": "Target claims refer to saved experiments, not a new live session. Current physical state and uncommitted owner workspace were not inspected."
+  },
+  "assessment_scale": {
+    "strength": ["low", "medium", "high"],
+    "probability_policy": "No calibrated success probability is available. Null is unknown, not zero. Ordinal confidence is about the specified claim, not a percentage likelihood of >=2000 Hz.",
+    "information_gain_policy": "Qualitative expected discrimination, not a measured Shannon information quantity. Illustrative binary-design entropy uses an explicitly artificial uniform prior only.",
+    "source_status_policy": "reported/reference_source identifies inspected public code or documentation; it does not assert optical performance on another physical phone."
+  },
+  "preserved_facts": [
+    {
+      "id": "baseline_a9",
+      "status": "confirmed-on-target",
+      "scope": "saved camera comparison",
+      "registers": {"23:A9": "8E", "24:9D": "0E"},
+      "normalized_q93_ratio": 0.22640672181213273,
+      "physical_pwm_hz": null,
+      "evidence_path": "artifacts/dsi_selector_split_20261107/analysis_spatial_v2.json",
+      "locator": "/stages/1",
+      "baseline_role": "preserved intermediate camera improvement"
+    },
+    {
+      "id": "negative_9d_only",
+      "status": "confirmed-on-target",
+      "scope": "saved camera comparison",
+      "normalized_q93_ratio": 1.0214237646270794,
+      "evidence_path": "artifacts/dsi_selector_split_20261107/analysis_spatial_v2.json",
+      "locator": "/stages/3"
+    },
+    {
+      "id": "negative_s0c1",
+      "status": "confirmed-on-target",
+      "scope": "saved camera comparison and owner rejection",
+      "normalized_q93_ratio": 0.9363479490548708,
+      "repeat_without_new_basis": false,
+      "evidence_path": "artifacts/dsi_coupled_on_20261107/result.md",
+      "locator": "lines 8-33 and stock-return section"
+    }
+  ],
+  "top_three": ["L1_a0d1c1_conditional_profile", "L2_frame_event_cadence", "L3_external_emsync"],
+  "candidates": [
+    {
+      "id": "L1_a0d1c1_conditional_profile",
+      "rank": 1,
+      "kind": "target_origin_composite_ddic_profile",
+      "status": "prepared_not_authorized_not_run",
+      "claim_status": "hypothesis",
+      "control_point": "Full native ON program with offset68/23:A9 held at OFF 0E; offset97/24:9D=8E; other 32 changed native packets retained",
+      "mechanism_hypothesis": "D may choose another emission/control state only with C loaded; A9=OFF avoids masking by the previously observed A9 suppression branch.",
+      "causal_chain": [
+        "875-byte/75-packet exact program (established)",
+        "A0,D1,C1 readback/config context (future check)",
+        "unknown conditional internal emission mechanism",
+        "reversible optical waveform change (unmeasured)",
+        "physical pulse recurrence >=2000 Hz (unverified)"
+      ],
+      "evidence": [
+        {"path": "artifacts/dsi_coupled_9d_20261107/on_keep_a9_off.bin", "locator": "875 bytes; A9 byte68=0E; 9D byte97=8E", "claim": "Prepared target-origin candidate"},
+        {"path": "artifacts/dsi_coupled_9d_20261107/proposal.md", "locator": "lines 35-80", "claim": "Existing exact scope, hashes and transport limitation"},
+        {"path": "artifacts/horizon_r3_20261108/agent_a_factorization.json", "locator": "factorization and qualitative-design results", "claim": "Seven programs; rank6/8; 011 and101 unobserved"},
+        {"path": "artifacts/horizon_r3_20261108/root_offline_audit.json", "locator": "/candidate_identity, /qualitative_design", "claim": "Independent bytes and rank verification; no authorization/run"},
+        {"path": "artifacts/horizon_r3_20261108/agent_d_verify.json", "locator": "program parsing, Walsh Gram matrix and Mobius verification", "claim": "Independent parser and algebra"}
+      ],
+      "evidence_strength": {"control_existence": "high", "target_emission_semantics": "low", "physical_frequency": "low"},
+      "confidence": {"level": "low", "claim": "This profile changes physical timing enough to meet the goal", "numerical_probability": null},
+      "novelty": {"level": "medium", "new_profile": false, "new_information": "Exact independent factorization and missing-corner proof; negative D-only and C-only do not determine this composite response."},
+      "expected_information_gain": {"level": "high", "question": "Does the unobserved A=0,D=1,C=1 profile produce a distinct optical state?", "frequency_information_without_timebase": "limited", "caveat": "One ABA directly measures the whole33-packet profile effect. Interaction inference uses historical controls and state-comparability assumptions. No mathematical superiority over101 follows from rank alone."},
+      "probability_of_meaningful_physical_pwm_improvement": {"value": null, "assessment": "Open but uncalibrated; no decoded count or period; >=2000 confidence low."},
+      "expected_effect": {"direction": "unknown", "possible": ["distinct emission schedule", "duty/amplitude change only", "no meaningful change"], "frequency_multiplier": null},
+      "feasibility": {"level": "high", "condition": "Exact owner approval and all existing runner identity/transport gates"},
+      "risk": {"offline": "none to device", "hardware": "Unqualified mixed DDIC state, response-type/transport failure, possible irreversible panel damage", "rollback": "Complete native OFF + DBV replay + redraw + short readbacks; if pending queue uncertain, approved ordinary reboot instead of another batch"},
+      "cost": {"agent_work": "Offline audit completed; execute existing scoped runner and analyze new evidence only after approval", "physical_trials": "One candidate stage and two stock controls, seven-second holds"},
+      "blockers": ["No operation-specific approval", "Profile not hardware qualified", "Camera alone cannot establish absolute physical Hz"],
+      "suggested_experiments": [
+        {"type": "hardware_proposal", "path": "artifacts/horizon_next_experiment.md", "sequence": ["stock", "a0d1c1", "stock"], "run_now": false, "readbacks": {"stock": "23:A9=0E,24:9D=0E,00:52=0E10", "candidate": "23:A9=0E,24:9D=8E,00:52=0E10"}}
+      ],
+      "falsification": "Valid delivery/readback and comparable neighboring stock controls show no substantial new optical state in this context; closes this profile, not all DDIC mechanisms.",
+      "next_if_positive": "Preserve a separate intermediate baseline; qualify local waveform carrier/harmonics/envelope with an independent timebase before claiming >=2000 Hz."
+    },
+    {
+      "id": "L2_frame_event_cadence",
+      "rank": 2,
+      "kind": "software_delivery_and_lifecycle",
+      "status": "mechanism_discrimination_harness_needed",
+      "claim_status": "hypothesis",
+      "control_point": "Actual command-mode pixel-frame submission/event history at fixed final content, DBV and requested refresh",
+      "mechanism_hypothesis": "A delivered data event latches emission state, or active/maintenance cadence changes emission scheduling; elapsed-time activation is a competing explanation.",
+      "causal_chain": ["application frame submission", "compositor/PSR optimization and real SDE kickoff (must observe)", "DDIC data/idle state", "unknown emission activation/scheduling", "optical waveform", "independent physical frequency"],
+      "evidence": [
+        {"path": "artifacts/dsi_stock_on_control_20261106/with_redraw/run.json", "locator": "lines132-139,196-197,248-250,298-299,348", "claim": "Before hold ends at replay+7.357898s; after hold starts at+14.796735s; no new table or logged control writes"},
+        {"path": "06-tools/run_dsi_mode_trial.py", "locator": "lines24-28,371-429", "claim": "Control logger does not count pixel-frame kickoffs; repaint changes transient content"},
+        {"path": "artifacts/runtime_pwm_recon_20261107/evidence/symbols.txt", "locator": "lines16429,16489,16526,16913", "claim": "Target-origin symbols support relevance but not source-body identity"},
+        {"path": "artifacts/horizon_r3_20261108/root_cadence.md", "locator": "reference source anchors", "claim": "sde_encoder_phys_cmd_trigger_start -> helper -> CTL_START; autorefresh alternative"},
+        {"path": "artifacts/horizon_r3_20261108/agent_d_review.md", "locator": "section3", "claim": "Independent source and elapsed-time confound review"}
+      ],
+      "reference_source": {"repository": "MotorolaMobilityLLC/kernel-msm-5.4-techpack-display", "commit": "fa008c43c070ff20faa33853649f5dfd4c427e99", "paths": ["msm/sde/sde_encoder_phys_cmd.c:2563-2591", "msm/sde/sde_encoder.c:5563-5579", "msm/sde/sde_hw_ctl.c:497-503"]},
+      "evidence_strength": {"observer_gap": "high", "hidden_dynamic_variable": "medium", "frequency_effect": "low"},
+      "confidence": {"level": "medium", "claim": "Historical redraw does not uniquely identify a latch", "numerical_probability": null},
+      "novelty": {"level": "high", "new_information": "Concrete pixel-path blind spot plus quantified unequal-delay confound; no repeat of rate-switch trials"},
+      "expected_information_gain": {"level": "high", "question": "Event-locked versus time-locked activation; single-event versus continuous-cadence dependency", "frequency_information_without_timebase": "limited"},
+      "probability_of_meaningful_physical_pwm_improvement": {"value": null, "assessment": "Unknown. Could reveal timing control or only activation/amplitude behavior."},
+      "expected_effect": {"direction": "unknown", "frequency_multiplier": null, "possible": ["event-gated state transition", "active/maintenance waveform difference", "delay-only or no effect"]},
+      "feasibility": {"level": "medium", "condition": "Need qualified actual frame-delivery observer and matched-content stimulus; userspace commit alone insufficient"},
+      "risk": {"offline": "none to device", "hardware": "Potentially lower with native app-level frame path; inherited risk of any applied DDIC profile remains", "rollback": "Stop submissions; normal static content; complete native OFF if changed; qualify recovery in separate proposal"},
+      "cost": {"agent_work": "Bounded frame observer/harness implementation and target-source verification", "physical_trials": "Matched no-event/event pair after separate consent; no run now"},
+      "blockers": ["Target module absent for fresh body verification", "No qualified delivered-frame observer", "No exact hardware proposal/approval for this new scope", "Absolute optical timebase missing"],
+      "suggested_experiments": [
+        {"type": "future_matched_sham_event", "run_now": false, "design": "Same initial panel state/profile and fixed content; compare equal elapsed-time windows after sham versus one confirmed delivered identical frame; only then consider continuous cadence", "minimal_discriminator": "Transition tied to verified event and absent in equal-delay sham"}
+      ],
+      "falsification": "The same transition occurs before event or in matched sham, rejecting event necessity in this context. Unchanged waveform under verified differing cadence limits the cadence mechanism.",
+      "no_inferred_authorization": ["Direct CTL_START/MMIO writes", "Forced autorefresh", "Unreviewed kernel probes", "Repeated S0C1"]
+    },
+    {
+      "id": "L3_external_emsync",
+      "rank": 3,
+      "kind": "reference_semantic_external_emission_sync",
+      "status": "blocked_exact_panel_input_and_wiring",
+      "claim_status": "hypothesis",
+      "control_point": "SDE ESYNC EMSYNC period/width generator and external sync line with matching DDIC input mode",
+      "mechanism_hypothesis": "If the exact DDIC and board support connected external emission synchronization, changing external EM-marker timing could change panel emission recurrence independently of image refresh.",
+      "causal_chain": ["mode emsync_fps/width", "quantized SDE period/width MMIO", "external ESYNC pin", "unknown XT2611-1 FPC connection", "unknown ILI97701A input/enable mode", "DDIC EM output", "local optical waveform"],
+      "evidence": [
+        {"path": "artifacts/horizon_r3_20261108/agent_b_esync_primary_excerpts.md", "locator": "sde_encoder_phys_vid.c:861-939 and sde_hw_intf.c:340-388", "claim": "Period-lines and line-relative width calculations; MMIO0x418"},
+        {"path": "artifacts/horizon_r3_20261108/agent_b_esync_primary_excerpts.md", "locator": "bindings685-700; canoe pinctrl141-179", "claim": "External ESYNC semantics and reference GPIO88/100, not target wiring"},
+        {"path": "artifacts/horizon_r3_20261108/agent_b_esync_primary_excerpts.md", "locator": "sde_connector.c:4244-4264; dsi_display.c:9275-9297", "claim": "Capability and existing-mode gates; nonmatching frequency rejected"},
+        {"path": "artifacts/horizon_r3_20261108/agent_b_esync_audit.json", "locator": "target and source inventory results", "claim": "425 target properties in cmd mode without ESYNC gates; five exact public ILI variants lack ESYNC at this pin"},
+        {"path": "artifacts/horizon_r3_20261108/agent_d_review.md", "locator": "section5, independent EMSYNC review", "claim": "Width is line-relative, not OLED duty; video encoder/cmd target mismatch"}
+      ],
+      "external_sources": [
+        {"url": "https://patents.google.com/patent/US20250251773A1/en", "locator": "Fig.4/5; external HSYNC/AP->DDIC->EM description", "scope": "Qualcomm architecture; not proof on ILI97701A"},
+        {"url": "https://github.com/MotorolaMobilityLLC/kernel-msm-5.4-techpack-display/tree/fa008c43c070ff20faa33853649f5dfd4c427e99", "scope": "Pinned public driver"},
+        {"url": "https://github.com/MotorolaMobilityLLC/kernel-display-devicetree/tree/f088523dfba85c95c15f43726fcf972c0c7a957a", "scope": "Pinned bindings/pinctrl/reference modes"}
+      ],
+      "known_reference_parameters": {"period_lines": "floor(vtotal * vrefresh / emsync_fps)", "width_cycles": "floor(emsync_milli_pulse_width * hsync_period_cycles / 1000)", "mmio_block_relative_offset": "0x418", "backup_offset": "0x484", "field_bits": 16, "is_ddic_register": false},
+      "evidence_strength": {"reference_mechanism": "high", "target_transferability": "low", "target_optical_effect": "low"},
+      "confidence": {"level": "low", "claim": "External ESYNC is applicable on exact XT2611-1 panel wiring/mode", "numerical_probability": null},
+      "novelty": {"level": "high", "new_information": "Physical signal chain, units, MMIO, pinmux, mode lookup and host double-buffer restrictions beyond old absent-capability observation"},
+      "expected_information_gain": {"level": "high", "question": "Does exact panel input, wiring and documented enable mode exist?", "low_value_repeat": "Another generic pwm search or enabling a capability without wiring evidence"},
+      "probability_of_meaningful_physical_pwm_improvement": {"value": null, "assessment": "Weak applicability until input/wiring is proven; potential timing leverage cannot be converted into a success percentage or x2-x3 claim."},
+      "expected_effect": {"direction": "period may become controllable if full chain exists", "frequency_multiplier": null, "allowed_target_frequency_range_hz": null},
+      "feasibility": {"level": "low", "condition": "Need exact DDIC interface/init and board/FPC evidence; current configuration does not enable this path"},
+      "risk": {"offline": "none to device", "hardware": "Unknown scan/emission disruption from unsupported input mode; no enable proposal justified", "rollback": "Not yet defined: must be derived with documented panel mode switch before any hardware trial"},
+      "cost": {"agent_work": "One exact input/pinout plus wiring/enable semantic gate before implementation", "physical_trials": "None justified at present"},
+      "blockers": ["Exact DDIC external-sync capability unknown", "Physical board/FPC connection unknown", "No ILI97701A EM_PULSE_SWITCH/esync post-on commands", "Checked generator is video-mode, target is command-mode", "Allowed timing/return behavior unknown"],
+      "suggested_experiments": [
+        {"type": "offline_semantic_gate", "run_now": false, "required_evidence": "Exact IL97701A interface/pinout/init and XT2611-1 FPC/board mapping that join a compatible sync input to a real SoC line; version-specific activation semantics", "after_positive": "Source/target binary mode audit and bounded optical proposal; no borrowed NT37802/Pixel commands"}
+      ],
+      "falsification": "Verified absence of compatible input or physical connection on the exact board/panel closes this external path, not internal DDIC timing control."
+    },
+    {
+      "id": "R1_native_4f_transaction",
+      "rank": null,
+      "kind": "semantic_discovery_reserve",
+      "status": "blocked_register_semantics",
+      "claim_status": "hypothesis",
+      "control_point": "Native composite update around08:98,4F:81,4F:88/8A/8B; possible slot/commit selection",
+      "mechanism_hypothesis": "4F:81 may select a schedule/bank within a composite update rather than count emission pulses; alternatives include status/config effects.",
+      "evidence": [
+        {"path": "artifacts/horizon_r3_20261108/agent_a_factorization.json", "locator": "/transaction_skeletons", "claim": "All four81 writers share a multi-register envelope"},
+        {"path": "artifacts/ddic_regdump_20261107/readback_findings.md", "locator": "lines32-82", "claim": "81 changes06/10 without simple proportional fine-period evidence; other readbacks do not follow"}
+      ],
+      "confidence": {"level": "low", "claim": "Slot/schedule semantics", "numerical_probability": null},
+      "evidence_strength": "low",
+      "novelty": {"level": "medium", "new_information": "Bounded exhaustive writer and transaction-envelope inventory"},
+      "expected_information_gain": {"level": "low", "for": "Another identical readback or blind count write", "high_value_condition": "Exact field map or same-revision native trace paired with independently measured emission timing"},
+      "probability_of_meaningful_physical_pwm_improvement": {"value": null, "assessment": "Not rankable as ready hardware candidate"},
+      "feasibility": "blocked",
+      "risk": "No unknown4F writes justified; rollback cannot be assumed for guessed state",
+      "cost": {"agent_work": "Bounded same-revision semantic acquisition", "physical_trials": "Zero proposed"},
+      "blockers": ["No field map", "No writers in selected corpus for4F:80/C0/C1/C8/C9/D0/D1/D8/D9", "Native envelope could be non-emission configuration"],
+      "suggested_experiments": [{"type": "offline_semantics", "run_now": false, "description": "Find a same-revision field map or native controlled timing trace; stop after two noninformative search approaches"}],
+      "falsification": "Exact semantics identify non-emission function or paired native timing evidence dissociates this selection from the proposed schedule."
+    },
+    {
+      "id": "R2_ec_c1_markers",
+      "rank": null,
+      "kind": "state_marker_not_control",
+      "status": "blocked_read_protocol_and_semantics",
+      "claim_status": "unknown",
+      "control_point": null,
+      "mechanism_hypothesis": "07:EC/23:C1 may report state, checksum, content/config or something else; not known writable timing controls",
+      "evidence": [{"path": "artifacts/ddic_state_marker_20261107/result.md", "locator": "short/long response qualification", "claim": "Saved prefixes have unknown valid length/semantics"}, {"path": "artifacts/horizon_r3_20261108/agent_d_verify.json", "locator": "selected_command_corpus", "claim": "No selected-DT writers for these addresses"}],
+      "confidence": {"level": "low", "claim": "These fields encode emission timing", "numerical_probability": null},
+      "evidence_strength": "low",
+      "novelty": {"level": "low", "new_information": "Exhaustive selected-DT writer absence corroborated"},
+      "expected_information_gain": {"level": "low", "for": "Repeating old unsafe long dump"},
+      "probability_of_meaningful_physical_pwm_improvement": {"value": null, "assessment": "No control lever established"},
+      "feasibility": "blocked",
+      "risk": "Unqualified response length and unexpected long response; do not run old broad readers",
+      "cost": {"agent_work": "Protocol and semantic evidence first", "physical_trials": "None proposed"},
+      "blockers": ["Unknown response length", "Unknown semantics", "No writer/control evidence"],
+      "suggested_experiments": [],
+      "falsification": "Documented checksum/content/config semantics would close the timing-marker interpretation without closing R3."
+    },
+    {
+      "id": "M1_independent_optical_timebase",
+      "rank": null,
+      "kind": "measurement_enabler_not_pwm_control",
+      "status": "method_specified_recorder_unselected",
+      "claim_status": "reported",
+      "control_point": "Independent local optical observation operator",
+      "mechanism_hypothesis": "Small optical aperture and DC-coupled linear photodiode/ADC remove camera row/ISP mapping from timing identification while preserving envelope",
+      "evidence": [{"path": "artifacts/horizon_r3_20261108/agent_c_identifiability.json", "locator": "fixed-exposure synthetic counterexamples", "claim": "Different temporal frequencies can share one sampled image operator"}, {"path": "artifacts/horizon_r3_20261108/agent_d_verify.json", "locator": "independent quadrature and changed-exposure results", "claim": "Counterexample independently verified and scope falsifier demonstrated"}],
+      "confidence": {"level": "high", "claim": "One fixed-exposure image does not uniquely identify all members of the demonstrated model class", "numerical_probability": null},
+      "evidence_strength": "high",
+      "novelty": {"level": "medium", "new_information": "Constructive positivity-preserving counterexample even with known row time; not a fit of all archived data"},
+      "expected_information_gain": {"level": "high", "question": "Local carrier versus harmonic and low-frequency envelope"},
+      "probability_of_meaningful_physical_pwm_improvement": {"value": null, "assessment": "Measurement does not change PWM"},
+      "feasibility": "Recorder availability unknown; a conventional oscilloscope is not required",
+      "risk": "Noncontact optical recording; no modification of panel electrical connections proposed",
+      "cost": {"agent_work": "Qualify a concrete recorder/clock/bandwidth and analyze raw waveform", "physical_trials": "Separate short optical record; not performed or implicitly authorized"},
+      "blockers": ["No qualified recorder selected", "Owner approval required for new measurement scope in this run"],
+      "suggested_experiments": [{"type": "independent_optical_qualifier", "run_now": false, "parameters": {"sample_rate_hz_min": 100000, "duration_seconds_min": 5, "clock_fractional_error_max": 0.01, "characterized_bandwidth_hz": [0, 10000], "dc_coupled": true, "agc": false, "clipping": false}, "requirements": ["dark/noise reference", "anti-alias characterization", "local small optical spot", "raw timestamps/samples", "waveform intervals and harmonics, not FFT peak alone"]}],
+      "falsification": "Clipping, AGC, unqualified clock or bandwidth means the recording fails the measurement contract.",
+      "does_not_block_camera_comparison": true
+    },
+    {
+      "id": "X1_literal_4f81_count",
+      "rank": null,
+      "kind": "rejected_interpretation",
+      "status": "unsupported_simple_literal_count",
+      "claim_status": "hypothesis",
+      "control_point": "4F:81 values06/10",
+      "evidence": [{"path": "artifacts/ddic_regdump_20261107/readback_findings.md", "locator": "lines48-82", "claim": "Observed fine spacing persists across two stock values"}],
+      "confidence": {"level": "high", "claim": "Numerical coincidence does not establish literal EM-pulse count", "numerical_probability": null},
+      "expected_information_gain": {"level": "low", "for": "Repeating the same count interpretation"},
+      "blockers": ["No decoded semantics or temporal measurement"],
+      "suggested_experiments": [],
+      "scope_limit": "Does not disprove every possible timing function of4F:81."
+    },
+    {
+      "id": "X2_ready_stock_alternate_frequency_profile",
+      "rank": null,
+      "kind": "closed_scoped_search",
+      "status": "no_ready_profile_in_tested_stock_sources",
+      "claim_status": "reported",
+      "control_point": "Selected-v4 CN48-7 regional arrays and previously gated generic driver paths",
+      "evidence": [{"path": "WORKSTATE.md", "locator": "20261108 regional/generic gate checkpoints predating this report", "claim": "No ready alternate selected-v4 high-PWM profile from completed comparisons"}, {"path": "artifacts/brightness_policy_recon_20261107/result.md", "locator": "DC/DBV policy findings", "claim": "DC2/3 clamp and brightness policy are not established frequency control"}, {"path": "artifacts/elvss_hbm_gate_20261108.md", "locator": "selected-DT gate absence", "claim": "No ready ELVSS/HBM-DIM-OFF profile in selected corpus"}],
+      "confidence": {"level": "high", "claim": "Those bounded completed searches should not be repeated without new contradiction", "numerical_probability": null},
+      "expected_information_gain": {"level": "low", "for": "Repeating unchanged regional diff or name-only searches"},
+      "blockers": ["No new exact-revision source or contradicting evidence"],
+      "suggested_experiments": [],
+      "scope_limit": "Absence in examined firmware/configuration does not prove absent internal DDIC capability or impossibility of R3."
+    }
+  ],
+  "independent_verification": {
+    "review_path": "artifacts/horizon_r3_20261108/agent_d_review.md",
+    "data_path": "artifacts/horizon_r3_20261108/agent_d_verify.json",
+    "methods": ["Independent packet parser", "Walsh Gram rank proof and Mobius inversion", "Primary run chronology", "8-node Gauss-Legendre integration independent of analytic/sinc/Simpson paths", "Reference source and target-DT gate review"],
+    "outcome": "No critical arithmetic defects; mandatory causal and transferability limits integrated",
+    "additional_falsifier": "Same synthetic emitters distinguish at400us exposure; fixed100us counterexample does not establish ambiguity of the entire exposure sweep"
+  },
+  "next_operation": {
+    "candidate": "L1_a0d1c1_conditional_profile",
+    "proposal_path": "artifacts/horizon_next_experiment.md",
+    "operation": "Obtain exact owner confirmation for one stock -> A0D1C1 -> stock series, then execute the full bounded checks/return",
+    "execute_in_current_offline_run": false
+  }
+}
