@@ -46,6 +46,10 @@ configuration; no credentials were copied into the repository.
 The project `4pda` MCP uses `4pda-mcp` from PATH; the remote uv tool was
 installed from `https://github.com/mishannn/4pda-mcp` at commit
 `7ee79e7fa5712b05556cb653604c41f2cb8085fb` and connected with three tools.
+Start the remote host's own OpenCode from the project directory. A remote
+model smoke test passed with `opencode run -m zai-coding-plan/glm-5.3-flash`
+and stdin redirected from `/dev/null`; the local OpenCode backend and sessions
+were not migrated.
 
 The project copy does not include the previous host's private caches under
 `/home/stfu/.cache/opencode-tmp/opencode`. Some historical DSI/capture scripts
