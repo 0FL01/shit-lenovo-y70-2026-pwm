@@ -35,10 +35,11 @@ lines28–68; [snapshot numeric predicates](../06-tools/offline_local_snapshot_s
 lines3–32.
 
 Corrective [capture wrapper](../06-tools/offline_local_validator_spike/validate_capture.sh)
-frozen Git blob `b264e3be3be28a618614c3a58c231a98a37a0b4e`:
-bootstrap/audit/cleanup lines14–45, metadata46–80, ASCII81–86,
-final cleanup/verdict87–94. **Independent review pending at this assessment**;
-freeze и host tests не означают readiness. Его /proc-FD capability на Android
+frozen Git blob `a0acdf628c7a5c04c430b86e1fabecf0396dc430`:
+raw nonce/kind checks lines10–13, bootstrap/audit/cleanup16–56,
+metadata57–85, ASCII87–90, final cleanup/verdict91–98.
+**Independent bounded offline review PASS**; freeze и host tests не означают
+readiness. Его /proc-FD capability на Android
 **unqualified**. Он требует input regular/non-symlink/one-link/currentUID/0600,
 capture<=262144B, actual producer rc0/empty stderr и final invocation rc0/empty
 stderr плюс ожидаемый verdict. Verdict отдельно не receipt.

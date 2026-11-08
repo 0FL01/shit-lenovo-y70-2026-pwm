@@ -1,5 +1,7 @@
 """Offline tests only. Read saved private files, never import a live runner."""
 import os
+import shlex
+import shutil
 from pathlib import Path
 import re
 import subprocess
@@ -281,7 +283,7 @@ class Offline(unittest.TestCase):
                 files=[]
                 for key in ('FIELDS','DISPLAY','BOOT','OWNER','ESD'):
                     p=Path(d)/key;p.write_bytes(parts[key]);files.append(str(p))
-                r=subprocess.run(['awk','-v','expected_boot='+boot,'-f',str(HERE/'state.awk'),*files],capture_output=True)
+                r=subprocess.run(['awk','-f',str(HERE/'state.awk'),*files],env=dict(os.environ,LC_ALL='C',P85_OFFLINE_EXPECTED_BOOT=boot),capture_output=True)
                 return r.returncode==0
         for parts in self.states:
             boot=parts['BOOT'].decode().strip()
@@ -296,6 +298,159 @@ class Offline(unittest.TestCase):
         print('state semantics: saved=%d malformed=%d'%(len(self.states),len(self.states)*10))
 
 class Synthetic(unittest.TestCase):
+    @staticmethod
+    def wrapper_fixture():
+        nonce='012345abcdef'
+        lines=['STATE 3600 120.00001','ESD_INITIAL reg_read','ESD_ACTIVE esd_sw_sim_success']
+        lines+=['WRITE_GATE_OK '+gate for gate in '01233'];lines+=['TRACE_BEGIN']
+        for i,length in enumerate((11,9,11),1):
+            for event,fields in (('entry','pending=0 length=%d flags=0'%length),('ctrl','rc=0'),('tx','rc=0')):
+                lines.append('printf-%d [000] d.... 1.000000: %s_%s: (symbol) %s'%(i,event,nonce,fields))
+        lines+=['TRACE_END','PROFILE_BEGIN']
+        lines += [name+'_'+nonce+' '+str(count)+' 0' for name,count in (('header',0),('hardware',0),('ctrl',3),('tx',3),('entry',3))]
+        lines+=['PROFILE_END','ESD_RESTORED reg_read','CLEANUP_OK']
+        return nonce,('\n'.join(lines)+'\n').encode()
+
+    def test_wrapper_metadata_faults(self):
+        nonce,data=self.wrapper_fixture();cases=0
+        # All stubs/inputs are synthetic, temporary and never touch a device.
+        faults=[('valid-exit9',True,'',9),('absent-success',False,'',0),('absent-failure',False,'',9),
+            ('absent-command',False,'',127),('signal-status',False,'',143),
+            ('extra-stdout',True,"printf '9\\n'",0),('nul-stdout',True,"printf '\\000'",0)]
+        for diagnostic in ("printf 'diagnostic\\n' >&2","printf '\\012' >&2","printf '\\000' >&2"):
+            for status in (0,9):faults.append(('diagnostic-'+str(status),True,diagnostic,status))
+        for tool in ('stat','id','wc'):
+            for label,delegate,extra,status in faults:
+                with self.subTest(tool=tool,fault=label),tempfile.TemporaryDirectory() as directory:
+                    root=Path(directory);work=root/'scratch';work.mkdir();binpath=root/'bin';binpath.mkdir()
+                    out=root/'out';err=root/'err';out.write_bytes(data);err.write_bytes(b'');out.chmod(0o600);err.chmod(0o600)
+                    stub=binpath/tool;actual=shutil.which(tool)
+                    stub.write_text('#!/bin/sh\n'+(shlex.quote(actual)+' "$@"\n' if delegate else '')+extra+'\nexit '+str(status)+'\n');stub.chmod(0o700)
+                    env=dict(os.environ,TMPDIR=str(work),PATH=str(binpath)+os.pathsep+os.environ['PATH'])
+                    result=subprocess.run(['sh',str(HERE/'validate_capture.sh'),str(out),str(err),nonce,'write','0'],env=env,capture_output=True)
+                    self.assertNotEqual(result.returncode,0);self.assertEqual(result.stdout,b'')
+                    self.assertEqual(list(work.iterdir()),[]);cases+=1
+        print('self-contained metadata faults=%d'%cases)
+
+    def test_final_verdict_is_not_a_receipt(self):
+        nonce,data=self.wrapper_fixture()
+        for diagnostic in ("printf '\\012' >&2","printf '\\000' >&2"):
+            for status in (0,9):
+                with tempfile.TemporaryDirectory() as directory:
+                    root=Path(directory);work=root/'scratch';work.mkdir();binpath=root/'bin';binpath.mkdir()
+                    out=root/'out';err=root/'err';out.write_bytes(data);err.write_bytes(b'');out.chmod(0o600);err.chmod(0o600)
+                    stub=binpath/'awk'
+                    stub.write_text('#!/bin/sh\nfinal=0\nfor arg in "$@"; do case "$arg" in */capture.awk) final=1;; esac; done\n'+shlex.quote(shutil.which('awk'))+' "$@" || exit $?\nif [ "$final" = 1 ]; then '+diagnostic+'; exit '+str(status)+'; fi\n');stub.chmod(0o700)
+                    result=subprocess.run(['sh',str(HERE/'validate_capture.sh'),str(out),str(err),nonce,'write','0'],env=dict(os.environ,TMPDIR=str(work),PATH=str(binpath)+os.pathsep+os.environ['PATH']),capture_output=True)
+                    self.assertTrue(result.stdout.startswith(b'kind=write\n'))
+                    self.assertNotEqual(result.returncode,0,'verdict must not override failed final status/diagnostics')
+                    self.assertEqual(list(work.iterdir()),[])
+
+    def test_wrapper_bootstrap_and_cleanup(self):
+        nonce,data=self.wrapper_fixture();cases=0
+        def inputs(root):
+            work=root/'scratch';work.mkdir();out=root/'out';err=root/'err'
+            out.write_bytes(data);err.write_bytes(b'');out.chmod(0o600);err.chmod(0o600)
+            return work,['sh',str(HERE/'validate_capture.sh'),str(out),str(err),nonce,'write','0']
+        for tool in ('mkdir','rm','rmdir'):
+            for delegate,extra,status in ((True,'',9),(False,'',9),(False,'',0),
+                    (True,"printf '\\012' >&2",0),(True,"printf '\\000' >&2",0),
+                    (True,"printf '\\012'",0),(True,"printf '\\000'",0),
+                    (True,"printf '\\000' >&2",9)):
+                with self.subTest(tool=tool,delegate=delegate,extra=extra,status=status),tempfile.TemporaryDirectory() as directory:
+                    root=Path(directory);work,args=inputs(root);binpath=root/'bin';binpath.mkdir();stub=binpath/tool
+                    stub.write_text('#!/bin/sh\n'+(shlex.quote(shutil.which(tool))+' "$@"\n' if delegate else '')+extra+'\nexit '+str(status)+'\n');stub.chmod(0o700)
+                    env=dict(os.environ,TMPDIR=str(work),PATH=str(binpath)+os.pathsep+os.environ['PATH'])
+                    result=subprocess.run(args,env=env,capture_output=True)
+                    self.assertNotEqual(result.returncode,0);self.assertEqual(result.stdout,b'');cases+=1
+                    if tool=='mkdir' and delegate and status!=0:
+                        self.assertEqual(len(list(work.glob('*.work'))),1,'uncertain mkdir must retain its path')
+        for suffix in ('audit','stdout','work'):
+            for symlink in (False,True):
+                with self.subTest(suffix=suffix,symlink=symlink),tempfile.TemporaryDirectory() as directory:
+                    root=Path(directory);work,args=inputs(root);foreign=root/'foreign';foreign.write_bytes(b'FOREIGN')
+                    target='"$TMPDIR/.p85-validator-$$.'+suffix+'"'
+                    if symlink:setup='ln -s '+shlex.quote(str(foreign))+' '+target
+                    elif suffix=='work':setup='mkdir '+target+'; printf FOREIGN > '+target+'/sentinel'
+                    else:setup='printf FOREIGN > '+target
+                    env=dict(os.environ,TMPDIR=str(work))
+                    result=subprocess.run(['sh','-c',setup+'; exec sh "$@"','collision-launcher',*args[1:]],env=env,capture_output=True)
+                    self.assertNotEqual(result.returncode,0);self.assertEqual(result.stdout,b'');self.assertEqual(foreign.read_bytes(),b'FOREIGN')
+                    retained=list(work.glob('*.'+suffix));self.assertEqual(len(retained),1)
+                    if symlink:self.assertTrue(retained[0].is_symlink())
+                    elif suffix=='work':self.assertEqual((retained[0]/'sentinel').read_bytes(),b'FOREIGN')
+                    else:self.assertEqual(retained[0].read_bytes(),b'FOREIGN')
+                    cases+=1
+        with tempfile.TemporaryDirectory() as directory:
+            root=Path(directory);work,args=inputs(root)
+            result=subprocess.run(args,env=dict(os.environ,TMPDIR=str(work)),capture_output=True)
+            self.assertEqual(result.returncode,0);self.assertEqual(result.stderr,b'');self.assertTrue(result.stdout.startswith(b'kind=write\n'))
+            self.assertEqual(list(work.iterdir()),[])
+            altered=root/'no-proc-wrapper.sh'
+            source=(HERE/'validate_capture.sh').read_text();self.assertEqual(source.count('/proc/self/fd/8'),1)
+            altered.write_text(source.replace('/proc/self/fd/8',str(root/'absent-fd')))
+            result=subprocess.run(['sh',str(altered),*args[2:]],env=dict(os.environ,TMPDIR=str(work)),capture_output=True)
+            self.assertNotEqual(result.returncode,0);self.assertEqual(result.stdout,b'');cases+=1
+        print('self-contained bootstrap/cleanup faults=%d'%cases)
+
+    def test_exact_discrete_state_tokens(self):
+        # Self-contained: this regression must not depend on private captures.
+        def evaluate(fields,actual,expected,legacy=None):
+            parts={'FIELDS':fields,'DISPLAY':'mActiveSfDisplayMode=DisplayMode{peakRefreshRate=120.00001}\n',
+                'BOOT':actual+'\n','OWNER':'','ESD':'reg_read\n'}
+            try:host=envelope.validate_state(parts,3600,expected)
+            except ValueError:host=False
+            with tempfile.TemporaryDirectory() as directory:
+                files=[]
+                for key in ('FIELDS','DISPLAY','BOOT','OWNER','ESD'):
+                    path=Path(directory)/key;path.write_text(parts[key]);files.append(str(path))
+                env=dict(os.environ,LC_ALL='C');env.pop('P85_OFFLINE_EXPECTED_BOOT',None)
+                if expected is not None:env['P85_OFFLINE_EXPECTED_BOOT']=expected
+                args=['awk']+(['-v','expected_boot='+legacy] if legacy is not None else [])
+                result=subprocess.run([*args,'-f',str(HERE/'state.awk'),*files],env=env,capture_output=True)
+                return host,result.returncode==0
+        fields='3600\n0\n0\nEnforcing\n'
+        identities=('01234567-89ab-4cde-8fab-0123456789ab','ffffffff-ffff-4fff-8fff-ffffffffffff',
+            '0','00','1','01','100000','1e5','9007199254740992','9007199254740993',
+            '99999999999999999999999999999999999999','99999999999999999999999999999999999998',
+            r'\061',r'\x31',r'900719925474099\062',
+            r'\0601234567-89ab-4cde-8fab-0123456789ab',r'\x301234567-89ab-4cde-8fab-0123456789ab',
+            r'01234567-89ab-4cde-8fab-0123456789a\142')
+        for identity in identities:
+            self.assertEqual(evaluate(fields,identity,identity),(True,True))
+        for expected in identities:
+            for actual in identities:
+                if actual!=expected:self.assertEqual(evaluate(fields,actual,expected),(False,False))
+        # No missing-env fallback or override through the legacy -v argument.
+        self.assertFalse(evaluate(fields,'1',None,legacy='1')[1])
+        self.assertEqual(evaluate(fields,'1','1',legacy='2'),(True,True))
+        self.assertFalse(evaluate(fields,'2','1',legacy='2')[1])
+        for invalid in ('',' ','a b','\t','a\nb','é','a'*129):
+            self.assertFalse(evaluate(fields,invalid,invalid)[1])
+        self.assertEqual(evaluate(fields,'a'*128,'a'*128),(True,True))
+        malformed=0
+        for index,variants in ((0,('03600','003600','3600.0','3.6e3','36e2','+3600','0xE10')),
+                (1,('00','000','+0','-0','0.0','0e0','0x0')),
+                (2,('00','000','+0','-0','0.0','0e0','0x0')),
+                (3,('enforcing','ENFORCING','0'))):
+            for value in variants:
+                rows=fields.splitlines();rows[index]=value
+                self.assertEqual(evaluate('\n'.join(rows)+'\n',identities[0],identities[0]),(False,False));malformed+=1
+        print('synthetic exact-state: identities=%d mismatches=%d malformed-fields=%d'%(len(identities),len(identities)*(len(identities)-1),malformed))
+
+    def test_raw_wrapper_arguments(self):
+        nonce,data=self.wrapper_fixture();cases=0
+        bad_nonces=(r'012345abcde\146',r'012345abcde\x66',nonce[:-1],nonce+'0',nonce.upper(),
+            '012345abcdeg','012345abcde-','',nonce+'\n',' '+nonce,'012345abcdeé')
+        bad_kinds=(r'wr\151te',r'\167rite',r'\x77rite',r'C\061',r'\0705','WRITE','c1','write ',' 85','','candidate14','write\n')
+        with tempfile.TemporaryDirectory() as directory:
+            root=Path(directory);work=root/'scratch';work.mkdir();out=root/'out';err=root/'err'
+            out.write_bytes(data);err.write_bytes(b'');out.chmod(0o600);err.chmod(0o600)
+            for candidate_nonce,kind in [(n,'write') for n in bad_nonces]+[(nonce,k) for k in bad_kinds]:
+                result=subprocess.run(['sh',str(HERE/'validate_capture.sh'),str(out),str(err),candidate_nonce,kind,'0'],env=dict(os.environ,TMPDIR=str(work)),capture_output=True)
+                self.assertNotEqual(result.returncode,0);self.assertEqual(result.stdout,b'');self.assertEqual(list(work.iterdir()),[]);cases+=1
+        print('raw wrapper argument rejections=%d'%cases)
+
     def test_file_type_rejection(self):
         with tempfile.TemporaryDirectory() as d:
             out=Path(d)/'out';err=Path(d)/'err';out.write_bytes(b'');err.write_bytes(b'');out.chmod(0o600);err.chmod(0o600)

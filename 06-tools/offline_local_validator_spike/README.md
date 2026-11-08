@@ -35,7 +35,18 @@ accepted printk format is deliberate and is not a general kernel-log decoder.
 
 state.awk ports independent snapshot content semantics for DBV/DC/power/Enforcing,
 refresh, boot match, empty owner-check output, and independent ESD reg_read. It
-does not itself execute or authenticate those checks, validate exit/stderr, or
+compares discrete FIELDS and BOOT as exact strings using nonnumeric prefixes;
+AWK numeric-string coercion must never equate03600 with3600 or distinct large
+numeric-only boot identities. Self-contained synthetic regressions cover both
+these cases and legitimate UUID-style identities without private corpus access.
+The fragment now requires LC_ALL=C and the raw environment value
+P85_OFFLINE_EXPECTED_BOOT: length1..128 bytes, each in printable non-whitespace
+ASCII range0x21..0x7e. The number128 is a length limit, not an allowed byte. It does
+not accept or fall back to awk -v expected_boot. ENVIRON avoids AWK command-line
+escape decoding; literal backslash/octal/hex strings stay literal, including
+strings that would otherwise decode to numeric or UUID-style identities. The
+environment value is trusted supplied metadata, NOT proof of fresh acquisition.
+It does not itself execute or authenticate those checks, validate exit/stderr, or
 provide byte/file/section ingestion. Empty owner output alone proves no ownership.
 Capture structured output is a projection (data/raw count/refresh/callbacks), not
 the full host result schema. The caller must still compare factory P85 [21,0,0]
@@ -75,16 +86,47 @@ calculus; watchdog lifecycle and restart/termination/crash handling. These are
 MANDATORY gates, not deferred-to-host-after-next-child checks. No next child may
 run based on this spike. Filesystem race resistance requires a fresh immutable
 owned staging directory and frozen source manifest, not just stat checks. This
-spike does not implement secure staging, source verification, or cleanup.
+spike does not implement secure staging, source verification, or device/run
+lifecycle cleanup. Its own bounded temporary-file cleanup is described below.
 
-Portable operations already occur in successful source: sh, awk, tr, cmp, stat
-(%u/%a), id, wc, dirname-like path handling. New assumptions requiring target
-capability qualification: stat %h, tr octal range interpretation, mktemp -d,
-LC_ALL=C byte handling and actual Android awk numeric/regex behavior.
+Host-tested wrappers use sh, awk, tr, cmp, stat (%u/%a), id, wc and dirname-like
+path handling. Every required Android flag and byte behavior still needs its
+own qualification. New assumptions requiring target
+capability qualification: stat %h, tr octal range interpretation, POSIX shell
+noclobber exclusive creation, regular open audit descriptors through unlink,
+Linux /proc/self/fd/8 byte-size checks, LC_ALL=C byte handling and actual Android
+awk numeric/regex behavior. Absence of the required /proc descriptor capability
+fails closed; it has NOT been qualified on Android.
 Host execution is only feasibility evidence; there was NO device access. AWK
 uses no bitwise extension, strtonum, match capture array, or interval quantifier.
 Filtering and LF normalization use owned temporary files, separately checked
 producer status/stderr and cmp, rather than a pipeline hiding producer failure.
+
+Metadata acquisition in validate_capture.sh now captures stat/id/wc stdout and
+stderr into separate owned files and checks command status BEFORE use. Any
+diagnostic byte, including isolated LF or NUL, rejects. Numeric scalar output
+must reproduce an exact canonical one-line decimal byte sequence. No command
+substitution may discard a producer failure or diagnostic suffix.
+Raw nonce must be exactly12 lowercase hex characters and kind literally write,
+85 or C1; shell checks precede all file work and AWK -v interpretation. Escaped
+aliases for either argument are rejected rather than decoded into valid values.
+
+Bootstrap uses shell-exclusive audit/stdout files before mkdir or metadata calls.
+PID-path collisions and symlinks fail closed without deleting foreign paths.
+Uncertain mkdir outcomes retain their work path rather than guess ownership.
+Cleanup removes only known owned files, checks status, absence and all output
+bytes via the open audit inode even after unlink; unknown directory contents
+cause failure, not recursive deletion. A bootstrap failure before a usable audit
+descriptor may retain its newly created audit file and cannot yield success.
+Successful cleanup precedes the final validator, whose diagnostics are still
+checked through the open unlinked descriptor. A verdict can remain on stdout if
+that final producer fails: SUCCESS REQUIRES FINAL RC0 AND EMPTY STDERR. Never
+adopt or replay a receipt merely because verdict text exists.
+
+These checks do not authenticate PATH utilities/source, prove input immutability,
+or prevent same-UID interference. Trusted PATH and parent directories, input
+ownership/stability and package provenance remain caller obligations. This
+wrapper change does not alter or qualify the separate bounded snapshot spike.
 
 ## Future stock-only state diagram (design only)
 
@@ -101,7 +143,9 @@ Verified source + fresh owned workspace + unchanged child bytes
 -> fresh complete local guards + finite reserved full-return suffix
 -> unchanged return15 child -> exact local gates
 -> return P85/C1 + all independent guards -> verified disarm
--> final optical hold + encoded60/PTS qualification + full owned cleanup.
+-> final optical capture + hardware audit
+-> original settings/DBV/logger/ESD restoration + full owned cleanup
+-> offline encoded60/PTS/FFT qualification and optical report.
 
 Every arrow requires exact bounded evidence before the next child. Any unknown
 outcome, lost log, timeout, failed guard, invalid ownership or transport ambiguity
@@ -112,3 +156,15 @@ success; it is not implemented here. Camera is another phone and cannot be
 silently represented by target-local timers. No daemon, credential, autostart,
 UI or watchdog renewal is proposed. Optical recovery and software safety
 recovery must remain separate success conditions.
+
+## Optimization-mode test boundary
+
+The original broad 06-tools suite reports240 tests with2 skips in normal mode.
+A full -O run reports15 errors and2 skips:2 in test_a9_reproduction and13 in
+test_coupled_on, all from existing explicit assertions-required fences in
+a9_reproduction.programs and run_dsi_mode_trial.coupled_on_programs/main. Exact
+HEAD b3c06a83b78daeffc8d7c46e831e6ac6da725ec1 sources plus their pinned panel
+command fixtures reproduce the same2+13 under -O. These unchanged legacy entry
+points deliberately refuse optimization mode; they were not weakened to make
+the broad suite green. Targeted offline-spike normal/-O results are separate and
+must never be reported as an all-repository -O pass.

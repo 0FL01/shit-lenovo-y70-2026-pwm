@@ -19,11 +19,15 @@ diagnostics пока имеют явно ограниченный trusted NUL-fr
 остаются bounded offline feasibility. Host decode max 0.706 с не является Android
 bound. В старом [capture/state spike](../06-tools/offline_local_validator_spike/README.md)
 новые tests нашли leading-zero FULL-state false accept, потерю metadata producer
-status/diagnostics и escape decoding trusted arguments. Узкая corrective revision
-в работе; старый corpus PASS не является universal subset proof. Ни одна версия
-этих новых компонентов не запускалась на телефонах и не встроена в controller.
+status/diagnostics и escape decoding trusted arguments. Corrective revision теперь
+прошла bounded independent review: targeted14 normal/-O, 283 дополнительных
+identity/argument cases и binary-diagnostic/cleanup injections. Expected identity
+поступает через raw ENVIRON; nonce/kind проверяются до AWK decoding. Metadata и
+cleanup сохраняют rc и каждый stderr byte. Это не universal subset proof; новые
+Linux/proc FD assumptions ещё не квалифицированы на Android. Ни одна версия
+этих компонентов не запускалась на телефонах и не встроена в controller.
 
-Следующий шаг: закончить corrective review и подготовить
+Следующий шаг: независимо проверить
 [ограниченный Android userspace portability probe](android_validator_portability_plan_20261108.md)
 на synthetic files. Затем отдельно нужны реальные source/ownership/sealing,
 durable ledger, clock-origin/rate и max-cap cost gates. Новый физический тест пока
