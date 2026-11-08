@@ -1,5 +1,12 @@
 # Long-lived agent progress journal
 
+Checkpoint 2026-11-08, **timed factory 15 surrogate прошёл offline review, live ещё не выполнялся.**
+
+- [Новый stock-only протокол](artifacts/p85_timed_stock_design_20261108.md) сохраняет factory 15 и отключённый 14. Baseline/return C1 обязательны; middle C1 явно не измеряется. Полный return prequiet выполняется внутри неизменного optical hold; перед каждым writer есть fresh host и on-device protected-origin guards. Исходные 12 runtime blobs не изменены.
+- Exploratory rehearsal измеряет неизвестные arm/disarm/G только на factory 15: hard host cutoff 37 с, резерв 8 с внутри 45 с, тот же независимый watchdog 60 с без продления. Это не remote cancellation и не допуск неизвестного значения; uncertainty требует проверенного reboot/watchdog recovery, без слепого 15.
+- [Отдельная optical schema](artifacts/p85_timed_optical_schema_20261108.md) проверяет clock consistency, реальную длительность quiet/hold и short-watchdog lifecycle. Старые validator/Fourier AST и окна04/batch01 неизменны. Полный suite 240 PASS, 2 skips; независимые 15 hardware и 50 optical tests PASS normal/-O. Frozen runner `9c804b7f12c5a77768d2487c31703b66c540f62c`; максимальная service-команда 30 156 байт.
+- Предыдущий completed checkpoint опубликован и remote проверен: `4b957ac738e2ffd4894d956e3d4f283e3f5b0fa1`. Следом fresh device preflight и первая factory-only rehearsal после commit. Никаких выводов о physical PWM/комфорте или гарантированном восстановлении DDIC.
+
 Checkpoint 2026-11-08, **первая batched stock-only серия завершена; измерен оставшийся timing blocker.**
 
 - [Hardware batch01](artifacts/p85_batch_stock_a001_20261108_01/hardware_result.md): source `881ffb7e501d95205ad3f9ac8ece89adb143387e`, все 26 envelopes и восемь DSI children независимо replay-validated. Baseline/sham15/return15 при DBV 3600/native 120: P85 `15 00 00`, C1 `00 00 60`. No 14/errors/reboots; исходный native 828/settings/logger/ESD восстановлены, камера остановлена, watchdog/mutex сняты.

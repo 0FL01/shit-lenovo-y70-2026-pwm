@@ -163,15 +163,26 @@ def validate_pts(probe):
 
 def select_windows(run, pts, *, frames=60, edge_seconds=.25,
                    snapshot_age_seconds=.25, binding_frames=2):
+    """Original protocol entry point: always validate its complete run first."""
+    stages = validate_run(run)
+    return select_windows_from_stages(
+        stages, run.get("recording_preflight", []), pts, frames=frames,
+        edge_seconds=edge_seconds, snapshot_age_seconds=snapshot_age_seconds,
+        binding_frames=binding_frames)
+
+
+def select_windows_from_stages(stages, recording_preflight, pts, *, frames=60,
+                              edge_seconds=.25, snapshot_age_seconds=.25, binding_frames=2):
     """Conditional worst-case envelope, never a sensor-to-file calibration.
 
+    Pure timing calculation. Caller must first validate its exact run protocol;
+    this helper does not validate hardware actions or authorize any experiment.
     A result is assumed no older than snapshot_age_seconds before call start.
     Each matched encoder production count is mapped to decoded index count-1.
     binding_frames allows a bounded origin/queue ambiguity, not arbitrary drops.
     PTS gaps and unstable matched offsets are rejected separately.
     Every selected frame must fit BOTH anchor envelopes inside the host hold.
     """
-    stages = validate_run(run)
     pts = np.asarray(pts, dtype=float)
     require(pts.ndim == 1 and len(pts) >= 60 and np.all(np.isfinite(pts)) and
             np.all((np.diff(pts) >= .025) & (np.diff(pts) <= .042)), "Invalid PTS")
@@ -180,7 +191,7 @@ def select_windows(run, pts, *, frames=60, edge_seconds=.25,
             finite(snapshot_age_seconds) and snapshot_age_seconds >= .25 and
             isinstance(binding_frames, int) and binding_frames >= 2,
             "Do not silently weaken timing uncertainty budgets")
-    snapshots = run.get("recording_preflight", [])
+    snapshots = recording_preflight
     require(isinstance(snapshots, list) and len(snapshots) >= 2, "Missing recording preflight")
     snapshots = snapshots + [s[side] for s in stages for side in ("camera_start", "camera_end")]
     encoders = [validate_snapshot(s) for s in snapshots]
