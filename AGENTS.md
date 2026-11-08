@@ -50,3 +50,6 @@ Keep one short checkpoint in `WORKSTATE.md`/work journal after a meaningful resu
 3. Pixel mechanism translated into a target-specific code design (not command copy).
 4. Either a reproducible, inactive-by-default patch compiled and offline-validated, or rigorously documented inability to patch without guessing.
 5. Writing images to the device is a separate stage: the owner confirms the exact operation, and the recovery plan is verified in advance.
+
+## Commit style
+For non-trivial changes, never use a bare one-line commit. Use `<type>(<scope>): <description>` with type `feat`, `fix`, `chore`, `docs`, `refactor` or `test`; after a blank line add an indented `Changes:` section with 2–4 concrete bullets. Describe the changes clearly enough to understand the commit without reconstructing the diff.
