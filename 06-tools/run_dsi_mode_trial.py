@@ -323,7 +323,9 @@ def main():
         marker = 'PWM_STOCK_ON_REDRAW'
 
     if reproduction:
-        marker = 'PWM_A9_REPRODUCTION'
+        from dsi_trial_transaction import experiment_marker
+        marker = experiment_marker(config.experiment_id)
+        report['kernel_marker_prefix'] = marker
 
     def save():
         report_path.write_text(json.dumps(report, ensure_ascii=False, indent=2) + '\n')
@@ -357,6 +359,12 @@ def main():
                 raise RuntimeError('State timeout: ' + command)
             time.sleep(.15)
 
+    def enable_logger():
+        nonlocal logger_on
+        assert not logger_on, 'Logger already enabled'
+        logger_on = True  # Cleanup must disable it even if the write outcome is uncertain.
+        target("printf '1\\n' > " + CON + 'mipi_cmd_log_en', root=True)
+
     def camera_ui():
         text = shell('camera', 'uiautomator dump /data/local/tmp/pwm-mode-camera.xml >/dev/null && cat /data/local/tmp/pwm-mode-camera.xml', private='camera-ui.xml')
         return ET.fromstring(text)
@@ -367,6 +375,7 @@ def main():
         a, b, c, d = map(int, re.findall(r'\d+', nodes[0].get('bounds')))
         shell('camera', f'input tap {(a+c)//2} {(b+d)//2}')
 
+    native_reference = None
     last_capture = None
     def camera_metadata(label):
         nonlocal last_capture
@@ -428,6 +437,70 @@ def main():
         assert target('cat ' + BL + 'bl_power', root=True) == '0'
         assert target('cat ' + CON + 'panelDC', root=True) == '0'
         assert target('getenforce') == 'Enforcing'
+
+    def create_stock_anchor():
+        from dsi_trial_transaction import stock_anchor_settings, validate_stock_anchor
+        if report.get('stock_native_anchor_attempted') or pending_uncertain or candidate_active or report['candidate_attempts']:
+            raise RuntimeError('Stock anchor is one-shot and must precede any table/candidate')
+        report['stock_native_anchor_attempted'] = True
+        report['stock_native_anchor'] = []
+        save()
+        for hz in (90, 120):
+            begin = marker + '_STOCK_ANCHOR_BEGIN_' + str(hz)
+            end = marker + '_STOCK_ANCHOR_END_' + str(hz)
+            target("printf '<6>" + begin + "\\n' > /dev/kmsg", root=True)
+            target(stock_anchor_settings(hz))  # Exactly one settings request per step; polls are read-only.
+            deadline = time.monotonic() + 15
+            sample = 0
+            while True:
+                display = target('dumpsys display', private=f'anchor-{hz}-display-{sample}.txt')
+                match = re.search(r'mActiveSfDisplayMode=[^\n]*peakRefreshRate=([0-9.]+)', display)
+                log = target('dmesg', root=True, private=f'anchor-{hz}-kernel-{sample}.txt')
+                if match and abs(float(match[1])-hz) < .03:
+                    try:
+                        validate_stock_anchor(log, begin, hz)
+                        break
+                    except ValueError:
+                        pass
+                if time.monotonic() >= deadline:
+                    raise RuntimeError('Fresh software/native stock anchor not observed; no retry')
+                sample += 1
+                time.sleep(.2)
+            state()
+            target("printf '<6>" + end + "\\n' > /dev/kmsg", root=True)
+            log = target('dmesg', root=True, private=f'anchor-{hz}-qualified-kernel.txt')
+            evidence = validate_stock_anchor(log, begin, hz, end)
+            evidence['software_observed_hz'] = float(match[1])
+            report['stock_native_anchor'].append(evidence)
+            save()
+        report['stock_native_anchor_complete'] = True
+        save()
+
+    def qualify_native(label):
+        nonlocal native_reference
+        from dsi_trial_transaction import qualify_quiet
+        deadline = time.monotonic() + 30
+        attempt = 0
+        while True:
+            begin = marker + '_QUIET_BEGIN_' + label + '_' + str(attempt)
+            end = marker + '_QUIET_END_' + label + '_' + str(attempt)
+            target("printf '<6>" + begin + "\\n' > /dev/kmsg", root=True)
+            time.sleep(2)
+            target("printf '<6>" + end + "\\n' > /dev/kmsg", root=True)
+            log = target('dmesg', root=True, private=label + '-quiet-' + str(attempt) + '.txt')
+            try:
+                current = qualify_quiet(log, begin, end, native_reference)
+            except ValueError:
+                # Only initial stock setup may settle. No retries with a candidate active.
+                if native_reference is not None or time.monotonic() >= deadline:
+                    raise
+                attempt += 1
+                continue
+            native_reference = current
+            report['native_mode_reference'] = current
+            save()
+            return {'native_state': current, 'quiet_seconds': 2, 'attempts': attempt + 1,
+                    'end_marker': end, 'race_limit': 'not an atomic compositor lock'}
 
     def trace_check(expected_pending, expected_length, expected_flags):
         nonlocal entry_count
@@ -530,22 +603,28 @@ def main():
         if not manual_session:
             stage['camera_start'] = camera_metadata(label + '-start')
         if reproduction:
-            target("printf '<6>" + marker + '_HOLD_BEGIN_' + label + "\\n' > /dev/kmsg", root=True)
+            stage['kernel_markers'] = {'hold_begin': marker + '_HOLD_BEGIN_' + label,
+                                       'hold_end': marker + '_HOLD_END_' + label}
+            target("printf '<6>" + stage['kernel_markers']['hold_begin'] + "\\n' > /dev/kmsg", root=True)
         stage['hold_start_utc'] = now()
         save()
         print(json.dumps({'stage': label, 'packets': stage.get('native_packets_matched', 0), 'hold_start_utc': stage['hold_start_utc']}), flush=True)
         time.sleep(1 if manual_session else 7)  # Bounded completion check; manual inspection follows cleanup.
         stage['hold_end_utc'] = now()
         if reproduction:
-            target("printf '<6>" + marker + '_HOLD_END_' + label + "\\n' > /dev/kmsg", root=True)
+            target("printf '<6>" + stage['kernel_markers']['hold_end'] + "\\n' > /dev/kmsg", root=True)
         state()
         if not manual_session:
             stage['camera_end'] = camera_metadata(label + '-end')
         text = target('dmesg', root=True, private=label + '-kernel.txt')
         assert 'Command transfer failed' not in text[text.index(marker + '_BEGIN_' + label):], 'Native DMA failure during hold'
         if reproduction:
-            hold = text.split(marker + '_HOLD_BEGIN_' + label, 1)[1].split(marker + '_HOLD_END_' + label, 1)[0]
-            assert 'dsi_ctrl_cmd_transfer len=' not in hold, 'Unexpected native DSI write during optical hold'
+            from dsi_trial_transaction import marker_interval
+            hold = marker_interval(text, stage['kernel_markers']['hold_begin'], stage['kernel_markers']['hold_end'])
+            assert 'dsi_ctrl_cmd_transfer len=' not in hold and 'dsi_display_set_mode' not in hold, 'Unexpected native DSI/mode change during optical hold'
+            from dsi_trial_transaction import native_state
+            assert native_state(text) == native_reference, 'Native mode differs from baseline during optical hold'
+            stage['native_state_after_hold'] = native_reference
             stage['hold_no_native_dsi_writes_verified'] = True
         stage['completion_error_log_checked_through_utc'] = now()
         return text
@@ -567,9 +646,12 @@ def main():
         save()
 
     def apply_program(label, name, program):
-        nonlocal pending_uncertain, candidate_active
+        nonlocal pending_uncertain, candidate_active, entry_count
         state()
+        qualification = qualify_native(label) if reproduction else None
         stage = {'label': label, 'started_at_utc': now(), 'chunks_verified': 0}
+        if reproduction:
+            stage['native_qualification'] = qualification
         report['stages'].append(stage)
         if name != 'stock':
             assert report['candidate_attempts_by_name'][name] == 0
@@ -579,27 +661,44 @@ def main():
             report['candidate_may_be_active'] = True
         save()
         target("printf '<6>" + marker + '_BEGIN_' + label + "\\n' > /dev/kmsg", root=True)
-        for i, (start, end) in enumerate(ranges):
+        if reproduction:
+            from dsi_trial_transaction import transaction_script, validate_batch_capture
             pending_uncertain = True
             report['pending_bytes_may_exist'] = True
             save()
-            # Regular input file + a single dd block: no shell stdio splitting of the TX write.
-            command = (f'set -e; mount -o rprivate none /; '
-                       f'mount -t debugfs -o nosuid,nodev,noexec debugfs {TMP}/debugfs; '
-                       f'test -f {TMP}/debugfs/dri/9800000.qcom,mdss_mdp/DSI-1/tx_cmd; '
-                       f'test -w {TMP}/debugfs/dri/9800000.qcom,mdss_mdp/DSI-1/tx_cmd; '
-                       f'dd if={TMP}/chunks/{name}_{i}.txt '
-                       f'of={TMP}/debugfs/dri/9800000.qcom,mdss_mdp/DSI-1/tx_cmd '
-                       'bs=4096 count=1 conv=notrunc status=none')
-            target('unshare -m /system/bin/sh -c ' + shlex.quote(command), root=True)
-            trace_check(start, end - start, 64 if i < 4 else 0)
-            stage['chunks_verified'] += 1
+            raw = target(transaction_script(TMP, TRACE, name, entry_count), root=True,
+                         private=label + '-transaction.txt', timeout=30)
+            verified = validate_batch_capture(raw, entry_count)
+            entry_count = verified['entry_count_after']
+            stage['transaction'] = verified
+            stage['chunks_verified'] = verified['chunks_verified']
             save()
+        else:
+            for i, (start, end) in enumerate(ranges):
+                pending_uncertain = True
+                report['pending_bytes_may_exist'] = True
+                save()
+                # Regular input file + a single dd block: no shell stdio splitting of the TX write.
+                command = (f'set -e; mount -o rprivate none /; '
+                           f'mount -t debugfs -o nosuid,nodev,noexec debugfs {TMP}/debugfs; '
+                           f'test -f {TMP}/debugfs/dri/9800000.qcom,mdss_mdp/DSI-1/tx_cmd; '
+                           f'test -w {TMP}/debugfs/dri/9800000.qcom,mdss_mdp/DSI-1/tx_cmd; '
+                           f'dd if={TMP}/chunks/{name}_{i}.txt '
+                           f'of={TMP}/debugfs/dri/9800000.qcom,mdss_mdp/DSI-1/tx_cmd '
+                           'bs=4096 count=1 conv=notrunc status=none')
+                target('unshare -m /system/bin/sh -c ' + shlex.quote(command), root=True)
+                trace_check(start, end - start, 64 if i < 4 else 0)
+                stage['chunks_verified'] += 1
+                save()
         target("printf '<6>" + marker + '_END_' + label + "\\n' > /dev/kmsg", root=True)
         text = target('dmesg', root=True, private=label + '-kernel.txt')
         start = text.index(marker + '_BEGIN_' + label)
         section = text[start:text.index(marker + '_END_' + label, start)]
         assert 'Command transfer failed' not in section, 'Native DMA completion failure'
+        if reproduction:
+            from dsi_trial_transaction import native_state
+            assert native_state(text) == native_reference, 'Native mode changed during transaction'
+            assert 'dsi_display_set_mode' not in text.split(qualification['end_marker'], 1)[1], 'Native mode transition after qualification'
         wire = re.findall(r'dsi-ctrl-1: dsi_ctrl_cmd_transfer len=(\d+), type=0x([0-9a-fA-F]+) (hs|lp) cmds= ([0-9A-Fa-f ]+)', section)
         observed = [(int(n), int(kind, 16), mode, bytes.fromhex(data)) for n, kind, mode, data in wire]
         expected = [(len(bytes.fromhex(p['payload_hex'])), bytes.fromhex(p['header_hex'])[0],
@@ -675,6 +774,9 @@ def main():
     try:
         identity()
         if reproduction:
+            from dsi_trial_transaction import ensure_unused_marker
+            prior_kernel = target('dmesg', root=True, private='preflight-marker-collision-kernel.txt')
+            ensure_unused_marker(prior_kernel, config.experiment_id)
             target(lock_ops['acquire'], root=True)
             lock_acquired = True
             report['exclusive_device_lock_acquired'] = True
@@ -731,6 +833,10 @@ def main():
             created_probes.append(name)
             target(f"printf '1\\n' > {TRACE}/events/pwm_mode/{name}/enable", root=True)
         target(f"printf '1\\n' > {TRACE}/tracing_on", root=True)
+        if reproduction:
+            enable_logger()  # Observe native HOME/Settings/redraw transitions, not only later tables.
+            report['logger_enabled_before_setup'] = True
+            save()
         settings_changed = True
         if reproduction:
             target('settings put system min_refresh_rate 120.0; settings put system peak_refresh_rate 120.0; settings put system screen_off_timeout 600000; input keyevent 224')
@@ -751,10 +857,12 @@ def main():
         assert re.search(r'mActiveSfDisplayMode=[^\n]*peakRefreshRate=120\.', display)
         target("printf '%s\\n' " + str(trial_dbv) + " > " + BL + 'brightness', root=True)
         wait_target('cat ' + BL + 'brightness', str(trial_dbv))
-        if (redraw_control or blocks_redraw) and not reproduction:
-            repaint_settings('preflight')
-        logger_on = True
-        target("printf '1\\n' > " + CON + 'mipi_cmd_log_en', root=True)
+        if redraw_control or blocks_redraw:
+            repaint_settings('preflight')  # Setup only; measured phases retain strict redraw audit.
+        if not reproduction:
+            enable_logger()
+        else:
+            create_stock_anchor()
         if not manual_session:
             if coupled_9d:
                 camera_files_before = shell('camera', "find /sdcard/DCIM/OpenCamera -maxdepth 1 -type f -name '*.mp4'",
@@ -864,7 +972,13 @@ def main():
                     errors.append('Probe: ' + str(error))
             if settings_changed and not report.get('owner_view_active'):
                 try:
-                    for key in ('screen_brightness', 'min_refresh_rate', 'peak_refresh_rate', 'screen_off_timeout', 'screen_brightness_mode'):
+                    restore_keys = ('screen_brightness', 'min_refresh_rate', 'peak_refresh_rate', 'screen_off_timeout', 'screen_brightness_mode')
+                    if reproduction:
+                        from dsi_trial_transaction import refresh_restore_order
+                        current_peak = target('settings get system peak_refresh_rate')
+                        rates = refresh_restore_order(before['min_refresh_rate'], current_peak)
+                        restore_keys = ('screen_brightness', *rates, 'screen_off_timeout', 'screen_brightness_mode')
+                    for key in restore_keys:
                         target('settings delete system ' + key if before[key] == 'null'
                                 else 'settings put system ' + key + ' ' + shlex.quote(before[key]))
                     if short_read_control and before['screen_brightness_mode'] == '0' and before['bl_power'] == '0':
@@ -893,7 +1007,7 @@ def main():
                 try:
                     if reproduction:
                         assert report.get('watchdog_disarmed_no_pending_candidate'), 'Preserve watchdog evidence until disarm verified'
-                        target(f'rm -f {TMP}/watchdog.log {TMP}/watchdog.pid', root=True)
+                        target(f'rm -f {TMP}/watchdog.log {TMP}/watchdog.pid {TMP}/transaction_trace', root=True)
                     paths = ' '.join(TMP + '/chunks/' + p.name for p in chunks_dir.iterdir())
                     if redraw_control or blocks_redraw:
                         target('rm -f ' + TMP + '/redraw-ui.xml')

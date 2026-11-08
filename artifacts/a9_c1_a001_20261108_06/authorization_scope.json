@@ -1,0 +1,36 @@
+{
+  "experiment_id": "a9_c1_a001_20261108_06",
+  "mode": "a9_reproduction",
+  "sequence": [
+    "stock",
+    "a9_only",
+    "stock"
+  ],
+  "candidates": [
+    "a9_only"
+  ],
+  "program_sha256": {
+    "stock": "b5ed66ba69e6221de5fdeaf4d003c9628602d743880acd1c8e2cf7198facd193",
+    "a9_only": "d5dba3cc81f0fd53a9aae3161cf7dccb03dd9e424a81425d0d00dedee51a54cd"
+  },
+  "native_dbv": 3600,
+  "output": "artifacts/a9_c1_a001_20261108_06",
+  "emergency_reboot_approved": true,
+  "watchdog_reboot_approved": true,
+  "watchdog_seconds": 600,
+  "camera_profile": "A001_Galaga_OpenCamera_1.56.2_720p_h264_no_audio_100us_iso6400",
+  "c1_capture": {
+    "page": 35,
+    "opcode": 193,
+    "length": 3,
+    "stages": [
+      "stock",
+      "a9_only",
+      "stock"
+    ],
+    "refresh_hz": 120,
+    "position": "after_selector_readback_before_hold",
+    "framing": "dcs_long3_wc3_ecc_count9_scratch16",
+    "read_only": true
+  }
+}

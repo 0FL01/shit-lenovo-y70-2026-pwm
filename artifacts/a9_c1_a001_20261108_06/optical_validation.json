@@ -1,0 +1,21 @@
+{
+  "syntax": "pass",
+  "normal_and_optimized_no_overwrite": "pass",
+  "json_reproduction": "byte_exact",
+  "npz_reproduction": "all_arrays_exact",
+  "decoded_frame_count": 5374,
+  "full_spectral_range_cycles_per_row": [
+    0,
+    0.5
+  ],
+  "physical_pwm_hz": null,
+  "independent_review": {
+    "primary_fourier_max_ratio_error_less_than": 3e-16,
+    "native_y_center_crop_max_abs_error": 0,
+    "all_three_rois_checked": true,
+    "full_grid_tail_check": "pass",
+    "per_frame_sensor_to_mp4_binding": "not_established"
+  },
+  "source": "analyze_optical.py and optical_analysis_v2.json",
+  "device_actions_performed": false
+}

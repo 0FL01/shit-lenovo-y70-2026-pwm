@@ -119,6 +119,61 @@ Setter и restore теперь передают LF и проверяют фак�
 ON/OFF и timing-switch его не восстанавливают. Ни divider-семантика, ни
 runtime-latching, ни безопасность альтернативного значения не установлены.
 Предположение о low-nibble divider `(N+1)` остаётся спекулятивным.
-Никакого write в 23:85 не выполнено; следующий допустимый диагностический
-шаг — отдельный bounded short read с квалификацией framing. Даже совпавший
-readback и обычный reboot не гарантируют восстановления повреждённого DDIC.
+Никакого write в 23:85 не выполнено. Даже совпавший readback и обычный reboot
+не гарантируют восстановления повреждённого DDIC.
+
+Одна новая проба при исходном DBV 828 / software 120 использовала maximum
+request 3 и scratch 16, чтобы не применять опасный четырёхбайтовый scratch
+request 1. Ожидавший short1 валидатор корректно отверг фактический long3.
+[Отдельный offline-разбор сохранённого ответа](p85_live_20261108/stock828_long3_reanalysis.json)
+подтвердил payload `15 00 00`, header `1c 03 00 16`, WC 3 / ECC,
+raw и normalized count 9, единственный receive и точные return/cleanup.
+Это валидный префикс 15, но не доказательство ширины регистра, значения нулей,
+тождественности read/write planes или frequency semantics. Payload CRC не захвачен.
+Исходная rejected-attempt запись сохранена; повторного read не было.
+[Независимый postcheck](p85_live_20261108/stock828_postcheck.json) подтвердил
+UID0, Enforcing, native 828, DC0 и отсутствие собственного mutex/trace/temp.
+
+### Native timing и новая защита отправки
+
+Trial03 содержал реальные native timing@2 (90 Hz) и timing@7
+(peak 120 / actual 1 Hz) команды между deferred blocks. Это не stale prefix.
+Следовательно, Android min/max 120 и software peak 120 не доказывают native
+actual 120. Численная C1 закономерность относится к гипотезе внутренней базы,
+а не измеренной scanout/PWM частоте.
+
+Теперь те же пять блоков отправляются одним bounded device-shell с проверкой
+реального pending/length/flags/returns после каждого блока. Перед опытом
+квалифицируется тихий интервал и один из pinned native 120-family режимов:
+timing@0 actual 120 или timing@7 actual 1; во всех фазах требуется тот же режим.
+Это сокращает окно гонки, но не создаёт compositor mutex. Любое замеченное
+вмешательство по-прежнему вызывает abort и штатное recovery; guard 75 пакетов
+не ослаблен. Независимый review и 91 offline tests (2 skips) пройдены.
+Серия 04 остановлена до любых таблиц: после setup logger включался слишком
+поздно, и в retained log не было native anchor. Никаких candidate attempts;
+stock/settings/native 828 и cleanup восстановлены без reboot.
+
+[Отдельная stock-only квалификация](native_anchor_qualification_20261108.json)
+затем проверила исправленный порядок: logger включён до обычных настроек
+90 → 120. Свежие последние driver anchors показали actual 90/group 5,
+затем actual 120/group 3. Ожидаемые переходные OEM состояния сохранены в отчёте,
+а не выданы за стабильный режим. Исходные min/peak 120.0, native 828 и logger 0
+восстановлены; mutex снят. Candidate table, C1 и camera при этой проверке
+не использовались. Этот путь добавляется в setup до очередного A9+C1 опыта.
+
+
+### Завершённая A9+C1 серия 06
+
+[Новый причинный результат](a9_c1_a001_20261108_06/c1_result.md): при DBV 3600
+и неизменном native actual 120/group 3 квалифицированный C1 payload проходит
+`00 00 60 → 00 00 10 → 00 00 60` на stock → A9-only → stock.
+Это поддерживает one-count/DC-like branch, не повышение несущей. Физические
+Hz по-прежнему неизвестны. Все три программы по 75 пакетов, selector/DBV
+checks, holds и полный stock/settings/camera/watchdog/mutex cleanup пройдены.
+Серия 05 до этого остановилась до таблиц из-за повторных markers в retained
+dmesg. Теперь все markers привязаны к уникальному experiment ID; логи не очищались.
+
+Следующий более безопасный поиск — stock C1 map в диапазоне native DBV 460–3600.
+Ниже 460 находится значение вне selected DT minimum, поэтому такие точки не
+выдаются за обычную низкую stock-яркость. До этой карты unknown-value 85 write
+не запускался; offline single-bit proposal остаётся только проектом.

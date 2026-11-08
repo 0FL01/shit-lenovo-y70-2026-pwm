@@ -1,0 +1,40 @@
+{
+  "started_at_utc": "2026-11-08T15:26:55.586439+00:00",
+  "before": {
+    "min_refresh_rate": "120.0",
+    "peak_refresh_rate": "120.0",
+    "dbv": "828"
+  },
+  "steps": [
+    {
+      "requested_hz": 90,
+      "software_peak_values": [
+        "90.0"
+      ],
+      "native_mode_lines": [
+        "[ 1568.393390] [drm:dsi_display_set_mode [msm_drm]] [msm-dsi-info]: mdp_transfer_time=7933, hactive=1440, vactive=3168, fps=120(actual=1, group=0x8), clk_rate=1234000000",
+        "[ 1568.891081] [drm:dsi_display_set_mode [msm_drm]] [msm-dsi-info]: mdp_transfer_time=7933, hactive=1440, vactive=3168, fps=90(actual=90, group=0x5), clk_rate=1234000000"
+      ]
+    },
+    {
+      "requested_hz": 120,
+      "software_peak_values": [
+        "120.00001"
+      ],
+      "native_mode_lines": [
+        "[ 1573.935721] [drm:dsi_display_set_mode [msm_drm]] [msm-dsi-info]: mdp_transfer_time=7933, hactive=1440, vactive=3168, fps=120(actual=1, group=0x8), clk_rate=1234000000",
+        "[ 1573.945907] [drm:dsi_display_set_mode [msm_drm]] [msm-dsi-info]: mdp_transfer_time=7933, hactive=1440, vactive=3168, fps=90(actual=90, group=0x5), clk_rate=1234000000",
+        "[ 1574.447029] [drm:dsi_display_set_mode [msm_drm]] [msm-dsi-info]: mdp_transfer_time=7465, hactive=1440, vactive=3168, fps=120(actual=120, group=0x3), clk_rate=1234000000"
+      ]
+    }
+  ],
+  "candidate_table_sent": false,
+  "after": {
+    "min_refresh_rate": "120.0",
+    "peak_refresh_rate": "120.0",
+    "dbv": "828"
+  },
+  "restored": true,
+  "mutex_released": true,
+  "finished_at_utc": "2026-11-08T15:27:12.537767+00:00"
+}

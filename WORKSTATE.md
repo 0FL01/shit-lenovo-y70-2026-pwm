@@ -1,12 +1,12 @@
 # Long-lived agent progress journal
 
-Checkpoint 2026-11-08, **новая физическая A9 серия и квалифицированный C1 payload.**
+Checkpoint 2026-11-08, **A9+C1 причинная серия завершена; R3 >=2000 Гц не решена.**
 
-- [A9 optical result](artifacts/a9_a001_20261108_01/optical_result.md): при одинаковых DBV 3600 / 120 и одной A001 записи тонкая image-code компонента уменьшилась на 73.7%, stock вернулся с расхождением 0.158%; широкая структура осталась. Это промежуточный аппаратный результат, не PWM >=2000 Hz и не исчезновение мерцания.
-- [C1 stock sweep](artifacts/c1_live_20261108/stock_sweep.json): bounded 3-byte response с проверенными header/WC/ECC/count даёт 00 00 80 при 90, 00 00 50 при 144, 00 00 60 при 120, 00 00 10 при DBV 3646 / 120. Условные 8×90 = 5×144 = 6×120 = 720 поддерживают emission-count гипотезу, но C1 semantics/Hz остаются unknown. C1 write не выполнялся. Stock refresh 120 / native 828 восстановлены.
-- Найден и исправлен protocol bug: ESD writer требует LF; bare tokens молча не меняли mode. Новая проверка остановила первый precheck до C1 read; состояние независимо восстановлено. Успешные C1 пробы использовали исправленные set/readback/restore. Старое ESD_RESTORED не доказывает фактическую isolation.
-- A9+C1 серии 02/03 остановлены до кандидата: сначала фоновый ESD read после C1, затем посторонний native packet stream. Recovery reboot, stock/root/Enforcing, настройки/native 828, остановка камеры и mutex cleanup подтверждены. Причина второго расхождения изучается офлайн; guard сохранён. 23:85 остаётся неизвестным init-only полем, записей в него не было.
-- Последний завершённый общий offline suite: 78 tests, 2 skips. [Сводка цикла](artifacts/pwm_resume_20261108.md).
+- [Серия 06](artifacts/a9_c1_a001_20261108_06/c1_result.md): stock → A9-only → stock при DBV 3600 и native actual 120/group 3 даёт квалифицированный C1 00 00 60 → 00 00 10 → 00 00 60. Все три программы по 75 пакетов и полный stock/settings/native 828/ESD/camera/watchdog/mutex cleanup прошли без ошибок. Это поддерживает DC-like/one-count гипотезу, не high-PWM. [Same-video optical analysis](artifacts/a9_c1_a001_20261108_06/optical_result.md) воспроизводит 74.95% подавления тонкой image-code компоненты; возврат stock отличается на −0.51%, broad остаётся. Полный spectrum review и повторное декодирование пройдены. Physical Hz остаются unknown.
+- [Новый ответ 23:85](artifacts/p85_live_20261108/stock828_long3_reanalysis.json): framed long3 15 00 00 при исходном DBV 828, WC/ECC/count квалифицированы offline из сохранённой пробы; строгий short1 reader корректно отверг неожиданный format. Повтора и записи в 85 не было. Width/semantics/volatility/read-write-plane identity неизвестны; postcheck stock/Enforcing/cleanup пройден.
+- Native-mode preflight теперь использует проверенный stock-only 90 → 120 anchor, explicit actual-state evidence, quiet gates, локальную отправку пяти блоков и уникальные per-run markers. Серии 02–05 сохранены как failures до A9 candidate, а не объявлены успехом; guards не ослаблялись. Последний завершённый общий offline suite: 103 tests, 2 skips.
+- Следующий безопаснее шаг: qualified stock C1 map в пределах native minimum DBV 460–3600. Unknown-value single-bit 85 proposal остаётся offline; live implementation ещё не квалифицирована.
+- Второй checkpoint опубликован и remote main проверен на 610102c7abb0ef56a7106dc3ffbdd4040ac216f7. Новые результаты серии 06 и helpers готовятся к следующему содержательному commit/push. [Сводка цикла](artifacts/pwm_resume_20261108.md).
 
 
 Checkpoint 2026-11-08, **R3 возобновлена новым автономным заданием владельца.**

@@ -1,0 +1,33 @@
+{
+  "page": "23",
+  "opcode": "85",
+  "requested": 3,
+  "data": [
+    21,
+    0,
+    0
+  ],
+  "header_hex": "1c 03 00 16",
+  "raw_hardware_count": 9,
+  "normalized_count": 9,
+  "scratch_allocation": 16,
+  "single_receive": true,
+  "framing_qualified": true,
+  "cleanup_verified": true,
+  "native_dbv": 828,
+  "software_refresh": 120.00001,
+  "pwm_hz": null,
+  "limit": "Payload15 00 00 is framed long3 under MRPS3. Does not establish register width, trailing-zero semantics, read/write plane identity, writability or physical PWM Hz. Payload CRC not captured.",
+  "response_type": "DCS_long3",
+  "requested_maximum": 3,
+  "returned": 3,
+  "status": "existing_capture_long3_framing_qualified_offline",
+  "physical_operation_attempted": false,
+  "offline_qualification_utc": "2026-11-08T15:18:57.659590+00:00",
+  "module_sha256": "1bec69faec736e7288f38e4cb83314c37c60d33e6b383213316fd880aa0b1804",
+  "source_attempt": "artifacts/p85_live_20261108/stock828_qualified.json",
+  "source_nonce": "05f192fe7990",
+  "source_attempt_preserved": true,
+  "short_reader_rejection_preserved": "P85 did not return exactly1 byte",
+  "method": "Offline C1 long3 packet validator with only P85 output label adapted; independent exact header/helper/PID/return/profile accounting. No read or command replay."
+}

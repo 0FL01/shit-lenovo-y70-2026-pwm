@@ -168,3 +168,99 @@ behavior. C1 semantics remain unproven and no result is converted to PWM Hz.
 The stock driver's malformed-response hazard is unchanged: post-read framing
 checks cannot prevent a kernel fault that occurs before a response is returned.
 The independent600s watchdog cannot recover a non-scheduling kernel.
+
+## Native timing stability and single-shell transaction (after trial03)
+
+Trial03's failure was genuine native concurrency, not stale log contamination.
+Between deferred blocks, the compositor sent the selected timing@2 90Hz table
+(10 LP packets) plus DBV3600, then timing@7 special-idle1Hz (14 LP packets) plus
+DBV3600. All75 approved HS table packets followed unchanged. Kernel mode logs
+confirmed fps90(actual90,group5) then fps120(actual1,group8). These26 extra
+packets are never whitelisted. Saved trace replay remains a rejecting test.
+
+The fresh runner performs the existing chooser open/cancel once during stock
+setup, before measurement. No continuous animation or unknown vendor setting
+is introduced. Before each deferred transaction it qualifies a two-second
+interval without native packet writes or mode transitions, including the
+end-marker-to-log-read gap. A retained exact-module native mode anchor must
+identify one of these pinned120-family states:
+
+- timing@0: fps120, actual120, group3, clock1234000000.
+- timing@7: fps120, actual1, group8, clock1234000000.
+
+The baseline choice is recorded as `native_mode_reference`; every stage must
+use the same tuple. Software peak120 alone is not sufficient, and actual1 is
+never reported as actual120. Missing evidence fails closed. Only the initial
+stock qualification can wait for settling, with a30-second budget checked after
+each bounded sample. Subsequent qualification failures do not retry or reapply
+a profile. Mode transitions after qualification, during transmission or hold
+remain fatal. This mode anchor is a software/kernel observation, not PWM proof.
+
+`dsi_trial_transaction.py` builds one device-local20-second bounded shell for
+the same five approved regular-file `dd` writes and the same native byte ranges.
+After every write, a private trace snapshot is checked on-device with POSIX awk
+before another block is sent: exact callback count, pending bytes, length,
+flags, zero callback returns and no negative/lost events. Deferred blocks must
+add no controller calls; final flush must add exactly75 zero controller returns.
+Every snapshot is returned for independent host parsing with unchanged event
+prefixes. A failed check stops before the next block, leaves pending state
+uncertain and uses the existing reboot/watchdog recovery. No cleanup DSI table
+is appended. The final exact75-packet wire comparison remains unchanged.
+
+Removing host round trips reduces the deferred-queue window but is not a kernel
+mutex against the compositor. The quiet check does not prevent a later idle
+transition. Measured chooser redraw still has its existing strict no-native-
+write audit, and the hold/C1/ESD/stock-return checks are retained. Offline shell
+simulation verifies that an injected bad third-block trace prevents fourth and
+fifth writes; live execution/latency is not established by that test.
+
+## Fresh stock native anchor (after trial04)
+
+Trial04 had no retained native mode line and correctly stopped before any
+profile table. Logging now starts before HOME, Settings launch and setup redraw.
+The runner additionally requests the already-qualified stock Android90→120
+transition exactly once: lower min before peak90; raise peak before min120.
+No unknown vendor property or experimental DSI table is involved.
+
+Each step has fresh beginning/ending markers, bounded read-only polling, an
+observed software peak and a fresh native mode line inside its own interval.
+The LAST native line must be timing@2 actual90/group5 for90, or the pinned120
+family for120. Normal transient stock modes during setup are retained as
+evidence, not mistaken for candidate concurrency. Missing, stale, malformed or
+wrong final native evidence fails closed. A saved attempt flag prohibits a
+second settings sequence within the same run. Camera recording, watchdog and
+all experimental tables follow this preparation; the unchanged quiet gate
+still chooses and locks the observed baseline reference across the three phases.
+
+On any preparation failure, ordinary settings/nativeDBV/logger cleanup remains
+active. If restoring an original minimum above the current peak (such as a
+failed90 step returning to120), cleanup raises the original peak first. No
+candidate/queue flag is set by this stock-only setup.
+
+The coordinator independently qualified this route on the target with logger
+active:90 ended at actual90/group5, and120 ended at actual120/group3, with stock
+idle/90 transients preceding the final mode. Original120 settings, nativeDBV828
+and logger0 were restored. See `artifacts/native_anchor_qualification_20261108.json`.
+This is route qualification, not execution of the new full A9+C1 sequence.
+
+## Run-unique kernel evidence markers (after trial05)
+
+Retained kernel logs are never cleared. Every fresh reproduction event now uses
+`PWM_A9_REPRODUCTION_<experiment_id>` as its common prefix: stock anchors,
+quiet qualification, table phases, redraw, selector readback and optical hold.
+The validated ID is lowercase; uppercase event suffixes keep complete markers
+unambiguous even when one experiment ID prefixes another. Before device setup
+or mutex acquisition, a read-only retained-log check rejects an already-used
+complete marker family for the requested ID.
+
+`run.json.kernel_marker_prefix` records the selected prefix. Each measured
+stage additionally records its exact hold begin/end strings in `kernel_markers`;
+interval parsing still requires exactly one correctly ordered pair. Optical
+analysis continues to obtain hold UTC bounds from the stage report, not a fixed
+kernel prefix. Quiet/anchor uniqueness checks remain strict.
+
+A regression replays the actual trial05 log containing trial04's retained quiet
+markers: the old duplicate names are rejected. A clearly labelled offline
+fixture assigns separate run prefixes to those existing event windows and
+verifies isolation; the saved raw evidence itself is never rewritten. Missing
+future-run markers still fail rather than falling back to an earlier interval.
