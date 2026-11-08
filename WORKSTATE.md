@@ -1,5 +1,12 @@
 # Long-lived agent progress journal
 
+Checkpoint 2026-11-08, **P85 stock-only 01 остановлена до writer DSI; восстановление проверено.**
+
+- [Failed qualification 01](artifacts/p85_stock_a001_20261108_01/result.md): baseline при DBV 3600/native actual 120 дал qualified P85 `15 00 00` и C1 `00 00 60`. Writer gate0 затем упёрся в Android external printf argv limit на retained dmesg; его trace/profile пусты. Параметр 85 не записан, 14 не использовался. Один штатный reboot и полный original settings/native 828/logger/ESD/camera/watchdog/mutex cleanup проверены.
+- [Новый P85 runner](artifacts/p85_guarded_runner_20261108.md) теперь использует exact owned files для dmesg/trace/profile/prefix, без очистки логов и ослабления guards. Ошибка воспроизведена external printf с 2 MiB журнала, исправление и отказ на oversized/read-error проверены независимо. Перед следующим live run обязателен committed/clean набор десяти executable Git blobs, записываемый в отчёт.
+- [Отдельный optical analyzer](artifacts/p85_optical_qualification_20261108.md) требует завершённого cleanup, нового ROI review и временных границ по metadata/PTS; failed01 не выдаётся за пригодную stock/sham/return серию. Raw video/screenshots остаются приватными. Абсолютные Hz не выводятся из image rows или C1.
+- Candidate по-прежнему не квалифицирован: measured baseline 34.389 с не проходит текущий conservative 45 с budget при отдельном 60 с watchdog. Следующий опыт — снова только заводской 15, после commit исправленного кода и fresh preflight. Прежний опубликованный checkpoint: `a78d2e8f1af0c555b7d19cb380600330cf2fc2dd`. R3 >=2000 Гц не решена.
+
 Checkpoint 2026-11-08, **stock brightness map завершена; C1 не является установленным счётчиком частоты.**
 
 - [Квалифицированная stock-карта](artifacts/stock_c1_20261108_01/run.json): при одном native actual 120/group 3 DBV 828/460/2048/3000/3600/828 даёт C1 `00 02 B3 / 00 02 C0 / 00 02 26 / 00 01 30 / 00 00 60 / 00 02 B3`. Возврат точно воспроизведён; исходные настройки/native 828/logger восстановлены до снятия watchdog и mutex. Камера и неизвестные значения регистров не затрагивались. Новый gated reader проверяет фактические driver returns до следующего DSI, поскольку debugfs TX bytecount не доказывает успех передачи.

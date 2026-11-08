@@ -1,0 +1,1651 @@
+{
+  "experiment_id": "p85_stock_a001_20261108_01",
+  "marker": "PWM_P85_p85_stock_a001_20261108_01",
+  "module_sha256": "1bec69faec736e7288f38e4cb83314c37c60d33e6b383213316fd880aa0b1804",
+  "stock_dc": 0,
+  "software_refresh_hz": 120,
+  "anchor": [
+    90,
+    120
+  ],
+  "camera_touched": true,
+  "unknown_register_writes": false,
+  "recovery": "same-target ordinary reboot; device watchdog600s",
+  "pwm_hz": null,
+  "scope": "p85-stock-only",
+  "started_at_utc": "2026-11-08T16:57:48.366738+00:00",
+  "status": "failed; inspect recovery and retained watchdog/owner",
+  "captures": [],
+  "events": [
+    {
+      "label": "identity",
+      "at_utc": "2026-11-08T16:57:49.836056+00:00",
+      "raw_record": "0001-identity",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "root",
+      "at_utc": "2026-11-08T16:57:50.463067+00:00",
+      "raw_record": "0002-root",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "panel",
+      "at_utc": "2026-11-08T16:57:51.091720+00:00",
+      "raw_record": "0003-panel",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "module",
+      "at_utc": "2026-11-08T16:57:52.015874+00:00",
+      "raw_record": "0004-module",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "prior-kernel",
+      "at_utc": "2026-11-08T16:57:58.328102+00:00",
+      "raw_record": "0010-prior-kernel",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "acquire-owner",
+      "at_utc": "2026-11-08T16:57:59.128995+00:00",
+      "raw_record": "0011-acquire-owner",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "before-setting",
+      "at_utc": "2026-11-08T16:57:59.787428+00:00",
+      "raw_record": "0012-before-setting",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "before-setting",
+      "at_utc": "2026-11-08T16:58:00.381888+00:00",
+      "raw_record": "0013-before-setting",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "before-setting",
+      "at_utc": "2026-11-08T16:58:01.037602+00:00",
+      "raw_record": "0014-before-setting",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "before-setting",
+      "at_utc": "2026-11-08T16:58:01.694657+00:00",
+      "raw_record": "0015-before-setting",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "before-setting",
+      "at_utc": "2026-11-08T16:58:02.443678+00:00",
+      "raw_record": "0016-before-setting",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "before-dbv",
+      "at_utc": "2026-11-08T16:58:03.036255+00:00",
+      "raw_record": "0017-before-dbv",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "before-logger",
+      "at_utc": "2026-11-08T16:58:03.682050+00:00",
+      "raw_record": "0018-before-logger",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "before-boot",
+      "at_utc": "2026-11-08T16:58:04.177823+00:00",
+      "raw_record": "0019-before-boot",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "state",
+      "at_utc": "2026-11-08T16:58:04.855213+00:00",
+      "raw_record": "0020-state",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "display",
+      "at_utc": "2026-11-08T16:58:05.502143+00:00",
+      "raw_record": "0021-display",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "boot",
+      "at_utc": "2026-11-08T16:58:06.018233+00:00",
+      "raw_record": "0022-boot",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "owner",
+      "at_utc": "2026-11-08T16:58:06.544837+00:00",
+      "raw_record": "0023-owner",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "fresh-temp",
+      "at_utc": "2026-11-08T16:58:07.190992+00:00",
+      "raw_record": "0024-fresh-temp",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "create-temp",
+      "at_utc": "2026-11-08T16:58:07.832714+00:00",
+      "raw_record": "0025-create-temp",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "initial-esd",
+      "at_utc": "2026-11-08T16:58:08.636717+00:00",
+      "raw_record": "0026-initial-esd",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "overall-watchdog",
+      "at_utc": "2026-11-08T16:58:09.288065+00:00",
+      "raw_record": "0027-overall-watchdog",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "enable-logger",
+      "at_utc": "2026-11-08T16:58:09.881977+00:00",
+      "raw_record": "0028-enable-logger",
+      "mutation": true,
+      "return_code": 0
+    },
+    {
+      "label": "extend-timeout",
+      "at_utc": "2026-11-08T16:58:10.527214+00:00",
+      "raw_record": "0029-extend-timeout",
+      "mutation": true,
+      "return_code": 0
+    },
+    {
+      "label": "home",
+      "at_utc": "2026-11-08T16:58:11.433863+00:00",
+      "raw_record": "0030-home",
+      "mutation": true,
+      "return_code": 0
+    },
+    {
+      "label": "display-settings",
+      "at_utc": "2026-11-08T16:58:12.024526+00:00",
+      "raw_record": "0031-display-settings",
+      "mutation": true,
+      "return_code": 0
+    },
+    {
+      "label": "awake",
+      "at_utc": "2026-11-08T16:58:12.650909+00:00",
+      "raw_record": "0032-awake",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "marker",
+      "at_utc": "2026-11-08T16:58:13.281690+00:00",
+      "raw_record": "0033-marker",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "stock-anchor",
+      "at_utc": "2026-11-08T16:58:13.958366+00:00",
+      "raw_record": "0034-stock-anchor",
+      "mutation": true,
+      "return_code": 0
+    },
+    {
+      "label": "anchor-display",
+      "at_utc": "2026-11-08T16:58:14.632105+00:00",
+      "raw_record": "0035-anchor-display",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "anchor-kernel",
+      "at_utc": "2026-11-08T16:58:15.262389+00:00",
+      "raw_record": "0036-anchor-kernel",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "marker",
+      "at_utc": "2026-11-08T16:58:15.924962+00:00",
+      "raw_record": "0037-marker",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "anchor-final",
+      "at_utc": "2026-11-08T16:58:16.509388+00:00",
+      "raw_record": "0038-anchor-final",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "marker",
+      "at_utc": "2026-11-08T16:58:17.192846+00:00",
+      "raw_record": "0039-marker",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "stock-anchor",
+      "at_utc": "2026-11-08T16:58:17.783610+00:00",
+      "raw_record": "0040-stock-anchor",
+      "mutation": true,
+      "return_code": 0
+    },
+    {
+      "label": "anchor-display",
+      "at_utc": "2026-11-08T16:58:18.417097+00:00",
+      "raw_record": "0041-anchor-display",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "anchor-kernel",
+      "at_utc": "2026-11-08T16:58:19.066919+00:00",
+      "raw_record": "0042-anchor-kernel",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "marker",
+      "at_utc": "2026-11-08T16:58:19.648723+00:00",
+      "raw_record": "0043-marker",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "anchor-final",
+      "at_utc": "2026-11-08T16:58:20.245700+00:00",
+      "raw_record": "0044-anchor-final",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "previous-dbv",
+      "at_utc": "2026-11-08T16:58:20.831176+00:00",
+      "raw_record": "0045-previous-dbv",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "marker",
+      "at_utc": "2026-11-08T16:58:21.415378+00:00",
+      "raw_record": "0046-marker",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "native-brightness",
+      "at_utc": "2026-11-08T16:58:22.027510+00:00",
+      "raw_record": "0047-native-brightness",
+      "mutation": true,
+      "return_code": 0
+    },
+    {
+      "label": "poll",
+      "at_utc": "2026-11-08T16:58:22.585171+00:00",
+      "raw_record": "0048-poll",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "marker",
+      "at_utc": "2026-11-08T16:58:23.269509+00:00",
+      "raw_record": "0049-marker",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "brightness-kernel",
+      "at_utc": "2026-11-08T16:58:23.885890+00:00",
+      "raw_record": "0050-brightness-kernel",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "state",
+      "at_utc": "2026-11-08T16:58:24.526474+00:00",
+      "raw_record": "0051-state",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "display",
+      "at_utc": "2026-11-08T16:58:25.161287+00:00",
+      "raw_record": "0052-display",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "boot",
+      "at_utc": "2026-11-08T16:58:25.812492+00:00",
+      "raw_record": "0053-boot",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "owner",
+      "at_utc": "2026-11-08T16:58:26.446884+00:00",
+      "raw_record": "0054-owner",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "state",
+      "at_utc": "2026-11-08T16:58:27.097293+00:00",
+      "raw_record": "0055-state",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "display",
+      "at_utc": "2026-11-08T16:58:27.782751+00:00",
+      "raw_record": "0056-display",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "boot",
+      "at_utc": "2026-11-08T16:58:28.277866+00:00",
+      "raw_record": "0057-boot",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "owner",
+      "at_utc": "2026-11-08T16:58:28.919424+00:00",
+      "raw_record": "0058-owner",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "marker",
+      "at_utc": "2026-11-08T16:58:29.554040+00:00",
+      "raw_record": "0059-marker",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "marker",
+      "at_utc": "2026-11-08T16:58:32.170326+00:00",
+      "raw_record": "0060-marker",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "quiet-kernel",
+      "at_utc": "2026-11-08T16:58:32.679374+00:00",
+      "raw_record": "0061-quiet-kernel",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "state",
+      "at_utc": "2026-11-08T16:58:33.664983+00:00",
+      "raw_record": "0062-state",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "display",
+      "at_utc": "2026-11-08T16:58:34.330059+00:00",
+      "raw_record": "0063-display",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "boot",
+      "at_utc": "2026-11-08T16:58:34.999329+00:00",
+      "raw_record": "0064-boot",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "owner",
+      "at_utc": "2026-11-08T16:58:35.610082+00:00",
+      "raw_record": "0065-owner",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "state",
+      "at_utc": "2026-11-08T16:58:41.969399+00:00",
+      "raw_record": "0071-state",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "display",
+      "at_utc": "2026-11-08T16:58:42.624552+00:00",
+      "raw_record": "0072-display",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "boot",
+      "at_utc": "2026-11-08T16:58:43.283623+00:00",
+      "raw_record": "0073-boot",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "owner",
+      "at_utc": "2026-11-08T16:58:43.963367+00:00",
+      "raw_record": "0074-owner",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "marker",
+      "at_utc": "2026-11-08T16:58:44.629311+00:00",
+      "raw_record": "0075-marker",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "marker",
+      "at_utc": "2026-11-08T16:58:47.263518+00:00",
+      "raw_record": "0076-marker",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "quiet-kernel",
+      "at_utc": "2026-11-08T16:58:47.835233+00:00",
+      "raw_record": "0077-quiet-kernel",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "state",
+      "at_utc": "2026-11-08T16:58:48.815502+00:00",
+      "raw_record": "0078-state",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "display",
+      "at_utc": "2026-11-08T16:58:49.535160+00:00",
+      "raw_record": "0079-display",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "boot",
+      "at_utc": "2026-11-08T16:58:50.178909+00:00",
+      "raw_record": "0080-boot",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "owner",
+      "at_utc": "2026-11-08T16:58:50.862998+00:00",
+      "raw_record": "0081-owner",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "marker",
+      "at_utc": "2026-11-08T16:58:51.517304+00:00",
+      "raw_record": "0082-marker",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "baseline-p85",
+      "at_utc": "2026-11-08T16:58:52.190638+00:00",
+      "raw_record": "0083-baseline-p85",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "marker",
+      "at_utc": "2026-11-08T16:58:53.858923+00:00",
+      "raw_record": "0084-marker",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "read-wire",
+      "at_utc": "2026-11-08T16:58:54.567130+00:00",
+      "raw_record": "0085-read-wire",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "state",
+      "at_utc": "2026-11-08T16:58:55.203865+00:00",
+      "raw_record": "0086-state",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "display",
+      "at_utc": "2026-11-08T16:58:56.231800+00:00",
+      "raw_record": "0087-display",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "boot",
+      "at_utc": "2026-11-08T16:58:56.934475+00:00",
+      "raw_record": "0088-boot",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "owner",
+      "at_utc": "2026-11-08T16:58:57.568963+00:00",
+      "raw_record": "0089-owner",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "read-esd",
+      "at_utc": "2026-11-08T16:58:58.230279+00:00",
+      "raw_record": "0090-read-esd",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "marker",
+      "at_utc": "2026-11-08T16:58:58.921763+00:00",
+      "raw_record": "0091-marker",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "baseline-c1",
+      "at_utc": "2026-11-08T16:58:59.578432+00:00",
+      "raw_record": "0092-baseline-c1",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "marker",
+      "at_utc": "2026-11-08T16:59:01.097833+00:00",
+      "raw_record": "0093-marker",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "read-wire",
+      "at_utc": "2026-11-08T16:59:01.717817+00:00",
+      "raw_record": "0094-read-wire",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "state",
+      "at_utc": "2026-11-08T16:59:02.344671+00:00",
+      "raw_record": "0095-state",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "display",
+      "at_utc": "2026-11-08T16:59:03.014627+00:00",
+      "raw_record": "0096-display",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "boot",
+      "at_utc": "2026-11-08T16:59:03.697414+00:00",
+      "raw_record": "0097-boot",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "owner",
+      "at_utc": "2026-11-08T16:59:04.541044+00:00",
+      "raw_record": "0098-owner",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "read-esd",
+      "at_utc": "2026-11-08T16:59:05.215068+00:00",
+      "raw_record": "0099-read-esd",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "marker",
+      "at_utc": "2026-11-08T16:59:05.898723+00:00",
+      "raw_record": "0100-marker",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "marker",
+      "at_utc": "2026-11-08T16:59:12.474617+00:00",
+      "raw_record": "0103-marker",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "hold-kernel",
+      "at_utc": "2026-11-08T16:59:13.161636+00:00",
+      "raw_record": "0104-hold-kernel",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "state",
+      "at_utc": "2026-11-08T16:59:13.836273+00:00",
+      "raw_record": "0105-state",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "display",
+      "at_utc": "2026-11-08T16:59:14.492639+00:00",
+      "raw_record": "0106-display",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "boot",
+      "at_utc": "2026-11-08T16:59:15.125155+00:00",
+      "raw_record": "0107-boot",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "owner",
+      "at_utc": "2026-11-08T16:59:15.677233+00:00",
+      "raw_record": "0108-owner",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "state",
+      "at_utc": "2026-11-08T16:59:18.029450+00:00",
+      "raw_record": "0109-state",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "display",
+      "at_utc": "2026-11-08T16:59:18.698228+00:00",
+      "raw_record": "0110-display",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "boot",
+      "at_utc": "2026-11-08T16:59:19.365778+00:00",
+      "raw_record": "0111-boot",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "owner",
+      "at_utc": "2026-11-08T16:59:20.026084+00:00",
+      "raw_record": "0112-owner",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "marker",
+      "at_utc": "2026-11-08T16:59:20.641321+00:00",
+      "raw_record": "0113-marker",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "marker",
+      "at_utc": "2026-11-08T16:59:23.284384+00:00",
+      "raw_record": "0114-marker",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "quiet-kernel",
+      "at_utc": "2026-11-08T16:59:23.812961+00:00",
+      "raw_record": "0115-quiet-kernel",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "state",
+      "at_utc": "2026-11-08T16:59:24.810178+00:00",
+      "raw_record": "0116-state",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "display",
+      "at_utc": "2026-11-08T16:59:25.508817+00:00",
+      "raw_record": "0117-display",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "boot",
+      "at_utc": "2026-11-08T16:59:26.161317+00:00",
+      "raw_record": "0118-boot",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "owner",
+      "at_utc": "2026-11-08T16:59:26.968833+00:00",
+      "raw_record": "0119-owner",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "write-marker-preflight",
+      "at_utc": "2026-11-08T16:59:27.651310+00:00",
+      "raw_record": "0120-write-marker-preflight",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "marker",
+      "at_utc": "2026-11-08T16:59:28.321941+00:00",
+      "raw_record": "0121-marker",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "sham15-write",
+      "at_utc": "2026-11-08T16:59:28.971246+00:00",
+      "raw_record": "0122-sham15-write",
+      "mutation": false,
+      "return_code": 43,
+      "error_type": "ValueError"
+    },
+    {
+      "label": "recovery-boot",
+      "at_utc": "2026-11-08T17:00:03.030260+00:00",
+      "raw_record": "0123-recovery-boot",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "recovery-complete",
+      "at_utc": "2026-11-08T17:00:03.716050+00:00",
+      "raw_record": "0124-recovery-complete",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "recovery-boot",
+      "at_utc": "2026-11-08T17:00:05.397469+00:00",
+      "raw_record": "0125-recovery-boot",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "recovery-complete",
+      "at_utc": "2026-11-08T17:00:05.959015+00:00",
+      "raw_record": "0126-recovery-complete",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "recovery-boot",
+      "at_utc": "2026-11-08T17:00:07.836668+00:00",
+      "raw_record": "0127-recovery-boot",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "recovery-complete",
+      "at_utc": "2026-11-08T17:00:08.407320+00:00",
+      "raw_record": "0128-recovery-complete",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "identity",
+      "at_utc": "2026-11-08T17:00:09.069326+00:00",
+      "raw_record": "0129-identity",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "root",
+      "at_utc": "2026-11-08T17:00:09.749060+00:00",
+      "raw_record": "0130-root",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "panel",
+      "at_utc": "2026-11-08T17:00:10.411033+00:00",
+      "raw_record": "0131-panel",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "module",
+      "at_utc": "2026-11-08T17:00:11.093235+00:00",
+      "raw_record": "0132-module",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "recovery-owner",
+      "at_utc": "2026-11-08T17:00:11.772920+00:00",
+      "raw_record": "0133-recovery-owner",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "recovery-dc",
+      "at_utc": "2026-11-08T17:00:12.744881+00:00",
+      "raw_record": "0134-recovery-dc",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "recovery-esd",
+      "at_utc": "2026-11-08T17:00:13.306093+00:00",
+      "raw_record": "0135-recovery-esd",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "restore-power",
+      "at_utc": "2026-11-08T17:00:37.899570+00:00",
+      "raw_record": "0143-restore-power",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "restore-peak",
+      "at_utc": "2026-11-08T17:00:38.448905+00:00",
+      "raw_record": "0144-restore-peak",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "restore-setting",
+      "at_utc": "2026-11-08T17:00:39.078554+00:00",
+      "raw_record": "0145-restore-setting",
+      "mutation": true,
+      "return_code": 0
+    },
+    {
+      "label": "restore-setting",
+      "at_utc": "2026-11-08T17:00:39.723601+00:00",
+      "raw_record": "0146-restore-setting",
+      "mutation": true,
+      "return_code": 0
+    },
+    {
+      "label": "restore-setting",
+      "at_utc": "2026-11-08T17:00:40.410575+00:00",
+      "raw_record": "0147-restore-setting",
+      "mutation": true,
+      "return_code": 0
+    },
+    {
+      "label": "restore-setting",
+      "at_utc": "2026-11-08T17:00:41.085625+00:00",
+      "raw_record": "0148-restore-setting",
+      "mutation": true,
+      "return_code": 0
+    },
+    {
+      "label": "restore-setting",
+      "at_utc": "2026-11-08T17:00:41.765685+00:00",
+      "raw_record": "0149-restore-setting",
+      "mutation": true,
+      "return_code": 0
+    },
+    {
+      "label": "restore-dbv",
+      "at_utc": "2026-11-08T17:00:42.339227+00:00",
+      "raw_record": "0150-restore-dbv",
+      "mutation": true,
+      "return_code": 0
+    },
+    {
+      "label": "poll",
+      "at_utc": "2026-11-08T17:00:43.017959+00:00",
+      "raw_record": "0151-poll",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "poll",
+      "at_utc": "2026-11-08T17:00:44.708626+00:00",
+      "raw_record": "0152-poll",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "verify-setting",
+      "at_utc": "2026-11-08T17:00:45.268054+00:00",
+      "raw_record": "0153-verify-setting",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "verify-setting",
+      "at_utc": "2026-11-08T17:00:45.893333+00:00",
+      "raw_record": "0154-verify-setting",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "verify-setting",
+      "at_utc": "2026-11-08T17:00:46.581333+00:00",
+      "raw_record": "0155-verify-setting",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "verify-setting",
+      "at_utc": "2026-11-08T17:00:47.254551+00:00",
+      "raw_record": "0156-verify-setting",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "verify-setting",
+      "at_utc": "2026-11-08T17:00:47.920835+00:00",
+      "raw_record": "0157-verify-setting",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "state",
+      "at_utc": "2026-11-08T17:00:48.587869+00:00",
+      "raw_record": "0158-state",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "display",
+      "at_utc": "2026-11-08T17:00:49.283212+00:00",
+      "raw_record": "0159-display",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "boot",
+      "at_utc": "2026-11-08T17:00:49.942583+00:00",
+      "raw_record": "0160-boot",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "owner",
+      "at_utc": "2026-11-08T17:00:50.628150+00:00",
+      "raw_record": "0161-owner",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "restore-logger",
+      "at_utc": "2026-11-08T17:00:51.177738+00:00",
+      "raw_record": "0162-restore-logger",
+      "mutation": true,
+      "return_code": 0
+    },
+    {
+      "label": "verify-logger",
+      "at_utc": "2026-11-08T17:00:51.812933+00:00",
+      "raw_record": "0163-verify-logger",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "final-esd",
+      "at_utc": "2026-11-08T17:00:52.499014+00:00",
+      "raw_record": "0164-final-esd",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "disarm-watchdog",
+      "at_utc": "2026-11-08T17:00:53.173184+00:00",
+      "raw_record": "0165-disarm-watchdog",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "verify-child-cleanup",
+      "at_utc": "2026-11-08T17:00:53.852919+00:00",
+      "raw_record": "0166-verify-child-cleanup",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "verify-child-cleanup",
+      "at_utc": "2026-11-08T17:00:54.490479+00:00",
+      "raw_record": "0167-verify-child-cleanup",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "verify-child-cleanup",
+      "at_utc": "2026-11-08T17:00:55.176816+00:00",
+      "raw_record": "0168-verify-child-cleanup",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "remove-owned-temp",
+      "at_utc": "2026-11-08T17:00:55.867567+00:00",
+      "raw_record": "0169-remove-owned-temp",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "release-owner",
+      "at_utc": "2026-11-08T17:00:56.561965+00:00",
+      "raw_record": "0170-release-owner",
+      "mutation": false,
+      "return_code": 0
+    }
+  ],
+  "physical_operation_attempted": true,
+  "stages": [
+    {
+      "label": "baseline",
+      "started_at_utc": "2026-11-08T16:58:51.517207+00:00",
+      "qualified": true,
+      "phase_seconds": {
+        "p85": 7.404454477946274,
+        "c1": 6.976984353968874,
+        "hold_and_metadata": 10.459349764045328
+      },
+      "p85": {
+        "page": "23",
+        "opcode": "85",
+        "requested": 3,
+        "data": [
+          21,
+          0,
+          0
+        ],
+        "header_hex": "1c 03 00 16",
+        "raw_hardware_count": 9,
+        "normalized_count": 9,
+        "scratch_allocation": 16,
+        "single_receive": true,
+        "framing_qualified": true,
+        "cleanup_verified": true,
+        "native_dbv": 3600,
+        "software_refresh": 120.00001,
+        "pwm_hz": null,
+        "limit": "Read-plane and writable semantics unknown; CRC payload not captured; no Hz claim.",
+        "in_device_return_gates_verified": true,
+        "page_entries_standalone": true,
+        "response_type": "DCS_long3",
+        "returned": 3
+      },
+      "c1": {
+        "page": "23",
+        "opcode": "C1",
+        "requested": 3,
+        "data": [
+          0,
+          0,
+          96
+        ],
+        "header_hex": "1c 03 00 16",
+        "raw_hardware_count": 9,
+        "normalized_count": 9,
+        "scratch_allocation": 16,
+        "single_receive": true,
+        "framing_qualified": true,
+        "cleanup_verified": true,
+        "native_dbv": 3600,
+        "software_refresh": 120.00001,
+        "pwm_hz": null,
+        "limit": "C1 semantics and writable behavior unknown; CRC payload itself not captured.",
+        "in_device_return_gates_verified": true,
+        "page_entries_standalone": true
+      },
+      "hold_start_utc": "2026-11-08T16:59:06.558090+00:00",
+      "hold_start_monotonic": 604958.844211023,
+      "hold_end_utc": "2026-11-08T16:59:12.474553+00:00",
+      "hold_end_monotonic": 604964.760664951,
+      "hold_seconds": 4.5,
+      "observed_sensor_frames": 150,
+      "stable_encoded_frames": null,
+      "camera_start": {
+        "camera_id": "0",
+        "client_package": "net.sourceforge.opencamera",
+        "session_token": "708adb8a36ca46153a5990f4fef96b8ed616c3087dd3cb3d6d05fe0c7d355e11",
+        "request": {
+          "exposure_ns": 100000,
+          "iso": 6400,
+          "ae_mode": "OFF",
+          "af_mode": "OFF",
+          "focus_diopters": 2.0387485,
+          "crop": [
+            0,
+            0,
+            4080,
+            3072
+          ],
+          "zoom": 1.0,
+          "eis_mode": "OFF",
+          "ois_mode": "OFF",
+          "capture_intent": "VIDEO_RECORD",
+          "request_id": 298,
+          "frame_duration_ns": 33333333
+        },
+        "result": {
+          "exposure_ns": 100000,
+          "iso": 6400,
+          "ae_mode": "OFF",
+          "af_mode": "OFF",
+          "focus_diopters": 2.0387485,
+          "crop": [
+            0,
+            0,
+            4080,
+            3072
+          ],
+          "zoom": 1.0,
+          "eis_mode": "OFF",
+          "ois_mode": "OFF",
+          "capture_intent": "VIDEO_RECORD",
+          "request_id": 298,
+          "frame_duration_ns": 33350000,
+          "frame_count": 767188,
+          "timestamp_ns": 35444381827000,
+          "rolling_shutter_skew_ns": 15047630
+        },
+        "streams": [
+          {
+            "id": 37,
+            "width": 1920,
+            "height": 1080,
+            "pixel_format": "0x11",
+            "state": 4,
+            "consumer_kind": "SurfaceTexture",
+            "frames_produced": 792,
+            "last_timestamp_ns": 35444381827000,
+            "requested": true
+          },
+          {
+            "id": 38,
+            "width": 1280,
+            "height": 720,
+            "pixel_format": "0x1000",
+            "state": 4,
+            "consumer_kind": "GraphicBufferSource",
+            "frames_produced": 793,
+            "last_timestamp_ns": 35444415160000,
+            "requested": true
+          },
+          {
+            "id": 39,
+            "width": 3840,
+            "height": 2160,
+            "pixel_format": "0x21",
+            "state": 4,
+            "consumer_kind": "ImageReader",
+            "frames_produced": 0,
+            "last_timestamp_ns": 0,
+            "requested": false
+          }
+        ],
+        "recording_verified": true,
+        "encoder_stream_id": 38,
+        "frame_count": 767188,
+        "timestamp_ns": 35444381827000,
+        "frame_duration_ns": 33350000,
+        "rolling_shutter_skew_ns": 15047630,
+        "progress_verified": true,
+        "interpretation": "Settings and stream snapshots only; not per-frame video metadata or optical Hz.",
+        "host_call_start_utc": "2026-11-08T16:59:06.558118+00:00",
+        "host_call_end_utc": "2026-11-08T16:59:07.180938+00:00",
+        "host_call_elapsed_seconds": 0.6228120229206979,
+        "host_capture_bounds": {
+          "begin_monotonic": 604958.844213727,
+          "end_monotonic": 604959.46702575,
+          "begin_utc": "2026-11-08T16:59:06.558118+00:00",
+          "end_utc": "2026-11-08T16:59:07.180938+00:00",
+          "limit": "Call bounds only, not synchronized sensor/encoded PTS or per-frame metadata."
+        }
+      },
+      "camera_end": {
+        "camera_id": "0",
+        "client_package": "net.sourceforge.opencamera",
+        "session_token": "708adb8a36ca46153a5990f4fef96b8ed616c3087dd3cb3d6d05fe0c7d355e11",
+        "request": {
+          "exposure_ns": 100000,
+          "iso": 6400,
+          "ae_mode": "OFF",
+          "af_mode": "OFF",
+          "focus_diopters": 2.0387485,
+          "crop": [
+            0,
+            0,
+            4080,
+            3072
+          ],
+          "zoom": 1.0,
+          "eis_mode": "OFF",
+          "ois_mode": "OFF",
+          "capture_intent": "VIDEO_RECORD",
+          "request_id": 298,
+          "frame_duration_ns": 33333333
+        },
+        "result": {
+          "exposure_ns": 100000,
+          "iso": 6400,
+          "ae_mode": "OFF",
+          "af_mode": "OFF",
+          "focus_diopters": 2.0387485,
+          "crop": [
+            0,
+            0,
+            4080,
+            3072
+          ],
+          "zoom": 1.0,
+          "eis_mode": "OFF",
+          "ois_mode": "OFF",
+          "capture_intent": "VIDEO_RECORD",
+          "request_id": 298,
+          "frame_duration_ns": 33350000,
+          "frame_count": 767338,
+          "timestamp_ns": 35449381768000,
+          "rolling_shutter_skew_ns": 15047630
+        },
+        "streams": [
+          {
+            "id": 37,
+            "width": 1920,
+            "height": 1080,
+            "pixel_format": "0x11",
+            "state": 4,
+            "consumer_kind": "SurfaceTexture",
+            "frames_produced": 942,
+            "last_timestamp_ns": 35449381768000,
+            "requested": true
+          },
+          {
+            "id": 38,
+            "width": 1280,
+            "height": 720,
+            "pixel_format": "0x1000",
+            "state": 4,
+            "consumer_kind": "GraphicBufferSource",
+            "frames_produced": 943,
+            "last_timestamp_ns": 35449415101000,
+            "requested": true
+          },
+          {
+            "id": 39,
+            "width": 3840,
+            "height": 2160,
+            "pixel_format": "0x21",
+            "state": 4,
+            "consumer_kind": "ImageReader",
+            "frames_produced": 0,
+            "last_timestamp_ns": 0,
+            "requested": false
+          }
+        ],
+        "recording_verified": true,
+        "encoder_stream_id": 38,
+        "frame_count": 767338,
+        "timestamp_ns": 35449381768000,
+        "frame_duration_ns": 33350000,
+        "rolling_shutter_skew_ns": 15047630,
+        "progress_verified": true,
+        "interpretation": "Settings and stream snapshots only; not per-frame video metadata or optical Hz.",
+        "host_call_start_utc": "2026-11-08T16:59:11.689473+00:00",
+        "host_call_end_utc": "2026-11-08T16:59:12.469624+00:00",
+        "host_call_elapsed_seconds": 0.7801583219552413,
+        "host_capture_bounds": {
+          "begin_monotonic": 604963.975556336,
+          "end_monotonic": 604964.755714658,
+          "begin_utc": "2026-11-08T16:59:11.689473+00:00",
+          "end_utc": "2026-11-08T16:59:12.469624+00:00",
+          "limit": "Call bounds only, not synchronized sensor/encoded PTS or per-frame metadata."
+        }
+      },
+      "hold_markers": {
+        "begin": "PWM_P85_p85_stock_a001_20261108_01_BASELINE_HOLD_BEGIN",
+        "end": "PWM_P85_p85_stock_a001_20261108_01_BASELINE_HOLD_END"
+      },
+      "elapsed_seconds": 34.388664625003
+    }
+  ],
+  "qualification": null,
+  "unknown_value_write_attempted": false,
+  "candidate_attempts": 0,
+  "register85_writes_attempted": [
+    "sham15"
+  ],
+  "limit": "No physical Hz or optical recovery conclusion from this runner.",
+  "before": {
+    "screen_brightness": "98",
+    "screen_brightness_mode": "0",
+    "min_refresh_rate": "120.0",
+    "peak_refresh_rate": "120.0",
+    "screen_off_timeout": "1800000",
+    "native_dbv": 828,
+    "logger": 0
+  },
+  "watchdog_state": "disarmed_verified",
+  "fresh_native_anchor": [
+    {
+      "software_requested_hz": 90,
+      "native_peak_hz": 90,
+      "native_actual_hz": 90,
+      "native_group": 5,
+      "clock_rate": 1234000000,
+      "width": 1440,
+      "height": 3168,
+      "timing_node": "timing@2",
+      "fresh_native_events": 1,
+      "begin_marker": "PWM_P85_p85_stock_a001_20261108_01_ANCHOR_BEGIN_90",
+      "end_marker": "PWM_P85_p85_stock_a001_20261108_01_ANCHOR_END_90"
+    },
+    {
+      "software_requested_hz": 120,
+      "native_peak_hz": 120,
+      "native_actual_hz": 120,
+      "native_group": 3,
+      "clock_rate": 1234000000,
+      "width": 1440,
+      "height": 3168,
+      "timing_node": "timing@0",
+      "fresh_native_events": 2,
+      "begin_marker": "PWM_P85_p85_stock_a001_20261108_01_ANCHOR_BEGIN_120",
+      "end_marker": "PWM_P85_p85_stock_a001_20261108_01_ANCHOR_END_120"
+    }
+  ],
+  "setup_brightness": {
+    "requested_dbv": 3600,
+    "native_logged_values": [
+      3600
+    ],
+    "same_value_cached_allowed": false
+  },
+  "initial_quiet": {
+    "begin_marker": "PWM_P85_p85_stock_a001_20261108_01_QUIET_BEGIN_INITIAL_0",
+    "end_marker": "PWM_P85_p85_stock_a001_20261108_01_QUIET_END_INITIAL_0",
+    "native_state": {
+      "width": 1440,
+      "height": 3168,
+      "software_peak_hz": 120,
+      "native_actual_hz": 120,
+      "native_group": 3,
+      "clock_rate": 1234000000,
+      "timing_node": "timing@0",
+      "evidence": "latest retained dsi_display_set_mode anchor, not physical PWM"
+    },
+    "quiet_seconds": 2,
+    "race_limit": "not an atomic compositor lock"
+  },
+  "recording_start_host_bounds": {
+    "begin_monotonic": 604929.149474881,
+    "begin_utc": "2026-11-08T16:58:36.863386+00:00",
+    "end_monotonic": 604932.618502165,
+    "end_utc": "2026-11-08T16:58:40.332413+00:00"
+  },
+  "recording_preflight": [
+    {
+      "camera_id": "0",
+      "client_package": "net.sourceforge.opencamera",
+      "session_token": "708adb8a36ca46153a5990f4fef96b8ed616c3087dd3cb3d6d05fe0c7d355e11",
+      "request": {
+        "exposure_ns": 100000,
+        "iso": 6400,
+        "ae_mode": "OFF",
+        "af_mode": "OFF",
+        "focus_diopters": 2.0387485,
+        "crop": [
+          0,
+          0,
+          4080,
+          3072
+        ],
+        "zoom": 1.0,
+        "eis_mode": "OFF",
+        "ois_mode": "OFF",
+        "capture_intent": "VIDEO_RECORD",
+        "request_id": 298,
+        "frame_duration_ns": 33333333
+      },
+      "result": {
+        "exposure_ns": 100000,
+        "iso": 6400,
+        "ae_mode": "OFF",
+        "af_mode": "OFF",
+        "focus_diopters": 2.0387485,
+        "crop": [
+          0,
+          0,
+          4080,
+          3072
+        ],
+        "zoom": 1.0,
+        "eis_mode": "OFF",
+        "ois_mode": "OFF",
+        "capture_intent": "VIDEO_RECORD",
+        "request_id": 298,
+        "frame_duration_ns": 33350000,
+        "frame_count": 766401,
+        "timestamp_ns": 35418148805000,
+        "rolling_shutter_skew_ns": 15047630
+      },
+      "streams": [
+        {
+          "id": 37,
+          "width": 1920,
+          "height": 1080,
+          "pixel_format": "0x11",
+          "state": 4,
+          "consumer_kind": "SurfaceTexture",
+          "frames_produced": 6,
+          "last_timestamp_ns": 35418182138000,
+          "requested": true
+        },
+        {
+          "id": 38,
+          "width": 1280,
+          "height": 720,
+          "pixel_format": "0x1000",
+          "state": 4,
+          "consumer_kind": "GraphicBufferSource",
+          "frames_produced": 6,
+          "last_timestamp_ns": 35418182138000,
+          "requested": true
+        },
+        {
+          "id": 39,
+          "width": 3840,
+          "height": 2160,
+          "pixel_format": "0x21",
+          "state": 4,
+          "consumer_kind": "ImageReader",
+          "frames_produced": 0,
+          "last_timestamp_ns": 0,
+          "requested": false
+        }
+      ],
+      "recording_verified": true,
+      "encoder_stream_id": 38,
+      "frame_count": 766401,
+      "timestamp_ns": 35418148805000,
+      "frame_duration_ns": 33350000,
+      "rolling_shutter_skew_ns": 15047630,
+      "progress_verified": false,
+      "interpretation": "Settings and stream snapshots only; not per-frame video metadata or optical Hz.",
+      "host_call_start_utc": "2026-11-08T16:58:40.332436+00:00",
+      "host_call_end_utc": "2026-11-08T16:58:41.175096+00:00",
+      "host_call_elapsed_seconds": 0.8426539060892537,
+      "host_capture_bounds": {
+        "begin_monotonic": 604932.618531719,
+        "end_monotonic": 604933.461185625,
+        "begin_utc": "2026-11-08T16:58:40.332436+00:00",
+        "end_utc": "2026-11-08T16:58:41.175096+00:00",
+        "limit": "Call bounds only, not synchronized sensor/encoded PTS or per-frame metadata."
+      }
+    },
+    {
+      "camera_id": "0",
+      "client_package": "net.sourceforge.opencamera",
+      "session_token": "708adb8a36ca46153a5990f4fef96b8ed616c3087dd3cb3d6d05fe0c7d355e11",
+      "request": {
+        "exposure_ns": 100000,
+        "iso": 6400,
+        "ae_mode": "OFF",
+        "af_mode": "OFF",
+        "focus_diopters": 2.0387485,
+        "crop": [
+          0,
+          0,
+          4080,
+          3072
+        ],
+        "zoom": 1.0,
+        "eis_mode": "OFF",
+        "ois_mode": "OFF",
+        "capture_intent": "VIDEO_RECORD",
+        "request_id": 298,
+        "frame_duration_ns": 33333333
+      },
+      "result": {
+        "exposure_ns": 100000,
+        "iso": 6400,
+        "ae_mode": "OFF",
+        "af_mode": "OFF",
+        "focus_diopters": 2.0387485,
+        "crop": [
+          0,
+          0,
+          4080,
+          3072
+        ],
+        "zoom": 1.0,
+        "eis_mode": "OFF",
+        "ois_mode": "OFF",
+        "capture_intent": "VIDEO_RECORD",
+        "request_id": 298,
+        "frame_duration_ns": 33350000,
+        "frame_count": 766432,
+        "timestamp_ns": 35419182126000,
+        "rolling_shutter_skew_ns": 15047630
+      },
+      "streams": [
+        {
+          "id": 37,
+          "width": 1920,
+          "height": 1080,
+          "pixel_format": "0x11",
+          "state": 4,
+          "consumer_kind": "SurfaceTexture",
+          "frames_produced": 36,
+          "last_timestamp_ns": 35419182126000,
+          "requested": true
+        },
+        {
+          "id": 38,
+          "width": 1280,
+          "height": 720,
+          "pixel_format": "0x1000",
+          "state": 4,
+          "consumer_kind": "GraphicBufferSource",
+          "frames_produced": 36,
+          "last_timestamp_ns": 35419182126000,
+          "requested": true
+        },
+        {
+          "id": 39,
+          "width": 3840,
+          "height": 2160,
+          "pixel_format": "0x21",
+          "state": 4,
+          "consumer_kind": "ImageReader",
+          "frames_produced": 0,
+          "last_timestamp_ns": 0,
+          "requested": false
+        }
+      ],
+      "recording_verified": true,
+      "encoder_stream_id": 38,
+      "frame_count": 766432,
+      "timestamp_ns": 35419182126000,
+      "frame_duration_ns": 33350000,
+      "rolling_shutter_skew_ns": 15047630,
+      "progress_verified": true,
+      "interpretation": "Settings and stream snapshots only; not per-frame video metadata or optical Hz.",
+      "host_call_start_utc": "2026-11-08T16:58:41.431025+00:00",
+      "host_call_end_utc": "2026-11-08T16:58:41.963510+00:00",
+      "host_call_elapsed_seconds": 0.5324934750096872,
+      "host_capture_bounds": {
+        "begin_monotonic": 604933.717107563,
+        "end_monotonic": 604934.249601038,
+        "begin_utc": "2026-11-08T16:58:41.431025+00:00",
+        "end_utc": "2026-11-08T16:58:41.963510+00:00",
+        "limit": "Call bounds only, not synchronized sensor/encoded PTS or per-frame metadata."
+      }
+    }
+  ],
+  "baseline_review_image_sha256": "2837a5d6d84e564e26d8e1942bf85b2a87cb434758f29d0407fe66a6038f173a",
+  "baseline_review_image_private_label": "baseline-camera-review.png",
+  "error_type": "ValueError",
+  "recovery_reboot_attempted": true,
+  "reboot_request_accepted": true,
+  "recovery_reboot_verified": true,
+  "candidate_may_be_active": false,
+  "physical_ddic_recovery_unverified": true,
+  "camera_stopped_verified": true,
+  "video_profile": {
+    "codec": "h264",
+    "size": [
+      1280,
+      720
+    ],
+    "audio_streams": 0,
+    "encoded_average_fps": 30.0,
+    "duration_seconds": 99.698811,
+    "pwm_hz": null
+  },
+  "video_private_label": "capture.mp4",
+  "video_bytes": 103207433,
+  "camera_ui_temp_removed": true,
+  "original_settings_dbv_logger_restored": true,
+  "watchdog_disarmed": true,
+  "mutex_released": true,
+  "finished_at_utc": "2026-11-08T17:00:57.191858+00:00"
+}

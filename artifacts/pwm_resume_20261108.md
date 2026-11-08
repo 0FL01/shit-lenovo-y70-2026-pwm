@@ -212,3 +212,31 @@ framed captures имеют правильные фактические returns �
 ни частотная семантика, ни безопасность альтернативного бита не установлены.
 Unknown-value 85 write пока не выполнялся; Android-интерфейс для неизвестного
 профиля не выдаётся за готовое решение.
+
+### Первая P85 stock-only квалификация: отказ до writer packet
+
+[Серия 01](p85_stock_a001_20261108_01/result.md) начала same-video baseline/sham15/
+return15 протокол без неизвестного 14. Baseline при DBV 3600/native actual 120
+прошёл с P85 `15 00 00` и C1 `00 00 60`. Первый writer gate затем передал слишком
+большой retained dmesg как один argv внешнему Android printf. Отказ произошёл
+до первой команды writer: trace пуст, все пять probe counters нулевые.
+Таким образом, same-value85 write ещё не live-qualified, а 14 не отправлялся.
+
+Guard выбрал один same-target reboot вместо дальнейшего DSI. Новая загрузка,
+identity/root/Enforcing/DC0, исходные settings/native 828/logger, остановка камеры,
+watchdog disarm и mutex release подтверждены. Исходная failed запись сохранена.
+Raw video/screenshots не публикуются и не анализируются как завершённая
+stock/sham/return серия.
+
+Исправление [изолированного runner](p85_guarded_runner_20261108.md) использует
+owned bounded files и прямые awk/cmp вместо неограниченных argv. Независимые
+тесты воспроизводят legacy E2BIG настоящим external printf с 2 MiB журнала,
+проверяют exact gates и fail-closed oversized/read-error paths. Логи не очищались.
+Перед новым выполнением relevant executable sources должны быть committed/clean;
+HEAD и десять Git blob IDs фиксируются в отчёте для воспроизводимости.
+
+Measured baseline занял 34.389 с, поэтому нынешний conservative candidate timing
+gate не проходит. Лимиты 45/60 с не увеличивались. Следующая новая квалификация
+использует только заводской 15; неизвестный 14 требует отдельного успешного
+stock video review и допустимого измеренного timing budget. Аппаратная frequency
+семантика 85 и физические >=2000 Гц остаются unknown.
