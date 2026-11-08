@@ -2,6 +2,15 @@
 
 Статус: **R3 активна; физические PWM >=2000 Гц не доказаны.**
 
+Новейший offline компонент: [interval validator](../06-tools/offline_local_interval_spike/README.md)
+прошёл независимый bounded review. Read/quiet/pre-dispatch/guard checks включают
+END-tail, unique markers и real quiet duration; normal/-O, 39 saved snapshots,
+324 mutations и invalid-input/producer-failure regressions подтверждены.
+Следом переносится byte-envelope boundary с trusted plan и точными длинами,
+без controller или device calls. Все runtime sources и последнее восстановленное
+состояние устройств остаются прежними; acquisition/provenance/lifecycle ещё
+не квалифицированы. Capture/writer checkpoint опубликован как `3bf33d60a33af3657bf278e00252f797a4d2c182`.
+
 Последний offline checkpoint: [local-validator feasibility spike](../06-tools/offline_local_validator_spike/README.md)
 прошёл независимый review и 9 tests normal/-O. Все известные capture/writer
 false accepts исправлены; 8334 capture и 20480 writer mutations не дали

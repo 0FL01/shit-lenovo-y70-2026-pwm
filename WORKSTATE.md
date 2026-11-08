@@ -1,5 +1,11 @@
 # Long-lived agent progress journal
 
+Checkpoint 2026-11-08, **offline interval validator прошёл независимый review; byte-envelope boundary следующая.**
+
+- [Отдельный interval spike](06-tools/offline_local_interval_spike/README.md) проверяет read/quiet/pre-dispatch/guard snapshots, unique markers, native reference, actual quiet duration и END-to-dump tail. Normal/-O: 312 synthetic cases, 39 saved snapshots, 324 corpus mutations; все 78 принятых mutations согласуются с combined Python oracle. Дополнительно 42 invalid-argument и 24 producer-failure/cleanup проверки. Lead и reviewer повторили suite, reviewer проверил exact16MiB/boundary cases. Исходные 56 runtime Python files не менялись.
+- Найденные empty-marker hang и скрытая nonzero producer status исправлены до qualification. Это только bounded offline feasibility на заявленном dialect; universal equivalence и Android/controller readiness не установлены. GUARD_TIMING, fresh acquisition/source/ownership, stage-origin binding, exact read policy, camera/deadline/watchdog/recovery остаются внешними обязательными gates.
+- Следующий изолированный offline компонент переносит строгий byte-envelope decoder с trusted plan/nonce/section lengths/status/DONE, без выполнения children. Capture/state/writer spike опубликован и remote проверен в `3bf33d60a33af3657bf278e00252f797a4d2c182`. Устройства после timed03 не затрагивались; unknown14 выключен и PWM >=2000 Гц не доказаны.
+
 Checkpoint 2026-11-08, **offline local-validator feasibility прошла независимый review; live controller ещё нет.**
 
 - [Изолированный spike](06-tools/offline_local_validator_spike/README.md) переносит только completed-capture, state-content и stock-writer wire/native semantics в portable shell/AWK/files. Строгие whole-line grammars устранили найденные false accepts; все 21 saved captures/state и шесть writer windows проходят. Девять tests normal/-O подтверждены автором, lead и reviewer; 8334 capture mutations/131 accepted и 20480 writer mutations/8906 accepted не дали port-accept/oracle-reject. Это конечный проверенный corpus, не доказательство universal equivalence. Прежний suite 240 PASS, 2 skips; qualified runtime sources не изменены.

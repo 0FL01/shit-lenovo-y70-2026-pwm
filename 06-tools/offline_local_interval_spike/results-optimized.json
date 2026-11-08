@@ -1,0 +1,25 @@
+{
+  "frozen_runtime_files": 56,
+  "invocation": {
+    "cleanup_verified": 24,
+    "invalid_arguments": 42,
+    "producer_failures": 24
+  },
+  "python_optimized": true,
+  "saved_corpus": {
+    "accepted": 39,
+    "guard_snapshot_rechecks": 6,
+    "mutation_accepted": 78,
+    "mutation_cases": 324,
+    "oracle_rejections": 0,
+    "snapshots": 39,
+    "strict_rejections": 0
+  },
+  "scope": "OFFLINE ONLY",
+  "synthetic": {
+    "accepted": 164,
+    "cases": 312,
+    "oracle_rejections": 95,
+    "strict_rejections": 53
+  }
+}
