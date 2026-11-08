@@ -1,0 +1,26 @@
+{
+  "started_at_utc": "2026-11-08T14:43:31.636500+00:00",
+  "module_sha256": "1bec69faec736e7288f38e4cb83314c37c60d33e6b383213316fd880aa0b1804",
+  "nonce": "4757710b0104",
+  "physical_operation_attempted": true,
+  "pwm_hz": null,
+  "page": "23",
+  "opcode": "C1",
+  "requested": 3,
+  "data": [
+    0,
+    0,
+    128
+  ],
+  "header_hex": "1c 03 00 16",
+  "raw_hardware_count": 9,
+  "normalized_count": 9,
+  "scratch_allocation": 16,
+  "single_receive": true,
+  "framing_qualified": true,
+  "cleanup_verified": true,
+  "native_dbv": 3600,
+  "software_refresh": 90.0,
+  "limit": "C1 semantics and writable behavior unknown; CRC payload itself not captured.",
+  "finished_at_utc": "2026-11-08T14:43:33.749054+00:00"
+}

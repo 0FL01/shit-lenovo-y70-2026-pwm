@@ -1,0 +1,88 @@
+{
+  "camera": "Nothing A001/Galaga",
+  "profile": "Open Camera rear Camera2, ISO6400, manual focus2.03874850, AE/AF/OIS/EIS OFF",
+  "qualification": "preview-only active request/result pair with advancing sensor timestamps and30fps; recording values must be requalified before measurement",
+  "seekbar_bounds": [
+    251,
+    1593,
+    907,
+    1672
+  ],
+  "coordinate_samples": [
+    {
+      "x": 300,
+      "exposure_ns": 100000
+    },
+    {
+      "x": 320,
+      "exposure_ns": 142857
+    },
+    {
+      "x": 340,
+      "exposure_ns": 250000
+    },
+    {
+      "x": 348,
+      "exposure_ns": 333333
+    },
+    {
+      "x": 352,
+      "exposure_ns": 333333
+    },
+    {
+      "x": 356,
+      "exposure_ns": 500000
+    },
+    {
+      "x": 360,
+      "exposure_ns": 500000
+    },
+    {
+      "x": 364,
+      "exposure_ns": 1000000
+    },
+    {
+      "x": 368,
+      "exposure_ns": 1000000
+    },
+    {
+      "x": 372,
+      "exposure_ns": 1111111
+    },
+    {
+      "x": 376,
+      "exposure_ns": 1111111
+    },
+    {
+      "x": 380,
+      "exposure_ns": 1250000
+    },
+    {
+      "x": 384,
+      "exposure_ns": 1250000
+    },
+    {
+      "x": 388,
+      "exposure_ns": 1428571
+    },
+    {
+      "x": 392,
+      "exposure_ns": 1428571
+    },
+    {
+      "x": 396,
+      "exposure_ns": 1666666
+    },
+    {
+      "x": 400,
+      "exposure_ns": 1666666
+    },
+    {
+      "x": 420,
+      "exposure_ns": 3333333
+    }
+  ],
+  "restored_exposure_ns": 100000,
+  "original_iso": 6400,
+  "limit": "UI coordinates are session geometry, not portable camera API. Long-exposure binary-search attempt was rejected when frame duration changed;100us restoration verified."
+}

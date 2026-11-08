@@ -1,0 +1,3191 @@
+{
+  "started_at_utc": "2026-11-08T14:26:26.712987+00:00",
+  "authorization": {
+    "experiment_id": "a9_a001_20261108_01",
+    "mode": "a9_reproduction",
+    "sequence": [
+      "stock",
+      "a9_only",
+      "stock"
+    ],
+    "candidates": [
+      "a9_only"
+    ],
+    "program_sha256": {
+      "stock": "b5ed66ba69e6221de5fdeaf4d003c9628602d743880acd1c8e2cf7198facd193",
+      "a9_only": "d5dba3cc81f0fd53a9aae3161cf7dccb03dd9e424a81425d0d00dedee51a54cd"
+    },
+    "native_dbv": 3600,
+    "output": "artifacts/a9_a001_20261108_01",
+    "emergency_reboot_approved": true,
+    "watchdog_reboot_approved": true,
+    "watchdog_seconds": 600,
+    "camera_profile": "A001_Galaga_OpenCamera_1.56.2_720p_h264_no_audio_100us_iso6400"
+  },
+  "candidate_attempts": 1,
+  "candidate_attempts_by_name": {
+    "a9_only": 1
+  },
+  "stages": [
+    {
+      "label": "baseline",
+      "started_at_utc": "2026-11-08T14:27:16.723292+00:00",
+      "chunks_verified": 5,
+      "native_packets_matched": 75,
+      "transmission_verified_at_utc": "2026-11-08T14:27:24.245197+00:00",
+      "same_dbv_replay": {
+        "at_utc": "2026-11-08T14:27:27.116967+00:00",
+        "dbv": 3600,
+        "observed_writes": [
+          {
+            "length": 3,
+            "type": 57,
+            "mode": "hs",
+            "payload": "51 0e 10"
+          }
+        ]
+      },
+      "redraw_audit": {
+        "method": "native_timeout_chooser_open_cancel",
+        "native_dsi_writes": 0,
+        "marker_interval_verified": true
+      },
+      "redraw_completed": true,
+      "stock_redraw_completed": true,
+      "readback": {
+        "values": {
+          "23:A9": [
+            14
+          ],
+          "24:9D": [
+            14
+          ],
+          "00:52": [
+            14,
+            16
+          ]
+        },
+        "esd": "reg_read",
+        "page_callbacks_verified": 7,
+        "at_utc": "2026-11-08T14:27:47.144477+00:00"
+      },
+      "camera_start": {
+        "camera_id": "0",
+        "client_package": "net.sourceforge.opencamera",
+        "session_token": "708adb8a36ca46153a5990f4fef96b8ed616c3087dd3cb3d6d05fe0c7d355e11",
+        "request": {
+          "exposure_ns": 100000,
+          "iso": 6400,
+          "ae_mode": "OFF",
+          "af_mode": "OFF",
+          "focus_diopters": 2.0387485,
+          "crop": [
+            0,
+            0,
+            4080,
+            3072
+          ],
+          "zoom": 1.0,
+          "eis_mode": "OFF",
+          "ois_mode": "OFF",
+          "capture_intent": "VIDEO_RECORD",
+          "request_id": 40,
+          "frame_duration_ns": 33333333
+        },
+        "result": {
+          "exposure_ns": 100000,
+          "iso": 6400,
+          "ae_mode": "OFF",
+          "af_mode": "OFF",
+          "focus_diopters": 2.0387485,
+          "crop": [
+            0,
+            0,
+            4080,
+            3072
+          ],
+          "zoom": 1.0,
+          "eis_mode": "OFF",
+          "ois_mode": "OFF",
+          "capture_intent": "VIDEO_RECORD",
+          "request_id": 40,
+          "frame_duration_ns": 33350000,
+          "frame_count": 495307,
+          "timestamp_ns": 26367140599000,
+          "rolling_shutter_skew_ns": 15047630
+        },
+        "streams": [
+          {
+            "id": 7,
+            "width": 1920,
+            "height": 1080,
+            "pixel_format": "0x11",
+            "state": 4,
+            "consumer_kind": "SurfaceTexture",
+            "frames_produced": 1202,
+            "last_timestamp_ns": 26367140599000,
+            "requested": true
+          },
+          {
+            "id": 8,
+            "width": 1280,
+            "height": 720,
+            "pixel_format": "0x1000",
+            "state": 4,
+            "consumer_kind": "GraphicBufferSource",
+            "frames_produced": 1202,
+            "last_timestamp_ns": 26367140599000,
+            "requested": true
+          },
+          {
+            "id": 9,
+            "width": 3840,
+            "height": 2160,
+            "pixel_format": "0x21",
+            "state": 4,
+            "consumer_kind": "ImageReader",
+            "frames_produced": 0,
+            "last_timestamp_ns": 0,
+            "requested": false
+          }
+        ],
+        "recording_verified": true,
+        "encoder_stream_id": 8,
+        "frame_count": 495307,
+        "timestamp_ns": 26367140599000,
+        "frame_duration_ns": 33350000,
+        "rolling_shutter_skew_ns": 15047630,
+        "progress_verified": true,
+        "interpretation": "Settings and stream snapshots only; not per-frame video metadata or optical Hz."
+      },
+      "hold_start_utc": "2026-11-08T14:27:50.611026+00:00",
+      "hold_end_utc": "2026-11-08T14:27:57.612733+00:00",
+      "camera_end": {
+        "camera_id": "0",
+        "client_package": "net.sourceforge.opencamera",
+        "session_token": "708adb8a36ca46153a5990f4fef96b8ed616c3087dd3cb3d6d05fe0c7d355e11",
+        "request": {
+          "exposure_ns": 100000,
+          "iso": 6400,
+          "ae_mode": "OFF",
+          "af_mode": "OFF",
+          "focus_diopters": 2.0387485,
+          "crop": [
+            0,
+            0,
+            4080,
+            3072
+          ],
+          "zoom": 1.0,
+          "eis_mode": "OFF",
+          "ois_mode": "OFF",
+          "capture_intent": "VIDEO_RECORD",
+          "request_id": 40,
+          "frame_duration_ns": 33333333
+        },
+        "result": {
+          "exposure_ns": 100000,
+          "iso": 6400,
+          "ae_mode": "OFF",
+          "af_mode": "OFF",
+          "focus_diopters": 2.0387485,
+          "crop": [
+            0,
+            0,
+            4080,
+            3072
+          ],
+          "zoom": 1.0,
+          "eis_mode": "OFF",
+          "ois_mode": "OFF",
+          "capture_intent": "VIDEO_RECORD",
+          "request_id": 40,
+          "frame_duration_ns": 33350000,
+          "frame_count": 495643,
+          "timestamp_ns": 26378340465000,
+          "rolling_shutter_skew_ns": 15047630
+        },
+        "streams": [
+          {
+            "id": 7,
+            "width": 1920,
+            "height": 1080,
+            "pixel_format": "0x11",
+            "state": 4,
+            "consumer_kind": "SurfaceTexture",
+            "frames_produced": 1538,
+            "last_timestamp_ns": 26378340465000,
+            "requested": true
+          },
+          {
+            "id": 8,
+            "width": 1280,
+            "height": 720,
+            "pixel_format": "0x1000",
+            "state": 4,
+            "consumer_kind": "GraphicBufferSource",
+            "frames_produced": 1539,
+            "last_timestamp_ns": 26378373798000,
+            "requested": true
+          },
+          {
+            "id": 9,
+            "width": 3840,
+            "height": 2160,
+            "pixel_format": "0x21",
+            "state": 4,
+            "consumer_kind": "ImageReader",
+            "frames_produced": 0,
+            "last_timestamp_ns": 0,
+            "requested": false
+          }
+        ],
+        "recording_verified": true,
+        "encoder_stream_id": 8,
+        "frame_count": 495643,
+        "timestamp_ns": 26378340465000,
+        "frame_duration_ns": 33350000,
+        "rolling_shutter_skew_ns": 15047630,
+        "progress_verified": true,
+        "interpretation": "Settings and stream snapshots only; not per-frame video metadata or optical Hz."
+      },
+      "hold_no_native_dsi_writes_verified": true,
+      "completion_error_log_checked_through_utc": "2026-11-08T14:28:01.998025+00:00",
+      "readback_after_hold": {
+        "values": {
+          "23:A9": [
+            14
+          ],
+          "24:9D": [
+            14
+          ],
+          "00:52": [
+            14,
+            16
+          ]
+        },
+        "esd": "reg_read",
+        "page_callbacks_verified": 7,
+        "at_utc": "2026-11-08T14:28:04.491014+00:00"
+      }
+    },
+    {
+      "label": "a9_only",
+      "started_at_utc": "2026-11-08T14:28:06.784727+00:00",
+      "chunks_verified": 5,
+      "native_packets_matched": 75,
+      "transmission_verified_at_utc": "2026-11-08T14:28:14.476996+00:00",
+      "same_dbv_replay": {
+        "at_utc": "2026-11-08T14:28:17.404794+00:00",
+        "dbv": 3600,
+        "observed_writes": [
+          {
+            "length": 3,
+            "type": 57,
+            "mode": "hs",
+            "payload": "51 0e 10"
+          }
+        ]
+      },
+      "redraw_audit": {
+        "method": "native_timeout_chooser_open_cancel",
+        "native_dsi_writes": 0,
+        "marker_interval_verified": true
+      },
+      "redraw_completed": true,
+      "readback": {
+        "values": {
+          "23:A9": [
+            142
+          ],
+          "24:9D": [
+            14
+          ],
+          "00:52": [
+            14,
+            16
+          ]
+        },
+        "esd": "reg_read",
+        "page_callbacks_verified": 7,
+        "at_utc": "2026-11-08T14:28:33.655297+00:00"
+      },
+      "camera_start": {
+        "camera_id": "0",
+        "client_package": "net.sourceforge.opencamera",
+        "session_token": "708adb8a36ca46153a5990f4fef96b8ed616c3087dd3cb3d6d05fe0c7d355e11",
+        "request": {
+          "exposure_ns": 100000,
+          "iso": 6400,
+          "ae_mode": "OFF",
+          "af_mode": "OFF",
+          "focus_diopters": 2.0387485,
+          "crop": [
+            0,
+            0,
+            4080,
+            3072
+          ],
+          "zoom": 1.0,
+          "eis_mode": "OFF",
+          "ois_mode": "OFF",
+          "capture_intent": "VIDEO_RECORD",
+          "request_id": 40,
+          "frame_duration_ns": 33333333
+        },
+        "result": {
+          "exposure_ns": 100000,
+          "iso": 6400,
+          "ae_mode": "OFF",
+          "af_mode": "OFF",
+          "focus_diopters": 2.0387485,
+          "crop": [
+            0,
+            0,
+            4080,
+            3072
+          ],
+          "zoom": 1.0,
+          "eis_mode": "OFF",
+          "ois_mode": "OFF",
+          "capture_intent": "VIDEO_RECORD",
+          "request_id": 40,
+          "frame_duration_ns": 33350000,
+          "frame_count": 496705,
+          "timestamp_ns": 26413740043000,
+          "rolling_shutter_skew_ns": 15047630
+        },
+        "streams": [
+          {
+            "id": 7,
+            "width": 1920,
+            "height": 1080,
+            "pixel_format": "0x11",
+            "state": 4,
+            "consumer_kind": "SurfaceTexture",
+            "frames_produced": 2600,
+            "last_timestamp_ns": 26413740043000,
+            "requested": true
+          },
+          {
+            "id": 8,
+            "width": 1280,
+            "height": 720,
+            "pixel_format": "0x1000",
+            "state": 4,
+            "consumer_kind": "GraphicBufferSource",
+            "frames_produced": 2600,
+            "last_timestamp_ns": 26413740043000,
+            "requested": true
+          },
+          {
+            "id": 9,
+            "width": 3840,
+            "height": 2160,
+            "pixel_format": "0x21",
+            "state": 4,
+            "consumer_kind": "ImageReader",
+            "frames_produced": 0,
+            "last_timestamp_ns": 0,
+            "requested": false
+          }
+        ],
+        "recording_verified": true,
+        "encoder_stream_id": 8,
+        "frame_count": 496705,
+        "timestamp_ns": 26413740043000,
+        "frame_duration_ns": 33350000,
+        "rolling_shutter_skew_ns": 15047630,
+        "progress_verified": true,
+        "interpretation": "Settings and stream snapshots only; not per-frame video metadata or optical Hz."
+      },
+      "hold_start_utc": "2026-11-08T14:28:37.328209+00:00",
+      "hold_end_utc": "2026-11-08T14:28:44.329543+00:00",
+      "camera_end": {
+        "camera_id": "0",
+        "client_package": "net.sourceforge.opencamera",
+        "session_token": "708adb8a36ca46153a5990f4fef96b8ed616c3087dd3cb3d6d05fe0c7d355e11",
+        "request": {
+          "exposure_ns": 100000,
+          "iso": 6400,
+          "ae_mode": "OFF",
+          "af_mode": "OFF",
+          "focus_diopters": 2.0387485,
+          "crop": [
+            0,
+            0,
+            4080,
+            3072
+          ],
+          "zoom": 1.0,
+          "eis_mode": "OFF",
+          "ois_mode": "OFF",
+          "capture_intent": "VIDEO_RECORD",
+          "request_id": 40,
+          "frame_duration_ns": 33333333
+        },
+        "result": {
+          "exposure_ns": 100000,
+          "iso": 6400,
+          "ae_mode": "OFF",
+          "af_mode": "OFF",
+          "focus_diopters": 2.0387485,
+          "crop": [
+            0,
+            0,
+            4080,
+            3072
+          ],
+          "zoom": 1.0,
+          "eis_mode": "OFF",
+          "ois_mode": "OFF",
+          "capture_intent": "VIDEO_RECORD",
+          "request_id": 40,
+          "frame_duration_ns": 33350000,
+          "frame_count": 497039,
+          "timestamp_ns": 26424873244000,
+          "rolling_shutter_skew_ns": 15047630
+        },
+        "streams": [
+          {
+            "id": 7,
+            "width": 1920,
+            "height": 1080,
+            "pixel_format": "0x11",
+            "state": 4,
+            "consumer_kind": "SurfaceTexture",
+            "frames_produced": 2933,
+            "last_timestamp_ns": 26424839911000,
+            "requested": true
+          },
+          {
+            "id": 8,
+            "width": 1280,
+            "height": 720,
+            "pixel_format": "0x1000",
+            "state": 4,
+            "consumer_kind": "GraphicBufferSource",
+            "frames_produced": 2934,
+            "last_timestamp_ns": 26424873244000,
+            "requested": true
+          },
+          {
+            "id": 9,
+            "width": 3840,
+            "height": 2160,
+            "pixel_format": "0x21",
+            "state": 4,
+            "consumer_kind": "ImageReader",
+            "frames_produced": 0,
+            "last_timestamp_ns": 0,
+            "requested": false
+          }
+        ],
+        "recording_verified": true,
+        "encoder_stream_id": 8,
+        "frame_count": 497039,
+        "timestamp_ns": 26424873244000,
+        "frame_duration_ns": 33350000,
+        "rolling_shutter_skew_ns": 15047630,
+        "progress_verified": true,
+        "interpretation": "Settings and stream snapshots only; not per-frame video metadata or optical Hz."
+      },
+      "hold_no_native_dsi_writes_verified": true,
+      "completion_error_log_checked_through_utc": "2026-11-08T14:28:48.484031+00:00",
+      "readback_after_hold": {
+        "values": {
+          "23:A9": [
+            142
+          ],
+          "24:9D": [
+            14
+          ],
+          "00:52": [
+            14,
+            16
+          ]
+        },
+        "esd": "reg_read",
+        "page_callbacks_verified": 7,
+        "at_utc": "2026-11-08T14:28:51.370994+00:00"
+      }
+    },
+    {
+      "label": "return_a9_only",
+      "started_at_utc": "2026-11-08T14:28:53.668484+00:00",
+      "chunks_verified": 5,
+      "native_packets_matched": 75,
+      "transmission_verified_at_utc": "2026-11-08T14:29:01.707328+00:00",
+      "same_dbv_replay": {
+        "at_utc": "2026-11-08T14:29:04.590990+00:00",
+        "dbv": 3600,
+        "observed_writes": [
+          {
+            "length": 3,
+            "type": 57,
+            "mode": "hs",
+            "payload": "51 0e 10"
+          }
+        ]
+      },
+      "redraw_audit": {
+        "method": "native_timeout_chooser_open_cancel",
+        "native_dsi_writes": 0,
+        "marker_interval_verified": true
+      },
+      "redraw_completed": true,
+      "stock_redraw_completed": true,
+      "readback": {
+        "values": {
+          "23:A9": [
+            14
+          ],
+          "24:9D": [
+            14
+          ],
+          "00:52": [
+            14,
+            16
+          ]
+        },
+        "esd": "reg_read",
+        "page_callbacks_verified": 7,
+        "at_utc": "2026-11-08T14:29:20.852630+00:00"
+      },
+      "camera_start": {
+        "camera_id": "0",
+        "client_package": "net.sourceforge.opencamera",
+        "session_token": "708adb8a36ca46153a5990f4fef96b8ed616c3087dd3cb3d6d05fe0c7d355e11",
+        "request": {
+          "exposure_ns": 100000,
+          "iso": 6400,
+          "ae_mode": "OFF",
+          "af_mode": "OFF",
+          "focus_diopters": 2.0387485,
+          "crop": [
+            0,
+            0,
+            4080,
+            3072
+          ],
+          "zoom": 1.0,
+          "eis_mode": "OFF",
+          "ois_mode": "OFF",
+          "capture_intent": "VIDEO_RECORD",
+          "request_id": 40,
+          "frame_duration_ns": 33333333
+        },
+        "result": {
+          "exposure_ns": 100000,
+          "iso": 6400,
+          "ae_mode": "OFF",
+          "af_mode": "OFF",
+          "focus_diopters": 2.0387485,
+          "crop": [
+            0,
+            0,
+            4080,
+            3072
+          ],
+          "zoom": 1.0,
+          "eis_mode": "OFF",
+          "ois_mode": "OFF",
+          "capture_intent": "VIDEO_RECORD",
+          "request_id": 40,
+          "frame_duration_ns": 33350000,
+          "frame_count": 498120,
+          "timestamp_ns": 26460906148000,
+          "rolling_shutter_skew_ns": 15047630
+        },
+        "streams": [
+          {
+            "id": 7,
+            "width": 1920,
+            "height": 1080,
+            "pixel_format": "0x11",
+            "state": 4,
+            "consumer_kind": "SurfaceTexture",
+            "frames_produced": 4015,
+            "last_timestamp_ns": 26460906148000,
+            "requested": true
+          },
+          {
+            "id": 8,
+            "width": 1280,
+            "height": 720,
+            "pixel_format": "0x1000",
+            "state": 4,
+            "consumer_kind": "GraphicBufferSource",
+            "frames_produced": 4016,
+            "last_timestamp_ns": 26460939481000,
+            "requested": true
+          },
+          {
+            "id": 9,
+            "width": 3840,
+            "height": 2160,
+            "pixel_format": "0x21",
+            "state": 4,
+            "consumer_kind": "ImageReader",
+            "frames_produced": 0,
+            "last_timestamp_ns": 0,
+            "requested": false
+          }
+        ],
+        "recording_verified": true,
+        "encoder_stream_id": 8,
+        "frame_count": 498120,
+        "timestamp_ns": 26460906148000,
+        "frame_duration_ns": 33350000,
+        "rolling_shutter_skew_ns": 15047630,
+        "progress_verified": true,
+        "interpretation": "Settings and stream snapshots only; not per-frame video metadata or optical Hz."
+      },
+      "hold_start_utc": "2026-11-08T14:29:24.331624+00:00",
+      "hold_end_utc": "2026-11-08T14:29:31.332921+00:00",
+      "camera_end": {
+        "camera_id": "0",
+        "client_package": "net.sourceforge.opencamera",
+        "session_token": "708adb8a36ca46153a5990f4fef96b8ed616c3087dd3cb3d6d05fe0c7d355e11",
+        "request": {
+          "exposure_ns": 100000,
+          "iso": 6400,
+          "ae_mode": "OFF",
+          "af_mode": "OFF",
+          "focus_diopters": 2.0387485,
+          "crop": [
+            0,
+            0,
+            4080,
+            3072
+          ],
+          "zoom": 1.0,
+          "eis_mode": "OFF",
+          "ois_mode": "OFF",
+          "capture_intent": "VIDEO_RECORD",
+          "request_id": 40,
+          "frame_duration_ns": 33333333
+        },
+        "result": {
+          "exposure_ns": 100000,
+          "iso": 6400,
+          "ae_mode": "OFF",
+          "af_mode": "OFF",
+          "focus_diopters": 2.0387485,
+          "crop": [
+            0,
+            0,
+            4080,
+            3072
+          ],
+          "zoom": 1.0,
+          "eis_mode": "OFF",
+          "ois_mode": "OFF",
+          "capture_intent": "VIDEO_RECORD",
+          "request_id": 40,
+          "frame_duration_ns": 33350000,
+          "frame_count": 498450,
+          "timestamp_ns": 26471906016000,
+          "rolling_shutter_skew_ns": 15047630
+        },
+        "streams": [
+          {
+            "id": 7,
+            "width": 1920,
+            "height": 1080,
+            "pixel_format": "0x11",
+            "state": 4,
+            "consumer_kind": "SurfaceTexture",
+            "frames_produced": 4345,
+            "last_timestamp_ns": 26471906016000,
+            "requested": true
+          },
+          {
+            "id": 8,
+            "width": 1280,
+            "height": 720,
+            "pixel_format": "0x1000",
+            "state": 4,
+            "consumer_kind": "GraphicBufferSource",
+            "frames_produced": 4345,
+            "last_timestamp_ns": 26471906016000,
+            "requested": true
+          },
+          {
+            "id": 9,
+            "width": 3840,
+            "height": 2160,
+            "pixel_format": "0x21",
+            "state": 4,
+            "consumer_kind": "ImageReader",
+            "frames_produced": 0,
+            "last_timestamp_ns": 0,
+            "requested": false
+          }
+        ],
+        "recording_verified": true,
+        "encoder_stream_id": 8,
+        "frame_count": 498450,
+        "timestamp_ns": 26471906016000,
+        "frame_duration_ns": 33350000,
+        "rolling_shutter_skew_ns": 15047630,
+        "progress_verified": true,
+        "interpretation": "Settings and stream snapshots only; not per-frame video metadata or optical Hz."
+      },
+      "hold_no_native_dsi_writes_verified": true,
+      "completion_error_log_checked_through_utc": "2026-11-08T14:29:35.528894+00:00",
+      "readback_after_hold": {
+        "values": {
+          "23:A9": [
+            14
+          ],
+          "24:9D": [
+            14
+          ],
+          "00:52": [
+            14,
+            16
+          ]
+        },
+        "esd": "reg_read",
+        "page_callbacks_verified": 7,
+        "at_utc": "2026-11-08T14:29:38.153392+00:00"
+      }
+    }
+  ],
+  "events": [
+    {
+      "at_utc": "2026-11-08T14:26:27.243203+00:00",
+      "device": "target",
+      "command": "getprop ro.boot.hardware.sku; getprop ro.build.display.id; getprop ro.boot.slot_suffix; uname -r; getenforce",
+      "exit_code": 0,
+      "stdout": "<private event-0.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:26:27.818604+00:00",
+      "device": "target",
+      "command": "su -c id",
+      "exit_code": 0,
+      "stdout": "<private event-1.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:26:28.399575+00:00",
+      "device": "target",
+      "command": "getprop ro.product.device",
+      "exit_code": 0,
+      "stdout": "<private event-2.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:26:28.974161+00:00",
+      "device": "target",
+      "command": "su -c 'cat /sys/class/drm/card0-DSI-1/panelName'",
+      "exit_code": 0,
+      "stdout": "<private event-3.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:26:29.555603+00:00",
+      "device": "target",
+      "command": "su -c 'sha256sum /vendor/lib/modules/msm_drm.ko'",
+      "exit_code": 0,
+      "stdout": "<private event-4.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:26:30.132075+00:00",
+      "device": "target",
+      "command": "su -c 'mkdir -m 700 /data/local/tmp/legion-pwm-research.lock'",
+      "exit_code": 0,
+      "stdout": "<private event-5.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:26:30.718330+00:00",
+      "device": "camera",
+      "command": "getprop ro.product.device; getprop ro.boot.hardware.sku",
+      "exit_code": 0,
+      "stdout": "<private event-6.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:26:31.298529+00:00",
+      "device": "camera",
+      "command": "getprop ro.product.model",
+      "exit_code": 0,
+      "stdout": "<private event-7.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:26:31.825676+00:00",
+      "device": "camera",
+      "command": "dumpsys package net.sourceforge.opencamera",
+      "exit_code": 0,
+      "stdout": "<private camera-package.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:26:32.582173+00:00",
+      "device": "camera",
+      "command": "dumpsys media.camera",
+      "exit_code": 0,
+      "stdout": "<private preflight-camera.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:26:35.322977+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm-mode-camera.xml >/dev/null && cat /data/local/tmp/pwm-mode-camera.xml",
+      "exit_code": 0,
+      "stdout": "<private camera-ui.xml>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:26:35.898456+00:00",
+      "device": "target",
+      "command": "su -c 'cat /sys/class/drm/card0-DSI-1/panelDC'",
+      "exit_code": 0,
+      "stdout": "<private event-11.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:26:36.474230+00:00",
+      "device": "target",
+      "command": "su -c 'cat /sys/class/drm/card0-DSI-1/mipi_cmd_log_en'",
+      "exit_code": 0,
+      "stdout": "<private event-12.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:26:37.047032+00:00",
+      "device": "target",
+      "command": "su -c 'test ! -e /data/local/tmp/a9_a001_20261108_01 && test ! -e /sys/kernel/tracing/instances/pwm_mode'",
+      "exit_code": 0,
+      "stdout": "<private event-13.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:26:37.622982+00:00",
+      "device": "target",
+      "command": "su -c 'cat /sys/kernel/tracing/kprobe_events'",
+      "exit_code": 0,
+      "stdout": "<private prior-probes.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:26:38.202268+00:00",
+      "device": "target",
+      "command": "settings get system screen_brightness",
+      "exit_code": 0,
+      "stdout": "<private event-15.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:26:38.788691+00:00",
+      "device": "target",
+      "command": "settings get system screen_brightness_mode",
+      "exit_code": 0,
+      "stdout": "<private event-16.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:26:39.363351+00:00",
+      "device": "target",
+      "command": "settings get system min_refresh_rate",
+      "exit_code": 0,
+      "stdout": "<private event-17.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:26:39.938369+00:00",
+      "device": "target",
+      "command": "settings get system peak_refresh_rate",
+      "exit_code": 0,
+      "stdout": "<private event-18.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:26:40.511674+00:00",
+      "device": "target",
+      "command": "settings get system screen_off_timeout",
+      "exit_code": 0,
+      "stdout": "<private event-19.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:26:41.116420+00:00",
+      "device": "target",
+      "command": "su -c 'cat /sys/class/backlight/panel0-backlight/bl_power'",
+      "exit_code": 0,
+      "stdout": "<private event-20.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:26:41.590142+00:00",
+      "device": "target",
+      "command": "su -c 'cat /sys/class/backlight/panel0-backlight/brightness'",
+      "exit_code": 0,
+      "stdout": "<private event-21.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:26:42.167202+00:00",
+      "device": "target",
+      "command": "mkdir -m 700 /data/local/tmp/a9_a001_20261108_01; mkdir /data/local/tmp/a9_a001_20261108_01/debugfs",
+      "exit_code": 0,
+      "stdout": "<private event-22.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:26:42.746208+00:00",
+      "device": "target",
+      "command": "su -c 'timeout -k 3 15 unshare -m /system/bin/sh -c '\"'\"'set -e; mount -o rprivate none /; mount -t debugfs -o ro,nosuid,nodev,noexec debugfs /data/local/tmp/a9_a001_20261108_01/debugfs; tr -d '\"'\"'\"'\"'\"'\"'\"'\"'\\000'\"'\"'\"'\"'\"'\"'\"'\"' < /data/local/tmp/a9_a001_20261108_01/debugfs/qcom,mdss_dsi_mot_boe_ili97701A_682_1440x3168_dsc_cmd_v4/esd_check_mode; umount /data/local/tmp/a9_a001_20261108_01/debugfs'\"'\"''",
+      "exit_code": 0,
+      "stdout": "<private event-23.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:26:48.383019+00:00",
+      "device": "target",
+      "command": "sha256sum /data/local/tmp/a9_a001_20261108_01/chunks/stock_0.txt",
+      "exit_code": 0,
+      "stdout": "<private event-24.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:26:48.959346+00:00",
+      "device": "target",
+      "command": "sha256sum /data/local/tmp/a9_a001_20261108_01/chunks/a9_only_2.txt",
+      "exit_code": 0,
+      "stdout": "<private event-25.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:26:49.538311+00:00",
+      "device": "target",
+      "command": "sha256sum /data/local/tmp/a9_a001_20261108_01/chunks/a9_only_0.txt",
+      "exit_code": 0,
+      "stdout": "<private event-26.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:26:50.010684+00:00",
+      "device": "target",
+      "command": "sha256sum /data/local/tmp/a9_a001_20261108_01/chunks/stock_2.txt",
+      "exit_code": 0,
+      "stdout": "<private event-27.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:26:50.583501+00:00",
+      "device": "target",
+      "command": "sha256sum /data/local/tmp/a9_a001_20261108_01/chunks/a9_only_1.txt",
+      "exit_code": 0,
+      "stdout": "<private event-28.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:26:51.161824+00:00",
+      "device": "target",
+      "command": "sha256sum /data/local/tmp/a9_a001_20261108_01/chunks/stock_4.txt",
+      "exit_code": 0,
+      "stdout": "<private event-29.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:26:51.734309+00:00",
+      "device": "target",
+      "command": "sha256sum /data/local/tmp/a9_a001_20261108_01/chunks/a9_only_3.txt",
+      "exit_code": 0,
+      "stdout": "<private event-30.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:26:52.327307+00:00",
+      "device": "target",
+      "command": "sha256sum /data/local/tmp/a9_a001_20261108_01/chunks/stock_1.txt",
+      "exit_code": 0,
+      "stdout": "<private event-31.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:26:52.906411+00:00",
+      "device": "target",
+      "command": "sha256sum /data/local/tmp/a9_a001_20261108_01/chunks/stock_3.txt",
+      "exit_code": 0,
+      "stdout": "<private event-32.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:26:53.492695+00:00",
+      "device": "target",
+      "command": "sha256sum /data/local/tmp/a9_a001_20261108_01/chunks/a9_only_4.txt",
+      "exit_code": 0,
+      "stdout": "<private event-33.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:26:54.066068+00:00",
+      "device": "target",
+      "command": "su -c 'mkdir /sys/kernel/tracing/instances/pwm_mode'",
+      "exit_code": 0,
+      "stdout": "<private event-34.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:26:54.638494+00:00",
+      "device": "target",
+      "command": "su -c 'printf '\"'\"'0\\n'\"'\"' > /sys/kernel/tracing/instances/pwm_mode/tracing_on; printf '\"'\"'mono\\n'\"'\"' > /sys/kernel/tracing/instances/pwm_mode/trace_clock'",
+      "exit_code": 0,
+      "stdout": "<private event-35.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:26:55.114405+00:00",
+      "device": "target",
+      "command": "su -c 'printf '\"'\"'%s\\n'\"'\"' '\"'\"'p:pwm_mode/mode_entry msm_drm:dsi_display_cmd_transfer pending=+0x694($arg2):u32 length=$arg4:u32 flags=+3($arg3):u8'\"'\"' >> /sys/kernel/tracing/kprobe_events'",
+      "exit_code": 0,
+      "stdout": "<private event-36.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:26:55.694872+00:00",
+      "device": "target",
+      "command": "su -c 'printf '\"'\"'1\\n'\"'\"' > /sys/kernel/tracing/instances/pwm_mode/events/pwm_mode/mode_entry/enable'",
+      "exit_code": 0,
+      "stdout": "<private event-37.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:26:56.172379+00:00",
+      "device": "target",
+      "command": "su -c 'printf '\"'\"'%s\\n'\"'\"' '\"'\"'r:pwm_mode/mode_return msm_drm:dsi_display_cmd_transfer rc=$retval:s32'\"'\"' >> /sys/kernel/tracing/kprobe_events'",
+      "exit_code": 0,
+      "stdout": "<private event-38.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:26:56.642727+00:00",
+      "device": "target",
+      "command": "su -c 'printf '\"'\"'1\\n'\"'\"' > /sys/kernel/tracing/instances/pwm_mode/events/pwm_mode/mode_return/enable'",
+      "exit_code": 0,
+      "stdout": "<private event-39.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:26:57.223760+00:00",
+      "device": "target",
+      "command": "su -c 'printf '\"'\"'%s\\n'\"'\"' '\"'\"'r:pwm_mode/mode_ctrl_return msm_drm:dsi_ctrl_cmd_transfer rc=$retval:s32'\"'\"' >> /sys/kernel/tracing/kprobe_events'",
+      "exit_code": 0,
+      "stdout": "<private event-40.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:26:57.698035+00:00",
+      "device": "target",
+      "command": "su -c 'printf '\"'\"'1\\n'\"'\"' > /sys/kernel/tracing/instances/pwm_mode/events/pwm_mode/mode_ctrl_return/enable'",
+      "exit_code": 0,
+      "stdout": "<private event-41.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:26:58.275023+00:00",
+      "device": "target",
+      "command": "su -c 'printf '\"'\"'1\\n'\"'\"' > /sys/kernel/tracing/instances/pwm_mode/tracing_on'",
+      "exit_code": 0,
+      "stdout": "<private event-42.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:26:58.754339+00:00",
+      "device": "target",
+      "command": "settings put system min_refresh_rate 120.0; settings put system peak_refresh_rate 120.0; settings put system screen_off_timeout 600000; input keyevent 224",
+      "exit_code": 0,
+      "stdout": "<private event-43.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:26:59.478553+00:00",
+      "device": "target",
+      "command": "su -c 'dumpsys window policy | grep -F '\"'\"'screenState='\"'\"''",
+      "exit_code": 0,
+      "stdout": "<private event-44.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:26:59.946300+00:00",
+      "device": "target",
+      "command": "su -c 'dumpsys window policy | grep -F '\"'\"'interactiveState='\"'\"''",
+      "exit_code": 0,
+      "stdout": "<private event-45.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:27:00.519124+00:00",
+      "device": "target",
+      "command": "wm dismiss-keyguard",
+      "exit_code": 0,
+      "stdout": "<private event-46.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:27:01.098228+00:00",
+      "device": "target",
+      "command": "su -c 'dumpsys window policy | grep -F '\"'\"'mIsShowing='\"'\"''",
+      "exit_code": 0,
+      "stdout": "<private event-47.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:27:01.726409+00:00",
+      "device": "target",
+      "command": "su -c 'dumpsys window policy | grep -F '\"'\"'mIsShowing='\"'\"''",
+      "exit_code": 0,
+      "stdout": "<private event-48.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:27:02.302389+00:00",
+      "device": "target",
+      "command": "input keyevent 3",
+      "exit_code": 0,
+      "stdout": "<private event-49.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:27:02.958392+00:00",
+      "device": "target",
+      "command": "am start -W --activity-clear-top -n 'com.android.settings/.Settings$DisplaySettingsActivity'",
+      "exit_code": 0,
+      "stdout": "<private event-50.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:27:03.587317+00:00",
+      "device": "target",
+      "command": "dumpsys display",
+      "exit_code": 0,
+      "stdout": "<private target-display.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:27:04.170318+00:00",
+      "device": "target",
+      "command": "su -c 'printf '\"'\"'%s\\n'\"'\"' 3600 > /sys/class/backlight/panel0-backlight/brightness'",
+      "exit_code": 0,
+      "stdout": "<private event-52.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:27:04.747502+00:00",
+      "device": "target",
+      "command": "su -c 'cat /sys/class/backlight/panel0-backlight/brightness'",
+      "exit_code": 0,
+      "stdout": "<private event-53.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:27:05.326862+00:00",
+      "device": "target",
+      "command": "su -c 'printf '\"'\"'1\\n'\"'\"' > /sys/class/drm/card0-DSI-1/mipi_cmd_log_en'",
+      "exit_code": 0,
+      "stdout": "<private event-54.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:27:05.910471+00:00",
+      "device": "camera",
+      "command": "find /sdcard/DCIM/OpenCamera -maxdepth 1 -type f -name '*.mp4'",
+      "exit_code": 0,
+      "stdout": "<private camera-files-before.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:27:08.661899+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm-mode-camera.xml >/dev/null && cat /data/local/tmp/pwm-mode-camera.xml",
+      "exit_code": 0,
+      "stdout": "<private camera-ui.xml>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:27:09.248232+00:00",
+      "device": "camera",
+      "command": "input tap 539 2197",
+      "exit_code": 0,
+      "stdout": "<private event-57.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:27:11.892137+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm-mode-camera.xml >/dev/null && cat /data/local/tmp/pwm-mode-camera.xml",
+      "exit_code": 0,
+      "stdout": "<private camera-ui.xml>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:27:12.880164+00:00",
+      "device": "camera",
+      "command": "dumpsys media.camera",
+      "exit_code": 0,
+      "stdout": "<private recording-preflight-1-camera.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:27:13.550569+00:00",
+      "device": "camera",
+      "command": "dumpsys media.camera",
+      "exit_code": 0,
+      "stdout": "<private recording-preflight-2-camera.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:27:14.142502+00:00",
+      "device": "target",
+      "command": "su -c 'set -e; mkdir /data/local/tmp/a9_a001_20261108_01/watchdog_armed; nohup /system/bin/sh -c '\"'\"'sleep 600; if test -d /data/local/tmp/a9_a001_20261108_01/watchdog_armed; then /system/bin/reboot; fi'\"'\"' >/data/local/tmp/a9_a001_20261108_01/watchdog.log 2>&1 </dev/null & echo $! >/data/local/tmp/a9_a001_20261108_01/watchdog.pid'",
+      "exit_code": 0,
+      "stdout": "<private event-61.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:27:14.615209+00:00",
+      "device": "target",
+      "command": "su -c 'test -d /data/local/tmp/a9_a001_20261108_01/watchdog_armed; kill -0 $(cat /data/local/tmp/a9_a001_20261108_01/watchdog.pid)'",
+      "exit_code": 0,
+      "stdout": "<private event-62.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:27:15.198064+00:00",
+      "device": "target",
+      "command": "su -c 'cat /sys/class/backlight/panel0-backlight/brightness'",
+      "exit_code": 0,
+      "stdout": "<private event-63.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:27:15.674350+00:00",
+      "device": "target",
+      "command": "su -c 'cat /sys/class/backlight/panel0-backlight/bl_power'",
+      "exit_code": 0,
+      "stdout": "<private event-64.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:27:16.246182+00:00",
+      "device": "target",
+      "command": "su -c 'cat /sys/class/drm/card0-DSI-1/panelDC'",
+      "exit_code": 0,
+      "stdout": "<private event-65.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:27:16.722648+00:00",
+      "device": "target",
+      "command": "getenforce",
+      "exit_code": 0,
+      "stdout": "<private event-66.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:27:17.346335+00:00",
+      "device": "target",
+      "command": "su -c 'printf '\"'\"'<6>PWM_A9_REPRODUCTION_BEGIN_baseline\\n'\"'\"' > /dev/kmsg'",
+      "exit_code": 0,
+      "stdout": "<private event-67.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:27:17.922569+00:00",
+      "device": "target",
+      "command": "su -c 'unshare -m /system/bin/sh -c '\"'\"'set -e; mount -o rprivate none /; mount -t debugfs -o nosuid,nodev,noexec debugfs /data/local/tmp/a9_a001_20261108_01/debugfs; test -f /data/local/tmp/a9_a001_20261108_01/debugfs/dri/9800000.qcom,mdss_mdp/DSI-1/tx_cmd; test -w /data/local/tmp/a9_a001_20261108_01/debugfs/dri/9800000.qcom,mdss_mdp/DSI-1/tx_cmd; dd if=/data/local/tmp/a9_a001_20261108_01/chunks/stock_0.txt of=/data/local/tmp/a9_a001_20261108_01/debugfs/dri/9800000.qcom,mdss_mdp/DSI-1/tx_cmd bs=4096 count=1 conv=notrunc status=none'\"'\"''",
+      "exit_code": 0,
+      "stdout": "<private event-68.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:27:18.465590+00:00",
+      "device": "target",
+      "command": "su -c 'cat /sys/kernel/tracing/instances/pwm_mode/trace'",
+      "exit_code": 0,
+      "stdout": "<private trace-latest.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:27:18.982252+00:00",
+      "device": "target",
+      "command": "su -c 'unshare -m /system/bin/sh -c '\"'\"'set -e; mount -o rprivate none /; mount -t debugfs -o nosuid,nodev,noexec debugfs /data/local/tmp/a9_a001_20261108_01/debugfs; test -f /data/local/tmp/a9_a001_20261108_01/debugfs/dri/9800000.qcom,mdss_mdp/DSI-1/tx_cmd; test -w /data/local/tmp/a9_a001_20261108_01/debugfs/dri/9800000.qcom,mdss_mdp/DSI-1/tx_cmd; dd if=/data/local/tmp/a9_a001_20261108_01/chunks/stock_1.txt of=/data/local/tmp/a9_a001_20261108_01/debugfs/dri/9800000.qcom,mdss_mdp/DSI-1/tx_cmd bs=4096 count=1 conv=notrunc status=none'\"'\"''",
+      "exit_code": 0,
+      "stdout": "<private event-70.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:27:19.555348+00:00",
+      "device": "target",
+      "command": "su -c 'cat /sys/kernel/tracing/instances/pwm_mode/trace'",
+      "exit_code": 0,
+      "stdout": "<private trace-latest.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:27:20.134967+00:00",
+      "device": "target",
+      "command": "su -c 'unshare -m /system/bin/sh -c '\"'\"'set -e; mount -o rprivate none /; mount -t debugfs -o nosuid,nodev,noexec debugfs /data/local/tmp/a9_a001_20261108_01/debugfs; test -f /data/local/tmp/a9_a001_20261108_01/debugfs/dri/9800000.qcom,mdss_mdp/DSI-1/tx_cmd; test -w /data/local/tmp/a9_a001_20261108_01/debugfs/dri/9800000.qcom,mdss_mdp/DSI-1/tx_cmd; dd if=/data/local/tmp/a9_a001_20261108_01/chunks/stock_2.txt of=/data/local/tmp/a9_a001_20261108_01/debugfs/dri/9800000.qcom,mdss_mdp/DSI-1/tx_cmd bs=4096 count=1 conv=notrunc status=none'\"'\"''",
+      "exit_code": 0,
+      "stdout": "<private event-72.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:27:20.710388+00:00",
+      "device": "target",
+      "command": "su -c 'cat /sys/kernel/tracing/instances/pwm_mode/trace'",
+      "exit_code": 0,
+      "stdout": "<private trace-latest.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:27:21.306320+00:00",
+      "device": "target",
+      "command": "su -c 'unshare -m /system/bin/sh -c '\"'\"'set -e; mount -o rprivate none /; mount -t debugfs -o nosuid,nodev,noexec debugfs /data/local/tmp/a9_a001_20261108_01/debugfs; test -f /data/local/tmp/a9_a001_20261108_01/debugfs/dri/9800000.qcom,mdss_mdp/DSI-1/tx_cmd; test -w /data/local/tmp/a9_a001_20261108_01/debugfs/dri/9800000.qcom,mdss_mdp/DSI-1/tx_cmd; dd if=/data/local/tmp/a9_a001_20261108_01/chunks/stock_3.txt of=/data/local/tmp/a9_a001_20261108_01/debugfs/dri/9800000.qcom,mdss_mdp/DSI-1/tx_cmd bs=4096 count=1 conv=notrunc status=none'\"'\"''",
+      "exit_code": 0,
+      "stdout": "<private event-74.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:27:21.891188+00:00",
+      "device": "target",
+      "command": "su -c 'cat /sys/kernel/tracing/instances/pwm_mode/trace'",
+      "exit_code": 0,
+      "stdout": "<private trace-latest.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:27:22.492907+00:00",
+      "device": "target",
+      "command": "su -c 'unshare -m /system/bin/sh -c '\"'\"'set -e; mount -o rprivate none /; mount -t debugfs -o nosuid,nodev,noexec debugfs /data/local/tmp/a9_a001_20261108_01/debugfs; test -f /data/local/tmp/a9_a001_20261108_01/debugfs/dri/9800000.qcom,mdss_mdp/DSI-1/tx_cmd; test -w /data/local/tmp/a9_a001_20261108_01/debugfs/dri/9800000.qcom,mdss_mdp/DSI-1/tx_cmd; dd if=/data/local/tmp/a9_a001_20261108_01/chunks/stock_4.txt of=/data/local/tmp/a9_a001_20261108_01/debugfs/dri/9800000.qcom,mdss_mdp/DSI-1/tx_cmd bs=4096 count=1 conv=notrunc status=none'\"'\"''",
+      "exit_code": 0,
+      "stdout": "<private event-76.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:27:23.086362+00:00",
+      "device": "target",
+      "command": "su -c 'cat /sys/kernel/tracing/instances/pwm_mode/trace'",
+      "exit_code": 0,
+      "stdout": "<private trace-latest.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:27:23.666520+00:00",
+      "device": "target",
+      "command": "su -c 'printf '\"'\"'<6>PWM_A9_REPRODUCTION_END_baseline\\n'\"'\"' > /dev/kmsg'",
+      "exit_code": 0,
+      "stdout": "<private event-78.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:27:24.244066+00:00",
+      "device": "target",
+      "command": "su -c dmesg",
+      "exit_code": 0,
+      "stdout": "<private baseline-kernel.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:27:24.818241+00:00",
+      "device": "target",
+      "command": "su -c 'printf '\"'\"'<6>PWM_A9_REPRODUCTION_DBV_BEGIN_baseline\\n'\"'\"' > /dev/kmsg'",
+      "exit_code": 0,
+      "stdout": "<private event-80.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:27:25.392395+00:00",
+      "device": "target",
+      "command": "su -c 'printf '\"'\"'%s\\n'\"'\"' 3600 > /sys/class/backlight/panel0-backlight/brightness'",
+      "exit_code": 0,
+      "stdout": "<private event-81.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:27:25.967217+00:00",
+      "device": "target",
+      "command": "su -c 'cat /sys/class/backlight/panel0-backlight/brightness'",
+      "exit_code": 0,
+      "stdout": "<private event-82.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:27:26.543973+00:00",
+      "device": "target",
+      "command": "su -c 'printf '\"'\"'<6>PWM_A9_REPRODUCTION_DBV_END_baseline\\n'\"'\"' > /dev/kmsg'",
+      "exit_code": 0,
+      "stdout": "<private event-83.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:27:27.116224+00:00",
+      "device": "target",
+      "command": "su -c dmesg",
+      "exit_code": 0,
+      "stdout": "<private baseline-dbv-kernel.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:27:27.694318+00:00",
+      "device": "target",
+      "command": "su -c 'printf '\"'\"'<6>PWM_A9_REPRODUCTION_REDRAW_BEGIN_baseline\\n'\"'\"' > /dev/kmsg'",
+      "exit_code": 0,
+      "stdout": "<private event-85.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:27:30.347636+00:00",
+      "device": "target",
+      "command": "uiautomator dump /data/local/tmp/a9_a001_20261108_01/redraw-ui.xml >/dev/null && cat /data/local/tmp/a9_a001_20261108_01/redraw-ui.xml",
+      "exit_code": 0,
+      "stdout": "<private baseline-before-ui.xml>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:27:31.264941+00:00",
+      "device": "target",
+      "command": "input swipe 720 2780 720 850 400",
+      "exit_code": 0,
+      "stdout": "<private event-87.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:27:33.958900+00:00",
+      "device": "target",
+      "command": "uiautomator dump /data/local/tmp/a9_a001_20261108_01/redraw-ui.xml >/dev/null && cat /data/local/tmp/a9_a001_20261108_01/redraw-ui.xml",
+      "exit_code": 0,
+      "stdout": "<private baseline-before-ui.xml>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:27:34.530435+00:00",
+      "device": "target",
+      "command": "input tap 720 1583",
+      "exit_code": 0,
+      "stdout": "<private event-89.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:27:37.262210+00:00",
+      "device": "target",
+      "command": "uiautomator dump /data/local/tmp/a9_a001_20261108_01/redraw-ui.xml >/dev/null && cat /data/local/tmp/a9_a001_20261108_01/redraw-ui.xml",
+      "exit_code": 0,
+      "stdout": "<private baseline-opened-ui.xml>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:27:37.834001+00:00",
+      "device": "target",
+      "command": "input keyevent 4",
+      "exit_code": 0,
+      "stdout": "<private event-91.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:27:40.602483+00:00",
+      "device": "target",
+      "command": "uiautomator dump /data/local/tmp/a9_a001_20261108_01/redraw-ui.xml >/dev/null && cat /data/local/tmp/a9_a001_20261108_01/redraw-ui.xml",
+      "exit_code": 0,
+      "stdout": "<private baseline-returned-ui.xml>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:27:41.174980+00:00",
+      "device": "target",
+      "command": "settings get system screen_off_timeout",
+      "exit_code": 0,
+      "stdout": "<private event-93.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:27:41.751548+00:00",
+      "device": "target",
+      "command": "su -c 'cat /sys/class/backlight/panel0-backlight/brightness'",
+      "exit_code": 0,
+      "stdout": "<private event-94.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:27:42.323469+00:00",
+      "device": "target",
+      "command": "su -c 'cat /sys/class/backlight/panel0-backlight/bl_power'",
+      "exit_code": 0,
+      "stdout": "<private event-95.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:27:42.898541+00:00",
+      "device": "target",
+      "command": "su -c 'cat /sys/class/drm/card0-DSI-1/panelDC'",
+      "exit_code": 0,
+      "stdout": "<private event-96.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:27:43.478347+00:00",
+      "device": "target",
+      "command": "getenforce",
+      "exit_code": 0,
+      "stdout": "<private event-97.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:27:44.054699+00:00",
+      "device": "target",
+      "command": "su -c 'printf '\"'\"'<6>PWM_A9_REPRODUCTION_REDRAW_END_baseline\\n'\"'\"' > /dev/kmsg'",
+      "exit_code": 0,
+      "stdout": "<private event-98.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:27:44.765754+00:00",
+      "device": "target",
+      "command": "su -c dmesg",
+      "exit_code": 0,
+      "stdout": "<private baseline-redraw-kernel.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:27:45.338656+00:00",
+      "device": "target",
+      "command": "su -c 'printf '\"'\"'<6>PWM_A9_REPRODUCTION_READ_BEGIN_baseline\\n'\"'\"' > /dev/kmsg'",
+      "exit_code": 0,
+      "stdout": "<private event-100.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:27:46.094649+00:00",
+      "device": "target",
+      "command": "su -c 'timeout -k 3 15 unshare -m /system/bin/sh -c '\"'\"'set -eu\nmount -o rprivate none /\nmount -t debugfs -o nosuid,nodev,noexec debugfs /data/local/tmp/a9_a001_20261108_01/debugfs\nC=/data/local/tmp/a9_a001_20261108_01/debugfs/dri/9800000.qcom,mdss_mdp/DSI-1\nE=/data/local/tmp/a9_a001_20261108_01/debugfs/qcom,mdss_dsi_mot_boe_ili97701A_682_1440x3168_dsc_cmd_v4/esd_check_mode\nP0='\"'\"'\"'\"'\"'\"'\"'\"'0x39 0 0 0 0 0 4 0xFF 0x5A 0xA5 0'\"'\"'\"'\"'\"'\"'\"'\"'\nrestore() {\n s=$?; trap - EXIT\n printf '\"'\"'\"'\"'\"'\"'\"'\"'%s'\"'\"'\"'\"'\"'\"'\"'\"' \"$P0\" > \"$C/tx_cmd\" || s=31\n printf reg_read > \"$E\" || s=32\n m=$(tr -d '\"'\"'\"'\"'\"'\"'\"'\"'\\000'\"'\"'\"'\"'\"'\"'\"'\"' < \"$E\")\n printf '\"'\"'\"'\"'\"'\"'\"'\"'ESD_RESTORED %s\\n'\"'\"'\"'\"'\"'\"'\"'\"' \"$m\"\n [ \"$m\" = reg_read ] || s=33\n umount /data/local/tmp/a9_a001_20261108_01/debugfs || s=34\n exit \"$s\"\n}\ntrap restore EXIT\ntrap '\"'\"'\"'\"'\"'\"'\"'\"'exit 30'\"'\"'\"'\"'\"'\"'\"'\"' HUP INT TERM\n[ \"$(tr -d '\"'\"'\"'\"'\"'\"'\"'\"'\\000'\"'\"'\"'\"'\"'\"'\"'\"' < \"$E\")\" = reg_read ]\nprintf esd_sw_sim_success > \"$E\"\nprintf '\"'\"'\"'\"'\"'\"'\"'\"'%s'\"'\"'\"'\"'\"'\"'\"'\"' '\"'\"'\"'\"'\"'\"'\"'\"'0x39 0 0 0 0 0 4 0xFF 0x5A 0xA5 0x23'\"'\"'\"'\"'\"'\"'\"'\"' > \"$C/tx_cmd\"\nprintf '\"'\"'\"'\"'\"'\"'\"'\"'%s'\"'\"'\"'\"'\"'\"'\"'\"' '\"'\"'\"'\"'\"'\"'\"'\"'1 0x06 1 0 1 0 0 1 0xA9'\"'\"'\"'\"'\"'\"'\"'\"' > \"$C/rx_cmd\"\nprintf '\"'\"'\"'\"'\"'\"'\"'\"'%s'\"'\"'\"'\"'\"'\"'\"'\"' \"$P0\" > \"$C/tx_cmd\"\nprintf '\"'\"'\"'\"'\"'\"'\"'\"'R 23:A9 '\"'\"'\"'\"'\"'\"'\"'\"'\ncat \"$C/rx_cmd\"\nprintf '\"'\"'\"'\"'\"'\"'\"'\"'\\n'\"'\"'\"'\"'\"'\"'\"'\"'\nprintf '\"'\"'\"'\"'\"'\"'\"'\"'%s'\"'\"'\"'\"'\"'\"'\"'\"' '\"'\"'\"'\"'\"'\"'\"'\"'0x39 0 0 0 0 0 4 0xFF 0x5A 0xA5 0x24'\"'\"'\"'\"'\"'\"'\"'\"' > \"$C/tx_cmd\"\nprintf '\"'\"'\"'\"'\"'\"'\"'\"'%s'\"'\"'\"'\"'\"'\"'\"'\"' '\"'\"'\"'\"'\"'\"'\"'\"'1 0x06 1 0 1 0 0 1 0x9D'\"'\"'\"'\"'\"'\"'\"'\"' > \"$C/rx_cmd\"\nprintf '\"'\"'\"'\"'\"'\"'\"'\"'%s'\"'\"'\"'\"'\"'\"'\"'\"' \"$P0\" > \"$C/tx_cmd\"\nprintf '\"'\"'\"'\"'\"'\"'\"'\"'R 24:9D '\"'\"'\"'\"'\"'\"'\"'\"'\ncat \"$C/rx_cmd\"\nprintf '\"'\"'\"'\"'\"'\"'\"'\"'\\n'\"'\"'\"'\"'\"'\"'\"'\"'\nprintf '\"'\"'\"'\"'\"'\"'\"'\"'%s'\"'\"'\"'\"'\"'\"'\"'\"' '\"'\"'\"'\"'\"'\"'\"'\"'0x39 0 0 0 0 0 4 0xFF 0x5A 0xA5 0x00'\"'\"'\"'\"'\"'\"'\"'\"' > \"$C/tx_cmd\"\nprintf '\"'\"'\"'\"'\"'\"'\"'\"'%s'\"'\"'\"'\"'\"'\"'\"'\"' '\"'\"'\"'\"'\"'\"'\"'\"'2 0x06 1 0 1 0 0 1 0x52'\"'\"'\"'\"'\"'\"'\"'\"' > \"$C/rx_cmd\"\nprintf '\"'\"'\"'\"'\"'\"'\"'\"'%s'\"'\"'\"'\"'\"'\"'\"'\"' \"$P0\" > \"$C/tx_cmd\"\nprintf '\"'\"'\"'\"'\"'\"'\"'\"'R 00:52 '\"'\"'\"'\"'\"'\"'\"'\"'\ncat \"$C/rx_cmd\"\nprintf '\"'\"'\"'\"'\"'\"'\"'\"'\\n'\"'\"'\"'\"'\"'\"'\"'\"'\n'\"'\"''",
+      "exit_code": 0,
+      "stdout": "<private baseline-readback.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:27:46.569899+00:00",
+      "device": "target",
+      "command": "su -c 'cat /sys/kernel/tracing/instances/pwm_mode/trace'",
+      "exit_code": 0,
+      "stdout": "<private baseline-readback-trace.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:27:47.143845+00:00",
+      "device": "target",
+      "command": "su -c 'printf '\"'\"'<6>PWM_A9_REPRODUCTION_READ_END_baseline\\n'\"'\"' > /dev/kmsg'",
+      "exit_code": 0,
+      "stdout": "<private event-103.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:27:47.618273+00:00",
+      "device": "target",
+      "command": "su -c 'cat /sys/class/backlight/panel0-backlight/brightness'",
+      "exit_code": 0,
+      "stdout": "<private event-104.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:27:48.190202+00:00",
+      "device": "target",
+      "command": "su -c 'cat /sys/class/backlight/panel0-backlight/bl_power'",
+      "exit_code": 0,
+      "stdout": "<private event-105.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:27:48.762828+00:00",
+      "device": "target",
+      "command": "su -c 'cat /sys/class/drm/card0-DSI-1/panelDC'",
+      "exit_code": 0,
+      "stdout": "<private event-106.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:27:49.341016+00:00",
+      "device": "target",
+      "command": "getenforce",
+      "exit_code": 0,
+      "stdout": "<private event-107.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:27:50.031306+00:00",
+      "device": "camera",
+      "command": "dumpsys media.camera",
+      "exit_code": 0,
+      "stdout": "<private baseline-start-camera.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:27:50.610369+00:00",
+      "device": "target",
+      "command": "su -c 'printf '\"'\"'<6>PWM_A9_REPRODUCTION_HOLD_BEGIN_baseline\\n'\"'\"' > /dev/kmsg'",
+      "exit_code": 0,
+      "stdout": "<private event-109.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:27:58.385813+00:00",
+      "device": "target",
+      "command": "su -c 'printf '\"'\"'<6>PWM_A9_REPRODUCTION_HOLD_END_baseline\\n'\"'\"' > /dev/kmsg'",
+      "exit_code": 0,
+      "stdout": "<private event-110.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:27:58.854028+00:00",
+      "device": "target",
+      "command": "su -c 'cat /sys/class/backlight/panel0-backlight/brightness'",
+      "exit_code": 0,
+      "stdout": "<private event-111.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:27:59.426441+00:00",
+      "device": "target",
+      "command": "su -c 'cat /sys/class/backlight/panel0-backlight/bl_power'",
+      "exit_code": 0,
+      "stdout": "<private event-112.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:28:00.007211+00:00",
+      "device": "target",
+      "command": "su -c 'cat /sys/class/drm/card0-DSI-1/panelDC'",
+      "exit_code": 0,
+      "stdout": "<private event-113.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:28:00.582286+00:00",
+      "device": "target",
+      "command": "getenforce",
+      "exit_code": 0,
+      "stdout": "<private event-114.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:28:01.374743+00:00",
+      "device": "camera",
+      "command": "dumpsys media.camera",
+      "exit_code": 0,
+      "stdout": "<private baseline-end-camera.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:28:01.996847+00:00",
+      "device": "target",
+      "command": "su -c dmesg",
+      "exit_code": 0,
+      "stdout": "<private baseline-kernel.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:28:02.574474+00:00",
+      "device": "target",
+      "command": "su -c 'printf '\"'\"'<6>PWM_A9_REPRODUCTION_READ_BEGIN_baseline_after_hold\\n'\"'\"' > /dev/kmsg'",
+      "exit_code": 0,
+      "stdout": "<private event-117.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:28:03.341022+00:00",
+      "device": "target",
+      "command": "su -c 'timeout -k 3 15 unshare -m /system/bin/sh -c '\"'\"'set -eu\nmount -o rprivate none /\nmount -t debugfs -o nosuid,nodev,noexec debugfs /data/local/tmp/a9_a001_20261108_01/debugfs\nC=/data/local/tmp/a9_a001_20261108_01/debugfs/dri/9800000.qcom,mdss_mdp/DSI-1\nE=/data/local/tmp/a9_a001_20261108_01/debugfs/qcom,mdss_dsi_mot_boe_ili97701A_682_1440x3168_dsc_cmd_v4/esd_check_mode\nP0='\"'\"'\"'\"'\"'\"'\"'\"'0x39 0 0 0 0 0 4 0xFF 0x5A 0xA5 0'\"'\"'\"'\"'\"'\"'\"'\"'\nrestore() {\n s=$?; trap - EXIT\n printf '\"'\"'\"'\"'\"'\"'\"'\"'%s'\"'\"'\"'\"'\"'\"'\"'\"' \"$P0\" > \"$C/tx_cmd\" || s=31\n printf reg_read > \"$E\" || s=32\n m=$(tr -d '\"'\"'\"'\"'\"'\"'\"'\"'\\000'\"'\"'\"'\"'\"'\"'\"'\"' < \"$E\")\n printf '\"'\"'\"'\"'\"'\"'\"'\"'ESD_RESTORED %s\\n'\"'\"'\"'\"'\"'\"'\"'\"' \"$m\"\n [ \"$m\" = reg_read ] || s=33\n umount /data/local/tmp/a9_a001_20261108_01/debugfs || s=34\n exit \"$s\"\n}\ntrap restore EXIT\ntrap '\"'\"'\"'\"'\"'\"'\"'\"'exit 30'\"'\"'\"'\"'\"'\"'\"'\"' HUP INT TERM\n[ \"$(tr -d '\"'\"'\"'\"'\"'\"'\"'\"'\\000'\"'\"'\"'\"'\"'\"'\"'\"' < \"$E\")\" = reg_read ]\nprintf esd_sw_sim_success > \"$E\"\nprintf '\"'\"'\"'\"'\"'\"'\"'\"'%s'\"'\"'\"'\"'\"'\"'\"'\"' '\"'\"'\"'\"'\"'\"'\"'\"'0x39 0 0 0 0 0 4 0xFF 0x5A 0xA5 0x23'\"'\"'\"'\"'\"'\"'\"'\"' > \"$C/tx_cmd\"\nprintf '\"'\"'\"'\"'\"'\"'\"'\"'%s'\"'\"'\"'\"'\"'\"'\"'\"' '\"'\"'\"'\"'\"'\"'\"'\"'1 0x06 1 0 1 0 0 1 0xA9'\"'\"'\"'\"'\"'\"'\"'\"' > \"$C/rx_cmd\"\nprintf '\"'\"'\"'\"'\"'\"'\"'\"'%s'\"'\"'\"'\"'\"'\"'\"'\"' \"$P0\" > \"$C/tx_cmd\"\nprintf '\"'\"'\"'\"'\"'\"'\"'\"'R 23:A9 '\"'\"'\"'\"'\"'\"'\"'\"'\ncat \"$C/rx_cmd\"\nprintf '\"'\"'\"'\"'\"'\"'\"'\"'\\n'\"'\"'\"'\"'\"'\"'\"'\"'\nprintf '\"'\"'\"'\"'\"'\"'\"'\"'%s'\"'\"'\"'\"'\"'\"'\"'\"' '\"'\"'\"'\"'\"'\"'\"'\"'0x39 0 0 0 0 0 4 0xFF 0x5A 0xA5 0x24'\"'\"'\"'\"'\"'\"'\"'\"' > \"$C/tx_cmd\"\nprintf '\"'\"'\"'\"'\"'\"'\"'\"'%s'\"'\"'\"'\"'\"'\"'\"'\"' '\"'\"'\"'\"'\"'\"'\"'\"'1 0x06 1 0 1 0 0 1 0x9D'\"'\"'\"'\"'\"'\"'\"'\"' > \"$C/rx_cmd\"\nprintf '\"'\"'\"'\"'\"'\"'\"'\"'%s'\"'\"'\"'\"'\"'\"'\"'\"' \"$P0\" > \"$C/tx_cmd\"\nprintf '\"'\"'\"'\"'\"'\"'\"'\"'R 24:9D '\"'\"'\"'\"'\"'\"'\"'\"'\ncat \"$C/rx_cmd\"\nprintf '\"'\"'\"'\"'\"'\"'\"'\"'\\n'\"'\"'\"'\"'\"'\"'\"'\"'\nprintf '\"'\"'\"'\"'\"'\"'\"'\"'%s'\"'\"'\"'\"'\"'\"'\"'\"' '\"'\"'\"'\"'\"'\"'\"'\"'0x39 0 0 0 0 0 4 0xFF 0x5A 0xA5 0x00'\"'\"'\"'\"'\"'\"'\"'\"' > \"$C/tx_cmd\"\nprintf '\"'\"'\"'\"'\"'\"'\"'\"'%s'\"'\"'\"'\"'\"'\"'\"'\"' '\"'\"'\"'\"'\"'\"'\"'\"'2 0x06 1 0 1 0 0 1 0x52'\"'\"'\"'\"'\"'\"'\"'\"' > \"$C/rx_cmd\"\nprintf '\"'\"'\"'\"'\"'\"'\"'\"'%s'\"'\"'\"'\"'\"'\"'\"'\"' \"$P0\" > \"$C/tx_cmd\"\nprintf '\"'\"'\"'\"'\"'\"'\"'\"'R 00:52 '\"'\"'\"'\"'\"'\"'\"'\"'\ncat \"$C/rx_cmd\"\nprintf '\"'\"'\"'\"'\"'\"'\"'\"'\\n'\"'\"'\"'\"'\"'\"'\"'\"'\n'\"'\"''",
+      "exit_code": 0,
+      "stdout": "<private baseline_after_hold-readback.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:28:03.913380+00:00",
+      "device": "target",
+      "command": "su -c 'cat /sys/kernel/tracing/instances/pwm_mode/trace'",
+      "exit_code": 0,
+      "stdout": "<private baseline_after_hold-readback-trace.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:28:04.490294+00:00",
+      "device": "target",
+      "command": "su -c 'printf '\"'\"'<6>PWM_A9_REPRODUCTION_READ_END_baseline_after_hold\\n'\"'\"' > /dev/kmsg'",
+      "exit_code": 0,
+      "stdout": "<private event-120.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:28:05.062367+00:00",
+      "device": "target",
+      "command": "su -c 'cat /sys/class/backlight/panel0-backlight/brightness'",
+      "exit_code": 0,
+      "stdout": "<private event-121.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:28:05.635555+00:00",
+      "device": "target",
+      "command": "su -c 'cat /sys/class/backlight/panel0-backlight/bl_power'",
+      "exit_code": 0,
+      "stdout": "<private event-122.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:28:06.210216+00:00",
+      "device": "target",
+      "command": "su -c 'cat /sys/class/drm/card0-DSI-1/panelDC'",
+      "exit_code": 0,
+      "stdout": "<private event-123.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:28:06.783751+00:00",
+      "device": "target",
+      "command": "getenforce",
+      "exit_code": 0,
+      "stdout": "<private event-124.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:28:07.355015+00:00",
+      "device": "target",
+      "command": "su -c 'printf '\"'\"'<6>PWM_A9_REPRODUCTION_BEGIN_a9_only\\n'\"'\"' > /dev/kmsg'",
+      "exit_code": 0,
+      "stdout": "<private event-125.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:28:07.930292+00:00",
+      "device": "target",
+      "command": "su -c 'unshare -m /system/bin/sh -c '\"'\"'set -e; mount -o rprivate none /; mount -t debugfs -o nosuid,nodev,noexec debugfs /data/local/tmp/a9_a001_20261108_01/debugfs; test -f /data/local/tmp/a9_a001_20261108_01/debugfs/dri/9800000.qcom,mdss_mdp/DSI-1/tx_cmd; test -w /data/local/tmp/a9_a001_20261108_01/debugfs/dri/9800000.qcom,mdss_mdp/DSI-1/tx_cmd; dd if=/data/local/tmp/a9_a001_20261108_01/chunks/a9_only_0.txt of=/data/local/tmp/a9_a001_20261108_01/debugfs/dri/9800000.qcom,mdss_mdp/DSI-1/tx_cmd bs=4096 count=1 conv=notrunc status=none'\"'\"''",
+      "exit_code": 0,
+      "stdout": "<private event-126.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:28:08.562510+00:00",
+      "device": "target",
+      "command": "su -c 'cat /sys/kernel/tracing/instances/pwm_mode/trace'",
+      "exit_code": 0,
+      "stdout": "<private trace-latest.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:28:09.165713+00:00",
+      "device": "target",
+      "command": "su -c 'unshare -m /system/bin/sh -c '\"'\"'set -e; mount -o rprivate none /; mount -t debugfs -o nosuid,nodev,noexec debugfs /data/local/tmp/a9_a001_20261108_01/debugfs; test -f /data/local/tmp/a9_a001_20261108_01/debugfs/dri/9800000.qcom,mdss_mdp/DSI-1/tx_cmd; test -w /data/local/tmp/a9_a001_20261108_01/debugfs/dri/9800000.qcom,mdss_mdp/DSI-1/tx_cmd; dd if=/data/local/tmp/a9_a001_20261108_01/chunks/a9_only_1.txt of=/data/local/tmp/a9_a001_20261108_01/debugfs/dri/9800000.qcom,mdss_mdp/DSI-1/tx_cmd bs=4096 count=1 conv=notrunc status=none'\"'\"''",
+      "exit_code": 0,
+      "stdout": "<private event-128.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:28:09.698931+00:00",
+      "device": "target",
+      "command": "su -c 'cat /sys/kernel/tracing/instances/pwm_mode/trace'",
+      "exit_code": 0,
+      "stdout": "<private trace-latest.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:28:10.270385+00:00",
+      "device": "target",
+      "command": "su -c 'unshare -m /system/bin/sh -c '\"'\"'set -e; mount -o rprivate none /; mount -t debugfs -o nosuid,nodev,noexec debugfs /data/local/tmp/a9_a001_20261108_01/debugfs; test -f /data/local/tmp/a9_a001_20261108_01/debugfs/dri/9800000.qcom,mdss_mdp/DSI-1/tx_cmd; test -w /data/local/tmp/a9_a001_20261108_01/debugfs/dri/9800000.qcom,mdss_mdp/DSI-1/tx_cmd; dd if=/data/local/tmp/a9_a001_20261108_01/chunks/a9_only_2.txt of=/data/local/tmp/a9_a001_20261108_01/debugfs/dri/9800000.qcom,mdss_mdp/DSI-1/tx_cmd bs=4096 count=1 conv=notrunc status=none'\"'\"''",
+      "exit_code": 0,
+      "stdout": "<private event-130.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:28:10.840088+00:00",
+      "device": "target",
+      "command": "su -c 'cat /sys/kernel/tracing/instances/pwm_mode/trace'",
+      "exit_code": 0,
+      "stdout": "<private trace-latest.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:28:11.454432+00:00",
+      "device": "target",
+      "command": "su -c 'unshare -m /system/bin/sh -c '\"'\"'set -e; mount -o rprivate none /; mount -t debugfs -o nosuid,nodev,noexec debugfs /data/local/tmp/a9_a001_20261108_01/debugfs; test -f /data/local/tmp/a9_a001_20261108_01/debugfs/dri/9800000.qcom,mdss_mdp/DSI-1/tx_cmd; test -w /data/local/tmp/a9_a001_20261108_01/debugfs/dri/9800000.qcom,mdss_mdp/DSI-1/tx_cmd; dd if=/data/local/tmp/a9_a001_20261108_01/chunks/a9_only_3.txt of=/data/local/tmp/a9_a001_20261108_01/debugfs/dri/9800000.qcom,mdss_mdp/DSI-1/tx_cmd bs=4096 count=1 conv=notrunc status=none'\"'\"''",
+      "exit_code": 0,
+      "stdout": "<private event-132.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:28:12.039636+00:00",
+      "device": "target",
+      "command": "su -c 'cat /sys/kernel/tracing/instances/pwm_mode/trace'",
+      "exit_code": 0,
+      "stdout": "<private trace-latest.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:28:12.618586+00:00",
+      "device": "target",
+      "command": "su -c 'unshare -m /system/bin/sh -c '\"'\"'set -e; mount -o rprivate none /; mount -t debugfs -o nosuid,nodev,noexec debugfs /data/local/tmp/a9_a001_20261108_01/debugfs; test -f /data/local/tmp/a9_a001_20261108_01/debugfs/dri/9800000.qcom,mdss_mdp/DSI-1/tx_cmd; test -w /data/local/tmp/a9_a001_20261108_01/debugfs/dri/9800000.qcom,mdss_mdp/DSI-1/tx_cmd; dd if=/data/local/tmp/a9_a001_20261108_01/chunks/a9_only_4.txt of=/data/local/tmp/a9_a001_20261108_01/debugfs/dri/9800000.qcom,mdss_mdp/DSI-1/tx_cmd bs=4096 count=1 conv=notrunc status=none'\"'\"''",
+      "exit_code": 0,
+      "stdout": "<private event-134.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:28:13.170272+00:00",
+      "device": "target",
+      "command": "su -c 'cat /sys/kernel/tracing/instances/pwm_mode/trace'",
+      "exit_code": 0,
+      "stdout": "<private trace-latest.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:28:13.758467+00:00",
+      "device": "target",
+      "command": "su -c 'printf '\"'\"'<6>PWM_A9_REPRODUCTION_END_a9_only\\n'\"'\"' > /dev/kmsg'",
+      "exit_code": 0,
+      "stdout": "<private event-136.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:28:14.475733+00:00",
+      "device": "target",
+      "command": "su -c dmesg",
+      "exit_code": 0,
+      "stdout": "<private a9_only-kernel.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:28:15.093972+00:00",
+      "device": "target",
+      "command": "su -c 'printf '\"'\"'<6>PWM_A9_REPRODUCTION_DBV_BEGIN_a9_only\\n'\"'\"' > /dev/kmsg'",
+      "exit_code": 0,
+      "stdout": "<private event-138.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:28:15.667078+00:00",
+      "device": "target",
+      "command": "su -c 'printf '\"'\"'%s\\n'\"'\"' 3600 > /sys/class/backlight/panel0-backlight/brightness'",
+      "exit_code": 0,
+      "stdout": "<private event-139.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:28:16.247920+00:00",
+      "device": "target",
+      "command": "su -c 'cat /sys/class/backlight/panel0-backlight/brightness'",
+      "exit_code": 0,
+      "stdout": "<private event-140.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:28:16.823655+00:00",
+      "device": "target",
+      "command": "su -c 'printf '\"'\"'<6>PWM_A9_REPRODUCTION_DBV_END_a9_only\\n'\"'\"' > /dev/kmsg'",
+      "exit_code": 0,
+      "stdout": "<private event-141.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:28:17.403750+00:00",
+      "device": "target",
+      "command": "su -c dmesg",
+      "exit_code": 0,
+      "stdout": "<private a9_only-dbv-kernel.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:28:17.979006+00:00",
+      "device": "target",
+      "command": "su -c 'printf '\"'\"'<6>PWM_A9_REPRODUCTION_REDRAW_BEGIN_a9_only\\n'\"'\"' > /dev/kmsg'",
+      "exit_code": 0,
+      "stdout": "<private event-143.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:28:20.619069+00:00",
+      "device": "target",
+      "command": "uiautomator dump /data/local/tmp/a9_a001_20261108_01/redraw-ui.xml >/dev/null && cat /data/local/tmp/a9_a001_20261108_01/redraw-ui.xml",
+      "exit_code": 0,
+      "stdout": "<private a9_only-before-ui.xml>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:28:21.194842+00:00",
+      "device": "target",
+      "command": "input tap 720 1583",
+      "exit_code": 0,
+      "stdout": "<private event-145.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:28:23.809671+00:00",
+      "device": "target",
+      "command": "uiautomator dump /data/local/tmp/a9_a001_20261108_01/redraw-ui.xml >/dev/null && cat /data/local/tmp/a9_a001_20261108_01/redraw-ui.xml",
+      "exit_code": 0,
+      "stdout": "<private a9_only-opened-ui.xml>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:28:24.382684+00:00",
+      "device": "target",
+      "command": "input keyevent 4",
+      "exit_code": 0,
+      "stdout": "<private event-147.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:28:27.126943+00:00",
+      "device": "target",
+      "command": "uiautomator dump /data/local/tmp/a9_a001_20261108_01/redraw-ui.xml >/dev/null && cat /data/local/tmp/a9_a001_20261108_01/redraw-ui.xml",
+      "exit_code": 0,
+      "stdout": "<private a9_only-returned-ui.xml>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:28:27.606118+00:00",
+      "device": "target",
+      "command": "settings get system screen_off_timeout",
+      "exit_code": 0,
+      "stdout": "<private event-149.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:28:28.182575+00:00",
+      "device": "target",
+      "command": "su -c 'cat /sys/class/backlight/panel0-backlight/brightness'",
+      "exit_code": 0,
+      "stdout": "<private event-150.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:28:28.754681+00:00",
+      "device": "target",
+      "command": "su -c 'cat /sys/class/backlight/panel0-backlight/bl_power'",
+      "exit_code": 0,
+      "stdout": "<private event-151.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:28:29.330704+00:00",
+      "device": "target",
+      "command": "su -c 'cat /sys/class/drm/card0-DSI-1/panelDC'",
+      "exit_code": 0,
+      "stdout": "<private event-152.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:28:29.907033+00:00",
+      "device": "target",
+      "command": "getenforce",
+      "exit_code": 0,
+      "stdout": "<private event-153.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:28:30.482836+00:00",
+      "device": "target",
+      "command": "su -c 'printf '\"'\"'<6>PWM_A9_REPRODUCTION_REDRAW_END_a9_only\\n'\"'\"' > /dev/kmsg'",
+      "exit_code": 0,
+      "stdout": "<private event-154.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:28:31.196382+00:00",
+      "device": "target",
+      "command": "su -c dmesg",
+      "exit_code": 0,
+      "stdout": "<private a9_only-redraw-kernel.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:28:31.774668+00:00",
+      "device": "target",
+      "command": "su -c 'printf '\"'\"'<6>PWM_A9_REPRODUCTION_READ_BEGIN_a9_only\\n'\"'\"' > /dev/kmsg'",
+      "exit_code": 0,
+      "stdout": "<private event-156.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:28:32.542859+00:00",
+      "device": "target",
+      "command": "su -c 'timeout -k 3 15 unshare -m /system/bin/sh -c '\"'\"'set -eu\nmount -o rprivate none /\nmount -t debugfs -o nosuid,nodev,noexec debugfs /data/local/tmp/a9_a001_20261108_01/debugfs\nC=/data/local/tmp/a9_a001_20261108_01/debugfs/dri/9800000.qcom,mdss_mdp/DSI-1\nE=/data/local/tmp/a9_a001_20261108_01/debugfs/qcom,mdss_dsi_mot_boe_ili97701A_682_1440x3168_dsc_cmd_v4/esd_check_mode\nP0='\"'\"'\"'\"'\"'\"'\"'\"'0x39 0 0 0 0 0 4 0xFF 0x5A 0xA5 0'\"'\"'\"'\"'\"'\"'\"'\"'\nrestore() {\n s=$?; trap - EXIT\n printf '\"'\"'\"'\"'\"'\"'\"'\"'%s'\"'\"'\"'\"'\"'\"'\"'\"' \"$P0\" > \"$C/tx_cmd\" || s=31\n printf reg_read > \"$E\" || s=32\n m=$(tr -d '\"'\"'\"'\"'\"'\"'\"'\"'\\000'\"'\"'\"'\"'\"'\"'\"'\"' < \"$E\")\n printf '\"'\"'\"'\"'\"'\"'\"'\"'ESD_RESTORED %s\\n'\"'\"'\"'\"'\"'\"'\"'\"' \"$m\"\n [ \"$m\" = reg_read ] || s=33\n umount /data/local/tmp/a9_a001_20261108_01/debugfs || s=34\n exit \"$s\"\n}\ntrap restore EXIT\ntrap '\"'\"'\"'\"'\"'\"'\"'\"'exit 30'\"'\"'\"'\"'\"'\"'\"'\"' HUP INT TERM\n[ \"$(tr -d '\"'\"'\"'\"'\"'\"'\"'\"'\\000'\"'\"'\"'\"'\"'\"'\"'\"' < \"$E\")\" = reg_read ]\nprintf esd_sw_sim_success > \"$E\"\nprintf '\"'\"'\"'\"'\"'\"'\"'\"'%s'\"'\"'\"'\"'\"'\"'\"'\"' '\"'\"'\"'\"'\"'\"'\"'\"'0x39 0 0 0 0 0 4 0xFF 0x5A 0xA5 0x23'\"'\"'\"'\"'\"'\"'\"'\"' > \"$C/tx_cmd\"\nprintf '\"'\"'\"'\"'\"'\"'\"'\"'%s'\"'\"'\"'\"'\"'\"'\"'\"' '\"'\"'\"'\"'\"'\"'\"'\"'1 0x06 1 0 1 0 0 1 0xA9'\"'\"'\"'\"'\"'\"'\"'\"' > \"$C/rx_cmd\"\nprintf '\"'\"'\"'\"'\"'\"'\"'\"'%s'\"'\"'\"'\"'\"'\"'\"'\"' \"$P0\" > \"$C/tx_cmd\"\nprintf '\"'\"'\"'\"'\"'\"'\"'\"'R 23:A9 '\"'\"'\"'\"'\"'\"'\"'\"'\ncat \"$C/rx_cmd\"\nprintf '\"'\"'\"'\"'\"'\"'\"'\"'\\n'\"'\"'\"'\"'\"'\"'\"'\"'\nprintf '\"'\"'\"'\"'\"'\"'\"'\"'%s'\"'\"'\"'\"'\"'\"'\"'\"' '\"'\"'\"'\"'\"'\"'\"'\"'0x39 0 0 0 0 0 4 0xFF 0x5A 0xA5 0x24'\"'\"'\"'\"'\"'\"'\"'\"' > \"$C/tx_cmd\"\nprintf '\"'\"'\"'\"'\"'\"'\"'\"'%s'\"'\"'\"'\"'\"'\"'\"'\"' '\"'\"'\"'\"'\"'\"'\"'\"'1 0x06 1 0 1 0 0 1 0x9D'\"'\"'\"'\"'\"'\"'\"'\"' > \"$C/rx_cmd\"\nprintf '\"'\"'\"'\"'\"'\"'\"'\"'%s'\"'\"'\"'\"'\"'\"'\"'\"' \"$P0\" > \"$C/tx_cmd\"\nprintf '\"'\"'\"'\"'\"'\"'\"'\"'R 24:9D '\"'\"'\"'\"'\"'\"'\"'\"'\ncat \"$C/rx_cmd\"\nprintf '\"'\"'\"'\"'\"'\"'\"'\"'\\n'\"'\"'\"'\"'\"'\"'\"'\"'\nprintf '\"'\"'\"'\"'\"'\"'\"'\"'%s'\"'\"'\"'\"'\"'\"'\"'\"' '\"'\"'\"'\"'\"'\"'\"'\"'0x39 0 0 0 0 0 4 0xFF 0x5A 0xA5 0x00'\"'\"'\"'\"'\"'\"'\"'\"' > \"$C/tx_cmd\"\nprintf '\"'\"'\"'\"'\"'\"'\"'\"'%s'\"'\"'\"'\"'\"'\"'\"'\"' '\"'\"'\"'\"'\"'\"'\"'\"'2 0x06 1 0 1 0 0 1 0x52'\"'\"'\"'\"'\"'\"'\"'\"' > \"$C/rx_cmd\"\nprintf '\"'\"'\"'\"'\"'\"'\"'\"'%s'\"'\"'\"'\"'\"'\"'\"'\"' \"$P0\" > \"$C/tx_cmd\"\nprintf '\"'\"'\"'\"'\"'\"'\"'\"'R 00:52 '\"'\"'\"'\"'\"'\"'\"'\"'\ncat \"$C/rx_cmd\"\nprintf '\"'\"'\"'\"'\"'\"'\"'\"'\\n'\"'\"'\"'\"'\"'\"'\"'\"'\n'\"'\"''",
+      "exit_code": 0,
+      "stdout": "<private a9_only-readback.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:28:33.081263+00:00",
+      "device": "target",
+      "command": "su -c 'cat /sys/kernel/tracing/instances/pwm_mode/trace'",
+      "exit_code": 0,
+      "stdout": "<private a9_only-readback-trace.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:28:33.654399+00:00",
+      "device": "target",
+      "command": "su -c 'printf '\"'\"'<6>PWM_A9_REPRODUCTION_READ_END_a9_only\\n'\"'\"' > /dev/kmsg'",
+      "exit_code": 0,
+      "stdout": "<private event-159.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:28:34.222607+00:00",
+      "device": "target",
+      "command": "su -c 'cat /sys/class/backlight/panel0-backlight/brightness'",
+      "exit_code": 0,
+      "stdout": "<private event-160.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:28:34.798779+00:00",
+      "device": "target",
+      "command": "su -c 'cat /sys/class/backlight/panel0-backlight/bl_power'",
+      "exit_code": 0,
+      "stdout": "<private event-161.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:28:35.374218+00:00",
+      "device": "target",
+      "command": "su -c 'cat /sys/class/drm/card0-DSI-1/panelDC'",
+      "exit_code": 0,
+      "stdout": "<private event-162.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:28:35.947087+00:00",
+      "device": "target",
+      "command": "getenforce",
+      "exit_code": 0,
+      "stdout": "<private event-163.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:28:36.751113+00:00",
+      "device": "camera",
+      "command": "dumpsys media.camera",
+      "exit_code": 0,
+      "stdout": "<private a9_only-start-camera.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:28:37.326974+00:00",
+      "device": "target",
+      "command": "su -c 'printf '\"'\"'<6>PWM_A9_REPRODUCTION_HOLD_BEGIN_a9_only\\n'\"'\"' > /dev/kmsg'",
+      "exit_code": 0,
+      "stdout": "<private event-165.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:28:44.802009+00:00",
+      "device": "target",
+      "command": "su -c 'printf '\"'\"'<6>PWM_A9_REPRODUCTION_HOLD_END_a9_only\\n'\"'\"' > /dev/kmsg'",
+      "exit_code": 0,
+      "stdout": "<private event-166.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:28:45.370390+00:00",
+      "device": "target",
+      "command": "su -c 'cat /sys/class/backlight/panel0-backlight/brightness'",
+      "exit_code": 0,
+      "stdout": "<private event-167.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:28:45.938060+00:00",
+      "device": "target",
+      "command": "su -c 'cat /sys/class/backlight/panel0-backlight/bl_power'",
+      "exit_code": 0,
+      "stdout": "<private event-168.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:28:46.516259+00:00",
+      "device": "target",
+      "command": "su -c 'cat /sys/class/drm/card0-DSI-1/panelDC'",
+      "exit_code": 0,
+      "stdout": "<private event-169.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:28:47.090609+00:00",
+      "device": "target",
+      "command": "getenforce",
+      "exit_code": 0,
+      "stdout": "<private event-170.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:28:47.884041+00:00",
+      "device": "camera",
+      "command": "dumpsys media.camera",
+      "exit_code": 0,
+      "stdout": "<private a9_only-end-camera.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:28:48.482688+00:00",
+      "device": "target",
+      "command": "su -c dmesg",
+      "exit_code": 0,
+      "stdout": "<private a9_only-kernel.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:28:49.058373+00:00",
+      "device": "target",
+      "command": "su -c 'printf '\"'\"'<6>PWM_A9_REPRODUCTION_READ_BEGIN_a9_only_after_hold\\n'\"'\"' > /dev/kmsg'",
+      "exit_code": 0,
+      "stdout": "<private event-173.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:28:50.016028+00:00",
+      "device": "target",
+      "command": "su -c 'timeout -k 3 15 unshare -m /system/bin/sh -c '\"'\"'set -eu\nmount -o rprivate none /\nmount -t debugfs -o nosuid,nodev,noexec debugfs /data/local/tmp/a9_a001_20261108_01/debugfs\nC=/data/local/tmp/a9_a001_20261108_01/debugfs/dri/9800000.qcom,mdss_mdp/DSI-1\nE=/data/local/tmp/a9_a001_20261108_01/debugfs/qcom,mdss_dsi_mot_boe_ili97701A_682_1440x3168_dsc_cmd_v4/esd_check_mode\nP0='\"'\"'\"'\"'\"'\"'\"'\"'0x39 0 0 0 0 0 4 0xFF 0x5A 0xA5 0'\"'\"'\"'\"'\"'\"'\"'\"'\nrestore() {\n s=$?; trap - EXIT\n printf '\"'\"'\"'\"'\"'\"'\"'\"'%s'\"'\"'\"'\"'\"'\"'\"'\"' \"$P0\" > \"$C/tx_cmd\" || s=31\n printf reg_read > \"$E\" || s=32\n m=$(tr -d '\"'\"'\"'\"'\"'\"'\"'\"'\\000'\"'\"'\"'\"'\"'\"'\"'\"' < \"$E\")\n printf '\"'\"'\"'\"'\"'\"'\"'\"'ESD_RESTORED %s\\n'\"'\"'\"'\"'\"'\"'\"'\"' \"$m\"\n [ \"$m\" = reg_read ] || s=33\n umount /data/local/tmp/a9_a001_20261108_01/debugfs || s=34\n exit \"$s\"\n}\ntrap restore EXIT\ntrap '\"'\"'\"'\"'\"'\"'\"'\"'exit 30'\"'\"'\"'\"'\"'\"'\"'\"' HUP INT TERM\n[ \"$(tr -d '\"'\"'\"'\"'\"'\"'\"'\"'\\000'\"'\"'\"'\"'\"'\"'\"'\"' < \"$E\")\" = reg_read ]\nprintf esd_sw_sim_success > \"$E\"\nprintf '\"'\"'\"'\"'\"'\"'\"'\"'%s'\"'\"'\"'\"'\"'\"'\"'\"' '\"'\"'\"'\"'\"'\"'\"'\"'0x39 0 0 0 0 0 4 0xFF 0x5A 0xA5 0x23'\"'\"'\"'\"'\"'\"'\"'\"' > \"$C/tx_cmd\"\nprintf '\"'\"'\"'\"'\"'\"'\"'\"'%s'\"'\"'\"'\"'\"'\"'\"'\"' '\"'\"'\"'\"'\"'\"'\"'\"'1 0x06 1 0 1 0 0 1 0xA9'\"'\"'\"'\"'\"'\"'\"'\"' > \"$C/rx_cmd\"\nprintf '\"'\"'\"'\"'\"'\"'\"'\"'%s'\"'\"'\"'\"'\"'\"'\"'\"' \"$P0\" > \"$C/tx_cmd\"\nprintf '\"'\"'\"'\"'\"'\"'\"'\"'R 23:A9 '\"'\"'\"'\"'\"'\"'\"'\"'\ncat \"$C/rx_cmd\"\nprintf '\"'\"'\"'\"'\"'\"'\"'\"'\\n'\"'\"'\"'\"'\"'\"'\"'\"'\nprintf '\"'\"'\"'\"'\"'\"'\"'\"'%s'\"'\"'\"'\"'\"'\"'\"'\"' '\"'\"'\"'\"'\"'\"'\"'\"'0x39 0 0 0 0 0 4 0xFF 0x5A 0xA5 0x24'\"'\"'\"'\"'\"'\"'\"'\"' > \"$C/tx_cmd\"\nprintf '\"'\"'\"'\"'\"'\"'\"'\"'%s'\"'\"'\"'\"'\"'\"'\"'\"' '\"'\"'\"'\"'\"'\"'\"'\"'1 0x06 1 0 1 0 0 1 0x9D'\"'\"'\"'\"'\"'\"'\"'\"' > \"$C/rx_cmd\"\nprintf '\"'\"'\"'\"'\"'\"'\"'\"'%s'\"'\"'\"'\"'\"'\"'\"'\"' \"$P0\" > \"$C/tx_cmd\"\nprintf '\"'\"'\"'\"'\"'\"'\"'\"'R 24:9D '\"'\"'\"'\"'\"'\"'\"'\"'\ncat \"$C/rx_cmd\"\nprintf '\"'\"'\"'\"'\"'\"'\"'\"'\\n'\"'\"'\"'\"'\"'\"'\"'\"'\nprintf '\"'\"'\"'\"'\"'\"'\"'\"'%s'\"'\"'\"'\"'\"'\"'\"'\"' '\"'\"'\"'\"'\"'\"'\"'\"'0x39 0 0 0 0 0 4 0xFF 0x5A 0xA5 0x00'\"'\"'\"'\"'\"'\"'\"'\"' > \"$C/tx_cmd\"\nprintf '\"'\"'\"'\"'\"'\"'\"'\"'%s'\"'\"'\"'\"'\"'\"'\"'\"' '\"'\"'\"'\"'\"'\"'\"'\"'2 0x06 1 0 1 0 0 1 0x52'\"'\"'\"'\"'\"'\"'\"'\"' > \"$C/rx_cmd\"\nprintf '\"'\"'\"'\"'\"'\"'\"'\"'%s'\"'\"'\"'\"'\"'\"'\"'\"' \"$P0\" > \"$C/tx_cmd\"\nprintf '\"'\"'\"'\"'\"'\"'\"'\"'R 00:52 '\"'\"'\"'\"'\"'\"'\"'\"'\ncat \"$C/rx_cmd\"\nprintf '\"'\"'\"'\"'\"'\"'\"'\"'\\n'\"'\"'\"'\"'\"'\"'\"'\"'\n'\"'\"''",
+      "exit_code": 0,
+      "stdout": "<private a9_only_after_hold-readback.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:28:50.769719+00:00",
+      "device": "target",
+      "command": "su -c 'cat /sys/kernel/tracing/instances/pwm_mode/trace'",
+      "exit_code": 0,
+      "stdout": "<private a9_only_after_hold-readback-trace.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:28:51.369770+00:00",
+      "device": "target",
+      "command": "su -c 'printf '\"'\"'<6>PWM_A9_REPRODUCTION_READ_END_a9_only_after_hold\\n'\"'\"' > /dev/kmsg'",
+      "exit_code": 0,
+      "stdout": "<private event-176.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:28:51.948725+00:00",
+      "device": "target",
+      "command": "su -c 'cat /sys/class/backlight/panel0-backlight/brightness'",
+      "exit_code": 0,
+      "stdout": "<private event-177.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:28:52.519070+00:00",
+      "device": "target",
+      "command": "su -c 'cat /sys/class/backlight/panel0-backlight/bl_power'",
+      "exit_code": 0,
+      "stdout": "<private event-178.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:28:53.094451+00:00",
+      "device": "target",
+      "command": "su -c 'cat /sys/class/drm/card0-DSI-1/panelDC'",
+      "exit_code": 0,
+      "stdout": "<private event-179.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:28:53.667326+00:00",
+      "device": "target",
+      "command": "getenforce",
+      "exit_code": 0,
+      "stdout": "<private event-180.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:28:54.242614+00:00",
+      "device": "target",
+      "command": "su -c 'printf '\"'\"'<6>PWM_A9_REPRODUCTION_BEGIN_return_a9_only\\n'\"'\"' > /dev/kmsg'",
+      "exit_code": 0,
+      "stdout": "<private event-181.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:28:54.837576+00:00",
+      "device": "target",
+      "command": "su -c 'unshare -m /system/bin/sh -c '\"'\"'set -e; mount -o rprivate none /; mount -t debugfs -o nosuid,nodev,noexec debugfs /data/local/tmp/a9_a001_20261108_01/debugfs; test -f /data/local/tmp/a9_a001_20261108_01/debugfs/dri/9800000.qcom,mdss_mdp/DSI-1/tx_cmd; test -w /data/local/tmp/a9_a001_20261108_01/debugfs/dri/9800000.qcom,mdss_mdp/DSI-1/tx_cmd; dd if=/data/local/tmp/a9_a001_20261108_01/chunks/stock_0.txt of=/data/local/tmp/a9_a001_20261108_01/debugfs/dri/9800000.qcom,mdss_mdp/DSI-1/tx_cmd bs=4096 count=1 conv=notrunc status=none'\"'\"''",
+      "exit_code": 0,
+      "stdout": "<private event-182.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:28:55.489029+00:00",
+      "device": "target",
+      "command": "su -c 'cat /sys/kernel/tracing/instances/pwm_mode/trace'",
+      "exit_code": 0,
+      "stdout": "<private trace-latest.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:28:56.077691+00:00",
+      "device": "target",
+      "command": "su -c 'unshare -m /system/bin/sh -c '\"'\"'set -e; mount -o rprivate none /; mount -t debugfs -o nosuid,nodev,noexec debugfs /data/local/tmp/a9_a001_20261108_01/debugfs; test -f /data/local/tmp/a9_a001_20261108_01/debugfs/dri/9800000.qcom,mdss_mdp/DSI-1/tx_cmd; test -w /data/local/tmp/a9_a001_20261108_01/debugfs/dri/9800000.qcom,mdss_mdp/DSI-1/tx_cmd; dd if=/data/local/tmp/a9_a001_20261108_01/chunks/stock_1.txt of=/data/local/tmp/a9_a001_20261108_01/debugfs/dri/9800000.qcom,mdss_mdp/DSI-1/tx_cmd bs=4096 count=1 conv=notrunc status=none'\"'\"''",
+      "exit_code": 0,
+      "stdout": "<private event-184.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:28:56.733243+00:00",
+      "device": "target",
+      "command": "su -c 'cat /sys/kernel/tracing/instances/pwm_mode/trace'",
+      "exit_code": 0,
+      "stdout": "<private trace-latest.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:28:57.328304+00:00",
+      "device": "target",
+      "command": "su -c 'unshare -m /system/bin/sh -c '\"'\"'set -e; mount -o rprivate none /; mount -t debugfs -o nosuid,nodev,noexec debugfs /data/local/tmp/a9_a001_20261108_01/debugfs; test -f /data/local/tmp/a9_a001_20261108_01/debugfs/dri/9800000.qcom,mdss_mdp/DSI-1/tx_cmd; test -w /data/local/tmp/a9_a001_20261108_01/debugfs/dri/9800000.qcom,mdss_mdp/DSI-1/tx_cmd; dd if=/data/local/tmp/a9_a001_20261108_01/chunks/stock_2.txt of=/data/local/tmp/a9_a001_20261108_01/debugfs/dri/9800000.qcom,mdss_mdp/DSI-1/tx_cmd bs=4096 count=1 conv=notrunc status=none'\"'\"''",
+      "exit_code": 0,
+      "stdout": "<private event-186.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:28:58.038728+00:00",
+      "device": "target",
+      "command": "su -c 'cat /sys/kernel/tracing/instances/pwm_mode/trace'",
+      "exit_code": 0,
+      "stdout": "<private trace-latest.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:28:58.638470+00:00",
+      "device": "target",
+      "command": "su -c 'unshare -m /system/bin/sh -c '\"'\"'set -e; mount -o rprivate none /; mount -t debugfs -o nosuid,nodev,noexec debugfs /data/local/tmp/a9_a001_20261108_01/debugfs; test -f /data/local/tmp/a9_a001_20261108_01/debugfs/dri/9800000.qcom,mdss_mdp/DSI-1/tx_cmd; test -w /data/local/tmp/a9_a001_20261108_01/debugfs/dri/9800000.qcom,mdss_mdp/DSI-1/tx_cmd; dd if=/data/local/tmp/a9_a001_20261108_01/chunks/stock_3.txt of=/data/local/tmp/a9_a001_20261108_01/debugfs/dri/9800000.qcom,mdss_mdp/DSI-1/tx_cmd bs=4096 count=1 conv=notrunc status=none'\"'\"''",
+      "exit_code": 0,
+      "stdout": "<private event-188.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:28:59.348261+00:00",
+      "device": "target",
+      "command": "su -c 'cat /sys/kernel/tracing/instances/pwm_mode/trace'",
+      "exit_code": 0,
+      "stdout": "<private trace-latest.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:28:59.918332+00:00",
+      "device": "target",
+      "command": "su -c 'unshare -m /system/bin/sh -c '\"'\"'set -e; mount -o rprivate none /; mount -t debugfs -o nosuid,nodev,noexec debugfs /data/local/tmp/a9_a001_20261108_01/debugfs; test -f /data/local/tmp/a9_a001_20261108_01/debugfs/dri/9800000.qcom,mdss_mdp/DSI-1/tx_cmd; test -w /data/local/tmp/a9_a001_20261108_01/debugfs/dri/9800000.qcom,mdss_mdp/DSI-1/tx_cmd; dd if=/data/local/tmp/a9_a001_20261108_01/chunks/stock_4.txt of=/data/local/tmp/a9_a001_20261108_01/debugfs/dri/9800000.qcom,mdss_mdp/DSI-1/tx_cmd bs=4096 count=1 conv=notrunc status=none'\"'\"''",
+      "exit_code": 0,
+      "stdout": "<private event-190.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:29:00.554650+00:00",
+      "device": "target",
+      "command": "su -c 'cat /sys/kernel/tracing/instances/pwm_mode/trace'",
+      "exit_code": 0,
+      "stdout": "<private trace-latest.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:29:01.141233+00:00",
+      "device": "target",
+      "command": "su -c 'printf '\"'\"'<6>PWM_A9_REPRODUCTION_END_return_a9_only\\n'\"'\"' > /dev/kmsg'",
+      "exit_code": 0,
+      "stdout": "<private event-192.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:29:01.705225+00:00",
+      "device": "target",
+      "command": "su -c dmesg",
+      "exit_code": 0,
+      "stdout": "<private return_a9_only-kernel.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:29:02.278972+00:00",
+      "device": "target",
+      "command": "su -c 'printf '\"'\"'<6>PWM_A9_REPRODUCTION_DBV_BEGIN_return_a9_only\\n'\"'\"' > /dev/kmsg'",
+      "exit_code": 0,
+      "stdout": "<private event-194.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:29:02.855351+00:00",
+      "device": "target",
+      "command": "su -c 'printf '\"'\"'%s\\n'\"'\"' 3600 > /sys/class/backlight/panel0-backlight/brightness'",
+      "exit_code": 0,
+      "stdout": "<private event-195.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:29:03.427029+00:00",
+      "device": "target",
+      "command": "su -c 'cat /sys/class/backlight/panel0-backlight/brightness'",
+      "exit_code": 0,
+      "stdout": "<private event-196.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:29:04.002432+00:00",
+      "device": "target",
+      "command": "su -c 'printf '\"'\"'<6>PWM_A9_REPRODUCTION_DBV_END_return_a9_only\\n'\"'\"' > /dev/kmsg'",
+      "exit_code": 0,
+      "stdout": "<private event-197.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:29:04.589894+00:00",
+      "device": "target",
+      "command": "su -c dmesg",
+      "exit_code": 0,
+      "stdout": "<private return_a9_only-dbv-kernel.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:29:05.062598+00:00",
+      "device": "target",
+      "command": "su -c 'printf '\"'\"'<6>PWM_A9_REPRODUCTION_REDRAW_BEGIN_return_a9_only\\n'\"'\"' > /dev/kmsg'",
+      "exit_code": 0,
+      "stdout": "<private event-199.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:29:07.683621+00:00",
+      "device": "target",
+      "command": "uiautomator dump /data/local/tmp/a9_a001_20261108_01/redraw-ui.xml >/dev/null && cat /data/local/tmp/a9_a001_20261108_01/redraw-ui.xml",
+      "exit_code": 0,
+      "stdout": "<private return_a9_only-before-ui.xml>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:29:08.158725+00:00",
+      "device": "target",
+      "command": "input tap 720 1583",
+      "exit_code": 0,
+      "stdout": "<private event-201.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:29:10.859030+00:00",
+      "device": "target",
+      "command": "uiautomator dump /data/local/tmp/a9_a001_20261108_01/redraw-ui.xml >/dev/null && cat /data/local/tmp/a9_a001_20261108_01/redraw-ui.xml",
+      "exit_code": 0,
+      "stdout": "<private return_a9_only-opened-ui.xml>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:29:11.434064+00:00",
+      "device": "target",
+      "command": "input keyevent 4",
+      "exit_code": 0,
+      "stdout": "<private event-203.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:29:14.164156+00:00",
+      "device": "target",
+      "command": "uiautomator dump /data/local/tmp/a9_a001_20261108_01/redraw-ui.xml >/dev/null && cat /data/local/tmp/a9_a001_20261108_01/redraw-ui.xml",
+      "exit_code": 0,
+      "stdout": "<private return_a9_only-returned-ui.xml>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:29:14.742208+00:00",
+      "device": "target",
+      "command": "settings get system screen_off_timeout",
+      "exit_code": 0,
+      "stdout": "<private event-205.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:29:15.314518+00:00",
+      "device": "target",
+      "command": "su -c 'cat /sys/class/backlight/panel0-backlight/brightness'",
+      "exit_code": 0,
+      "stdout": "<private event-206.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:29:15.891051+00:00",
+      "device": "target",
+      "command": "su -c 'cat /sys/class/backlight/panel0-backlight/bl_power'",
+      "exit_code": 0,
+      "stdout": "<private event-207.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:29:16.466918+00:00",
+      "device": "target",
+      "command": "su -c 'cat /sys/class/drm/card0-DSI-1/panelDC'",
+      "exit_code": 0,
+      "stdout": "<private event-208.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:29:17.034279+00:00",
+      "device": "target",
+      "command": "getenforce",
+      "exit_code": 0,
+      "stdout": "<private event-209.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:29:17.606311+00:00",
+      "device": "target",
+      "command": "su -c 'printf '\"'\"'<6>PWM_A9_REPRODUCTION_REDRAW_END_return_a9_only\\n'\"'\"' > /dev/kmsg'",
+      "exit_code": 0,
+      "stdout": "<private event-210.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:29:18.311477+00:00",
+      "device": "target",
+      "command": "su -c dmesg",
+      "exit_code": 0,
+      "stdout": "<private return_a9_only-redraw-kernel.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:29:18.882457+00:00",
+      "device": "target",
+      "command": "su -c 'printf '\"'\"'<6>PWM_A9_REPRODUCTION_READ_BEGIN_return_a9_only\\n'\"'\"' > /dev/kmsg'",
+      "exit_code": 0,
+      "stdout": "<private event-212.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:29:19.645469+00:00",
+      "device": "target",
+      "command": "su -c 'timeout -k 3 15 unshare -m /system/bin/sh -c '\"'\"'set -eu\nmount -o rprivate none /\nmount -t debugfs -o nosuid,nodev,noexec debugfs /data/local/tmp/a9_a001_20261108_01/debugfs\nC=/data/local/tmp/a9_a001_20261108_01/debugfs/dri/9800000.qcom,mdss_mdp/DSI-1\nE=/data/local/tmp/a9_a001_20261108_01/debugfs/qcom,mdss_dsi_mot_boe_ili97701A_682_1440x3168_dsc_cmd_v4/esd_check_mode\nP0='\"'\"'\"'\"'\"'\"'\"'\"'0x39 0 0 0 0 0 4 0xFF 0x5A 0xA5 0'\"'\"'\"'\"'\"'\"'\"'\"'\nrestore() {\n s=$?; trap - EXIT\n printf '\"'\"'\"'\"'\"'\"'\"'\"'%s'\"'\"'\"'\"'\"'\"'\"'\"' \"$P0\" > \"$C/tx_cmd\" || s=31\n printf reg_read > \"$E\" || s=32\n m=$(tr -d '\"'\"'\"'\"'\"'\"'\"'\"'\\000'\"'\"'\"'\"'\"'\"'\"'\"' < \"$E\")\n printf '\"'\"'\"'\"'\"'\"'\"'\"'ESD_RESTORED %s\\n'\"'\"'\"'\"'\"'\"'\"'\"' \"$m\"\n [ \"$m\" = reg_read ] || s=33\n umount /data/local/tmp/a9_a001_20261108_01/debugfs || s=34\n exit \"$s\"\n}\ntrap restore EXIT\ntrap '\"'\"'\"'\"'\"'\"'\"'\"'exit 30'\"'\"'\"'\"'\"'\"'\"'\"' HUP INT TERM\n[ \"$(tr -d '\"'\"'\"'\"'\"'\"'\"'\"'\\000'\"'\"'\"'\"'\"'\"'\"'\"' < \"$E\")\" = reg_read ]\nprintf esd_sw_sim_success > \"$E\"\nprintf '\"'\"'\"'\"'\"'\"'\"'\"'%s'\"'\"'\"'\"'\"'\"'\"'\"' '\"'\"'\"'\"'\"'\"'\"'\"'0x39 0 0 0 0 0 4 0xFF 0x5A 0xA5 0x23'\"'\"'\"'\"'\"'\"'\"'\"' > \"$C/tx_cmd\"\nprintf '\"'\"'\"'\"'\"'\"'\"'\"'%s'\"'\"'\"'\"'\"'\"'\"'\"' '\"'\"'\"'\"'\"'\"'\"'\"'1 0x06 1 0 1 0 0 1 0xA9'\"'\"'\"'\"'\"'\"'\"'\"' > \"$C/rx_cmd\"\nprintf '\"'\"'\"'\"'\"'\"'\"'\"'%s'\"'\"'\"'\"'\"'\"'\"'\"' \"$P0\" > \"$C/tx_cmd\"\nprintf '\"'\"'\"'\"'\"'\"'\"'\"'R 23:A9 '\"'\"'\"'\"'\"'\"'\"'\"'\ncat \"$C/rx_cmd\"\nprintf '\"'\"'\"'\"'\"'\"'\"'\"'\\n'\"'\"'\"'\"'\"'\"'\"'\"'\nprintf '\"'\"'\"'\"'\"'\"'\"'\"'%s'\"'\"'\"'\"'\"'\"'\"'\"' '\"'\"'\"'\"'\"'\"'\"'\"'0x39 0 0 0 0 0 4 0xFF 0x5A 0xA5 0x24'\"'\"'\"'\"'\"'\"'\"'\"' > \"$C/tx_cmd\"\nprintf '\"'\"'\"'\"'\"'\"'\"'\"'%s'\"'\"'\"'\"'\"'\"'\"'\"' '\"'\"'\"'\"'\"'\"'\"'\"'1 0x06 1 0 1 0 0 1 0x9D'\"'\"'\"'\"'\"'\"'\"'\"' > \"$C/rx_cmd\"\nprintf '\"'\"'\"'\"'\"'\"'\"'\"'%s'\"'\"'\"'\"'\"'\"'\"'\"' \"$P0\" > \"$C/tx_cmd\"\nprintf '\"'\"'\"'\"'\"'\"'\"'\"'R 24:9D '\"'\"'\"'\"'\"'\"'\"'\"'\ncat \"$C/rx_cmd\"\nprintf '\"'\"'\"'\"'\"'\"'\"'\"'\\n'\"'\"'\"'\"'\"'\"'\"'\"'\nprintf '\"'\"'\"'\"'\"'\"'\"'\"'%s'\"'\"'\"'\"'\"'\"'\"'\"' '\"'\"'\"'\"'\"'\"'\"'\"'0x39 0 0 0 0 0 4 0xFF 0x5A 0xA5 0x00'\"'\"'\"'\"'\"'\"'\"'\"' > \"$C/tx_cmd\"\nprintf '\"'\"'\"'\"'\"'\"'\"'\"'%s'\"'\"'\"'\"'\"'\"'\"'\"' '\"'\"'\"'\"'\"'\"'\"'\"'2 0x06 1 0 1 0 0 1 0x52'\"'\"'\"'\"'\"'\"'\"'\"' > \"$C/rx_cmd\"\nprintf '\"'\"'\"'\"'\"'\"'\"'\"'%s'\"'\"'\"'\"'\"'\"'\"'\"' \"$P0\" > \"$C/tx_cmd\"\nprintf '\"'\"'\"'\"'\"'\"'\"'\"'R 00:52 '\"'\"'\"'\"'\"'\"'\"'\"'\ncat \"$C/rx_cmd\"\nprintf '\"'\"'\"'\"'\"'\"'\"'\"'\\n'\"'\"'\"'\"'\"'\"'\"'\"'\n'\"'\"''",
+      "exit_code": 0,
+      "stdout": "<private return_a9_only-readback.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:29:20.278034+00:00",
+      "device": "target",
+      "command": "su -c 'cat /sys/kernel/tracing/instances/pwm_mode/trace'",
+      "exit_code": 0,
+      "stdout": "<private return_a9_only-readback-trace.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:29:20.851530+00:00",
+      "device": "target",
+      "command": "su -c 'printf '\"'\"'<6>PWM_A9_REPRODUCTION_READ_END_return_a9_only\\n'\"'\"' > /dev/kmsg'",
+      "exit_code": 0,
+      "stdout": "<private event-215.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:29:21.423970+00:00",
+      "device": "target",
+      "command": "su -c 'cat /sys/class/backlight/panel0-backlight/brightness'",
+      "exit_code": 0,
+      "stdout": "<private event-216.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:29:21.998612+00:00",
+      "device": "target",
+      "command": "su -c 'cat /sys/class/backlight/panel0-backlight/bl_power'",
+      "exit_code": 0,
+      "stdout": "<private event-217.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:29:22.574173+00:00",
+      "device": "target",
+      "command": "su -c 'cat /sys/class/drm/card0-DSI-1/panelDC'",
+      "exit_code": 0,
+      "stdout": "<private event-218.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:29:23.146724+00:00",
+      "device": "target",
+      "command": "getenforce",
+      "exit_code": 0,
+      "stdout": "<private event-219.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:29:23.756892+00:00",
+      "device": "camera",
+      "command": "dumpsys media.camera",
+      "exit_code": 0,
+      "stdout": "<private return_a9_only-start-camera.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:29:24.330574+00:00",
+      "device": "target",
+      "command": "su -c 'printf '\"'\"'<6>PWM_A9_REPRODUCTION_HOLD_BEGIN_return_a9_only\\n'\"'\"' > /dev/kmsg'",
+      "exit_code": 0,
+      "stdout": "<private event-221.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:29:31.806270+00:00",
+      "device": "target",
+      "command": "su -c 'printf '\"'\"'<6>PWM_A9_REPRODUCTION_HOLD_END_return_a9_only\\n'\"'\"' > /dev/kmsg'",
+      "exit_code": 0,
+      "stdout": "<private event-222.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:29:32.374191+00:00",
+      "device": "target",
+      "command": "su -c 'cat /sys/class/backlight/panel0-backlight/brightness'",
+      "exit_code": 0,
+      "stdout": "<private event-223.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:29:32.946413+00:00",
+      "device": "target",
+      "command": "su -c 'cat /sys/class/backlight/panel0-backlight/bl_power'",
+      "exit_code": 0,
+      "stdout": "<private event-224.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:29:33.520026+00:00",
+      "device": "target",
+      "command": "su -c 'cat /sys/class/drm/card0-DSI-1/panelDC'",
+      "exit_code": 0,
+      "stdout": "<private event-225.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:29:34.099226+00:00",
+      "device": "target",
+      "command": "getenforce",
+      "exit_code": 0,
+      "stdout": "<private event-226.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:29:34.933194+00:00",
+      "device": "camera",
+      "command": "dumpsys media.camera",
+      "exit_code": 0,
+      "stdout": "<private return_a9_only-end-camera.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:29:35.527054+00:00",
+      "device": "target",
+      "command": "su -c dmesg",
+      "exit_code": 0,
+      "stdout": "<private return_a9_only-kernel.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:29:36.098370+00:00",
+      "device": "target",
+      "command": "su -c 'printf '\"'\"'<6>PWM_A9_REPRODUCTION_READ_BEGIN_return_a9_only_after_hold\\n'\"'\"' > /dev/kmsg'",
+      "exit_code": 0,
+      "stdout": "<private event-229.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:29:36.850546+00:00",
+      "device": "target",
+      "command": "su -c 'timeout -k 3 15 unshare -m /system/bin/sh -c '\"'\"'set -eu\nmount -o rprivate none /\nmount -t debugfs -o nosuid,nodev,noexec debugfs /data/local/tmp/a9_a001_20261108_01/debugfs\nC=/data/local/tmp/a9_a001_20261108_01/debugfs/dri/9800000.qcom,mdss_mdp/DSI-1\nE=/data/local/tmp/a9_a001_20261108_01/debugfs/qcom,mdss_dsi_mot_boe_ili97701A_682_1440x3168_dsc_cmd_v4/esd_check_mode\nP0='\"'\"'\"'\"'\"'\"'\"'\"'0x39 0 0 0 0 0 4 0xFF 0x5A 0xA5 0'\"'\"'\"'\"'\"'\"'\"'\"'\nrestore() {\n s=$?; trap - EXIT\n printf '\"'\"'\"'\"'\"'\"'\"'\"'%s'\"'\"'\"'\"'\"'\"'\"'\"' \"$P0\" > \"$C/tx_cmd\" || s=31\n printf reg_read > \"$E\" || s=32\n m=$(tr -d '\"'\"'\"'\"'\"'\"'\"'\"'\\000'\"'\"'\"'\"'\"'\"'\"'\"' < \"$E\")\n printf '\"'\"'\"'\"'\"'\"'\"'\"'ESD_RESTORED %s\\n'\"'\"'\"'\"'\"'\"'\"'\"' \"$m\"\n [ \"$m\" = reg_read ] || s=33\n umount /data/local/tmp/a9_a001_20261108_01/debugfs || s=34\n exit \"$s\"\n}\ntrap restore EXIT\ntrap '\"'\"'\"'\"'\"'\"'\"'\"'exit 30'\"'\"'\"'\"'\"'\"'\"'\"' HUP INT TERM\n[ \"$(tr -d '\"'\"'\"'\"'\"'\"'\"'\"'\\000'\"'\"'\"'\"'\"'\"'\"'\"' < \"$E\")\" = reg_read ]\nprintf esd_sw_sim_success > \"$E\"\nprintf '\"'\"'\"'\"'\"'\"'\"'\"'%s'\"'\"'\"'\"'\"'\"'\"'\"' '\"'\"'\"'\"'\"'\"'\"'\"'0x39 0 0 0 0 0 4 0xFF 0x5A 0xA5 0x23'\"'\"'\"'\"'\"'\"'\"'\"' > \"$C/tx_cmd\"\nprintf '\"'\"'\"'\"'\"'\"'\"'\"'%s'\"'\"'\"'\"'\"'\"'\"'\"' '\"'\"'\"'\"'\"'\"'\"'\"'1 0x06 1 0 1 0 0 1 0xA9'\"'\"'\"'\"'\"'\"'\"'\"' > \"$C/rx_cmd\"\nprintf '\"'\"'\"'\"'\"'\"'\"'\"'%s'\"'\"'\"'\"'\"'\"'\"'\"' \"$P0\" > \"$C/tx_cmd\"\nprintf '\"'\"'\"'\"'\"'\"'\"'\"'R 23:A9 '\"'\"'\"'\"'\"'\"'\"'\"'\ncat \"$C/rx_cmd\"\nprintf '\"'\"'\"'\"'\"'\"'\"'\"'\\n'\"'\"'\"'\"'\"'\"'\"'\"'\nprintf '\"'\"'\"'\"'\"'\"'\"'\"'%s'\"'\"'\"'\"'\"'\"'\"'\"' '\"'\"'\"'\"'\"'\"'\"'\"'0x39 0 0 0 0 0 4 0xFF 0x5A 0xA5 0x24'\"'\"'\"'\"'\"'\"'\"'\"' > \"$C/tx_cmd\"\nprintf '\"'\"'\"'\"'\"'\"'\"'\"'%s'\"'\"'\"'\"'\"'\"'\"'\"' '\"'\"'\"'\"'\"'\"'\"'\"'1 0x06 1 0 1 0 0 1 0x9D'\"'\"'\"'\"'\"'\"'\"'\"' > \"$C/rx_cmd\"\nprintf '\"'\"'\"'\"'\"'\"'\"'\"'%s'\"'\"'\"'\"'\"'\"'\"'\"' \"$P0\" > \"$C/tx_cmd\"\nprintf '\"'\"'\"'\"'\"'\"'\"'\"'R 24:9D '\"'\"'\"'\"'\"'\"'\"'\"'\ncat \"$C/rx_cmd\"\nprintf '\"'\"'\"'\"'\"'\"'\"'\"'\\n'\"'\"'\"'\"'\"'\"'\"'\"'\nprintf '\"'\"'\"'\"'\"'\"'\"'\"'%s'\"'\"'\"'\"'\"'\"'\"'\"' '\"'\"'\"'\"'\"'\"'\"'\"'0x39 0 0 0 0 0 4 0xFF 0x5A 0xA5 0x00'\"'\"'\"'\"'\"'\"'\"'\"' > \"$C/tx_cmd\"\nprintf '\"'\"'\"'\"'\"'\"'\"'\"'%s'\"'\"'\"'\"'\"'\"'\"'\"' '\"'\"'\"'\"'\"'\"'\"'\"'2 0x06 1 0 1 0 0 1 0x52'\"'\"'\"'\"'\"'\"'\"'\"' > \"$C/rx_cmd\"\nprintf '\"'\"'\"'\"'\"'\"'\"'\"'%s'\"'\"'\"'\"'\"'\"'\"'\"' \"$P0\" > \"$C/tx_cmd\"\nprintf '\"'\"'\"'\"'\"'\"'\"'\"'R 00:52 '\"'\"'\"'\"'\"'\"'\"'\"'\ncat \"$C/rx_cmd\"\nprintf '\"'\"'\"'\"'\"'\"'\"'\"'\\n'\"'\"'\"'\"'\"'\"'\"'\"'\n'\"'\"''",
+      "exit_code": 0,
+      "stdout": "<private return_a9_only_after_hold-readback.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:29:37.545664+00:00",
+      "device": "target",
+      "command": "su -c 'cat /sys/kernel/tracing/instances/pwm_mode/trace'",
+      "exit_code": 0,
+      "stdout": "<private return_a9_only_after_hold-readback-trace.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:29:38.151637+00:00",
+      "device": "target",
+      "command": "su -c 'printf '\"'\"'<6>PWM_A9_REPRODUCTION_READ_END_return_a9_only_after_hold\\n'\"'\"' > /dev/kmsg'",
+      "exit_code": 0,
+      "stdout": "<private event-232.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:29:38.731018+00:00",
+      "device": "target",
+      "command": "su -c 'timeout -k 3 15 unshare -m /system/bin/sh -c '\"'\"'set -e; mount -o rprivate none /; mount -t debugfs -o ro,nosuid,nodev,noexec debugfs /data/local/tmp/a9_a001_20261108_01/debugfs; tr -d '\"'\"'\"'\"'\"'\"'\"'\"'\\000'\"'\"'\"'\"'\"'\"'\"'\"' < /data/local/tmp/a9_a001_20261108_01/debugfs/qcom,mdss_dsi_mot_boe_ili97701A_682_1440x3168_dsc_cmd_v4/esd_check_mode; umount /data/local/tmp/a9_a001_20261108_01/debugfs'\"'\"''",
+      "exit_code": 0,
+      "stdout": "<private event-233.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:29:39.306365+00:00",
+      "device": "target",
+      "command": "su -c 'rmdir /data/local/tmp/a9_a001_20261108_01/watchdog_armed'",
+      "exit_code": 0,
+      "stdout": "<private event-234.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:29:39.878078+00:00",
+      "device": "target",
+      "command": "su -c 'cat /sys/kernel/tracing/kprobe_profile'",
+      "exit_code": 0,
+      "stdout": "<private probe-profile.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:29:40.450226+00:00",
+      "device": "target",
+      "command": "su -c 'if test -d /data/local/tmp/a9_a001_20261108_01/watchdog_armed; then rmdir /data/local/tmp/a9_a001_20261108_01/watchdog_armed; fi; test ! -e /data/local/tmp/a9_a001_20261108_01/watchdog_armed'",
+      "exit_code": 0,
+      "stdout": "<private event-236.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:29:43.174637+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm-mode-camera.xml >/dev/null && cat /data/local/tmp/pwm-mode-camera.xml",
+      "exit_code": 0,
+      "stdout": "<private camera-ui.xml>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:29:45.929248+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm-mode-camera.xml >/dev/null && cat /data/local/tmp/pwm-mode-camera.xml",
+      "exit_code": 0,
+      "stdout": "<private camera-ui.xml>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:29:46.514117+00:00",
+      "device": "camera",
+      "command": "input tap 539 2197",
+      "exit_code": 0,
+      "stdout": "<private event-239.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:29:49.245362+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm-mode-camera.xml >/dev/null && cat /data/local/tmp/pwm-mode-camera.xml",
+      "exit_code": 0,
+      "stdout": "<private camera-ui.xml>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:29:49.955746+00:00",
+      "device": "target",
+      "command": "su -c 'timeout -k 3 15 unshare -m /system/bin/sh -c '\"'\"'set -eu\nmount -o rprivate none /\nmount -t debugfs -o nosuid,nodev,noexec debugfs /data/local/tmp/a9_a001_20261108_01/debugfs\nC=/data/local/tmp/a9_a001_20261108_01/debugfs/dri/9800000.qcom,mdss_mdp/DSI-1\nE=/data/local/tmp/a9_a001_20261108_01/debugfs/qcom,mdss_dsi_mot_boe_ili97701A_682_1440x3168_dsc_cmd_v4/esd_check_mode\nP0='\"'\"'\"'\"'\"'\"'\"'\"'0x39 0 0 0 0 0 4 0xFF 0x5A 0xA5 0'\"'\"'\"'\"'\"'\"'\"'\"'\nrestore() {\n s=$?; trap - EXIT\n printf '\"'\"'\"'\"'\"'\"'\"'\"'%s'\"'\"'\"'\"'\"'\"'\"'\"' \"$P0\" > \"$C/tx_cmd\" || s=31\n printf reg_read > \"$E\" || s=32\n m=$(tr -d '\"'\"'\"'\"'\"'\"'\"'\"'\\000'\"'\"'\"'\"'\"'\"'\"'\"' < \"$E\")\n printf '\"'\"'\"'\"'\"'\"'\"'\"'ESD_RESTORED %s\\n'\"'\"'\"'\"'\"'\"'\"'\"' \"$m\"\n [ \"$m\" = reg_read ] || s=33\n umount /data/local/tmp/a9_a001_20261108_01/debugfs || s=34\n exit \"$s\"\n}\ntrap restore EXIT\ntrap '\"'\"'\"'\"'\"'\"'\"'\"'exit 30'\"'\"'\"'\"'\"'\"'\"'\"' HUP INT TERM\n'\"'\"''",
+      "exit_code": 0,
+      "stdout": "<private esd-final.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:29:50.628248+00:00",
+      "device": "target",
+      "command": "su -c 'timeout -k 3 15 unshare -m /system/bin/sh -c '\"'\"'set -e; mount -o rprivate none /; mount -t debugfs -o ro,nosuid,nodev,noexec debugfs /data/local/tmp/a9_a001_20261108_01/debugfs; tr -d '\"'\"'\"'\"'\"'\"'\"'\"'\\000'\"'\"'\"'\"'\"'\"'\"'\"' < /data/local/tmp/a9_a001_20261108_01/debugfs/qcom,mdss_dsi_mot_boe_ili97701A_682_1440x3168_dsc_cmd_v4/esd_check_mode; umount /data/local/tmp/a9_a001_20261108_01/debugfs'\"'\"''",
+      "exit_code": 0,
+      "stdout": "<private event-242.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:29:51.218887+00:00",
+      "device": "target",
+      "command": "su -c 'printf '\"'\"'0\\n'\"'\"' > /sys/class/drm/card0-DSI-1/mipi_cmd_log_en'",
+      "exit_code": 0,
+      "stdout": "<private event-243.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:29:51.790132+00:00",
+      "device": "target",
+      "command": "su -c 'printf '\"'\"'0\\n'\"'\"' > /sys/kernel/tracing/instances/pwm_mode/tracing_on'",
+      "exit_code": 0,
+      "stdout": "<private event-244.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:29:52.537464+00:00",
+      "device": "target",
+      "command": "su -c 'cat /sys/kernel/tracing/instances/pwm_mode/trace'",
+      "exit_code": 0,
+      "stdout": "<private trace-final.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:29:53.110489+00:00",
+      "device": "target",
+      "command": "su -c 'printf '\"'\"'0\\n'\"'\"' > /sys/kernel/tracing/instances/pwm_mode/events/pwm_mode/mode_entry/enable'",
+      "exit_code": 0,
+      "stdout": "<private event-246.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:29:53.681667+00:00",
+      "device": "target",
+      "command": "su -c 'printf '\"'\"'0\\n'\"'\"' > /sys/kernel/tracing/instances/pwm_mode/events/pwm_mode/mode_return/enable'",
+      "exit_code": 0,
+      "stdout": "<private event-247.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:29:54.251081+00:00",
+      "device": "target",
+      "command": "su -c 'printf '\"'\"'0\\n'\"'\"' > /sys/kernel/tracing/instances/pwm_mode/events/pwm_mode/mode_ctrl_return/enable'",
+      "exit_code": 0,
+      "stdout": "<private event-248.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:29:54.827030+00:00",
+      "device": "target",
+      "command": "su -c 'rmdir /sys/kernel/tracing/instances/pwm_mode'",
+      "exit_code": 0,
+      "stdout": "<private event-249.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:29:55.402282+00:00",
+      "device": "target",
+      "command": "su -c 'printf '\"'\"'%s\\n'\"'\"' -:pwm_mode/mode_ctrl_return >> /sys/kernel/tracing/kprobe_events'",
+      "exit_code": 0,
+      "stdout": "<private event-250.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:29:55.973515+00:00",
+      "device": "target",
+      "command": "su -c 'printf '\"'\"'%s\\n'\"'\"' -:pwm_mode/mode_return >> /sys/kernel/tracing/kprobe_events'",
+      "exit_code": 0,
+      "stdout": "<private event-251.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:29:56.542447+00:00",
+      "device": "target",
+      "command": "su -c 'printf '\"'\"'%s\\n'\"'\"' -:pwm_mode/mode_entry >> /sys/kernel/tracing/kprobe_events'",
+      "exit_code": 0,
+      "stdout": "<private event-252.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:29:57.110760+00:00",
+      "device": "target",
+      "command": "settings put system screen_brightness 98",
+      "exit_code": 0,
+      "stdout": "<private event-253.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:29:57.679159+00:00",
+      "device": "target",
+      "command": "settings put system min_refresh_rate 120.0",
+      "exit_code": 0,
+      "stdout": "<private event-254.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:29:58.250789+00:00",
+      "device": "target",
+      "command": "settings put system peak_refresh_rate 120.0",
+      "exit_code": 0,
+      "stdout": "<private event-255.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:29:58.826947+00:00",
+      "device": "target",
+      "command": "settings put system screen_off_timeout 1800000",
+      "exit_code": 0,
+      "stdout": "<private event-256.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:29:59.410562+00:00",
+      "device": "target",
+      "command": "settings put system screen_brightness_mode 0",
+      "exit_code": 0,
+      "stdout": "<private event-257.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:29:59.986864+00:00",
+      "device": "target",
+      "command": "su -c 'printf '\"'\"'%s\\n'\"'\"' 828 > /sys/class/backlight/panel0-backlight/brightness'",
+      "exit_code": 0,
+      "stdout": "<private event-258.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:30:00.566858+00:00",
+      "device": "target",
+      "command": "su -c 'cat /sys/class/backlight/panel0-backlight/brightness'",
+      "exit_code": 0,
+      "stdout": "<private event-259.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:30:01.145573+00:00",
+      "device": "target",
+      "command": "su -c 'cat /sys/class/backlight/panel0-backlight/bl_power'",
+      "exit_code": 0,
+      "stdout": "<private event-260.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:30:01.722737+00:00",
+      "device": "target",
+      "command": "settings get system screen_brightness",
+      "exit_code": 0,
+      "stdout": "<private event-261.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:30:02.302680+00:00",
+      "device": "target",
+      "command": "settings get system screen_brightness_mode",
+      "exit_code": 0,
+      "stdout": "<private event-262.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:30:02.779956+00:00",
+      "device": "target",
+      "command": "settings get system min_refresh_rate",
+      "exit_code": 0,
+      "stdout": "<private event-263.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:30:03.354567+00:00",
+      "device": "target",
+      "command": "settings get system peak_refresh_rate",
+      "exit_code": 0,
+      "stdout": "<private event-264.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:30:03.930459+00:00",
+      "device": "target",
+      "command": "settings get system screen_off_timeout",
+      "exit_code": 0,
+      "stdout": "<private event-265.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:30:04.519213+00:00",
+      "device": "target",
+      "command": "su -c 'cat /sys/class/drm/card0-DSI-1/panelDC'",
+      "exit_code": 0,
+      "stdout": "<private event-266.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:30:05.094394+00:00",
+      "device": "target",
+      "command": "su -c 'cat /sys/class/drm/card0-DSI-1/mipi_cmd_log_en'",
+      "exit_code": 0,
+      "stdout": "<private event-267.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:30:05.671822+00:00",
+      "device": "target",
+      "command": "getenforce",
+      "exit_code": 0,
+      "stdout": "<private event-268.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:30:06.147380+00:00",
+      "device": "target",
+      "command": "su -c 'cat /sys/class/backlight/panel0-backlight/brightness'",
+      "exit_code": 0,
+      "stdout": "<private event-269.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:30:06.719246+00:00",
+      "device": "target",
+      "command": "su -c 'rm -f /data/local/tmp/a9_a001_20261108_01/watchdog.log /data/local/tmp/a9_a001_20261108_01/watchdog.pid'",
+      "exit_code": 0,
+      "stdout": "<private event-270.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:30:07.294369+00:00",
+      "device": "target",
+      "command": "rm -f /data/local/tmp/a9_a001_20261108_01/redraw-ui.xml",
+      "exit_code": 0,
+      "stdout": "<private event-271.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:30:07.862388+00:00",
+      "device": "target",
+      "command": "rm /data/local/tmp/a9_a001_20261108_01/chunks/stock_0.txt /data/local/tmp/a9_a001_20261108_01/chunks/a9_only_2.txt /data/local/tmp/a9_a001_20261108_01/chunks/a9_only_0.txt /data/local/tmp/a9_a001_20261108_01/chunks/stock_2.txt /data/local/tmp/a9_a001_20261108_01/chunks/a9_only_1.txt /data/local/tmp/a9_a001_20261108_01/chunks/stock_4.txt /data/local/tmp/a9_a001_20261108_01/chunks/a9_only_3.txt /data/local/tmp/a9_a001_20261108_01/chunks/stock_1.txt /data/local/tmp/a9_a001_20261108_01/chunks/stock_3.txt /data/local/tmp/a9_a001_20261108_01/chunks/a9_only_4.txt; rmdir /data/local/tmp/a9_a001_20261108_01/chunks /data/local/tmp/a9_a001_20261108_01/debugfs /data/local/tmp/a9_a001_20261108_01",
+      "exit_code": 0,
+      "stdout": "<private event-272.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:30:08.450720+00:00",
+      "device": "camera",
+      "command": "find /sdcard/DCIM/OpenCamera -maxdepth 1 -type f -name '*.mp4'",
+      "exit_code": 0,
+      "stdout": "<private camera-files-after.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:30:08.930546+00:00",
+      "device": "camera",
+      "command": "stat -c %s /sdcard/DCIM/OpenCamera/VID_20260421_085531.mp4",
+      "exit_code": 0,
+      "stdout": "<private event-274.txt>",
+      "stderr": "<redacted>"
+    },
+    {
+      "at_utc": "2026-11-08T14:30:28.303211+00:00",
+      "device": "target",
+      "command": "su -c 'rmdir /data/local/tmp/legion-pwm-research.lock'",
+      "exit_code": 0,
+      "stdout": "<private event-275.txt>",
+      "stderr": "<redacted>"
+    }
+  ],
+  "pwm_hz": "unknown",
+  "mode": "a9_reproduction",
+  "experiment_id": "a9_a001_20261108_01",
+  "trial_native_dbv": 3600,
+  "transport": "existing_private_unix_socket_only",
+  "adb_protocol": 41,
+  "live_transport_validation": "coordinator-qualified read-only separately",
+  "exclusive_device_lock_acquired": true,
+  "before": {
+    "screen_brightness": "98",
+    "screen_brightness_mode": "0",
+    "min_refresh_rate": "120.0",
+    "peak_refresh_rate": "120.0",
+    "screen_off_timeout": "1800000",
+    "bl_power": "0",
+    "native_dbv": 828
+  },
+  "recording_preflight": [
+    {
+      "camera_id": "0",
+      "client_package": "net.sourceforge.opencamera",
+      "session_token": "708adb8a36ca46153a5990f4fef96b8ed616c3087dd3cb3d6d05fe0c7d355e11",
+      "request": {
+        "exposure_ns": 100000,
+        "iso": 6400,
+        "ae_mode": "OFF",
+        "af_mode": "OFF",
+        "focus_diopters": 2.0387485,
+        "crop": [
+          0,
+          0,
+          4080,
+          3072
+        ],
+        "zoom": 1.0,
+        "eis_mode": "OFF",
+        "ois_mode": "OFF",
+        "capture_intent": "VIDEO_RECORD",
+        "request_id": 40,
+        "frame_duration_ns": 33333333
+      },
+      "result": {
+        "exposure_ns": 100000,
+        "iso": 6400,
+        "ae_mode": "OFF",
+        "af_mode": "OFF",
+        "focus_diopters": 2.0387485,
+        "crop": [
+          0,
+          0,
+          4080,
+          3072
+        ],
+        "zoom": 1.0,
+        "eis_mode": "OFF",
+        "ois_mode": "OFF",
+        "capture_intent": "VIDEO_RECORD",
+        "request_id": 40,
+        "frame_duration_ns": 33350000,
+        "frame_count": 494183,
+        "timestamp_ns": 26329674378000,
+        "rolling_shutter_skew_ns": 15047630
+      },
+      "streams": [
+        {
+          "id": 7,
+          "width": 1920,
+          "height": 1080,
+          "pixel_format": "0x11",
+          "state": 4,
+          "consumer_kind": "SurfaceTexture",
+          "frames_produced": 78,
+          "last_timestamp_ns": 26329674378000,
+          "requested": true
+        },
+        {
+          "id": 8,
+          "width": 1280,
+          "height": 720,
+          "pixel_format": "0x1000",
+          "state": 4,
+          "consumer_kind": "GraphicBufferSource",
+          "frames_produced": 78,
+          "last_timestamp_ns": 26329674378000,
+          "requested": true
+        },
+        {
+          "id": 9,
+          "width": 3840,
+          "height": 2160,
+          "pixel_format": "0x21",
+          "state": 4,
+          "consumer_kind": "ImageReader",
+          "frames_produced": 0,
+          "last_timestamp_ns": 0,
+          "requested": false
+        }
+      ],
+      "recording_verified": true,
+      "encoder_stream_id": 8,
+      "frame_count": 494183,
+      "timestamp_ns": 26329674378000,
+      "frame_duration_ns": 33350000,
+      "rolling_shutter_skew_ns": 15047630,
+      "progress_verified": false,
+      "interpretation": "Settings and stream snapshots only; not per-frame video metadata or optical Hz."
+    },
+    {
+      "camera_id": "0",
+      "client_package": "net.sourceforge.opencamera",
+      "session_token": "708adb8a36ca46153a5990f4fef96b8ed616c3087dd3cb3d6d05fe0c7d355e11",
+      "request": {
+        "exposure_ns": 100000,
+        "iso": 6400,
+        "ae_mode": "OFF",
+        "af_mode": "OFF",
+        "focus_diopters": 2.0387485,
+        "crop": [
+          0,
+          0,
+          4080,
+          3072
+        ],
+        "zoom": 1.0,
+        "eis_mode": "OFF",
+        "ois_mode": "OFF",
+        "capture_intent": "VIDEO_RECORD",
+        "request_id": 40,
+        "frame_duration_ns": 33333333
+      },
+      "result": {
+        "exposure_ns": 100000,
+        "iso": 6400,
+        "ae_mode": "OFF",
+        "af_mode": "OFF",
+        "focus_diopters": 2.0387485,
+        "crop": [
+          0,
+          0,
+          4080,
+          3072
+        ],
+        "zoom": 1.0,
+        "eis_mode": "OFF",
+        "ois_mode": "OFF",
+        "capture_intent": "VIDEO_RECORD",
+        "request_id": 40,
+        "frame_duration_ns": 33350000,
+        "frame_count": 494216,
+        "timestamp_ns": 26330774365000,
+        "rolling_shutter_skew_ns": 15047630
+      },
+      "streams": [
+        {
+          "id": 7,
+          "width": 1920,
+          "height": 1080,
+          "pixel_format": "0x11",
+          "state": 4,
+          "consumer_kind": "SurfaceTexture",
+          "frames_produced": 111,
+          "last_timestamp_ns": 26330774365000,
+          "requested": true
+        },
+        {
+          "id": 8,
+          "width": 1280,
+          "height": 720,
+          "pixel_format": "0x1000",
+          "state": 4,
+          "consumer_kind": "GraphicBufferSource",
+          "frames_produced": 111,
+          "last_timestamp_ns": 26330774365000,
+          "requested": true
+        },
+        {
+          "id": 9,
+          "width": 3840,
+          "height": 2160,
+          "pixel_format": "0x21",
+          "state": 4,
+          "consumer_kind": "ImageReader",
+          "frames_produced": 0,
+          "last_timestamp_ns": 0,
+          "requested": false
+        }
+      ],
+      "recording_verified": true,
+      "encoder_stream_id": 8,
+      "frame_count": 494216,
+      "timestamp_ns": 26330774365000,
+      "frame_duration_ns": 33350000,
+      "rolling_shutter_skew_ns": 15047630,
+      "progress_verified": true,
+      "interpretation": "Settings and stream snapshots only; not per-frame video metadata or optical Hz."
+    }
+  ],
+  "watchdog_armed": true,
+  "pending_bytes_may_exist": false,
+  "candidate_may_be_active": false,
+  "stock_return_verified": true,
+  "watchdog_disarmed_after_stock_return": true,
+  "series_complete": true,
+  "watchdog_disarmed_no_pending_candidate": true,
+  "camera_stopped_verified": true,
+  "esd_restored": true,
+  "target_restored": true,
+  "after": {
+    "screen_brightness": "98",
+    "screen_brightness_mode": "0",
+    "min_refresh_rate": "120.0",
+    "peak_refresh_rate": "120.0",
+    "screen_off_timeout": "1800000",
+    "dc": "0",
+    "logger": "ctrl->ctrl->mipi_cmd_log_en: 0",
+    "selinux": "Enforcing",
+    "native_dbv": 828
+  },
+  "temporary_device_files_removed": true,
+  "video": "<private video>",
+  "video_bytes": 176697083,
+  "duration_ms": 156698,
+  "exclusive_device_lock_released": true,
+  "cleanup_errors": [],
+  "finished_at_utc": "2026-11-08T14:30:28.305002+00:00"
+}

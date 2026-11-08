@@ -15,13 +15,14 @@ N='aabbccddeeff'
 def fixture(rawcount=9,header=None):
     h=0x00031c
     if header is None: header=h | c.ecc(h)<<24
-    lines=['STATE 3600 120.00001','C1 0x00 0x00 0x65','TRACE_BEGIN']
-    def row(name, data):
-        lines.append(f' sh-123 [004] d... 12345.1: {name}_{N}: '+data)
+    lines=['STATE 3600 120.00001','ESD_INITIAL reg_read','ESD_ACTIVE esd_sw_sim_success',
+           'C1 0x00 0x00 0x65','ESD_RESTORED reg_read','TRACE_BEGIN']
+    def row(name, data, pid=123):
+        lines.append(f' printf-{pid} [004] d... 12345.1: {name}_{N}: '+data)
     row('hardware',f'hw_status=0x{rawcount<<16:x} read_bytes=16 mrps=3')
     row('header',f'header=0x{header:x} requested=3 count=9 allocation=16 disp_op=0')
-    for value in (0,3,0,0): row('ctrl',f'rc={value}')
-    for _ in range(3): row('tx','rc=0')
+    for value,pid in ((0,122),(3,123),(0,124),(0,125)): row('ctrl',f'rc={value}',pid)
+    for pid in (122,124,125): row('tx','rc=0',pid)
     lines+=['TRACE_END','PROFILE_BEGIN']
     for name in ('header','hardware','ctrl','tx'):lines.append(f'{name}_{N} 1 0')
     lines+=['PROFILE_END','CLEANUP_OK']
@@ -38,7 +39,7 @@ class CaptureTests(unittest.TestCase):
 
     def test_rejects_uncertain_or_wrong_framing(self):
         base=fixture()
-        mutations=[('CLEANUP_OK','RECOVERY_REQUIRED 31'),('count=9','count=7'),
+        mutations=[('CLEANUP_OK','RECOVERY_REQUIRED 31'),('ESD_ACTIVE esd_sw_sim_success','ESD_ACTIVE reg_read'),('count=9','count=7'),
                    ('requested=3','requested=40'),('allocation=16','allocation=48'),
                    ('disp_op=0','disp_op=1'),('mrps=3','mrps=10'),('read_bytes=16','read_bytes=4'),
                    ('hw_status=0x90000','hw_status=0x70000'),('rc=3','rc=-1'),
@@ -57,7 +58,23 @@ class CaptureTests(unittest.TestCase):
         with self.assertRaises(ValueError):c.validate_capture(fixture(header=h^0x01000000),N,3600,120)
         text=fixture(); line=next(x for x in text.splitlines() if ': header_' in x)
         with self.assertRaises(ValueError):c.validate_capture(text+line+'\n',N,3600,120)
-        with self.assertRaises(ValueError):c.validate_capture(text.replace('sh-123 [004] d... 12345.1: hardware','sh-124 [004] d... 12345.1: hardware'),N,3600,120)
+        with self.assertRaises(ValueError):c.validate_capture(text.replace('printf-123 [004] d... 12345.1: hardware','printf-124 [004] d... 12345.1: hardware'),N,3600,120)
+
+    def test_exact_page_and_controller_return_sequences(self):
+        text=fixture()
+        for name in ('ctrl','tx'):
+            lines=text.splitlines()
+            index=next(i for i,line in enumerate(lines) if ': '+name+'_'+N+':' in line)
+            removed='\n'.join(lines[:index]+lines[index+1:])+'\n'
+            extra='\n'.join(lines[:index]+[lines[index]]+lines[index:])+'\n'
+            with self.subTest(name=name,kind='missing'),self.assertRaises(ValueError):
+                c.validate_capture(removed,N,3600,120)
+            with self.subTest(name=name,kind='extra'),self.assertRaises(ValueError):
+                c.validate_capture(extra,N,3600,120)
+        lines=text.splitlines()
+        ids=[i for i,line in enumerate(lines) if ': ctrl_'+N+':' in line]
+        lines[ids[0]],lines[ids[1]]=lines[ids[1]],lines[ids[0]]
+        with self.assertRaises(ValueError):c.validate_capture('\n'.join(lines)+'\n',N,3600,120)
 
     def test_script_fixed_width_and_cleanup(self):
         command=c.reader_script(N,3600,120)
@@ -68,7 +85,9 @@ class CaptureTests(unittest.TestCase):
         self.assertIn('mkdir -m 700 "$LOCK"',body)
         self.assertIn('trap cleanup EXIT',body)
         self.assertIn("trap 'exit 30' HUP INT TERM",body)
-        self.assertIn('printf reg_read > "$E"',body)
+        self.assertIn("printf '%s\\n' reg_read > \"$E\"",body)
+        self.assertIn("printf '%s\\n' esd_sw_sim_success > \"$E\"",body)
+        self.assertIn('ESD_RESTORED',body)
         self.assertIn('if [ "$s" = 0 ]; then',body)
         self.assertNotIn('reboot',body)
         self.assertNotIn('settings put',body)
@@ -107,6 +126,16 @@ class CaptureTests(unittest.TestCase):
             count=payload+6; header=16-count
             self.assertEqual(allocation-header-4,remaining)
             self.assertEqual(remaining<3,payload==0)
+
+    def test_esd_write_requires_newline_exact_token(self):
+        # Target .text1b14f4 strcmp to .rodata1a085 includes trailing LF.
+        # Readback mode5 at .text1b1344 uses the non-LF .rodata2170a token.
+        def exact_writer(mode, incoming):
+            return {'esd_sw_sim_success\n':5,'reg_read\n':0}.get(incoming,mode)
+        self.assertEqual(exact_writer(0,'esd_sw_sim_success'),0)
+        self.assertEqual(exact_writer(0,'esd_sw_sim_success\n'),5)
+        self.assertEqual(exact_writer(5,'reg_read'),5)
+        self.assertEqual(exact_writer(5,'reg_read\n'),0)
 
 
 if __name__=='__main__':unittest.main()

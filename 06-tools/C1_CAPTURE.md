@@ -86,6 +86,44 @@ Never write C1 based on these observations.
 
 Offline validation:
 `PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s 06-tools -p test_capture_ddic_c1.py -v`.
-Seven tests cover normal/ACK framing, invalid widths/counts/WC/ECC, duplicates,
+Nine tests cover normal/ACK framing, invalid widths/counts/WC/ECC, duplicates,
 probe misses, state mismatch, shell syntax, cleanup structure, inherited locks,
 conditional bounds and no-overwrite refusal under optimized Python.
+Controller/page return sequences are checked exactly, including rejection of
+missing, extra or reordered controller operations.
+
+## First live pre-query stop and correction
+
+Capture nonce14aaef2774b5 stopped before page23/C1. Header/helper probes had zero
+hits; only the final page0 cleanup writer returned0. The post-write ESD guard
+correctly rejected the still-stock mode. Saved module analysis established why:
+`debugfs_alter_esd_check_mode` uses exact strcmp against newline-terminated
+`esd_sw_sim_success\n` (rodata+1a085, call.text1b14f4) and `reg_read\n`
+(rodata+f479, call.text1b14e0). The read handler returns the bare tokens.
+The original bare printf writes were accepted-bytecount no-ops. Both set and
+restore now explicitly include LF; the exact readback guard remains mandatory.
+Initial/active/restored ESD states are logged independently. No query was
+executed in that attempt, and the coordinator owns recovery/lock verification.
+
+The captured cleanup also proves Android printf runs in a separate task for
+individual writes. The validator therefore requires matching header/helper/read
+return PID, but separately validates page-write returns across their task IDs.
+It no longer incorrectly requires all independent printf processes to share
+the C1 read task. Synthetic tests now use distinct writer PIDs.
+
+## Qualified live observations, executed by the coordinator
+
+`artifacts/c1_live_20261108/` contains five completed qualified captures:
+stock120/DBV3600=`00 00 60`; stock90/3600=`00 00 80`;
+stock144/3600=`00 00 50`; stock120-return/3600=`00 00 60`;
+stock120/3646=`00 00 10`. Each has header`1c 03 00 16`, normalized/raw count9,
+one receive and verified cleanup. Each private trace has controller returns
+`[0,3,0,0]` and page-writer returns`[0,0,0]`, on separate printf tasks.
+
+The90 prediction now has real qualified support: a candidate count interpreted
+as`BE24>>4` gives8×90=5×144=6×120=720, then1 above the brightness boundary.
+This is strong evidence for a count/status relationship, not independently
+measured physical Hz or a writable control. Every qualified low nibble is0;
+the old unqualified65/55 prefixes must not define a fixed secondary field.
+An A9 comparison can next distinguish count reduction toward1 from a different
+duty/gain mechanism. No C1 write or new count profile is proposed.

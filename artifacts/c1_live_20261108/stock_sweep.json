@@ -1,0 +1,114 @@
+{
+  "before": {
+    "native_dbv": 828,
+    "min": "120.0",
+    "peak": "120.0"
+  },
+  "captures": [
+    {
+      "started_at_utc": "2026-11-08T14:43:31.636500+00:00",
+      "module_sha256": "1bec69faec736e7288f38e4cb83314c37c60d33e6b383213316fd880aa0b1804",
+      "nonce": "4757710b0104",
+      "physical_operation_attempted": true,
+      "pwm_hz": null,
+      "page": "23",
+      "opcode": "C1",
+      "requested": 3,
+      "data": [
+        0,
+        0,
+        128
+      ],
+      "header_hex": "1c 03 00 16",
+      "raw_hardware_count": 9,
+      "normalized_count": 9,
+      "scratch_allocation": 16,
+      "single_receive": true,
+      "framing_qualified": true,
+      "cleanup_verified": true,
+      "native_dbv": 3600,
+      "software_refresh": 90.0,
+      "limit": "C1 semantics and writable behavior unknown; CRC payload itself not captured.",
+      "finished_at_utc": "2026-11-08T14:43:33.749054+00:00"
+    },
+    {
+      "started_at_utc": "2026-11-08T14:43:36.109754+00:00",
+      "module_sha256": "1bec69faec736e7288f38e4cb83314c37c60d33e6b383213316fd880aa0b1804",
+      "nonce": "1b41dbaf50d7",
+      "physical_operation_attempted": true,
+      "pwm_hz": null,
+      "page": "23",
+      "opcode": "C1",
+      "requested": 3,
+      "data": [
+        0,
+        0,
+        80
+      ],
+      "header_hex": "1c 03 00 16",
+      "raw_hardware_count": 9,
+      "normalized_count": 9,
+      "scratch_allocation": 16,
+      "single_receive": true,
+      "framing_qualified": true,
+      "cleanup_verified": true,
+      "native_dbv": 3600,
+      "software_refresh": 144.00002,
+      "limit": "C1 semantics and writable behavior unknown; CRC payload itself not captured.",
+      "finished_at_utc": "2026-11-08T14:43:38.288040+00:00"
+    },
+    {
+      "started_at_utc": "2026-11-08T14:43:40.560408+00:00",
+      "module_sha256": "1bec69faec736e7288f38e4cb83314c37c60d33e6b383213316fd880aa0b1804",
+      "nonce": "17db2ee48816",
+      "physical_operation_attempted": true,
+      "pwm_hz": null,
+      "page": "23",
+      "opcode": "C1",
+      "requested": 3,
+      "data": [
+        0,
+        0,
+        96
+      ],
+      "header_hex": "1c 03 00 16",
+      "raw_hardware_count": 9,
+      "normalized_count": 9,
+      "scratch_allocation": 16,
+      "single_receive": true,
+      "framing_qualified": true,
+      "cleanup_verified": true,
+      "native_dbv": 3600,
+      "software_refresh": 120.00001,
+      "limit": "C1 semantics and writable behavior unknown; CRC payload itself not captured.",
+      "finished_at_utc": "2026-11-08T14:43:42.722436+00:00"
+    },
+    {
+      "started_at_utc": "2026-11-08T14:43:44.888145+00:00",
+      "module_sha256": "1bec69faec736e7288f38e4cb83314c37c60d33e6b383213316fd880aa0b1804",
+      "nonce": "fe8fc7b0006a",
+      "physical_operation_attempted": true,
+      "pwm_hz": null,
+      "page": "23",
+      "opcode": "C1",
+      "requested": 3,
+      "data": [
+        0,
+        0,
+        16
+      ],
+      "header_hex": "1c 03 00 16",
+      "raw_hardware_count": 9,
+      "normalized_count": 9,
+      "scratch_allocation": 16,
+      "single_receive": true,
+      "framing_qualified": true,
+      "cleanup_verified": true,
+      "native_dbv": 3646,
+      "software_refresh": 120.00001,
+      "limit": "C1 semantics and writable behavior unknown; CRC payload itself not captured.",
+      "finished_at_utc": "2026-11-08T14:43:46.983759+00:00"
+    }
+  ],
+  "restored": true
+}

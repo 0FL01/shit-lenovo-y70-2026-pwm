@@ -1,8 +1,10 @@
 """Offline synthetic fixtures only. Never connect to a device or launch adb."""
 import hashlib
 import json
+import re
 from pathlib import Path
 import struct
+import subprocess
 import tempfile
 import unittest
 from unittest.mock import patch
@@ -68,6 +70,17 @@ class ReproductionTests(unittest.TestCase):
                 self.assertFalse(out.exists())
                 self.assertFalse(private.exists())
                 self.assertNotIn('owner_confirmation', scope)
+                with self.assertRaisesRegex(ValueError, 'C1 capture scope'):
+                    a9.prepare(root, argv + ['--capture-c1'])
+                c1_auth = dict(auth, c1_capture=a9.C1_SCOPE)
+                source.write_text(json.dumps(c1_auth))
+                self.assertEqual(a9.prepare(root, argv + ['--capture-c1'])[-1]['c1_capture'], a9.C1_SCOPE)
+                with self.assertRaisesRegex(ValueError, 'without --capture-c1'):
+                    a9.prepare(root, argv)
+                for field, bad in [('length', 2), ('read_only', 1), ('refresh_hz', 90)]:
+                    source.write_text(json.dumps(dict(auth, c1_capture=dict(a9.C1_SCOPE, **{field: bad}))))
+                    with self.subTest(c1_field=field), self.assertRaises(ValueError):
+                        a9.prepare(root, argv + ['--capture-c1'])
                 for key, bad in [('experiment_id', 'old_trial'), ('native_dbv', 3600), ('output', 'artifacts/old'),
                                  ('sequence', ['stock', 'a9_only']), ('watchdog_reboot_approved', False),
                                  ('program_sha256', {}), ('owner_confirmation', '')]:
@@ -79,6 +92,99 @@ class ReproductionTests(unittest.TestCase):
                 out.mkdir()
                 with self.assertRaisesRegex(ValueError, 'one-shot'):
                     a9.prepare(root, argv)
+
+    def test_c1_main_trace_accounting_rejects_missing_extra_or_queued_callbacks(self):
+        entry = 'mode_entry: pending=0 length=11 flags=0\nmode_return: rc=0\n'
+        before = entry + 'mode_ctrl_return: rc=0\n'
+        delta = entry * 3 + ''.join('mode_ctrl_return: rc=' + str(rc) + '\n' for rc in (0, 3, 0, 0))
+        result = a9.validate_c1_trace(before, before + delta, 1)
+        self.assertEqual(result['entry_count_after'], 4)
+        self.assertEqual(result['controller_returns'], [0, 3, 0, 0])
+        for bad in (delta + entry, delta.replace('pending=0', 'pending=11', 1),
+                    delta.replace('length=11', 'length=12', 1), delta.replace('flags=0', 'flags=64', 1),
+                    delta.replace('rc=3', 'rc=0'), delta.replace('rc=0', 'rc=-1', 1), delta + 'LOST'):
+            with self.subTest(delta=bad), self.assertRaises(ValueError):
+                a9.validate_c1_trace(before, before + bad, 1)
+        with self.assertRaises(ValueError):
+            a9.validate_c1_trace(before, before + delta, 0)
+        with self.assertRaises(ValueError):
+            a9.validate_c1_trace(before, (before + delta).replace('length=11', 'length=12', 1), 1)
+
+    def test_c1_allows_only_known_background_esd_outside_callback_window(self):
+        def line(time, event, data, task='printf'):
+            return f' {task}-100 [001] d.... {time:.6f}: {event}: {data}\n'
+        entry = 'pending=0 length=11 flags=0'
+        before = line(1, 'mode_entry', entry) + line(1.1, 'mode_ctrl_return', 'rc=0') + line(1.2, 'mode_return', 'rc=0')
+        delta = ''
+        for t in (2, 3, 4):
+            delta += line(t, 'mode_entry', entry) + line(t+.1, 'mode_ctrl_return', 'rc=0') + line(t+.2, 'mode_return', 'rc=0')
+            if t == 2:
+                delta += line(2.3, 'mode_ctrl_return', 'rc=3')
+        call = '(dsi_display_validate_status+0x154/0x308 [msm_drm] <- dsi_ctrl_cmd_transfer) rc=1'
+        esd = line(5, 'mode_ctrl_return', call, 'kworker/0:1')
+        result = a9.validate_c1_trace(before, before + delta + esd, 1)
+        self.assertEqual(result['controller_returns'], [0, 3, 0, 0])
+        self.assertEqual(result['background_esd'][0]['kind'], 'native_esd_resumed_after_restoration')
+        prior_esd = line(1.5, 'mode_ctrl_return', call, 'kworker/0:1')
+        self.assertEqual(a9.validate_c1_trace(before, before + prior_esd + delta, 1)['background_esd'][0]['kind'], 'native_esd_before_c1_window')
+        for bad in (esd.replace('kworker/0:1', 'printf'), esd.replace('+0x154/', '+0x158/'),
+                    esd.replace('rc=1', 'rc=2'), esd.replace('rc=1', 'rc=-1'),
+                    esd.replace('rc=1', 'rc=0'), esd.replace('validate_status', 'cmd_receive')):
+            with self.subTest(extra=bad), self.assertRaises(ValueError):
+                a9.validate_c1_trace(before, before + delta + bad, 1)
+        middle = line(2.4, 'mode_ctrl_return', call, 'kworker/0:1')
+        split = delta.index(' 3.000000:')
+        index = delta.rfind('\n', 0, split) + 1
+        with self.assertRaises(ValueError):
+            a9.validate_c1_trace(before, before + delta[:index] + middle + delta[index:], 1)
+        with self.assertRaises(ValueError):
+            a9.validate_c1_trace(before, before.replace('1.100000', '1.110000') + delta + esd, 1)
+
+    def test_saved_trial02_trace_and_background_esd_mutations(self):
+        private = Path.home() / '.cache/legion-y70-trials/a9_c1_a001_20261108_02'
+        if not (private / 'baseline-c1-trace-before.txt').exists():
+            self.skipTest('Private on-target trace evidence unavailable on this host')
+        before = (private / 'baseline-c1-trace-before.txt').read_text()
+        after = (private / 'baseline-c1-trace-after.txt').read_text()
+        count = len(re.findall(r'\bmode_entry:', before))
+        result = a9.validate_c1_trace(before, after, count)
+        self.assertEqual(result['controller_returns'], [0, 3, 0, 0])
+        self.assertEqual(len(result['background_esd']), 1)
+        self.assertEqual(result['background_esd'][0]['kind'], 'native_esd_resumed_after_restoration')
+        extra = after.splitlines()[-1]
+        self.assertIn('dsi_display_validate_status', extra)
+        for bad in (extra.replace('kworker/0:1', 'printf'), extra.replace('rc=1', 'rc=2'),
+                    extra.replace('rc=1', 'rc=-1'), extra.replace('+0x154/', '+0x158/'),
+                    extra.replace('1982.432464', '1981.950000')):
+            with self.subTest(mutation=bad), self.assertRaises(ValueError):
+                a9.validate_c1_trace(before, after.replace(extra, bad), count)
+
+    def test_root_mutex_never_overwrites_or_releases_other_token(self):
+        with tempfile.TemporaryDirectory() as directory:
+            lock = Path(directory) / 'mutex'
+            # Ordinary temporary files only. Simulate required UID0 reporting;
+            # actual mode, file/symlink and ownership-token checks run unchanged.
+            prefix = 'stat() { if [ "$2" = %u ]; then printf 0; else command stat "$@"; fi; }; '
+            def run(token, operation, root_uid=True):
+                command = a9.lock_commands(token)[operation].replace(a9.LOCK, str(lock))
+                if not root_uid:
+                    return subprocess.run(['sh', '-c', prefix.replace('printf 0', 'printf 1') + command], capture_output=True)
+                return subprocess.run(['sh', '-c', prefix + command], capture_output=True)
+            self.assertEqual(run('experiment_owned', 'acquire').returncode, 0)
+            self.assertEqual((lock / 'owner').read_text(), 'experiment_owned')
+            self.assertNotEqual(run('experiment_other', 'acquire').returncode, 0)
+            self.assertNotEqual(run('experiment_other', 'release').returncode, 0)
+            self.assertEqual((lock / 'owner').read_text(), 'experiment_owned')
+            self.assertNotEqual(run('experiment_owned', 'release', root_uid=False).returncode, 0)
+            (lock / 'owner').chmod(0o644)
+            self.assertNotEqual(run('experiment_owned', 'release').returncode, 0)
+            (lock / 'owner').chmod(0o600)
+            self.assertEqual(run('experiment_owned', 'verify').returncode, 0)
+            self.assertEqual(run('experiment_owned', 'release').returncode, 0)
+            self.assertFalse(lock.exists())
+        for token in ('short', 'token; rm', '../invalid/token'):
+            with self.assertRaises(ValueError):
+                a9.lock_commands(token)
 
     def test_socket_mandatory_and_no_default_or_retry(self):
         for spec in ('', 'tcp:localhost:5037', 'localfilesystem:relative'):

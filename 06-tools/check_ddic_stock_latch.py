@@ -24,6 +24,8 @@ READS = [(0x4F, r, 1) for r in (0x80, 0x81, 0x88, 0x8B, 0xC1, 0xC9, 0xD1, 0xD9)]
 
 
 def reader(restore_only=False, *, mount_dir=None, reads=READS):
+    # Target msm_drm strcmp requires newline-terminated ESD write tokens.
+    # Readback returns bare mode; a successful write bytecount is not evidence.
     # Native timeout bounds the isolated mount lifetime independently of host ADB.
     mount_dir = mount_dir or TMP + '/dbg'
     assert re.fullmatch(r'/data/local/tmp/[a-zA-Z0-9_/-]+', mount_dir)
@@ -37,7 +39,7 @@ P0='0x39 0 0 0 0 0 4 0xFF 0x5A 0xA5 0'
 restore() {{
  s=$?; trap - EXIT
  printf '%s' "$P0" > "$C/tx_cmd" || s=31
- printf reg_read > "$E" || s=32
+ printf '%s\\n' reg_read > "$E" || s=32
  m=$(tr -d '\\000' < "$E")
  printf 'ESD_RESTORED %s\\n' "$m"
  [ "$m" = reg_read ] || s=33
@@ -49,7 +51,9 @@ trap 'exit 30' HUP INT TERM
 '''
     if not restore_only:
         text += '''[ "$(tr -d '\\000' < "$E")" = reg_read ]
-printf esd_sw_sim_success > "$E"
+printf '%s\\n' esd_sw_sim_success > "$E"
+[ "$(tr -d '\\000' < "$E")" = esd_sw_sim_success ]
+printf 'ESD_ISOLATED esd_sw_sim_success\\n'
 '''
         for page, reg, length in reads:
             text += f'''printf '%s' '0x39 0 0 0 0 0 4 0xFF 0x5A 0xA5 0x{page:02X}' > "$C/tx_cmd"

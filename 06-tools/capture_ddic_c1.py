@@ -83,8 +83,10 @@ cleanup() {{
  fi
  if [ "$traced" = 1 ]; then printf 0 > "$T/tracing_on" || s=32; fi
  if [ "$mounted" = 1 ] && [ "$touched" = 1 ]; then
-   printf reg_read > "$E" || s=33
-   [ "$(tr -d '\\000' < "$E")" = reg_read ] || s=34
+   printf '%s\\n' reg_read > "$E" || s=33
+   restored_esd=$(tr -d '\\000' < "$E")
+   printf 'ESD_RESTORED %s\\n' "$restored_esd"
+   [ "$restored_esd" = reg_read ] || s=34
  fi
  if [ "$traced" = 1 ]; then
    printf '\\nTRACE_BEGIN\\n'; cat "$T/trace" || s=35; printf 'TRACE_END\\n'
@@ -123,7 +125,7 @@ trap 'exit 30' HUP INT TERM
 [ "$(cat /sys/class/drm/card0-DSI-1/panelDC)" = 0 ]
 [ "$(cat /sys/class/backlight/panel0-backlight/bl_power)" = 0 ]
 [ "$(cat /sys/class/backlight/panel0-backlight/brightness)" = {dbv} ]
-mode=$(dumpsys display | grep -m 1 mActiveSfDisplayMode= | sed -n 's/.*peakRefreshRate=\\([0-9.]*\\).*/\\1/p')
+mode=$(dumpsys display | awk '/mActiveSfDisplayMode=/ && !seen++ {{sub(/.*peakRefreshRate=/, ""); sub(/[^0-9.].*/, ""); rate=$0}} END {{print rate}}')
 awk -v f="$mode" 'BEGIN {{exit !(f>={refresh}-.03 && f<={refresh}+.03)}}'
 printf 'STATE {dbv} %s\\n' "$mode"
 mkdir -m 700 "$W"; made_work=1
@@ -133,17 +135,21 @@ mount -t debugfs -o nosuid,nodev,noexec debugfs "$W/dbg"; mounted=1
 C="$W/dbg/dri/9800000.qcom,mdss_mdp/DSI-1"
 E="$W/dbg/qcom,mdss_dsi_mot_{PANEL}/esd_check_mode"
 P0='0x39 0 0 0 0 0 4 0xFF 0x5A 0xA5 0'
-[ "$(tr -d '\\000' < "$E")" = reg_read ]
+initial_esd=$(tr -d '\\000' < "$E")
+printf 'ESD_INITIAL %s\\n' "$initial_esd"
+[ "$initial_esd" = reg_read ]
 [ ! -e "$T" ]
 mkdir "$T"; traced=1
 {install}
 printf mono > "$T/trace_clock"
 printf 128 > "$T/buffer_size_kb"
 printf 1 > "$T/events/$G/enable"
-printf 1 > "$T/tracing_on"
 touched=1
-printf esd_sw_sim_success > "$E"
-[ "$(tr -d '\\000' < "$E")" = esd_sw_sim_success ]
+printf '%s\\n' esd_sw_sim_success > "$E"
+active_esd=$(tr -d '\\000' < "$E")
+printf 'ESD_ACTIVE %s\\n' "$active_esd"
+[ "$active_esd" = esd_sw_sim_success ]
+printf 1 > "$T/tracing_on"
 printf '%s' '0x39 0 0 0 0 0 4 0xFF 0x5A 0xA5 0x23' > "$C/tx_cmd"
 printf '%s' '3 0x06 1 0 1 0 0 1 0xC1' > "$C/rx_cmd"
 printf '%s' "$P0" > "$C/tx_cmd"
@@ -158,6 +164,8 @@ printf 'C1 '; cat "$C/rx_cmd"; printf '\\n'
 def validate_capture(stdout, nonce, dbv, refresh):
     """Fail closed. No claim about C1 semantics, writability, or PWM Hz."""
     check(stdout.count('CLEANUP_OK') == 1 and 'RECOVERY_REQUIRED' not in stdout, 'Unverified cleanup')
+    for state,mode in [('INITIAL','reg_read'),('ACTIVE','esd_sw_sim_success'),('RESTORED','reg_read')]:
+        check(re.findall(r'^ESD_'+state+r' (.+)$',stdout,re.M)==[mode], 'Unverified ESD '+state)
     check('LOST' not in stdout, 'Lost trace events')
     m = re.search(r'^STATE (\d+) ([0-9.]+)$', stdout, re.M)
     check(m and int(m[1]) == dbv and abs(float(m[2])-refresh)<.03, 'Unexpected display state')
@@ -190,10 +198,15 @@ def validate_capture(stdout, nonce, dbv, refresh):
     hb=header.to_bytes(4,'little')
     check(hb[0]==0x1c and int.from_bytes(hb[1:3],'little')==3, 'Not DCS long3: payload may contain CRC')
     check(hb[3]==ecc(header&0xffffff), 'Header ECC not qualified')
-    cr=[fields.get('rc') for p,fields in records['ctrl_'+nonce] if p==pid]
-    tx=[fields.get('rc') for p,fields in records['tx_'+nonce] if p==pid]
-    check(cr.count(3)==1 and len(cr)>=3 and all(x in (0,3) for x in cr), 'Transfer return failure')
-    check(len(tx)>=2 and all(x==0 for x in tx), 'Page-write failure')
+    # Android toybox printf can execute as a separate task for each write.
+    # Correlate the read return with its header/helper task, but do not require
+    # the page23/page0 writer tasks to share that PID.
+    cr=[fields.get('rc') for p,fields in records['ctrl_'+nonce]]
+    tx=[fields.get('rc') for p,fields in records['tx_'+nonce]]
+    read_returns=[fields.get('rc') for p,fields in records['ctrl_'+nonce] if p==pid]
+    check(read_returns.count(3)==1 and all(x in (0,3) for x in read_returns), 'Read-task return mismatch')
+    check(cr==[0,3,0,0], 'Unexpected controller return sequence')
+    check(tx==[0,0,0], 'Unexpected page-write return sequence')
     profile=stdout.split('PROFILE_BEGIN\n')[-1].split('PROFILE_END')[0]
     for name in specs:
         rows=re.findall(r'^\s*'+re.escape(name)+r'\s+(\d+)\s+(\d+)\s*$',profile,re.M)

@@ -1,5 +1,14 @@
 # Long-lived agent progress journal
 
+Checkpoint 2026-11-08, **новая физическая A9 серия и квалифицированный C1 payload.**
+
+- [A9 optical result](artifacts/a9_a001_20261108_01/optical_result.md): при одинаковых DBV 3600 / 120 и одной A001 записи тонкая image-code компонента уменьшилась на 73.7%, stock вернулся с расхождением 0.158%; широкая структура осталась. Это промежуточный аппаратный результат, не PWM >=2000 Hz и не исчезновение мерцания.
+- [C1 stock sweep](artifacts/c1_live_20261108/stock_sweep.json): bounded 3-byte response с проверенными header/WC/ECC/count даёт 00 00 80 при 90, 00 00 50 при 144, 00 00 60 при 120, 00 00 10 при DBV 3646 / 120. Условные 8×90 = 5×144 = 6×120 = 720 поддерживают emission-count гипотезу, но C1 semantics/Hz остаются unknown. C1 write не выполнялся. Stock refresh 120 / native 828 восстановлены.
+- Найден и исправлен protocol bug: ESD writer требует LF; bare tokens молча не меняли mode. Новая проверка остановила первый precheck до C1 read; состояние независимо восстановлено. Успешные C1 пробы использовали исправленные set/readback/restore. Старое ESD_RESTORED не доказывает фактическую isolation.
+- A9+C1 серии 02/03 остановлены до кандидата: сначала фоновый ESD read после C1, затем посторонний native packet stream. Recovery reboot, stock/root/Enforcing, настройки/native 828, остановка камеры и mutex cleanup подтверждены. Причина второго расхождения изучается офлайн; guard сохранён. 23:85 остаётся неизвестным init-only полем, записей в него не было.
+- Последний завершённый общий offline suite: 78 tests, 2 skips. [Сводка цикла](artifacts/pwm_resume_20261108.md).
+
+
 Checkpoint 2026-11-08, **R3 возобновлена новым автономным заданием владельца.**
 
 - Новая миссия разрешает конечные ADB/root/DSI/settings/camera/reboot эксперименты на обоих устройствах без отдельного вопроса на каждый тест. Историческая пауза снята; safeguards и bootchain/flash проверки остаются. [Краткий текущий checkpoint](artifacts/pwm_resume_20261108.md).

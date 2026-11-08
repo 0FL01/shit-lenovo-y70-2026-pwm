@@ -9,6 +9,7 @@ import shlex
 import subprocess
 import sys
 import time
+import uuid
 import xml.etree.ElementTree as ET
 from datetime import datetime, timezone
 from pathlib import Path
@@ -123,7 +124,7 @@ def main():
     guarded = None
     trial_dbv = 3600
     if reproduction:
-        from a9_reproduction import prepare
+        from a9_reproduction import prepare, lock_commands, validate_c1_trace
         config, fresh_out, fresh_private, fresh_programs, fresh_scope = prepare(ROOT, sys.argv[2:])
         if config.offline_check:
             print(json.dumps(fresh_scope, indent=2))
@@ -138,6 +139,11 @@ def main():
         fresh_private.mkdir(mode=0o700)
         fresh_out.mkdir()
         (fresh_out / 'authorization_scope.json').write_text(json.dumps(fresh_scope, indent=2) + '\n')
+        lock_token = config.experiment_id + '_' + uuid.uuid4().hex[:12]
+        lock_ops = lock_commands(lock_token)
+        lock_record = fresh_private / 'lock-owner.txt'
+        lock_record.write_text(lock_token + '\n')
+        lock_record.chmod(0o600)
         trial_dbv = config.dbv
         TMP = '/data/local/tmp/' + config.experiment_id
         sys.argv = [sys.argv[0], str(config.target), str(config.camera), '--coupled-9d']
@@ -332,7 +338,7 @@ def main():
             path = private_dir / private
             path.write_text(p.stdout)
             path.chmod(0o600)
-        report['events'].append({'at_utc': now(), 'device': device, 'command': remote,
+        report['events'].append({'at_utc': now(), 'device': device, 'command': remote.replace(lock_token, '<private lock token>') if reproduction else remote,
                                  'exit_code': p.returncode,
                                  'stdout': '<private ' + private + '>' if private else p.stdout.strip(),
                                  'stderr': '<redacted>' if reproduction else p.stderr.strip()})
@@ -448,6 +454,7 @@ def main():
         target("printf '<6>" + marker + '_READ_BEGIN_' + label + "\\n' > /dev/kmsg", root=True)
         raw = target(reader(mount_dir=TMP + '/debugfs', reads=((0x23, 0xa9, 1), (0x24, 0x9d, 1), (0, 0x52, 2))),
                      root=True, private=label + '-readback.txt')
+        assert 'ESD_ISOLATED esd_sw_sim_success' in raw, 'ESD isolation was not verified before register reads'
         assert 'ESD_RESTORED reg_read' in raw
         values = {}
         for line in raw.splitlines():
@@ -467,7 +474,27 @@ def main():
         assert all(int(v) == 0 for v in returns[-7:]) and 'LOST' not in text and not re.search(r'\brc=-\d+', text)
         entry_count += 7
         target("printf '<6>" + marker + '_READ_END_' + label + "\\n' > /dev/kmsg", root=True)
-        return {'values': values, 'esd': 'reg_read', 'page_callbacks_verified': 7, 'at_utc': now()}
+        return {'values': values, 'esd': 'reg_read', 'esd_isolation_verified': True,
+                'page_callbacks_verified': 7, 'at_utc': now()}
+
+    def capture_c1_stage(label):
+        nonlocal entry_count
+        from capture_ddic_c1 import reader_script, validate_capture
+        state()
+        target(lock_ops['verify'], root=True)
+        nonce = uuid.uuid4().hex[:12]
+        trace_before = target('cat ' + TRACE + '/trace', root=True, private=label + '-c1-trace-before.txt')
+        raw = target(reader_script(nonce, trial_dbv, 120, held_token=lock_token),
+                     root=True, private=label + '-c1-capture.txt', timeout=40)
+        data = validate_capture(raw, nonce, trial_dbv, 120)
+        trace_after = target('cat ' + TRACE + '/trace', root=True, private=label + '-c1-trace-after.txt')
+        delta = validate_c1_trace(trace_before, trace_after, entry_count)
+        entry_count = delta['entry_count_after']
+        target(lock_ops['verify'], root=True)  # Child must leave parent's ownership intact.
+        assert esd_mode() == 'reg_read'
+        state()
+        return {**data, 'main_trace': delta, 'at_utc': now(),
+                'interpretation': 'A9-status comparison only; no frequency inference'}
 
     def repaint_settings(label):
         """Open/cancel the stock timeout chooser; do not change any preference."""
@@ -608,6 +635,9 @@ def main():
                 stage['stock_redraw_completed'] = True
         if short_read_control:
             stage['readback'] = selector_readback(label, name)
+        if reproduction and config.capture_c1:
+            stage['c1_capture'] = capture_c1_stage(label)
+            save()
         observe_stage(stage, label)
         if reproduction:
             stage['readback_after_hold'] = selector_readback(label + '_after_hold', name)
@@ -645,7 +675,7 @@ def main():
     try:
         identity()
         if reproduction:
-            target('mkdir -m 700 /data/local/tmp/legion-pwm-research.lock', root=True)
+            target(lock_ops['acquire'], root=True)
             lock_acquired = True
             report['exclusive_device_lock_acquired'] = True
         serial_check = adb_run(['adb', '-t', str(transports['target']), 'get-serialno'],
@@ -935,7 +965,7 @@ def main():
                     report['recovery_error'] = type(recovery_error).__name__ if reproduction else str(recovery_error)
         if reproduction and lock_acquired and not pending_uncertain and not candidate_active and not errors and not report.get('recovery_error'):
             try:
-                target('rmdir /data/local/tmp/legion-pwm-research.lock', root=True)
+                target(lock_ops['release'], root=True)
                 report['exclusive_device_lock_released'] = True
             except Exception as error:
                 errors.append('Device lock: ' + str(error))

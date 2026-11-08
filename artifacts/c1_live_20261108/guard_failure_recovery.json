@@ -1,0 +1,25 @@
+{
+  "experiment": "stock120_dbv3600 initial C1 qualification",
+  "query_executed": false,
+  "evidence": {
+    "header_probe_hits": 0,
+    "hardware_probe_hits": 0,
+    "cleanup_page0_tx_returns": [0],
+    "cleanup_page0_ctrl_returns": [0],
+    "c1_output_present": false,
+    "initial_state": {"native_dbv": 3600, "software_refresh": 120.00001}
+  },
+  "cause": "Exact ESD mode readback guard rejected the attempted bare-token write. The pinned target write handler requires a trailing newline; the mode remained reg_read.",
+  "independent_recovery": {
+    "esd_mode": "reg_read",
+    "panel_dc": 0,
+    "selinux": "Enforcing",
+    "own_probes_and_trace_instance_absent": true,
+    "own_temporary_mount_directory_absent": true,
+    "exact_root_owned_lock_token_checked_then_removed": true,
+    "native_dbv_restored": 828,
+    "additional_register_query_or_profile_write": false
+  },
+  "next_step": "Correct newline-terminated ESD setters/restorers and cross-PID page-write accounting, rerun offline regressions, then use a fresh output for the first actual C1 query.",
+  "pwm_hz": null
+}

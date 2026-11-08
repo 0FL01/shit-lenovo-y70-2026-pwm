@@ -85,3 +85,86 @@ No live qualification, new capture, device write, commit or push was performed
 by this implementation task. A single 100us run is qualitative reproduction,
 not proof of ≥2000Hz. A shutter-sweep/hold extension is intentionally not enabled
 without its separately implemented and validated capture-control scope.
+
+## ESD write-token correction (2026-11-08)
+
+The target module's ESD-mode write handler compares newline-terminated strings:
+`esd_sw_sim_success\n` at `.rodata+0x1a085` (call `.text+0x1b14f4`) and
+`reg_read\n` at `.rodata+0xf479` (call `.text+0x1b14e0`). Its read handler returns
+the bare mode. Previously the shared short reader wrote tokens without newline;
+an accepted bytecount therefore did not establish a mode change.
+
+The shared reader now writes exact newline bytes, verifies simulated-success
+readback before any register query, and verifies native reg_read during cleanup.
+The runner requires an explicit ESD_ISOLATED marker and records
+`esd_isolation_verified: true` only for the corrected sequence. Its restore-only
+cleanup uses the same corrected reader. Offline tests cover exact emitted bytes,
+read/query ordering and silent-no-op failures for both isolation and restoration.
+
+Historical successful stock/readback/video evidence is not rewritten. In
+particular, prior `ESD_RESTORED reg_read` alone proves neither temporary ESD
+isolation nor absence of concurrent native ESD polling during those reads. The
+corrected sequence requires live revalidation; this code change itself is not
+new on-target evidence.
+
+## Optional framed C1 comparison
+
+Add `--capture-c1` to the fresh reproduction invocation, including its
+`--offline-check` first. Without this flag, the original authorization schema
+and three optical phases remain supported. With it, the fresh authorization
+must additionally contain exactly:
+
+```
+"c1_capture": {
+  "page": 35,
+  "opcode": 193,
+  "length": 3,
+  "stages": ["stock", "a9_only", "stock"],
+  "refresh_hz": 120,
+  "position": "after_selector_readback_before_hold",
+  "framing": "dcs_long3_wc3_ecc_count9_scratch16",
+  "read_only": true
+}
+```
+
+A C1 scope without the flag, a flag without the scope, or a changed scope is
+rejected before device access. The chosen `--dbv` is also the C1 state guard.
+Every phase runs selector readback, one bounded C1 capture, then optical hold
+and the ordinary after-hold selector readback. It does not sweep refresh or DBV.
+
+The existing runner `target()` executes `capture_ddic_c1.reader_script` using
+its already-bound target serial. The callable helper that creates a new ADB
+binding is deliberately not used. `validate_capture` qualifies three returned
+bytes using the exact module's response header, WC3/ECC, normalized count9,
+scratch16, read/helper PID and cleanup evidence. The main trace independently
+requires exactly three additional standalone page callbacks (pending0,
+length11, flags0), three zero callback returns and controller returns
+`[0,3,0,0]` for C1 itself. The one qualified background exception is a
+`kworker/N:N` return1 from the exact
+`dsi_display_validate_status+0x154/0x308 [msm_drm]` callsite strictly outside
+the first-through-last C1 page callback window. Such events are recorded
+separately as native ESD before the window or resumed after restoration; they
+do not enter the C1 return sequence. Wrong callers/tasks, arbitrary additional
+returns, negative results or ESD inside the C1 window fail closed. Timestamp
+ordering and the complete prior event-line prefix must remain unchanged. The entry counter is
+updated from this validated trace, not blindly increased.
+
+The parent mutex now contains a root-owned0600 `owner` file inside its
+root-owned0700 directory. Its token combines the fresh experiment ID with a
+random suffix. Acquire never overwrites an existing lock. Verify checks root
+ownership, modes, regular/non-symlink paths and exact token. The child joins the
+held token, leaves it intact, and the parent verifies it again after capture.
+Final release verifies the same ownership before removing only that token file
+and empty directory; unknown/stale locks are never cleared automatically.
+Tokens are redacted in public command events.
+
+Each stage's `c1_capture` report includes qualified data, framing, main-trace
+accounting and cleanup outcome. Raw C1 and before/after trace logs remain in the
+experiment's private directory. Capture failure follows the existing uncertain
+queue/reboot/watchdog path; no recovery DSI table is appended.
+
+This compares A9 status and a possible DC-like one-pulse versus higher-count
+behavior. C1 semantics remain unproven and no result is converted to PWM Hz.
+The stock driver's malformed-response hazard is unchanged: post-read framing
+checks cannot prevent a kernel fault that occurs before a response is returned.
+The independent600s watchdog cannot recover a non-scheduling kernel.
