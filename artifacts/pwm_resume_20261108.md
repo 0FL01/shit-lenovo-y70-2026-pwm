@@ -2,6 +2,14 @@
 
 Статус: **R3 активна; физические PWM >=2000 Гц не доказаны.**
 
+Последний checkpoint: [batched stock-only 01](p85_batch_stock_a001_20261108_01/hardware_result.md)
+завершён 18:18:28 UTC с независимым hardware replay PASS и восстановлением
+собственного исходного native DBV 828. [Оптика](p85_batch_stock_a001_20261108_01/optical_result.md)
+подтверждает fine/mean diagnostic pass, но не полную waveform equivalence.
+[Timing audit](p85_batched_latency_result_20261108.md) всё ещё не допускает
+неизвестный 14 в 45 с с резервом 8 с; следующий шаг — отдельный review
+расписания stock-only surrogate, без расширения 45/60 с ограничений.
+
 Владелец новым заданием «Dots Mission: Lenovo Legion Y70 — Hardware PWM Control»
 возобновил работу и разрешил автономные ADB/root, DSI, настройки, обычные
 перезагрузки и съёмку на обоих исследовательских устройствах. Историческая

@@ -1,5 +1,12 @@
 # Long-lived agent progress journal
 
+Checkpoint 2026-11-08, **первая batched stock-only серия завершена; измерен оставшийся timing blocker.**
+
+- [Hardware batch01](artifacts/p85_batch_stock_a001_20261108_01/hardware_result.md): source `881ffb7e501d95205ad3f9ac8ece89adb143387e`, все 26 envelopes и восемь DSI children независимо replay-validated. Baseline/sham15/return15 при DBV 3600/native 120: P85 `15 00 00`, C1 `00 00 60`. No 14/errors/reboots; исходный native 828/settings/logger/ESD восстановлены, камера остановлена, watchdog/mutex сняты.
+- [Оптика batch01](artifacts/p85_batch_stock_a001_20261108_01/optical_result.md): main fine sham 0.9954083, return 1.0146342 относительно baseline; все три ROI в пределах 5% диагностического допуска, mean Y <0.23%. Broad/full-spectrum equivalence не доказана (return L2 11.34–12.12%). Независимый raw/timing/Fourier review и второй полный decode PASS; blanket optical approval не создан.
+- [Измеренный timing budget](artifacts/p85_batched_latency_result_20261108.md): этапы 15.95–18.55 с, writer 6.59–6.67 с; phase-max path 43.647907 +8 с reserve =51.647907 с ещё до arm/disarm/jitter. Candidate отключён. Следующий scope пока только дизайн/review штатного timed surrogate: stock prequiet до arm, return prequiet внутри полного optical hold, свежий dispatch guard и неизменные 45/60/8 с ограничения. Никакого обхода admission.
+- Физические PWM >=2000 Гц всё ещё не доказаны. Краткий fine-control pass не является доказательством частоты, всего waveform или комфорта. Raw video и идентификаторы остаются приватными.
+
 Checkpoint 2026-11-08, **изолированный P85 stock-only batching adapter прошёл offline review.**
 
 - [Новая схема](artifacts/p85_batched_design_20261108.md) сокращает ADB round trips, сохраняя неизменные DSI child scripts, строгую framing/native/wire проверку перед следующим child и uncertainty/reboot recovery. Candidate 14 полностью отключён; лимиты 45/60 с не расширялись.
