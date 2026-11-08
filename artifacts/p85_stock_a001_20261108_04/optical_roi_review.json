@@ -1,0 +1,52 @@
+{
+  "schema": "p85-optical-roi-review-v1",
+  "run_sha256": "4a209eb6d70c055138801ede885b4b374a96a593b7e73c8e15cdccdf19f96711",
+  "video_bytes": 158584155,
+  "decoded_frame_count": 4219,
+  "reviewed_frames": {
+    "baseline": [
+      845,
+      875,
+      904
+    ],
+    "sham15": [
+      2390,
+      2420,
+      2449
+    ],
+    "return15": [
+      3819,
+      3849,
+      3878
+    ]
+  },
+  "native_y_noautorotate_inspected": true,
+  "flat_screen_content_verified": true,
+  "fixed_geometry_verified": true,
+  "timestamp_margins_reviewed": true,
+  "rois_xywh": {
+    "left": [
+      220,
+      70,
+      40,
+      540
+    ],
+    "main": [
+      260,
+      70,
+      40,
+      540
+    ],
+    "right": [
+      320,
+      70,
+      40,
+      540
+    ]
+  },
+  "baseline_fine_search_cycles_per_row": [
+    0.015,
+    0.025
+  ],
+  "inspection_note": "Fresh first/middle/last native-Y frames of every stage inspected, with common gain 4 for visibility. Same screen edges/content; three strips are inside left blank screen area, outside right-side text and screen borders. Original Y preserved; display gain was only for inspection. Timing margins are conditional, not per-frame binding."
+}

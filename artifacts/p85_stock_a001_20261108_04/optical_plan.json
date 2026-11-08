@@ -1,0 +1,196 @@
+{
+  "schema": "p85-optical-analysis-v1",
+  "mode": "window_plan",
+  "source_run_sha256": "4a209eb6d70c055138801ede885b4b374a96a593b7e73c8e15cdccdf19f96711",
+  "source_video_bytes": 158584155,
+  "decoded_frame_count": 4219,
+  "stream": {
+    "codec_name": "h264",
+    "width": 1280,
+    "height": 720,
+    "pix_fmt": "yuv420p",
+    "color_range": "tv",
+    "nb_frames": "4219"
+  },
+  "windows": [
+    {
+      "stage": "baseline",
+      "start_inclusive": 845,
+      "end_exclusive": 905,
+      "encoded_frames": 60,
+      "review_frames": [
+        845,
+        875,
+        904
+      ],
+      "pts_first_seconds": 28.166667,
+      "pts_last_seconds": 30.133333,
+      "eligible_encoded_frames": 123,
+      "anchor_encoded_indices": [
+        796,
+        946
+      ],
+      "conditional_leading_margin_seconds": 1.3164958953857422,
+      "conditional_trailing_margin_seconds": 1.3398311138153076,
+      "host_hold_seconds": 5.865201950073242
+    },
+    {
+      "stage": "sham15",
+      "start_inclusive": 2390,
+      "end_exclusive": 2450,
+      "encoded_frames": 60,
+      "review_frames": [
+        2390,
+        2420,
+        2449
+      ],
+      "pts_first_seconds": 79.666522,
+      "pts_last_seconds": 81.633189,
+      "eligible_encoded_frames": 128,
+      "anchor_encoded_indices": [
+        2337,
+        2493
+      ],
+      "conditional_leading_margin_seconds": 1.416344165802002,
+      "conditional_trailing_margin_seconds": 1.4074180126190186,
+      "host_hold_seconds": 6.00585412979126
+    },
+    {
+      "stage": "return15",
+      "start_inclusive": 3819,
+      "end_exclusive": 3879,
+      "encoded_frames": 60,
+      "review_frames": [
+        3819,
+        3849,
+        3878
+      ],
+      "pts_first_seconds": 127.299711,
+      "pts_last_seconds": 129.266378,
+      "eligible_encoded_frames": 122,
+      "anchor_encoded_indices": [
+        3770,
+        3919
+      ],
+      "conditional_leading_margin_seconds": 1.3164899349212646,
+      "conditional_trailing_margin_seconds": 1.304379940032959,
+      "host_hold_seconds": 5.885672092437744
+    }
+  ],
+  "timing_assumptions": {
+    "snapshot_max_age_seconds": 0.25,
+    "encoder_binding_ambiguity_frames": 2,
+    "minimum_edge_margin_seconds": 0.25
+  },
+  "stronger_timing_sensitivity": {
+    "snapshot_max_age_seconds": 0.5,
+    "encoder_binding_ambiguity_frames": 3,
+    "windows": [
+      {
+        "stage": "baseline",
+        "start_inclusive": 849,
+        "end_exclusive": 909,
+        "encoded_frames": 60,
+        "review_frames": [
+          849,
+          879,
+          908
+        ],
+        "pts_first_seconds": 28.3,
+        "pts_last_seconds": 30.266667,
+        "eligible_encoded_frames": 114,
+        "anchor_encoded_indices": [
+          796,
+          946
+        ],
+        "conditional_leading_margin_seconds": 1.1663949489593506,
+        "conditional_trailing_margin_seconds": 1.173063039779663,
+        "host_hold_seconds": 5.865201950073242
+      },
+      {
+        "stage": "sham15",
+        "start_inclusive": 2393,
+        "end_exclusive": 2453,
+        "encoded_frames": 60,
+        "review_frames": [
+          2393,
+          2423,
+          2452
+        ],
+        "pts_first_seconds": 79.766522,
+        "pts_last_seconds": 81.733189,
+        "eligible_encoded_frames": 119,
+        "anchor_encoded_indices": [
+          2337,
+          2493
+        ],
+        "conditional_leading_margin_seconds": 1.23291015625,
+        "conditional_trailing_margin_seconds": 1.2739841938018799,
+        "host_hold_seconds": 6.00585412979126
+      },
+      {
+        "stage": "return15",
+        "start_inclusive": 3822,
+        "end_exclusive": 3882,
+        "encoded_frames": 60,
+        "review_frames": [
+          3822,
+          3852,
+          3881
+        ],
+        "pts_first_seconds": 127.399711,
+        "pts_last_seconds": 129.366378,
+        "eligible_encoded_frames": 113,
+        "anchor_encoded_indices": [
+          3770,
+          3919
+        ],
+        "conditional_leading_margin_seconds": 1.1330561637878418,
+        "conditional_trailing_margin_seconds": 1.1709458827972412,
+        "host_hold_seconds": 5.885672092437744
+      }
+    ]
+  },
+  "alignment": "Conditional union of host call envelopes at both camera anchors, with actual MP4 PTS. Matched encoder/result counts establish a consistent count offset, not calibrated per-frame sensor-to-file binding.",
+  "scope": "p85-stock-only",
+  "physical_pwm_hz": null,
+  "stock_optics_restored": null,
+  "sham_optics_unchanged": null,
+  "lead_approved": false,
+  "limits": [
+    "No physical Hz, modulation-depth, comfort, or general C1-count inference.",
+    "Camera Y includes ISP, black offset, codec and nonlinearity.",
+    "Fine/6 is a spatial diagnostic, not a physical fundamental.",
+    "Adjacent ROI strips and frame blocks are not independent experiments.",
+    "No video can be called unchanged solely from a single scalar ratio."
+  ],
+  "review_template": {
+    "schema": "p85-optical-roi-review-v1",
+    "run_sha256": "4a209eb6d70c055138801ede885b4b374a96a593b7e73c8e15cdccdf19f96711",
+    "video_bytes": 158584155,
+    "decoded_frame_count": 4219,
+    "reviewed_frames": {
+      "baseline": [
+        845,
+        875,
+        904
+      ],
+      "sham15": [
+        2390,
+        2420,
+        2449
+      ],
+      "return15": [
+        3819,
+        3849,
+        3878
+      ]
+    },
+    "native_y_noautorotate_inspected": false,
+    "flat_screen_content_verified": false,
+    "fixed_geometry_verified": false,
+    "timestamp_margins_reviewed": false,
+    "rois_xywh": null,
+    "baseline_fine_search_cycles_per_row": null
+  }
+}

@@ -4,6 +4,7 @@ from datetime import datetime, timezone
 import importlib.util
 import json
 from pathlib import Path
+import shutil
 import subprocess
 import sys
 import tempfile
@@ -297,6 +298,27 @@ class P85OpticalTests(unittest.TestCase):
         self.assertIn("extractplanes=y,crop=6:4:10:20", args[args.index("-vf") + 1])
         self.assertNotIn("-r", args)
         self.assertEqual(out.shape, (2, 4, 6))
+
+    def test_select_expression_compresses_exact_contiguous_ranges(self):
+        indices = list(range(845, 905)) + list(range(2390, 2450)) + list(range(3819, 3879))
+        self.assertEqual(optical.select_expression(indices),
+                         r"between(n\,845\,904)+between(n\,2390\,2449)+between(n\,3819\,3878)")
+        self.assertEqual(optical.select_expression([1, 3, 4, 5, 9]),
+                         r"eq(n\,1)+between(n\,3\,5)+eq(n\,9)")
+        with self.assertRaises(optical.OpticalError):
+            optical.select_expression(list(range(0, 200, 2)))
+
+    @unittest.skipUnless(shutil.which('ffmpeg'), 'ffmpeg unavailable')
+    def test_real_ffmpeg_180_frames_expression_regression(self):
+        with tempfile.TemporaryDirectory() as directory:
+            video = Path(directory) / 'synthetic.mkv'
+            subprocess.run(['ffmpeg', '-v', 'error', '-f', 'lavfi', '-i',
+                            'color=c=gray:size=64x64:rate=30', '-frames:v', '240',
+                            '-c:v', 'ffv1', str(video)], check=True, capture_output=True)
+            indices = list(range(0, 60)) + list(range(80, 140)) + list(range(160, 220))
+            decoded = optical.decode_y(video, indices, (0, 0, 64, 64))
+            self.assertEqual(decoded.shape, (180, 64, 64))
+            self.assertEqual(int(decoded.max()), int(decoded.min()))
 
     def test_no_overwrite_under_optimized_python(self):
         with tempfile.TemporaryDirectory() as directory:

@@ -282,10 +282,27 @@ def probe_video(video):
         "frame=best_effort_timestamp_time", "-of", "json", str(video)], text=True))
 
 
-def decode_y(video, indices, rect=(0, 0, 1280, 720)):
+def select_expression(indices):
     require(indices and sorted(set(indices)) == indices, "Frame indices not unique/increasing")
+    ranges = []
+    first = last = indices[0]
+    for index in indices[1:]:
+        if index == last + 1:
+            last = index
+        else:
+            ranges.append((first, last))
+            first = last = index
+    ranges.append((first, last))
+    # Long chains of single-frame eq terms exceed libavutil expression depth.
+    # Compress contiguous windows without changing any selected frame.
+    require(len(ranges) <= 64, "Too many disjoint frame groups for one bounded decode")
+    return "+".join(f"eq(n\\,{a})" if a == b else f"between(n\\,{a}\\,{b})"
+                    for a, b in ranges)
+
+
+def decode_y(video, indices, rect=(0, 0, 1280, 720)):
+    selection = select_expression(indices)
     x, y, width, height = rect
-    selection = "+".join(f"eq(n\\,{n})" for n in indices)
     command = ["ffmpeg", "-v", "error", "-noautorotate", "-i", str(video), "-vf",
                f"select={selection},extractplanes=y,crop={width}:{height}:{x}:{y}",
                "-fps_mode", "passthrough", "-enc_time_base", "demux",

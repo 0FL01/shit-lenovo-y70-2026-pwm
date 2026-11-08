@@ -1,5 +1,12 @@
 # Long-lived agent progress journal
 
+Checkpoint 2026-11-08, **P85 factory15 runtime transport проверен; fine-контроль воспроизведён, R3 не решена.**
+
+- [Stock-only04 hardware](artifacts/p85_stock_a001_20261108_04/hardware_result.md): baseline → sham15 → return15 прошли при DBV3600/native actual120/group3. Две трёхпакетные записи85=15 и все шесть framed reads независимо replay-validated; P85 `15 00 00`, C1 `00 00 60` во всех фазах. Никакого14. Same-value write не доказывает read/write-plane identity, volatile semantics или частотный setter.
+- [Оптика04](artifacts/p85_stock_a001_20261108_04/optical_result.md): fresh ROI/PTS и60 кадров на фазу прошли независимый review. Main fine sham/baseline1.0000529, return1.0149156; среднийY меняется менее0.25%. Broad/full-spectrum equivalence не установлена (return L2 около9.6–10%), поэтому blanket optical approval не создан. Два полных decode совпали точно. Hz/комфорт не измерены.
+- На завершении04 восстановлен saved original native DBV **6438**, Android98/manual/min-peak120/timeout1800000/logger0; камера остановлена, ESD reg_read/Enforcing/DC0 подтверждены, watchdog/mutex сняты без reboot/errors. Указанные ранее828 для03–04 были ошибкой описания: обе попытки корректно сохранили/восстановили6438. Причина native изменения между02 и03 не установлена; устройство ради исправления текста не менялось.
+- [Latency plan](artifacts/p85_latency_plan_20261108.md): stage32.64/32.74/30.71с, writer17.21/16.69с всё ещё не проходят45с/60с ограничения. Изолированный stock-only batching adapter разрабатывается офлайн, не меняет child DSI scripts и должен пройти свою квалификацию. Candidate14 остаётся выключенным. Предыдущий опубликованный source checkpoint: `86ffbfd76aed81b95ca0e990362dd55aacca99a8`.
+
 Checkpoint 2026-11-08, **P85 stock-only 01–03 остановлены до parameter write; восстановление проверено.**
 
 - [Failed qualification 01](artifacts/p85_stock_a001_20261108_01/result.md): baseline при DBV 3600/native actual 120 дал qualified P85 `15 00 00` и C1 `00 00 60`. Writer gate0 затем упёрся в Android external printf argv limit на retained dmesg; его trace/profile пусты. Параметр 85 не записан, 14 не использовался. Один штатный reboot и полный original settings/native 828/logger/ESD/camera/watchdog/mutex cleanup проверены.

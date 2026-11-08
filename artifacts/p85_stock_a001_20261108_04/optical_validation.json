@@ -1,0 +1,234 @@
+{
+  "schema": "p85-optical-replay-validation-v1",
+  "json_full_decode_replay_byte_exact": true,
+  "npz_all_arrays_full_decode_replay_exact": true,
+  "checked_npz_arrays": 32,
+  "pts_step_min_max_seconds": [
+    0.03323299999999563,
+    0.03343399999999974
+  ],
+  "primary_frames_remain_inside_stronger_05_second_3_frame_budget": [
+    {
+      "stage": "baseline",
+      "primary_window_stronger_age_binding_leading_seconds": 1.0330618953857424,
+      "primary_window_stronger_age_binding_trailing_seconds": 1.3063971138153079
+    },
+    {
+      "stage": "sham15",
+      "primary_window_stronger_age_binding_leading_seconds": 1.1329101658020022,
+      "primary_window_stronger_age_binding_trailing_seconds": 1.3739840126190188
+    },
+    {
+      "stage": "return15",
+      "primary_window_stronger_age_binding_leading_seconds": 1.033055934921265,
+      "primary_window_stronger_age_binding_trailing_seconds": 1.2709459400329592
+    }
+  ],
+  "comparisons": [
+    {
+      "roi": "left",
+      "stage": "sham15",
+      "mean_y_over_baseline": 1.0021517801127202,
+      "fine_normalized_over_baseline": 0.9998278530920444,
+      "mean_and_fine_within_predeclared_5_percent": true,
+      "broad_fixed_q_over_baseline": 1.0369812101180496,
+      "normalized_total_amplitude_spectrum_relative_l2": 0.03678424760365045,
+      "maximum_absolute_normalized_spectral_difference": 0.011103809907165807,
+      "q_of_maximum_spectral_difference": 0.0172119140625,
+      "tail_01_to_05_max_normalized_amplitude": 0.051976723918943514
+    },
+    {
+      "roi": "left",
+      "stage": "return15",
+      "mean_y_over_baseline": 1.0019791905522348,
+      "fine_normalized_over_baseline": 1.0155427181844636,
+      "mean_and_fine_within_predeclared_5_percent": true,
+      "broad_fixed_q_over_baseline": 1.1074581660743434,
+      "normalized_total_amplitude_spectrum_relative_l2": 0.09868065143903683,
+      "maximum_absolute_normalized_spectral_difference": 0.03594207881751642,
+      "q_of_maximum_spectral_difference": 0.017333984375,
+      "tail_01_to_05_max_normalized_amplitude": 0.05528110552548705
+    },
+    {
+      "roi": "main",
+      "stage": "sham15",
+      "mean_y_over_baseline": 1.0024423671360434,
+      "fine_normalized_over_baseline": 1.000052903198978,
+      "mean_and_fine_within_predeclared_5_percent": true,
+      "broad_fixed_q_over_baseline": 1.0321549013093871,
+      "normalized_total_amplitude_spectrum_relative_l2": 0.0397912730244753,
+      "maximum_absolute_normalized_spectral_difference": 0.011109252615898603,
+      "q_of_maximum_spectral_difference": 0.0050048828125,
+      "tail_01_to_05_max_normalized_amplitude": 0.052673381526267916
+    },
+    {
+      "roi": "main",
+      "stage": "return15",
+      "mean_y_over_baseline": 1.00163687800335,
+      "fine_normalized_over_baseline": 1.0149156117660934,
+      "mean_and_fine_within_predeclared_5_percent": true,
+      "broad_fixed_q_over_baseline": 1.087698576359097,
+      "normalized_total_amplitude_spectrum_relative_l2": 0.09946376410616652,
+      "maximum_absolute_normalized_spectral_difference": 0.03629776626809644,
+      "q_of_maximum_spectral_difference": 0.017333984375,
+      "tail_01_to_05_max_normalized_amplitude": 0.0558967571621081
+    },
+    {
+      "roi": "right",
+      "stage": "sham15",
+      "mean_y_over_baseline": 1.0017414452826554,
+      "fine_normalized_over_baseline": 1.0020540127076278,
+      "mean_and_fine_within_predeclared_5_percent": true,
+      "broad_fixed_q_over_baseline": 1.0004650872778633,
+      "normalized_total_amplitude_spectrum_relative_l2": 0.03755145067490771,
+      "maximum_absolute_normalized_spectral_difference": 0.011175139865308908,
+      "q_of_maximum_spectral_difference": 0.01708984375,
+      "tail_01_to_05_max_normalized_amplitude": 0.0545230931995814
+    },
+    {
+      "roi": "right",
+      "stage": "return15",
+      "mean_y_over_baseline": 1.0006902601580636,
+      "fine_normalized_over_baseline": 1.0164825212676105,
+      "mean_and_fine_within_predeclared_5_percent": true,
+      "broad_fixed_q_over_baseline": 0.9455370940122941,
+      "normalized_total_amplitude_spectrum_relative_l2": 0.09556672635188447,
+      "maximum_absolute_normalized_spectral_difference": 0.036649291411025256,
+      "q_of_maximum_spectral_difference": 0.0172119140625,
+      "tail_01_to_05_max_normalized_amplitude": 0.05763802232872889
+    }
+  ],
+  "frame_block_diagnostics": [
+    {
+      "roi": "left",
+      "stage": "baseline",
+      "broad_20_frame_blocks": [
+        0.0710485163439538,
+        0.07518283871841196,
+        0.0679133312404782
+      ],
+      "fine_20_frame_blocks": [
+        0.2827478795179655,
+        0.2804401011181312,
+        0.28036436739609527
+      ]
+    },
+    {
+      "roi": "left",
+      "stage": "sham15",
+      "broad_20_frame_blocks": [
+        0.07134835863384305,
+        0.07675722723399074,
+        0.07411756946693121
+      ],
+      "fine_20_frame_blocks": [
+        0.28416788791616904,
+        0.28098486892878116,
+        0.27811617056323273
+      ]
+    },
+    {
+      "roi": "left",
+      "stage": "return15",
+      "broad_20_frame_blocks": [
+        0.07953817406598983,
+        0.08542721909108283,
+        0.07201961065327604
+      ],
+      "fine_20_frame_blocks": [
+        0.2836593668279273,
+        0.2883833105083713,
+        0.2846257060223282
+      ]
+    },
+    {
+      "roi": "main",
+      "stage": "baseline",
+      "broad_20_frame_blocks": [
+        0.071950688776027,
+        0.07651874220845852,
+        0.06838544450292192
+      ],
+      "fine_20_frame_blocks": [
+        0.2849535419948382,
+        0.28164938307593373,
+        0.27986641316553434
+      ]
+    },
+    {
+      "roi": "main",
+      "stage": "sham15",
+      "broad_20_frame_blocks": [
+        0.07245698983293469,
+        0.07832196445109339,
+        0.07316234453365696
+      ],
+      "fine_20_frame_blocks": [
+        0.28476525113214407,
+        0.2825017910041638,
+        0.279183627065459
+      ]
+    },
+    {
+      "roi": "main",
+      "stage": "return15",
+      "broad_20_frame_blocks": [
+        0.07514074901930842,
+        0.08654376897363356,
+        0.07395921193567188
+      ],
+      "fine_20_frame_blocks": [
+        0.28441554429778826,
+        0.2898133574037816,
+        0.28493629421640015
+      ]
+    },
+    {
+      "roi": "right",
+      "stage": "baseline",
+      "broad_20_frame_blocks": [
+        0.07600716445885783,
+        0.08157049128353223,
+        0.07938690111989373
+      ],
+      "fine_20_frame_blocks": [
+        0.290186017703751,
+        0.28914264910246273,
+        0.28891304618292996
+      ]
+    },
+    {
+      "roi": "right",
+      "stage": "sham15",
+      "broad_20_frame_blocks": [
+        0.07098556182934991,
+        0.08346587011593012,
+        0.0822838365205298
+      ],
+      "fine_20_frame_blocks": [
+        0.29188045203200413,
+        0.28892116826087494,
+        0.289160108841297
+      ]
+    },
+    {
+      "roi": "right",
+      "stage": "return15",
+      "broad_20_frame_blocks": [
+        0.07106279384815872,
+        0.08061642612775072,
+        0.07215779912198349
+      ],
+      "fine_20_frame_blocks": [
+        0.29027069381721105,
+        0.2982133927635895,
+        0.294002360891683
+      ]
+    }
+  ],
+  "interpretation": "Fine-pattern/mean-Y reproducibility is a limited diagnostic pass. Full-spectrum identity and broad-component equivalence are not established.",
+  "physical_pwm_hz": null,
+  "stock_optics_restored": null,
+  "sham_optics_unchanged": null,
+  "lead_approved": false
+}

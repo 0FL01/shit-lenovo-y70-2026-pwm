@@ -1,0 +1,2907 @@
+{
+  "experiment_id": "p85_stock_a001_20261108_04",
+  "marker": "PWM_P85_p85_stock_a001_20261108_04",
+  "module_sha256": "1bec69faec736e7288f38e4cb83314c37c60d33e6b383213316fd880aa0b1804",
+  "stock_dc": 0,
+  "software_refresh_hz": 120,
+  "anchor": [
+    90,
+    120
+  ],
+  "camera_touched": true,
+  "unknown_register_writes": false,
+  "recovery": "same-target ordinary reboot; device watchdog600s",
+  "pwm_hz": null,
+  "scope": "p85-stock-only",
+  "started_at_utc": "2026-11-08T17:39:18.698751+00:00",
+  "status": "awaiting_optical_review",
+  "captures": [],
+  "events": [
+    {
+      "label": "identity",
+      "at_utc": "2026-11-08T17:39:20.144245+00:00",
+      "raw_record": "0001-identity",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "root",
+      "at_utc": "2026-11-08T17:39:21.067842+00:00",
+      "raw_record": "0002-root",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "panel",
+      "at_utc": "2026-11-08T17:39:21.703860+00:00",
+      "raw_record": "0003-panel",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "module",
+      "at_utc": "2026-11-08T17:39:22.371877+00:00",
+      "raw_record": "0004-module",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "prior-kernel",
+      "at_utc": "2026-11-08T17:39:28.164671+00:00",
+      "raw_record": "0010-prior-kernel",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "acquire-owner",
+      "at_utc": "2026-11-08T17:39:29.062082+00:00",
+      "raw_record": "0011-acquire-owner",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "before-setting",
+      "at_utc": "2026-11-08T17:39:29.758237+00:00",
+      "raw_record": "0012-before-setting",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "before-setting",
+      "at_utc": "2026-11-08T17:39:30.670454+00:00",
+      "raw_record": "0013-before-setting",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "before-setting",
+      "at_utc": "2026-11-08T17:39:31.306651+00:00",
+      "raw_record": "0014-before-setting",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "before-setting",
+      "at_utc": "2026-11-08T17:39:31.964121+00:00",
+      "raw_record": "0015-before-setting",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "before-setting",
+      "at_utc": "2026-11-08T17:39:32.600962+00:00",
+      "raw_record": "0016-before-setting",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "before-dbv",
+      "at_utc": "2026-11-08T17:39:33.289817+00:00",
+      "raw_record": "0017-before-dbv",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "before-logger",
+      "at_utc": "2026-11-08T17:39:33.980009+00:00",
+      "raw_record": "0018-before-logger",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "before-boot",
+      "at_utc": "2026-11-08T17:39:34.583112+00:00",
+      "raw_record": "0019-before-boot",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "state",
+      "at_utc": "2026-11-08T17:39:35.185142+00:00",
+      "raw_record": "0020-state",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "display",
+      "at_utc": "2026-11-08T17:39:35.806944+00:00",
+      "raw_record": "0021-display",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "boot",
+      "at_utc": "2026-11-08T17:39:36.327225+00:00",
+      "raw_record": "0022-boot",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "owner",
+      "at_utc": "2026-11-08T17:39:36.980800+00:00",
+      "raw_record": "0023-owner",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "fresh-temp",
+      "at_utc": "2026-11-08T17:39:37.611917+00:00",
+      "raw_record": "0024-fresh-temp",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "create-temp",
+      "at_utc": "2026-11-08T17:39:38.234524+00:00",
+      "raw_record": "0025-create-temp",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "initial-esd",
+      "at_utc": "2026-11-08T17:39:38.883742+00:00",
+      "raw_record": "0026-initial-esd",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "overall-watchdog",
+      "at_utc": "2026-11-08T17:39:39.453018+00:00",
+      "raw_record": "0027-overall-watchdog",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "enable-logger",
+      "at_utc": "2026-11-08T17:39:40.124650+00:00",
+      "raw_record": "0028-enable-logger",
+      "mutation": true,
+      "return_code": 0
+    },
+    {
+      "label": "extend-timeout",
+      "at_utc": "2026-11-08T17:39:40.833590+00:00",
+      "raw_record": "0029-extend-timeout",
+      "mutation": true,
+      "return_code": 0
+    },
+    {
+      "label": "home",
+      "at_utc": "2026-11-08T17:39:41.497793+00:00",
+      "raw_record": "0030-home",
+      "mutation": true,
+      "return_code": 0
+    },
+    {
+      "label": "display-settings",
+      "at_utc": "2026-11-08T17:39:42.185376+00:00",
+      "raw_record": "0031-display-settings",
+      "mutation": true,
+      "return_code": 0
+    },
+    {
+      "label": "awake",
+      "at_utc": "2026-11-08T17:39:42.865368+00:00",
+      "raw_record": "0032-awake",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "marker",
+      "at_utc": "2026-11-08T17:39:43.521345+00:00",
+      "raw_record": "0033-marker",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "stock-anchor",
+      "at_utc": "2026-11-08T17:39:44.123762+00:00",
+      "raw_record": "0034-stock-anchor",
+      "mutation": true,
+      "return_code": 0
+    },
+    {
+      "label": "anchor-display",
+      "at_utc": "2026-11-08T17:39:44.742370+00:00",
+      "raw_record": "0035-anchor-display",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "anchor-kernel",
+      "at_utc": "2026-11-08T17:39:45.389148+00:00",
+      "raw_record": "0036-anchor-kernel",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "marker",
+      "at_utc": "2026-11-08T17:39:46.082604+00:00",
+      "raw_record": "0037-marker",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "anchor-final",
+      "at_utc": "2026-11-08T17:39:46.650049+00:00",
+      "raw_record": "0038-anchor-final",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "marker",
+      "at_utc": "2026-11-08T17:39:47.318997+00:00",
+      "raw_record": "0039-marker",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "stock-anchor",
+      "at_utc": "2026-11-08T17:39:47.883775+00:00",
+      "raw_record": "0040-stock-anchor",
+      "mutation": true,
+      "return_code": 0
+    },
+    {
+      "label": "anchor-display",
+      "at_utc": "2026-11-08T17:39:48.557325+00:00",
+      "raw_record": "0041-anchor-display",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "anchor-kernel",
+      "at_utc": "2026-11-08T17:39:49.199641+00:00",
+      "raw_record": "0042-anchor-kernel",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "marker",
+      "at_utc": "2026-11-08T17:39:49.870284+00:00",
+      "raw_record": "0043-marker",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "anchor-final",
+      "at_utc": "2026-11-08T17:39:50.442034+00:00",
+      "raw_record": "0044-anchor-final",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "previous-dbv",
+      "at_utc": "2026-11-08T17:39:51.128342+00:00",
+      "raw_record": "0045-previous-dbv",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "marker",
+      "at_utc": "2026-11-08T17:39:51.695917+00:00",
+      "raw_record": "0046-marker",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "native-brightness",
+      "at_utc": "2026-11-08T17:39:52.374330+00:00",
+      "raw_record": "0047-native-brightness",
+      "mutation": true,
+      "return_code": 0
+    },
+    {
+      "label": "poll",
+      "at_utc": "2026-11-08T17:39:53.081185+00:00",
+      "raw_record": "0048-poll",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "marker",
+      "at_utc": "2026-11-08T17:39:53.780273+00:00",
+      "raw_record": "0049-marker",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "brightness-kernel",
+      "at_utc": "2026-11-08T17:39:54.433271+00:00",
+      "raw_record": "0050-brightness-kernel",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "state",
+      "at_utc": "2026-11-08T17:39:55.104028+00:00",
+      "raw_record": "0051-state",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "display",
+      "at_utc": "2026-11-08T17:39:55.705734+00:00",
+      "raw_record": "0052-display",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "boot",
+      "at_utc": "2026-11-08T17:39:56.320973+00:00",
+      "raw_record": "0053-boot",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "owner",
+      "at_utc": "2026-11-08T17:39:56.981072+00:00",
+      "raw_record": "0054-owner",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "state",
+      "at_utc": "2026-11-08T17:39:57.627708+00:00",
+      "raw_record": "0055-state",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "display",
+      "at_utc": "2026-11-08T17:39:58.292507+00:00",
+      "raw_record": "0056-display",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "boot",
+      "at_utc": "2026-11-08T17:39:58.918517+00:00",
+      "raw_record": "0057-boot",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "owner",
+      "at_utc": "2026-11-08T17:39:59.573846+00:00",
+      "raw_record": "0058-owner",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "marker",
+      "at_utc": "2026-11-08T17:40:00.247515+00:00",
+      "raw_record": "0059-marker",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "marker",
+      "at_utc": "2026-11-08T17:40:02.862210+00:00",
+      "raw_record": "0060-marker",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "quiet-kernel",
+      "at_utc": "2026-11-08T17:40:03.416012+00:00",
+      "raw_record": "0061-quiet-kernel",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "state",
+      "at_utc": "2026-11-08T17:40:04.338890+00:00",
+      "raw_record": "0062-state",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "display",
+      "at_utc": "2026-11-08T17:40:05.027860+00:00",
+      "raw_record": "0063-display",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "boot",
+      "at_utc": "2026-11-08T17:40:05.594501+00:00",
+      "raw_record": "0064-boot",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "owner",
+      "at_utc": "2026-11-08T17:40:06.171505+00:00",
+      "raw_record": "0065-owner",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "state",
+      "at_utc": "2026-11-08T17:40:14.473597+00:00",
+      "raw_record": "0071-state",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "display",
+      "at_utc": "2026-11-08T17:40:15.149220+00:00",
+      "raw_record": "0072-display",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "boot",
+      "at_utc": "2026-11-08T17:40:15.715466+00:00",
+      "raw_record": "0073-boot",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "owner",
+      "at_utc": "2026-11-08T17:40:16.584713+00:00",
+      "raw_record": "0074-owner",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "marker",
+      "at_utc": "2026-11-08T17:40:17.219722+00:00",
+      "raw_record": "0075-marker",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "marker",
+      "at_utc": "2026-11-08T17:40:19.886215+00:00",
+      "raw_record": "0076-marker",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "quiet-kernel",
+      "at_utc": "2026-11-08T17:40:20.394237+00:00",
+      "raw_record": "0077-quiet-kernel",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "state",
+      "at_utc": "2026-11-08T17:40:21.260648+00:00",
+      "raw_record": "0078-state",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "display",
+      "at_utc": "2026-11-08T17:40:21.873300+00:00",
+      "raw_record": "0079-display",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "boot",
+      "at_utc": "2026-11-08T17:40:22.554796+00:00",
+      "raw_record": "0080-boot",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "owner",
+      "at_utc": "2026-11-08T17:40:23.235685+00:00",
+      "raw_record": "0081-owner",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "marker",
+      "at_utc": "2026-11-08T17:40:23.861547+00:00",
+      "raw_record": "0082-marker",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "baseline-p85",
+      "at_utc": "2026-11-08T17:40:24.556172+00:00",
+      "raw_record": "0083-baseline-p85",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "marker",
+      "at_utc": "2026-11-08T17:40:26.008680+00:00",
+      "raw_record": "0084-marker",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "read-wire",
+      "at_utc": "2026-11-08T17:40:26.617055+00:00",
+      "raw_record": "0085-read-wire",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "state",
+      "at_utc": "2026-11-08T17:40:27.254595+00:00",
+      "raw_record": "0086-state",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "display",
+      "at_utc": "2026-11-08T17:40:27.869436+00:00",
+      "raw_record": "0087-display",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "boot",
+      "at_utc": "2026-11-08T17:40:28.373943+00:00",
+      "raw_record": "0088-boot",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "owner",
+      "at_utc": "2026-11-08T17:40:29.023560+00:00",
+      "raw_record": "0089-owner",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "read-esd",
+      "at_utc": "2026-11-08T17:40:29.677530+00:00",
+      "raw_record": "0090-read-esd",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "marker",
+      "at_utc": "2026-11-08T17:40:30.361594+00:00",
+      "raw_record": "0091-marker",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "baseline-c1",
+      "at_utc": "2026-11-08T17:40:31.034316+00:00",
+      "raw_record": "0092-baseline-c1",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "marker",
+      "at_utc": "2026-11-08T17:40:32.407723+00:00",
+      "raw_record": "0093-marker",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "read-wire",
+      "at_utc": "2026-11-08T17:40:33.042968+00:00",
+      "raw_record": "0094-read-wire",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "state",
+      "at_utc": "2026-11-08T17:40:33.689456+00:00",
+      "raw_record": "0095-state",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "display",
+      "at_utc": "2026-11-08T17:40:34.353188+00:00",
+      "raw_record": "0096-display",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "boot",
+      "at_utc": "2026-11-08T17:40:34.956725+00:00",
+      "raw_record": "0097-boot",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "owner",
+      "at_utc": "2026-11-08T17:40:35.570954+00:00",
+      "raw_record": "0098-owner",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "read-esd",
+      "at_utc": "2026-11-08T17:40:36.201269+00:00",
+      "raw_record": "0099-read-esd",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "marker",
+      "at_utc": "2026-11-08T17:40:36.842812+00:00",
+      "raw_record": "0100-marker",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "marker",
+      "at_utc": "2026-11-08T17:40:43.370860+00:00",
+      "raw_record": "0103-marker",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "hold-kernel",
+      "at_utc": "2026-11-08T17:40:44.019787+00:00",
+      "raw_record": "0104-hold-kernel",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "state",
+      "at_utc": "2026-11-08T17:40:44.683714+00:00",
+      "raw_record": "0105-state",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "display",
+      "at_utc": "2026-11-08T17:40:45.302515+00:00",
+      "raw_record": "0106-display",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "boot",
+      "at_utc": "2026-11-08T17:40:45.807396+00:00",
+      "raw_record": "0107-boot",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "owner",
+      "at_utc": "2026-11-08T17:40:46.419100+00:00",
+      "raw_record": "0108-owner",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "state",
+      "at_utc": "2026-11-08T17:40:48.733127+00:00",
+      "raw_record": "0109-state",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "display",
+      "at_utc": "2026-11-08T17:40:49.371843+00:00",
+      "raw_record": "0110-display",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "boot",
+      "at_utc": "2026-11-08T17:40:49.982673+00:00",
+      "raw_record": "0111-boot",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "owner",
+      "at_utc": "2026-11-08T17:40:50.609074+00:00",
+      "raw_record": "0112-owner",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "marker",
+      "at_utc": "2026-11-08T17:40:51.249200+00:00",
+      "raw_record": "0113-marker",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "marker",
+      "at_utc": "2026-11-08T17:40:53.869835+00:00",
+      "raw_record": "0114-marker",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "quiet-kernel",
+      "at_utc": "2026-11-08T17:40:54.708007+00:00",
+      "raw_record": "0115-quiet-kernel",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "state",
+      "at_utc": "2026-11-08T17:40:55.651876+00:00",
+      "raw_record": "0116-state",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "display",
+      "at_utc": "2026-11-08T17:40:56.272004+00:00",
+      "raw_record": "0117-display",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "boot",
+      "at_utc": "2026-11-08T17:40:56.872531+00:00",
+      "raw_record": "0118-boot",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "owner",
+      "at_utc": "2026-11-08T17:40:57.535500+00:00",
+      "raw_record": "0119-owner",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "write-marker-preflight",
+      "at_utc": "2026-11-08T17:40:58.173705+00:00",
+      "raw_record": "0120-write-marker-preflight",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "marker",
+      "at_utc": "2026-11-08T17:40:58.814102+00:00",
+      "raw_record": "0121-marker",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "sham15-write",
+      "at_utc": "2026-11-08T17:40:59.507055+00:00",
+      "raw_record": "0122-sham15-write",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "marker",
+      "at_utc": "2026-11-08T17:41:01.316640+00:00",
+      "raw_record": "0123-marker",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "write-final-kernel",
+      "at_utc": "2026-11-08T17:41:01.935645+00:00",
+      "raw_record": "0124-write-final-kernel",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "state",
+      "at_utc": "2026-11-08T17:41:02.574737+00:00",
+      "raw_record": "0125-state",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "display",
+      "at_utc": "2026-11-08T17:41:03.297857+00:00",
+      "raw_record": "0126-display",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "boot",
+      "at_utc": "2026-11-08T17:41:03.988183+00:00",
+      "raw_record": "0127-boot",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "owner",
+      "at_utc": "2026-11-08T17:41:04.675709+00:00",
+      "raw_record": "0128-owner",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "write-esd",
+      "at_utc": "2026-11-08T17:41:05.352428+00:00",
+      "raw_record": "0129-write-esd",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "state",
+      "at_utc": "2026-11-08T17:41:05.945465+00:00",
+      "raw_record": "0130-state",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "display",
+      "at_utc": "2026-11-08T17:41:06.546887+00:00",
+      "raw_record": "0131-display",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "boot",
+      "at_utc": "2026-11-08T17:41:07.169123+00:00",
+      "raw_record": "0132-boot",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "owner",
+      "at_utc": "2026-11-08T17:41:07.776472+00:00",
+      "raw_record": "0133-owner",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "marker",
+      "at_utc": "2026-11-08T17:41:08.394652+00:00",
+      "raw_record": "0134-marker",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "marker",
+      "at_utc": "2026-11-08T17:41:11.022417+00:00",
+      "raw_record": "0135-marker",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "quiet-kernel",
+      "at_utc": "2026-11-08T17:41:11.550076+00:00",
+      "raw_record": "0136-quiet-kernel",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "state",
+      "at_utc": "2026-11-08T17:41:12.355535+00:00",
+      "raw_record": "0137-state",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "display",
+      "at_utc": "2026-11-08T17:41:13.046331+00:00",
+      "raw_record": "0138-display",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "boot",
+      "at_utc": "2026-11-08T17:41:13.699535+00:00",
+      "raw_record": "0139-boot",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "owner",
+      "at_utc": "2026-11-08T17:41:14.336892+00:00",
+      "raw_record": "0140-owner",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "marker",
+      "at_utc": "2026-11-08T17:41:14.969249+00:00",
+      "raw_record": "0141-marker",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "sham15-p85",
+      "at_utc": "2026-11-08T17:41:15.656575+00:00",
+      "raw_record": "0142-sham15-p85",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "marker",
+      "at_utc": "2026-11-08T17:41:17.205358+00:00",
+      "raw_record": "0143-marker",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "read-wire",
+      "at_utc": "2026-11-08T17:41:17.850239+00:00",
+      "raw_record": "0144-read-wire",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "state",
+      "at_utc": "2026-11-08T17:41:18.425853+00:00",
+      "raw_record": "0145-state",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "display",
+      "at_utc": "2026-11-08T17:41:19.085464+00:00",
+      "raw_record": "0146-display",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "boot",
+      "at_utc": "2026-11-08T17:41:19.749104+00:00",
+      "raw_record": "0147-boot",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "owner",
+      "at_utc": "2026-11-08T17:41:20.386720+00:00",
+      "raw_record": "0148-owner",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "read-esd",
+      "at_utc": "2026-11-08T17:41:21.008876+00:00",
+      "raw_record": "0149-read-esd",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "marker",
+      "at_utc": "2026-11-08T17:41:21.621339+00:00",
+      "raw_record": "0150-marker",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "sham15-c1",
+      "at_utc": "2026-11-08T17:41:22.229766+00:00",
+      "raw_record": "0151-sham15-c1",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "marker",
+      "at_utc": "2026-11-08T17:41:23.680003+00:00",
+      "raw_record": "0152-marker",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "read-wire",
+      "at_utc": "2026-11-08T17:41:24.293340+00:00",
+      "raw_record": "0153-read-wire",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "state",
+      "at_utc": "2026-11-08T17:41:24.928404+00:00",
+      "raw_record": "0154-state",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "display",
+      "at_utc": "2026-11-08T17:41:25.629939+00:00",
+      "raw_record": "0155-display",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "boot",
+      "at_utc": "2026-11-08T17:41:26.279798+00:00",
+      "raw_record": "0156-boot",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "owner",
+      "at_utc": "2026-11-08T17:41:26.937510+00:00",
+      "raw_record": "0157-owner",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "read-esd",
+      "at_utc": "2026-11-08T17:41:27.587201+00:00",
+      "raw_record": "0158-read-esd",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "marker",
+      "at_utc": "2026-11-08T17:41:28.245530+00:00",
+      "raw_record": "0159-marker",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "marker",
+      "at_utc": "2026-11-08T17:41:34.883172+00:00",
+      "raw_record": "0162-marker",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "hold-kernel",
+      "at_utc": "2026-11-08T17:41:35.543715+00:00",
+      "raw_record": "0163-hold-kernel",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "state",
+      "at_utc": "2026-11-08T17:41:36.187381+00:00",
+      "raw_record": "0164-state",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "display",
+      "at_utc": "2026-11-08T17:41:36.855493+00:00",
+      "raw_record": "0165-display",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "boot",
+      "at_utc": "2026-11-08T17:41:37.454372+00:00",
+      "raw_record": "0166-boot",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "owner",
+      "at_utc": "2026-11-08T17:41:38.058208+00:00",
+      "raw_record": "0167-owner",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "state",
+      "at_utc": "2026-11-08T17:41:38.684954+00:00",
+      "raw_record": "0168-state",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "display",
+      "at_utc": "2026-11-08T17:41:39.291145+00:00",
+      "raw_record": "0169-display",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "boot",
+      "at_utc": "2026-11-08T17:41:40.184055+00:00",
+      "raw_record": "0170-boot",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "owner",
+      "at_utc": "2026-11-08T17:41:40.827741+00:00",
+      "raw_record": "0171-owner",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "marker",
+      "at_utc": "2026-11-08T17:41:41.507671+00:00",
+      "raw_record": "0172-marker",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "marker",
+      "at_utc": "2026-11-08T17:41:44.234367+00:00",
+      "raw_record": "0173-marker",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "quiet-kernel",
+      "at_utc": "2026-11-08T17:41:44.800234+00:00",
+      "raw_record": "0174-quiet-kernel",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "state",
+      "at_utc": "2026-11-08T17:41:45.673847+00:00",
+      "raw_record": "0175-state",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "display",
+      "at_utc": "2026-11-08T17:41:46.285677+00:00",
+      "raw_record": "0176-display",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "boot",
+      "at_utc": "2026-11-08T17:41:46.825128+00:00",
+      "raw_record": "0177-boot",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "owner",
+      "at_utc": "2026-11-08T17:41:47.413862+00:00",
+      "raw_record": "0178-owner",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "write-marker-preflight",
+      "at_utc": "2026-11-08T17:41:48.108096+00:00",
+      "raw_record": "0179-write-marker-preflight",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "marker",
+      "at_utc": "2026-11-08T17:41:48.816629+00:00",
+      "raw_record": "0180-marker",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "return15-write",
+      "at_utc": "2026-11-08T17:41:49.512227+00:00",
+      "raw_record": "0181-return15-write",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "marker",
+      "at_utc": "2026-11-08T17:41:51.276896+00:00",
+      "raw_record": "0182-marker",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "write-final-kernel",
+      "at_utc": "2026-11-08T17:41:51.871257+00:00",
+      "raw_record": "0183-write-final-kernel",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "state",
+      "at_utc": "2026-11-08T17:41:52.455393+00:00",
+      "raw_record": "0184-state",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "display",
+      "at_utc": "2026-11-08T17:41:53.059439+00:00",
+      "raw_record": "0185-display",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "boot",
+      "at_utc": "2026-11-08T17:41:53.632200+00:00",
+      "raw_record": "0186-boot",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "owner",
+      "at_utc": "2026-11-08T17:41:54.212968+00:00",
+      "raw_record": "0187-owner",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "write-esd",
+      "at_utc": "2026-11-08T17:41:54.800966+00:00",
+      "raw_record": "0188-write-esd",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "state",
+      "at_utc": "2026-11-08T17:41:55.380660+00:00",
+      "raw_record": "0189-state",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "display",
+      "at_utc": "2026-11-08T17:41:55.968861+00:00",
+      "raw_record": "0190-display",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "boot",
+      "at_utc": "2026-11-08T17:41:56.600278+00:00",
+      "raw_record": "0191-boot",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "owner",
+      "at_utc": "2026-11-08T17:41:57.190420+00:00",
+      "raw_record": "0192-owner",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "marker",
+      "at_utc": "2026-11-08T17:41:57.775746+00:00",
+      "raw_record": "0193-marker",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "marker",
+      "at_utc": "2026-11-08T17:42:00.371877+00:00",
+      "raw_record": "0194-marker",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "quiet-kernel",
+      "at_utc": "2026-11-08T17:42:00.852838+00:00",
+      "raw_record": "0195-quiet-kernel",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "state",
+      "at_utc": "2026-11-08T17:42:01.730230+00:00",
+      "raw_record": "0196-state",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "display",
+      "at_utc": "2026-11-08T17:42:02.323290+00:00",
+      "raw_record": "0197-display",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "boot",
+      "at_utc": "2026-11-08T17:42:02.891986+00:00",
+      "raw_record": "0198-boot",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "owner",
+      "at_utc": "2026-11-08T17:42:03.475844+00:00",
+      "raw_record": "0199-owner",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "marker",
+      "at_utc": "2026-11-08T17:42:04.066261+00:00",
+      "raw_record": "0200-marker",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "return15-p85",
+      "at_utc": "2026-11-08T17:42:04.668315+00:00",
+      "raw_record": "0201-return15-p85",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "marker",
+      "at_utc": "2026-11-08T17:42:06.065458+00:00",
+      "raw_record": "0202-marker",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "read-wire",
+      "at_utc": "2026-11-08T17:42:06.663546+00:00",
+      "raw_record": "0203-read-wire",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "state",
+      "at_utc": "2026-11-08T17:42:07.246916+00:00",
+      "raw_record": "0204-state",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "display",
+      "at_utc": "2026-11-08T17:42:07.840935+00:00",
+      "raw_record": "0205-display",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "boot",
+      "at_utc": "2026-11-08T17:42:08.434727+00:00",
+      "raw_record": "0206-boot",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "owner",
+      "at_utc": "2026-11-08T17:42:09.011138+00:00",
+      "raw_record": "0207-owner",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "read-esd",
+      "at_utc": "2026-11-08T17:42:09.585487+00:00",
+      "raw_record": "0208-read-esd",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "marker",
+      "at_utc": "2026-11-08T17:42:10.187030+00:00",
+      "raw_record": "0209-marker",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "return15-c1",
+      "at_utc": "2026-11-08T17:42:10.781499+00:00",
+      "raw_record": "0210-return15-c1",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "marker",
+      "at_utc": "2026-11-08T17:42:12.071178+00:00",
+      "raw_record": "0211-marker",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "read-wire",
+      "at_utc": "2026-11-08T17:42:12.663383+00:00",
+      "raw_record": "0212-read-wire",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "state",
+      "at_utc": "2026-11-08T17:42:13.237628+00:00",
+      "raw_record": "0213-state",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "display",
+      "at_utc": "2026-11-08T17:42:13.816531+00:00",
+      "raw_record": "0214-display",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "boot",
+      "at_utc": "2026-11-08T17:42:14.328710+00:00",
+      "raw_record": "0215-boot",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "owner",
+      "at_utc": "2026-11-08T17:42:14.855206+00:00",
+      "raw_record": "0216-owner",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "read-esd",
+      "at_utc": "2026-11-08T17:42:15.431514+00:00",
+      "raw_record": "0217-read-esd",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "marker",
+      "at_utc": "2026-11-08T17:42:16.015148+00:00",
+      "raw_record": "0218-marker",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "marker",
+      "at_utc": "2026-11-08T17:42:22.480631+00:00",
+      "raw_record": "0221-marker",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "hold-kernel",
+      "at_utc": "2026-11-08T17:42:23.084035+00:00",
+      "raw_record": "0222-hold-kernel",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "state",
+      "at_utc": "2026-11-08T17:42:23.752123+00:00",
+      "raw_record": "0223-state",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "display",
+      "at_utc": "2026-11-08T17:42:24.332726+00:00",
+      "raw_record": "0224-display",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "boot",
+      "at_utc": "2026-11-08T17:42:24.909574+00:00",
+      "raw_record": "0225-boot",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "owner",
+      "at_utc": "2026-11-08T17:42:25.506547+00:00",
+      "raw_record": "0226-owner",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "remove-owned-writer-snapshots",
+      "at_utc": "2026-11-08T17:42:58.526267+00:00",
+      "raw_record": "0234-remove-owned-writer-snapshots",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "remove-owned-writer-snapshots",
+      "at_utc": "2026-11-08T17:42:59.000118+00:00",
+      "raw_record": "0235-remove-owned-writer-snapshots",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "restore-power",
+      "at_utc": "2026-11-08T17:42:59.583431+00:00",
+      "raw_record": "0236-restore-power",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "restore-peak",
+      "at_utc": "2026-11-08T17:43:00.173816+00:00",
+      "raw_record": "0237-restore-peak",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "restore-setting",
+      "at_utc": "2026-11-08T17:43:00.751607+00:00",
+      "raw_record": "0238-restore-setting",
+      "mutation": true,
+      "return_code": 0
+    },
+    {
+      "label": "restore-setting",
+      "at_utc": "2026-11-08T17:43:01.349749+00:00",
+      "raw_record": "0239-restore-setting",
+      "mutation": true,
+      "return_code": 0
+    },
+    {
+      "label": "restore-setting",
+      "at_utc": "2026-11-08T17:43:01.951045+00:00",
+      "raw_record": "0240-restore-setting",
+      "mutation": true,
+      "return_code": 0
+    },
+    {
+      "label": "restore-setting",
+      "at_utc": "2026-11-08T17:43:02.523514+00:00",
+      "raw_record": "0241-restore-setting",
+      "mutation": true,
+      "return_code": 0
+    },
+    {
+      "label": "restore-setting",
+      "at_utc": "2026-11-08T17:43:03.099904+00:00",
+      "raw_record": "0242-restore-setting",
+      "mutation": true,
+      "return_code": 0
+    },
+    {
+      "label": "restore-dbv",
+      "at_utc": "2026-11-08T17:43:03.692958+00:00",
+      "raw_record": "0243-restore-dbv",
+      "mutation": true,
+      "return_code": 0
+    },
+    {
+      "label": "poll",
+      "at_utc": "2026-11-08T17:43:04.285622+00:00",
+      "raw_record": "0244-poll",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "poll",
+      "at_utc": "2026-11-08T17:43:05.888445+00:00",
+      "raw_record": "0245-poll",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "verify-setting",
+      "at_utc": "2026-11-08T17:43:06.371707+00:00",
+      "raw_record": "0246-verify-setting",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "verify-setting",
+      "at_utc": "2026-11-08T17:43:06.956795+00:00",
+      "raw_record": "0247-verify-setting",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "verify-setting",
+      "at_utc": "2026-11-08T17:43:07.535255+00:00",
+      "raw_record": "0248-verify-setting",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "verify-setting",
+      "at_utc": "2026-11-08T17:43:08.011358+00:00",
+      "raw_record": "0249-verify-setting",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "verify-setting",
+      "at_utc": "2026-11-08T17:43:08.591914+00:00",
+      "raw_record": "0250-verify-setting",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "state",
+      "at_utc": "2026-11-08T17:43:09.167966+00:00",
+      "raw_record": "0251-state",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "display",
+      "at_utc": "2026-11-08T17:43:09.748754+00:00",
+      "raw_record": "0252-display",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "boot",
+      "at_utc": "2026-11-08T17:43:10.322508+00:00",
+      "raw_record": "0253-boot",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "owner",
+      "at_utc": "2026-11-08T17:43:10.962147+00:00",
+      "raw_record": "0254-owner",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "restore-logger",
+      "at_utc": "2026-11-08T17:43:11.555665+00:00",
+      "raw_record": "0255-restore-logger",
+      "mutation": true,
+      "return_code": 0
+    },
+    {
+      "label": "verify-logger",
+      "at_utc": "2026-11-08T17:43:12.140393+00:00",
+      "raw_record": "0256-verify-logger",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "final-esd",
+      "at_utc": "2026-11-08T17:43:12.751375+00:00",
+      "raw_record": "0257-final-esd",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "disarm-watchdog",
+      "at_utc": "2026-11-08T17:43:13.363978+00:00",
+      "raw_record": "0258-disarm-watchdog",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "verify-child-cleanup",
+      "at_utc": "2026-11-08T17:43:13.947907+00:00",
+      "raw_record": "0259-verify-child-cleanup",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "verify-child-cleanup",
+      "at_utc": "2026-11-08T17:43:14.525641+00:00",
+      "raw_record": "0260-verify-child-cleanup",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "verify-child-cleanup",
+      "at_utc": "2026-11-08T17:43:15.119103+00:00",
+      "raw_record": "0261-verify-child-cleanup",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "verify-child-cleanup",
+      "at_utc": "2026-11-08T17:43:15.700283+00:00",
+      "raw_record": "0262-verify-child-cleanup",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "verify-child-cleanup",
+      "at_utc": "2026-11-08T17:43:16.290915+00:00",
+      "raw_record": "0263-verify-child-cleanup",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "verify-child-cleanup",
+      "at_utc": "2026-11-08T17:43:16.898803+00:00",
+      "raw_record": "0264-verify-child-cleanup",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "verify-child-cleanup",
+      "at_utc": "2026-11-08T17:43:17.488154+00:00",
+      "raw_record": "0265-verify-child-cleanup",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "verify-child-cleanup",
+      "at_utc": "2026-11-08T17:43:18.074326+00:00",
+      "raw_record": "0266-verify-child-cleanup",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "remove-owned-temp",
+      "at_utc": "2026-11-08T17:43:18.666668+00:00",
+      "raw_record": "0267-remove-owned-temp",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "release-owner",
+      "at_utc": "2026-11-08T17:43:19.251982+00:00",
+      "raw_record": "0268-release-owner",
+      "mutation": false,
+      "return_code": 0
+    }
+  ],
+  "physical_operation_attempted": true,
+  "stages": [
+    {
+      "label": "baseline",
+      "started_at_utc": "2026-11-08T17:40:23.861436+00:00",
+      "qualified": true,
+      "phase_seconds": {
+        "p85": 6.500035215984099,
+        "c1": 6.481270262040198,
+        "hold_and_metadata": 10.270622191019356
+      },
+      "p85": {
+        "page": "23",
+        "opcode": "85",
+        "requested": 3,
+        "data": [
+          21,
+          0,
+          0
+        ],
+        "header_hex": "1c 03 00 16",
+        "raw_hardware_count": 9,
+        "normalized_count": 9,
+        "scratch_allocation": 16,
+        "single_receive": true,
+        "framing_qualified": true,
+        "cleanup_verified": true,
+        "native_dbv": 3600,
+        "software_refresh": 120.00001,
+        "pwm_hz": null,
+        "limit": "Read-plane and writable semantics unknown; CRC payload not captured; no Hz claim.",
+        "in_device_return_gates_verified": true,
+        "page_entries_standalone": true,
+        "response_type": "DCS_long3",
+        "returned": 3
+      },
+      "c1": {
+        "page": "23",
+        "opcode": "C1",
+        "requested": 3,
+        "data": [
+          0,
+          0,
+          96
+        ],
+        "header_hex": "1c 03 00 16",
+        "raw_hardware_count": 9,
+        "normalized_count": 9,
+        "scratch_allocation": 16,
+        "single_receive": true,
+        "framing_qualified": true,
+        "cleanup_verified": true,
+        "native_dbv": 3600,
+        "software_refresh": 120.00001,
+        "pwm_hz": null,
+        "limit": "C1 semantics and writable behavior unknown; CRC payload itself not captured.",
+        "in_device_return_gates_verified": true,
+        "page_entries_standalone": true
+      },
+      "hold_start_utc": "2026-11-08T17:40:37.505603+00:00",
+      "hold_start_monotonic": 607449.791724611,
+      "hold_end_utc": "2026-11-08T17:40:43.370805+00:00",
+      "hold_end_monotonic": 607455.656923297,
+      "hold_seconds": 4.5,
+      "observed_sensor_frames": 150,
+      "stable_encoded_frames": null,
+      "camera_start": {
+        "camera_id": "0",
+        "client_package": "net.sourceforge.opencamera",
+        "session_token": "708adb8a36ca46153a5990f4fef96b8ed616c3087dd3cb3d6d05fe0c7d355e11",
+        "request": {
+          "exposure_ns": 100000,
+          "iso": 6400,
+          "ae_mode": "OFF",
+          "af_mode": "OFF",
+          "focus_diopters": 2.0387485,
+          "crop": [
+            0,
+            0,
+            4080,
+            3072
+          ],
+          "zoom": 1.0,
+          "eis_mode": "OFF",
+          "ois_mode": "OFF",
+          "capture_intent": "VIDEO_RECORD",
+          "request_id": 302,
+          "frame_duration_ns": 33333333
+        },
+        "result": {
+          "exposure_ns": 100000,
+          "iso": 6400,
+          "ae_mode": "OFF",
+          "af_mode": "OFF",
+          "focus_diopters": 2.0387485,
+          "crop": [
+            0,
+            0,
+            4080,
+            3072
+          ],
+          "zoom": 1.0,
+          "eis_mode": "OFF",
+          "ois_mode": "OFF",
+          "capture_intent": "VIDEO_RECORD",
+          "request_id": 302,
+          "frame_duration_ns": 33350000,
+          "frame_count": 841870,
+          "timestamp_ns": 37935247109000,
+          "rolling_shutter_skew_ns": 15047630
+        },
+        "streams": [
+          {
+            "id": 47,
+            "width": 1920,
+            "height": 1080,
+            "pixel_format": "0x11",
+            "state": 4,
+            "consumer_kind": "SurfaceTexture",
+            "frames_produced": 797,
+            "last_timestamp_ns": 37935247109000,
+            "requested": true
+          },
+          {
+            "id": 48,
+            "width": 1280,
+            "height": 720,
+            "pixel_format": "0x1000",
+            "state": 4,
+            "consumer_kind": "GraphicBufferSource",
+            "frames_produced": 797,
+            "last_timestamp_ns": 37935247109000,
+            "requested": true
+          },
+          {
+            "id": 49,
+            "width": 3840,
+            "height": 2160,
+            "pixel_format": "0x21",
+            "state": 4,
+            "consumer_kind": "ImageReader",
+            "frames_produced": 0,
+            "last_timestamp_ns": 0,
+            "requested": false
+          }
+        ],
+        "recording_verified": true,
+        "encoder_stream_id": 48,
+        "frame_count": 841870,
+        "timestamp_ns": 37935247109000,
+        "frame_duration_ns": 33350000,
+        "rolling_shutter_skew_ns": 15047630,
+        "progress_verified": true,
+        "interpretation": "Settings and stream snapshots only; not per-frame video metadata or optical Hz.",
+        "host_call_start_utc": "2026-11-08T17:40:37.505633+00:00",
+        "host_call_end_utc": "2026-11-08T17:40:38.043658+00:00",
+        "host_call_elapsed_seconds": 0.5380191300064325,
+        "host_capture_bounds": {
+          "begin_monotonic": 607449.791728838,
+          "end_monotonic": 607450.329747968,
+          "begin_utc": "2026-11-08T17:40:37.505633+00:00",
+          "end_utc": "2026-11-08T17:40:38.043658+00:00",
+          "limit": "Call bounds only, not synchronized sensor/encoded PTS or per-frame metadata."
+        }
+      },
+      "camera_end": {
+        "camera_id": "0",
+        "client_package": "net.sourceforge.opencamera",
+        "session_token": "708adb8a36ca46153a5990f4fef96b8ed616c3087dd3cb3d6d05fe0c7d355e11",
+        "request": {
+          "exposure_ns": 100000,
+          "iso": 6400,
+          "ae_mode": "OFF",
+          "af_mode": "OFF",
+          "focus_diopters": 2.0387485,
+          "crop": [
+            0,
+            0,
+            4080,
+            3072
+          ],
+          "zoom": 1.0,
+          "eis_mode": "OFF",
+          "ois_mode": "OFF",
+          "capture_intent": "VIDEO_RECORD",
+          "request_id": 302,
+          "frame_duration_ns": 33333333
+        },
+        "result": {
+          "exposure_ns": 100000,
+          "iso": 6400,
+          "ae_mode": "OFF",
+          "af_mode": "OFF",
+          "focus_diopters": 2.0387485,
+          "crop": [
+            0,
+            0,
+            4080,
+            3072
+          ],
+          "zoom": 1.0,
+          "eis_mode": "OFF",
+          "ois_mode": "OFF",
+          "capture_intent": "VIDEO_RECORD",
+          "request_id": 302,
+          "frame_duration_ns": 33350000,
+          "frame_count": 842020,
+          "timestamp_ns": 37940247050000,
+          "rolling_shutter_skew_ns": 15047630
+        },
+        "streams": [
+          {
+            "id": 47,
+            "width": 1920,
+            "height": 1080,
+            "pixel_format": "0x11",
+            "state": 4,
+            "consumer_kind": "SurfaceTexture",
+            "frames_produced": 947,
+            "last_timestamp_ns": 37940247050000,
+            "requested": true
+          },
+          {
+            "id": 48,
+            "width": 1280,
+            "height": 720,
+            "pixel_format": "0x1000",
+            "state": 4,
+            "consumer_kind": "GraphicBufferSource",
+            "frames_produced": 948,
+            "last_timestamp_ns": 37940280383000,
+            "requested": true
+          },
+          {
+            "id": 49,
+            "width": 3840,
+            "height": 2160,
+            "pixel_format": "0x21",
+            "state": 4,
+            "consumer_kind": "ImageReader",
+            "frames_produced": 0,
+            "last_timestamp_ns": 0,
+            "requested": false
+          }
+        ],
+        "recording_verified": true,
+        "encoder_stream_id": 48,
+        "frame_count": 842020,
+        "timestamp_ns": 37940247050000,
+        "frame_duration_ns": 33350000,
+        "rolling_shutter_skew_ns": 15047630,
+        "progress_verified": true,
+        "interpretation": "Settings and stream snapshots only; not per-frame video metadata or optical Hz.",
+        "host_call_start_utc": "2026-11-08T17:40:42.549551+00:00",
+        "host_call_end_utc": "2026-11-08T17:40:43.364106+00:00",
+        "host_call_elapsed_seconds": 0.8145590060157701,
+        "host_capture_bounds": {
+          "begin_monotonic": 607454.835635278,
+          "end_monotonic": 607455.650194284,
+          "begin_utc": "2026-11-08T17:40:42.549551+00:00",
+          "end_utc": "2026-11-08T17:40:43.364106+00:00",
+          "limit": "Call bounds only, not synchronized sensor/encoded PTS or per-frame metadata."
+        }
+      },
+      "hold_markers": {
+        "begin": "PWM_P85_p85_stock_a001_20261108_04_BASELINE_HOLD_BEGIN",
+        "end": "PWM_P85_p85_stock_a001_20261108_04_BASELINE_HOLD_END"
+      },
+      "elapsed_seconds": 32.63985364395194
+    },
+    {
+      "label": "sham15",
+      "started_at_utc": "2026-11-08T17:41:14.969169+00:00",
+      "qualified": true,
+      "phase_seconds": {
+        "p85": 6.652066943002865,
+        "c1": 6.624221868929453,
+        "hold_and_metadata": 10.438223826000467
+      },
+      "p85": {
+        "page": "23",
+        "opcode": "85",
+        "requested": 3,
+        "data": [
+          21,
+          0,
+          0
+        ],
+        "header_hex": "1c 03 00 16",
+        "raw_hardware_count": 9,
+        "normalized_count": 9,
+        "scratch_allocation": 16,
+        "single_receive": true,
+        "framing_qualified": true,
+        "cleanup_verified": true,
+        "native_dbv": 3600,
+        "software_refresh": 120.00001,
+        "pwm_hz": null,
+        "limit": "Read-plane and writable semantics unknown; CRC payload not captured; no Hz claim.",
+        "in_device_return_gates_verified": true,
+        "page_entries_standalone": true,
+        "response_type": "DCS_long3",
+        "returned": 3
+      },
+      "c1": {
+        "page": "23",
+        "opcode": "C1",
+        "requested": 3,
+        "data": [
+          0,
+          0,
+          96
+        ],
+        "header_hex": "1c 03 00 16",
+        "raw_hardware_count": 9,
+        "normalized_count": 9,
+        "scratch_allocation": 16,
+        "single_receive": true,
+        "framing_qualified": true,
+        "cleanup_verified": true,
+        "native_dbv": 3600,
+        "software_refresh": 120.00001,
+        "pwm_hz": null,
+        "limit": "C1 semantics and writable behavior unknown; CRC payload itself not captured.",
+        "in_device_return_gates_verified": true,
+        "page_entries_standalone": true
+      },
+      "hold_start_utc": "2026-11-08T17:41:28.877239+00:00",
+      "hold_start_monotonic": 607501.163356196,
+      "hold_end_utc": "2026-11-08T17:41:34.883093+00:00",
+      "hold_end_monotonic": 607507.169214466,
+      "hold_seconds": 4.5,
+      "observed_sensor_frames": 156,
+      "stable_encoded_frames": null,
+      "camera_start": {
+        "camera_id": "0",
+        "client_package": "net.sourceforge.opencamera",
+        "session_token": "708adb8a36ca46153a5990f4fef96b8ed616c3087dd3cb3d6d05fe0c7d355e11",
+        "request": {
+          "exposure_ns": 100000,
+          "iso": 6400,
+          "ae_mode": "OFF",
+          "af_mode": "OFF",
+          "focus_diopters": 2.0387485,
+          "crop": [
+            0,
+            0,
+            4080,
+            3072
+          ],
+          "zoom": 1.0,
+          "eis_mode": "OFF",
+          "ois_mode": "OFF",
+          "capture_intent": "VIDEO_RECORD",
+          "request_id": 302,
+          "frame_duration_ns": 33333333
+        },
+        "result": {
+          "exposure_ns": 100000,
+          "iso": 6400,
+          "ae_mode": "OFF",
+          "af_mode": "OFF",
+          "focus_diopters": 2.0387485,
+          "crop": [
+            0,
+            0,
+            4080,
+            3072
+          ],
+          "zoom": 1.0,
+          "eis_mode": "OFF",
+          "ois_mode": "OFF",
+          "capture_intent": "VIDEO_RECORD",
+          "request_id": 302,
+          "frame_duration_ns": 33350000,
+          "frame_count": 843411,
+          "timestamp_ns": 37986613167000,
+          "rolling_shutter_skew_ns": 15047630
+        },
+        "streams": [
+          {
+            "id": 47,
+            "width": 1920,
+            "height": 1080,
+            "pixel_format": "0x11",
+            "state": 4,
+            "consumer_kind": "SurfaceTexture",
+            "frames_produced": 2338,
+            "last_timestamp_ns": 37986613167000,
+            "requested": true
+          },
+          {
+            "id": 48,
+            "width": 1280,
+            "height": 720,
+            "pixel_format": "0x1000",
+            "state": 4,
+            "consumer_kind": "GraphicBufferSource",
+            "frames_produced": 2338,
+            "last_timestamp_ns": 37986613167000,
+            "requested": true
+          },
+          {
+            "id": 49,
+            "width": 3840,
+            "height": 2160,
+            "pixel_format": "0x21",
+            "state": 4,
+            "consumer_kind": "ImageReader",
+            "frames_produced": 0,
+            "last_timestamp_ns": 0,
+            "requested": false
+          }
+        ],
+        "recording_verified": true,
+        "encoder_stream_id": 48,
+        "frame_count": 843411,
+        "timestamp_ns": 37986613167000,
+        "frame_duration_ns": 33350000,
+        "rolling_shutter_skew_ns": 15047630,
+        "progress_verified": true,
+        "interpretation": "Settings and stream snapshots only; not per-frame video metadata or optical Hz.",
+        "host_call_start_utc": "2026-11-08T17:41:28.877264+00:00",
+        "host_call_end_utc": "2026-11-08T17:41:29.537626+00:00",
+        "host_call_elapsed_seconds": 0.6603557060007006,
+        "host_capture_bounds": {
+          "begin_monotonic": 607501.163359611,
+          "end_monotonic": 607501.823715317,
+          "begin_utc": "2026-11-08T17:41:28.877264+00:00",
+          "end_utc": "2026-11-08T17:41:29.537626+00:00",
+          "limit": "Call bounds only, not synchronized sensor/encoded PTS or per-frame metadata."
+        }
+      },
+      "camera_end": {
+        "camera_id": "0",
+        "client_package": "net.sourceforge.opencamera",
+        "session_token": "708adb8a36ca46153a5990f4fef96b8ed616c3087dd3cb3d6d05fe0c7d355e11",
+        "request": {
+          "exposure_ns": 100000,
+          "iso": 6400,
+          "ae_mode": "OFF",
+          "af_mode": "OFF",
+          "focus_diopters": 2.0387485,
+          "crop": [
+            0,
+            0,
+            4080,
+            3072
+          ],
+          "zoom": 1.0,
+          "eis_mode": "OFF",
+          "ois_mode": "OFF",
+          "capture_intent": "VIDEO_RECORD",
+          "request_id": 302,
+          "frame_duration_ns": 33333333
+        },
+        "result": {
+          "exposure_ns": 100000,
+          "iso": 6400,
+          "ae_mode": "OFF",
+          "af_mode": "OFF",
+          "focus_diopters": 2.0387485,
+          "crop": [
+            0,
+            0,
+            4080,
+            3072
+          ],
+          "zoom": 1.0,
+          "eis_mode": "OFF",
+          "ois_mode": "OFF",
+          "capture_intent": "VIDEO_RECORD",
+          "request_id": 302,
+          "frame_duration_ns": 33350000,
+          "frame_count": 843567,
+          "timestamp_ns": 37991813106000,
+          "rolling_shutter_skew_ns": 15047630
+        },
+        "streams": [
+          {
+            "id": 47,
+            "width": 1920,
+            "height": 1080,
+            "pixel_format": "0x11",
+            "state": 4,
+            "consumer_kind": "SurfaceTexture",
+            "frames_produced": 2494,
+            "last_timestamp_ns": 37991813106000,
+            "requested": true
+          },
+          {
+            "id": 48,
+            "width": 1280,
+            "height": 720,
+            "pixel_format": "0x1000",
+            "state": 4,
+            "consumer_kind": "GraphicBufferSource",
+            "frames_produced": 2494,
+            "last_timestamp_ns": 37991813106000,
+            "requested": true
+          },
+          {
+            "id": 49,
+            "width": 3840,
+            "height": 2160,
+            "pixel_format": "0x21",
+            "state": 4,
+            "consumer_kind": "ImageReader",
+            "frames_produced": 0,
+            "last_timestamp_ns": 0,
+            "requested": false
+          }
+        ],
+        "recording_verified": true,
+        "encoder_stream_id": 48,
+        "frame_count": 843567,
+        "timestamp_ns": 37991813106000,
+        "frame_duration_ns": 33350000,
+        "rolling_shutter_skew_ns": 15047630,
+        "progress_verified": true,
+        "interpretation": "Settings and stream snapshots only; not per-frame video metadata or optical Hz.",
+        "host_call_start_utc": "2026-11-08T17:41:34.043651+00:00",
+        "host_call_end_utc": "2026-11-08T17:41:34.875340+00:00",
+        "host_call_elapsed_seconds": 0.831694687018171,
+        "host_capture_bounds": {
+          "begin_monotonic": 607506.329734965,
+          "end_monotonic": 607507.161429652,
+          "begin_utc": "2026-11-08T17:41:34.043651+00:00",
+          "end_utc": "2026-11-08T17:41:34.875340+00:00",
+          "limit": "Call bounds only, not synchronized sensor/encoded PTS or per-frame metadata."
+        }
+      },
+      "hold_markers": {
+        "begin": "PWM_P85_p85_stock_a001_20261108_04_SHAM15_HOLD_BEGIN",
+        "end": "PWM_P85_p85_stock_a001_20261108_04_SHAM15_HOLD_END"
+      },
+      "elapsed_seconds": 32.73828768404201
+    },
+    {
+      "label": "return15",
+      "started_at_utc": "2026-11-08T17:42:04.066129+00:00",
+      "qualified": true,
+      "phase_seconds": {
+        "p85": 6.120808690902777,
+        "c1": 5.828138420940377,
+        "hold_and_metadata": 10.07843993906863
+      },
+      "p85": {
+        "page": "23",
+        "opcode": "85",
+        "requested": 3,
+        "data": [
+          21,
+          0,
+          0
+        ],
+        "header_hex": "1c 03 00 16",
+        "raw_hardware_count": 9,
+        "normalized_count": 9,
+        "scratch_allocation": 16,
+        "single_receive": true,
+        "framing_qualified": true,
+        "cleanup_verified": true,
+        "native_dbv": 3600,
+        "software_refresh": 120.00001,
+        "pwm_hz": null,
+        "limit": "Read-plane and writable semantics unknown; CRC payload not captured; no Hz claim.",
+        "in_device_return_gates_verified": true,
+        "page_entries_standalone": true,
+        "response_type": "DCS_long3",
+        "returned": 3
+      },
+      "c1": {
+        "page": "23",
+        "opcode": "C1",
+        "requested": 3,
+        "data": [
+          0,
+          0,
+          96
+        ],
+        "header_hex": "1c 03 00 16",
+        "raw_hardware_count": 9,
+        "normalized_count": 9,
+        "scratch_allocation": 16,
+        "single_receive": true,
+        "framing_qualified": true,
+        "cleanup_verified": true,
+        "native_dbv": 3600,
+        "software_refresh": 120.00001,
+        "pwm_hz": null,
+        "limit": "C1 semantics and writable behavior unknown; CRC payload itself not captured.",
+        "in_device_return_gates_verified": true,
+        "page_entries_standalone": true
+      },
+      "hold_start_utc": "2026-11-08T17:42:16.594925+00:00",
+      "hold_start_monotonic": 607548.881041991,
+      "hold_end_utc": "2026-11-08T17:42:22.480597+00:00",
+      "hold_end_monotonic": 607554.766703871,
+      "hold_seconds": 4.5,
+      "observed_sensor_frames": 149,
+      "stable_encoded_frames": null,
+      "camera_start": {
+        "camera_id": "0",
+        "client_package": "net.sourceforge.opencamera",
+        "session_token": "708adb8a36ca46153a5990f4fef96b8ed616c3087dd3cb3d6d05fe0c7d355e11",
+        "request": {
+          "exposure_ns": 100000,
+          "iso": 6400,
+          "ae_mode": "OFF",
+          "af_mode": "OFF",
+          "focus_diopters": 2.0387485,
+          "crop": [
+            0,
+            0,
+            4080,
+            3072
+          ],
+          "zoom": 1.0,
+          "eis_mode": "OFF",
+          "ois_mode": "OFF",
+          "capture_intent": "VIDEO_RECORD",
+          "request_id": 302,
+          "frame_duration_ns": 33333333
+        },
+        "result": {
+          "exposure_ns": 100000,
+          "iso": 6400,
+          "ae_mode": "OFF",
+          "af_mode": "OFF",
+          "focus_diopters": 2.0387485,
+          "crop": [
+            0,
+            0,
+            4080,
+            3072
+          ],
+          "zoom": 1.0,
+          "eis_mode": "OFF",
+          "ois_mode": "OFF",
+          "capture_intent": "VIDEO_RECORD",
+          "request_id": 302,
+          "frame_duration_ns": 33350000,
+          "frame_count": 844844,
+          "timestamp_ns": 38034379267000,
+          "rolling_shutter_skew_ns": 15047630
+        },
+        "streams": [
+          {
+            "id": 47,
+            "width": 1920,
+            "height": 1080,
+            "pixel_format": "0x11",
+            "state": 4,
+            "consumer_kind": "SurfaceTexture",
+            "frames_produced": 3771,
+            "last_timestamp_ns": 38034379267000,
+            "requested": true
+          },
+          {
+            "id": 48,
+            "width": 1280,
+            "height": 720,
+            "pixel_format": "0x1000",
+            "state": 4,
+            "consumer_kind": "GraphicBufferSource",
+            "frames_produced": 3771,
+            "last_timestamp_ns": 38034379267000,
+            "requested": true
+          },
+          {
+            "id": 49,
+            "width": 3840,
+            "height": 2160,
+            "pixel_format": "0x21",
+            "state": 4,
+            "consumer_kind": "ImageReader",
+            "frames_produced": 0,
+            "last_timestamp_ns": 0,
+            "requested": false
+          }
+        ],
+        "recording_verified": true,
+        "encoder_stream_id": 48,
+        "frame_count": 844844,
+        "timestamp_ns": 38034379267000,
+        "frame_duration_ns": 33350000,
+        "rolling_shutter_skew_ns": 15047630,
+        "progress_verified": true,
+        "interpretation": "Settings and stream snapshots only; not per-frame video metadata or optical Hz.",
+        "host_call_start_utc": "2026-11-08T17:42:16.594950+00:00",
+        "host_call_end_utc": "2026-11-08T17:42:17.150759+00:00",
+        "host_call_elapsed_seconds": 0.5558033980196342,
+        "host_capture_bounds": {
+          "begin_monotonic": 607548.881045416,
+          "end_monotonic": 607549.436848814,
+          "begin_utc": "2026-11-08T17:42:16.594950+00:00",
+          "end_utc": "2026-11-08T17:42:17.150759+00:00",
+          "limit": "Call bounds only, not synchronized sensor/encoded PTS or per-frame metadata."
+        }
+      },
+      "camera_end": {
+        "camera_id": "0",
+        "client_package": "net.sourceforge.opencamera",
+        "session_token": "708adb8a36ca46153a5990f4fef96b8ed616c3087dd3cb3d6d05fe0c7d355e11",
+        "request": {
+          "exposure_ns": 100000,
+          "iso": 6400,
+          "ae_mode": "OFF",
+          "af_mode": "OFF",
+          "focus_diopters": 2.0387485,
+          "crop": [
+            0,
+            0,
+            4080,
+            3072
+          ],
+          "zoom": 1.0,
+          "eis_mode": "OFF",
+          "ois_mode": "OFF",
+          "capture_intent": "VIDEO_RECORD",
+          "request_id": 302,
+          "frame_duration_ns": 33333333
+        },
+        "result": {
+          "exposure_ns": 100000,
+          "iso": 6400,
+          "ae_mode": "OFF",
+          "af_mode": "OFF",
+          "focus_diopters": 2.0387485,
+          "crop": [
+            0,
+            0,
+            4080,
+            3072
+          ],
+          "zoom": 1.0,
+          "eis_mode": "OFF",
+          "ois_mode": "OFF",
+          "capture_intent": "VIDEO_RECORD",
+          "request_id": 302,
+          "frame_duration_ns": 33350000,
+          "frame_count": 844993,
+          "timestamp_ns": 38039345875000,
+          "rolling_shutter_skew_ns": 15047630
+        },
+        "streams": [
+          {
+            "id": 47,
+            "width": 1920,
+            "height": 1080,
+            "pixel_format": "0x11",
+            "state": 4,
+            "consumer_kind": "SurfaceTexture",
+            "frames_produced": 3919,
+            "last_timestamp_ns": 38039312542000,
+            "requested": true
+          },
+          {
+            "id": 48,
+            "width": 1280,
+            "height": 720,
+            "pixel_format": "0x1000",
+            "state": 4,
+            "consumer_kind": "GraphicBufferSource",
+            "frames_produced": 3920,
+            "last_timestamp_ns": 38039345875000,
+            "requested": true
+          },
+          {
+            "id": 49,
+            "width": 3840,
+            "height": 2160,
+            "pixel_format": "0x21",
+            "state": 4,
+            "consumer_kind": "ImageReader",
+            "frames_produced": 0,
+            "last_timestamp_ns": 0,
+            "requested": false
+          }
+        ],
+        "recording_verified": true,
+        "encoder_stream_id": 48,
+        "frame_count": 844993,
+        "timestamp_ns": 38039345875000,
+        "frame_duration_ns": 33350000,
+        "rolling_shutter_skew_ns": 15047630,
+        "progress_verified": true,
+        "interpretation": "Settings and stream snapshots only; not per-frame video metadata or optical Hz.",
+        "host_call_start_utc": "2026-11-08T17:42:21.658253+00:00",
+        "host_call_end_utc": "2026-11-08T17:42:22.476015+00:00",
+        "host_call_elapsed_seconds": 0.8177701079985127,
+        "host_capture_bounds": {
+          "begin_monotonic": 607553.944335021,
+          "end_monotonic": 607554.762105129,
+          "begin_utc": "2026-11-08T17:42:21.658253+00:00",
+          "end_utc": "2026-11-08T17:42:22.476015+00:00",
+          "limit": "Call bounds only, not synchronized sensor/encoded PTS or per-frame metadata."
+        }
+      },
+      "hold_markers": {
+        "begin": "PWM_P85_p85_stock_a001_20261108_04_RETURN15_HOLD_BEGIN",
+        "end": "PWM_P85_p85_stock_a001_20261108_04_RETURN15_HOLD_END"
+      },
+      "elapsed_seconds": 30.712932462920435
+    }
+  ],
+  "qualification": null,
+  "unknown_value_write_attempted": false,
+  "candidate_attempts": 0,
+  "register85_writes_attempted": [
+    "sham15",
+    "return15"
+  ],
+  "limit": "No physical Hz or optical recovery conclusion from this runner.",
+  "source_commit": "86ffbfd76aed81b95ca0e990362dd55aacca99a8",
+  "source_blob_ids": {
+    "06-tools/a9_reproduction.py": "94c1a26ad66b509438261a4b9f98247f11fd7e02",
+    "06-tools/camera_capture_metadata.py": "e592171fb1d13f3a4d7631bdd00e01f1b82daf00",
+    "06-tools/capture_ddic_c1.py": "fa93fefb8e2ddd1062d96105c6b54e6476a0b6d6",
+    "06-tools/dsi_trial_transaction.py": "64b85ce49f80cb10ca50e85da6cb581968954764",
+    "06-tools/guarded_adb_socket.py": "530b34a883d9e6d7a0fabcc67e9e16d2b2f61c68",
+    "06-tools/p85_guarded_trial.py": "e3073105b7c8e502e305bac81657091d52218ae0",
+    "06-tools/p85_single_bit_plan.py": "d69e3a68d9f346716d04bc744652b965b278663a",
+    "06-tools/run_dsi_mode_trial.py": "e1d3b1af4e1616c9d2f67a8a2ea11f126d0d0181",
+    "06-tools/run_p85_guarded_trial.py": "ebf8ab9e3220c642fa1be1c3e51ffcee6aa4cd94",
+    "06-tools/stock_c1_sweep.py": "b37529b22da7991bc55cc8a73a387787c6926058"
+  },
+  "source_worktree_clean_for_runner": true,
+  "source_tracked_paths": [
+    "06-tools/run_p85_guarded_trial.py",
+    "06-tools/p85_guarded_trial.py",
+    "06-tools/stock_c1_sweep.py",
+    "06-tools/capture_ddic_c1.py",
+    "06-tools/p85_single_bit_plan.py",
+    "06-tools/dsi_trial_transaction.py",
+    "06-tools/a9_reproduction.py",
+    "06-tools/camera_capture_metadata.py",
+    "06-tools/run_dsi_mode_trial.py",
+    "06-tools/guarded_adb_socket.py"
+  ],
+  "before": {
+    "screen_brightness": "98",
+    "screen_brightness_mode": "0",
+    "min_refresh_rate": "120.0",
+    "peak_refresh_rate": "120.0",
+    "screen_off_timeout": "1800000",
+    "native_dbv": 6438,
+    "logger": 0
+  },
+  "watchdog_state": "disarmed_verified",
+  "fresh_native_anchor": [
+    {
+      "software_requested_hz": 90,
+      "native_peak_hz": 90,
+      "native_actual_hz": 90,
+      "native_group": 5,
+      "clock_rate": 1234000000,
+      "width": 1440,
+      "height": 3168,
+      "timing_node": "timing@2",
+      "fresh_native_events": 1,
+      "begin_marker": "PWM_P85_p85_stock_a001_20261108_04_ANCHOR_BEGIN_90",
+      "end_marker": "PWM_P85_p85_stock_a001_20261108_04_ANCHOR_END_90"
+    },
+    {
+      "software_requested_hz": 120,
+      "native_peak_hz": 120,
+      "native_actual_hz": 120,
+      "native_group": 3,
+      "clock_rate": 1234000000,
+      "width": 1440,
+      "height": 3168,
+      "timing_node": "timing@0",
+      "fresh_native_events": 1,
+      "begin_marker": "PWM_P85_p85_stock_a001_20261108_04_ANCHOR_BEGIN_120",
+      "end_marker": "PWM_P85_p85_stock_a001_20261108_04_ANCHOR_END_120"
+    }
+  ],
+  "setup_brightness": {
+    "requested_dbv": 3600,
+    "native_logged_values": [
+      3600
+    ],
+    "same_value_cached_allowed": false
+  },
+  "initial_quiet": {
+    "begin_marker": "PWM_P85_p85_stock_a001_20261108_04_QUIET_BEGIN_INITIAL_0",
+    "end_marker": "PWM_P85_p85_stock_a001_20261108_04_QUIET_END_INITIAL_0",
+    "native_state": {
+      "width": 1440,
+      "height": 3168,
+      "software_peak_hz": 120,
+      "native_actual_hz": 120,
+      "native_group": 3,
+      "clock_rate": 1234000000,
+      "timing_node": "timing@0",
+      "evidence": "latest retained dsi_display_set_mode anchor, not physical PWM"
+    },
+    "quiet_seconds": 2,
+    "race_limit": "not an atomic compositor lock"
+  },
+  "recording_start_host_bounds": {
+    "begin_monotonic": 607419.743912827,
+    "begin_utc": "2026-11-08T17:40:07.457824+00:00",
+    "end_monotonic": 607423.183809121,
+    "end_utc": "2026-11-08T17:40:10.897720+00:00"
+  },
+  "recording_settle": {
+    "status": "qualified",
+    "deadline_seconds": 8.0,
+    "initial_settle_seconds": 2.0,
+    "maximum_dumps": 5,
+    "attempts": [
+      {
+        "attempt": 1,
+        "private_label": "recording-settle-1",
+        "status": "fully_valid",
+        "host_call_start_utc": "2026-11-08T17:40:12.898493+00:00",
+        "host_call_end_utc": "2026-11-08T17:40:13.686913+00:00",
+        "host_call_elapsed_seconds": 0.7884207160677761
+      },
+      {
+        "attempt": 2,
+        "private_label": "recording-settle-2",
+        "status": "fully_valid",
+        "host_call_start_utc": "2026-11-08T17:40:13.942322+00:00",
+        "host_call_end_utc": "2026-11-08T17:40:14.467111+00:00",
+        "host_call_elapsed_seconds": 0.5247923920396715
+      }
+    ],
+    "wall_clock_alarm_seconds": 8.0,
+    "elapsed_seconds": 3.5749751980183646
+  },
+  "recording_preflight": [
+    {
+      "camera_id": "0",
+      "client_package": "net.sourceforge.opencamera",
+      "session_token": "708adb8a36ca46153a5990f4fef96b8ed616c3087dd3cb3d6d05fe0c7d355e11",
+      "request": {
+        "exposure_ns": 100000,
+        "iso": 6400,
+        "ae_mode": "OFF",
+        "af_mode": "OFF",
+        "focus_diopters": 2.0387485,
+        "crop": [
+          0,
+          0,
+          4080,
+          3072
+        ],
+        "zoom": 1.0,
+        "eis_mode": "OFF",
+        "ois_mode": "OFF",
+        "capture_intent": "VIDEO_RECORD",
+        "request_id": 302,
+        "frame_duration_ns": 33333333
+      },
+      "result": {
+        "exposure_ns": 100000,
+        "iso": 6400,
+        "ae_mode": "OFF",
+        "af_mode": "OFF",
+        "focus_diopters": 2.0387485,
+        "crop": [
+          0,
+          0,
+          4080,
+          3072
+        ],
+        "zoom": 1.0,
+        "eis_mode": "OFF",
+        "ois_mode": "OFF",
+        "capture_intent": "VIDEO_RECORD",
+        "request_id": 302,
+        "frame_duration_ns": 33350000,
+        "frame_count": 841132,
+        "timestamp_ns": 37910647400000,
+        "rolling_shutter_skew_ns": 15047630
+      },
+      "streams": [
+        {
+          "id": 47,
+          "width": 1920,
+          "height": 1080,
+          "pixel_format": "0x11",
+          "state": 4,
+          "consumer_kind": "SurfaceTexture",
+          "frames_produced": 58,
+          "last_timestamp_ns": 37910614067000,
+          "requested": true
+        },
+        {
+          "id": 48,
+          "width": 1280,
+          "height": 720,
+          "pixel_format": "0x1000",
+          "state": 4,
+          "consumer_kind": "GraphicBufferSource",
+          "frames_produced": 59,
+          "last_timestamp_ns": 37910647400000,
+          "requested": true
+        },
+        {
+          "id": 49,
+          "width": 3840,
+          "height": 2160,
+          "pixel_format": "0x21",
+          "state": 4,
+          "consumer_kind": "ImageReader",
+          "frames_produced": 0,
+          "last_timestamp_ns": 0,
+          "requested": false
+        }
+      ],
+      "recording_verified": true,
+      "encoder_stream_id": 48,
+      "frame_count": 841132,
+      "timestamp_ns": 37910647400000,
+      "frame_duration_ns": 33350000,
+      "rolling_shutter_skew_ns": 15047630,
+      "progress_verified": false,
+      "interpretation": "Settings and stream snapshots only; not per-frame video metadata or optical Hz.",
+      "host_call_start_utc": "2026-11-08T17:40:12.898493+00:00",
+      "host_call_end_utc": "2026-11-08T17:40:13.686913+00:00",
+      "host_call_elapsed_seconds": 0.7884207160677761,
+      "host_capture_bounds": {
+        "begin_monotonic": 607425.18457978,
+        "end_monotonic": 607425.973000496,
+        "begin_utc": "2026-11-08T17:40:12.898493+00:00",
+        "end_utc": "2026-11-08T17:40:13.686913+00:00",
+        "limit": "Call bounds only, not synchronized sensor/encoded PTS or per-frame metadata."
+      }
+    },
+    {
+      "camera_id": "0",
+      "client_package": "net.sourceforge.opencamera",
+      "session_token": "708adb8a36ca46153a5990f4fef96b8ed616c3087dd3cb3d6d05fe0c7d355e11",
+      "request": {
+        "exposure_ns": 100000,
+        "iso": 6400,
+        "ae_mode": "OFF",
+        "af_mode": "OFF",
+        "focus_diopters": 2.0387485,
+        "crop": [
+          0,
+          0,
+          4080,
+          3072
+        ],
+        "zoom": 1.0,
+        "eis_mode": "OFF",
+        "ois_mode": "OFF",
+        "capture_intent": "VIDEO_RECORD",
+        "request_id": 302,
+        "frame_duration_ns": 33333333
+      },
+      "result": {
+        "exposure_ns": 100000,
+        "iso": 6400,
+        "ae_mode": "OFF",
+        "af_mode": "OFF",
+        "focus_diopters": 2.0387485,
+        "crop": [
+          0,
+          0,
+          4080,
+          3072
+        ],
+        "zoom": 1.0,
+        "eis_mode": "OFF",
+        "ois_mode": "OFF",
+        "capture_intent": "VIDEO_RECORD",
+        "request_id": 302,
+        "frame_duration_ns": 33350000,
+        "frame_count": 841163,
+        "timestamp_ns": 37911680722000,
+        "rolling_shutter_skew_ns": 15047630
+      },
+      "streams": [
+        {
+          "id": 47,
+          "width": 1920,
+          "height": 1080,
+          "pixel_format": "0x11",
+          "state": 4,
+          "consumer_kind": "SurfaceTexture",
+          "frames_produced": 90,
+          "last_timestamp_ns": 37911680722000,
+          "requested": true
+        },
+        {
+          "id": 48,
+          "width": 1280,
+          "height": 720,
+          "pixel_format": "0x1000",
+          "state": 4,
+          "consumer_kind": "GraphicBufferSource",
+          "frames_produced": 90,
+          "last_timestamp_ns": 37911680722000,
+          "requested": true
+        },
+        {
+          "id": 49,
+          "width": 3840,
+          "height": 2160,
+          "pixel_format": "0x21",
+          "state": 4,
+          "consumer_kind": "ImageReader",
+          "frames_produced": 0,
+          "last_timestamp_ns": 0,
+          "requested": false
+        }
+      ],
+      "recording_verified": true,
+      "encoder_stream_id": 48,
+      "frame_count": 841163,
+      "timestamp_ns": 37911680722000,
+      "frame_duration_ns": 33350000,
+      "rolling_shutter_skew_ns": 15047630,
+      "progress_verified": true,
+      "interpretation": "Settings and stream snapshots only; not per-frame video metadata or optical Hz.",
+      "host_call_start_utc": "2026-11-08T17:40:13.942322+00:00",
+      "host_call_end_utc": "2026-11-08T17:40:14.467111+00:00",
+      "host_call_elapsed_seconds": 0.5247923920396715,
+      "host_capture_bounds": {
+        "begin_monotonic": 607426.228408079,
+        "end_monotonic": 607426.753200471,
+        "begin_utc": "2026-11-08T17:40:13.942322+00:00",
+        "end_utc": "2026-11-08T17:40:14.467111+00:00",
+        "limit": "Call bounds only, not synchronized sensor/encoded PTS or per-frame metadata."
+      }
+    }
+  ],
+  "baseline_review_image_sha256": "113f7c353117980239d951cfefc9c9ca51ce9064abf9e01abf107ef03459cc4c",
+  "baseline_review_image_private_label": "baseline-camera-review.png",
+  "writes": [
+    {
+      "stage": "sham15",
+      "standalone_callbacks": 3,
+      "native_and_wire_gates": true,
+      "elapsed_seconds": 17.211482679005712
+    },
+    {
+      "stage": "return15",
+      "standalone_callbacks": 3,
+      "native_and_wire_gates": true,
+      "elapsed_seconds": 16.694180615013465
+    }
+  ],
+  "explicit15_readback_and_stock_c1_verified": true,
+  "explicit15_readback_and_stock_c1_return": true,
+  "camera_stopped_verified": true,
+  "video_profile": {
+    "codec": "h264",
+    "size": [
+      1280,
+      720
+    ],
+    "audio_streams": 0,
+    "encoded_average_fps": 30.000061626104312,
+    "duration_seconds": 140.631667,
+    "pwm_hz": null
+  },
+  "video_private_label": "capture.mp4",
+  "video_bytes": 158584155,
+  "camera_ui_temp_removed": true,
+  "original_settings_dbv_logger_restored": true,
+  "watchdog_disarmed": true,
+  "mutex_released": true,
+  "finished_at_utc": "2026-11-08T17:43:19.855379+00:00"
+}

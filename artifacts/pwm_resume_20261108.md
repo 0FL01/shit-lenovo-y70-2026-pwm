@@ -248,8 +248,11 @@ post-reboot keyguard. Штатный OS dismiss затем прошёл, две 
 ON/AWAKE/unlocked; credentials и security settings не изменялись.
 [03](p85_stock_a001_20261108_03/result.md) начала запись, но первый dump ещё
 содержал PREVIEW result, старый skew и нулевые encoder frames. Guard остановил
-выполнение до baseline/P85. В обеих попытках исходные settings/native828/logger,
+выполнение до baseline/P85. В обеих попытках исходные settings/logger,
 watchdog/mutex и, для03, остановка камеры проверены без reboot;85 writes нет.
+Saved original native DBV был828 в02, но6438 в03 при том же Android98/manual.
+В03 восстановлены именно6438; первоначальная ссылка на828 была ошибкой описания.
+Причина изменения native уровня между попытками не установлена.
 
 Новый startup helper сначала ждёт2с после единственного start-tap. Затем
 допускает максимум5 read-only dumps в8с, две последовательные fully-valid
@@ -259,3 +262,29 @@ PREVIEW/old skew/zero encoder frames не принимаются и не скр�
 Startup-only alarm прерывает зависший transport, не меняя shared ADB или
 candidate budget; handler/timer восстанавливаются до внешнего cleanup.
 Нужны committed/clean source и новая stock-only квалификация, не повтор failed ID.
+
+### P85 stock-only04: transport PASS, ограниченная optical проверка
+
+[Hardware04](p85_stock_a001_20261108_04/hardware_result.md) завершён без ошибок
+и reboot: baseline → sham15 → return15, две точные трёхпакетные записи и шесть
+framed reads. При DBV3600/native actual120/group3 все P85=`15 00 00`, C1=`00 00 60`.
+Независимый raw replay пройден. Это квалифицирует передачу same-value15,
+но не устанавливает frequency semantics или read/write-plane identity.
+
+На завершении восстановлены сохранённые исходные значения, включая native
+DBV6438 при Android98/manual, а не828 из более ранних попыток. Все settings,
+logger/ESD/root/Enforcing/DC0, camera stop и watchdog/mutex cleanup проверены.
+Ошибочное описание828 для03–04 исправлено; данные run.json и фактическое
+восстановление не менялись.
+
+[Оптика04](p85_stock_a001_20261108_04/optical_result.md) повторно декодирована и
+независимо проверена: main fixed fine ratio sham1.0000529, return1.0149156,
+fine period около50.568 camera rows. Это воспроизводимый fine-контроль и
+стабильная средняя яркость, но не полное waveform equivalence: return full-spectrum
+L2 отличается около9.6–10%, broad оценка зависит от ROI/detrend. Поэтому
+безусловный p85-stock-review-v1 и разрешение14 не создавались. PWM Hz unknown.
+
+[Измеренные задержки и план](p85_latency_plan_20261108.md) требуют уменьшить
+host roundtrips, сохранив все guards и неизменные child scripts. Новый batching
+adapter сначала будет stock-only; его source/transport/timing/optical qualification
+нельзя наследовать от04. Лимиты45с/60с не увеличены, неизвестных85 values не было.
