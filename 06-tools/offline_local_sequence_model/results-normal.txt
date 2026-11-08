@@ -1,0 +1,22 @@
+test_ack_binding_hold_and_no_replacement (test_model.ModelTests.test_ack_binding_hold_and_no_replacement) ... ok
+test_actual_result_not_success_marker (test_model.ModelTests.test_actual_result_not_success_marker) ... ok
+test_all_state_event_pairs_are_total_and_invariant_preserving (test_model.ModelTests.test_all_state_event_pairs_are_total_and_invariant_preserving) ... ok
+test_binding_swaps_and_sealed_gates (test_model.ModelTests.test_binding_swaps_and_sealed_gates) ... ok
+test_cleanup_watchdogs_late_audit_recovery (test_model.ModelTests.test_cleanup_watchdogs_late_audit_recovery) ... ok
+test_crash_proof_disarm_and_ledger_persistence (test_model.ModelTests.test_crash_proof_disarm_and_ledger_persistence) ... ok
+test_deadline_boundaries_unknown_and_no_renewal (test_model.ModelTests.test_deadline_boundaries_unknown_and_no_renewal) ... ok
+test_each_child_every_fault_position (test_model.ModelTests.test_each_child_every_fault_position) ... ok
+test_guard_exact_origin_freshness_and_timing (test_model.ModelTests.test_guard_exact_origin_freshness_and_timing) ... ok
+test_policy_terminals_and_exact_five (test_model.ModelTests.test_policy_terminals_and_exact_five) ... ok
+test_public_cursor_caught_errors_and_shared_ledger (test_model.ModelTests.test_public_cursor_caught_errors_and_shared_ledger) ... ok
+test_review_guard_decimal_grammar (test_model.ModelTests.test_review_guard_decimal_grammar) ... ok
+test_review_late_camera_terminal_and_quiet_order (test_model.ModelTests.test_review_late_camera_terminal_and_quiet_order) ... ok
+test_review_recovery_and_all_cleanup_generation_replays (test_model.ModelTests.test_review_recovery_and_all_cleanup_generation_replays) ... ok
+test_safe_return_distinct_and_exploratory_forbidden (test_model.ModelTests.test_safe_return_distinct_and_exploratory_forbidden) ... ok
+test_typed_numeric_schema (test_model.ModelTests.test_typed_numeric_schema) ... ok
+
+----------------------------------------------------------------------
+Ran 16 tests in 0.318s
+
+OK
+SYNTHETIC_ONLY tests=16 subcases=927 matrix=572 phases=5 failures=0 errors=0

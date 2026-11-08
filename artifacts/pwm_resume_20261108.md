@@ -2,21 +2,32 @@
 
 Статус: **R3 активна; физические PWM >=2000 Гц не доказаны.**
 
-Завершены три отдельные offline-компоненты:
-- [Capture/state/writer validation](../06-tools/offline_local_validator_spike/README.md):
-  9 tests normal/-O, 8334 capture и 20480 writer mutations.
-- [Read/quiet/dispatch intervals](../06-tools/offline_local_interval_spike/README.md):
-  native reference, unique markers и END-tail, 39 saved snapshots/324 mutations.
-- [Byte-envelope decoder](../06-tools/offline_local_envelope_spike/README.md):
-  normal/-O по 1792 differential cases и 14 guards; все 84 полных envelopes
-  сохраняют точные section bytes. [Независимый повтор](offline_envelope_revalidation_20261108.json)
-  и targeted failure review пройдены, включая неопределённую publication/cleanup.
+Завершена [инертная модель stock-only sequence](../06-tools/offline_local_sequence_model/README.md)
+по [согласованному design](p85_local_sequencer_integration_design_20261108.md):
+normal/-O по 927 synthetic subcases, независимые 116 дополнительных проверок.
+Модель не выполняет shell, ADB или children. Она разделяет normal/exploratory/degraded
+исходы, camera ACK/hold, immutable receipts, incident-bound recovery/cleanup и два
+watchdog lifecycle. Найденные late-ACK, pre-start quiet и stale-proof ошибки закрыты.
 
-Это bounded feasibility на проверенных корпусах, не universal equivalence или
-допуск к устройству. Host decode max вырос с 0.614 до 0.706 с при повторе;
-Android costs и будущий return budget неизвестны. Следующий шаг offline-only:
-согласованный stock-only автомат с source/ownership/freshness, camera ACK,
-admission/bootstrap, watchdog/reboot и restore gates. Unknown14 выключен,
+[Отдельные STATE_ONLY и GUARD_TIMING](../06-tools/offline_local_snapshot_spike/README.md)
+прошли normal/-O по 646 случаев, повторены lead и reviewer. Это snapshot content,
+не acquisition, ESD, ownership или clock proof. Bootstrap/final-cleanup utility
+diagnostics пока имеют явно ограниченный trusted NUL-free text контракт.
+
+Ранее опубликованные [interval](../06-tools/offline_local_interval_spike/README.md)
+и [byte-envelope](../06-tools/offline_local_envelope_spike/README.md) компоненты
+остаются bounded offline feasibility. Host decode max 0.706 с не является Android
+bound. В старом [capture/state spike](../06-tools/offline_local_validator_spike/README.md)
+новые tests нашли leading-zero FULL-state false accept, потерю metadata producer
+status/diagnostics и escape decoding trusted arguments. Узкая corrective revision
+в работе; старый corpus PASS не является universal subset proof. Ни одна версия
+этих новых компонентов не запускалась на телефонах и не встроена в controller.
+
+Следующий шаг: закончить corrective review и подготовить
+[ограниченный Android userspace portability probe](android_validator_portability_plan_20261108.md)
+на synthetic files. Затем отдельно нужны реальные source/ownership/sealing,
+durable ledger, clock-origin/rate и max-cap cost gates. Новый физический тест пока
+не объявлен готовым. Unknown14 выключен; ограничения 37/45/8/60 и overall600,
 qualified runtime sources и устройства после timed03 не менялись.
 [Joint alias/exposure design](joint_alias_exposure_design_20261108.md) объясняет,
 почему неквалифицированный sensor alias и 2160-гармоника не доказывают PWM-фундаментал.
