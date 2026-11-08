@@ -1,0 +1,105 @@
+{
+  "scope": "OFFLINE_ONLY",
+  "qualification": "finite-corpus feasibility, not universal subset or device/controller readiness",
+  "runtime_source_commit": "1785d32fd011314df3f1c5c55a5d3cbe0ee6b8a2",
+  "test_source_blob": "c6907f221cffae3a51777bf918fe1a61aa5bf179",
+  "normal": {
+    "android_performance_claim": false,
+    "corpus_bytes": {
+      "max": 641317,
+      "median": 636613,
+      "min": 109286
+    },
+    "counts": {
+      "argument_reject": 5,
+      "cap_accepted": 2,
+      "cap_agreed_reject": 1,
+      "cases": 1792,
+      "mutation_accepted": 11,
+      "mutation_agreed_reject": 1079,
+      "mutation_stricter": 5,
+      "oversize_reject": 1,
+      "plan_reject": 8,
+      "private_complete_accepted": 84,
+      "private_trailing_agreed_reject": 84,
+      "private_truncation_agreed_reject": 336,
+      "producer_agreed_reject": 4,
+      "publication_fault_stricter": 1,
+      "synthetic_accepted": 1,
+      "tool_fault_stricter": 6,
+      "truncated_od_agreed_reject": 1,
+      "truncation_agreed_reject": 177,
+      "uncertain_publication_rejected": 1
+    },
+    "frozen_sources": {
+      "06-tools/p85_batched_envelope.py": "ac3d55f5f7928ad8e55b9090615e23f9f35d5e0e",
+      "06-tools/run_p85_timed_stock_trial.py": "9c804b7f12c5a77768d2487c31703b66c540f62c"
+    },
+    "host_decode_seconds": {
+      "max": 0.7060904650716111,
+      "median": 0.5209656045190059,
+      "min": 0.08789089799392968
+    },
+    "status": "PASS",
+    "universal_subset_proven": false
+  },
+  "optimized": {
+    "android_performance_claim": false,
+    "corpus_bytes": {
+      "max": 641317,
+      "median": 636613,
+      "min": 109286
+    },
+    "counts": {
+      "argument_reject": 5,
+      "cap_accepted": 2,
+      "cap_agreed_reject": 1,
+      "cases": 1792,
+      "mutation_accepted": 11,
+      "mutation_agreed_reject": 1079,
+      "mutation_stricter": 5,
+      "oversize_reject": 1,
+      "plan_reject": 8,
+      "private_complete_accepted": 84,
+      "private_trailing_agreed_reject": 84,
+      "private_truncation_agreed_reject": 336,
+      "producer_agreed_reject": 4,
+      "publication_fault_stricter": 1,
+      "synthetic_accepted": 1,
+      "tool_fault_stricter": 6,
+      "truncated_od_agreed_reject": 1,
+      "truncation_agreed_reject": 177,
+      "uncertain_publication_rejected": 1
+    },
+    "frozen_sources": {
+      "06-tools/p85_batched_envelope.py": "ac3d55f5f7928ad8e55b9090615e23f9f35d5e0e",
+      "06-tools/run_p85_timed_stock_trial.py": "9c804b7f12c5a77768d2487c31703b66c540f62c"
+    },
+    "host_decode_seconds": {
+      "max": 0.7001576820621267,
+      "median": 0.5347615315113217,
+      "min": 0.09396647498942912
+    },
+    "status": "PASS",
+    "universal_subset_proven": false
+  },
+  "independent_targeted_review": {
+    "status": "PASS",
+    "additional_cases": 8,
+    "checks": [
+      "od-token count bound to raw byte size",
+      "rename uncertainty leaves no SUCCESS marker",
+      "exact SUCCESS bytes and output section set",
+      "final-marker write failure is nonzero",
+      "rm/rmdir failure, including EXIT cleanup after prior zero status, becomes nonzero",
+      "existing published path cannot be adopted by another invocation"
+    ]
+  },
+  "measurement_limits": [
+    "Host min/median/max includes complete valid decoder subprocess only, not Android measurements or future timing bound.",
+    "All observed slow host samples are retained; source author observed maximum about 0.614 s, independent repeat about 0.706 s.",
+    "Success requires exit zero, exact marker and expected section bytes together; unknown/nonzero results cannot be recovered from marker presence."
+  ],
+  "target_device_execution": false,
+  "physical_pwm_hz": null
+}

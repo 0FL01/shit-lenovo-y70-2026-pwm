@@ -1,5 +1,12 @@
 # Long-lived agent progress journal
 
+Checkpoint 2026-11-08, **offline byte-envelope decoder завершён; интеграция локального sequencer ещё не квалифицирована.**
+
+- [Decoder](06-tools/offline_local_envelope_spike/README.md) проверяет trusted plan/nonce, точные byte lengths, rc/stderr, порядок секций, DONE и отсутствие trailing bytes; output filenames фиксированы. Normal/-O независимо повторены: по 1792 differential cases и 14 argument/plan/size checks, все 84 complete envelopes дают точные section bytes, 336 truncations и 84 trailing cases отвергнуты. [Повторная проверка](artifacts/offline_envelope_revalidation_20261108.json) сохраняет оба результата и более медленные host samples, не отбрасывая их.
+- Исправлены unchecked od truncation и неопределённая publication после rename. Успех требует rc0, точный SUCCESS и полный ожидаемый набор секций вместе; nonzero/unknown result никогда не восстанавливается из наличия marker. Независимый targeted review проверил также marker-write и cleanup failures. Это finite-corpus feasibility, не universal equivalence, Android timing или device readiness; qualified runtime source неизменен.
+- Host decode max в исходном прогоне около 0.614 с, при независимом повторе 0.706 с для raw до 641317 bytes. Эти значения не являются worst-case bound и не заменяют будущую Android qualification с полной стоимостью parsing/source/guards. Unknown14 остаётся выключенным; ограничения 37/45/8/60 с не ослабляются.
+- Следующая работа только offline: согласовать admission/bootstrap, оба watchdog lifecycle, host audit failure, camera ACK и restore ordering в конечном stock-only автомате; затем инертный transition/fault harness. После timed03 физических действий не было. Предыдущий interval checkpoint опубликован и remote проверен в `97b4682957e90f088760fccdeaa50d33ecbf2b02`; PWM >=2000 Гц не доказаны.
+
 Checkpoint 2026-11-08, **offline interval validator прошёл независимый review; byte-envelope boundary следующая.**
 
 - [Отдельный interval spike](06-tools/offline_local_interval_spike/README.md) проверяет read/quiet/pre-dispatch/guard snapshots, unique markers, native reference, actual quiet duration и END-to-dump tail. Normal/-O: 312 synthetic cases, 39 saved snapshots, 324 corpus mutations; все 78 принятых mutations согласуются с combined Python oracle. Дополнительно 42 invalid-argument и 24 producer-failure/cleanup проверки. Lead и reviewer повторили suite, reviewer проверил exact16MiB/boundary cases. Исходные 56 runtime Python files не менялись.

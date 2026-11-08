@@ -2,40 +2,39 @@
 
 Статус: **R3 активна; физические PWM >=2000 Гц не доказаны.**
 
-Новейший offline компонент: [interval validator](../06-tools/offline_local_interval_spike/README.md)
-прошёл независимый bounded review. Read/quiet/pre-dispatch/guard checks включают
-END-tail, unique markers и real quiet duration; normal/-O, 39 saved snapshots,
-324 mutations и invalid-input/producer-failure regressions подтверждены.
-Следом переносится byte-envelope boundary с trusted plan и точными длинами,
-без controller или device calls. Все runtime sources и последнее восстановленное
-состояние устройств остаются прежними; acquisition/provenance/lifecycle ещё
-не квалифицированы. Capture/writer checkpoint опубликован как `3bf33d60a33af3657bf278e00252f797a4d2c182`.
+Завершены три отдельные offline-компоненты:
+- [Capture/state/writer validation](../06-tools/offline_local_validator_spike/README.md):
+  9 tests normal/-O, 8334 capture и 20480 writer mutations.
+- [Read/quiet/dispatch intervals](../06-tools/offline_local_interval_spike/README.md):
+  native reference, unique markers и END-tail, 39 saved snapshots/324 mutations.
+- [Byte-envelope decoder](../06-tools/offline_local_envelope_spike/README.md):
+  normal/-O по 1792 differential cases и 14 guards; все 84 полных envelopes
+  сохраняют точные section bytes. [Независимый повтор](offline_envelope_revalidation_20261108.json)
+  и targeted failure review пройдены, включая неопределённую publication/cleanup.
 
-Последний offline checkpoint: [local-validator feasibility spike](../06-tools/offline_local_validator_spike/README.md)
-прошёл независимый review и 9 tests normal/-O. Все известные capture/writer
-false accepts исправлены; 8334 capture и 20480 writer mutations не дали
-расхождений в сторону ложного принятия на проверенном corpus. Это не universal
-equivalence и не controller/device readiness. Следующий отдельный offline
-компонент проверяет read/quiet/pre-dispatch intervals и tail. Acquisition,
-source/ownership/framing и camera/deadline/watchdog/recovery gates ещё обязательны;
-unknown14 выключен, qualified runtime sources и устройства не менялись.
+Это bounded feasibility на проверенных корпусах, не universal equivalence или
+допуск к устройству. Host decode max вырос с 0.614 до 0.706 с при повторе;
+Android costs и будущий return budget неизвестны. Следующий шаг offline-only:
+согласованный stock-only автомат с source/ownership/freshness, camera ACK,
+admission/bootstrap, watchdog/reboot и restore gates. Unknown14 выключен,
+qualified runtime sources и устройства после timed03 не менялись.
 [Joint alias/exposure design](joint_alias_exposure_design_20261108.md) объясняет,
 почему неквалифицированный sensor alias и 2160-гармоника не доказывают PWM-фундаментал.
 
-Новейший результат: [три timed factory-15 rehearsal](p85_timed_stock_qualification_20261108.md)
+Последние физические опыты: [три timed factory-15 rehearsal](p85_timed_stock_qualification_20261108.md)
 завершены с независимым hardware и ограниченным optical PASS, собственным
 native 828/settings/ESD восстановлением и G около 31–32 с. Conservative
 all-phase-max timing всё ещё не проходит 45 с с reserve/J. Unknown 14 выключен;
-следующая работа offline-only — эквивалентные local validators и новый protocol
-design, без расширения временных ограничений или заявления о PWM Hz.
+интеграция проверенных offline-компонент ещё предстоит, без расширения
+временных ограничений или заявления о PWM Hz.
 
 Предыдущий checkpoint: [batched stock-only 01](p85_batch_stock_a001_20261108_01/hardware_result.md)
 завершён 18:18:28 UTC с независимым hardware replay PASS и восстановлением
 собственного исходного native DBV 828. [Оптика](p85_batch_stock_a001_20261108_01/optical_result.md)
 подтверждает fine/mean diagnostic pass, но не полную waveform equivalence.
 [Timing audit](p85_batched_latency_result_20261108.md) всё ещё не допускает
-неизвестный 14 в 45 с с резервом 8 с; следующий шаг — отдельный review
-расписания stock-only surrogate, без расширения 45/60 с ограничений.
+неизвестный 14 в 45 с с резервом 8 с. После него были выполнены три timed
+stock-only серии выше; ограничения 45/60 с сохраняются.
 
 Владелец новым заданием «Dots Mission: Lenovo Legion Y70 — Hardware PWM Control»
 возобновил работу и разрешил автономные ADB/root, DSI, настройки, обычные

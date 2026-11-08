@@ -1,0 +1,19 @@
+{
+  "qualified_source_commit": "1785d32fd011314df3f1c5c55a5d3cbe0ee6b8a2",
+  "source_blob_ids": {
+    "06-tools/a9_reproduction.py": "94c1a26ad66b509438261a4b9f98247f11fd7e02",
+    "06-tools/camera_capture_metadata.py": "e592171fb1d13f3a4d7631bdd00e01f1b82daf00",
+    "06-tools/capture_ddic_c1.py": "fa93fefb8e2ddd1062d96105c6b54e6476a0b6d6",
+    "06-tools/dsi_trial_transaction.py": "64b85ce49f80cb10ca50e85da6cb581968954764",
+    "06-tools/guarded_adb_socket.py": "530b34a883d9e6d7a0fabcc67e9e16d2b2f61c68",
+    "06-tools/p85_batched_envelope.py": "ac3d55f5f7928ad8e55b9090615e23f9f35d5e0e",
+    "06-tools/p85_guarded_trial.py": "e3073105b7c8e502e305bac81657091d52218ae0",
+    "06-tools/p85_single_bit_plan.py": "d69e3a68d9f346716d04bc744652b965b278663a",
+    "06-tools/run_dsi_mode_trial.py": "e1d3b1af4e1616c9d2f67a8a2ea11f126d0d0181",
+    "06-tools/run_p85_batched_trial.py": "ee12beb0890ef809bfdb8f0bddc6a40ade6eba0e",
+    "06-tools/run_p85_guarded_trial.py": "ebf8ab9e3220c642fa1be1c3e51ffcee6aa4cd94",
+    "06-tools/run_p85_timed_stock_trial.py": "9c804b7f12c5a77768d2487c31703b66c540f62c",
+    "06-tools/stock_c1_sweep.py": "b37529b22da7991bc55cc8a73a387787c6926058"
+  },
+  "verification": "all_13_current_files_match_recorded_qualified_blobs"
+}
