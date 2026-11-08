@@ -1,0 +1,67 @@
+{
+  "id": "B_ESYNC_EXTERNAL_EMISSION_SYNC",
+  "status": "blocked_by_target_input_and_wiring_evidence",
+  "control_point": "Qualcomm SDE INTF ESYNC/EMSYNC period/width + physical ESYNC output + cooperating DDIC mode",
+  "source_level": "confirmed-in-pinned-public-reference-source; not target binary verified",
+  "target_level": "saved selected target DT is dsi_cmd_mode, lacks ESYNC capability and EM switch command properties",
+  "confidence": {
+    "reference_mechanism": "high",
+    "target_applicability": "unknown",
+    "physical_pwm_ge_2000": "unproven"
+  },
+  "expected_information_gain": "high for exact DDIC interface/FPC mapping; low for repeated generic PWM string searches",
+  "chance_of_meaningful_improvement": "qualitatively weak until external DDIC input and board connection are proved; no defensible percentage",
+  "evidence_paths": [
+    "artifacts/horizon_r3_20261108/agent_b_sources.md",
+    "artifacts/horizon_r3_20261108/agent_b_esync_primary_excerpts.md",
+    "artifacts/horizon_r3_20261108/agent_b_esync_audit.json",
+    "artifacts/device_tree/selected_boe_v4_acquisition.json"
+  ],
+  "provenance": {
+    "driver_repository": "MotorolaMobilityLLC/kernel-msm-5.4-techpack-display",
+    "driver_commit": "fa008c43c070ff20faa33853649f5dfd4c427e99",
+    "dt_repository": "MotorolaMobilityLLC/kernel-display-devicetree",
+    "dt_commit": "f088523dfba85c95c15f43726fcf972c0c7a957a",
+    "reference_panel": "NT37802 video PSR; SS and simulation generic nodes",
+    "target_panel": "BOE ILI97701A selected cmd_v4; exact silicon revision unknown",
+    "target_build": "W3WWS36.65-64-4-1",
+    "target_payload_bytes": null,
+    "transferability": "No command or pin number transfer justified"
+  },
+  "blockers": [
+    "No exact ILI97701A external-sync input/pinout semantics",
+    "No target FPC/board connection proof",
+    "No panel-specific external-sync init/transition/rollback commands",
+    "No optical external-sync response or supported rate range"
+  ],
+  "suggested_experiments": [
+    {
+      "kind": "offline-document-gate",
+      "action": "Obtain exact panel interface/FPC/board evidence tying ESYNC input to XT2611-1 and a documented input mode",
+      "positive": "Exact revision and connected net identified, admissible timing and enabling sequence documented",
+      "negative": "Confirmed missing DDIC input or missing board connection closes this specific external-sync route",
+      "device_execution_authorized": false
+    }
+  ],
+  "risk": "offline none; unvalidated physical activation high and prohibited",
+  "rollback": "Not yet specified because target external-sync mode/return sequence is undocumented",
+  "novelty": "new physical generator/pin/binding/mode-selection/latch semantics beyond historical capability-absence finding",
+  "web_sources": [
+    {
+      "url": "https://patents.google.com/patent/US20250251773A1/en",
+      "key_lines": "412-453"
+    },
+    {
+      "url": "https://patents.google.com/patent/US20250014518A1/en",
+      "key_lines": "169-201"
+    },
+    {
+      "url": "https://patents.google.com/patent/US20240404470A1/en",
+      "key_lines": "901-907"
+    },
+    {
+      "url": "https://www.ilitekholding.com/en/product/Mobile",
+      "key_lines": "177-183"
+    }
+  ]
+}
