@@ -1,0 +1,17 @@
+{
+  "approved_at_utc": "2026-11-08T07:50:40+00:00",
+  "timestamp_basis": "Recorded after the owner's manual-view request; the message delivery timestamp was not available to the recorder",
+  "owner_confirmation": "ручноа наблюдение без возврата на сток\n\n`Уточните только эту границу: разрешаете выполнить сейчас согласованную серию с возвратом stock до паузы, или хотите отдельно согласовать ограниченное по времени ручное наблюдение при активном A0D1C1 и точный способ возврата? До ответа новую DSI-команду не отправляю. ` apply now",
+  "proposal": "artifacts/dsi_coupled_9d_20261107/proposal.md",
+  "owner_view_plan": "artifacts/dsi_coupled_9d_20261107/owner_view/plan.md",
+  "owner_view_approved": true,
+  "candidates": ["a0d1c1"],
+  "sequence": ["stock", "a0d1c1", "stock"],
+  "program_sha256": {
+    "stock": "b5ed66ba69e6221de5fdeaf4d003c9628602d743880acd1c8e2cf7198facd193",
+    "a0d1c1": "8604d62cb74646105413c94105a5d66273e865bda2be0e0225f5dc3f69eac62e"
+  },
+  "emergency_reboot_approved": true,
+  "scope": "ONE stock OFF -> A0D1C1 application on Lenovo XT2611-1 at DBV3600/requested120/DC0, exact A9/9D/DBV readbacks, native trace and rollback checks. Manual session-only handoff with the candidate still active as separately requested by owner; no automatic stock return before inspection. Stock return and captured-policy restoration on owner request with --coupled-9d-return; if command queue uncertain or a checked operation fails while candidate is active, ordinary emergency reboot into stock initialization. No camera recording in this manual application, no flash/AVB/slot/kernel writes, persistence, extra profile, or repeat.",
+  "risk_acceptance": "Owner accepts possible irreversible panel/device damage for this exact profile; approval does not prove PWM frequency, safety, boot compatibility or indefinite retention. Stop at discomfort."
+}

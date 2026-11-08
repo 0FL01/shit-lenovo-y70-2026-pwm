@@ -1,0 +1,15 @@
+{
+  "approved_at_utc": "2026-11-08T07:05:25+00:00",
+  "timestamp_basis": "Authorization recorded after the owner's message; message delivery timestamp was not available to the recorder",
+  "owner_confirmation": "Разрешаю, приступай прямо сейчас `Для следующего причинного опыта требуется ваше отдельное разрешение одной серии stock → A0D1C1 → stock по proposal`, так же уточняю\n\nя заменил pacman на moto g54, ставь туда опен камеру и делай настройки",
+  "proposal": "artifacts/dsi_coupled_9d_20261107/proposal.md",
+  "candidates": ["a0d1c1"],
+  "sequence": ["stock", "a0d1c1", "stock"],
+  "program_sha256": {
+    "stock": "b5ed66ba69e6221de5fdeaf4d003c9628602d743880acd1c8e2cf7198facd193",
+    "a0d1c1": "8604d62cb74646105413c94105a5d66273e865bda2be0e0225f5dc3f69eac62e"
+  },
+  "emergency_reboot_approved": true,
+  "scope": "ONE stock OFF -> A0D1C1 -> stock OFF series on Lenovo XT2611-1; DBV3600/requested120/DC0, same-DBV replay/redraw, A9/9D/DBV readbacks, 7s fixed-camera holds, native trace, stock and captured-policy return. Ordinary emergency reboot if the command queue is uncertain, with target identity/root/Enforcing recheck. Owner also requests Open Camera installation and setup on replacement Moto G54. No flash, AVB/slot/kernel change, repeat, extra composed DSI sequence or persistence.",
+  "risk_acceptance": "Owner accepts possible irreversible panel/device damage for this exact proposal; approval does not establish frequency, image compatibility or measurement quality."
+}

@@ -103,7 +103,8 @@ def main():
             assert metadata['android.sensor.exposureTime'] == ['100000']*2
             assert metadata['android.sensor.sensitivity'] == ['6400']*2
             assert metadata['android.control.aeMode'] == metadata['android.control.afMode'] == ['OFF']*2
-            assert all(abs(float(v)-9.11752701) < .001 for v in metadata['android.lens.focusDistance'])
+            expected_focus = 2.03874850 if coupled_9d else 9.11752701
+            assert all(abs(float(v)-expected_focus) < .001 for v in metadata['android.lens.focusDistance'])
         text = (PRIVATE / (label + '-kernel.txt')).read_text()
         begin = text.index(marker + '_BEGIN_' + label)
         end = text.index(marker + '_END_' + label, begin)

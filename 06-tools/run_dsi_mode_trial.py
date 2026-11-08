@@ -79,14 +79,52 @@ def coupled_on_programs(out, authorization, *, keep_9d_on=False):
     return programs, [('baseline', 'stock'), (name, name), ('return_' + name, 'stock')]
 
 
+def wait_for_rebooted_target(serial):
+    """Wait for the same handset, not whichever of two USB phones ADB selects."""
+    try:
+        wait = subprocess.run(['adb', '-s', serial, 'wait-for-device'],
+                              capture_output=True, timeout=75)
+    except subprocess.TimeoutExpired:
+        raise RuntimeError('Target reboot wait timed out') from None
+    if wait.returncode:
+        raise RuntimeError('Target reboot wait failed')
+    devices = subprocess.run(['adb', 'devices', '-l'], capture_output=True, text=True, timeout=12)
+    if devices.returncode:
+        raise RuntimeError('Cannot enumerate returned target')
+    ids = [int(m.group(1)) for line in devices.stdout.splitlines()
+           if len(line.split()) > 2 and line.split()[0] == serial and line.split()[1] == 'device'
+           and 'device:avr' in line.split()
+           and (m := re.search(r'\btransport_id:(\d+)', line))]
+    if len(ids) != 1:
+        raise RuntimeError('Cannot independently select returned target')
+    return ids[0]
+
+
+def new_camera_video(before, after):
+    """Select exactly this recording, independent of the camera's wall clock."""
+    def files(text):
+        paths = text.splitlines()
+        if len(paths) != len(set(paths)) or any(
+                not re.fullmatch(r'/sdcard/DCIM/OpenCamera/[A-Za-z0-9_.-]+\.mp4', path)
+                for path in paths):
+            raise ValueError('Unexpected Open Camera video listing')
+        return set(paths)
+
+    prior, current = files(before), files(after)
+    added = current - prior
+    if not prior <= current or len(added) != 1:
+        raise ValueError('Expected exactly one new Open Camera video')
+    return added.pop()
+
+
 def main():
-    assert len(sys.argv) in (3, 4), 'Usage: run_dsi_mode_trial.py TARGET_TRANSPORT CAMERA_TRANSPORT [--blocks|--blocks-redraw|--selector-split|--coupled-on|--coupled-9d|--coupled-on-view|--coupled-on-return|--stock-on|--stock-on-dbv|--stock-on-redraw]'
+    assert len(sys.argv) in (3, 4), 'Usage: run_dsi_mode_trial.py TARGET_TRANSPORT CAMERA_TRANSPORT [--blocks|--blocks-redraw|--selector-split|--coupled-on|--coupled-9d|--coupled-on-view|--coupled-on-return|--coupled-9d-view|--coupled-9d-return|--stock-on|--stock-on-dbv|--stock-on-redraw]'
     option = sys.argv[3] if len(sys.argv) == 4 else ''
-    assert option in ('', '--blocks', '--blocks-redraw', '--selector-split', '--coupled-on', '--coupled-9d', '--coupled-on-view', '--coupled-on-return', '--stock-on', '--stock-on-dbv', '--stock-on-redraw')
-    owner_view = option == '--coupled-on-view'
-    owner_return = option == '--coupled-on-return'
+    assert option in ('', '--blocks', '--blocks-redraw', '--selector-split', '--coupled-on', '--coupled-9d', '--coupled-on-view', '--coupled-on-return', '--coupled-9d-view', '--coupled-9d-return', '--stock-on', '--stock-on-dbv', '--stock-on-redraw')
+    owner_view = option in ('--coupled-on-view', '--coupled-9d-view')
+    owner_return = option in ('--coupled-on-return', '--coupled-9d-return')
     manual_session = owner_view or owner_return
-    coupled_9d = option == '--coupled-9d'
+    coupled_9d = option in ('--coupled-9d', '--coupled-9d-view', '--coupled-9d-return')
     coupled_on = option == '--coupled-on' or manual_session or coupled_9d
     if coupled_on and not __debug__:
         raise RuntimeError('Hardware trial requires Python assertions enabled')
@@ -108,17 +146,14 @@ def main():
         out = ROOT / 'artifacts/dsi_selector_split_20261107'
         private_dir = Path('/home/stfu/.cache/opencode-tmp/opencode/dsi-selector-split-20261107')
     if coupled_on:
-        out = ROOT / 'artifacts/dsi_coupled_on_20261107'
-        private_dir = Path('/home/stfu/.cache/opencode-tmp/opencode/dsi-coupled-on-20261107')
+        out = ROOT / ('artifacts/dsi_coupled_9d_20261107' if coupled_9d else 'artifacts/dsi_coupled_on_20261107')
+        private_dir = Path('/home/stfu/.cache/opencode-tmp/opencode/dsi-coupled-9d-20261107' if coupled_9d else '/home/stfu/.cache/opencode-tmp/opencode/dsi-coupled-on-20261107')
         if manual_session:
             out = out / 'owner_view'
             private_dir = Path(str(private_dir) + '-owner-view')
             if owner_return:
                 out = out / 'return'
                 private_dir = Path(str(private_dir) + '-return')
-        elif coupled_9d:
-            out = ROOT / 'artifacts/dsi_coupled_9d_20261107'
-            private_dir = Path('/home/stfu/.cache/opencode-tmp/opencode/dsi-coupled-9d-20261107')
     if stock_control:
         out = ROOT / 'artifacts/dsi_stock_on_control_20261106'
         private_dir = Path('/home/stfu/.cache/opencode-tmp/opencode/dsi-stock-on-control-20261106')
@@ -143,7 +178,7 @@ def main():
     parse = runpy.run_path(str(ROOT / '06-tools/inspect_cn_dtbo.py'))['packets']
     ranges = [[0, 253], [253, 500], [500, 754], [754, 864], [864, 875]]
     if coupled_on:
-        source = out if coupled_9d else ROOT / 'artifacts/dsi_coupled_on_20261107'
+        source = ROOT / 'artifacts/dsi_coupled_9d_20261107' if coupled_9d else ROOT / 'artifacts/dsi_coupled_on_20261107'
         programs, stages = coupled_on_programs(source, authorization, keep_9d_on=coupled_9d)
         if owner_view:
             stages = stages[:2]  # Return is a separately invoked part of this manual session.
@@ -226,6 +261,7 @@ def main():
     reader_started = False
     entry_count = 0
     before = {}
+    camera_files_before = ''
     marker = 'PWM_BLOCK' if blocks else 'PWM_MODE'
     if blocks_redraw:
         marker = 'PWM_BLOCK_REDRAW'
@@ -283,21 +319,30 @@ def main():
         shell('camera', f'input tap {(a+c)//2} {(b+d)//2}')
 
     def camera_metadata(label):
-        text = shell('camera', 'dumpsys media.camera', private=label + '-camera.txt')
         keys = ('android.sensor.exposureTime', 'android.sensor.sensitivity',
-                'android.control.aeMode', 'android.control.afMode', 'android.lens.focusDistance',
-                'android.sensor.rollingShutterSkew', 'android.sensor.timestamp',
-                'android.request.frameCount', 'android.scaler.cropRegion',
-                'android.control.zoomRatio', 'android.control.videoStabilizationMode',
-                'android.lens.opticalStabilizationMode')
-        data = {k: [v.strip() for v in re.findall(re.escape(k) + r'[^\n]*\n\s*\[([^\]]+)\]', text)[:2]] for k in keys}
+                 'android.control.aeMode', 'android.control.afMode', 'android.lens.focusDistance',
+                 'android.sensor.rollingShutterSkew', 'android.sensor.timestamp',
+                 'android.request.frameCount', 'android.scaler.cropRegion',
+                 'android.control.zoomRatio', 'android.control.videoStabilizationMode',
+                 'android.lens.opticalStabilizationMode')
+        required = (keys[0], keys[1], keys[2], keys[3], keys[4], keys[8], keys[9], keys[10], keys[11])
+        for sample in range(3 if coupled_9d else 1):
+            suffix = '' if sample == 0 else '-retry-' + str(sample)
+            text = shell('camera', 'dumpsys media.camera', private=label + '-camera' + suffix + '.txt')
+            data = {k: [v.strip() for v in re.findall(re.escape(k) + r'[^\n]*\n\s*\[([^\]]+)\]', text)[:2]] for k in keys}
+            if not coupled_9d or all(len(data[k]) == 2 for k in required):
+                break
+            time.sleep(.2)
         assert data['android.sensor.exposureTime'] == ['100000'] * 2
         assert data['android.sensor.sensitivity'] == ['6400'] * 2
         assert data['android.control.aeMode'] == data['android.control.afMode'] == ['OFF'] * 2
         assert len(data['android.lens.focusDistance']) == 2
-        assert all(abs(float(x) - 9.11752701) < .001 for x in data['android.lens.focusDistance'])
+        expected_focus = 2.03874850 if coupled_9d else 9.11752701
+        assert all(abs(float(x) - expected_focus) < .001 for x in data['android.lens.focusDistance'])
         assert data['android.control.videoStabilizationMode'] == ['OFF'] * 2
         assert data['android.lens.opticalStabilizationMode'] == ['OFF'] * 2
+        if coupled_9d:
+            assert data['android.scaler.cropRegion'] == ['0 0 4080 3072'] * 2
         if coupled_on:
             geometry = ('android.scaler.cropRegion', 'android.control.zoomRatio')
             for key in geometry:
@@ -506,13 +551,7 @@ def main():
         p = subprocess.run(['adb', '-t', str(transports['target']), 'reboot'],
                            capture_output=True, text=True, timeout=15)
         assert p.returncode == 0, 'Recovery reboot not accepted'
-        subprocess.run(['adb', '-d', 'wait-for-device'], check=True, capture_output=True, timeout=75)
-        devices = subprocess.check_output(['adb', 'devices', '-l'], text=True)
-        ids = [int(m.group(1)) for line in devices.splitlines()
-               if len(line.split()) > 1 and line.split()[1] == 'device' and 'device:avr' in line.split()
-               and (m := re.search(r'\btransport_id:(\d+)', line))]
-        assert len(ids) == 1, 'Cannot independently select returned target'
-        transports['target'] = ids[0]
+        transports['target'] = wait_for_rebooted_target(target_serial)
         wait_target('getprop sys.boot_completed', '1', seconds=60)
         identity()
         assert target('cat ' + CON + 'panelDC', root=True) == '0'
@@ -525,13 +564,23 @@ def main():
     keys = ('screen_brightness', 'screen_brightness_mode', 'min_refresh_rate', 'peak_refresh_rate', 'screen_off_timeout')
     try:
         identity()
+        serial_check = subprocess.run(['adb', '-t', str(transports['target']), 'get-serialno'],
+                                      capture_output=True, text=True, timeout=10)
+        assert serial_check.returncode == 0 and serial_check.stdout.strip() not in ('', 'unknown'), 'Target serial unavailable for recovery'
+        target_serial = serial_check.stdout.strip()  # In memory only; never log the serial.
         if owner_return:
             candidate_active = True
             report['candidate_may_be_active'] = True
         if not manual_session:
-            assert shell('camera', 'getprop ro.product.device') == 'PacmanPro'
+            if coupled_9d:
+                assert shell('camera', 'getprop ro.product.device; getprop ro.boot.hardware.sku').splitlines() == ['Galaga', 'ROW']
+            else:
+                assert shell('camera', 'getprop ro.product.device') == 'PacmanPro'
             camera_metadata('preflight')
-            assert any(n.get('content-desc') == 'Start recording video' for n in camera_ui().iter('node'))
+            ui_nodes = list(camera_ui().iter('node'))
+            assert any(n.get('content-desc') == 'Start recording video' for n in ui_nodes)
+            if coupled_9d:
+                assert any(n.get('content-desc') == 'Switch to front camera' for n in ui_nodes), 'A001 rear camera required'
         assert target('cat ' + CON + 'panelDC', root=True) == '0'
         assert target('cat ' + CON + 'mipi_cmd_log_en', root=True).endswith(': 0')
         target(f'test ! -e {TMP} && test ! -e {TRACE}', root=True)
@@ -586,7 +635,11 @@ def main():
         logger_on = True
         target("printf '1\\n' > " + CON + 'mipi_cmd_log_en', root=True)
         if not manual_session:
-            report['media_since_epoch'] = int(time.time()) - 2
+            if coupled_9d:
+                camera_files_before = shell('camera', "find /sdcard/DCIM/OpenCamera -maxdepth 1 -type f -name '*.mp4'",
+                                            private='camera-files-before.txt')
+            else:
+                report['media_since_epoch'] = int(time.time()) - 2
             recording = True
             camera_tap('Start recording video')
             assert any(n.get('content-desc') == 'Stop recording video' for n in camera_ui().iter('node'))
@@ -696,10 +749,17 @@ def main():
                     errors.append('Temporary files: ' + str(error))
         if report.get('camera_stopped_verified'):
             try:
-                query = shell('camera', 'content query --uri content://media/external/video/media --projection _id:_data:_size:duration:date_added --where ' + shlex.quote('date_added>=' + str(report['media_since_epoch'])))
-                rows = re.findall(r'_data=(/storage/emulated/0/DCIM/OpenCamera/VID_\d+_\d+\.mp4), _size=(\d+), duration=(\d+), date_added=(\d+)', query)
-                assert len(rows) == 1
-                source, size, duration, _ = rows[0]
+                if coupled_9d:
+                    camera_files_after = shell('camera', "find /sdcard/DCIM/OpenCamera -maxdepth 1 -type f -name '*.mp4'",
+                                               private='camera-files-after.txt')
+                    source = new_camera_video(camera_files_before, camera_files_after)
+                    size = int(shell('camera', 'stat -c %s ' + shlex.quote(source)))
+                    assert size > 0
+                else:
+                    query = shell('camera', 'content query --uri content://media/external/video/media --projection _id:_data:_size:duration:date_added --where ' + shlex.quote('date_added>=' + str(report['media_since_epoch'])))
+                    rows = re.findall(r'_data=(/storage/emulated/0/DCIM/OpenCamera/VID_\d+_\d+\.mp4), _size=(\d+), duration=(\d+), date_added=(\d+)', query)
+                    assert len(rows) == 1
+                    source, size, duration, _ = rows[0]
                 dest = ROOT / ('artifacts/optical/pacman_dsi_blocks_20261106.mp4' if blocks
                                else 'artifacts/optical/pacman_dsi_mode90_20261106.mp4')
                 if blocks_redraw:
@@ -709,7 +769,7 @@ def main():
                 if coupled_on:
                     dest = ROOT / 'artifacts/optical/pacman_dsi_coupled_on_20261107.mp4'
                     if coupled_9d:
-                        dest = ROOT / 'artifacts/optical/pacman_dsi_coupled_9d_20261107.mp4'
+                        dest = ROOT / 'artifacts/optical/a001_dsi_coupled_9d_20261108.mp4'
                 if stock_control:
                     dest = ROOT / ('artifacts/optical/pacman_dsi_stock_on_dbv_20261106.mp4' if replay_dbv
                                     else 'artifacts/optical/pacman_dsi_stock_on_20261106.mp4')
@@ -720,6 +780,16 @@ def main():
                                check=True, capture_output=True, timeout=100)
                 dest.chmod(0o600)
                 assert dest.stat().st_size == int(size)
+                if coupled_9d:
+                    probe = json.loads(subprocess.check_output([
+                        'ffprobe', '-v', 'error', '-show_entries',
+                        'stream=codec_type,codec_name,width,height:format=duration',
+                        '-of', 'json', str(dest)], text=True, timeout=15))
+                    assert len(probe['streams']) == 1 and probe['streams'][0]['codec_type'] == 'video'
+                    assert probe['streams'][0]['codec_name'] == 'h264'
+                    assert (probe['streams'][0]['width'], probe['streams'][0]['height']) == (1280, 720)
+                    duration = round(float(probe['format']['duration']) * 1000)
+                    assert duration > 0
                 report.update(video=str(dest.relative_to(ROOT)), video_bytes=int(size), duration_ms=int(duration))
             except Exception as error:
                 errors.append('Video acquisition: ' + str(error))
