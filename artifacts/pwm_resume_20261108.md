@@ -2,6 +2,17 @@
 
 Статус: **R3 активна; физические PWM >=2000 Гц не доказаны.**
 
+Последний offline checkpoint: [local-validator feasibility spike](../06-tools/offline_local_validator_spike/README.md)
+прошёл независимый review и 9 tests normal/-O. Все известные capture/writer
+false accepts исправлены; 8334 capture и 20480 writer mutations не дали
+расхождений в сторону ложного принятия на проверенном corpus. Это не universal
+equivalence и не controller/device readiness. Следующий отдельный offline
+компонент проверяет read/quiet/pre-dispatch intervals и tail. Acquisition,
+source/ownership/framing и camera/deadline/watchdog/recovery gates ещё обязательны;
+unknown14 выключен, qualified runtime sources и устройства не менялись.
+[Joint alias/exposure design](joint_alias_exposure_design_20261108.md) объясняет,
+почему неквалифицированный sensor alias и 2160-гармоника не доказывают PWM-фундаментал.
+
 Новейший результат: [три timed factory-15 rehearsal](p85_timed_stock_qualification_20261108.md)
 завершены с независимым hardware и ограниченным optical PASS, собственным
 native 828/settings/ESD восстановлением и G около 31–32 с. Conservative

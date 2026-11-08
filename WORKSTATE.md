@@ -1,5 +1,12 @@
 # Long-lived agent progress journal
 
+Checkpoint 2026-11-08, **offline local-validator feasibility прошла независимый review; live controller ещё нет.**
+
+- [Изолированный spike](06-tools/offline_local_validator_spike/README.md) переносит только completed-capture, state-content и stock-writer wire/native semantics в portable shell/AWK/files. Строгие whole-line grammars устранили найденные false accepts; все 21 saved captures/state и шесть writer windows проходят. Девять tests normal/-O подтверждены автором, lead и reviewer; 8334 capture mutations/131 accepted и 20480 writer mutations/8906 accepted не дали port-accept/oracle-reject. Это конечный проверенный corpus, не доказательство universal equivalence. Прежний suite 240 PASS, 2 skips; qualified runtime sources не изменены.
+- Непортированные acquisition/owner/source/byte-framing/freshness, camera, deadline/watchdog/recovery gates остаются обязательными **до** следующего child. Следующая отдельная работа offline-only: read/quiet/pre-dispatch interval validator с END-to-dump tail, unique markers и real quiet duration. Никакого local controller, unknown14, новых служб или ослабления 37/45/8/60 с ограничений.
+- [Проект будущего joint alias/exposure measurement](artifacts/joint_alias_exposure_design_20261108.md) не вводит новый измеритель: собственная optical coupling, физический ADC Fs/freshness и sensitivity встроенного сенсора пока не квалифицированы. 2160-компонента неотличима от третьей гармоники720 этими двумя каналами без lower-band bounds. Camera100/250/500/100 µs остаётся условным планом после настоящего кандидата, не новым опытом или доказательством PWM.
+- После timed03 новых физических действий нет; последний verified restore остаётся native828/original settings/ESD/root/Enforcing, camera/watchdogs/mutex закрыты. Результаты трёх timed runs опубликованы в `0c9aad60122ab3a88eedad2efb18977dbf8b9c36`; R3 >=2000 Гц не решена.
+
 Checkpoint 2026-11-08, **три timed factory-15 rehearsal завершены; unknown 14 остаётся выключенным.**
 
 - [Сводка](artifacts/p85_timed_stock_qualification_20261108.md): same source `1785d32fd011314df3f1c5c55a5d3cbe0ee6b8a2`, G 31.039/31.637/31.615 с. Все hardware/raw/optical reviews PASS в заявленном ограниченном scope; собственный original native 828/settings/logger/ESD восстановлен в каждом, camera/watchdogs/mutex закрыты, no errors/reboots/14.
