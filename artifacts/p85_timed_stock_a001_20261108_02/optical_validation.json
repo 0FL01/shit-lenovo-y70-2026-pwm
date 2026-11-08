@@ -1,0 +1,235 @@
+{
+  "schema": "p85-timed-optical-replay-validation-v1",
+  "middle_c1_status": "not_measured",
+  "json_full_decode_replay_byte_exact": true,
+  "npz_all_arrays_full_decode_replay_exact": true,
+  "checked_npz_arrays": 32,
+  "pts_step_min_max_seconds": [
+    0.03323300000000273,
+    0.033433000000002266
+  ],
+  "primary_frames_remain_inside_stronger_05_second_3_frame_budget": [
+    {
+      "stage": "baseline",
+      "primary_window_stronger_age_binding_leading_seconds": 1.0330719552917458,
+      "primary_window_stronger_age_binding_trailing_seconds": 1.2709819875640846
+    },
+    {
+      "stage": "sham15",
+      "primary_window_stronger_age_binding_leading_seconds": 0.9997260175628639,
+      "primary_window_stronger_age_binding_trailing_seconds": 1.2736901842040993
+    },
+    {
+      "stage": "return15",
+      "primary_window_stronger_age_binding_leading_seconds": 1.0963022313995339,
+      "primary_window_stronger_age_binding_trailing_seconds": 1.371765812484739
+    }
+  ],
+  "comparisons": [
+    {
+      "roi": "left",
+      "stage": "sham15",
+      "mean_y_over_baseline": 1.0001018229404655,
+      "fine_normalized_over_baseline": 1.0052820110799887,
+      "mean_and_fine_within_predeclared_5_percent": true,
+      "broad_fixed_q_over_baseline": 1.039330959176707,
+      "normalized_total_amplitude_spectrum_relative_l2": 0.03926306314450548,
+      "maximum_absolute_normalized_spectral_difference": 0.011475265423837464,
+      "q_of_maximum_spectral_difference": 0.0224609375,
+      "tail_01_to_05_max_normalized_amplitude": 0.05454250804502172
+    },
+    {
+      "roi": "left",
+      "stage": "return15",
+      "mean_y_over_baseline": 1.0030097998631438,
+      "fine_normalized_over_baseline": 1.0153407948851048,
+      "mean_and_fine_within_predeclared_5_percent": true,
+      "broad_fixed_q_over_baseline": 1.0450781168139305,
+      "normalized_total_amplitude_spectrum_relative_l2": 0.11102583627289644,
+      "maximum_absolute_normalized_spectral_difference": 0.029443122457392425,
+      "q_of_maximum_spectral_difference": 0.0048828125,
+      "tail_01_to_05_max_normalized_amplitude": 0.05122089525942368
+    },
+    {
+      "roi": "main",
+      "stage": "sham15",
+      "mean_y_over_baseline": 1.0002989625845449,
+      "fine_normalized_over_baseline": 1.0094375427912012,
+      "mean_and_fine_within_predeclared_5_percent": true,
+      "broad_fixed_q_over_baseline": 1.0233945970443497,
+      "normalized_total_amplitude_spectrum_relative_l2": 0.0392971742421101,
+      "maximum_absolute_normalized_spectral_difference": 0.010732282100056272,
+      "q_of_maximum_spectral_difference": 0.0050048828125,
+      "tail_01_to_05_max_normalized_amplitude": 0.05452730340279694
+    },
+    {
+      "roi": "main",
+      "stage": "return15",
+      "mean_y_over_baseline": 1.0031530470780539,
+      "fine_normalized_over_baseline": 1.0092808147996373,
+      "mean_and_fine_within_predeclared_5_percent": true,
+      "broad_fixed_q_over_baseline": 1.063816479419726,
+      "normalized_total_amplitude_spectrum_relative_l2": 0.11366785703990824,
+      "maximum_absolute_normalized_spectral_difference": 0.03217106013463787,
+      "q_of_maximum_spectral_difference": 0.0050048828125,
+      "tail_01_to_05_max_normalized_amplitude": 0.05233142233130761
+    },
+    {
+      "roi": "right",
+      "stage": "sham15",
+      "mean_y_over_baseline": 1.000668407088609,
+      "fine_normalized_over_baseline": 1.0055645403623963,
+      "mean_and_fine_within_predeclared_5_percent": true,
+      "broad_fixed_q_over_baseline": 1.0197824324711944,
+      "normalized_total_amplitude_spectrum_relative_l2": 0.0384626836315728,
+      "maximum_absolute_normalized_spectral_difference": 0.009664518114134164,
+      "q_of_maximum_spectral_difference": 0.005126953125,
+      "tail_01_to_05_max_normalized_amplitude": 0.057012998245821185
+    },
+    {
+      "roi": "right",
+      "stage": "return15",
+      "mean_y_over_baseline": 1.0029949003870449,
+      "fine_normalized_over_baseline": 1.0079102109743152,
+      "mean_and_fine_within_predeclared_5_percent": true,
+      "broad_fixed_q_over_baseline": 1.0137112820719067,
+      "normalized_total_amplitude_spectrum_relative_l2": 0.10761682542481657,
+      "maximum_absolute_normalized_spectral_difference": 0.02781015430281182,
+      "q_of_maximum_spectral_difference": 0.005126953125,
+      "tail_01_to_05_max_normalized_amplitude": 0.053426787469584666
+    }
+  ],
+  "frame_block_diagnostics": [
+    {
+      "roi": "left",
+      "stage": "baseline",
+      "broad_20_frame_blocks": [
+        0.0739565817580165,
+        0.07049165192449194,
+        0.07200975248130358
+      ],
+      "fine_20_frame_blocks": [
+        0.2790428272846348,
+        0.2785762305161451,
+        0.27993528101454473
+      ]
+    },
+    {
+      "roi": "left",
+      "stage": "sham15",
+      "broad_20_frame_blocks": [
+        0.07623774635560697,
+        0.07491948789316451,
+        0.0738295283784225
+      ],
+      "fine_20_frame_blocks": [
+        0.2835032196350659,
+        0.28021903397695097,
+        0.2782032195922199
+      ]
+    },
+    {
+      "roi": "left",
+      "stage": "return15",
+      "broad_20_frame_blocks": [
+        0.07360151405657397,
+        0.07788737491338457,
+        0.07472102369625748
+      ],
+      "fine_20_frame_blocks": [
+        0.28675902532188363,
+        0.2832536363076261,
+        0.2802346560562227
+      ]
+    },
+    {
+      "roi": "main",
+      "stage": "baseline",
+      "broad_20_frame_blocks": [
+        0.07771226849250758,
+        0.06988236173150054,
+        0.06835217343955981
+      ],
+      "fine_20_frame_blocks": [
+        0.2797642744694429,
+        0.2796851913487254,
+        0.2809567476238171
+      ]
+    },
+    {
+      "roi": "main",
+      "stage": "sham15",
+      "broad_20_frame_blocks": [
+        0.07883047055677272,
+        0.0726248511175746,
+        0.06956520319363076
+      ],
+      "fine_20_frame_blocks": [
+        0.28312894381712084,
+        0.28299725928959146,
+        0.282201828412155
+      ]
+    },
+    {
+      "roi": "main",
+      "stage": "return15",
+      "broad_20_frame_blocks": [
+        0.07369855404284141,
+        0.08168881033663503,
+        0.07450480335265455
+      ],
+      "fine_20_frame_blocks": [
+        0.28514727626302894,
+        0.2846703160177131,
+        0.27819462421472574
+      ]
+    },
+    {
+      "roi": "right",
+      "stage": "baseline",
+      "broad_20_frame_blocks": [
+        0.08232857264412112,
+        0.08079569704047601,
+        0.07119425396115497
+      ],
+      "fine_20_frame_blocks": [
+        0.28899322108464565,
+        0.28862800713066666,
+        0.28810196609528693
+      ]
+    },
+    {
+      "roi": "right",
+      "stage": "sham15",
+      "broad_20_frame_blocks": [
+        0.08089310513744367,
+        0.08284711359124093,
+        0.07552455064099581
+      ],
+      "fine_20_frame_blocks": [
+        0.2919347992299556,
+        0.2884370359345102,
+        0.29013829340889635
+      ]
+    },
+    {
+      "roi": "right",
+      "stage": "return15",
+      "broad_20_frame_blocks": [
+        0.07120121230648863,
+        0.08262541964166682,
+        0.08381521989085793
+      ],
+      "fine_20_frame_blocks": [
+        0.2921877213112867,
+        0.29099324121379533,
+        0.28932215993406063
+      ]
+    }
+  ],
+  "interpretation": "Fine-pattern/mean-Y reproducibility is a limited diagnostic pass. Full-spectrum identity and broad-component equivalence are not established.",
+  "physical_pwm_hz": null,
+  "stock_optics_restored": null,
+  "sham_optics_unchanged": null,
+  "lead_approved": false
+}

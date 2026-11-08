@@ -1,5 +1,12 @@
 # Long-lived agent progress journal
 
+Checkpoint 2026-11-08, **три timed factory-15 rehearsal завершены; unknown 14 остаётся выключенным.**
+
+- [Сводка](artifacts/p85_timed_stock_qualification_20261108.md): same source `1785d32fd011314df3f1c5c55a5d3cbe0ee6b8a2`, G 31.039/31.637/31.615 с. Все hardware/raw/optical reviews PASS в заявленном ограниченном scope; собственный original native 828/settings/logger/ESD восстановлен в каждом, camera/watchdogs/mutex закрыты, no errors/reboots/14.
+- Fine/mean diagnostic control воспроизводится в пределах 5%, но broad/full waveform не установлена: в 03 sham full-spectrum L2 14–15%, хотя fine близок к единице. Middle C1 явно not_measured; baseline/return C1 60. Никаких Hz/комфорт/blanket approval выводов.
+- [Timing](artifacts/p85_timed_stock_three_run_timing_20261108.md): worst actual G +8 +J2 =41.6368 с, однако role-specific all-phase-max model с residual +8 +J2 =48.4496 с, не проходит 45 с. Медленные baseline сохранены, причина не установлена; стабильный total G не превращён в worst-case bound.
+- Физические повторы этой версии закончены. Следующая работа offline-only: перенос точных completed-child validators в portable shell/AWK/files с differential fault corpus, для оценки будущего одноразового local sequencer без host round-trip зависимости. Никаких live controller/14/UI, новых служб/credentials или расширения 45/37/8/60 с ограничений. Последний опубликованный code checkpoint: `1785d32fd011314df3f1c5c55a5d3cbe0ee6b8a2`.
+
 Checkpoint 2026-11-08, **timed factory 15 surrogate прошёл offline review, live ещё не выполнялся.**
 
 - [Новый stock-only протокол](artifacts/p85_timed_stock_design_20261108.md) сохраняет factory 15 и отключённый 14. Baseline/return C1 обязательны; middle C1 явно не измеряется. Полный return prequiet выполняется внутри неизменного optical hold; перед каждым writer есть fresh host и on-device protected-origin guards. Исходные 12 runtime blobs не изменены.

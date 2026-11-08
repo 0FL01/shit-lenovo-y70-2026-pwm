@@ -1,0 +1,228 @@
+{
+  "schema": "p85-timed-surrogate-optical-v1",
+  "scope": "p85-timed-stock-surrogate-v1",
+  "mode": "window_plan",
+  "source_run_sha256": "dc09349f42f1a84124ef97e11f51fcbb0b4ad8fc903a5c39535c42c21e1f1543",
+  "source_video_bytes": 89497919,
+  "decoded_frame_count": 2375,
+  "stream": {
+    "codec_name": "h264",
+    "width": 1280,
+    "height": 720,
+    "pix_fmt": "yuv420p",
+    "color_range": "tv",
+    "nb_frames": "2375"
+  },
+  "windows": [
+    {
+      "stage": "baseline",
+      "start_inclusive": 511,
+      "end_exclusive": 571,
+      "encoded_frames": 60,
+      "review_frames": [
+        511,
+        541,
+        570
+      ],
+      "pts_first_seconds": 17.033333,
+      "pts_last_seconds": 19.0,
+      "eligible_encoded_frames": 123,
+      "anchor_encoded_indices": [
+        463,
+        612
+      ],
+      "conditional_leading_margin_seconds": 1.2833549976348877,
+      "conditional_trailing_margin_seconds": 1.3384490013122559,
+      "host_hold_seconds": 5.756940126419067
+    },
+    {
+      "stage": "sham15",
+      "start_inclusive": 1462,
+      "end_exclusive": 1522,
+      "encoded_frames": 60,
+      "review_frames": [
+        1462,
+        1492,
+        1521
+      ],
+      "pts_first_seconds": 48.733333,
+      "pts_last_seconds": 50.7,
+      "eligible_encoded_frames": 123,
+      "anchor_encoded_indices": [
+        1414,
+        1563
+      ],
+      "conditional_leading_margin_seconds": 1.2833597660064697,
+      "conditional_trailing_margin_seconds": 1.3380141258239746,
+      "host_hold_seconds": 5.5254669189453125
+    },
+    {
+      "stage": "return15",
+      "start_inclusive": 2043,
+      "end_exclusive": 2103,
+      "encoded_frames": 60,
+      "review_frames": [
+        2043,
+        2073,
+        2102
+      ],
+      "pts_first_seconds": 68.1,
+      "pts_last_seconds": 70.066667,
+      "eligible_encoded_frames": 130,
+      "anchor_encoded_indices": [
+        1991,
+        2156
+      ],
+      "conditional_leading_margin_seconds": 1.4166929721832275,
+      "conditional_trailing_margin_seconds": 1.428380012512207,
+      "host_hold_seconds": 6.280278921127319
+    }
+  ],
+  "timing_assumptions": {
+    "snapshot_max_age_seconds": 0.25,
+    "encoder_binding_ambiguity_frames": 2,
+    "minimum_edge_margin_seconds": 0.25
+  },
+  "stronger_timing_sensitivity": {
+    "snapshot_max_age_seconds": 0.5,
+    "encoder_binding_ambiguity_frames": 3,
+    "windows": [
+      {
+        "stage": "baseline",
+        "start_inclusive": 515,
+        "end_exclusive": 575,
+        "encoded_frames": 60,
+        "review_frames": [
+          515,
+          545,
+          574
+        ],
+        "pts_first_seconds": 17.166667,
+        "pts_last_seconds": 19.133333,
+        "eligible_encoded_frames": 113,
+        "anchor_encoded_indices": [
+          463,
+          612
+        ],
+        "conditional_leading_margin_seconds": 1.1333551406860352,
+        "conditional_trailing_margin_seconds": 1.1717817783355713,
+        "host_hold_seconds": 5.756940126419067
+      },
+      {
+        "stage": "sham15",
+        "start_inclusive": 1466,
+        "end_exclusive": 1526,
+        "encoded_frames": 60,
+        "review_frames": [
+          1466,
+          1496,
+          1525
+        ],
+        "pts_first_seconds": 48.866667,
+        "pts_last_seconds": 50.833333,
+        "eligible_encoded_frames": 113,
+        "anchor_encoded_indices": [
+          1414,
+          1563
+        ],
+        "conditional_leading_margin_seconds": 1.1333599090576172,
+        "conditional_trailing_margin_seconds": 1.17134690284729,
+        "host_hold_seconds": 5.5254669189453125
+      },
+      {
+        "stage": "return15",
+        "start_inclusive": 2047,
+        "end_exclusive": 2107,
+        "encoded_frames": 60,
+        "review_frames": [
+          2047,
+          2077,
+          2106
+        ],
+        "pts_first_seconds": 68.233333,
+        "pts_last_seconds": 70.2,
+        "eligible_encoded_frames": 120,
+        "anchor_encoded_indices": [
+          1991,
+          2156
+        ],
+        "conditional_leading_margin_seconds": 1.2666919231414795,
+        "conditional_trailing_margin_seconds": 1.2617130279541016,
+        "host_hold_seconds": 6.280278921127319
+      }
+    ]
+  },
+  "c1_observations": [
+    {
+      "stage": "baseline",
+      "status": "measured",
+      "data": [
+        0,
+        0,
+        96
+      ],
+      "native_dbv": 3600
+    },
+    {
+      "stage": "sham15",
+      "status": "not_measured",
+      "reason": "diagnostic omitted by timed-stock protocol"
+    },
+    {
+      "stage": "return15",
+      "status": "measured",
+      "data": [
+        0,
+        0,
+        96
+      ],
+      "native_dbv": 3600
+    }
+  ],
+  "middle_c1_measurement": "not_measured; protocol omission, not a zero or inferred value",
+  "full_middle_wait_and_prequiet_timing_validated": true,
+  "observed_active_G_seconds": 31.61468460795004,
+  "timed_window_limit": "Observed factory15 run only, not a bound for future return or candidate14",
+  "physical_pwm_hz": null,
+  "stock_optics_restored": null,
+  "sham_optics_unchanged": null,
+  "lead_approved": false,
+  "candidate_enabled": false,
+  "limits": [
+    "Factory15 timed surrogate only; no candidate14 outcome or permission.",
+    "Timing envelopes are conditional, not per-exposure sensor/MP4 binding.",
+    "No physical Hz, modulation-depth, comfort, or general C1-count inference.",
+    "Encoded Y includes ISP, codec, black offset and nonlinearity.",
+    "Fine/6 is a spatial diagnostic; short ROI limits broad-component inference.",
+    "Neighbouring ROIs and frame blocks are not independent experiments."
+  ],
+  "review_template": {
+    "schema": "p85-optical-roi-review-v1",
+    "run_sha256": "dc09349f42f1a84124ef97e11f51fcbb0b4ad8fc903a5c39535c42c21e1f1543",
+    "video_bytes": 89497919,
+    "decoded_frame_count": 2375,
+    "reviewed_frames": {
+      "baseline": [
+        511,
+        541,
+        570
+      ],
+      "sham15": [
+        1462,
+        1492,
+        1521
+      ],
+      "return15": [
+        2043,
+        2073,
+        2102
+      ]
+    },
+    "native_y_noautorotate_inspected": false,
+    "flat_screen_content_verified": false,
+    "fixed_geometry_verified": false,
+    "timestamp_margins_reviewed": false,
+    "rois_xywh": null,
+    "baseline_fine_search_cycles_per_row": null
+  }
+}

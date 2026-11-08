@@ -2,7 +2,14 @@
 
 Статус: **R3 активна; физические PWM >=2000 Гц не доказаны.**
 
-Последний checkpoint: [batched stock-only 01](p85_batch_stock_a001_20261108_01/hardware_result.md)
+Новейший результат: [три timed factory-15 rehearsal](p85_timed_stock_qualification_20261108.md)
+завершены с независимым hardware и ограниченным optical PASS, собственным
+native 828/settings/ESD восстановлением и G около 31–32 с. Conservative
+all-phase-max timing всё ещё не проходит 45 с с reserve/J. Unknown 14 выключен;
+следующая работа offline-only — эквивалентные local validators и новый protocol
+design, без расширения временных ограничений или заявления о PWM Hz.
+
+Предыдущий checkpoint: [batched stock-only 01](p85_batch_stock_a001_20261108_01/hardware_result.md)
 завершён 18:18:28 UTC с независимым hardware replay PASS и восстановлением
 собственного исходного native DBV 828. [Оптика](p85_batch_stock_a001_20261108_01/optical_result.md)
 подтверждает fine/mean diagnostic pass, но не полную waveform equivalence.

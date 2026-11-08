@@ -1,0 +1,52 @@
+{
+  "schema": "p85-optical-roi-review-v1",
+  "run_sha256": "8ec5657306dd260759301a102d7a48be7578a7fd15d4fd50d8c5b3fab7cb8d7e",
+  "video_bytes": 88103769,
+  "decoded_frame_count": 2339,
+  "reviewed_frames": {
+    "baseline": [
+      506,
+      536,
+      565
+    ],
+    "sham15": [
+      1410,
+      1440,
+      1469
+    ],
+    "return15": [
+      2015,
+      2045,
+      2074
+    ]
+  },
+  "native_y_noautorotate_inspected": true,
+  "flat_screen_content_verified": true,
+  "fixed_geometry_verified": true,
+  "timestamp_margins_reviewed": true,
+  "rois_xywh": {
+    "left": [
+      220,
+      70,
+      40,
+      540
+    ],
+    "main": [
+      260,
+      70,
+      40,
+      540
+    ],
+    "right": [
+      320,
+      70,
+      40,
+      540
+    ]
+  },
+  "baseline_fine_search_cycles_per_row": [
+    0.015,
+    0.025
+  ],
+  "inspection_note": "New first/middle/last native-Y frames of timed02 inspected with common display gain 4. Actual screen edges/content remain stationary; selected left interior strips avoid text and borders. Coordinates coincide with earlier trials only after this fresh inspection. Original Y is unchanged; timing margins conditional."
+}

@@ -1,0 +1,3462 @@
+{
+  "experiment_id": "p85_timed_stock_a001_20261108_02",
+  "marker": "PWM_P85_p85_timed_stock_a001_20261108_02",
+  "module_sha256": "1bec69faec736e7288f38e4cb83314c37c60d33e6b383213316fd880aa0b1804",
+  "stock_dc": 0,
+  "software_refresh_hz": 120,
+  "anchor": [
+    90,
+    120
+  ],
+  "camera_touched": true,
+  "unknown_register_writes": false,
+  "recovery": "same-target ordinary reboot; device watchdog600s",
+  "pwm_hz": null,
+  "scope": "p85-timed-stock-surrogate-v1",
+  "started_at_utc": "2026-11-08T18:58:55.300777+00:00",
+  "status": "awaiting_optical_review",
+  "captures": [],
+  "events": [
+    {
+      "label": "identity",
+      "at_utc": "2026-11-08T18:58:56.593326+00:00",
+      "raw_record": "0001-identity",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "root",
+      "at_utc": "2026-11-08T18:58:57.127501+00:00",
+      "raw_record": "0002-root",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "panel",
+      "at_utc": "2026-11-08T18:58:57.706186+00:00",
+      "raw_record": "0003-panel",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "module",
+      "at_utc": "2026-11-08T18:58:58.278294+00:00",
+      "raw_record": "0004-module",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "prior-kernel",
+      "at_utc": "2026-11-08T18:59:04.087870+00:00",
+      "raw_record": "0010-prior-kernel",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "acquire-owner",
+      "at_utc": "2026-11-08T18:59:04.762994+00:00",
+      "raw_record": "0011-acquire-owner",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "before-setting",
+      "at_utc": "2026-11-08T18:59:05.334196+00:00",
+      "raw_record": "0012-before-setting",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "before-setting",
+      "at_utc": "2026-11-08T18:59:05.906640+00:00",
+      "raw_record": "0013-before-setting",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "before-setting",
+      "at_utc": "2026-11-08T18:59:06.479211+00:00",
+      "raw_record": "0014-before-setting",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "before-setting",
+      "at_utc": "2026-11-08T18:59:07.055619+00:00",
+      "raw_record": "0015-before-setting",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "before-setting",
+      "at_utc": "2026-11-08T18:59:07.626133+00:00",
+      "raw_record": "0016-before-setting",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "before-dbv",
+      "at_utc": "2026-11-08T18:59:08.198412+00:00",
+      "raw_record": "0017-before-dbv",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "before-logger",
+      "at_utc": "2026-11-08T18:59:08.766521+00:00",
+      "raw_record": "0018-before-logger",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "before-boot",
+      "at_utc": "2026-11-08T18:59:09.338801+00:00",
+      "raw_record": "0019-before-boot",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "fresh-temp",
+      "at_utc": "2026-11-08T18:59:10.811609+00:00",
+      "raw_record": "0021-fresh-temp",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "create-temp",
+      "at_utc": "2026-11-08T18:59:11.382601+00:00",
+      "raw_record": "0022-create-temp",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "initial-esd",
+      "at_utc": "2026-11-08T18:59:11.950248+00:00",
+      "raw_record": "0023-initial-esd",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "overall-watchdog",
+      "at_utc": "2026-11-08T18:59:12.526754+00:00",
+      "raw_record": "0024-overall-watchdog",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "enable-logger",
+      "at_utc": "2026-11-08T18:59:13.102753+00:00",
+      "raw_record": "0025-enable-logger",
+      "mutation": true,
+      "return_code": 0
+    },
+    {
+      "label": "extend-timeout",
+      "at_utc": "2026-11-08T18:59:13.682399+00:00",
+      "raw_record": "0026-extend-timeout",
+      "mutation": true,
+      "return_code": 0
+    },
+    {
+      "label": "home",
+      "at_utc": "2026-11-08T18:59:14.254621+00:00",
+      "raw_record": "0027-home",
+      "mutation": true,
+      "return_code": 0
+    },
+    {
+      "label": "display-settings",
+      "at_utc": "2026-11-08T18:59:14.830247+00:00",
+      "raw_record": "0028-display-settings",
+      "mutation": true,
+      "return_code": 0
+    },
+    {
+      "label": "awake",
+      "at_utc": "2026-11-08T18:59:15.406612+00:00",
+      "raw_record": "0029-awake",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "marker",
+      "at_utc": "2026-11-08T18:59:15.970031+00:00",
+      "raw_record": "0030-marker",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "stock-anchor",
+      "at_utc": "2026-11-08T18:59:16.542408+00:00",
+      "raw_record": "0031-stock-anchor",
+      "mutation": true,
+      "return_code": 0
+    },
+    {
+      "label": "anchor-display",
+      "at_utc": "2026-11-08T18:59:17.110876+00:00",
+      "raw_record": "0032-anchor-display",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "anchor-kernel",
+      "at_utc": "2026-11-08T18:59:17.708597+00:00",
+      "raw_record": "0033-anchor-kernel",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "marker",
+      "at_utc": "2026-11-08T18:59:18.280610+00:00",
+      "raw_record": "0034-marker",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "anchor-final",
+      "at_utc": "2026-11-08T18:59:18.850001+00:00",
+      "raw_record": "0035-anchor-final",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "marker",
+      "at_utc": "2026-11-08T18:59:19.415771+00:00",
+      "raw_record": "0036-marker",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "stock-anchor",
+      "at_utc": "2026-11-08T18:59:19.991759+00:00",
+      "raw_record": "0037-stock-anchor",
+      "mutation": true,
+      "return_code": 0
+    },
+    {
+      "label": "anchor-display",
+      "at_utc": "2026-11-08T18:59:20.571233+00:00",
+      "raw_record": "0038-anchor-display",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "anchor-kernel",
+      "at_utc": "2026-11-08T18:59:21.146931+00:00",
+      "raw_record": "0039-anchor-kernel",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "marker",
+      "at_utc": "2026-11-08T18:59:21.711717+00:00",
+      "raw_record": "0040-marker",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "anchor-final",
+      "at_utc": "2026-11-08T18:59:22.285079+00:00",
+      "raw_record": "0041-anchor-final",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "previous-dbv",
+      "at_utc": "2026-11-08T18:59:22.855489+00:00",
+      "raw_record": "0042-previous-dbv",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "marker",
+      "at_utc": "2026-11-08T18:59:23.427511+00:00",
+      "raw_record": "0043-marker",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "native-brightness",
+      "at_utc": "2026-11-08T18:59:24.007323+00:00",
+      "raw_record": "0044-native-brightness",
+      "mutation": true,
+      "return_code": 0
+    },
+    {
+      "label": "poll",
+      "at_utc": "2026-11-08T18:59:24.586154+00:00",
+      "raw_record": "0045-poll",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "marker",
+      "at_utc": "2026-11-08T18:59:25.158058+00:00",
+      "raw_record": "0046-marker",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "brightness-kernel",
+      "at_utc": "2026-11-08T18:59:25.731113+00:00",
+      "raw_record": "0047-brightness-kernel",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "marker",
+      "at_utc": "2026-11-08T18:59:50.183539+00:00",
+      "raw_record": "0060-marker",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "identity",
+      "at_utc": "2026-11-08T18:59:59.664832+00:00",
+      "raw_record": "0064-identity",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "root",
+      "at_utc": "2026-11-08T19:00:00.239881+00:00",
+      "raw_record": "0065-root",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "panel",
+      "at_utc": "2026-11-08T19:00:00.810984+00:00",
+      "raw_record": "0066-panel",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "module",
+      "at_utc": "2026-11-08T19:00:01.386670+00:00",
+      "raw_record": "0067-module",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "timed-watchdog-arm",
+      "at_utc": "2026-11-08T19:00:08.856239+00:00",
+      "raw_record": "0074-timed-watchdog-arm",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "timed-watchdog-verify",
+      "at_utc": "2026-11-08T19:00:09.422651+00:00",
+      "raw_record": "0075-timed-watchdog-verify",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "marker",
+      "at_utc": "2026-11-08T19:00:20.320372+00:00",
+      "raw_record": "0081-marker",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "disarm-candidate",
+      "at_utc": "2026-11-08T19:00:39.916876+00:00",
+      "raw_record": "0093-disarm-candidate",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "marker",
+      "at_utc": "2026-11-08T19:00:40.492957+00:00",
+      "raw_record": "0094-marker",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "remove-owned-writer-snapshots",
+      "at_utc": "2026-11-08T19:01:07.845869+00:00",
+      "raw_record": "0105-remove-owned-writer-snapshots",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "remove-owned-writer-snapshots",
+      "at_utc": "2026-11-08T19:01:08.419749+00:00",
+      "raw_record": "0106-remove-owned-writer-snapshots",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "restore-power",
+      "at_utc": "2026-11-08T19:01:08.991242+00:00",
+      "raw_record": "0107-restore-power",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "restore-peak",
+      "at_utc": "2026-11-08T19:01:09.604079+00:00",
+      "raw_record": "0108-restore-peak",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "restore-setting",
+      "at_utc": "2026-11-08T19:01:10.175530+00:00",
+      "raw_record": "0109-restore-setting",
+      "mutation": true,
+      "return_code": 0
+    },
+    {
+      "label": "restore-setting",
+      "at_utc": "2026-11-08T19:01:10.752092+00:00",
+      "raw_record": "0110-restore-setting",
+      "mutation": true,
+      "return_code": 0
+    },
+    {
+      "label": "restore-setting",
+      "at_utc": "2026-11-08T19:01:11.323492+00:00",
+      "raw_record": "0111-restore-setting",
+      "mutation": true,
+      "return_code": 0
+    },
+    {
+      "label": "restore-setting",
+      "at_utc": "2026-11-08T19:01:11.899326+00:00",
+      "raw_record": "0112-restore-setting",
+      "mutation": true,
+      "return_code": 0
+    },
+    {
+      "label": "restore-setting",
+      "at_utc": "2026-11-08T19:01:12.474860+00:00",
+      "raw_record": "0113-restore-setting",
+      "mutation": true,
+      "return_code": 0
+    },
+    {
+      "label": "restore-dbv",
+      "at_utc": "2026-11-08T19:01:13.051766+00:00",
+      "raw_record": "0114-restore-dbv",
+      "mutation": true,
+      "return_code": 0
+    },
+    {
+      "label": "poll",
+      "at_utc": "2026-11-08T19:01:13.626563+00:00",
+      "raw_record": "0115-poll",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "poll",
+      "at_utc": "2026-11-08T19:01:15.195947+00:00",
+      "raw_record": "0116-poll",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "verify-setting",
+      "at_utc": "2026-11-08T19:01:15.671737+00:00",
+      "raw_record": "0117-verify-setting",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "verify-setting",
+      "at_utc": "2026-11-08T19:01:16.242813+00:00",
+      "raw_record": "0118-verify-setting",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "verify-setting",
+      "at_utc": "2026-11-08T19:01:16.815048+00:00",
+      "raw_record": "0119-verify-setting",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "verify-setting",
+      "at_utc": "2026-11-08T19:01:17.392759+00:00",
+      "raw_record": "0120-verify-setting",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "verify-setting",
+      "at_utc": "2026-11-08T19:01:17.978331+00:00",
+      "raw_record": "0121-verify-setting",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "restore-logger",
+      "at_utc": "2026-11-08T19:01:19.496742+00:00",
+      "raw_record": "0123-restore-logger",
+      "mutation": true,
+      "return_code": 0
+    },
+    {
+      "label": "verify-logger",
+      "at_utc": "2026-11-08T19:01:20.071753+00:00",
+      "raw_record": "0124-verify-logger",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "final-esd",
+      "at_utc": "2026-11-08T19:01:20.643775+00:00",
+      "raw_record": "0125-final-esd",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "disarm-watchdog",
+      "at_utc": "2026-11-08T19:01:21.279674+00:00",
+      "raw_record": "0126-disarm-watchdog",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "verify-child-cleanup",
+      "at_utc": "2026-11-08T19:01:21.847578+00:00",
+      "raw_record": "0127-verify-child-cleanup",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "verify-child-cleanup",
+      "at_utc": "2026-11-08T19:01:22.420146+00:00",
+      "raw_record": "0128-verify-child-cleanup",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "verify-child-cleanup",
+      "at_utc": "2026-11-08T19:01:22.991991+00:00",
+      "raw_record": "0129-verify-child-cleanup",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "verify-child-cleanup",
+      "at_utc": "2026-11-08T19:01:23.564558+00:00",
+      "raw_record": "0130-verify-child-cleanup",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "verify-child-cleanup",
+      "at_utc": "2026-11-08T19:01:24.143450+00:00",
+      "raw_record": "0131-verify-child-cleanup",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "verify-child-cleanup",
+      "at_utc": "2026-11-08T19:01:24.711158+00:00",
+      "raw_record": "0132-verify-child-cleanup",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "verify-child-cleanup",
+      "at_utc": "2026-11-08T19:01:25.283457+00:00",
+      "raw_record": "0133-verify-child-cleanup",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "remove-owned-temp",
+      "at_utc": "2026-11-08T19:01:25.852020+00:00",
+      "raw_record": "0134-remove-owned-temp",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "release-owner",
+      "at_utc": "2026-11-08T19:01:26.424161+00:00",
+      "raw_record": "0135-release-owner",
+      "mutation": false,
+      "return_code": 0
+    }
+  ],
+  "physical_operation_attempted": true,
+  "stages": [
+    {
+      "label": "baseline",
+      "started_at_utc": "2026-11-08T18:59:44.584720+00:00",
+      "qualified": true,
+      "phase_seconds": {
+        "quiet": 5.291200367035344,
+        "p85": 2.9090653359889984,
+        "c1": 2.689161911024712,
+        "hold_and_metadata": 7.897624835954048
+      },
+      "p85": {
+        "page": "23",
+        "opcode": "85",
+        "requested": 3,
+        "data": [
+          21,
+          0,
+          0
+        ],
+        "header_hex": "1c 03 00 16",
+        "raw_hardware_count": 9,
+        "normalized_count": 9,
+        "scratch_allocation": 16,
+        "single_receive": true,
+        "framing_qualified": true,
+        "cleanup_verified": true,
+        "native_dbv": 3600,
+        "software_refresh": 120.00001,
+        "pwm_hz": null,
+        "limit": "Read-plane and writable semantics unknown; CRC payload not captured; no Hz claim.",
+        "in_device_return_gates_verified": true,
+        "page_entries_standalone": true,
+        "response_type": "DCS_long3",
+        "returned": 3
+      },
+      "c1": {
+        "page": "23",
+        "opcode": "C1",
+        "requested": 3,
+        "data": [
+          0,
+          0,
+          96
+        ],
+        "header_hex": "1c 03 00 16",
+        "raw_hardware_count": 9,
+        "normalized_count": 9,
+        "scratch_allocation": 16,
+        "single_receive": true,
+        "framing_qualified": true,
+        "cleanup_verified": true,
+        "native_dbv": 3600,
+        "software_refresh": 120.00001,
+        "pwm_hz": null,
+        "limit": "C1 semantics and writable behavior unknown; CRC payload itself not captured.",
+        "in_device_return_gates_verified": true,
+        "page_entries_standalone": true
+      },
+      "hold_start_utc": "2026-11-08T18:59:50.746655+00:00",
+      "hold_start_monotonic": 612203.032769152,
+      "hold_end_utc": "2026-11-08T18:59:56.493749+00:00",
+      "hold_end_monotonic": 612208.779856466,
+      "hold_seconds": 4.5,
+      "observed_sensor_frames": 149,
+      "stable_encoded_frames": null,
+      "camera_start": {
+        "camera_id": "0",
+        "client_package": "net.sourceforge.opencamera",
+        "session_token": "708adb8a36ca46153a5990f4fef96b8ed616c3087dd3cb3d6d05fe0c7d355e11",
+        "request": {
+          "exposure_ns": 100000,
+          "iso": 6400,
+          "ae_mode": "OFF",
+          "af_mode": "OFF",
+          "focus_diopters": 2.0387485,
+          "crop": [
+            0,
+            0,
+            4080,
+            3072
+          ],
+          "zoom": 1.0,
+          "eis_mode": "OFF",
+          "ois_mode": "OFF",
+          "capture_intent": "VIDEO_RECORD",
+          "request_id": 308,
+          "frame_duration_ns": 33333333
+        },
+        "result": {
+          "exposure_ns": 100000,
+          "iso": 6400,
+          "ae_mode": "OFF",
+          "af_mode": "OFF",
+          "focus_diopters": 2.0387485,
+          "crop": [
+            0,
+            0,
+            4080,
+            3072
+          ],
+          "zoom": 1.0,
+          "eis_mode": "OFF",
+          "ois_mode": "OFF",
+          "capture_intent": "VIDEO_RECORD",
+          "request_id": 308,
+          "frame_duration_ns": 33350000,
+          "frame_count": 984400,
+          "timestamp_ns": 42688508659000,
+          "rolling_shutter_skew_ns": 15047630
+        },
+        "streams": [
+          {
+            "id": 62,
+            "width": 1920,
+            "height": 1080,
+            "pixel_format": "0x11",
+            "state": 4,
+            "consumer_kind": "SurfaceTexture",
+            "frames_produced": 458,
+            "last_timestamp_ns": 42688508659000,
+            "requested": true
+          },
+          {
+            "id": 63,
+            "width": 1280,
+            "height": 720,
+            "pixel_format": "0x1000",
+            "state": 4,
+            "consumer_kind": "GraphicBufferSource",
+            "frames_produced": 459,
+            "last_timestamp_ns": 42688541992000,
+            "requested": true
+          },
+          {
+            "id": 64,
+            "width": 3840,
+            "height": 2160,
+            "pixel_format": "0x21",
+            "state": 4,
+            "consumer_kind": "ImageReader",
+            "frames_produced": 0,
+            "last_timestamp_ns": 0,
+            "requested": false
+          }
+        ],
+        "recording_verified": true,
+        "encoder_stream_id": 63,
+        "frame_count": 984400,
+        "timestamp_ns": 42688508659000,
+        "frame_duration_ns": 33350000,
+        "rolling_shutter_skew_ns": 15047630,
+        "progress_verified": true,
+        "interpretation": "Settings and stream snapshots only; not per-frame video metadata or optical Hz.",
+        "host_call_start_utc": "2026-11-08T18:59:50.746692+00:00",
+        "host_call_end_utc": "2026-11-08T18:59:51.294464+00:00",
+        "host_call_elapsed_seconds": 0.5477814439218491,
+        "host_capture_bounds": {
+          "begin_monotonic": 612203.032771946,
+          "end_monotonic": 612203.58055339,
+          "begin_utc": "2026-11-08T18:59:50.746692+00:00",
+          "end_utc": "2026-11-08T18:59:51.294464+00:00",
+          "limit": "Call bounds only, not synchronized sensor/encoded PTS or per-frame metadata."
+        }
+      },
+      "camera_end": {
+        "camera_id": "0",
+        "client_package": "net.sourceforge.opencamera",
+        "session_token": "708adb8a36ca46153a5990f4fef96b8ed616c3087dd3cb3d6d05fe0c7d355e11",
+        "request": {
+          "exposure_ns": 100000,
+          "iso": 6400,
+          "ae_mode": "OFF",
+          "af_mode": "OFF",
+          "focus_diopters": 2.0387485,
+          "crop": [
+            0,
+            0,
+            4080,
+            3072
+          ],
+          "zoom": 1.0,
+          "eis_mode": "OFF",
+          "ois_mode": "OFF",
+          "capture_intent": "VIDEO_RECORD",
+          "request_id": 308,
+          "frame_duration_ns": 33333333
+        },
+        "result": {
+          "exposure_ns": 100000,
+          "iso": 6400,
+          "ae_mode": "OFF",
+          "af_mode": "OFF",
+          "focus_diopters": 2.0387485,
+          "crop": [
+            0,
+            0,
+            4080,
+            3072
+          ],
+          "zoom": 1.0,
+          "eis_mode": "OFF",
+          "ois_mode": "OFF",
+          "capture_intent": "VIDEO_RECORD",
+          "request_id": 308,
+          "frame_duration_ns": 33350000,
+          "frame_count": 984549,
+          "timestamp_ns": 42693475266000,
+          "rolling_shutter_skew_ns": 15047630
+        },
+        "streams": [
+          {
+            "id": 62,
+            "width": 1920,
+            "height": 1080,
+            "pixel_format": "0x11",
+            "state": 4,
+            "consumer_kind": "SurfaceTexture",
+            "frames_produced": 607,
+            "last_timestamp_ns": 42693475266000,
+            "requested": true
+          },
+          {
+            "id": 63,
+            "width": 1280,
+            "height": 720,
+            "pixel_format": "0x1000",
+            "state": 4,
+            "consumer_kind": "GraphicBufferSource",
+            "frames_produced": 607,
+            "last_timestamp_ns": 42693475266000,
+            "requested": true
+          },
+          {
+            "id": 64,
+            "width": 3840,
+            "height": 2160,
+            "pixel_format": "0x21",
+            "state": 4,
+            "consumer_kind": "ImageReader",
+            "frames_produced": 0,
+            "last_timestamp_ns": 0,
+            "requested": false
+          }
+        ],
+        "recording_verified": true,
+        "encoder_stream_id": 63,
+        "frame_count": 984549,
+        "timestamp_ns": 42693475266000,
+        "frame_duration_ns": 33350000,
+        "rolling_shutter_skew_ns": 15047630,
+        "progress_verified": true,
+        "interpretation": "Settings and stream snapshots only; not per-frame video metadata or optical Hz.",
+        "host_call_start_utc": "2026-11-08T18:59:55.800112+00:00",
+        "host_call_end_utc": "2026-11-08T18:59:56.489135+00:00",
+        "host_call_elapsed_seconds": 0.6890305560082197,
+        "host_capture_bounds": {
+          "begin_monotonic": 612208.08619553,
+          "end_monotonic": 612208.775226086,
+          "begin_utc": "2026-11-08T18:59:55.800112+00:00",
+          "end_utc": "2026-11-08T18:59:56.489135+00:00",
+          "limit": "Call bounds only, not synchronized sensor/encoded PTS or per-frame metadata."
+        }
+      },
+      "hold_markers": {
+        "begin": "PWM_P85_p85_timed_stock_a001_20261108_02_BASELINE_HOLD_BEGIN",
+        "end": "PWM_P85_p85_timed_stock_a001_20261108_02_BASELINE_HOLD_END"
+      },
+      "elapsed_seconds": 18.788854909013025
+    },
+    {
+      "label": "sham15",
+      "started_at_utc": "2026-11-08T19:00:18.077845+00:00",
+      "qualified": true,
+      "phase_seconds": {
+        "quiet": 4.166770479059778,
+        "p85": 2.2424483840586618,
+        "hold_and_metadata": 7.236150098033249
+      },
+      "p85": {
+        "page": "23",
+        "opcode": "85",
+        "requested": 3,
+        "data": [
+          21,
+          0,
+          0
+        ],
+        "header_hex": "1c 03 00 16",
+        "raw_hardware_count": 9,
+        "normalized_count": 9,
+        "scratch_allocation": 16,
+        "single_receive": true,
+        "framing_qualified": true,
+        "cleanup_verified": true,
+        "native_dbv": 3600,
+        "software_refresh": 120.00001,
+        "pwm_hz": null,
+        "limit": "Read-plane and writable semantics unknown; CRC payload not captured; no Hz claim.",
+        "in_device_return_gates_verified": true,
+        "page_entries_standalone": true,
+        "response_type": "DCS_long3",
+        "returned": 3
+      },
+      "c1": {
+        "status": "not_measured",
+        "reason": "diagnostic omitted by timed-stock protocol"
+      },
+      "hold_start_utc": "2026-11-08T19:00:20.891514+00:00",
+      "hold_start_monotonic": 612233.177632367,
+      "return_prequiet": {
+        "started_monotonic": 612233.738845136,
+        "ended_monotonic": 612238.022489779,
+        "quiet_evidence": {
+          "begin_marker": "PWM_P85_p85_timed_stock_a001_20261108_02_QUIET_BEGIN_return15_PRE_0",
+          "end_marker": "PWM_P85_p85_timed_stock_a001_20261108_02_QUIET_END_return15_PRE_0",
+          "native_state": {
+            "width": 1440,
+            "height": 3168,
+            "software_peak_hz": 120,
+            "native_actual_hz": 120,
+            "native_group": 3,
+            "clock_rate": 1234000000,
+            "timing_node": "timing@0",
+            "evidence": "latest retained dsi_display_set_mode anchor, not physical PWM"
+          },
+          "quiet_seconds": 2,
+          "race_limit": "not an atomic compositor lock; no retries in batched qualification",
+          "kernel_marker_bounds": {
+            "begin_seconds": 7230.133309,
+            "end_seconds": 7232.286659,
+            "clock": "target kernel printk monotonic; not host/camera clock"
+          }
+        },
+        "wait_seconds": 0.2106094469781965,
+        "overlap_seconds": 4.283644643030129,
+        "overshoot_seconds": 0
+      },
+      "hold_end_utc": "2026-11-08T19:00:26.403389+00:00",
+      "hold_end_monotonic": 612238.689499752,
+      "hold_seconds": 4.5,
+      "observed_sensor_frames": 148,
+      "stable_encoded_frames": null,
+      "camera_start": {
+        "camera_id": "0",
+        "client_package": "net.sourceforge.opencamera",
+        "session_token": "708adb8a36ca46153a5990f4fef96b8ed616c3087dd3cb3d6d05fe0c7d355e11",
+        "request": {
+          "exposure_ns": 100000,
+          "iso": 6400,
+          "ae_mode": "OFF",
+          "af_mode": "OFF",
+          "focus_diopters": 2.0387485,
+          "crop": [
+            0,
+            0,
+            4080,
+            3072
+          ],
+          "zoom": 1.0,
+          "eis_mode": "OFF",
+          "ois_mode": "OFF",
+          "capture_intent": "VIDEO_RECORD",
+          "request_id": 308,
+          "frame_duration_ns": 33333333
+        },
+        "result": {
+          "exposure_ns": 100000,
+          "iso": 6400,
+          "ae_mode": "OFF",
+          "af_mode": "OFF",
+          "focus_diopters": 2.0387485,
+          "crop": [
+            0,
+            0,
+            4080,
+            3072
+          ],
+          "zoom": 1.0,
+          "eis_mode": "OFF",
+          "ois_mode": "OFF",
+          "capture_intent": "VIDEO_RECORD",
+          "request_id": 308,
+          "frame_duration_ns": 33350000,
+          "frame_count": 985305,
+          "timestamp_ns": 42718674968000,
+          "rolling_shutter_skew_ns": 15047630
+        },
+        "streams": [
+          {
+            "id": 62,
+            "width": 1920,
+            "height": 1080,
+            "pixel_format": "0x11",
+            "state": 4,
+            "consumer_kind": "SurfaceTexture",
+            "frames_produced": 1363,
+            "last_timestamp_ns": 42718674968000,
+            "requested": true
+          },
+          {
+            "id": 63,
+            "width": 1280,
+            "height": 720,
+            "pixel_format": "0x1000",
+            "state": 4,
+            "consumer_kind": "GraphicBufferSource",
+            "frames_produced": 1363,
+            "last_timestamp_ns": 42718674968000,
+            "requested": true
+          },
+          {
+            "id": 64,
+            "width": 3840,
+            "height": 2160,
+            "pixel_format": "0x21",
+            "state": 4,
+            "consumer_kind": "ImageReader",
+            "frames_produced": 0,
+            "last_timestamp_ns": 0,
+            "requested": false
+          }
+        ],
+        "recording_verified": true,
+        "encoder_stream_id": 63,
+        "frame_count": 985305,
+        "timestamp_ns": 42718674968000,
+        "frame_duration_ns": 33350000,
+        "rolling_shutter_skew_ns": 15047630,
+        "progress_verified": true,
+        "interpretation": "Settings and stream snapshots only; not per-frame video metadata or optical Hz.",
+        "host_call_start_utc": "2026-11-08T19:00:20.891539+00:00",
+        "host_call_end_utc": "2026-11-08T19:00:21.447009+00:00",
+        "host_call_elapsed_seconds": 0.5554647260578349,
+        "host_capture_bounds": {
+          "begin_monotonic": 612233.1776345,
+          "end_monotonic": 612233.733099226,
+          "begin_utc": "2026-11-08T19:00:20.891539+00:00",
+          "end_utc": "2026-11-08T19:00:21.447009+00:00",
+          "limit": "Call bounds only, not synchronized sensor/encoded PTS or per-frame metadata."
+        }
+      },
+      "camera_end": {
+        "camera_id": "0",
+        "client_package": "net.sourceforge.opencamera",
+        "session_token": "708adb8a36ca46153a5990f4fef96b8ed616c3087dd3cb3d6d05fe0c7d355e11",
+        "request": {
+          "exposure_ns": 100000,
+          "iso": 6400,
+          "ae_mode": "OFF",
+          "af_mode": "OFF",
+          "focus_diopters": 2.0387485,
+          "crop": [
+            0,
+            0,
+            4080,
+            3072
+          ],
+          "zoom": 1.0,
+          "eis_mode": "OFF",
+          "ois_mode": "OFF",
+          "capture_intent": "VIDEO_RECORD",
+          "request_id": 308,
+          "frame_duration_ns": 33333333
+        },
+        "result": {
+          "exposure_ns": 100000,
+          "iso": 6400,
+          "ae_mode": "OFF",
+          "af_mode": "OFF",
+          "focus_diopters": 2.0387485,
+          "crop": [
+            0,
+            0,
+            4080,
+            3072
+          ],
+          "zoom": 1.0,
+          "eis_mode": "OFF",
+          "ois_mode": "OFF",
+          "capture_intent": "VIDEO_RECORD",
+          "request_id": 308,
+          "frame_duration_ns": 33350000,
+          "frame_count": 985453,
+          "timestamp_ns": 42723608243000,
+          "rolling_shutter_skew_ns": 15047630
+        },
+        "streams": [
+          {
+            "id": 62,
+            "width": 1920,
+            "height": 1080,
+            "pixel_format": "0x11",
+            "state": 4,
+            "consumer_kind": "SurfaceTexture",
+            "frames_produced": 1511,
+            "last_timestamp_ns": 42723608243000,
+            "requested": true
+          },
+          {
+            "id": 63,
+            "width": 1280,
+            "height": 720,
+            "pixel_format": "0x1000",
+            "state": 4,
+            "consumer_kind": "GraphicBufferSource",
+            "frames_produced": 1511,
+            "last_timestamp_ns": 42723608243000,
+            "requested": true
+          },
+          {
+            "id": 64,
+            "width": 3840,
+            "height": 2160,
+            "pixel_format": "0x21",
+            "state": 4,
+            "consumer_kind": "ImageReader",
+            "frames_produced": 0,
+            "last_timestamp_ns": 0,
+            "requested": false
+          }
+        ],
+        "recording_verified": true,
+        "encoder_stream_id": 63,
+        "frame_count": 985453,
+        "timestamp_ns": 42723608243000,
+        "frame_duration_ns": 33350000,
+        "rolling_shutter_skew_ns": 15047630,
+        "progress_verified": true,
+        "interpretation": "Settings and stream snapshots only; not per-frame video metadata or optical Hz.",
+        "host_call_start_utc": "2026-11-08T19:00:25.947165+00:00",
+        "host_call_end_utc": "2026-11-08T19:00:26.396066+00:00",
+        "host_call_elapsed_seconds": 0.44890651397872716,
+        "host_capture_bounds": {
+          "begin_monotonic": 612238.233250009,
+          "end_monotonic": 612238.682156523,
+          "begin_utc": "2026-11-08T19:00:25.947165+00:00",
+          "end_utc": "2026-11-08T19:00:26.396066+00:00",
+          "limit": "Call bounds only, not synchronized sensor/encoded PTS or per-frame metadata."
+        }
+      },
+      "hold_markers": {
+        "begin": "PWM_P85_p85_timed_stock_a001_20261108_02_SHAM15_HOLD_BEGIN",
+        "end": "PWM_P85_p85_timed_stock_a001_20261108_02_SHAM15_HOLD_END"
+      },
+      "hold_verified_monotonic": 612239.842585817,
+      "elapsed_seconds": 13.64539085701108
+    },
+    {
+      "label": "return15",
+      "started_at_utc": "2026-11-08T19:00:35.434414+00:00",
+      "qualified": true,
+      "phase_seconds": {
+        "quiet": 4.118540770956315,
+        "p85": 2.2726981539744884,
+        "c1": 2.209665538975969,
+        "hold_and_metadata": 7.493519438081421
+      },
+      "p85": {
+        "page": "23",
+        "opcode": "85",
+        "requested": 3,
+        "data": [
+          21,
+          0,
+          0
+        ],
+        "header_hex": "1c 03 00 16",
+        "raw_hardware_count": 9,
+        "normalized_count": 9,
+        "scratch_allocation": 16,
+        "single_receive": true,
+        "framing_qualified": true,
+        "cleanup_verified": true,
+        "native_dbv": 3600,
+        "software_refresh": 120.00001,
+        "pwm_hz": null,
+        "limit": "Read-plane and writable semantics unknown; CRC payload not captured; no Hz claim.",
+        "in_device_return_gates_verified": true,
+        "page_entries_standalone": true,
+        "response_type": "DCS_long3",
+        "returned": 3
+      },
+      "c1": {
+        "page": "23",
+        "opcode": "C1",
+        "requested": 3,
+        "data": [
+          0,
+          0,
+          96
+        ],
+        "header_hex": "1c 03 00 16",
+        "raw_hardware_count": 9,
+        "normalized_count": 9,
+        "scratch_allocation": 16,
+        "single_receive": true,
+        "framing_qualified": true,
+        "cleanup_verified": true,
+        "native_dbv": 3600,
+        "software_refresh": 120.00001,
+        "pwm_hz": null,
+        "limit": "C1 semantics and writable behavior unknown; CRC payload itself not captured.",
+        "in_device_return_gates_verified": true,
+        "page_entries_standalone": true
+      },
+      "hold_start_utc": "2026-11-08T19:00:41.079465+00:00",
+      "hold_start_monotonic": 612253.36558618,
+      "hold_end_utc": "2026-11-08T19:00:46.906746+00:00",
+      "hold_end_monotonic": 612259.192863372,
+      "hold_seconds": 4.5,
+      "observed_sensor_frames": 154,
+      "stable_encoded_frames": null,
+      "camera_start": {
+        "camera_id": "0",
+        "client_package": "net.sourceforge.opencamera",
+        "session_token": "708adb8a36ca46153a5990f4fef96b8ed616c3087dd3cb3d6d05fe0c7d355e11",
+        "request": {
+          "exposure_ns": 100000,
+          "iso": 6400,
+          "ae_mode": "OFF",
+          "af_mode": "OFF",
+          "focus_diopters": 2.0387485,
+          "crop": [
+            0,
+            0,
+            4080,
+            3072
+          ],
+          "zoom": 1.0,
+          "eis_mode": "OFF",
+          "ois_mode": "OFF",
+          "capture_intent": "VIDEO_RECORD",
+          "request_id": 308,
+          "frame_duration_ns": 33333333
+        },
+        "result": {
+          "exposure_ns": 100000,
+          "iso": 6400,
+          "ae_mode": "OFF",
+          "af_mode": "OFF",
+          "focus_diopters": 2.0387485,
+          "crop": [
+            0,
+            0,
+            4080,
+            3072
+          ],
+          "zoom": 1.0,
+          "eis_mode": "OFF",
+          "ois_mode": "OFF",
+          "capture_intent": "VIDEO_RECORD",
+          "request_id": 308,
+          "frame_duration_ns": 33350000,
+          "frame_count": 985907,
+          "timestamp_ns": 42738741397000,
+          "rolling_shutter_skew_ns": 15047630
+        },
+        "streams": [
+          {
+            "id": 62,
+            "width": 1920,
+            "height": 1080,
+            "pixel_format": "0x11",
+            "state": 4,
+            "consumer_kind": "SurfaceTexture",
+            "frames_produced": 1965,
+            "last_timestamp_ns": 42738741397000,
+            "requested": true
+          },
+          {
+            "id": 63,
+            "width": 1280,
+            "height": 720,
+            "pixel_format": "0x1000",
+            "state": 4,
+            "consumer_kind": "GraphicBufferSource",
+            "frames_produced": 1966,
+            "last_timestamp_ns": 42738774730000,
+            "requested": true
+          },
+          {
+            "id": 64,
+            "width": 3840,
+            "height": 2160,
+            "pixel_format": "0x21",
+            "state": 4,
+            "consumer_kind": "ImageReader",
+            "frames_produced": 0,
+            "last_timestamp_ns": 0,
+            "requested": false
+          }
+        ],
+        "recording_verified": true,
+        "encoder_stream_id": 63,
+        "frame_count": 985907,
+        "timestamp_ns": 42738741397000,
+        "frame_duration_ns": 33350000,
+        "rolling_shutter_skew_ns": 15047630,
+        "progress_verified": true,
+        "interpretation": "Settings and stream snapshots only; not per-frame video metadata or optical Hz.",
+        "host_call_start_utc": "2026-11-08T19:00:41.079494+00:00",
+        "host_call_end_utc": "2026-11-08T19:00:41.709256+00:00",
+        "host_call_elapsed_seconds": 0.6297567100264132,
+        "host_capture_bounds": {
+          "begin_monotonic": 612253.365589084,
+          "end_monotonic": 612253.995345794,
+          "begin_utc": "2026-11-08T19:00:41.079494+00:00",
+          "end_utc": "2026-11-08T19:00:41.709256+00:00",
+          "limit": "Call bounds only, not synchronized sensor/encoded PTS or per-frame metadata."
+        }
+      },
+      "camera_end": {
+        "camera_id": "0",
+        "client_package": "net.sourceforge.opencamera",
+        "session_token": "708adb8a36ca46153a5990f4fef96b8ed616c3087dd3cb3d6d05fe0c7d355e11",
+        "request": {
+          "exposure_ns": 100000,
+          "iso": 6400,
+          "ae_mode": "OFF",
+          "af_mode": "OFF",
+          "focus_diopters": 2.0387485,
+          "crop": [
+            0,
+            0,
+            4080,
+            3072
+          ],
+          "zoom": 1.0,
+          "eis_mode": "OFF",
+          "ois_mode": "OFF",
+          "capture_intent": "VIDEO_RECORD",
+          "request_id": 308,
+          "frame_duration_ns": 33333333
+        },
+        "result": {
+          "exposure_ns": 100000,
+          "iso": 6400,
+          "ae_mode": "OFF",
+          "af_mode": "OFF",
+          "focus_diopters": 2.0387485,
+          "crop": [
+            0,
+            0,
+            4080,
+            3072
+          ],
+          "zoom": 1.0,
+          "eis_mode": "OFF",
+          "ois_mode": "OFF",
+          "capture_intent": "VIDEO_RECORD",
+          "request_id": 308,
+          "frame_duration_ns": 33350000,
+          "frame_count": 986061,
+          "timestamp_ns": 42743874669000,
+          "rolling_shutter_skew_ns": 15047630
+        },
+        "streams": [
+          {
+            "id": 62,
+            "width": 1920,
+            "height": 1080,
+            "pixel_format": "0x11",
+            "state": 4,
+            "consumer_kind": "SurfaceTexture",
+            "frames_produced": 2119,
+            "last_timestamp_ns": 42743874669000,
+            "requested": true
+          },
+          {
+            "id": 63,
+            "width": 1280,
+            "height": 720,
+            "pixel_format": "0x1000",
+            "state": 4,
+            "consumer_kind": "GraphicBufferSource",
+            "frames_produced": 2119,
+            "last_timestamp_ns": 42743874669000,
+            "requested": true
+          },
+          {
+            "id": 64,
+            "width": 3840,
+            "height": 2160,
+            "pixel_format": "0x21",
+            "state": 4,
+            "consumer_kind": "ImageReader",
+            "frames_produced": 0,
+            "last_timestamp_ns": 0,
+            "requested": false
+          }
+        ],
+        "recording_verified": true,
+        "encoder_stream_id": 63,
+        "frame_count": 986061,
+        "timestamp_ns": 42743874669000,
+        "frame_duration_ns": 33350000,
+        "rolling_shutter_skew_ns": 15047630,
+        "progress_verified": true,
+        "interpretation": "Settings and stream snapshots only; not per-frame video metadata or optical Hz.",
+        "host_call_start_utc": "2026-11-08T19:00:46.209399+00:00",
+        "host_call_end_utc": "2026-11-08T19:00:46.901348+00:00",
+        "host_call_elapsed_seconds": 0.6919534740736708,
+        "host_capture_bounds": {
+          "begin_monotonic": 612258.49548421,
+          "end_monotonic": 612259.187437684,
+          "begin_utc": "2026-11-08T19:00:46.209399+00:00",
+          "end_utc": "2026-11-08T19:00:46.901348+00:00",
+          "limit": "Call bounds only, not synchronized sensor/encoded PTS or per-frame metadata."
+        }
+      },
+      "hold_markers": {
+        "begin": "PWM_P85_p85_timed_stock_a001_20261108_02_RETURN15_HOLD_BEGIN",
+        "end": "PWM_P85_p85_timed_stock_a001_20261108_02_RETURN15_HOLD_END"
+      },
+      "hold_verified_monotonic": 612260.27251769,
+      "elapsed_seconds": 16.67053790600039
+    }
+  ],
+  "qualification": null,
+  "unknown_value_write_attempted": false,
+  "candidate_attempts": 0,
+  "register85_writes_attempted": [
+    "sham15",
+    "return15"
+  ],
+  "limit": "No physical Hz or optical recovery conclusion from this runner.",
+  "batching_adapter": "p85-batched-stock-v1",
+  "candidate_enabled": false,
+  "phase_timings": [
+    {
+      "label": "before-state",
+      "kind": "host_save",
+      "start_monotonic": 612162.200645704,
+      "end_monotonic": 612162.201195854,
+      "elapsed_seconds": 0.0005501499399542809
+    },
+    {
+      "label": "state",
+      "kind": "framing_validation",
+      "start_monotonic": 612163.096403473,
+      "end_monotonic": 612163.096963807,
+      "elapsed_seconds": 0.0005603339523077011
+    },
+    {
+      "label": "after-state",
+      "kind": "host_save",
+      "start_monotonic": 612163.096970106,
+      "end_monotonic": 612163.097438552,
+      "elapsed_seconds": 0.00046844594180583954
+    },
+    {
+      "label": "state",
+      "kind": "host_validation",
+      "start_monotonic": 612163.097442438,
+      "end_monotonic": 612163.097653857,
+      "elapsed_seconds": 0.00021141895558685064
+    },
+    {
+      "label": "before-state",
+      "kind": "host_save",
+      "start_monotonic": 612178.584191302,
+      "end_monotonic": 612178.584671346,
+      "elapsed_seconds": 0.0004800440510734916
+    },
+    {
+      "label": "state",
+      "kind": "framing_validation",
+      "start_monotonic": 612179.44843748,
+      "end_monotonic": 612179.449021762,
+      "elapsed_seconds": 0.0005842819809913635
+    },
+    {
+      "label": "after-state",
+      "kind": "host_save",
+      "start_monotonic": 612179.44902674,
+      "end_monotonic": 612179.449632322,
+      "elapsed_seconds": 0.0006055819103494287
+    },
+    {
+      "label": "state",
+      "kind": "host_validation",
+      "start_monotonic": 612179.449636869,
+      "end_monotonic": 612179.449727366,
+      "elapsed_seconds": 9.049696382135153e-05
+    },
+    {
+      "label": "before-state",
+      "kind": "host_save",
+      "start_monotonic": 612179.449833706,
+      "end_monotonic": 612179.450365216,
+      "elapsed_seconds": 0.0005315099842846394
+    },
+    {
+      "label": "state",
+      "kind": "framing_validation",
+      "start_monotonic": 612180.303737936,
+      "end_monotonic": 612180.304380074,
+      "elapsed_seconds": 0.0006421380676329136
+    },
+    {
+      "label": "after-state",
+      "kind": "host_save",
+      "start_monotonic": 612180.304386423,
+      "end_monotonic": 612180.304963403,
+      "elapsed_seconds": 0.0005769800627604127
+    },
+    {
+      "label": "state",
+      "kind": "host_validation",
+      "start_monotonic": 612180.304966668,
+      "end_monotonic": 612180.305052808,
+      "elapsed_seconds": 8.614000398665667e-05
+    },
+    {
+      "label": "before-quiet-INITIAL",
+      "kind": "host_save",
+      "start_monotonic": 612180.30516675,
+      "end_monotonic": 612180.305669517,
+      "elapsed_seconds": 0.0005027670413255692
+    },
+    {
+      "label": "quiet-INITIAL",
+      "kind": "framing_validation",
+      "start_monotonic": 612184.016819952,
+      "end_monotonic": 612184.018580096,
+      "elapsed_seconds": 0.0017601439030840993
+    },
+    {
+      "label": "after-quiet-INITIAL",
+      "kind": "host_save",
+      "start_monotonic": 612184.018586115,
+      "end_monotonic": 612184.019381253,
+      "elapsed_seconds": 0.0007951380684971809
+    },
+    {
+      "label": "quiet-INITIAL",
+      "kind": "host_validation",
+      "start_monotonic": 612184.019386661,
+      "end_monotonic": 612184.022272181,
+      "elapsed_seconds": 0.0028855199925601482
+    },
+    {
+      "label": "before-state",
+      "kind": "host_save",
+      "start_monotonic": 612191.579741349,
+      "end_monotonic": 612191.580612141,
+      "elapsed_seconds": 0.0008707920787855983
+    },
+    {
+      "label": "state",
+      "kind": "framing_validation",
+      "start_monotonic": 612192.893036505,
+      "end_monotonic": 612192.893801949,
+      "elapsed_seconds": 0.0007654440123587847
+    },
+    {
+      "label": "after-state",
+      "kind": "host_save",
+      "start_monotonic": 612192.893809791,
+      "end_monotonic": 612192.894923469,
+      "elapsed_seconds": 0.0011136780958622694
+    },
+    {
+      "label": "state",
+      "kind": "host_validation",
+      "start_monotonic": 612192.894929118,
+      "end_monotonic": 612192.895021217,
+      "elapsed_seconds": 9.209895506501198e-05
+    },
+    {
+      "label": "before-quiet-baseline",
+      "kind": "host_save",
+      "start_monotonic": 612192.895176441,
+      "end_monotonic": 612192.896151049,
+      "elapsed_seconds": 0.0009746080031618476
+    },
+    {
+      "label": "quiet-baseline",
+      "kind": "framing_validation",
+      "start_monotonic": 612196.864682792,
+      "end_monotonic": 612196.865944944,
+      "elapsed_seconds": 0.0012621519854292274
+    },
+    {
+      "label": "after-quiet-baseline",
+      "kind": "host_save",
+      "start_monotonic": 612196.865956111,
+      "end_monotonic": 612196.866854265,
+      "elapsed_seconds": 0.0008981539867818356
+    },
+    {
+      "label": "quiet-baseline",
+      "kind": "host_validation",
+      "start_monotonic": 612196.866903449,
+      "end_monotonic": 612196.8693654,
+      "elapsed_seconds": 0.0024619511095806956
+    },
+    {
+      "label": "before-baseline-p85",
+      "kind": "host_save",
+      "start_monotonic": 612196.87752559,
+      "end_monotonic": 612196.878453238,
+      "elapsed_seconds": 0.0009276480413973331
+    },
+    {
+      "label": "baseline-p85",
+      "kind": "framing_validation",
+      "start_monotonic": 612199.772611323,
+      "end_monotonic": 612199.774401392,
+      "elapsed_seconds": 0.0017900689272210002
+    },
+    {
+      "label": "after-baseline-p85",
+      "kind": "host_save",
+      "start_monotonic": 612199.77493736,
+      "end_monotonic": 612199.775934684,
+      "elapsed_seconds": 0.0009973240084946156
+    },
+    {
+      "label": "baseline-p85",
+      "kind": "host_validation",
+      "start_monotonic": 612199.776096036,
+      "end_monotonic": 612199.779903646,
+      "elapsed_seconds": 0.003807610017247498
+    },
+    {
+      "label": "baseline-p85",
+      "kind": "qualified_read_phase",
+      "start_monotonic": 612196.870840854,
+      "end_monotonic": 612199.779905298,
+      "elapsed_seconds": 2.9090644440148026
+    },
+    {
+      "label": "before-baseline-c1",
+      "kind": "host_save",
+      "start_monotonic": 612199.783892548,
+      "end_monotonic": 612199.78476278,
+      "elapsed_seconds": 0.0008702320046722889
+    },
+    {
+      "label": "baseline-c1",
+      "kind": "framing_validation",
+      "start_monotonic": 612202.461648348,
+      "end_monotonic": 612202.463536564,
+      "elapsed_seconds": 0.001888216007500887
+    },
+    {
+      "label": "after-baseline-c1",
+      "kind": "host_save",
+      "start_monotonic": 612202.464207946,
+      "end_monotonic": 612202.465123085,
+      "elapsed_seconds": 0.0009151389822363853
+    },
+    {
+      "label": "baseline-c1",
+      "kind": "host_validation",
+      "start_monotonic": 612202.465128264,
+      "end_monotonic": 612202.469308254,
+      "elapsed_seconds": 0.004179989919066429
+    },
+    {
+      "label": "baseline-c1",
+      "kind": "qualified_read_phase",
+      "start_monotonic": 612199.780150288,
+      "end_monotonic": 612202.469310837,
+      "elapsed_seconds": 2.6891605489654467
+    },
+    {
+      "label": "before-baseline-hold-end",
+      "kind": "host_save",
+      "start_monotonic": 612208.779930257,
+      "end_monotonic": 612208.780701901,
+      "elapsed_seconds": 0.0007716439431533217
+    },
+    {
+      "label": "baseline-hold-end",
+      "kind": "framing_validation",
+      "start_monotonic": 612210.361541273,
+      "end_monotonic": 612210.363474236,
+      "elapsed_seconds": 0.0019329630304127932
+    },
+    {
+      "label": "after-baseline-hold-end",
+      "kind": "host_save",
+      "start_monotonic": 612210.363482439,
+      "end_monotonic": 612210.364829249,
+      "elapsed_seconds": 0.0013468100223690271
+    },
+    {
+      "label": "baseline-hold-end",
+      "kind": "host_validation",
+      "start_monotonic": 612210.364836039,
+      "end_monotonic": 612210.367210808,
+      "elapsed_seconds": 0.0023747689556330442
+    },
+    {
+      "label": "stage-baseline",
+      "kind": "host_save",
+      "start_monotonic": 612210.367227072,
+      "end_monotonic": 612210.368488054,
+      "elapsed_seconds": 0.0012609820114448667
+    },
+    {
+      "label": "baseline-image",
+      "kind": "host_save",
+      "start_monotonic": 612211.949752547,
+      "end_monotonic": 612211.950688878,
+      "elapsed_seconds": 0.0009363309945911169
+    },
+    {
+      "label": "before-state",
+      "kind": "host_save",
+      "start_monotonic": 612216.006967337,
+      "end_monotonic": 612216.008357823,
+      "elapsed_seconds": 0.0013904860243201256
+    },
+    {
+      "label": "state",
+      "kind": "framing_validation",
+      "start_monotonic": 612216.864887821,
+      "end_monotonic": 612216.865482448,
+      "elapsed_seconds": 0.0005946269957348704
+    },
+    {
+      "label": "after-state",
+      "kind": "host_save",
+      "start_monotonic": 612216.865487926,
+      "end_monotonic": 612216.866482485,
+      "elapsed_seconds": 0.0009945589117705822
+    },
+    {
+      "label": "state",
+      "kind": "host_validation",
+      "start_monotonic": 612216.866487042,
+      "end_monotonic": 612216.866561114,
+      "elapsed_seconds": 7.40719260647893e-05
+    },
+    {
+      "label": "before-state",
+      "kind": "host_save",
+      "start_monotonic": 612216.866805061,
+      "end_monotonic": 612216.867837497,
+      "elapsed_seconds": 0.0010324360337108374
+    },
+    {
+      "label": "state",
+      "kind": "framing_validation",
+      "start_monotonic": 612217.800408046,
+      "end_monotonic": 612217.801176124,
+      "elapsed_seconds": 0.0007680780254304409
+    },
+    {
+      "label": "after-state",
+      "kind": "host_save",
+      "start_monotonic": 612217.801184036,
+      "end_monotonic": 612217.802280869,
+      "elapsed_seconds": 0.0010968330316245556
+    },
+    {
+      "label": "state",
+      "kind": "host_validation",
+      "start_monotonic": 612217.802286457,
+      "end_monotonic": 612217.80236749,
+      "elapsed_seconds": 8.103298023343086e-05
+    },
+    {
+      "label": "before-quiet-sham15_PRE",
+      "kind": "host_save",
+      "start_monotonic": 612217.802486088,
+      "end_monotonic": 612217.803529101,
+      "elapsed_seconds": 0.0010430129477754235
+    },
+    {
+      "label": "quiet-sham15_PRE",
+      "kind": "framing_validation",
+      "start_monotonic": 612221.136877344,
+      "end_monotonic": 612221.137994677,
+      "elapsed_seconds": 0.001117332954891026
+    },
+    {
+      "label": "after-quiet-sham15_PRE",
+      "kind": "host_save",
+      "start_monotonic": 612221.137999725,
+      "end_monotonic": 612221.138915906,
+      "elapsed_seconds": 0.0009161810157820582
+    },
+    {
+      "label": "quiet-sham15_PRE",
+      "kind": "host_validation",
+      "start_monotonic": 612221.138919091,
+      "end_monotonic": 612221.140713116,
+      "elapsed_seconds": 0.001794025069102645
+    },
+    {
+      "label": "armed-timed",
+      "kind": "host_save",
+      "start_monotonic": 612222.285165817,
+      "end_monotonic": 612222.285996008,
+      "elapsed_seconds": 0.0008301909547299147
+    },
+    {
+      "label": "before-sham15-dispatch-gap",
+      "kind": "host_save",
+      "start_monotonic": 612222.286129729,
+      "end_monotonic": 612222.286893511,
+      "elapsed_seconds": 0.0007637819508090615
+    },
+    {
+      "label": "sham15-dispatch-gap",
+      "kind": "framing_validation",
+      "start_monotonic": 612223.441429011,
+      "end_monotonic": 612223.442845416,
+      "elapsed_seconds": 0.001416404964402318
+    },
+    {
+      "label": "after-sham15-dispatch-gap",
+      "kind": "host_save",
+      "start_monotonic": 612223.442852507,
+      "end_monotonic": 612223.444280849,
+      "elapsed_seconds": 0.0014283419586718082
+    },
+    {
+      "label": "before-sham15-write",
+      "kind": "host_save",
+      "start_monotonic": 612223.453274466,
+      "end_monotonic": 612223.454880698,
+      "elapsed_seconds": 0.0016062320210039616
+    },
+    {
+      "label": "sham15-write",
+      "kind": "framing_validation",
+      "start_monotonic": 612226.188432021,
+      "end_monotonic": 612226.18989102,
+      "elapsed_seconds": 0.001458999002352357
+    },
+    {
+      "label": "after-sham15-write",
+      "kind": "host_save",
+      "start_monotonic": 612226.19001651,
+      "end_monotonic": 612226.190967904,
+      "elapsed_seconds": 0.0009513940894976258
+    },
+    {
+      "label": "sham15",
+      "kind": "host_validation",
+      "start_monotonic": 612226.190973072,
+      "end_monotonic": 612226.195903073,
+      "elapsed_seconds": 0.004930000985041261
+    },
+    {
+      "label": "after-write-sham15",
+      "kind": "host_save",
+      "start_monotonic": 612226.195912617,
+      "end_monotonic": 612226.197174929,
+      "elapsed_seconds": 0.0012623119400814176
+    },
+    {
+      "label": "before-state",
+      "kind": "host_save",
+      "start_monotonic": 612226.197298866,
+      "end_monotonic": 612226.199833357,
+      "elapsed_seconds": 0.0025344910100102425
+    },
+    {
+      "label": "state",
+      "kind": "framing_validation",
+      "start_monotonic": 612227.104652355,
+      "end_monotonic": 612227.105173129,
+      "elapsed_seconds": 0.0005207740468904376
+    },
+    {
+      "label": "after-state",
+      "kind": "host_save",
+      "start_monotonic": 612227.105177616,
+      "end_monotonic": 612227.106257764,
+      "elapsed_seconds": 0.0010801480384543538
+    },
+    {
+      "label": "state",
+      "kind": "host_validation",
+      "start_monotonic": 612227.106260829,
+      "end_monotonic": 612227.106323974,
+      "elapsed_seconds": 6.314495112746954e-05
+    },
+    {
+      "label": "before-quiet-sham15",
+      "kind": "host_save",
+      "start_monotonic": 612227.106428932,
+      "end_monotonic": 612227.107290151,
+      "elapsed_seconds": 0.000861218897625804
+    },
+    {
+      "label": "quiet-sham15",
+      "kind": "framing_validation",
+      "start_monotonic": 612230.356546087,
+      "end_monotonic": 612230.358134411,
+      "elapsed_seconds": 0.0015883240848779678
+    },
+    {
+      "label": "after-quiet-sham15",
+      "kind": "host_save",
+      "start_monotonic": 612230.35814044,
+      "end_monotonic": 612230.359628583,
+      "elapsed_seconds": 0.001488142996095121
+    },
+    {
+      "label": "quiet-sham15",
+      "kind": "host_validation",
+      "start_monotonic": 612230.359638248,
+      "end_monotonic": 612230.362185537,
+      "elapsed_seconds": 0.0025472890119999647
+    },
+    {
+      "label": "before-sham15-p85",
+      "kind": "host_save",
+      "start_monotonic": 612230.372361256,
+      "end_monotonic": 612230.374056491,
+      "elapsed_seconds": 0.0016952349105849862
+    },
+    {
+      "label": "sham15-p85",
+      "kind": "framing_validation",
+      "start_monotonic": 612232.599658033,
+      "end_monotonic": 612232.601053005,
+      "elapsed_seconds": 0.0013949719723314047
+    },
+    {
+      "label": "after-sham15-p85",
+      "kind": "host_save",
+      "start_monotonic": 612232.601224283,
+      "end_monotonic": 612232.602462229,
+      "elapsed_seconds": 0.0012379459803923965
+    },
+    {
+      "label": "sham15-p85",
+      "kind": "host_validation",
+      "start_monotonic": 612232.602467096,
+      "end_monotonic": 612232.606422148,
+      "elapsed_seconds": 0.003955052001401782
+    },
+    {
+      "label": "sham15-p85",
+      "kind": "qualified_read_phase",
+      "start_monotonic": 612230.363976177,
+      "end_monotonic": 612232.60642412,
+      "elapsed_seconds": 2.2424479430774227
+    },
+    {
+      "label": "before-state",
+      "kind": "host_save",
+      "start_monotonic": 612233.738910886,
+      "end_monotonic": 612233.740281942,
+      "elapsed_seconds": 0.0013710559578612447
+    },
+    {
+      "label": "state",
+      "kind": "framing_validation",
+      "start_monotonic": 612234.679878752,
+      "end_monotonic": 612234.68063933,
+      "elapsed_seconds": 0.0007605779683217406
+    },
+    {
+      "label": "after-state",
+      "kind": "host_save",
+      "start_monotonic": 612234.68064627,
+      "end_monotonic": 612234.682148544,
+      "elapsed_seconds": 0.0015022739535197616
+    },
+    {
+      "label": "state",
+      "kind": "host_validation",
+      "start_monotonic": 612234.682155474,
+      "end_monotonic": 612234.682245659,
+      "elapsed_seconds": 9.018497075885534e-05
+    },
+    {
+      "label": "before-quiet-return15_PRE",
+      "kind": "host_save",
+      "start_monotonic": 612234.682361805,
+      "end_monotonic": 612234.683393811,
+      "elapsed_seconds": 0.0010320059955120087
+    },
+    {
+      "label": "quiet-return15_PRE",
+      "kind": "framing_validation",
+      "start_monotonic": 612238.017018301,
+      "end_monotonic": 612238.018210889,
+      "elapsed_seconds": 0.0011925880098715425
+    },
+    {
+      "label": "after-quiet-return15_PRE",
+      "kind": "host_save",
+      "start_monotonic": 612238.018215465,
+      "end_monotonic": 612238.019367372,
+      "elapsed_seconds": 0.0011519070249050856
+    },
+    {
+      "label": "quiet-return15_PRE",
+      "kind": "host_validation",
+      "start_monotonic": 612238.019371868,
+      "end_monotonic": 612238.021276911,
+      "elapsed_seconds": 0.0019050430273637176
+    },
+    {
+      "label": "before-sham15-hold-end",
+      "kind": "host_save",
+      "start_monotonic": 612238.689613504,
+      "end_monotonic": 612238.691187145,
+      "elapsed_seconds": 0.001573640969581902
+    },
+    {
+      "label": "sham15-hold-end",
+      "kind": "framing_validation",
+      "start_monotonic": 612239.838273647,
+      "end_monotonic": 612239.839446075,
+      "elapsed_seconds": 0.0011724280193448067
+    },
+    {
+      "label": "after-sham15-hold-end",
+      "kind": "host_save",
+      "start_monotonic": 612239.839451473,
+      "end_monotonic": 612239.840726605,
+      "elapsed_seconds": 0.001275132060982287
+    },
+    {
+      "label": "stage-sham15",
+      "kind": "host_save",
+      "start_monotonic": 612239.842594941,
+      "end_monotonic": 612239.84393396,
+      "elapsed_seconds": 0.0013390189269557595
+    },
+    {
+      "label": "before-return15-dispatch-gap",
+      "kind": "host_save",
+      "start_monotonic": 612239.844082053,
+      "end_monotonic": 612239.84522112,
+      "elapsed_seconds": 0.0011390669969841838
+    },
+    {
+      "label": "return15-dispatch-gap",
+      "kind": "framing_validation",
+      "start_monotonic": 612240.920849608,
+      "end_monotonic": 612240.921757566,
+      "elapsed_seconds": 0.0009079580195248127
+    },
+    {
+      "label": "after-return15-dispatch-gap",
+      "kind": "host_save",
+      "start_monotonic": 612240.921763135,
+      "end_monotonic": 612240.922938087,
+      "elapsed_seconds": 0.0011749520199373364
+    },
+    {
+      "label": "before-return15-write",
+      "kind": "host_save",
+      "start_monotonic": 612240.928743127,
+      "end_monotonic": 612240.929996826,
+      "elapsed_seconds": 0.0012536989524960518
+    },
+    {
+      "label": "return15-write",
+      "kind": "framing_validation",
+      "start_monotonic": 612243.5929999,
+      "end_monotonic": 612243.594365608,
+      "elapsed_seconds": 0.0013657079543918371
+    },
+    {
+      "label": "after-return15-write",
+      "kind": "host_save",
+      "start_monotonic": 612243.594493882,
+      "end_monotonic": 612243.595824226,
+      "elapsed_seconds": 0.0013303440064191818
+    },
+    {
+      "label": "return15",
+      "kind": "host_validation",
+      "start_monotonic": 612243.595828843,
+      "end_monotonic": 612243.600644623,
+      "elapsed_seconds": 0.004815780092030764
+    },
+    {
+      "label": "after-write-return15",
+      "kind": "host_save",
+      "start_monotonic": 612243.600655248,
+      "end_monotonic": 612243.601965214,
+      "elapsed_seconds": 0.0013099659699946642
+    },
+    {
+      "label": "before-state",
+      "kind": "host_save",
+      "start_monotonic": 612243.602088589,
+      "end_monotonic": 612243.603195758,
+      "elapsed_seconds": 0.00110716896597296
+    },
+    {
+      "label": "state",
+      "kind": "framing_validation",
+      "start_monotonic": 612244.536999386,
+      "end_monotonic": 612244.537498158,
+      "elapsed_seconds": 0.0004987720167264342
+    },
+    {
+      "label": "after-state",
+      "kind": "host_save",
+      "start_monotonic": 612244.537503705,
+      "end_monotonic": 612244.538770536,
+      "elapsed_seconds": 0.0012668309500440955
+    },
+    {
+      "label": "state",
+      "kind": "host_validation",
+      "start_monotonic": 612244.538774973,
+      "end_monotonic": 612244.538882254,
+      "elapsed_seconds": 0.00010728102643042803
+    },
+    {
+      "label": "before-quiet-return15",
+      "kind": "host_save",
+      "start_monotonic": 612244.538976746,
+      "end_monotonic": 612244.540194392,
+      "elapsed_seconds": 0.0012176459422335029
+    },
+    {
+      "label": "quiet-return15",
+      "kind": "framing_validation",
+      "start_monotonic": 612247.715175821,
+      "end_monotonic": 612247.716334997,
+      "elapsed_seconds": 0.0011591759975999594
+    },
+    {
+      "label": "after-quiet-return15",
+      "kind": "host_save",
+      "start_monotonic": 612247.716340075,
+      "end_monotonic": 612247.717678673,
+      "elapsed_seconds": 0.0013385979691520333
+    },
+    {
+      "label": "quiet-return15",
+      "kind": "host_validation",
+      "start_monotonic": 612247.717682147,
+      "end_monotonic": 612247.719325175,
+      "elapsed_seconds": 0.00164302799385041
+    },
+    {
+      "label": "before-return15-p85",
+      "kind": "host_save",
+      "start_monotonic": 612247.726499088,
+      "end_monotonic": 612247.727808312,
+      "elapsed_seconds": 0.0013092240551486611
+    },
+    {
+      "label": "return15-p85",
+      "kind": "framing_validation",
+      "start_monotonic": 612249.98678425,
+      "end_monotonic": 612249.988124961,
+      "elapsed_seconds": 0.001340711023658514
+    },
+    {
+      "label": "after-return15-p85",
+      "kind": "host_save",
+      "start_monotonic": 612249.98828942,
+      "end_monotonic": 612249.989699936,
+      "elapsed_seconds": 0.0014105159789323807
+    },
+    {
+      "label": "return15-p85",
+      "kind": "host_validation",
+      "start_monotonic": 612249.989706906,
+      "end_monotonic": 612249.993223317,
+      "elapsed_seconds": 0.003516410943120718
+    },
+    {
+      "label": "return15-p85",
+      "kind": "qualified_read_phase",
+      "start_monotonic": 612247.720527837,
+      "end_monotonic": 612249.99322539,
+      "elapsed_seconds": 2.272697552922182
+    },
+    {
+      "label": "before-return15-c1",
+      "kind": "host_save",
+      "start_monotonic": 612249.997558322,
+      "end_monotonic": 612249.999372746,
+      "elapsed_seconds": 0.0018144239438697696
+    },
+    {
+      "label": "return15-c1",
+      "kind": "framing_validation",
+      "start_monotonic": 612252.196693268,
+      "end_monotonic": 612252.197923262,
+      "elapsed_seconds": 0.001229993999004364
+    },
+    {
+      "label": "after-return15-c1",
+      "kind": "host_save",
+      "start_monotonic": 612252.198085957,
+      "end_monotonic": 612252.199543284,
+      "elapsed_seconds": 0.0014573270455002785
+    },
+    {
+      "label": "return15-c1",
+      "kind": "host_validation",
+      "start_monotonic": 612252.199547611,
+      "end_monotonic": 612252.20289739,
+      "elapsed_seconds": 0.003349779057316482
+    },
+    {
+      "label": "return15-c1",
+      "kind": "qualified_read_phase",
+      "start_monotonic": 612249.993233753,
+      "end_monotonic": 612252.202898802,
+      "elapsed_seconds": 2.2096650489838794
+    },
+    {
+      "label": "before-return15-hold-end",
+      "kind": "host_save",
+      "start_monotonic": 612259.192968871,
+      "end_monotonic": 612259.194754643,
+      "elapsed_seconds": 0.001785772037692368
+    },
+    {
+      "label": "return15-hold-end",
+      "kind": "framing_validation",
+      "start_monotonic": 612260.268725033,
+      "end_monotonic": 612260.269674164,
+      "elapsed_seconds": 0.0009491309756413102
+    },
+    {
+      "label": "after-return15-hold-end",
+      "kind": "host_save",
+      "start_monotonic": 612260.269681465,
+      "end_monotonic": 612260.270989575,
+      "elapsed_seconds": 0.0013081099605187774
+    },
+    {
+      "label": "complete-stages",
+      "kind": "host_save",
+      "start_monotonic": 612260.272525912,
+      "end_monotonic": 612260.273670307,
+      "elapsed_seconds": 0.0011443949770182371
+    },
+    {
+      "label": "before-state",
+      "kind": "host_save",
+      "start_monotonic": 612290.838125187,
+      "end_monotonic": 612290.84023689,
+      "elapsed_seconds": 0.002111703041009605
+    },
+    {
+      "label": "state",
+      "kind": "framing_validation",
+      "start_monotonic": 612291.780562519,
+      "end_monotonic": 612291.781109443,
+      "elapsed_seconds": 0.0005469240713864565
+    },
+    {
+      "label": "after-state",
+      "kind": "host_save",
+      "start_monotonic": 612291.781115372,
+      "end_monotonic": 612291.782703867,
+      "elapsed_seconds": 0.0015884949825704098
+    },
+    {
+      "label": "state",
+      "kind": "host_validation",
+      "start_monotonic": 612291.782708313,
+      "end_monotonic": 612291.782810448,
+      "elapsed_seconds": 0.0001021350035443902
+    }
+  ],
+  "envelope_timings": [
+    {
+      "label": "state",
+      "at_utc": "2026-11-08T18:59:09.914529+00:00",
+      "raw_record": "0020-envelope-state",
+      "has_child": false,
+      "start_monotonic": 612162.200643691,
+      "return_code": 0,
+      "transport_start_monotonic": 612162.201256635,
+      "transport_end_monotonic": 612163.095918551,
+      "transport_seconds": 0.89466209593229,
+      "end_monotonic": 612163.096967773,
+      "elapsed_seconds": 0.8963240820448846
+    },
+    {
+      "label": "state",
+      "at_utc": "2026-11-08T18:59:26.298073+00:00",
+      "raw_record": "0048-envelope-state",
+      "has_child": false,
+      "start_monotonic": 612178.584188828,
+      "return_code": 0,
+      "transport_start_monotonic": 612178.584730354,
+      "transport_end_monotonic": 612179.447943376,
+      "transport_seconds": 0.8632131629856303,
+      "end_monotonic": 612179.449024817,
+      "elapsed_seconds": 0.8648359889630228
+    },
+    {
+      "label": "state",
+      "at_utc": "2026-11-08T18:59:27.163718+00:00",
+      "raw_record": "0049-envelope-state",
+      "has_child": false,
+      "start_monotonic": 612179.449832484,
+      "return_code": 0,
+      "transport_start_monotonic": 612179.45042042,
+      "transport_end_monotonic": 612180.303370952,
+      "transport_seconds": 0.8529506030026823,
+      "end_monotonic": 612180.30438418,
+      "elapsed_seconds": 0.8545516959857196
+    },
+    {
+      "label": "quiet-INITIAL",
+      "at_utc": "2026-11-08T18:59:28.019057+00:00",
+      "raw_record": "0050-envelope-quiet-INITIAL",
+      "has_child": false,
+      "start_monotonic": 612180.305165667,
+      "return_code": 0,
+      "transport_start_monotonic": 612180.305732793,
+      "transport_end_monotonic": 612184.015724712,
+      "transport_seconds": 3.709992159041576,
+      "end_monotonic": 612184.018583751,
+      "elapsed_seconds": 3.713418084080331
+    },
+    {
+      "label": "state",
+      "at_utc": "2026-11-08T18:59:39.293627+00:00",
+      "raw_record": "0056-envelope-state",
+      "has_child": false,
+      "start_monotonic": 612191.579739095,
+      "return_code": 0,
+      "transport_start_monotonic": 612191.58067812,
+      "transport_end_monotonic": 612192.892463301,
+      "transport_seconds": 1.3117857920005918,
+      "end_monotonic": 612192.893806816,
+      "elapsed_seconds": 1.3140677210176364
+    },
+    {
+      "label": "quiet-baseline",
+      "at_utc": "2026-11-08T18:59:40.609062+00:00",
+      "raw_record": "0057-envelope-quiet-baseline",
+      "has_child": false,
+      "start_monotonic": 612192.895174928,
+      "return_code": 0,
+      "transport_start_monotonic": 612192.896232303,
+      "transport_end_monotonic": 612196.863573258,
+      "transport_seconds": 3.9673411860130727,
+      "end_monotonic": 612196.86594845,
+      "elapsed_seconds": 3.9707735220436007
+    },
+    {
+      "label": "baseline-p85",
+      "at_utc": "2026-11-08T18:59:44.591413+00:00",
+      "raw_record": "0058-envelope-baseline-p85",
+      "has_child": true,
+      "start_monotonic": 612196.877522595,
+      "return_code": 0,
+      "transport_start_monotonic": 612196.878645739,
+      "transport_end_monotonic": 612199.771758518,
+      "transport_seconds": 2.8931132298894227,
+      "end_monotonic": 612199.774933925,
+      "elapsed_seconds": 2.8974113300209865
+    },
+    {
+      "label": "baseline-c1",
+      "at_utc": "2026-11-08T18:59:47.497774+00:00",
+      "raw_record": "0059-envelope-baseline-c1",
+      "has_child": true,
+      "start_monotonic": 612199.783889964,
+      "return_code": 0,
+      "transport_start_monotonic": 612199.784945335,
+      "transport_end_monotonic": 612202.460623493,
+      "transport_seconds": 2.675678348983638,
+      "end_monotonic": 612202.46420438,
+      "elapsed_seconds": 2.680314416065812
+    },
+    {
+      "label": "baseline-hold-end",
+      "at_utc": "2026-11-08T18:59:56.493829+00:00",
+      "raw_record": "0063-envelope-baseline-hold-end",
+      "has_child": false,
+      "start_monotonic": 612208.779927963,
+      "return_code": 0,
+      "transport_start_monotonic": 612208.780756472,
+      "transport_end_monotonic": 612210.360340653,
+      "transport_seconds": 1.5795844009844586,
+      "end_monotonic": 612210.363480105,
+      "elapsed_seconds": 1.5835521419066936
+    },
+    {
+      "label": "state",
+      "at_utc": "2026-11-08T19:00:03.720846+00:00",
+      "raw_record": "0071-envelope-state",
+      "has_child": false,
+      "start_monotonic": 612216.006964733,
+      "return_code": 0,
+      "transport_start_monotonic": 612216.008446797,
+      "transport_end_monotonic": 612216.864358924,
+      "transport_seconds": 0.8559123069280759,
+      "end_monotonic": 612216.865485673,
+      "elapsed_seconds": 0.8585209399461746
+    },
+    {
+      "label": "state",
+      "at_utc": "2026-11-08T19:00:04.580674+00:00",
+      "raw_record": "0072-envelope-state",
+      "has_child": false,
+      "start_monotonic": 612216.866803048,
+      "return_code": 0,
+      "transport_start_monotonic": 612216.867893662,
+      "transport_end_monotonic": 612217.799997076,
+      "transport_seconds": 0.9321035150205716,
+      "end_monotonic": 612217.801181172,
+      "elapsed_seconds": 0.9343781240750104
+    },
+    {
+      "label": "quiet-sham15_PRE",
+      "at_utc": "2026-11-08T19:00:05.516372+00:00",
+      "raw_record": "0073-envelope-quiet-sham15_PRE",
+      "has_child": false,
+      "start_monotonic": 612217.802484936,
+      "return_code": 0,
+      "transport_start_monotonic": 612217.803604625,
+      "transport_end_monotonic": 612221.13574778,
+      "transport_seconds": 3.332143214996904,
+      "end_monotonic": 612221.137997572,
+      "elapsed_seconds": 3.3355126359965652
+    },
+    {
+      "label": "sham15-dispatch-gap",
+      "at_utc": "2026-11-08T19:00:10.000018+00:00",
+      "raw_record": "0076-envelope-sham15-dispatch-gap",
+      "has_child": false,
+      "start_monotonic": 612222.286128518,
+      "return_code": 0,
+      "transport_start_monotonic": 612222.286959802,
+      "transport_end_monotonic": 612223.440310214,
+      "transport_seconds": 1.1533504920080304,
+      "end_monotonic": 612223.442849682,
+      "elapsed_seconds": 1.1567211638903245
+    },
+    {
+      "label": "sham15-write",
+      "at_utc": "2026-11-08T19:00:11.167121+00:00",
+      "raw_record": "0077-envelope-sham15-write",
+      "has_child": true,
+      "start_monotonic": 612223.453270841,
+      "return_code": 0,
+      "transport_start_monotonic": 612223.455107559,
+      "transport_end_monotonic": 612226.187538644,
+      "transport_seconds": 2.7324312750715762,
+      "end_monotonic": 612226.190013766,
+      "elapsed_seconds": 2.736742925015278
+    },
+    {
+      "label": "state",
+      "at_utc": "2026-11-08T19:00:13.911187+00:00",
+      "raw_record": "0078-envelope-state",
+      "has_child": false,
+      "start_monotonic": 612226.197297464,
+      "return_code": 0,
+      "transport_start_monotonic": 612226.199936082,
+      "transport_end_monotonic": 612227.104296538,
+      "transport_seconds": 0.9043605159968138,
+      "end_monotonic": 612227.105175744,
+      "elapsed_seconds": 0.9078782800352201
+    },
+    {
+      "label": "quiet-sham15",
+      "at_utc": "2026-11-08T19:00:14.820317+00:00",
+      "raw_record": "0079-envelope-quiet-sham15",
+      "has_child": false,
+      "start_monotonic": 612227.106427871,
+      "return_code": 0,
+      "transport_start_monotonic": 612227.107356761,
+      "transport_end_monotonic": 612230.355416504,
+      "transport_seconds": 3.2480598229449242,
+      "end_monotonic": 612230.358138177,
+      "elapsed_seconds": 3.2517103059217334
+    },
+    {
+      "label": "sham15-p85",
+      "at_utc": "2026-11-08T19:00:18.086232+00:00",
+      "raw_record": "0080-envelope-sham15-p85",
+      "has_child": true,
+      "start_monotonic": 612230.372357911,
+      "return_code": 0,
+      "transport_start_monotonic": 612230.374284986,
+      "transport_end_monotonic": 612232.598719979,
+      "transport_seconds": 2.224435072974302,
+      "end_monotonic": 612232.601221639,
+      "elapsed_seconds": 2.228863727999851
+    },
+    {
+      "label": "state",
+      "at_utc": "2026-11-08T19:00:21.452789+00:00",
+      "raw_record": "0083-envelope-state",
+      "has_child": false,
+      "start_monotonic": 612233.73890754,
+      "return_code": 0,
+      "transport_start_monotonic": 612233.740352098,
+      "transport_end_monotonic": 612234.67933995,
+      "transport_seconds": 0.9389879319351166,
+      "end_monotonic": 612234.680643075,
+      "elapsed_seconds": 0.9417355350451544
+    },
+    {
+      "label": "quiet-return15_PRE",
+      "at_utc": "2026-11-08T19:00:22.396249+00:00",
+      "raw_record": "0084-envelope-quiet-return15_PRE",
+      "has_child": false,
+      "start_monotonic": 612234.682360573,
+      "return_code": 0,
+      "transport_start_monotonic": 612234.683460401,
+      "transport_end_monotonic": 612238.016045075,
+      "transport_seconds": 3.3325847539817914,
+      "end_monotonic": 612238.018213502,
+      "elapsed_seconds": 3.335852929041721
+    },
+    {
+      "label": "sham15-hold-end",
+      "at_utc": "2026-11-08T19:00:26.403511+00:00",
+      "raw_record": "0086-envelope-sham15-hold-end",
+      "has_child": false,
+      "start_monotonic": 612238.689610669,
+      "return_code": 0,
+      "transport_start_monotonic": 612238.691260756,
+      "transport_end_monotonic": 612239.837388223,
+      "transport_seconds": 1.146127516985871,
+      "end_monotonic": 612239.839449249,
+      "elapsed_seconds": 1.1498385799350217
+    },
+    {
+      "label": "return15-dispatch-gap",
+      "at_utc": "2026-11-08T19:00:27.557971+00:00",
+      "raw_record": "0087-envelope-return15-dispatch-gap",
+      "has_child": false,
+      "start_monotonic": 612239.844080611,
+      "return_code": 0,
+      "transport_start_monotonic": 612239.845280809,
+      "transport_end_monotonic": 612240.919985676,
+      "transport_seconds": 1.0747050179634243,
+      "end_monotonic": 612240.921760582,
+      "elapsed_seconds": 1.0776799710001796
+    },
+    {
+      "label": "return15-write",
+      "at_utc": "2026-11-08T19:00:28.642627+00:00",
+      "raw_record": "0088-envelope-return15-write",
+      "has_child": true,
+      "start_monotonic": 612240.928740884,
+      "return_code": 0,
+      "transport_start_monotonic": 612240.930152722,
+      "transport_end_monotonic": 612243.59222409,
+      "transport_seconds": 2.6620714479358867,
+      "end_monotonic": 612243.594490736,
+      "elapsed_seconds": 2.665749852079898
+    },
+    {
+      "label": "state",
+      "at_utc": "2026-11-08T19:00:31.315974+00:00",
+      "raw_record": "0089-envelope-state",
+      "has_child": false,
+      "start_monotonic": 612243.602087207,
+      "return_code": 0,
+      "transport_start_monotonic": 612243.603258102,
+      "transport_end_monotonic": 612244.536612713,
+      "transport_seconds": 0.9333546709967777,
+      "end_monotonic": 612244.537501452,
+      "elapsed_seconds": 0.935414245002903
+    },
+    {
+      "label": "quiet-return15",
+      "at_utc": "2026-11-08T19:00:32.252867+00:00",
+      "raw_record": "0090-envelope-quiet-return15",
+      "has_child": false,
+      "start_monotonic": 612244.538975644,
+      "return_code": 0,
+      "transport_start_monotonic": 612244.540258899,
+      "transport_end_monotonic": 612247.714442354,
+      "transport_seconds": 3.174183515016921,
+      "end_monotonic": 612247.716337921,
+      "elapsed_seconds": 3.177362276939675
+    },
+    {
+      "label": "return15-p85",
+      "at_utc": "2026-11-08T19:00:35.440391+00:00",
+      "raw_record": "0091-envelope-return15-p85",
+      "has_child": true,
+      "start_monotonic": 612247.726497286,
+      "return_code": 0,
+      "transport_start_monotonic": 612247.727965909,
+      "transport_end_monotonic": 612249.985772676,
+      "transport_seconds": 2.2578068379079923,
+      "end_monotonic": 612249.988287246,
+      "elapsed_seconds": 2.261789959971793
+    },
+    {
+      "label": "return15-c1",
+      "at_utc": "2026-11-08T19:00:37.711442+00:00",
+      "raw_record": "0092-envelope-return15-c1",
+      "has_child": true,
+      "start_monotonic": 612249.997556569,
+      "return_code": 0,
+      "transport_start_monotonic": 612249.999543764,
+      "transport_end_monotonic": 612252.195774654,
+      "transport_seconds": 2.1962309489026666,
+      "end_monotonic": 612252.198083824,
+      "elapsed_seconds": 2.2005272549577057
+    },
+    {
+      "label": "return15-hold-end",
+      "at_utc": "2026-11-08T19:00:46.906863+00:00",
+      "raw_record": "0097-envelope-return15-hold-end",
+      "has_child": false,
+      "start_monotonic": 612259.192965676,
+      "return_code": 0,
+      "transport_start_monotonic": 612259.194847392,
+      "transport_end_monotonic": 612260.267876864,
+      "transport_seconds": 1.073029752005823,
+      "end_monotonic": 612260.26967866,
+      "elapsed_seconds": 1.0767129840096459
+    },
+    {
+      "label": "state",
+      "at_utc": "2026-11-08T19:01:18.552010+00:00",
+      "raw_record": "0122-envelope-state",
+      "has_child": false,
+      "start_monotonic": 612290.838123374,
+      "return_code": 0,
+      "transport_start_monotonic": 612290.840332114,
+      "transport_end_monotonic": 612291.780145961,
+      "transport_seconds": 0.9398140369448811,
+      "end_monotonic": 612291.781113039,
+      "elapsed_seconds": 0.9429896649671718
+    }
+  ],
+  "timed_stock_exploratory": true,
+  "active_actions": [
+    {
+      "at_monotonic": 612221.142928314,
+      "remaining_active_seconds": 36.99923401500564,
+      "timeout_seconds": 25,
+      "return_estimate": {
+        "status": "provisional_partial_not_a_bound",
+        "known_read_quiet_seconds": 10.889427614049055,
+        "unbounded_components": [
+          "writer",
+          "freshness_gap",
+          "disarm",
+          "variability"
+        ],
+        "partial_margin_seconds": 26.10979777900502
+      },
+      "label": "timed-watchdog-arm",
+      "target_role": "panel",
+      "end_monotonic": 612221.707373637
+    },
+    {
+      "at_monotonic": 612221.709679993,
+      "remaining_active_seconds": 36.43248429009691,
+      "timeout_seconds": 25,
+      "return_estimate": {
+        "status": "provisional_partial_not_a_bound",
+        "known_read_quiet_seconds": 10.889427614049055,
+        "unbounded_components": [
+          "writer",
+          "freshness_gap",
+          "disarm",
+          "variability"
+        ],
+        "partial_margin_seconds": 25.543041663011536
+      },
+      "label": "timed-watchdog-verify",
+      "target_role": "panel",
+      "end_monotonic": 612222.284120141
+    },
+    {
+      "at_monotonic": 612222.286962866,
+      "remaining_active_seconds": 35.85519907309208,
+      "timeout_seconds": 25,
+      "return_estimate": {
+        "status": "provisional_partial_not_a_bound",
+        "known_read_quiet_seconds": 10.889427614049055,
+        "unbounded_components": [
+          "writer",
+          "freshness_gap",
+          "disarm",
+          "variability"
+        ],
+        "partial_margin_seconds": 24.965763357002288
+      },
+      "label": "envelope-sham15-dispatch-gap",
+      "target_role": "panel",
+      "end_monotonic": 612223.440307179
+    },
+    {
+      "at_monotonic": 612223.455112687,
+      "remaining_active_seconds": 34.687049352098256,
+      "timeout_seconds": 34.687049352098256,
+      "return_estimate": {
+        "status": "provisional_partial_not_a_bound",
+        "known_read_quiet_seconds": 10.889427614049055,
+        "unbounded_components": [
+          "writer",
+          "freshness_gap",
+          "disarm",
+          "variability"
+        ],
+        "partial_margin_seconds": 23.79761096194852
+      },
+      "label": "envelope-sham15-write",
+      "target_role": "panel",
+      "end_monotonic": 612226.18753596
+    },
+    {
+      "at_monotonic": 612226.199943213,
+      "remaining_active_seconds": 31.94221946701873,
+      "timeout_seconds": 25,
+      "return_estimate": {
+        "status": "provisional_partial_not_a_bound",
+        "known_read_quiet_seconds": 10.889427614049055,
+        "unbounded_components": [
+          "writer",
+          "freshness_gap",
+          "disarm",
+          "variability"
+        ],
+        "partial_margin_seconds": 21.052777240984142
+      },
+      "label": "envelope-state",
+      "target_role": "panel",
+      "end_monotonic": 612227.104294314
+    },
+    {
+      "at_monotonic": 612227.107359825,
+      "remaining_active_seconds": 31.034801953006536,
+      "timeout_seconds": 30,
+      "return_estimate": {
+        "status": "provisional_partial_not_a_bound",
+        "known_read_quiet_seconds": 10.889427614049055,
+        "unbounded_components": [
+          "writer",
+          "freshness_gap",
+          "disarm",
+          "variability"
+        ],
+        "partial_margin_seconds": 20.14536710793618
+      },
+      "label": "envelope-quiet-sham15",
+      "target_role": "panel",
+      "end_monotonic": 612230.355413198
+    },
+    {
+      "at_monotonic": 612230.374289994,
+      "remaining_active_seconds": 27.767871994990855,
+      "timeout_seconds": 27.767871994990855,
+      "return_estimate": {
+        "status": "provisional_partial_not_a_bound",
+        "known_read_quiet_seconds": 10.889427614049055,
+        "unbounded_components": [
+          "writer",
+          "freshness_gap",
+          "disarm",
+          "variability"
+        ],
+        "partial_margin_seconds": 16.878431782941334
+      },
+      "label": "envelope-sham15-p85",
+      "target_role": "panel",
+      "end_monotonic": 612232.598716904
+    },
+    {
+      "at_monotonic": 612232.607463798,
+      "remaining_active_seconds": 25.53469841205515,
+      "timeout_seconds": 25,
+      "return_estimate": {
+        "status": "provisional_partial_not_a_bound",
+        "known_read_quiet_seconds": 10.889427614049055,
+        "unbounded_components": [
+          "writer",
+          "freshness_gap",
+          "disarm",
+          "variability"
+        ],
+        "partial_margin_seconds": 14.645261452998966
+      },
+      "label": "marker",
+      "target_role": "panel",
+      "end_monotonic": 612233.17640725
+    },
+    {
+      "at_monotonic": 612233.177649552,
+      "remaining_active_seconds": 24.96451237704605,
+      "timeout_seconds": 15,
+      "return_estimate": {
+        "status": "provisional_partial_not_a_bound",
+        "known_read_quiet_seconds": 10.889427614049055,
+        "unbounded_components": [
+          "writer",
+          "freshness_gap",
+          "disarm",
+          "variability"
+        ],
+        "partial_margin_seconds": 14.075075629050843
+      },
+      "label": "camera-sham15-hold-start",
+      "target_role": "camera",
+      "end_monotonic": 612233.732291818
+    },
+    {
+      "at_monotonic": 612233.740357806,
+      "remaining_active_seconds": 24.401804193039425,
+      "timeout_seconds": 24.401804193039425,
+      "return_estimate": {
+        "status": "provisional_partial_not_a_bound",
+        "known_read_quiet_seconds": 10.889427614049055,
+        "unbounded_components": [
+          "writer",
+          "freshness_gap",
+          "disarm",
+          "variability"
+        ],
+        "partial_margin_seconds": 13.512367604998872
+      },
+      "label": "envelope-state",
+      "target_role": "panel",
+      "end_monotonic": 612234.679337276
+    },
+    {
+      "at_monotonic": 612234.683464046,
+      "remaining_active_seconds": 23.45869792206213,
+      "timeout_seconds": 23.45869792206213,
+      "return_estimate": {
+        "status": "provisional_partial_not_a_bound",
+        "known_read_quiet_seconds": 10.889427614049055,
+        "unbounded_components": [
+          "writer",
+          "freshness_gap",
+          "disarm",
+          "variability"
+        ],
+        "partial_margin_seconds": 12.569263698998839
+      },
+      "label": "envelope-quiet-return15_PRE",
+      "target_role": "panel",
+      "end_monotonic": 612238.0160421
+    },
+    {
+      "at_monotonic": 612238.233315699,
+      "remaining_active_seconds": 19.908847512095235,
+      "timeout_seconds": 15,
+      "return_estimate": {
+        "status": "provisional_partial_not_a_bound",
+        "known_read_quiet_seconds": 10.889427614049055,
+        "unbounded_components": [
+          "writer",
+          "freshness_gap",
+          "disarm",
+          "variability"
+        ],
+        "partial_margin_seconds": 9.019399206968956
+      },
+      "label": "camera-sham15-hold-end",
+      "target_role": "camera",
+      "end_monotonic": 612238.681308235
+    },
+    {
+      "at_monotonic": 612238.691264892,
+      "remaining_active_seconds": 19.45089709700551,
+      "timeout_seconds": 19.45089709700551,
+      "return_estimate": {
+        "status": "provisional_partial_not_a_bound",
+        "known_read_quiet_seconds": 10.889427614049055,
+        "unbounded_components": [
+          "writer",
+          "freshness_gap",
+          "disarm",
+          "variability"
+        ],
+        "partial_margin_seconds": 8.561460269032978
+      },
+      "label": "envelope-sham15-hold-end",
+      "target_role": "panel",
+      "end_monotonic": 612239.837386
+    },
+    {
+      "at_monotonic": 612239.845284595,
+      "remaining_active_seconds": 18.296877294080332,
+      "timeout_seconds": 18.296877294080332,
+      "return_estimate": {
+        "status": "provisional_partial_not_a_bound",
+        "known_read_quiet_seconds": 10.889427614049055,
+        "unbounded_components": [
+          "writer",
+          "freshness_gap",
+          "disarm",
+          "variability"
+        ],
+        "partial_margin_seconds": 7.40744313900359
+      },
+      "label": "envelope-return15-dispatch-gap",
+      "target_role": "panel",
+      "end_monotonic": 612240.919983633
+    },
+    {
+      "at_monotonic": 612240.930156787,
+      "remaining_active_seconds": 17.21200499101542,
+      "timeout_seconds": 17.21200499101542,
+      "return_estimate": {
+        "status": "provisional_partial_not_a_bound",
+        "known_read_quiet_seconds": 10.889427614049055,
+        "unbounded_components": [
+          "writer",
+          "freshness_gap",
+          "disarm",
+          "variability"
+        ],
+        "partial_margin_seconds": 6.3225705770310014
+      },
+      "label": "envelope-return15-write",
+      "target_role": "panel",
+      "end_monotonic": 612243.592221166
+    },
+    {
+      "at_monotonic": 612243.603262358,
+      "remaining_active_seconds": 14.538899511098862,
+      "timeout_seconds": 14.538899511098862,
+      "return_estimate": {
+        "status": "provisional_partial_not_a_bound",
+        "known_read_quiet_seconds": 10.889427614049055,
+        "unbounded_components": [
+          "writer",
+          "freshness_gap",
+          "disarm",
+          "variability"
+        ],
+        "partial_margin_seconds": 3.6494646159699187
+      },
+      "label": "envelope-state",
+      "target_role": "panel",
+      "end_monotonic": 612244.53661061
+    },
+    {
+      "at_monotonic": 612244.540262645,
+      "remaining_active_seconds": 13.601899074041285,
+      "timeout_seconds": 13.601899074041285,
+      "return_estimate": {
+        "status": "provisional_partial_not_a_bound",
+        "known_read_quiet_seconds": 10.889427614049055,
+        "unbounded_components": [
+          "writer",
+          "freshness_gap",
+          "disarm",
+          "variability"
+        ],
+        "partial_margin_seconds": 2.712464148993604
+      },
+      "label": "envelope-quiet-return15",
+      "target_role": "panel",
+      "end_monotonic": 612247.714440221
+    },
+    {
+      "at_monotonic": 612247.727969785,
+      "remaining_active_seconds": 10.41419198398944,
+      "timeout_seconds": 10.41419198398944,
+      "return_estimate": {
+        "status": "provisional_partial_not_a_bound",
+        "known_read_quiet_seconds": 10.889427614049055,
+        "unbounded_components": [
+          "writer",
+          "freshness_gap",
+          "disarm",
+          "variability"
+        ],
+        "partial_margin_seconds": -0.4752417190466076
+      },
+      "label": "envelope-return15-p85",
+      "target_role": "panel",
+      "end_monotonic": 612249.985769972
+    },
+    {
+      "at_monotonic": 612249.999549192,
+      "remaining_active_seconds": 8.142612767987885,
+      "timeout_seconds": 8.142612767987885,
+      "return_estimate": {
+        "status": "provisional_partial_not_a_bound",
+        "known_read_quiet_seconds": 10.889427614049055,
+        "unbounded_components": [
+          "writer",
+          "freshness_gap",
+          "disarm",
+          "variability"
+        ],
+        "partial_margin_seconds": -2.7468262349721044
+      },
+      "label": "envelope-return15-c1",
+      "target_role": "panel",
+      "end_monotonic": 612252.19577222
+    },
+    {
+      "at_monotonic": 612252.203975495,
+      "remaining_active_seconds": 5.938186475075781,
+      "timeout_seconds": 5.938186475075781,
+      "return_estimate": {
+        "status": "provisional_partial_not_a_bound",
+        "known_read_quiet_seconds": 10.889427614049055,
+        "unbounded_components": [
+          "writer",
+          "freshness_gap",
+          "disarm",
+          "variability"
+        ],
+        "partial_margin_seconds": -4.9512482300633565
+      },
+      "label": "disarm-candidate",
+      "target_role": "panel",
+      "end_monotonic": 612252.775683213
+    }
+  ],
+  "timed_watchdog_seconds": 60,
+  "timed_watchdog_renewals": 0,
+  "active_limit_seconds": 37,
+  "host_limit_seconds": 45,
+  "recovery_reserve_seconds": 8,
+  "admission": "Factory15 exploratory measurement only; no proven whole-return bound",
+  "diagnostic_change": "Sham C1 not measured; baseline and return C1 mandatory",
+  "source_commit": "1785d32fd011314df3f1c5c55a5d3cbe0ee6b8a2",
+  "source_blob_ids": {
+    "06-tools/a9_reproduction.py": "94c1a26ad66b509438261a4b9f98247f11fd7e02",
+    "06-tools/camera_capture_metadata.py": "e592171fb1d13f3a4d7631bdd00e01f1b82daf00",
+    "06-tools/capture_ddic_c1.py": "fa93fefb8e2ddd1062d96105c6b54e6476a0b6d6",
+    "06-tools/dsi_trial_transaction.py": "64b85ce49f80cb10ca50e85da6cb581968954764",
+    "06-tools/guarded_adb_socket.py": "530b34a883d9e6d7a0fabcc67e9e16d2b2f61c68",
+    "06-tools/p85_batched_envelope.py": "ac3d55f5f7928ad8e55b9090615e23f9f35d5e0e",
+    "06-tools/p85_guarded_trial.py": "e3073105b7c8e502e305bac81657091d52218ae0",
+    "06-tools/p85_single_bit_plan.py": "d69e3a68d9f346716d04bc744652b965b278663a",
+    "06-tools/run_dsi_mode_trial.py": "e1d3b1af4e1616c9d2f67a8a2ea11f126d0d0181",
+    "06-tools/run_p85_batched_trial.py": "ee12beb0890ef809bfdb8f0bddc6a40ade6eba0e",
+    "06-tools/run_p85_guarded_trial.py": "ebf8ab9e3220c642fa1be1c3e51ffcee6aa4cd94",
+    "06-tools/run_p85_timed_stock_trial.py": "9c804b7f12c5a77768d2487c31703b66c540f62c",
+    "06-tools/stock_c1_sweep.py": "b37529b22da7991bc55cc8a73a387787c6926058"
+  },
+  "source_worktree_clean_for_runner": true,
+  "source_tracked_paths": [
+    "06-tools/run_p85_guarded_trial.py",
+    "06-tools/p85_guarded_trial.py",
+    "06-tools/stock_c1_sweep.py",
+    "06-tools/capture_ddic_c1.py",
+    "06-tools/p85_single_bit_plan.py",
+    "06-tools/dsi_trial_transaction.py",
+    "06-tools/a9_reproduction.py",
+    "06-tools/camera_capture_metadata.py",
+    "06-tools/run_dsi_mode_trial.py",
+    "06-tools/guarded_adb_socket.py",
+    "06-tools/p85_batched_envelope.py",
+    "06-tools/run_p85_batched_trial.py",
+    "06-tools/run_p85_timed_stock_trial.py"
+  ],
+  "envelope_command_size_preflight": {
+    "state": {
+      "service_bytes": 2401,
+      "shell_argv_bytes_including_nul": 2389,
+      "service_limit_bytes": 65535,
+      "argv_limit_bytes": 131072
+    },
+    "quiet": {
+      "service_bytes": 3298,
+      "shell_argv_bytes_including_nul": 3286,
+      "service_limit_bytes": 65535,
+      "argv_limit_bytes": 131072
+    },
+    "hold_end": {
+      "service_bytes": 2872,
+      "shell_argv_bytes_including_nul": 2860,
+      "service_limit_bytes": 65535,
+      "argv_limit_bytes": 131072
+    },
+    "p85": {
+      "service_bytes": 29339,
+      "shell_argv_bytes_including_nul": 29327,
+      "service_limit_bytes": 65535,
+      "argv_limit_bytes": 131072
+    },
+    "c1": {
+      "service_bytes": 29332,
+      "shell_argv_bytes_including_nul": 29320,
+      "service_limit_bytes": 65535,
+      "argv_limit_bytes": 131072
+    },
+    "sham15": {
+      "service_bytes": 27316,
+      "shell_argv_bytes_including_nul": 27304,
+      "service_limit_bytes": 65535,
+      "argv_limit_bytes": 131072
+    },
+    "return15": {
+      "service_bytes": 27316,
+      "shell_argv_bytes_including_nul": 27304,
+      "service_limit_bytes": 65535,
+      "argv_limit_bytes": 131072
+    },
+    "timed_sham15": {
+      "service_bytes": 30156,
+      "shell_argv_bytes_including_nul": 30144,
+      "service_limit_bytes": 65535,
+      "argv_limit_bytes": 131072
+    },
+    "timed_return15": {
+      "service_bytes": 30156,
+      "shell_argv_bytes_including_nul": 30144,
+      "service_limit_bytes": 65535,
+      "argv_limit_bytes": 131072
+    }
+  },
+  "before": {
+    "screen_brightness": "98",
+    "screen_brightness_mode": "0",
+    "min_refresh_rate": "120.0",
+    "peak_refresh_rate": "120.0",
+    "screen_off_timeout": "1800000",
+    "native_dbv": 828,
+    "logger": 0
+  },
+  "watchdog_state": "disarmed_verified",
+  "fresh_native_anchor": [
+    {
+      "software_requested_hz": 90,
+      "native_peak_hz": 90,
+      "native_actual_hz": 90,
+      "native_group": 5,
+      "clock_rate": 1234000000,
+      "width": 1440,
+      "height": 3168,
+      "timing_node": "timing@2",
+      "fresh_native_events": 1,
+      "begin_marker": "PWM_P85_p85_timed_stock_a001_20261108_02_ANCHOR_BEGIN_90",
+      "end_marker": "PWM_P85_p85_timed_stock_a001_20261108_02_ANCHOR_END_90"
+    },
+    {
+      "software_requested_hz": 120,
+      "native_peak_hz": 120,
+      "native_actual_hz": 120,
+      "native_group": 3,
+      "clock_rate": 1234000000,
+      "width": 1440,
+      "height": 3168,
+      "timing_node": "timing@0",
+      "fresh_native_events": 2,
+      "begin_marker": "PWM_P85_p85_timed_stock_a001_20261108_02_ANCHOR_BEGIN_120",
+      "end_marker": "PWM_P85_p85_timed_stock_a001_20261108_02_ANCHOR_END_120"
+    }
+  ],
+  "setup_brightness": {
+    "requested_dbv": 3600,
+    "native_logged_values": [
+      3600
+    ],
+    "same_value_cached_allowed": false
+  },
+  "initial_quiet": {
+    "begin_marker": "PWM_P85_p85_timed_stock_a001_20261108_02_QUIET_BEGIN_INITIAL_0",
+    "end_marker": "PWM_P85_p85_timed_stock_a001_20261108_02_QUIET_END_INITIAL_0",
+    "native_state": {
+      "width": 1440,
+      "height": 3168,
+      "software_peak_hz": 120,
+      "native_actual_hz": 120,
+      "native_group": 3,
+      "clock_rate": 1234000000,
+      "timing_node": "timing@0",
+      "evidence": "latest retained dsi_display_set_mode anchor, not physical PWM"
+    },
+    "quiet_seconds": 2,
+    "race_limit": "not an atomic compositor lock; no retries in batched qualification",
+    "kernel_marker_bounds": {
+      "begin_seconds": 7175.764988,
+      "end_seconds": 7177.989299,
+      "clock": "target kernel printk monotonic; not host/camera clock"
+    }
+  },
+  "recording_start_host_bounds": {
+    "begin_monotonic": 612184.592291565,
+    "begin_utc": "2026-11-08T18:59:32.306202+00:00",
+    "end_monotonic": 612187.675612985,
+    "end_utc": "2026-11-08T18:59:35.389522+00:00"
+  },
+  "recording_settle": {
+    "status": "qualified",
+    "deadline_seconds": 8.0,
+    "initial_settle_seconds": 2.0,
+    "maximum_dumps": 5,
+    "attempts": [
+      {
+        "attempt": 1,
+        "private_label": "recording-settle-1",
+        "status": "fully_valid",
+        "host_call_start_utc": "2026-11-08T18:59:37.390318+00:00",
+        "host_call_end_utc": "2026-11-08T18:59:38.094867+00:00",
+        "host_call_elapsed_seconds": 0.7045467849820852
+      },
+      {
+        "attempt": 2,
+        "private_label": "recording-settle-2",
+        "status": "fully_valid",
+        "host_call_start_utc": "2026-11-08T18:59:38.353764+00:00",
+        "host_call_end_utc": "2026-11-08T18:59:39.286885+00:00",
+        "host_call_elapsed_seconds": 0.9331233520060778
+      }
+    ],
+    "wall_clock_alarm_seconds": 8.0,
+    "elapsed_seconds": 3.903210499091074
+  },
+  "recording_preflight": [
+    {
+      "camera_id": "0",
+      "client_package": "net.sourceforge.opencamera",
+      "session_token": "708adb8a36ca46153a5990f4fef96b8ed616c3087dd3cb3d6d05fe0c7d355e11",
+      "request": {
+        "exposure_ns": 100000,
+        "iso": 6400,
+        "ae_mode": "OFF",
+        "af_mode": "OFF",
+        "focus_diopters": 2.0387485,
+        "crop": [
+          0,
+          0,
+          4080,
+          3072
+        ],
+        "zoom": 1.0,
+        "eis_mode": "OFF",
+        "ois_mode": "OFF",
+        "capture_intent": "VIDEO_RECORD",
+        "request_id": 308,
+        "frame_duration_ns": 33333333
+      },
+      "result": {
+        "exposure_ns": 100000,
+        "iso": 6400,
+        "ae_mode": "OFF",
+        "af_mode": "OFF",
+        "focus_diopters": 2.0387485,
+        "crop": [
+          0,
+          0,
+          4080,
+          3072
+        ],
+        "zoom": 1.0,
+        "eis_mode": "OFF",
+        "ois_mode": "OFF",
+        "capture_intent": "VIDEO_RECORD",
+        "request_id": 308,
+        "frame_duration_ns": 33350000,
+        "frame_count": 983997,
+        "timestamp_ns": 42675075484000,
+        "rolling_shutter_skew_ns": 15047630
+      },
+      "streams": [
+        {
+          "id": 62,
+          "width": 1920,
+          "height": 1080,
+          "pixel_format": "0x11",
+          "state": 4,
+          "consumer_kind": "SurfaceTexture",
+          "frames_produced": 55,
+          "last_timestamp_ns": 42675075484000,
+          "requested": true
+        },
+        {
+          "id": 63,
+          "width": 1280,
+          "height": 720,
+          "pixel_format": "0x1000",
+          "state": 4,
+          "consumer_kind": "GraphicBufferSource",
+          "frames_produced": 55,
+          "last_timestamp_ns": 42675075484000,
+          "requested": true
+        },
+        {
+          "id": 64,
+          "width": 3840,
+          "height": 2160,
+          "pixel_format": "0x21",
+          "state": 4,
+          "consumer_kind": "ImageReader",
+          "frames_produced": 0,
+          "last_timestamp_ns": 0,
+          "requested": false
+        }
+      ],
+      "recording_verified": true,
+      "encoder_stream_id": 63,
+      "frame_count": 983997,
+      "timestamp_ns": 42675075484000,
+      "frame_duration_ns": 33350000,
+      "rolling_shutter_skew_ns": 15047630,
+      "progress_verified": false,
+      "interpretation": "Settings and stream snapshots only; not per-frame video metadata or optical Hz.",
+      "host_call_start_utc": "2026-11-08T18:59:37.390318+00:00",
+      "host_call_end_utc": "2026-11-08T18:59:38.094867+00:00",
+      "host_call_elapsed_seconds": 0.7045467849820852,
+      "host_capture_bounds": {
+        "begin_monotonic": 612189.676405097,
+        "end_monotonic": 612190.380951882,
+        "begin_utc": "2026-11-08T18:59:37.390318+00:00",
+        "end_utc": "2026-11-08T18:59:38.094867+00:00",
+        "limit": "Call bounds only, not synchronized sensor/encoded PTS or per-frame metadata."
+      }
+    },
+    {
+      "camera_id": "0",
+      "client_package": "net.sourceforge.opencamera",
+      "session_token": "708adb8a36ca46153a5990f4fef96b8ed616c3087dd3cb3d6d05fe0c7d355e11",
+      "request": {
+        "exposure_ns": 100000,
+        "iso": 6400,
+        "ae_mode": "OFF",
+        "af_mode": "OFF",
+        "focus_diopters": 2.0387485,
+        "crop": [
+          0,
+          0,
+          4080,
+          3072
+        ],
+        "zoom": 1.0,
+        "eis_mode": "OFF",
+        "ois_mode": "OFF",
+        "capture_intent": "VIDEO_RECORD",
+        "request_id": 308,
+        "frame_duration_ns": 33333333
+      },
+      "result": {
+        "exposure_ns": 100000,
+        "iso": 6400,
+        "ae_mode": "OFF",
+        "af_mode": "OFF",
+        "focus_diopters": 2.0387485,
+        "crop": [
+          0,
+          0,
+          4080,
+          3072
+        ],
+        "zoom": 1.0,
+        "eis_mode": "OFF",
+        "ois_mode": "OFF",
+        "capture_intent": "VIDEO_RECORD",
+        "request_id": 308,
+        "frame_duration_ns": 33350000,
+        "frame_count": 984026,
+        "timestamp_ns": 42676042139000,
+        "rolling_shutter_skew_ns": 15047630
+      },
+      "streams": [
+        {
+          "id": 62,
+          "width": 1920,
+          "height": 1080,
+          "pixel_format": "0x11",
+          "state": 4,
+          "consumer_kind": "SurfaceTexture",
+          "frames_produced": 84,
+          "last_timestamp_ns": 42676042139000,
+          "requested": true
+        },
+        {
+          "id": 63,
+          "width": 1280,
+          "height": 720,
+          "pixel_format": "0x1000",
+          "state": 4,
+          "consumer_kind": "GraphicBufferSource",
+          "frames_produced": 84,
+          "last_timestamp_ns": 42676042139000,
+          "requested": true
+        },
+        {
+          "id": 64,
+          "width": 3840,
+          "height": 2160,
+          "pixel_format": "0x21",
+          "state": 4,
+          "consumer_kind": "ImageReader",
+          "frames_produced": 0,
+          "last_timestamp_ns": 0,
+          "requested": false
+        }
+      ],
+      "recording_verified": true,
+      "encoder_stream_id": 63,
+      "frame_count": 984026,
+      "timestamp_ns": 42676042139000,
+      "frame_duration_ns": 33350000,
+      "rolling_shutter_skew_ns": 15047630,
+      "progress_verified": true,
+      "interpretation": "Settings and stream snapshots only; not per-frame video metadata or optical Hz.",
+      "host_call_start_utc": "2026-11-08T18:59:38.353764+00:00",
+      "host_call_end_utc": "2026-11-08T18:59:39.286885+00:00",
+      "host_call_elapsed_seconds": 0.9331233520060778,
+      "host_capture_bounds": {
+        "begin_monotonic": 612190.639850996,
+        "end_monotonic": 612191.572974348,
+        "begin_utc": "2026-11-08T18:59:38.353764+00:00",
+        "end_utc": "2026-11-08T18:59:39.286885+00:00",
+        "limit": "Call bounds only, not synchronized sensor/encoded PTS or per-frame metadata."
+      }
+    }
+  ],
+  "baseline_review_image_sha256": "4e89f00c6011ea78264d78b2048396a49a1a186b9fe1da9c6894df5773344b2a",
+  "baseline_review_image_private_label": "baseline-camera-review.png",
+  "active_start_monotonic": 612221.142161268,
+  "arm_seconds": 1.1429981589317322,
+  "arm_request_to_verified_seconds": 1.1429704970214516,
+  "candidate_watchdog": "disarmed_after_verified_return_or_boot",
+  "writes": [
+    {
+      "stage": "sham15",
+      "started_monotonic": 612222.286007876,
+      "device_guard_seconds": 0.1999999999998181,
+      "dispatch_monotonic": 612223.453200755,
+      "validated_monotonic": 612226.19590813,
+      "elapsed_seconds": 3.9099005749449134,
+      "standalone_callbacks": 3,
+      "native_and_wire_gates": true,
+      "quiet_age_to_callback_upper_seconds": 5.0537860210752115,
+      "quiet_age_limit": "Host upper bound through validated return; not synchronized callback time",
+      "camera_end_to_dispatch_seconds": null
+    },
+    {
+      "stage": "return15",
+      "started_monotonic": 612239.843945767,
+      "device_guard_seconds": 0.18000000000029104,
+      "dispatch_monotonic": 612240.928712721,
+      "validated_monotonic": 612243.600650321,
+      "elapsed_seconds": 3.756704773986712,
+      "standalone_callbacks": 3,
+      "native_and_wire_gates": true,
+      "quiet_age_to_callback_upper_seconds": 5.5781609119148925,
+      "quiet_age_limit": "Host upper bound through validated return; not synchronized callback time",
+      "camera_end_to_dispatch_seconds": 2.2465561979915947
+    }
+  ],
+  "explicit15_readback_and_stock_c1_verified": true,
+  "return_qualified_monotonic": 612252.202931802,
+  "disarmed_monotonic": 612252.778961114,
+  "disarm_seconds": 0.5760293119819835,
+  "active_G_seconds": 31.636799845960923,
+  "host_alarm_restored_before_cleanup": true,
+  "explicit15_readback_and_stock_c1_return": true,
+  "camera_stopped_verified": true,
+  "video_profile": {
+    "codec": "h264",
+    "size": [
+      1280,
+      720
+    ],
+    "audio_streams": 0,
+    "encoded_average_fps": 30.000038478031396,
+    "duration_seconds": 77.965744,
+    "pwm_hz": null
+  },
+  "video_private_label": "capture.mp4",
+  "video_bytes": 88103769,
+  "camera_ui_temp_removed": true,
+  "original_settings_dbv_logger_restored": true,
+  "watchdog_disarmed": true,
+  "mutex_released": true,
+  "finished_at_utc": "2026-11-08T19:01:26.997313+00:00"
+}
