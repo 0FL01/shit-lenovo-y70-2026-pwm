@@ -15,12 +15,19 @@ read from the target and the exact persistent KernelSU-Next boot image.
 
 ## GitHub Release `evidence-2026-11-08`
 
-The 21 raw optical recordings are Release assets, not Git objects:
+The 21 raw optical recordings are intended to be Release assets, not Git
+objects.
 
-- release URL: `https://github.com/0FL01/shit-lenovo-y70-2026-pwm/releases/tag/evidence-2026-11-08`
+- pushed tag: `https://github.com/0FL01/shit-lenovo-y70-2026-pwm/tree/evidence-2026-11-08`
+- release URL (to be created): `https://github.com/0FL01/shit-lenovo-y70-2026-pwm/releases/tag/evidence-2026-11-08`
 - total: 1,489,668,232 bytes (1420.7 MiB)
-- upload status: assets must be uploaded to the release tag; the shared
-  checksum file is tracked in Git as `artifacts/large_evidence_sha256.txt`.
+- upload status on 2026-11-08: the Git tag and checksum file are pushed, but
+  the Release and its assets are **not yet uploaded**. The `GITHUB_TOKEN`
+  available in the working environment could read the repository but
+  `POST /releases` returned HTTP 403 `Resource not accessible by personal access
+  token`. Create the Release with a token that has repository `Contents: write`
+  (or upload through the GitHub web UI), then upload the two archives and
+  `SHA256SUMS`.
 
 | File | Bytes | SHA256 |
 |---|---:|---|

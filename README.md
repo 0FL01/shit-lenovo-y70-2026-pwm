@@ -25,6 +25,8 @@
 - `04-tasks/acceptance.md`: критерии выполненности каждого исследовательского этапа.
 - `05-safety/gates.md`: контрольные точки записывающих операций, разметка A/B и обязательный откат.
 - `05-safety/optical_measurement.md`: объективная проверка реальной частоты PWM.
+- `RECONSTRUCTION.md`: восстановление внешних ROM/GKI/KernelSU-входов, pinned commits и build-команд.
+- `artifacts/LARGE_EVIDENCE.md`: LFS-образы и Release-архивы с сырыми оптическими записями.
 - `06-tools/collect_readonly.sh`: безопасное снятие доступных без root сведений с телефона.
 - `06-tools/scan_workspace.sh`: read-only первичная индексация распакованных исходников и ROM.
 - `WORKSTATE.md`: журнал для передачи контекста между сеансами агента.

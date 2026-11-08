@@ -153,9 +153,11 @@ only as provenance in `artifacts/firmware_manifest.json`.
 ## 4. Large unique evidence
 
 Raw optical recordings (21 MP4 files) and the two LFS boot images are outside
-normal Git history. The recordings are distributed as GitHub Release assets under
-the tag `evidence-2026-11-08`; see `artifacts/LARGE_EVIDENCE.md` for the file
-list, SHA256 manifest and extraction commands.
+normal Git history. The recordings are intended to be distributed as GitHub
+Release assets under the tag `evidence-2026-11-08`; the tag and checksum file are
+pushed, but the Release asset upload is still pending because the available token
+lacks release permission. See `artifacts/LARGE_EVIDENCE.md` for the current
+status, file list, SHA256 manifest and extraction commands.
 
 If the release assets are unavailable, the original files remain in the local
 workspace at:
@@ -176,9 +178,10 @@ python3 -m venv .venv
 OPENBLAS_NUM_THREADS=2 .venv/bin/python -m unittest discover -s 06-tools -p 'test_*.py' -v
 ```
 
-Expected result from the recorded workspace: 16 tests pass. The full GKI rebuild
-is optional and requires the external source workspace and toolchain; it is not
-part of a text-only clone.
+Expected result from the recorded workspace: 29 tests run, 2 Ghidra
+known-answer tests skipped (`GHIDRA_TOOLKIT_KNOWN_ANSWER=1` enables them). The
+full GKI rebuild is optional and requires the external source workspace and
+toolchain; it is not part of a text-only clone.
 
 ## 6. Security and privacy
 
