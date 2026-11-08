@@ -109,3 +109,18 @@ consistent with the init value. It does not establish register width, whether
 the trailing zeros are padding, read/write plane identity, writability or PWM
 frequency. Header framing distinguishes the three payload bytes from CRC;
 the payload CRC itself was not captured. No request1 retry or85 write is implied.
+
+## Later TX failure-path audit
+
+The exact module's TX debugfs writer returns the submitted bytecount regardless
+of the native transfer callback's success, storing that success separately.
+This standalone85 helper inherits the historical C1 cleanup: actual return
+validation occurs on the host only after cleanup, so shell success alone cannot
+prevent an extra page0 after a native TX failure. It does not provide the later
+in-device continuation gates implemented by`stock_c1_sweep.py`.
+
+The existing stock828 long3 observation is not invalidated: its saved native
+returns were independently verified as`[0,3,0,0]`/`[0,0,0]`, with successful
+cleanup. Keep that evidence and the original strict short-only contract intact.
+Future diagnostic workflows need the gated failure-path design, not a blind
+reuse of standalone cleanup as recovery for an uncertain queue.

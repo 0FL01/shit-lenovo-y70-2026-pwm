@@ -1,0 +1,55 @@
+{
+  "index": 0,
+  "native_dbv": 828,
+  "nonce": "2c6503935b51",
+  "started_at_utc": "2026-11-08T16:09:16.351773+00:00",
+  "status": "qualified",
+  "quiet": {
+    "begin_marker": "PWM_STOCK_C1_stock_c1_20261108_01_QUIET_BEGIN_P0_828_0",
+    "end_marker": "PWM_STOCK_C1_stock_c1_20261108_01_QUIET_END_P0_828_0",
+    "native_state": {
+      "width": 1440,
+      "height": 3168,
+      "software_peak_hz": 120,
+      "native_actual_hz": 120,
+      "native_group": 3,
+      "clock_rate": 1234000000,
+      "timing_node": "timing@0",
+      "evidence": "latest retained dsi_display_set_mode anchor, not physical PWM"
+    },
+    "quiet_seconds": 2,
+    "race_limit": "not an atomic compositor lock"
+  },
+  "native_dispatch": {
+    "requested_dbv": 828,
+    "native_logged_values": [
+      828
+    ],
+    "same_value_cached_allowed": true
+  },
+  "pwm_hz": null,
+  "page": "23",
+  "opcode": "C1",
+  "requested": 3,
+  "data": [
+    0,
+    2,
+    179
+  ],
+  "header_hex": "1c 03 00 16",
+  "raw_hardware_count": 9,
+  "normalized_count": 9,
+  "scratch_allocation": 16,
+  "single_receive": true,
+  "framing_qualified": true,
+  "cleanup_verified": true,
+  "software_refresh": 120.00001,
+  "limit": "C1 semantics and writable behavior unknown; CRC payload itself not captured.",
+  "in_device_return_gates_verified": true,
+  "page_entries_standalone": true,
+  "read_markers": {
+    "begin": "PWM_STOCK_C1_stock_c1_20261108_01_READ_BEGIN_P0_828",
+    "end": "PWM_STOCK_C1_stock_c1_20261108_01_READ_END_P0_828"
+  },
+  "finished_at_utc": "2026-11-08T16:09:22.378245+00:00"
+}

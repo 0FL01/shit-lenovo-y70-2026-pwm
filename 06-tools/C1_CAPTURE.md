@@ -74,15 +74,34 @@ never removed. A hung kernel or hard kill can defeat cleanup. The coordinator
 must independently recover page/ESD or perform its authorized ordinary reboot
 when the result is uncertain; this tool never reboots by itself.
 
-## Testable hypothesis
+## Historical hypothesis, not a general decoder
 
-Historical C1 prefixes are00 00 65 at lowDBV120/60,00 00 55 at lowDBV144, and
+Historical unqualified C1 prefixes are00 00 65 at DBV3584/120 or60,
+00 00 55 at DBV3584/144, and
 00 00 10 above the3601 boundary. High nibbles6×120 and5×144 both give720 under
 an unproven count/base-clock interpretation. Selected DT uses the same00:60=00
 base selector at120/60, with2D:83=0/1 frame division. The hypothesis predicts8
-at stock90, and a change to1 under A9-only would instead support DC-like reduction
-of pulse count. None of these predictions establishes writability or≥2000Hz.
+at stock90. A change to raw0010 under A9-only was provisionally interpreted as a
+possible DC-like count reduction. The later brightness sweep below limits this
+interpretation:0010 is not independently decoded as one physical pulse.
+None of these predictions establishes writability or≥2000Hz.
 Never write C1 based on these observations.
+
+## Later TX failure-path audit
+
+The exact module's `_sde_debugfs_conn_cmd_tx_write` stores native callback success
+at connector+0x12f1 but returns the user bytecount even when that callback failed.
+Therefore successful shell printf does not prove a successful page write. This
+historical standalone helper validates native returns only after its cleanup;
+it has no in-device return gate preventing a following page0 on native TX failure.
+Its unconditional cleanup page0 must not be described as safe queue recovery.
+
+The saved successful captures remain valid: their actual controller/page return
+sequences were checked and all relevant returns were successful. The limitation
+concerns failure-path continuation, not those qualified observations. For future
+sweeps use the isolated gated adapter in`stock_c1_sweep.py`, which checks actual
+returns/framing before subsequent DSI and uses reboot for uncertain recovery.
+The original reader code/interface remains unchanged for compatibility.
 
 Offline validation:
 `PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s 06-tools -p test_capture_ddic_c1.py -v`.
@@ -120,10 +139,37 @@ stock120/3646=`00 00 10`. Each has header`1c 03 00 16`, normalized/raw count9,
 one receive and verified cleanup. Each private trace has controller returns
 `[0,3,0,0]` and page-writer returns`[0,0,0]`, on separate printf tasks.
 
-The90 prediction now has real qualified support: a candidate count interpreted
-as`BE24>>4` gives8×90=5×144=6×120=720, then1 above the brightness boundary.
-This is strong evidence for a count/status relationship, not independently
-measured physical Hz or a writable control. Every qualified low nibble is0;
-the old unqualified65/55 prefixes must not define a fixed secondary field.
-An A9 comparison can next distinguish count reduction toward1 from a different
-duty/gain mechanism. No C1 write or new count profile is proposed.
+The90 prediction gained qualified support: under the provisional`BE24>>4`
+count interpretation,8×90=5×144=6×120=720, then1 above the brightness boundary.
+This is a local arithmetic relationship, not a general field decoder, measured
+physical Hz or a writable control. In these five near-boundary observations the
+low nibble was0; this is not true over the wider brightness range below.
+The old unqualified65/55 prefixes must not define a fixed secondary field.
+The later A9 series returned0060→0010→0060, but a reduction of physical pulse
+count remains conditional rather than decoded. No C1 write is proposed.
+
+## Qualified low-brightness sweep: semantic correction
+
+The completed[stock sweep](../artifacts/stock_c1_20261108_01/result.md) at fixed
+native actual120/group3 returned828=`00 02 B3`,460=`00 02 C0`,
+2048=`00 02 26`,3000=`00 01 30`,3600=`00 00 60`,return828=`00 02 B3`.
+All six raw captures were independently revalidated through the gated adapter,
+including framing, exact returns/profiles, quiet/timing and cleanup evidence.
+
+Long3 framing establishes three payload bytes, not one contiguous24-bit field;
+separate fields or auto-increment semantics remain possible. BE24 is only a
+numeric presentation, not a decoded register layout.
+Brightness-dependent returned bytes and nonzero low nibbles undermine using
+`BE24>>4` as a universal pulse-count/frequency decoder. Do not multiply these
+values by refresh to claim high PWM. Width, duty, aggregate off-time or another
+status quantity are possible, not established semantics. Near-boundary
+96/128/80=16×6/8/5 could still reflect pulse-related timing at a fixed minimum
+width; this observation is neither fully decoded nor globally refuted.
+
+An[older DBV828 clip](../artifacts/qualification_dbv828_20261108/result.md)
+has a similar observed50.6-row fine period to stock3600, despite much larger
+rawC1. The comparison is cross-session without simultaneous old-clip C1, and
+camera harmonics/aliasing remain possible. It is supporting evidence against
+simple whole-C1 proportionality, not proof of equal physical PWM or≥2000Hz.
+Earlier «one-count» language denotes only the old conditional interpretation
+of raw0010, not a verified physical count.

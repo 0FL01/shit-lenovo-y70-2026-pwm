@@ -1,0 +1,2163 @@
+{
+  "experiment_id": "stock_c1_20261108_01",
+  "points": [
+    828,
+    460,
+    2048,
+    3000,
+    3600,
+    828
+  ],
+  "marker": "PWM_STOCK_C1_stock_c1_20261108_01",
+  "module_sha256": "1bec69faec736e7288f38e4cb83314c37c60d33e6b383213316fd880aa0b1804",
+  "stock_dc": 0,
+  "software_refresh_hz": 120,
+  "anchor": [
+    90,
+    120
+  ],
+  "camera_touched": false,
+  "unknown_register_writes": false,
+  "recovery": "same-target ordinary reboot; device watchdog600s",
+  "pwm_hz": null,
+  "scope": "Stock brightness mapping and qualified C1 observations only",
+  "started_at_utc": "2026-11-08T16:08:25.584320+00:00",
+  "status": "completed",
+  "captures": [
+    {
+      "index": 0,
+      "native_dbv": 828,
+      "nonce": "2c6503935b51",
+      "started_at_utc": "2026-11-08T16:09:16.351773+00:00",
+      "status": "qualified",
+      "quiet": {
+        "begin_marker": "PWM_STOCK_C1_stock_c1_20261108_01_QUIET_BEGIN_P0_828_0",
+        "end_marker": "PWM_STOCK_C1_stock_c1_20261108_01_QUIET_END_P0_828_0",
+        "native_state": {
+          "width": 1440,
+          "height": 3168,
+          "software_peak_hz": 120,
+          "native_actual_hz": 120,
+          "native_group": 3,
+          "clock_rate": 1234000000,
+          "timing_node": "timing@0",
+          "evidence": "latest retained dsi_display_set_mode anchor, not physical PWM"
+        },
+        "quiet_seconds": 2,
+        "race_limit": "not an atomic compositor lock"
+      },
+      "native_dispatch": {
+        "requested_dbv": 828,
+        "native_logged_values": [
+          828
+        ],
+        "same_value_cached_allowed": true
+      },
+      "pwm_hz": null,
+      "page": "23",
+      "opcode": "C1",
+      "requested": 3,
+      "data": [
+        0,
+        2,
+        179
+      ],
+      "header_hex": "1c 03 00 16",
+      "raw_hardware_count": 9,
+      "normalized_count": 9,
+      "scratch_allocation": 16,
+      "single_receive": true,
+      "framing_qualified": true,
+      "cleanup_verified": true,
+      "software_refresh": 120.00001,
+      "limit": "C1 semantics and writable behavior unknown; CRC payload itself not captured.",
+      "in_device_return_gates_verified": true,
+      "page_entries_standalone": true,
+      "read_markers": {
+        "begin": "PWM_STOCK_C1_stock_c1_20261108_01_READ_BEGIN_P0_828",
+        "end": "PWM_STOCK_C1_stock_c1_20261108_01_READ_END_P0_828"
+      },
+      "finished_at_utc": "2026-11-08T16:09:22.378245+00:00"
+    },
+    {
+      "index": 1,
+      "native_dbv": 460,
+      "nonce": "c6875f723d25",
+      "started_at_utc": "2026-11-08T16:09:34.345122+00:00",
+      "status": "qualified",
+      "quiet": {
+        "begin_marker": "PWM_STOCK_C1_stock_c1_20261108_01_QUIET_BEGIN_P1_460_0",
+        "end_marker": "PWM_STOCK_C1_stock_c1_20261108_01_QUIET_END_P1_460_0",
+        "native_state": {
+          "width": 1440,
+          "height": 3168,
+          "software_peak_hz": 120,
+          "native_actual_hz": 120,
+          "native_group": 3,
+          "clock_rate": 1234000000,
+          "timing_node": "timing@0",
+          "evidence": "latest retained dsi_display_set_mode anchor, not physical PWM"
+        },
+        "quiet_seconds": 2,
+        "race_limit": "not an atomic compositor lock"
+      },
+      "native_dispatch": {
+        "requested_dbv": 460,
+        "native_logged_values": [
+          460
+        ],
+        "same_value_cached_allowed": false
+      },
+      "pwm_hz": null,
+      "page": "23",
+      "opcode": "C1",
+      "requested": 3,
+      "data": [
+        0,
+        2,
+        192
+      ],
+      "header_hex": "1c 03 00 16",
+      "raw_hardware_count": 9,
+      "normalized_count": 9,
+      "scratch_allocation": 16,
+      "single_receive": true,
+      "framing_qualified": true,
+      "cleanup_verified": true,
+      "software_refresh": 120.00001,
+      "limit": "C1 semantics and writable behavior unknown; CRC payload itself not captured.",
+      "in_device_return_gates_verified": true,
+      "page_entries_standalone": true,
+      "read_markers": {
+        "begin": "PWM_STOCK_C1_stock_c1_20261108_01_READ_BEGIN_P1_460",
+        "end": "PWM_STOCK_C1_stock_c1_20261108_01_READ_END_P1_460"
+      },
+      "finished_at_utc": "2026-11-08T16:09:40.303700+00:00"
+    },
+    {
+      "index": 2,
+      "native_dbv": 2048,
+      "nonce": "a68d6b98d4df",
+      "started_at_utc": "2026-11-08T16:09:52.363178+00:00",
+      "status": "qualified",
+      "quiet": {
+        "begin_marker": "PWM_STOCK_C1_stock_c1_20261108_01_QUIET_BEGIN_P2_2048_0",
+        "end_marker": "PWM_STOCK_C1_stock_c1_20261108_01_QUIET_END_P2_2048_0",
+        "native_state": {
+          "width": 1440,
+          "height": 3168,
+          "software_peak_hz": 120,
+          "native_actual_hz": 120,
+          "native_group": 3,
+          "clock_rate": 1234000000,
+          "timing_node": "timing@0",
+          "evidence": "latest retained dsi_display_set_mode anchor, not physical PWM"
+        },
+        "quiet_seconds": 2,
+        "race_limit": "not an atomic compositor lock"
+      },
+      "native_dispatch": {
+        "requested_dbv": 2048,
+        "native_logged_values": [
+          2048
+        ],
+        "same_value_cached_allowed": false
+      },
+      "pwm_hz": null,
+      "page": "23",
+      "opcode": "C1",
+      "requested": 3,
+      "data": [
+        0,
+        2,
+        38
+      ],
+      "header_hex": "1c 03 00 16",
+      "raw_hardware_count": 9,
+      "normalized_count": 9,
+      "scratch_allocation": 16,
+      "single_receive": true,
+      "framing_qualified": true,
+      "cleanup_verified": true,
+      "software_refresh": 120.00001,
+      "limit": "C1 semantics and writable behavior unknown; CRC payload itself not captured.",
+      "in_device_return_gates_verified": true,
+      "page_entries_standalone": true,
+      "read_markers": {
+        "begin": "PWM_STOCK_C1_stock_c1_20261108_01_READ_BEGIN_P2_2048",
+        "end": "PWM_STOCK_C1_stock_c1_20261108_01_READ_END_P2_2048"
+      },
+      "finished_at_utc": "2026-11-08T16:09:58.390123+00:00"
+    },
+    {
+      "index": 3,
+      "native_dbv": 3000,
+      "nonce": "287e4e96bc2b",
+      "started_at_utc": "2026-11-08T16:10:10.455781+00:00",
+      "status": "qualified",
+      "quiet": {
+        "begin_marker": "PWM_STOCK_C1_stock_c1_20261108_01_QUIET_BEGIN_P3_3000_0",
+        "end_marker": "PWM_STOCK_C1_stock_c1_20261108_01_QUIET_END_P3_3000_0",
+        "native_state": {
+          "width": 1440,
+          "height": 3168,
+          "software_peak_hz": 120,
+          "native_actual_hz": 120,
+          "native_group": 3,
+          "clock_rate": 1234000000,
+          "timing_node": "timing@0",
+          "evidence": "latest retained dsi_display_set_mode anchor, not physical PWM"
+        },
+        "quiet_seconds": 2,
+        "race_limit": "not an atomic compositor lock"
+      },
+      "native_dispatch": {
+        "requested_dbv": 3000,
+        "native_logged_values": [
+          3000
+        ],
+        "same_value_cached_allowed": false
+      },
+      "pwm_hz": null,
+      "page": "23",
+      "opcode": "C1",
+      "requested": 3,
+      "data": [
+        0,
+        1,
+        48
+      ],
+      "header_hex": "1c 03 00 16",
+      "raw_hardware_count": 9,
+      "normalized_count": 9,
+      "scratch_allocation": 16,
+      "single_receive": true,
+      "framing_qualified": true,
+      "cleanup_verified": true,
+      "software_refresh": 120.00001,
+      "limit": "C1 semantics and writable behavior unknown; CRC payload itself not captured.",
+      "in_device_return_gates_verified": true,
+      "page_entries_standalone": true,
+      "read_markers": {
+        "begin": "PWM_STOCK_C1_stock_c1_20261108_01_READ_BEGIN_P3_3000",
+        "end": "PWM_STOCK_C1_stock_c1_20261108_01_READ_END_P3_3000"
+      },
+      "finished_at_utc": "2026-11-08T16:10:16.508580+00:00"
+    },
+    {
+      "index": 4,
+      "native_dbv": 3600,
+      "nonce": "2a6d348c0cce",
+      "started_at_utc": "2026-11-08T16:10:28.399983+00:00",
+      "status": "qualified",
+      "quiet": {
+        "begin_marker": "PWM_STOCK_C1_stock_c1_20261108_01_QUIET_BEGIN_P4_3600_0",
+        "end_marker": "PWM_STOCK_C1_stock_c1_20261108_01_QUIET_END_P4_3600_0",
+        "native_state": {
+          "width": 1440,
+          "height": 3168,
+          "software_peak_hz": 120,
+          "native_actual_hz": 120,
+          "native_group": 3,
+          "clock_rate": 1234000000,
+          "timing_node": "timing@0",
+          "evidence": "latest retained dsi_display_set_mode anchor, not physical PWM"
+        },
+        "quiet_seconds": 2,
+        "race_limit": "not an atomic compositor lock"
+      },
+      "native_dispatch": {
+        "requested_dbv": 3600,
+        "native_logged_values": [
+          3600
+        ],
+        "same_value_cached_allowed": false
+      },
+      "pwm_hz": null,
+      "page": "23",
+      "opcode": "C1",
+      "requested": 3,
+      "data": [
+        0,
+        0,
+        96
+      ],
+      "header_hex": "1c 03 00 16",
+      "raw_hardware_count": 9,
+      "normalized_count": 9,
+      "scratch_allocation": 16,
+      "single_receive": true,
+      "framing_qualified": true,
+      "cleanup_verified": true,
+      "software_refresh": 120.00001,
+      "limit": "C1 semantics and writable behavior unknown; CRC payload itself not captured.",
+      "in_device_return_gates_verified": true,
+      "page_entries_standalone": true,
+      "read_markers": {
+        "begin": "PWM_STOCK_C1_stock_c1_20261108_01_READ_BEGIN_P4_3600",
+        "end": "PWM_STOCK_C1_stock_c1_20261108_01_READ_END_P4_3600"
+      },
+      "finished_at_utc": "2026-11-08T16:10:34.391431+00:00"
+    },
+    {
+      "index": 5,
+      "native_dbv": 828,
+      "nonce": "b59798393b7c",
+      "started_at_utc": "2026-11-08T16:10:46.355439+00:00",
+      "status": "qualified",
+      "quiet": {
+        "begin_marker": "PWM_STOCK_C1_stock_c1_20261108_01_QUIET_BEGIN_P5_828_0",
+        "end_marker": "PWM_STOCK_C1_stock_c1_20261108_01_QUIET_END_P5_828_0",
+        "native_state": {
+          "width": 1440,
+          "height": 3168,
+          "software_peak_hz": 120,
+          "native_actual_hz": 120,
+          "native_group": 3,
+          "clock_rate": 1234000000,
+          "timing_node": "timing@0",
+          "evidence": "latest retained dsi_display_set_mode anchor, not physical PWM"
+        },
+        "quiet_seconds": 2,
+        "race_limit": "not an atomic compositor lock"
+      },
+      "native_dispatch": {
+        "requested_dbv": 828,
+        "native_logged_values": [
+          828
+        ],
+        "same_value_cached_allowed": false
+      },
+      "pwm_hz": null,
+      "page": "23",
+      "opcode": "C1",
+      "requested": 3,
+      "data": [
+        0,
+        2,
+        179
+      ],
+      "header_hex": "1c 03 00 16",
+      "raw_hardware_count": 9,
+      "normalized_count": 9,
+      "scratch_allocation": 16,
+      "single_receive": true,
+      "framing_qualified": true,
+      "cleanup_verified": true,
+      "software_refresh": 120.00001,
+      "limit": "C1 semantics and writable behavior unknown; CRC payload itself not captured.",
+      "in_device_return_gates_verified": true,
+      "page_entries_standalone": true,
+      "read_markers": {
+        "begin": "PWM_STOCK_C1_stock_c1_20261108_01_READ_BEGIN_P5_828",
+        "end": "PWM_STOCK_C1_stock_c1_20261108_01_READ_END_P5_828"
+      },
+      "finished_at_utc": "2026-11-08T16:10:52.318963+00:00"
+    }
+  ],
+  "events": [
+    {
+      "label": "identity",
+      "at_utc": "2026-11-08T16:08:26.814156+00:00",
+      "raw_record": "0001-identity",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "root",
+      "at_utc": "2026-11-08T16:08:27.395848+00:00",
+      "raw_record": "0002-root",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "panel",
+      "at_utc": "2026-11-08T16:08:27.975411+00:00",
+      "raw_record": "0003-panel",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "module",
+      "at_utc": "2026-11-08T16:08:28.554577+00:00",
+      "raw_record": "0004-module",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "prior-kernel",
+      "at_utc": "2026-11-08T16:08:29.132772+00:00",
+      "raw_record": "0005-prior-kernel",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "acquire-owner",
+      "at_utc": "2026-11-08T16:08:29.970066+00:00",
+      "raw_record": "0006-acquire-owner",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "before-setting",
+      "at_utc": "2026-11-08T16:08:30.555140+00:00",
+      "raw_record": "0007-before-setting",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "before-setting",
+      "at_utc": "2026-11-08T16:08:31.138497+00:00",
+      "raw_record": "0008-before-setting",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "before-setting",
+      "at_utc": "2026-11-08T16:08:31.718913+00:00",
+      "raw_record": "0009-before-setting",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "before-setting",
+      "at_utc": "2026-11-08T16:08:32.301326+00:00",
+      "raw_record": "0010-before-setting",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "before-setting",
+      "at_utc": "2026-11-08T16:08:32.879043+00:00",
+      "raw_record": "0011-before-setting",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "before-dbv",
+      "at_utc": "2026-11-08T16:08:33.463579+00:00",
+      "raw_record": "0012-before-dbv",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "before-logger",
+      "at_utc": "2026-11-08T16:08:34.044620+00:00",
+      "raw_record": "0013-before-logger",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "before-boot",
+      "at_utc": "2026-11-08T16:08:34.630440+00:00",
+      "raw_record": "0014-before-boot",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "state",
+      "at_utc": "2026-11-08T16:08:35.206383+00:00",
+      "raw_record": "0015-state",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "display",
+      "at_utc": "2026-11-08T16:08:35.786813+00:00",
+      "raw_record": "0016-display",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "boot",
+      "at_utc": "2026-11-08T16:08:36.357854+00:00",
+      "raw_record": "0017-boot",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "owner",
+      "at_utc": "2026-11-08T16:08:36.935363+00:00",
+      "raw_record": "0018-owner",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "fresh-temp",
+      "at_utc": "2026-11-08T16:08:37.515397+00:00",
+      "raw_record": "0019-fresh-temp",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "create-temp",
+      "at_utc": "2026-11-08T16:08:38.095100+00:00",
+      "raw_record": "0020-create-temp",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "initial-esd",
+      "at_utc": "2026-11-08T16:08:38.666504+00:00",
+      "raw_record": "0021-initial-esd",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "arm-watchdog",
+      "at_utc": "2026-11-08T16:08:39.344342+00:00",
+      "raw_record": "0022-arm-watchdog",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "verify-watchdog",
+      "at_utc": "2026-11-08T16:08:39.927996+00:00",
+      "raw_record": "0023-verify-watchdog",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "enable-logger",
+      "at_utc": "2026-11-08T16:08:40.506996+00:00",
+      "raw_record": "0024-enable-logger",
+      "mutation": true,
+      "return_code": 0
+    },
+    {
+      "label": "extend-timeout",
+      "at_utc": "2026-11-08T16:08:41.098228+00:00",
+      "raw_record": "0025-extend-timeout",
+      "mutation": true,
+      "return_code": 0
+    },
+    {
+      "label": "setup-home",
+      "at_utc": "2026-11-08T16:08:41.675264+00:00",
+      "raw_record": "0026-setup-home",
+      "mutation": true,
+      "return_code": 0
+    },
+    {
+      "label": "setup-display-settings",
+      "at_utc": "2026-11-08T16:08:42.263184+00:00",
+      "raw_record": "0027-setup-display-settings",
+      "mutation": true,
+      "return_code": 0
+    },
+    {
+      "label": "setup-awake",
+      "at_utc": "2026-11-08T16:08:42.842391+00:00",
+      "raw_record": "0028-setup-awake",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "marker",
+      "at_utc": "2026-11-08T16:08:43.422801+00:00",
+      "raw_record": "0029-marker",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "stock-anchor",
+      "at_utc": "2026-11-08T16:08:44.001749+00:00",
+      "raw_record": "0030-stock-anchor",
+      "mutation": true,
+      "return_code": 0
+    },
+    {
+      "label": "anchor-display",
+      "at_utc": "2026-11-08T16:08:44.582710+00:00",
+      "raw_record": "0031-anchor-display",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "anchor-kernel",
+      "at_utc": "2026-11-08T16:08:45.160622+00:00",
+      "raw_record": "0032-anchor-kernel",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "marker",
+      "at_utc": "2026-11-08T16:08:45.746915+00:00",
+      "raw_record": "0033-marker",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "anchor-final",
+      "at_utc": "2026-11-08T16:08:46.256693+00:00",
+      "raw_record": "0034-anchor-final",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "marker",
+      "at_utc": "2026-11-08T16:08:46.852248+00:00",
+      "raw_record": "0035-marker",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "stock-anchor",
+      "at_utc": "2026-11-08T16:08:47.332310+00:00",
+      "raw_record": "0036-stock-anchor",
+      "mutation": true,
+      "return_code": 0
+    },
+    {
+      "label": "anchor-display",
+      "at_utc": "2026-11-08T16:08:47.906555+00:00",
+      "raw_record": "0037-anchor-display",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "anchor-kernel",
+      "at_utc": "2026-11-08T16:08:48.422787+00:00",
+      "raw_record": "0038-anchor-kernel",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "marker",
+      "at_utc": "2026-11-08T16:08:48.955371+00:00",
+      "raw_record": "0039-marker",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "anchor-final",
+      "at_utc": "2026-11-08T16:08:49.538683+00:00",
+      "raw_record": "0040-anchor-final",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "previous-dbv",
+      "at_utc": "2026-11-08T16:08:50.119281+00:00",
+      "raw_record": "0041-previous-dbv",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "marker",
+      "at_utc": "2026-11-08T16:08:50.703076+00:00",
+      "raw_record": "0042-marker",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "native-brightness",
+      "at_utc": "2026-11-08T16:08:51.291169+00:00",
+      "raw_record": "0043-native-brightness",
+      "mutation": true,
+      "return_code": 0
+    },
+    {
+      "label": "poll",
+      "at_utc": "2026-11-08T16:08:51.870923+00:00",
+      "raw_record": "0044-poll",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "marker",
+      "at_utc": "2026-11-08T16:08:52.454878+00:00",
+      "raw_record": "0045-marker",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "brightness-kernel",
+      "at_utc": "2026-11-08T16:08:53.046915+00:00",
+      "raw_record": "0046-brightness-kernel",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "state",
+      "at_utc": "2026-11-08T16:08:53.534094+00:00",
+      "raw_record": "0047-state",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "display",
+      "at_utc": "2026-11-08T16:08:54.126654+00:00",
+      "raw_record": "0048-display",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "boot",
+      "at_utc": "2026-11-08T16:08:54.696562+00:00",
+      "raw_record": "0049-boot",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "owner",
+      "at_utc": "2026-11-08T16:08:55.278798+00:00",
+      "raw_record": "0050-owner",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "state",
+      "at_utc": "2026-11-08T16:08:55.858561+00:00",
+      "raw_record": "0051-state",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "display",
+      "at_utc": "2026-11-08T16:08:56.455926+00:00",
+      "raw_record": "0052-display",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "boot",
+      "at_utc": "2026-11-08T16:08:57.043901+00:00",
+      "raw_record": "0053-boot",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "owner",
+      "at_utc": "2026-11-08T16:08:57.622969+00:00",
+      "raw_record": "0054-owner",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "marker",
+      "at_utc": "2026-11-08T16:08:58.207163+00:00",
+      "raw_record": "0055-marker",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "marker",
+      "at_utc": "2026-11-08T16:09:00.791034+00:00",
+      "raw_record": "0056-marker",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "quiet-kernel",
+      "at_utc": "2026-11-08T16:09:01.275138+00:00",
+      "raw_record": "0057-quiet-kernel",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "state",
+      "at_utc": "2026-11-08T16:09:02.117716+00:00",
+      "raw_record": "0058-state",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "display",
+      "at_utc": "2026-11-08T16:09:02.691180+00:00",
+      "raw_record": "0059-display",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "boot",
+      "at_utc": "2026-11-08T16:09:03.269191+00:00",
+      "raw_record": "0060-boot",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "owner",
+      "at_utc": "2026-11-08T16:09:03.854935+00:00",
+      "raw_record": "0061-owner",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "previous-dbv",
+      "at_utc": "2026-11-08T16:09:04.435833+00:00",
+      "raw_record": "0062-previous-dbv",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "marker",
+      "at_utc": "2026-11-08T16:09:05.014814+00:00",
+      "raw_record": "0063-marker",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "native-brightness",
+      "at_utc": "2026-11-08T16:09:05.599148+00:00",
+      "raw_record": "0064-native-brightness",
+      "mutation": true,
+      "return_code": 0
+    },
+    {
+      "label": "poll",
+      "at_utc": "2026-11-08T16:09:06.180521+00:00",
+      "raw_record": "0065-poll",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "marker",
+      "at_utc": "2026-11-08T16:09:06.767178+00:00",
+      "raw_record": "0066-marker",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "brightness-kernel",
+      "at_utc": "2026-11-08T16:09:07.346922+00:00",
+      "raw_record": "0067-brightness-kernel",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "state",
+      "at_utc": "2026-11-08T16:09:07.926432+00:00",
+      "raw_record": "0068-state",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "display",
+      "at_utc": "2026-11-08T16:09:08.507871+00:00",
+      "raw_record": "0069-display",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "boot",
+      "at_utc": "2026-11-08T16:09:09.081525+00:00",
+      "raw_record": "0070-boot",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "owner",
+      "at_utc": "2026-11-08T16:09:09.563053+00:00",
+      "raw_record": "0071-owner",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "marker",
+      "at_utc": "2026-11-08T16:09:10.149306+00:00",
+      "raw_record": "0072-marker",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "marker",
+      "at_utc": "2026-11-08T16:09:12.724672+00:00",
+      "raw_record": "0073-marker",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "quiet-kernel",
+      "at_utc": "2026-11-08T16:09:13.202763+00:00",
+      "raw_record": "0074-quiet-kernel",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "state",
+      "at_utc": "2026-11-08T16:09:14.034081+00:00",
+      "raw_record": "0075-state",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "display",
+      "at_utc": "2026-11-08T16:09:14.607301+00:00",
+      "raw_record": "0076-display",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "boot",
+      "at_utc": "2026-11-08T16:09:15.184687+00:00",
+      "raw_record": "0077-boot",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "owner",
+      "at_utc": "2026-11-08T16:09:15.769034+00:00",
+      "raw_record": "0078-owner",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "marker",
+      "at_utc": "2026-11-08T16:09:16.352068+00:00",
+      "raw_record": "0079-marker",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "P0_828-capture",
+      "at_utc": "2026-11-08T16:09:16.933810+00:00",
+      "raw_record": "0080-P0_828-capture",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "marker",
+      "at_utc": "2026-11-08T16:09:18.306046+00:00",
+      "raw_record": "0081-marker",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "P0_828-kernel",
+      "at_utc": "2026-11-08T16:09:18.892130+00:00",
+      "raw_record": "0082-P0_828-kernel",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "state",
+      "at_utc": "2026-11-08T16:09:19.475628+00:00",
+      "raw_record": "0083-state",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "display",
+      "at_utc": "2026-11-08T16:09:20.054635+00:00",
+      "raw_record": "0084-display",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "boot",
+      "at_utc": "2026-11-08T16:09:20.628340+00:00",
+      "raw_record": "0085-boot",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "owner",
+      "at_utc": "2026-11-08T16:09:21.208355+00:00",
+      "raw_record": "0086-owner",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "esd-after",
+      "at_utc": "2026-11-08T16:09:21.792282+00:00",
+      "raw_record": "0087-esd-after",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "previous-dbv",
+      "at_utc": "2026-11-08T16:09:22.378886+00:00",
+      "raw_record": "0088-previous-dbv",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "marker",
+      "at_utc": "2026-11-08T16:09:22.966578+00:00",
+      "raw_record": "0089-marker",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "native-brightness",
+      "at_utc": "2026-11-08T16:09:23.551384+00:00",
+      "raw_record": "0090-native-brightness",
+      "mutation": true,
+      "return_code": 0
+    },
+    {
+      "label": "poll",
+      "at_utc": "2026-11-08T16:09:24.150958+00:00",
+      "raw_record": "0091-poll",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "marker",
+      "at_utc": "2026-11-08T16:09:24.750893+00:00",
+      "raw_record": "0092-marker",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "brightness-kernel",
+      "at_utc": "2026-11-08T16:09:25.329767+00:00",
+      "raw_record": "0093-brightness-kernel",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "state",
+      "at_utc": "2026-11-08T16:09:25.918513+00:00",
+      "raw_record": "0094-state",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "display",
+      "at_utc": "2026-11-08T16:09:26.492731+00:00",
+      "raw_record": "0095-display",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "boot",
+      "at_utc": "2026-11-08T16:09:27.069134+00:00",
+      "raw_record": "0096-boot",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "owner",
+      "at_utc": "2026-11-08T16:09:27.647619+00:00",
+      "raw_record": "0097-owner",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "marker",
+      "at_utc": "2026-11-08T16:09:28.237752+00:00",
+      "raw_record": "0098-marker",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "marker",
+      "at_utc": "2026-11-08T16:09:30.815163+00:00",
+      "raw_record": "0099-marker",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "quiet-kernel",
+      "at_utc": "2026-11-08T16:09:31.297162+00:00",
+      "raw_record": "0100-quiet-kernel",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "state",
+      "at_utc": "2026-11-08T16:09:32.136881+00:00",
+      "raw_record": "0101-state",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "display",
+      "at_utc": "2026-11-08T16:09:32.710657+00:00",
+      "raw_record": "0102-display",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "boot",
+      "at_utc": "2026-11-08T16:09:33.278383+00:00",
+      "raw_record": "0103-boot",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "owner",
+      "at_utc": "2026-11-08T16:09:33.863879+00:00",
+      "raw_record": "0104-owner",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "marker",
+      "at_utc": "2026-11-08T16:09:34.345413+00:00",
+      "raw_record": "0105-marker",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "P1_460-capture",
+      "at_utc": "2026-11-08T16:09:34.924726+00:00",
+      "raw_record": "0106-P1_460-capture",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "marker",
+      "at_utc": "2026-11-08T16:09:36.299580+00:00",
+      "raw_record": "0107-marker",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "P1_460-kernel",
+      "at_utc": "2026-11-08T16:09:36.881138+00:00",
+      "raw_record": "0108-P1_460-kernel",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "state",
+      "at_utc": "2026-11-08T16:09:37.368559+00:00",
+      "raw_record": "0109-state",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "display",
+      "at_utc": "2026-11-08T16:09:37.942944+00:00",
+      "raw_record": "0110-display",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "boot",
+      "at_utc": "2026-11-08T16:09:38.508912+00:00",
+      "raw_record": "0111-boot",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "owner",
+      "at_utc": "2026-11-08T16:09:39.091119+00:00",
+      "raw_record": "0112-owner",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "esd-after",
+      "at_utc": "2026-11-08T16:09:39.666864+00:00",
+      "raw_record": "0113-esd-after",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "previous-dbv",
+      "at_utc": "2026-11-08T16:09:40.304458+00:00",
+      "raw_record": "0114-previous-dbv",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "marker",
+      "at_utc": "2026-11-08T16:09:40.894814+00:00",
+      "raw_record": "0115-marker",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "native-brightness",
+      "at_utc": "2026-11-08T16:09:41.479956+00:00",
+      "raw_record": "0116-native-brightness",
+      "mutation": true,
+      "return_code": 0
+    },
+    {
+      "label": "poll",
+      "at_utc": "2026-11-08T16:09:42.061204+00:00",
+      "raw_record": "0117-poll",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "marker",
+      "at_utc": "2026-11-08T16:09:42.647293+00:00",
+      "raw_record": "0118-marker",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "brightness-kernel",
+      "at_utc": "2026-11-08T16:09:43.227160+00:00",
+      "raw_record": "0119-brightness-kernel",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "state",
+      "at_utc": "2026-11-08T16:09:43.855135+00:00",
+      "raw_record": "0120-state",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "display",
+      "at_utc": "2026-11-08T16:09:44.426813+00:00",
+      "raw_record": "0121-display",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "boot",
+      "at_utc": "2026-11-08T16:09:45.003746+00:00",
+      "raw_record": "0122-boot",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "owner",
+      "at_utc": "2026-11-08T16:09:45.582892+00:00",
+      "raw_record": "0123-owner",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "marker",
+      "at_utc": "2026-11-08T16:09:46.159362+00:00",
+      "raw_record": "0124-marker",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "marker",
+      "at_utc": "2026-11-08T16:09:48.740552+00:00",
+      "raw_record": "0125-marker",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "quiet-kernel",
+      "at_utc": "2026-11-08T16:09:49.216092+00:00",
+      "raw_record": "0126-quiet-kernel",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "state",
+      "at_utc": "2026-11-08T16:09:50.059151+00:00",
+      "raw_record": "0127-state",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "display",
+      "at_utc": "2026-11-08T16:09:50.639095+00:00",
+      "raw_record": "0128-display",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "boot",
+      "at_utc": "2026-11-08T16:09:51.206094+00:00",
+      "raw_record": "0129-boot",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "owner",
+      "at_utc": "2026-11-08T16:09:51.782437+00:00",
+      "raw_record": "0130-owner",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "marker",
+      "at_utc": "2026-11-08T16:09:52.363395+00:00",
+      "raw_record": "0131-marker",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "P2_2048-capture",
+      "at_utc": "2026-11-08T16:09:52.932525+00:00",
+      "raw_record": "0132-P2_2048-capture",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "marker",
+      "at_utc": "2026-11-08T16:09:54.262932+00:00",
+      "raw_record": "0133-marker",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "P2_2048-kernel",
+      "at_utc": "2026-11-08T16:09:54.839099+00:00",
+      "raw_record": "0134-P2_2048-kernel",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "state",
+      "at_utc": "2026-11-08T16:09:55.422938+00:00",
+      "raw_record": "0135-state",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "display",
+      "at_utc": "2026-11-08T16:09:55.991273+00:00",
+      "raw_record": "0136-display",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "boot",
+      "at_utc": "2026-11-08T16:09:56.563714+00:00",
+      "raw_record": "0137-boot",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "owner",
+      "at_utc": "2026-11-08T16:09:57.138760+00:00",
+      "raw_record": "0138-owner",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "esd-after",
+      "at_utc": "2026-11-08T16:09:57.715848+00:00",
+      "raw_record": "0139-esd-after",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "previous-dbv",
+      "at_utc": "2026-11-08T16:09:58.390884+00:00",
+      "raw_record": "0140-previous-dbv",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "marker",
+      "at_utc": "2026-11-08T16:09:58.963697+00:00",
+      "raw_record": "0141-marker",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "native-brightness",
+      "at_utc": "2026-11-08T16:09:59.546928+00:00",
+      "raw_record": "0142-native-brightness",
+      "mutation": true,
+      "return_code": 0
+    },
+    {
+      "label": "poll",
+      "at_utc": "2026-11-08T16:10:00.123277+00:00",
+      "raw_record": "0143-poll",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "marker",
+      "at_utc": "2026-11-08T16:10:00.701585+00:00",
+      "raw_record": "0144-marker",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "brightness-kernel",
+      "at_utc": "2026-11-08T16:10:01.283566+00:00",
+      "raw_record": "0145-brightness-kernel",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "state",
+      "at_utc": "2026-11-08T16:10:01.870574+00:00",
+      "raw_record": "0146-state",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "display",
+      "at_utc": "2026-11-08T16:10:02.446810+00:00",
+      "raw_record": "0147-display",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "boot",
+      "at_utc": "2026-11-08T16:10:02.967735+00:00",
+      "raw_record": "0148-boot",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "owner",
+      "at_utc": "2026-11-08T16:10:03.533173+00:00",
+      "raw_record": "0149-owner",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "marker",
+      "at_utc": "2026-11-08T16:10:04.255165+00:00",
+      "raw_record": "0150-marker",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "marker",
+      "at_utc": "2026-11-08T16:10:06.829160+00:00",
+      "raw_record": "0151-marker",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "quiet-kernel",
+      "at_utc": "2026-11-08T16:10:07.316572+00:00",
+      "raw_record": "0152-quiet-kernel",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "state",
+      "at_utc": "2026-11-08T16:10:08.148053+00:00",
+      "raw_record": "0153-state",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "display",
+      "at_utc": "2026-11-08T16:10:08.718950+00:00",
+      "raw_record": "0154-display",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "boot",
+      "at_utc": "2026-11-08T16:10:09.290508+00:00",
+      "raw_record": "0155-boot",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "owner",
+      "at_utc": "2026-11-08T16:10:09.867364+00:00",
+      "raw_record": "0156-owner",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "marker",
+      "at_utc": "2026-11-08T16:10:10.456063+00:00",
+      "raw_record": "0157-marker",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "P3_3000-capture",
+      "at_utc": "2026-11-08T16:10:11.034067+00:00",
+      "raw_record": "0158-P3_3000-capture",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "marker",
+      "at_utc": "2026-11-08T16:10:12.440817+00:00",
+      "raw_record": "0159-marker",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "P3_3000-kernel",
+      "at_utc": "2026-11-08T16:10:13.040074+00:00",
+      "raw_record": "0160-P3_3000-kernel",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "state",
+      "at_utc": "2026-11-08T16:10:13.661833+00:00",
+      "raw_record": "0161-state",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "display",
+      "at_utc": "2026-11-08T16:10:14.235444+00:00",
+      "raw_record": "0162-display",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "boot",
+      "at_utc": "2026-11-08T16:10:14.760940+00:00",
+      "raw_record": "0163-boot",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "owner",
+      "at_utc": "2026-11-08T16:10:15.283174+00:00",
+      "raw_record": "0164-owner",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "esd-after",
+      "at_utc": "2026-11-08T16:10:15.870959+00:00",
+      "raw_record": "0165-esd-after",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "previous-dbv",
+      "at_utc": "2026-11-08T16:10:16.509749+00:00",
+      "raw_record": "0166-previous-dbv",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "marker",
+      "at_utc": "2026-11-08T16:10:17.097804+00:00",
+      "raw_record": "0167-marker",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "native-brightness",
+      "at_utc": "2026-11-08T16:10:17.674707+00:00",
+      "raw_record": "0168-native-brightness",
+      "mutation": true,
+      "return_code": 0
+    },
+    {
+      "label": "poll",
+      "at_utc": "2026-11-08T16:10:18.255982+00:00",
+      "raw_record": "0169-poll",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "marker",
+      "at_utc": "2026-11-08T16:10:18.834847+00:00",
+      "raw_record": "0170-marker",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "brightness-kernel",
+      "at_utc": "2026-11-08T16:10:19.411417+00:00",
+      "raw_record": "0171-brightness-kernel",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "state",
+      "at_utc": "2026-11-08T16:10:19.991271+00:00",
+      "raw_record": "0172-state",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "display",
+      "at_utc": "2026-11-08T16:10:20.563885+00:00",
+      "raw_record": "0173-display",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "boot",
+      "at_utc": "2026-11-08T16:10:21.139654+00:00",
+      "raw_record": "0174-boot",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "owner",
+      "at_utc": "2026-11-08T16:10:21.623308+00:00",
+      "raw_record": "0175-owner",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "marker",
+      "at_utc": "2026-11-08T16:10:22.199620+00:00",
+      "raw_record": "0176-marker",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "marker",
+      "at_utc": "2026-11-08T16:10:24.774711+00:00",
+      "raw_record": "0177-marker",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "quiet-kernel",
+      "at_utc": "2026-11-08T16:10:25.255890+00:00",
+      "raw_record": "0178-quiet-kernel",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "state",
+      "at_utc": "2026-11-08T16:10:26.091635+00:00",
+      "raw_record": "0179-state",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "display",
+      "at_utc": "2026-11-08T16:10:26.666953+00:00",
+      "raw_record": "0180-display",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "boot",
+      "at_utc": "2026-11-08T16:10:27.242200+00:00",
+      "raw_record": "0181-boot",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "owner",
+      "at_utc": "2026-11-08T16:10:27.819025+00:00",
+      "raw_record": "0182-owner",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "marker",
+      "at_utc": "2026-11-08T16:10:28.400180+00:00",
+      "raw_record": "0183-marker",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "P4_3600-capture",
+      "at_utc": "2026-11-08T16:10:28.981062+00:00",
+      "raw_record": "0184-P4_3600-capture",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "marker",
+      "at_utc": "2026-11-08T16:10:30.325358+00:00",
+      "raw_record": "0185-marker",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "P4_3600-kernel",
+      "at_utc": "2026-11-08T16:10:30.907157+00:00",
+      "raw_record": "0186-P4_3600-kernel",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "state",
+      "at_utc": "2026-11-08T16:10:31.493456+00:00",
+      "raw_record": "0187-state",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "display",
+      "at_utc": "2026-11-08T16:10:32.089721+00:00",
+      "raw_record": "0188-display",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "boot",
+      "at_utc": "2026-11-08T16:10:32.656239+00:00",
+      "raw_record": "0189-boot",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "owner",
+      "at_utc": "2026-11-08T16:10:33.238838+00:00",
+      "raw_record": "0190-owner",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "esd-after",
+      "at_utc": "2026-11-08T16:10:33.811592+00:00",
+      "raw_record": "0191-esd-after",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "previous-dbv",
+      "at_utc": "2026-11-08T16:10:34.392481+00:00",
+      "raw_record": "0192-previous-dbv",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "marker",
+      "at_utc": "2026-11-08T16:10:34.966889+00:00",
+      "raw_record": "0193-marker",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "native-brightness",
+      "at_utc": "2026-11-08T16:10:35.540086+00:00",
+      "raw_record": "0194-native-brightness",
+      "mutation": true,
+      "return_code": 0
+    },
+    {
+      "label": "poll",
+      "at_utc": "2026-11-08T16:10:36.118682+00:00",
+      "raw_record": "0195-poll",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "marker",
+      "at_utc": "2026-11-08T16:10:36.695249+00:00",
+      "raw_record": "0196-marker",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "brightness-kernel",
+      "at_utc": "2026-11-08T16:10:37.267259+00:00",
+      "raw_record": "0197-brightness-kernel",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "state",
+      "at_utc": "2026-11-08T16:10:37.853181+00:00",
+      "raw_record": "0198-state",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "display",
+      "at_utc": "2026-11-08T16:10:38.422500+00:00",
+      "raw_record": "0199-display",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "boot",
+      "at_utc": "2026-11-08T16:10:38.992044+00:00",
+      "raw_record": "0200-boot",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "owner",
+      "at_utc": "2026-11-08T16:10:39.571511+00:00",
+      "raw_record": "0201-owner",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "marker",
+      "at_utc": "2026-11-08T16:10:40.156825+00:00",
+      "raw_record": "0202-marker",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "marker",
+      "at_utc": "2026-11-08T16:10:42.739977+00:00",
+      "raw_record": "0203-marker",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "quiet-kernel",
+      "at_utc": "2026-11-08T16:10:43.219498+00:00",
+      "raw_record": "0204-quiet-kernel",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "state",
+      "at_utc": "2026-11-08T16:10:44.054883+00:00",
+      "raw_record": "0205-state",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "display",
+      "at_utc": "2026-11-08T16:10:44.631356+00:00",
+      "raw_record": "0206-display",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "boot",
+      "at_utc": "2026-11-08T16:10:45.207499+00:00",
+      "raw_record": "0207-boot",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "owner",
+      "at_utc": "2026-11-08T16:10:45.782235+00:00",
+      "raw_record": "0208-owner",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "marker",
+      "at_utc": "2026-11-08T16:10:46.355628+00:00",
+      "raw_record": "0209-marker",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "P5_828-capture",
+      "at_utc": "2026-11-08T16:10:46.936753+00:00",
+      "raw_record": "0210-P5_828-capture",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "marker",
+      "at_utc": "2026-11-08T16:10:48.278506+00:00",
+      "raw_record": "0211-marker",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "P5_828-kernel",
+      "at_utc": "2026-11-08T16:10:48.851440+00:00",
+      "raw_record": "0212-P5_828-kernel",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "state",
+      "at_utc": "2026-11-08T16:10:49.434744+00:00",
+      "raw_record": "0213-state",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "display",
+      "at_utc": "2026-11-08T16:10:50.009035+00:00",
+      "raw_record": "0214-display",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "boot",
+      "at_utc": "2026-11-08T16:10:50.580459+00:00",
+      "raw_record": "0215-boot",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "owner",
+      "at_utc": "2026-11-08T16:10:51.158512+00:00",
+      "raw_record": "0216-owner",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "esd-after",
+      "at_utc": "2026-11-08T16:10:51.740019+00:00",
+      "raw_record": "0217-esd-after",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "restore-power",
+      "at_utc": "2026-11-08T16:10:52.319947+00:00",
+      "raw_record": "0218-restore-power",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "restore-peak",
+      "at_utc": "2026-11-08T16:10:52.908073+00:00",
+      "raw_record": "0219-restore-peak",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "restore-setting",
+      "at_utc": "2026-11-08T16:10:53.483871+00:00",
+      "raw_record": "0220-restore-setting",
+      "mutation": true,
+      "return_code": 0
+    },
+    {
+      "label": "restore-setting",
+      "at_utc": "2026-11-08T16:10:54.059643+00:00",
+      "raw_record": "0221-restore-setting",
+      "mutation": true,
+      "return_code": 0
+    },
+    {
+      "label": "restore-setting",
+      "at_utc": "2026-11-08T16:10:54.639719+00:00",
+      "raw_record": "0222-restore-setting",
+      "mutation": true,
+      "return_code": 0
+    },
+    {
+      "label": "restore-setting",
+      "at_utc": "2026-11-08T16:10:55.223674+00:00",
+      "raw_record": "0223-restore-setting",
+      "mutation": true,
+      "return_code": 0
+    },
+    {
+      "label": "restore-setting",
+      "at_utc": "2026-11-08T16:10:55.807343+00:00",
+      "raw_record": "0224-restore-setting",
+      "mutation": true,
+      "return_code": 0
+    },
+    {
+      "label": "restore-dbv",
+      "at_utc": "2026-11-08T16:10:56.397691+00:00",
+      "raw_record": "0225-restore-dbv",
+      "mutation": true,
+      "return_code": 0
+    },
+    {
+      "label": "poll",
+      "at_utc": "2026-11-08T16:10:56.984223+00:00",
+      "raw_record": "0226-poll",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "poll",
+      "at_utc": "2026-11-08T16:10:58.565471+00:00",
+      "raw_record": "0227-poll",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "verify-setting",
+      "at_utc": "2026-11-08T16:10:59.039952+00:00",
+      "raw_record": "0228-verify-setting",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "verify-setting",
+      "at_utc": "2026-11-08T16:10:59.619387+00:00",
+      "raw_record": "0229-verify-setting",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "verify-setting",
+      "at_utc": "2026-11-08T16:11:00.203175+00:00",
+      "raw_record": "0230-verify-setting",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "verify-setting",
+      "at_utc": "2026-11-08T16:11:00.788198+00:00",
+      "raw_record": "0231-verify-setting",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "verify-setting",
+      "at_utc": "2026-11-08T16:11:01.375443+00:00",
+      "raw_record": "0232-verify-setting",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "state",
+      "at_utc": "2026-11-08T16:11:01.967201+00:00",
+      "raw_record": "0233-state",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "display",
+      "at_utc": "2026-11-08T16:11:02.551408+00:00",
+      "raw_record": "0234-display",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "boot",
+      "at_utc": "2026-11-08T16:11:03.126372+00:00",
+      "raw_record": "0235-boot",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "owner",
+      "at_utc": "2026-11-08T16:11:03.707328+00:00",
+      "raw_record": "0236-owner",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "restore-logger",
+      "at_utc": "2026-11-08T16:11:04.291159+00:00",
+      "raw_record": "0237-restore-logger",
+      "mutation": true,
+      "return_code": 0
+    },
+    {
+      "label": "verify-logger",
+      "at_utc": "2026-11-08T16:11:04.862987+00:00",
+      "raw_record": "0238-verify-logger",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "final-esd",
+      "at_utc": "2026-11-08T16:11:05.447860+00:00",
+      "raw_record": "0239-final-esd",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "disarm-watchdog",
+      "at_utc": "2026-11-08T16:11:06.094088+00:00",
+      "raw_record": "0240-disarm-watchdog",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "verify-child-cleanup",
+      "at_utc": "2026-11-08T16:11:06.739507+00:00",
+      "raw_record": "0241-verify-child-cleanup",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "verify-child-cleanup",
+      "at_utc": "2026-11-08T16:11:07.275356+00:00",
+      "raw_record": "0242-verify-child-cleanup",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "verify-child-cleanup",
+      "at_utc": "2026-11-08T16:11:07.759725+00:00",
+      "raw_record": "0243-verify-child-cleanup",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "verify-child-cleanup",
+      "at_utc": "2026-11-08T16:11:08.330952+00:00",
+      "raw_record": "0244-verify-child-cleanup",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "verify-child-cleanup",
+      "at_utc": "2026-11-08T16:11:08.911697+00:00",
+      "raw_record": "0245-verify-child-cleanup",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "verify-child-cleanup",
+      "at_utc": "2026-11-08T16:11:09.491298+00:00",
+      "raw_record": "0246-verify-child-cleanup",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "remove-owned-temp",
+      "at_utc": "2026-11-08T16:11:10.075626+00:00",
+      "raw_record": "0247-remove-owned-temp",
+      "mutation": false,
+      "return_code": 0
+    },
+    {
+      "label": "release-owner",
+      "at_utc": "2026-11-08T16:11:10.667140+00:00",
+      "raw_record": "0248-release-owner",
+      "mutation": false,
+      "return_code": 0
+    }
+  ],
+  "physical_operation_attempted": true,
+  "before": {
+    "screen_brightness": "98",
+    "screen_brightness_mode": "0",
+    "min_refresh_rate": "120.0",
+    "peak_refresh_rate": "120.0",
+    "screen_off_timeout": "1800000",
+    "native_dbv": 828,
+    "logger": 0
+  },
+  "watchdog_state": "disarmed_verified",
+  "fresh_native_anchor": [
+    {
+      "software_requested_hz": 90,
+      "native_peak_hz": 90,
+      "native_actual_hz": 90,
+      "native_group": 5,
+      "clock_rate": 1234000000,
+      "width": 1440,
+      "height": 3168,
+      "timing_node": "timing@2",
+      "fresh_native_events": 1,
+      "begin_marker": "PWM_STOCK_C1_stock_c1_20261108_01_ANCHOR_BEGIN_90",
+      "end_marker": "PWM_STOCK_C1_stock_c1_20261108_01_ANCHOR_END_90"
+    },
+    {
+      "software_requested_hz": 120,
+      "native_peak_hz": 120,
+      "native_actual_hz": 120,
+      "native_group": 3,
+      "clock_rate": 1234000000,
+      "width": 1440,
+      "height": 3168,
+      "timing_node": "timing@0",
+      "fresh_native_events": 2,
+      "begin_marker": "PWM_STOCK_C1_stock_c1_20261108_01_ANCHOR_BEGIN_120",
+      "end_marker": "PWM_STOCK_C1_stock_c1_20261108_01_ANCHOR_END_120"
+    }
+  ],
+  "setup_brightness": {
+    "requested_dbv": 828,
+    "native_logged_values": [
+      828
+    ],
+    "same_value_cached_allowed": true
+  },
+  "initial_quiet": {
+    "begin_marker": "PWM_STOCK_C1_stock_c1_20261108_01_QUIET_BEGIN_INITIAL_0",
+    "end_marker": "PWM_STOCK_C1_stock_c1_20261108_01_QUIET_END_INITIAL_0",
+    "native_state": {
+      "width": 1440,
+      "height": 3168,
+      "software_peak_hz": 120,
+      "native_actual_hz": 120,
+      "native_group": 3,
+      "clock_rate": 1234000000,
+      "timing_node": "timing@0",
+      "evidence": "latest retained dsi_display_set_mode anchor, not physical PWM"
+    },
+    "quiet_seconds": 2,
+    "race_limit": "not an atomic compositor lock"
+  },
+  "stock828_reference_reproduced": true,
+  "original_settings_dbv_logger_restored": true,
+  "watchdog_disarmed": true,
+  "mutex_released": true,
+  "finished_at_utc": "2026-11-08T16:11:11.250511+00:00"
+}

@@ -1,5 +1,13 @@
 # Long-lived agent progress journal
 
+Checkpoint 2026-11-08, **stock brightness map завершена; C1 не является установленным счётчиком частоты.**
+
+- [Квалифицированная stock-карта](artifacts/stock_c1_20261108_01/run.json): при одном native actual 120/group 3 DBV 828/460/2048/3000/3600/828 даёт C1 `00 02 B3 / 00 02 C0 / 00 02 26 / 00 01 30 / 00 00 60 / 00 02 B3`. Возврат точно воспроизведён; исходные настройки/native 828/logger восстановлены до снятия watchdog и mutex. Камера и неизвестные значения регистров не затрагивались. Новый gated reader проверяет фактические driver returns до следующего DSI, поскольку debugfs TX bytecount не доказывает успех передачи.
+- Важное уточнение прежней гипотезы: C1 зависит от DBV, включая ненулевой младший полубайт. Общая модель «raw C1 или C1 >> 4 равен частоте/числу импульсов» не подтверждена. Семантика duty/off-time/width/status тоже пока неизвестна. Факт A9 `60 → 10 → 60` и подавление fine image-компоненты сохраняются, но не превращаются в доказанные one-count или Hz.
+- [Сохранённая оптика DBV 828](artifacts/qualification_dbv828_20261108/result.md) показывает различимый период около 50.6 camera rows, как stock DBV 3600; это cross-session сравнение без синхронного C1. [Архивная серия 120/144/90](artifacts/stock_base_rates_20261107/reuse_index_20261108.md) уже покрывает простой six-pulse alias test, поэтому повтор тех же настроек ради того же вопроса не планируется. Ни один результат не доказывает >=2000 Гц.
+- Завершённый offline suite после stock sweep: 115 tests, 2 skips. Следующая отдельная разработка — ограниченный 23:85 `15 → 14 → 15` runner с sham 15, same-video наблюдением, коротким независимым watchdog и обязательной stock-only квалификацией. Пока это offline; unknown-value 85 write не выполнялся.
+- Предыдущий содержательный checkpoint опубликован, remote main проверен на `9f50b79f4c0e7cf671546ed355b6e6fcfeeaccf6`. Новый stock-map checkpoint готовится отдельно от незавершённого P85 runner. [Сводка цикла](artifacts/pwm_resume_20261108.md).
+
 Checkpoint 2026-11-08, **A9+C1 причинная серия завершена; R3 >=2000 Гц не решена.**
 
 - [Серия 06](artifacts/a9_c1_a001_20261108_06/c1_result.md): stock → A9-only → stock при DBV 3600 и native actual 120/group 3 даёт квалифицированный C1 00 00 60 → 00 00 10 → 00 00 60. Все три программы по 75 пакетов и полный stock/settings/native 828/ESD/camera/watchdog/mutex cleanup прошли без ошибок. Это поддерживает DC-like/one-count гипотезу, не high-PWM. [Same-video optical analysis](artifacts/a9_c1_a001_20261108_06/optical_result.md) воспроизводит 74.95% подавления тонкой image-code компоненты; возврат stock отличается на −0.51%, broad остаётся. Полный spectrum review и повторное декодирование пройдены. Physical Hz остаются unknown.
