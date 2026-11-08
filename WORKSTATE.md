@@ -1,5 +1,10 @@
 # Long-lived agent progress journal
 
+Checkpoint 2026-11-08, **remote ADB tunnel installed; two devices verified.**
+
+- `03-investigation/adb-remote.md`: private user-service SSH tunnel to the USB host is enabled; directory/socket permissions 0700/0600. Read-only tests identified the target and separate optical camera, exercised shell, binary `exec-out` and `pull`, and confirmed recovery after a controlled service restart and simulated SSH exit. Fastboot binary is present on the USB host, but no device was in bootloader mode. No phone settings, DSI, camera recording, reboot or flash were changed.
+- Isolated test confirmed that ADB may start a local daemon if the Unix socket is missing; matching client/server versions and the documented preflight are mandatory. AWG disruption, USB-host reboot, bootloader recovery and sustained 24/7 availability remain unverified. Host addresses, credentials and device serials stay private.
+
 Checkpoint 2026-11-08, **рабочая папка скопирована на nc-lab; среда для офлайн-R&D восстановлена.**
 
 - `/home/opencode/ai/legion-Y70-madness`: полное rsync-сравнение по содержимому и метаданным без различий на момент переноса, SHA256 двух boot-образов совпадают с исходником; исходник сохранён. На сервере пересоздана `.venv`, установлены Git LFS, ADB/fastboot, simg2img и erofs-utils; Ghidra 12.1.4 с отдельными PyGhidra и Temurin 21 перенесена и проверена. Системная Java осталась Temurin 8. Портированы пути домашнего каталога Ghidra и временных файлов теста. Удалённый offline unittest: 32 теста, 2 skip; Ghidra known-answer: 12 PASS. Существующий ключ пользователя настроен для GitHub в локальном конфиге копии репозитория; dry-run push успешен.

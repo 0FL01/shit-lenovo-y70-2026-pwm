@@ -18,6 +18,7 @@ Owner explicitly accepts full wipe and irreversible panel/device damage for this
 7. Unknowns stay unknown. Every claim needs status `confirmed-on-target`, `confirmed-other-device`, `reported`, `hypothesis`, or `unknown`.
 8. PWM control should be usable from Android: Apply is session-only by default; persistence needs an explicit unchecked-by-default “remember after reboot” checkbox, and stock reset clears it. Implement only after finding verified panel-specific profiles; preserve safe lifecycle guards/rollback and do not claim exact Hz without adequate measurement.
 9. For ARM64 code-level RE use `06-tools/ghidra_decompile.py` with `~/tools/ghidra-12.1.4-pyvenv/bin/python` (headless Ghidra 12.1.4, external projects/temp, provenance); data-level work stays in Python. Agents read `brief`/`decompile --lines A:B` excerpts, not full decompiler listings; raw output stays on disk as evidence. Ghidra does not establish DDIC semantics or replace independent verification; historical extractors are indexed in `06-tools/archive/README.md`.
+10. Remote Android devices: the research target and separate optical camera are reachable through a private ADB tunnel; fastboot runs on the USB host. Before each use follow `03-investigation/adb-remote.md`, reidentify both devices, and preserve its server-version and recovery guards. Never publish host addresses, credentials or device serials.
 
 ## Context reading order
 1. `00-facts/device.yaml` and `00-facts/claims.yaml`.
