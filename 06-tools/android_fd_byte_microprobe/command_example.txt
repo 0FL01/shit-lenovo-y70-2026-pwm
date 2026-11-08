@@ -1,0 +1,50 @@
+/system/bin/sh -c '# Source-only template. Do not execute without render() substitutions.
+# No trap cleans uncertain state. Any failure leaves exact owned remnants.
+set -u
+export LC_ALL=C
+umask 077
+set -C
+d=/data/local/tmp/fdbyte-0123456789abcdef01234567
+/system/bin/mkdir -m 700 "$d" || exit 90
+printf '"'"'%s\n'"'"' '"'"'fdbyte-owner-0123456789abcdef01234567'"'"' > "$d/owner" || exit 90
+printf '"'"'%s\n'"'"' '"'"'fdbyte-owner-0123456789abcdef01234567'"'"' > "$d/owner.ref" || exit 90
+printf '"'"'\n'"'"' > "$d/expected-lf" || exit 90
+printf '"'"'\n\000'"'"' > "$d/expected-both" || exit 90
+: > "$d/audit" || exit 90
+exec 8>> "$d/audit" || exit 90
+[ -f /proc/self/fd/8 ] && [ ! -s /proc/self/fd/8 ] || exit 90
+/system/bin/rm "$d/audit" || exit 90
+[ ! -e "$d/audit" ] && [ ! -L "$d/audit" ] || exit 90
+printf '"'"'\n'"'"' >&8 || exit 90
+[ -f /proc/self/fd/8 ] && [ -s /proc/self/fd/8 ] || exit 90
+/system/bin/cat /proc/self/fd/8 > "$d/lf" || exit 90
+/system/bin/cmp -s "$d/lf" "$d/expected-lf" || exit 90
+printf '"'"'\000'"'"' >&8 || exit 90
+/system/bin/cat /proc/self/fd/8 > "$d/both" || exit 90
+/system/bin/cmp -s "$d/both" "$d/expected-both" || exit 90
+v=$(printf '"'"'\n'"'"') || exit 90
+printf '"'"'%s'"'"' "$v" > "$d/sub-lf" || exit 90
+{ v=$(printf '"'"'\000'"'"'); } 2> "$d/sub-err" || exit 90
+printf '"'"'%s'"'"' "$v" > "$d/sub-nul" || exit 90
+# Internal fixed callsites only. wc and cat both must succeed.
+emit() {
+ printf '"'"'%s\n'"'"' "$1" || exit 90
+ /system/bin/wc -c < "$d/$1" || exit 90
+ /system/bin/cat "$d/$1" || exit 90
+}
+printf '"'"'FDMB1\n'"'"' || exit 90
+emit lf
+emit both
+emit sub-lf
+emit sub-nul
+emit sub-err
+exec 8>&- || exit 90
+/system/bin/cmp -s "$d/owner" "$d/owner.ref" || exit 90
+# No glob, rm -f, recursive deletion, adoption, or retry.
+/system/bin/rm "$d/lf" "$d/both" "$d/sub-lf" "$d/sub-nul" "$d/sub-err" "$d/expected-lf" "$d/expected-both" "$d/owner.ref" || exit 90
+/system/bin/rm "$d/owner" || exit 90
+/system/bin/rmdir "$d" || exit 90
+[ ! -e "$d" ] && [ ! -L "$d" ] || exit 90
+printf '"'"'END\n'"'"' || exit 90
+exit 0
+'

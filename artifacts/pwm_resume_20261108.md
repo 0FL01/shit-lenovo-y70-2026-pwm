@@ -1,5 +1,13 @@
 # Возобновление R3 — 2026-11-08
 
+Checkpoint 2026-11-08, **FD byte observations:01 отказ локализован и owned remnants очищены;02 owner-shell путь ограниченно подтверждён.**
+
+- [Probe01](android_fd_byte_microprobe_20261108_01/result.md): 23:22:43.226735 UTC STOP/rc90, stdout0/stderr48 B, external cat self-FD ENOENT. Independent replay9events/342 B. Read-only inspection22events/568 B выявила ровно пять owned files и первый cat failure; exact cleanup24events/568 B завершена23:27:21.906322 UTC, owner last+rmdir и независимое отсутствие. Failed result сохранён; CLOEXEC не доказан.
+- [Probe02](android_fd_byte_microprobe_20261108_02/result.md): latest limited physical action завершён23:29:56.914565 UTC, independent replay13events/395 B PASS. Explicit owner /proc/$$/fd/8 сохраняет unlinked LF1/LF+NUL2; substitution теряет оба без diagnostics. Probe stdout54 B/rc0/stderr0; host elapsed0.769395562 s, whole guarded run9.028409 s, не bounds. Independent own absence/sameboot/mutexabsent/Enforcing; host7 и acquisition8 normal/-O PASS.
+- Старый validate_capture.sh использует /proc/self/fd/8 только builtin -f/-s, не external cat.01 не доказывает его несовместимость или необходимость patch;02 не доказывает full wrapper/root lifecycle/all-failure cleanup/batch/clock/PWM. Qualified runtime13 unchanged. Camera только identity; без DSI/settings/traces/reboot; current brightness/restore не измерены.
+- Следующий milestone: небольшой fixed non-DSI synthetic acquisition/receipt root↔shell probe под offline construction, не generic57 batch. Unknown14 disabled;37/45/8/60/overall600 сохранены. Последний experimental DSI timedstock03 19:07:07.888880 UTC, native828 restored тогда; PWM>=2000 Hz не доказаны. Предыдущий checkpoint опубликован и remote verified в2bb1f9013677e6ce305f5a858bd19c2cfaba463a; текущая запись не утверждает публикацию.
+
+
 Checkpoint 2026-11-08, **portability bundle независимо проверен на host; read-only Android inventory завершён, полный batch HOLD.**
 
 - [Независимый review](../06-tools/android_validator_portability/independent-review.md): 57 shell cases + 20 checks normal/-O, exact104-file rebuild, runtime13 unchanged; manifest d12695ad3e0701e50dac38c27fe7bbc8e03c021230619c932dd4cd4825417c67. Superseded historical fixtures/results сохранены, текущие executable/manifest/results bytes не изменены. Последний опубликованный checkpoint: 2db5ae1691c205903823b13c932fb0179aafe446; эта запись ещё не утверждает публикацию.
