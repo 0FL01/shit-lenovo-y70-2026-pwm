@@ -35,6 +35,22 @@ in the adjacent JSON files and in `artifacts/flash_proposal.md`.
 
 ## 2. Host prerequisites
 
+Remote copy on `nc-lab`: `/home/opencode/ai/legion-Y70-madness` (user
+`opencode`). The project `.venv` was recreated there; Git LFS, ADB, fastboot,
+`simg2img` and `fsck.erofs` are installed. Ghidra 12.1.4 and its PyGhidra
+venv are in `~/tools`; `~/.sdkman/candidates/java/current` points to an
+isolated Temurin 21 at `~/tools/ghidra-jdk`. System Java remains 8. The
+Ghidra toolkit uses the current user's home for its external cache and JDK.
+GitHub access for this checkout uses an existing SSH identity via its local Git
+configuration; no credentials were copied into the repository.
+
+The project copy does not include the previous host's private caches under
+`/home/stfu/.cache/opencode-tmp/opencode`. Some historical DSI/capture scripts
+still hardcode those paths. Do not run device experiments from the new host
+without independently auditing their evidence/paths, reidentifying devices and
+obtaining the required operation-specific authorization. ADB connectivity to
+the physical phones from `nc-lab` has not been established.
+
 The recorded work used a Fedora-family host with:
 
 - Python 3.13.5;

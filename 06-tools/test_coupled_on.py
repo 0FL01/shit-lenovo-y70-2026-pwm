@@ -7,8 +7,14 @@ from unittest.mock import patch
 
 import run_dsi_mode_trial as runner
 
+CACHE = Path.home() / '.cache/opencode-tmp/opencode'
+
 
 class CoupledOnTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        CACHE.mkdir(parents=True, exist_ok=True)
+
     def approval_fixture(self):
         # In-memory TEST fixture, never an authorization record for hardware.
         return {
@@ -37,7 +43,7 @@ class CoupledOnTests(unittest.TestCase):
                     auth[key] = value
                     with self.assertRaises(ValueError):
                         runner.coupled_on_programs(out, auth)
-            with tempfile.TemporaryDirectory(dir='/home/stfu/.cache/opencode-tmp/opencode', prefix='s0c1-test-') as directory:
+            with tempfile.TemporaryDirectory(dir=CACHE, prefix='s0c1-test-') as directory:
                 altered = bytearray(programs['s0c1'])
                 altered[68] = 0x8e
                 (Path(directory) / 'on_keep_pwm_selectors.bin').write_bytes(altered)
@@ -45,7 +51,7 @@ class CoupledOnTests(unittest.TestCase):
                     runner.coupled_on_programs(Path(directory), self.approval_fixture())
 
     def test_missing_authorization_stops_before_device_or_output(self):
-        with tempfile.TemporaryDirectory(dir='/home/stfu/.cache/opencode-tmp/opencode', prefix='s0c1-test-') as directory:
+        with tempfile.TemporaryDirectory(dir=CACHE, prefix='s0c1-test-') as directory:
             root = Path(directory)
             for option in ('--coupled-on', '--coupled-9d', '--coupled-on-view', '--coupled-on-return',
                            '--coupled-9d-view', '--coupled-9d-return'):
@@ -61,7 +67,7 @@ class CoupledOnTests(unittest.TestCase):
                     self.assertEqual(list(root.iterdir()), [])
 
     def test_return_rejects_invalid_saved_native_dbv_before_device_calls(self):
-        with tempfile.TemporaryDirectory(dir='/home/stfu/.cache/opencode-tmp/opencode', prefix='s0c1-test-') as directory:
+        with tempfile.TemporaryDirectory(dir=CACHE, prefix='s0c1-test-') as directory:
             root = Path(directory)
             view = root / 'artifacts/dsi_coupled_on_20261107/owner_view'
             view.mkdir(parents=True)
@@ -98,7 +104,7 @@ class CoupledOnTests(unittest.TestCase):
                 runner.coupled_on_programs(out, auth)
 
     def test_a0d1c1_manual_return_checks_saved_view_before_device_calls(self):
-        with tempfile.TemporaryDirectory(dir='/home/stfu/.cache/opencode-tmp/opencode', prefix='a0d1c1-test-') as directory:
+        with tempfile.TemporaryDirectory(dir=CACHE, prefix='a0d1c1-test-') as directory:
             root = Path(directory)
             view = root / 'artifacts/dsi_coupled_9d_20261107/owner_view'
             view.mkdir(parents=True)

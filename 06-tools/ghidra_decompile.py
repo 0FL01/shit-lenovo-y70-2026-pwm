@@ -31,9 +31,9 @@ import sys
 import tempfile
 
 
-CACHE = Path('/home/stfu/.cache/opencode-tmp/opencode/ghidra-toolkit-20261107')
+CACHE = Path.home() / '.cache/opencode-tmp/opencode/ghidra-toolkit-20261107'
 GHIDRA = Path.home() / 'tools/ghidra-12.1.4'
-JAVA = Path('/home/stfu/.sdkman/candidates/java/current')
+JAVA = Path.home() / '.sdkman/candidates/java/current'
 
 
 def write_json(path, value):
