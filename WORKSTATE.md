@@ -1,5 +1,12 @@
 # Long-lived agent progress journal
 
+Checkpoint 2026-11-08, **изолированный P85 stock-only batching adapter прошёл offline review.**
+
+- [Новая схема](artifacts/p85_batched_design_20261108.md) сокращает ADB round trips, сохраняя неизменные DSI child scripts, строгую framing/native/wire проверку перед следующим child и uncertainty/reboot recovery. Candidate 14 полностью отключён; лимиты 45/60 с не расширялись.
+- Полный offline suite: 203 tests PASS, 2 skips; независимые 20 новых tests PASS normal/-O. Максимальная service-команда 29 339 байт ниже лимита 65 535, проверяется до I/O. Новые executable blobs: `ac3d55f5f7928ad8e55b9090615e23f9f35d5e0e` и `ee12beb0890ef809bfdb8f0bddc6a40ade6eba0e`.
+- Это ещё не hardware qualification. Следующая серия только baseline → factory sham 15 → factory return 15 с новой записью камеры, собственным saved original state и полным восстановлением. Отключение хоста не доказывает отмену child; неопределённость требует проверенного same-target recovery. Неизвестные/чужие cleanup remnants не удаляются.
+- Предыдущий завершённый checkpoint `0dc2a91d7896c95a9289f2cdc6075b35717259e3` опубликован и проверен на remote. Stock-only04 сохранил/восстановил native DBV 6438; fresh read-only preflight перед новой серией теперь видит 828. Причина межсерийного изменения не установлена, фиксированное предположение о saved DBV не используется. R3 >=2000 Гц остаётся нерешённой.
+
 Checkpoint 2026-11-08, **P85 factory15 runtime transport проверен; fine-контроль воспроизведён, R3 не решена.**
 
 - [Stock-only04 hardware](artifacts/p85_stock_a001_20261108_04/hardware_result.md): baseline → sham15 → return15 прошли при DBV3600/native actual120/group3. Две трёхпакетные записи85=15 и все шесть framed reads независимо replay-validated; P85 `15 00 00`, C1 `00 00 60` во всех фазах. Никакого14. Same-value write не доказывает read/write-plane identity, volatile semantics или частотный setter.
