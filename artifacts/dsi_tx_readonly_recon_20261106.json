@@ -1,0 +1,30 @@
+{
+  "scope": "Read-only debugfs discovery inside a new private mount namespace; no command-node read/write or DSI dispatch",
+  "source_pin": "fa008c43c070ff20faa33853649f5dfd4c427e99",
+  "actual_module": "artifacts/kernel/gki_r59/target_vendor/msm_drm.ko",
+  "private_native_disassembly": "/home/stfu/.cache/opencode-tmp/opencode/pacman-readout-20261106/parent-native-tx-path.disasm",
+  "dsi_commands_sent": false,
+  "first_attempt": {
+    "started_at_utc": "2026-11-06T18:37:52.428176+00:00",
+    "finished_at_utc": "2026-11-06T18:37:52.538470+00:00",
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": "mount: bad /etc/fstab: No such file or directory",
+    "parent_namespace_after": {
+      "exit_code": 0,
+      "stdout": "temporary_directory_removed",
+      "stderr": ""
+    }
+  },
+  "started_at_utc": "2026-11-06T18:39:03.922762+00:00",
+  "change": "Use Toybox explicit-device -o rprivate mount syntax; failed GNU --make-rprivate form did not mount anything.",
+  "finished_at_utc": "2026-11-06T18:39:04.075345+00:00",
+  "exit_code": 0,
+  "stdout": "/data/local/tmp/pwm-debugfs-ro-20261106 ro,seclabel,nosuid,nodev,noexec,relatime\n/data/local/tmp/pwm-debugfs-ro-20261106/dri/9800000.qcom,mdss_mdp/DSI-1/rx_cmd 600 root:root\n/data/local/tmp/pwm-debugfs-ro-20261106/dri/9800000.qcom,mdss_mdp/DSI-1/tx_cmd 600 root:root",
+  "stderr": "",
+  "parent_namespace_after": {
+    "exit_code": 0,
+    "stdout": "temporary_directory_removed",
+    "stderr": ""
+  }
+}

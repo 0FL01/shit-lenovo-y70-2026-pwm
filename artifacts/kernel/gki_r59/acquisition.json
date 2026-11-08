@@ -1,0 +1,18 @@
+{
+  "observed_at_utc": "2026-11-06T08:00:21.657806+00:00",
+  "source_url": "https://dl.google.com/android/gki/gki-certified-boot-android16-6.12-2025-12_r59.zip",
+  "archive_path": "downloads/gki-certified-boot-android16-6.12-2025-12_r59.zip",
+  "archive_bytes": 16829063,
+  "member": "boot-6.12.img",
+  "member_bytes": 67108864,
+  "member_crc_passed": true,
+  "boot_header_version": 4,
+  "kernel_bytes": 41306624,
+  "ramdisk_bytes": 0,
+  "purpose": "offline comparison only; not a Motorola partition original or flash candidate",
+  "linux_version_string": "Linux version 6.12.58-android16-6-g09eda8c8505a-ab15950084-4k (kleaf@build-host) (Android (14043575, +pgo, +bolt, +lto, +mlgo, based on r536225) clang version 19.0.1 (https://android.googlesource.com/toolchain/llvm-project b3a530ec6537146650e42be89f1089e9a3588460), LLD 19.0.1) #1 SMP PREEMPT Mon Jul 27 12:15:30 UTC 2026\n",
+  "embedded_config_found": true,
+  "target_config_byte_equal": true,
+  "google_config_lines": 8085,
+  "target_config_lines": 8085
+}

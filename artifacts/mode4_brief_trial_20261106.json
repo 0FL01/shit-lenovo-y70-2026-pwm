@@ -1,0 +1,395 @@
+{
+  "owner_authorization": "Давай, жду результат following proposed brief voluntary mode4 trial with automatic restoration",
+  "started_at_utc": "2026-11-06T15:24:48.971447+00:00",
+  "maximum_hold_seconds": 30,
+  "events": [
+    {
+      "at_utc": "2026-11-06T15:24:49.064362+00:00",
+      "command": "printf '%s|%s|%s|' \"$(getprop ro.boot.hardware.sku)\" \"$(getprop ro.build.display.id)\" \"$(getprop ro.boot.slot_suffix)\"; uname -r; getenforce",
+      "exit_code": 0,
+      "stdout": "XT2611-1|W3WWS36.65-64-4-1|_b|6.12.58-android16-6-g09eda8c8505a-dirty-ab15950084-4k\nEnforcing",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T15:24:49.124189+00:00",
+      "command": "su -c id",
+      "exit_code": 0,
+      "stdout": "uid=0(root) gid=0(root) groups=0(root) context=u:r:ksu:s0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T15:24:49.185823+00:00",
+      "command": "su -c 'cat /sys/class/drm/card0-DSI-1/mipi_cmd_log_en'",
+      "exit_code": 0,
+      "stdout": "ctrl->ctrl->mipi_cmd_log_en: 0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T15:24:49.246559+00:00",
+      "command": "settings get system screen_brightness",
+      "exit_code": 0,
+      "stdout": "69",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T15:24:49.304108+00:00",
+      "command": "settings get system screen_brightness_mode",
+      "exit_code": 0,
+      "stdout": "1",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T15:24:49.361501+00:00",
+      "command": "settings get system min_refresh_rate",
+      "exit_code": 0,
+      "stdout": "null",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T15:24:49.417332+00:00",
+      "command": "settings get system peak_refresh_rate",
+      "exit_code": 0,
+      "stdout": "null",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T15:24:50.554456+00:00",
+      "command": "content call --uri content://com.motorola.android.providers.settings/global --method GET_global --arg display_dc_mode_enabled",
+      "exit_code": 0,
+      "stdout": "Result: Bundle[{value=0}]",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T15:24:50.615618+00:00",
+      "command": "su -c 'cat /sys/class/backlight/panel0-backlight/bl_power'",
+      "exit_code": 0,
+      "stdout": "4",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T15:24:50.751313+00:00",
+      "command": "input keyevent 224; wm dismiss-keyguard; am start -W -a android.settings.DISPLAY_SETTINGS",
+      "exit_code": 0,
+      "stdout": "Starting: Intent { act=android.settings.DISPLAY_SETTINGS }\nWarning: Activity not started, intent has been delivered to currently running top-most instance.\nStatus: ok\nLaunchState: UNKNOWN (0)\nActivity: com.android.settings/.Settings$DisplaySettingsActivity\nTotalTime: 0\nWaitTime: 6\nComplete",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T15:24:52.967824+00:00",
+      "command": "uiautomator dump /data/local/tmp/pwm-mode4-ui.xml",
+      "exit_code": 0,
+      "stdout": "UI hierchary dumped to: /data/local/tmp/pwm-mode4-ui.xml",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T15:24:53.005689+00:00",
+      "command": "cat /data/local/tmp/pwm-mode4-ui.xml",
+      "exit_code": 0,
+      "stdout": "<private settings-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T15:24:53.054618+00:00",
+      "command": "settings put system screen_brightness_mode 0",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T15:24:53.080878+00:00",
+      "command": "settings put system min_refresh_rate 120.0",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T15:24:53.122963+00:00",
+      "command": "settings put system peak_refresh_rate 120.0",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T15:24:53.174685+00:00",
+      "command": "settings put system screen_brightness 40",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T15:24:53.234064+00:00",
+      "command": "input keyevent 224; wm dismiss-keyguard; am start -W -a android.settings.DISPLAY_SETTINGS",
+      "exit_code": 0,
+      "stdout": "Starting: Intent { act=android.settings.DISPLAY_SETTINGS }\nWarning: Activity not started, intent has been delivered to currently running top-most instance.\nStatus: ok\nLaunchState: UNKNOWN (0)\nActivity: com.android.settings/.Settings$DisplaySettingsActivity\nTotalTime: 0\nWaitTime: 3\nComplete",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T15:24:55.262458+00:00",
+      "command": "uiautomator dump /data/local/tmp/pwm-mode4-ui.xml",
+      "exit_code": 0,
+      "stdout": "UI hierchary dumped to: /data/local/tmp/pwm-mode4-ui.xml",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T15:24:55.296678+00:00",
+      "command": "cat /data/local/tmp/pwm-mode4-ui.xml",
+      "exit_code": 0,
+      "stdout": "<private settings-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T15:24:55.345827+00:00",
+      "command": "input tap 720 2009",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T15:24:56.344588+00:00",
+      "command": "content call --uri content://com.motorola.android.providers.settings/global --method GET_global --arg display_dc_mode_enabled",
+      "exit_code": 0,
+      "stdout": "Result: Bundle[{value=1}]",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T15:24:56.401561+00:00",
+      "command": "su -c 'cat /sys/class/drm/card0-DSI-1/panelDC'",
+      "exit_code": 0,
+      "stdout": "1",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T15:24:56.454212+00:00",
+      "command": "settings get system screen_brightness",
+      "exit_code": 0,
+      "stdout": "40",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T15:24:56.495872+00:00",
+      "command": "settings get system screen_brightness_mode",
+      "exit_code": 0,
+      "stdout": "0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T15:24:56.541037+00:00",
+      "command": "settings get system min_refresh_rate",
+      "exit_code": 0,
+      "stdout": "120.0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T15:24:56.587512+00:00",
+      "command": "settings get system peak_refresh_rate",
+      "exit_code": 0,
+      "stdout": "120.0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T15:24:57.623893+00:00",
+      "command": "content call --uri content://com.motorola.android.providers.settings/global --method GET_global --arg display_dc_mode_enabled",
+      "exit_code": 0,
+      "stdout": "Result: Bundle[{value=1}]",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T15:24:57.681463+00:00",
+      "command": "su -c 'cat /sys/class/drm/card0-DSI-1/panelDC'",
+      "exit_code": 0,
+      "stdout": "1",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T15:24:57.736302+00:00",
+      "command": "su -c 'cat /sys/class/backlight/panel0-backlight/brightness'",
+      "exit_code": 0,
+      "stdout": "2839",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T15:24:57.787544+00:00",
+      "command": "su -c 'cat /sys/class/backlight/panel0-backlight/bl_power'",
+      "exit_code": 0,
+      "stdout": "0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T15:24:57.822467+00:00",
+      "command": "getenforce",
+      "exit_code": 0,
+      "stdout": "Enforcing",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T15:24:57.872845+00:00",
+      "command": "dumpsys display",
+      "exit_code": 0,
+      "stdout": "<private display-state.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T15:25:27.983176+00:00",
+      "command": "input keyevent 224; wm dismiss-keyguard; am start -W -a android.settings.DISPLAY_SETTINGS",
+      "exit_code": 0,
+      "stdout": "Starting: Intent { act=android.settings.DISPLAY_SETTINGS }\nWarning: Activity not started, intent has been delivered to currently running top-most instance.\nStatus: ok\nLaunchState: UNKNOWN (0)\nActivity: com.android.settings/.Settings$DisplaySettingsActivity\nTotalTime: 0\nWaitTime: 6\nComplete",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T15:25:30.020497+00:00",
+      "command": "uiautomator dump /data/local/tmp/pwm-mode4-ui.xml",
+      "exit_code": 0,
+      "stdout": "UI hierchary dumped to: /data/local/tmp/pwm-mode4-ui.xml",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T15:25:30.055430+00:00",
+      "command": "cat /data/local/tmp/pwm-mode4-ui.xml",
+      "exit_code": 0,
+      "stdout": "<private settings-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T15:25:30.111481+00:00",
+      "command": "input tap 720 1791",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T15:25:31.122070+00:00",
+      "command": "content call --uri content://com.motorola.android.providers.settings/global --method GET_global --arg display_dc_mode_enabled",
+      "exit_code": 0,
+      "stdout": "Result: Bundle[{value=0}]",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T15:25:31.178393+00:00",
+      "command": "su -c 'cat /sys/class/drm/card0-DSI-1/panelDC'",
+      "exit_code": 0,
+      "stdout": "0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T15:25:31.232367+00:00",
+      "command": "settings put system screen_brightness 69",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T15:25:31.258820+00:00",
+      "command": "settings delete system min_refresh_rate",
+      "exit_code": 0,
+      "stdout": "Deleted 1 rows",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T15:25:31.287710+00:00",
+      "command": "settings delete system peak_refresh_rate",
+      "exit_code": 0,
+      "stdout": "Deleted 1 rows",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T15:25:31.318798+00:00",
+      "command": "settings put system screen_brightness_mode 1",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T15:25:31.343605+00:00",
+      "command": "settings get system screen_brightness",
+      "exit_code": 0,
+      "stdout": "69",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T15:25:31.374484+00:00",
+      "command": "settings get system screen_brightness_mode",
+      "exit_code": 0,
+      "stdout": "1",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T15:25:31.405561+00:00",
+      "command": "settings get system min_refresh_rate",
+      "exit_code": 0,
+      "stdout": "null",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T15:25:31.429725+00:00",
+      "command": "settings get system peak_refresh_rate",
+      "exit_code": 0,
+      "stdout": "null",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T15:25:32.425067+00:00",
+      "command": "content call --uri content://com.motorola.android.providers.settings/global --method GET_global --arg display_dc_mode_enabled",
+      "exit_code": 0,
+      "stdout": "Result: Bundle[{value=0}]",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T15:25:32.455792+00:00",
+      "command": "su -c 'cat /sys/class/drm/card0-DSI-1/mipi_cmd_log_en'",
+      "exit_code": 0,
+      "stdout": "ctrl->ctrl->mipi_cmd_log_en: 0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T15:25:32.474708+00:00",
+      "command": "getenforce",
+      "exit_code": 0,
+      "stdout": "Enforcing",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T15:25:32.519611+00:00",
+      "command": "input keyevent 223",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ],
+  "comfort_outcome": "not yet reported",
+  "optical_hz": "unknown",
+  "before": {
+    "screen_brightness": "69",
+    "screen_brightness_mode": "1",
+    "min_refresh_rate": "null",
+    "peak_refresh_rate": "null",
+    "dc": "0",
+    "bl_power": "4"
+  },
+  "active": {
+    "screen_brightness": "40",
+    "screen_brightness_mode": "0",
+    "min_refresh_rate": "120.0",
+    "peak_refresh_rate": "120.0",
+    "dc": "1",
+    "panel_dc": "1",
+    "sysfs_brightness": "2839",
+    "bl_power": "0",
+    "selinux": "Enforcing",
+    "software_peak_refresh_rate": 120.00001
+  },
+  "hold_started_at_utc": "2026-11-06T15:24:57.873287+00:00",
+  "hold_ended_at_utc": "2026-11-06T15:25:27.873604+00:00",
+  "bounded_hold_completed": true,
+  "after": {
+    "screen_brightness": "69",
+    "screen_brightness_mode": "1",
+    "min_refresh_rate": "null",
+    "peak_refresh_rate": "null",
+    "dc": "0",
+    "logger": "ctrl->ctrl->mipi_cmd_log_en: 0",
+    "selinux": "Enforcing"
+  },
+  "restore_verified": true,
+  "original_screen_off_restored": true,
+  "restore_errors": [],
+  "finished_at_utc": "2026-11-06T15:25:32.519971+00:00"
+}

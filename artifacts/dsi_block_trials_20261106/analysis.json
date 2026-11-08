@@ -1,0 +1,252 @@
+{
+  "capture": "artifacts/dsi_block_trials_20261106/run.json",
+  "video": "artifacts/optical/pacman_dsi_blocks_20261106.mp4",
+  "video_bytes": 82975715,
+  "decoded_frames": 2142,
+  "candidate_applications": {
+    "thresholds": 1,
+    "page53": 1,
+    "page63": 1
+  },
+  "native_packet_checks": [
+    {
+      "label": "baseline",
+      "matched_packets": 75
+    },
+    {
+      "label": "thresholds",
+      "matched_packets": 75
+    },
+    {
+      "label": "return_thresholds",
+      "matched_packets": 75
+    },
+    {
+      "label": "page53",
+      "matched_packets": 75
+    },
+    {
+      "label": "return_page53",
+      "matched_packets": 75
+    },
+    {
+      "label": "page63",
+      "matched_packets": 75
+    },
+    {
+      "label": "return_page63",
+      "matched_packets": 75
+    }
+  ],
+  "native_callback_entries": 35,
+  "native_callback_returns": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "native_controller_return_count": 633,
+  "native_probe_profile": {
+    "mode_entry": {
+      "hits": 35,
+      "misses": 0
+    },
+    "mode_return": {
+      "hits": 35,
+      "misses": 0
+    },
+    "mode_ctrl_return": {
+      "hits": 632,
+      "misses": 0
+    }
+  },
+  "native_negative_returns": 0,
+  "trace_lost_marker": false,
+  "roi_xywh": [
+    540,
+    190,
+    60,
+    500
+  ],
+  "phase_measurements": [
+    {
+      "label": "baseline",
+      "window_relative_first_frame_s": [
+        6.5,
+        9.5
+      ],
+      "frames": 90,
+      "dominant_period_px": 94.14225941422593,
+      "q93_amplitude_RMS_Y_codes": 4.676907599711895,
+      "mean_Y_minus16": 17.400181851851855,
+      "q93_amplitude_divided_by_mean_code_signal": 0.26878498394625366,
+      "image_phase_drift_cycles_per_second": 1.191783659433688,
+      "phase_residual_cycles_RMS": 0.014114774479519645,
+      "max_Y": 44,
+      "fraction_Y_ge235": 0.0
+    },
+    {
+      "label": "thresholds",
+      "window_relative_first_frame_s": [
+        15.594942,
+        18.594942
+      ],
+      "frames": 90,
+      "dominant_period_px": 94.33962264150944,
+      "q93_amplitude_RMS_Y_codes": 4.429974041269235,
+      "mean_Y_minus16": 17.469134814814815,
+      "q93_amplitude_divided_by_mean_code_signal": 0.25358863436741963,
+      "image_phase_drift_cycles_per_second": 1.242743008094098,
+      "phase_residual_cycles_RMS": 0.011200499073869224,
+      "max_Y": 43,
+      "fraction_Y_ge235": 0.0,
+      "mean_signal_ratio_to_adjacent_stock_average": 1.0021607259301422,
+      "normalized_image_amplitude_ratio_to_adjacent_stock_average": 0.9998057281004529
+    },
+    {
+      "label": "return_thresholds",
+      "window_relative_first_frame_s": [
+        24.50362,
+        27.50362
+      ],
+      "frames": 90,
+      "dominant_period_px": 93.16770186335403,
+      "q93_amplitude_RMS_Y_codes": 4.164707846957775,
+      "mean_Y_minus16": 17.46275851851852,
+      "q93_amplitude_divided_by_mean_code_signal": 0.23849083422537612,
+      "image_phase_drift_cycles_per_second": 1.2183588784034898,
+      "phase_residual_cycles_RMS": 0.022447461358357793,
+      "max_Y": 46,
+      "fraction_Y_ge235": 0.0
+    },
+    {
+      "label": "page53",
+      "window_relative_first_frame_s": [
+        33.749187,
+        36.749187
+      ],
+      "frames": 90,
+      "dominant_period_px": 92.59259259259258,
+      "q93_amplitude_RMS_Y_codes": 4.415570733798269,
+      "mean_Y_minus16": 17.420683703703702,
+      "q93_amplitude_divided_by_mean_code_signal": 0.25346713188182746,
+      "image_phase_drift_cycles_per_second": 1.1623369851689644,
+      "phase_residual_cycles_RMS": 0.013567922400055698,
+      "max_Y": 43,
+      "fraction_Y_ge235": 0.0,
+      "mean_signal_ratio_to_adjacent_stock_average": 1.0012116070937847,
+      "normalized_image_amplitude_ratio_to_adjacent_stock_average": 0.9948497565437245
+    },
+    {
+      "label": "return_page53",
+      "window_relative_first_frame_s": [
+        43.076425,
+        46.076425
+      ],
+      "frames": 90,
+      "dominant_period_px": 93.16770186335403,
+      "q93_amplitude_RMS_Y_codes": 4.699351918190756,
+      "mean_Y_minus16": 17.33644592592593,
+      "q93_amplitude_divided_by_mean_code_signal": 0.2710677804591466,
+      "image_phase_drift_cycles_per_second": 1.1247851933045798,
+      "phase_residual_cycles_RMS": 0.016320582508649963,
+      "max_Y": 44,
+      "fraction_Y_ge235": 0.0
+    },
+    {
+      "label": "page63",
+      "window_relative_first_frame_s": [
+        52.561438,
+        55.561438
+      ],
+      "frames": 90,
+      "dominant_period_px": 94.14225941422593,
+      "q93_amplitude_RMS_Y_codes": 4.694760624628194,
+      "mean_Y_minus16": 17.389483703703704,
+      "q93_amplitude_divided_by_mean_code_signal": 0.2699769990082155,
+      "image_phase_drift_cycles_per_second": 1.1263587209427952,
+      "phase_residual_cycles_RMS": 0.014170299200383183,
+      "max_Y": 44,
+      "fraction_Y_ge235": 0.0,
+      "mean_signal_ratio_to_adjacent_stock_average": 1.0011025077165145,
+      "normalized_image_amplitude_ratio_to_adjacent_stock_average": 1.0339125256952935
+    },
+    {
+      "label": "return_page63",
+      "window_relative_first_frame_s": [
+        62.219335,
+        65.219335
+      ],
+      "frames": 90,
+      "dominant_period_px": 94.33962264150944,
+      "q93_amplitude_RMS_Y_codes": 4.371515737225449,
+      "mean_Y_minus16": 17.40421962962963,
+      "q93_amplitude_divided_by_mean_code_signal": 0.2511756246619187,
+      "image_phase_drift_cycles_per_second": 1.1515432969206094,
+      "phase_residual_cycles_RMS": 0.016082070579363637,
+      "max_Y": 42,
+      "fraction_Y_ge235": 0.0
+    }
+  ],
+  "method": "Original limited-range Y, no gamma conversion. Per-window temporal mean removal, per-frame quadratic background, Hann spatial Fourier search periods20..180px. q93.43 complex component and unwrapped image-phase drift; 3s central windows. Neighboring stock windows provide local image-level references, not calibrated optical baselines.",
+  "observation": "All three isolated blocks retain the fine train and broad moving band. No isolated block produces a demonstrated denser/high-frequency profile in this condition.",
+  "interpretation": "Negative sufficiency results for these independent substitutions atDBV3600/software120. Do not infer that the fields are irrelevant: coupling and raw/native-UI path equivalence require separate evidence.",
+  "full_native_ON_raw_positive_control_performed": false,
+  "pwm_hz": "unknown",
+  "greater_equal_2000_hz_verified": false,
+  "low_frequency_component_eliminated": false,
+  "target_restored": true,
+  "persistent_display_changes": false,
+  "limits": [
+    "Pixel period and temporal image drift are not physical Hz; image harmonics and rolling-shutter ambiguity remain.",
+    "No calibrated luminance/duty/depth, panel temperature measurement or owner usability acceptance.",
+    "Only independent blocks, not combinations or page51/52/OD fields, were tested.",
+    "Native pre-transfer payloads and nonnegative returns do not themselves prove the final optical mode or equivalence to the framework DC path."
+  ],
+  "dma_error_log_check": [
+    {
+      "trial": "dsi-mode-trial-20261106-dd-fixed",
+      "scope": "first BEGIN through last END in final pre-hold snapshot; final hold not covered",
+      "native_completion_failure_lines": [],
+      "covered": true
+    },
+    {
+      "trial": "dsi-block-trials-20261106",
+      "scope": "first BEGIN through last END in final pre-hold snapshot; final hold not covered",
+      "native_completion_failure_lines": [],
+      "covered": true
+    }
+  ],
+  "dma_completion_limit": "rc=0 cannot prove final DMA completion: void wait path can log failure without propagating an errno. No fixed completion-error strings found in the captured whole-series window; last return hold is not covered by that snapshot."
+}

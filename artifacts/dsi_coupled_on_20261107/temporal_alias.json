@@ -1,0 +1,120 @@
+{
+  "method": "Raw profiles; quadratic plus broad spatial nuisance and four fixed spatial harmonics; no temporal mean removal; complex phase versus video PTS",
+  "fixed_spatial_component_cycles_per_row": 0.010703200256876806,
+  "stages": [
+    {
+      "label": "baseline",
+      "frames": 75,
+      "window_s": [
+        13.564454999999999,
+        16.064455
+      ],
+      "harmonics": [
+        {
+          "spatial_harmonic": 1,
+          "sampled_alias_cycles_per_second": 1.2893785679838496,
+          "phase_residual_rms_cycles": 0.0160312418858561,
+          "mean_coefficient_amplitude_Y": 4.487778976810853
+        },
+        {
+          "spatial_harmonic": 2,
+          "sampled_alias_cycles_per_second": 2.5834906153019257,
+          "phase_residual_rms_cycles": 0.0346797064580529,
+          "mean_coefficient_amplitude_Y": 3.7609496140563623
+        },
+        {
+          "spatial_harmonic": 3,
+          "sampled_alias_cycles_per_second": 3.8766699408156966,
+          "phase_residual_rms_cycles": 0.053437052178143894,
+          "mean_coefficient_amplitude_Y": 2.961480755323505
+        },
+        {
+          "spatial_harmonic": 4,
+          "sampled_alias_cycles_per_second": 5.168271017808463,
+          "phase_residual_rms_cycles": 0.07263267594386455,
+          "mean_coefficient_amplitude_Y": 2.1649196950186207
+        }
+      ],
+      "model_residual_rms_Y": 1.923577336707324
+    },
+    {
+      "label": "s0c1",
+      "frames": 75,
+      "window_s": [
+        30.028623500000002,
+        32.5286235
+      ],
+      "harmonics": [
+        {
+          "spatial_harmonic": 1,
+          "sampled_alias_cycles_per_second": 1.2439073926277047,
+          "phase_residual_rms_cycles": 0.005701097903449698,
+          "mean_coefficient_amplitude_Y": 4.3339317350219995
+        },
+        {
+          "spatial_harmonic": 2,
+          "sampled_alias_cycles_per_second": 2.479913643479318,
+          "phase_residual_rms_cycles": 0.011580939946229336,
+          "mean_coefficient_amplitude_Y": 3.673780877969792
+        },
+        {
+          "spatial_harmonic": 3,
+          "sampled_alias_cycles_per_second": 3.7159206696091305,
+          "phase_residual_rms_cycles": 0.01722473648374153,
+          "mean_coefficient_amplitude_Y": 2.911323618266714
+        },
+        {
+          "spatial_harmonic": 4,
+          "sampled_alias_cycles_per_second": 4.948434127653916,
+          "phase_residual_rms_cycles": 0.024521745356899896,
+          "mean_coefficient_amplitude_Y": 2.1537237569439314
+        }
+      ],
+      "model_residual_rms_Y": 1.9030362601789337
+    },
+    {
+      "label": "return_s0c1",
+      "frames": 75,
+      "window_s": [
+        46.625083000000004,
+        49.125083000000004
+      ],
+      "harmonics": [
+        {
+          "spatial_harmonic": 1,
+          "sampled_alias_cycles_per_second": 1.1366245447853225,
+          "phase_residual_rms_cycles": 0.013811831608437311,
+          "mean_coefficient_amplitude_Y": 4.394986021446328
+        },
+        {
+          "spatial_harmonic": 2,
+          "sampled_alias_cycles_per_second": 2.2816786778953886,
+          "phase_residual_rms_cycles": 0.0247749096344161,
+          "mean_coefficient_amplitude_Y": 3.703608993898688
+        },
+        {
+          "spatial_harmonic": 3,
+          "sampled_alias_cycles_per_second": 3.42564235960161,
+          "phase_residual_rms_cycles": 0.03904651488419526,
+          "mean_coefficient_amplitude_Y": 2.935795766242367
+        },
+        {
+          "spatial_harmonic": 4,
+          "sampled_alias_cycles_per_second": 4.5715675783085485,
+          "phase_residual_rms_cycles": 0.05561925151781568,
+          "mean_coefficient_amplitude_Y": 2.16602841623592
+        }
+      ],
+      "model_residual_rms_Y": 1.87693280762537
+    }
+  ],
+  "synthetic_signed_and_stationary_alias_tests_passed": true,
+  "pwm_hz": "unknown",
+  "greater_equal_2000_hz_verified": false,
+  "limits": [
+    "Tracks the original q93 family, not every new spatial component.",
+    "Weak coefficients or poor phase residuals do not establish a stable oscillation.",
+    "Camera cadence aliases remain; spatial harmonic order need not be physical PWM harmonic order.",
+    "Video PTS is not sensor timestamp calibration; no confidence interval for physical Hz."
+  ]
+}

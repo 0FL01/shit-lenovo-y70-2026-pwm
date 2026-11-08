@@ -1,0 +1,183 @@
+
+/mnt/kston/legion-Y70-madness/artifacts/kernel/gki_r59/target_vendor/msm_drm.ko:     file format elf64-littleaarch64
+
+
+Disassembly of section .text:
+
+00000000001c0e7c <dsi_panel_parse_esync_params>:
+  1c0e7c:	d503233f 	paciasp
+  1c0e80:	d100c3ff 	sub	sp, sp, #0x30
+  1c0e84:	a9017bfd 	stp	x29, x30, [sp, #16]
+  1c0e88:	a9024ff4 	stp	x20, x19, [sp, #32]
+  1c0e8c:	910043fd 	add	x29, sp, #0x10
+  1c0e90:	d5384108 	mrs	x8, sp_el0
+  1c0e94:	f9438908 	ldr	x8, [x8, #1808]
+  1c0e98:	f90007e8 	str	x8, [sp, #8]
+  1c0e9c:	b90007ff 	str	wzr, [sp, #4]
+  1c0ea0:	b4000360 	cbz	x0, 1c0f0c <dsi_panel_parse_esync_params+0x90>
+  1c0ea4:	aa0103f4 	mov	x20, x1
+  1c0ea8:	b4000321 	cbz	x1, 1c0f0c <dsi_panel_parse_esync_params+0x90>
+  1c0eac:	aa0003f3 	mov	x19, x0
+  1c0eb0:	f9400280 	ldr	x0, [x20]
+  1c0eb4:	b40002c0 	cbz	x0, 1c0f0c <dsi_panel_parse_esync_params+0x90>
+  1c0eb8:	f9401288 	ldr	x8, [x20, #32]
+  1c0ebc:	90000001 	adrp	x1, 0 <msm_hdcp_register_cb-0x4>
+			1c0ebc: R_AARCH64_ADR_PREL_PG_HI21	.rodata+0x16df7
+		; rodata string: 'qcom,mdss-esync-milli-skew'
+  1c0ec0:	91000021 	add	x1, x1, #0x0
+			1c0ec0: R_AARCH64_ADD_ABS_LO12_NC	.rodata+0x16df7
+		; rodata string: 'qcom,mdss-esync-milli-skew'
+  1c0ec4:	910013e2 	add	x2, sp, #0x4
+  1c0ec8:	b85fc110 	ldur	w16, [x8, #-4]
+  1c0ecc:	729a4b71 	movk	w17, #0xd25b
+  1c0ed0:	72a24db1 	movk	w17, #0x126d, lsl #16
+  1c0ed4:	6b11021f 	cmp	w16, w17
+  1c0ed8:	54000040 	b.eq	1c0ee0 <dsi_panel_parse_esync_params+0x64>  // b.none
+  1c0edc:	d4304500 	brk	#0x8228
+  1c0ee0:	d63f0100 	blr	x8
+  1c0ee4:	34000240 	cbz	w0, 1c0f2c <dsi_panel_parse_esync_params+0xb0>
+  1c0ee8:	90000003 	adrp	x3, 0 <msm_hdcp_register_cb-0x4>
+			1c0ee8: R_AARCH64_ADR_PREL_PG_HI21	.rodata+0x759da
+		; rodata string: '[msm-dsi-debug]: mode esync skew fallback on default\n'
+  1c0eec:	91000063 	add	x3, x3, #0x0
+			1c0eec: R_AARCH64_ADD_ABS_LO12_NC	.rodata+0x759da
+		; rodata string: '[msm-dsi-debug]: mode esync skew fallback on default\n'
+  1c0ef0:	aa1f03e0 	mov	x0, xzr
+  1c0ef4:	aa1f03e1 	mov	x1, xzr
+  1c0ef8:	2a1f03e2 	mov	w2, wzr
+  1c0efc:	94000000 	bl	0 <__drm_dev_dbg>
+			1c0efc: R_AARCH64_CALL26	__drm_dev_dbg
+  1c0f00:	2a1f03e8 	mov	w8, wzr
+  1c0f04:	b90007ff 	str	wzr, [sp, #4]
+  1c0f08:	1400000a 	b	1c0f30 <dsi_panel_parse_esync_params+0xb4>
+  1c0f0c:	90000001 	adrp	x1, 0 <msm_hdcp_register_cb-0x4>
+			1c0f0c: R_AARCH64_ADR_PREL_PG_HI21	.rodata+0x3d84f
+  1c0f10:	91000021 	add	x1, x1, #0x0
+			1c0f10: R_AARCH64_ADD_ABS_LO12_NC	.rodata+0x3d84f
+  1c0f14:	90000002 	adrp	x2, 0 <msm_hdcp_register_cb-0x4>
+			1c0f14: R_AARCH64_ADR_PREL_PG_HI21	.rodata+0x56150
+		; rodata string: '*ERROR* [msm-dsi-error]: invalid arguments\n'
+  1c0f18:	91000042 	add	x2, x2, #0x0
+			1c0f18: R_AARCH64_ADD_ABS_LO12_NC	.rodata+0x56150
+		; rodata string: '*ERROR* [msm-dsi-error]: invalid arguments\n'
+  1c0f1c:	aa1f03e0 	mov	x0, xzr
+  1c0f20:	94000000 	bl	0 <drm_dev_printk>
+			1c0f20: R_AARCH64_CALL26	drm_dev_printk
+  1c0f24:	128002a0 	mov	w0, #0xffffffea            	// #-22
+  1c0f28:	14000030 	b	1c0fe8 <dsi_panel_parse_esync_params+0x16c>
+  1c0f2c:	b94007e8 	ldr	w8, [sp, #4]
+  1c0f30:	b9000268 	str	w8, [x19]
+  1c0f34:	90000001 	adrp	x1, 0 <msm_hdcp_register_cb-0x4>
+			1c0f34: R_AARCH64_ADR_PREL_PG_HI21	.rodata+0x3868d
+		; rodata string: 'qcom,mdss-esync-hsync-milli-pulse-width'
+  1c0f38:	91000021 	add	x1, x1, #0x0
+			1c0f38: R_AARCH64_ADD_ABS_LO12_NC	.rodata+0x3868d
+		; rodata string: 'qcom,mdss-esync-hsync-milli-pulse-width'
+  1c0f3c:	f9401288 	ldr	x8, [x20, #32]
+  1c0f40:	f9400280 	ldr	x0, [x20]
+  1c0f44:	910013e2 	add	x2, sp, #0x4
+  1c0f48:	b85fc110 	ldur	w16, [x8, #-4]
+  1c0f4c:	729a4b71 	movk	w17, #0xd25b
+  1c0f50:	72a24db1 	movk	w17, #0x126d, lsl #16
+  1c0f54:	6b11021f 	cmp	w16, w17
+  1c0f58:	54000040 	b.eq	1c0f60 <dsi_panel_parse_esync_params+0xe4>  // b.none
+  1c0f5c:	d4304500 	brk	#0x8228
+  1c0f60:	d63f0100 	blr	x8
+  1c0f64:	34000140 	cbz	w0, 1c0f8c <dsi_panel_parse_esync_params+0x110>
+  1c0f68:	90000001 	adrp	x1, 0 <msm_hdcp_register_cb-0x4>
+			1c0f68: R_AARCH64_ADR_PREL_PG_HI21	.rodata+0x3d84f
+  1c0f6c:	91000021 	add	x1, x1, #0x0
+			1c0f6c: R_AARCH64_ADD_ABS_LO12_NC	.rodata+0x3d84f
+  1c0f70:	90000002 	adrp	x2, 0 <msm_hdcp_register_cb-0x4>
+			1c0f70: R_AARCH64_ADR_PREL_PG_HI21	.rodata+0x3fe11
+		; rodata string: '*ERROR* [msm-dsi-error]: mode esync enabled but hsync pulse width not defined\n'
+  1c0f74:	91000042 	add	x2, x2, #0x0
+			1c0f74: R_AARCH64_ADD_ABS_LO12_NC	.rodata+0x3fe11
+		; rodata string: '*ERROR* [msm-dsi-error]: mode esync enabled but hsync pulse width not defined\n'
+  1c0f78:	2a0003f3 	mov	w19, w0
+  1c0f7c:	aa1f03e0 	mov	x0, xzr
+  1c0f80:	94000000 	bl	0 <drm_dev_printk>
+			1c0f80: R_AARCH64_CALL26	drm_dev_printk
+  1c0f84:	2a1303e0 	mov	w0, w19
+  1c0f88:	14000018 	b	1c0fe8 <dsi_panel_parse_esync_params+0x16c>
+  1c0f8c:	b94007e8 	ldr	w8, [sp, #4]
+  1c0f90:	90000001 	adrp	x1, 0 <msm_hdcp_register_cb-0x4>
+			1c0f90: R_AARCH64_ADR_PREL_PG_HI21	.rodata+0x5ec85
+		; rodata string: 'qcom,mdss-esync-emsync-fps'
+  1c0f94:	91000021 	add	x1, x1, #0x0
+			1c0f94: R_AARCH64_ADD_ABS_LO12_NC	.rodata+0x5ec85
+		; rodata string: 'qcom,mdss-esync-emsync-fps'
+  1c0f98:	910013e2 	add	x2, sp, #0x4
+  1c0f9c:	b9000668 	str	w8, [x19, #4]
+  1c0fa0:	f9401288 	ldr	x8, [x20, #32]
+  1c0fa4:	f9400280 	ldr	x0, [x20]
+  1c0fa8:	b85fc110 	ldur	w16, [x8, #-4]
+  1c0fac:	729a4b71 	movk	w17, #0xd25b
+  1c0fb0:	72a24db1 	movk	w17, #0x126d, lsl #16
+  1c0fb4:	6b11021f 	cmp	w16, w17
+  1c0fb8:	54000040 	b.eq	1c0fc0 <dsi_panel_parse_esync_params+0x144>  // b.none
+  1c0fbc:	d4304500 	brk	#0x8228
+  1c0fc0:	d63f0100 	blr	x8
+  1c0fc4:	34000260 	cbz	w0, 1c1010 <dsi_panel_parse_esync_params+0x194>
+  1c0fc8:	90000003 	adrp	x3, 0 <msm_hdcp_register_cb-0x4>
+			1c0fc8: R_AARCH64_ADR_PREL_PG_HI21	.rodata+0x434bf
+		; rodata string: '[msm-dsi-debug]: mode esync EM pulse not enabled\n'
+  1c0fcc:	91000063 	add	x3, x3, #0x0
+			1c0fcc: R_AARCH64_ADD_ABS_LO12_NC	.rodata+0x434bf
+		; rodata string: '[msm-dsi-debug]: mode esync EM pulse not enabled\n'
+  1c0fd0:	aa1f03e0 	mov	x0, xzr
+  1c0fd4:	aa1f03e1 	mov	x1, xzr
+  1c0fd8:	2a1f03e2 	mov	w2, wzr
+  1c0fdc:	94000000 	bl	0 <__drm_dev_dbg>
+			1c0fdc: R_AARCH64_CALL26	__drm_dev_dbg
+  1c0fe0:	2a1f03e0 	mov	w0, wzr
+  1c0fe4:	b9000a7f 	str	wzr, [x19, #8]
+  1c0fe8:	d5384108 	mrs	x8, sp_el0
+  1c0fec:	f9438908 	ldr	x8, [x8, #1808]
+  1c0ff0:	f94007e9 	ldr	x9, [sp, #8]
+  1c0ff4:	eb09011f 	cmp	x8, x9
+  1c0ff8:	540003a1 	b.ne	1c106c <dsi_panel_parse_esync_params+0x1f0>  // b.any
+  1c0ffc:	a9424ff4 	ldp	x20, x19, [sp, #32]
+  1c1000:	a9417bfd 	ldp	x29, x30, [sp, #16]
+  1c1004:	9100c3ff 	add	sp, sp, #0x30
+  1c1008:	d50323bf 	autiasp
+  1c100c:	d65f03c0 	ret
+  1c1010:	b94007e8 	ldr	w8, [sp, #4]
+  1c1014:	90000001 	adrp	x1, 0 <msm_hdcp_register_cb-0x4>
+			1c1014: R_AARCH64_ADR_PREL_PG_HI21	.rodata+0x1deb1
+		; rodata string: 'qcom,mdss-esync-emsync-milli-pulse-width'
+  1c1018:	91000021 	add	x1, x1, #0x0
+			1c1018: R_AARCH64_ADD_ABS_LO12_NC	.rodata+0x1deb1
+		; rodata string: 'qcom,mdss-esync-emsync-milli-pulse-width'
+  1c101c:	910013e2 	add	x2, sp, #0x4
+  1c1020:	b9000a68 	str	w8, [x19, #8]
+  1c1024:	f9401288 	ldr	x8, [x20, #32]
+  1c1028:	f9400280 	ldr	x0, [x20]
+  1c102c:	b85fc110 	ldur	w16, [x8, #-4]
+  1c1030:	729a4b71 	movk	w17, #0xd25b
+  1c1034:	72a24db1 	movk	w17, #0x126d, lsl #16
+  1c1038:	6b11021f 	cmp	w16, w17
+  1c103c:	54000040 	b.eq	1c1044 <dsi_panel_parse_esync_params+0x1c8>  // b.none
+  1c1040:	d4304500 	brk	#0x8228
+  1c1044:	d63f0100 	blr	x8
+  1c1048:	340000c0 	cbz	w0, 1c1060 <dsi_panel_parse_esync_params+0x1e4>
+  1c104c:	90000001 	adrp	x1, 0 <msm_hdcp_register_cb-0x4>
+			1c104c: R_AARCH64_ADR_PREL_PG_HI21	.rodata+0x3d84f
+  1c1050:	91000021 	add	x1, x1, #0x0
+			1c1050: R_AARCH64_ADD_ABS_LO12_NC	.rodata+0x3d84f
+  1c1054:	90000002 	adrp	x2, 0 <msm_hdcp_register_cb-0x4>
+			1c1054: R_AARCH64_ADR_PREL_PG_HI21	.rodata+0x47042
+		; rodata string: '*ERROR* [msm-dsi-error]: mode esync EM pulse enabled but pulse width not defined\n'
+  1c1058:	91000042 	add	x2, x2, #0x0
+			1c1058: R_AARCH64_ADD_ABS_LO12_NC	.rodata+0x47042
+		; rodata string: '*ERROR* [msm-dsi-error]: mode esync EM pulse enabled but pulse width not defined\n'
+  1c105c:	17ffffc7 	b	1c0f78 <dsi_panel_parse_esync_params+0xfc>
+  1c1060:	b94007e8 	ldr	w8, [sp, #4]
+  1c1064:	b9000e68 	str	w8, [x19, #12]
+  1c1068:	17ffffe0 	b	1c0fe8 <dsi_panel_parse_esync_params+0x16c>
+  1c106c:	94000000 	bl	0 <__stack_chk_fail>
+			1c106c: R_AARCH64_CALL26	__stack_chk_fail
+
+Disassembly of section .init.text:
+
+Disassembly of section .exit.text:

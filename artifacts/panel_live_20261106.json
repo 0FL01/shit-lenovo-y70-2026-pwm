@@ -1,0 +1,131 @@
+{
+  "observed_at_utc": "2026-11-06T12:21:58.664546+00:00",
+  "status": "confirmed-on-target software observations; no setting/DSI command writes",
+  "commands": [
+    {
+      "command": "research root identity",
+      "exit_code": 0,
+      "stdout": "uid=0(root) gid=0(root) groups=0(root) context=u:r:ksu:s0",
+      "stderr": ""
+    },
+    {
+      "command": "read /sys/class/drm/card0-DSI-1/panelName",
+      "exit_code": 0,
+      "stdout": "boe_ili97701A_682_1440x3168_dsc_cmd_v4",
+      "stderr": ""
+    },
+    {
+      "command": "read /sys/class/drm/card0-DSI-1/panelSupplier",
+      "exit_code": 0,
+      "stdout": "boe",
+      "stderr": ""
+    },
+    {
+      "command": "read /sys/class/drm/card0-DSI-1/panelId",
+      "exit_code": 0,
+      "stdout": "0x00000000000000d2",
+      "stderr": ""
+    },
+    {
+      "command": "read /sys/class/drm/card0-DSI-1/panelVer",
+      "exit_code": 0,
+      "stdout": "0x0000000000000000",
+      "stderr": ""
+    },
+    {
+      "command": "read /sys/class/drm/card0-DSI-1/panelDC",
+      "exit_code": 0,
+      "stdout": "0",
+      "stderr": ""
+    },
+    {
+      "command": "read /sys/module/msm_drm/parameters/dsi_display0",
+      "exit_code": 0,
+      "stdout": "qcom,mdss_dsi_mot_boe_ili97701A_682_1440x3168_dsc_cmd_v4:",
+      "stderr": ""
+    },
+    {
+      "command": "read /sys/module/msm_drm/parameters/dsi_display1",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": "DRM connector interface metadata",
+      "exit_code": 0,
+      "stdout": "total 0\ndrwxr-xr-x  3 root root    0 1970-02-16 22:13 .\ndrwxr-xr-x 15 root root    0 1970-02-16 22:13 ..\n-r--r--r--  1 root root 4096 1970-02-16 22:13 connector_id\nlrwxrwxrwx  1 root root    0 1970-02-16 22:13 device -> ../../card0\n-r--r--r--  1 root root 4096 1970-02-16 22:13 dpms\n-rw-r--r--  1 root root 4096 2026-09-27 10:43 dsi_display_wakeup\n-r--r--r--  1 root root    0 1970-02-16 22:13 edid\n-r--r--r--  1 root root 4096 1970-02-16 22:13 enabled\n-rw-rw-r--  1 root root 4096 2026-09-27 10:43 is_gsi_mode\n-rw-rw-r--  1 root root 4096 2026-09-27 10:43 mipi_cmd_log_en\n-r--r--r--  1 root root 4096 1970-02-16 22:13 modes\n-r--r--r--  1 root root 4096 2026-09-27 10:41 panelBLExponent\n-r--r--r--  1 root root 4096 2026-09-27 10:43 panelCalibrationName\n-r--r--r--  1 root root 4096 2026-09-27 10:43 panelCellId\n-r--r--r--  1 root root 4096 2026-09-27 10:41 panelDC\n-r--r--r--  1 root root 4096 2026-09-27 10:43 panelHwStatus\n-r--r--r--  1 root root 4096 2026-09-27 10:43 panelId\n-r--r--r--  1 root root 4096 2026-09-27 10:41 panelName\n-rw-r--r--  1 root root 4096 2026-09-27 10:43 panelPcdCheck\n-r--r--r--  1 root root 4096 2026-09-27 10:43 panelPcdValue\n-r--r--r--  1 root root 4096 2026-09-27 10:43 panelRegDA\n-r--r--r--  1 root root 4096 2026-09-27 10:41 panelSupplier\n-r--r--r--  1 root root 4096 2026-09-27 10:41 panelVer\n-rw-rw-r--  1 root root 4096 2026-09-27 10:43 panel_para_by_id\n-rw-rw-r--  1 root root 4096 2026-09-27 10:43 panel_parse_para\n-rw-rw-r--  1 root root 4096 2026-09-27 10:43 panel_te_cal_en\ndrwxr-xr-x  2 root root    0 1970-02-16 22:13 power\n-rw-r--r--  1 root root 4096 2026-09-27 10:43 pressure_test_en\n-rw-r--r--  1 root root 4096 2026-09-27 10:41 status\nlrwxrwxrwx  1 root root    0 1970-02-16 22:13 subsystem -> ../../../../../../../class/drm\n-rw-r--r--  1 root root 4096 1970-02-16 22:13 uevent",
+      "stderr": ""
+    },
+    {
+      "command": "backlight interface metadata",
+      "exit_code": 0,
+      "stdout": "total 0\ndrwxr-xr-x 3 root   root      0 1970-02-16 22:13 .\ndrwxr-xr-x 3 root   root      0 1970-02-16 22:13 ..\n-r--r--r-- 1 root   root   4096 1970-02-16 22:13 actual_brightness\n-rw-r--r-- 1 root   root   4096 1970-02-16 22:13 bl_power\n-rw-r--r-- 1 system system 4096 1970-02-16 22:13 brightness\nlrwxrwxrwx 1 root   root      0 1970-02-16 22:13 device -> ../../../9800000.qcom,mdss_mdp\n-r--r--r-- 1 system system 4096 1970-02-16 22:13 max_brightness\ndrwxr-xr-x 2 root   root      0 1970-02-16 22:13 power\n-r--r--r-- 1 root   root   4096 1970-02-16 22:13 scale\nlrwxrwxrwx 1 root   root      0 1970-02-16 22:13 subsystem -> ../../../../../../class/backlight\n-r--r--r-- 1 root   root   4096 1970-02-16 22:13 type\n-rw-r--r-- 1 root   root   4096 1970-02-16 22:13 uevent",
+      "stderr": ""
+    },
+    {
+      "command": "read /sys/class/backlight/panel0-backlight/brightness",
+      "exit_code": 0,
+      "stdout": "0",
+      "stderr": ""
+    },
+    {
+      "command": "read /sys/class/backlight/panel0-backlight/actual_brightness",
+      "exit_code": 0,
+      "stdout": "0",
+      "stderr": ""
+    },
+    {
+      "command": "read /sys/class/backlight/panel0-backlight/max_brightness",
+      "exit_code": 0,
+      "stdout": "16180",
+      "stderr": ""
+    },
+    {
+      "command": "read /sys/class/backlight/panel0-backlight/bl_power",
+      "exit_code": 0,
+      "stdout": "4",
+      "stderr": ""
+    },
+    {
+      "command": "read Motorola DC provider setting",
+      "exit_code": 0,
+      "stdout": "Result: Bundle[{value=null}]",
+      "stderr": ""
+    }
+  ],
+  "panel_attributes": {
+    "panelName": {
+      "exit_code": 0,
+      "value": "boe_ili97701A_682_1440x3168_dsc_cmd_v4",
+      "error": ""
+    },
+    "panelSupplier": {
+      "exit_code": 0,
+      "value": "boe",
+      "error": ""
+    },
+    "panelId": {
+      "exit_code": 0,
+      "value": "0x00000000000000d2",
+      "error": ""
+    },
+    "panelVer": {
+      "exit_code": 0,
+      "value": "0x0000000000000000",
+      "error": ""
+    },
+    "panelDC": {
+      "exit_code": 0,
+      "value": "0",
+      "error": ""
+    }
+  },
+  "intentionally_not_read": [
+    "panelCellId",
+    "panelRegDA",
+    "panelPcdCheck",
+    "panelPcdValue",
+    "device serial/IMEI",
+    "raw DSI register interfaces"
+  ]
+}

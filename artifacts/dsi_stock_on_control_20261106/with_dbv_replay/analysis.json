@@ -1,0 +1,102 @@
+{
+  "capture": "artifacts/dsi_stock_on_control_20261106/with_dbv_replay/run.json",
+  "video": "artifacts/optical/pacman_dsi_stock_on_dbv_20261106.mp4",
+  "video_bytes": 40579062,
+  "decoded_frames": 1042,
+  "video_metadata": {
+    "width": 1280,
+    "height": 720,
+    "avg_frame_rate": "15630000/520997",
+    "duration": "34.733133"
+  },
+  "native_packet_checks": [
+    {
+      "label": "baseline",
+      "matched_table_packets": 75,
+      "only_post_table_write": "51 0e 10",
+      "completion_error_absent_through_hold": true
+    },
+    {
+      "label": "native_on",
+      "matched_table_packets": 75,
+      "only_post_table_write": "51 0e 10",
+      "completion_error_absent_through_hold": true
+    },
+    {
+      "label": "return",
+      "matched_table_packets": 75,
+      "only_post_table_write": "51 0e 10",
+      "completion_error_absent_through_hold": true
+    }
+  ],
+  "native_callback_returns": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "phase_measurements": [
+    {
+      "label": "baseline",
+      "window_s": [
+        7.5,
+        10.5
+      ],
+      "frames": 91,
+      "dominant_period_px": 94.14225941422593,
+      "q93_RMS_Y_codes": 4.270243906467759,
+      "mean_Y_minus16": 17.485253479853483,
+      "normalized_image_amplitude": 0.2442197312945984
+    },
+    {
+      "label": "native_on",
+      "window_s": [
+        17.0,
+        20.0
+      ],
+      "frames": 90,
+      "dominant_period_px": 92.78350515463917,
+      "q93_RMS_Y_codes": 4.151986349170151,
+      "mean_Y_minus16": 17.42555925925926,
+      "normalized_image_amplitude": 0.23826990499395012,
+      "normalized_amplitude_ratio_to_neighbor_stock_average": 0.9463415949675648
+    },
+    {
+      "label": "return",
+      "window_s": [
+        26.5,
+        29.5
+      ],
+      "frames": 90,
+      "dominant_period_px": 92.59259259259258,
+      "q93_RMS_Y_codes": 4.506091914801451,
+      "mean_Y_minus16": 17.37520851851852,
+      "normalized_image_amplitude": 0.25934030719682316
+    }
+  ],
+  "method": "Same original limited-range Y ROI540,190,60,500; per-window temporal mean removal, per-frame quadratic background, Hann Fourier search20..180px; no gamma in numerical analysis.",
+  "observation": "Full unmodified native ON plus verified sameDBV51 0e10 still retains the fine train; current raw positive control remains negative.",
+  "raw_transport_positive_control_pass": false,
+  "same_dbv_update_sufficient_to_restore_prior_UI_effect": false,
+  "pwm_hz": "unknown",
+  "greater_equal_2000_hz_verified": false,
+  "low_frequency_component_eliminated": false,
+  "target_restored": true,
+  "next": "Re-establish the present nativeUI optical/command reference before additional custom sequences. Earlier UI test preceded a reboot; cached state/other UI-path actions remain unestablished.",
+  "limits": [
+    "No measured physicalHz or calibrated optical depth.",
+    "No outgoing overwrite beyond the verified single brightness write was captured through each hold.",
+    "Current result rejects a missing sameDBV update as a sufficient explanation, not every possible latch/state dependency."
+  ]
+}

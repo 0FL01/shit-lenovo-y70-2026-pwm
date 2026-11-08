@@ -1,0 +1,363 @@
+{
+  "address_model": "import address + memory block offset; NOT live VA",
+  "analysis": true,
+  "binary": "/mnt/kston/legion-Y70-madness/artifacts/kernel/gki_r59/target_vendor/msm_drm.ko",
+  "branch_count": 36,
+  "callees": [
+    {
+      "entry": {
+        "block": ".text",
+        "ghidra": "00336a14",
+        "offset": "0x18ffa4"
+      },
+      "name": "readl_relaxed"
+    },
+    {
+      "entry": {
+        "block": "EXTERNAL",
+        "ghidra": "003d2018",
+        "offset": "0x18"
+      },
+      "name": "<EXTERNAL>::__stack_chk_fail"
+    },
+    {
+      "entry": {
+        "block": "EXTERNAL",
+        "ghidra": "003d20f8",
+        "offset": "0xf8"
+      },
+      "name": "<EXTERNAL>::__drm_dev_dbg"
+    },
+    {
+      "entry": {
+        "block": "EXTERNAL",
+        "ghidra": "003d2990",
+        "offset": "0x990"
+      },
+      "name": "<EXTERNAL>::drm_dev_printk"
+    }
+  ],
+  "callers": [
+    {
+      "from": {
+        "block": ".text",
+        "ghidra": "0034282c",
+        "offset": "0x19bdbc"
+      },
+      "function": {
+        "entry": {
+          "block": ".text",
+          "ghidra": "00342620",
+          "offset": "0x19bbb0"
+        },
+        "name": "dsi_catalog_ctrl_setup"
+      },
+      "type": "DATA"
+    },
+    {
+      "from": {
+        "block": ".text",
+        "ghidra": "00342af8",
+        "offset": "0x19c088"
+      },
+      "function": {
+        "entry": {
+          "block": ".text",
+          "ghidra": "00342620",
+          "offset": "0x19bbb0"
+        },
+        "name": "dsi_catalog_ctrl_setup"
+      },
+      "type": "DATA"
+    },
+    {
+      "from": {
+        "block": null,
+        "ghidra": "Entry Point",
+        "offset": null
+      },
+      "function": null,
+      "type": "EXTERNAL"
+    }
+  ],
+  "command": "brief",
+  "constants": [
+    {
+      "bits": 32,
+      "hex": "0x2",
+      "signed": 2
+    },
+    {
+      "bits": 64,
+      "hex": "0x2",
+      "signed": 2
+    },
+    {
+      "bits": 32,
+      "hex": "0x3",
+      "signed": 3
+    },
+    {
+      "bits": 32,
+      "hex": "0x4",
+      "signed": 4
+    },
+    {
+      "bits": 64,
+      "hex": "0x4",
+      "signed": 4
+    },
+    {
+      "bits": 32,
+      "hex": "0x5",
+      "signed": 5
+    },
+    {
+      "bits": 32,
+      "hex": "0x6",
+      "signed": 6
+    },
+    {
+      "bits": 64,
+      "hex": "0x8",
+      "signed": 8
+    },
+    {
+      "bits": 32,
+      "hex": "0xa",
+      "signed": 10
+    },
+    {
+      "bits": 64,
+      "hex": "0xc",
+      "signed": 12
+    },
+    {
+      "bits": 32,
+      "hex": "0xf",
+      "signed": 15
+    },
+    {
+      "bits": 64,
+      "hex": "0xf",
+      "signed": 15
+    },
+    {
+      "bits": 32,
+      "hex": "0x10",
+      "signed": 16
+    },
+    {
+      "bits": 64,
+      "hex": "0x10",
+      "signed": 16
+    },
+    {
+      "bits": 32,
+      "hex": "0x11",
+      "signed": 17
+    },
+    {
+      "bits": 64,
+      "hex": "0x20",
+      "signed": 32
+    },
+    {
+      "bits": 64,
+      "hex": "0x30",
+      "signed": 48
+    },
+    {
+      "bits": 64,
+      "hex": "0x38",
+      "signed": 56
+    },
+    {
+      "bits": 64,
+      "hex": "0x40",
+      "signed": 64
+    },
+    {
+      "bits": 64,
+      "hex": "0x50",
+      "signed": 80
+    },
+    {
+      "bits": 64,
+      "hex": "0x60",
+      "signed": 96
+    },
+    {
+      "bits": 32,
+      "hex": "0x68",
+      "signed": 104
+    },
+    {
+      "bits": 64,
+      "hex": "0x70",
+      "signed": 112
+    },
+    {
+      "bits": 64,
+      "hex": "0x80",
+      "signed": 128
+    },
+    {
+      "bits": 64,
+      "hex": "0x1d4",
+      "signed": 468
+    },
+    {
+      "bits": 64,
+      "hex": "0x348",
+      "signed": 840
+    },
+    {
+      "bits": 64,
+      "hex": "0x398",
+      "signed": 920
+    },
+    {
+      "bits": 64,
+      "hex": "0x710",
+      "signed": 1808
+    },
+    {
+      "bits": 64,
+      "hex": "0x7ee",
+      "signed": 2030
+    },
+    {
+      "bits": 64,
+      "hex": "0x810",
+      "signed": 2064
+    },
+    {
+      "bits": 64,
+      "hex": "0xa50",
+      "signed": 2640
+    },
+    {
+      "bits": 64,
+      "hex": "0xcd7",
+      "signed": 3287
+    },
+    {
+      "bits": 32,
+      "hex": "0x5512",
+      "signed": 21778
+    },
+    {
+      "bits": 64,
+      "hex": "0x12f000",
+      "signed": 1241088
+    },
+    {
+      "bits": 64,
+      "hex": "0x136000",
+      "signed": 1269760
+    },
+    {
+      "bits": 64,
+      "hex": "0x151000",
+      "signed": 1380352
+    },
+    {
+      "bits": 64,
+      "hex": "0x156000",
+      "signed": 1400832
+    },
+    {
+      "bits": 64,
+      "hex": "0x16a000",
+      "signed": 1482752
+    },
+    {
+      "bits": 32,
+      "hex": "0xfffffff8",
+      "signed": -8
+    },
+    {
+      "bits": 32,
+      "hex": "0xffffffff",
+      "signed": -1
+    },
+    {
+      "bits": 64,
+      "hex": "0xffffffff",
+      "signed": 4294967295
+    }
+  ],
+  "elf_type": "ET_REL",
+  "filter": "",
+  "function": {
+    "entry": {
+      "block": ".text",
+      "ghidra": "0033808c",
+      "offset": "0x19161c"
+    },
+    "name": "dsi_ctrl_hw_cmn_get_cmd_read_data"
+  },
+  "ghidra_version": "12.1.4",
+  "image_base": "00100000",
+  "instruction_count": 211,
+  "language": "AARCH64:LE:64:v8A",
+  "referenced_strings": [
+    {
+      "entry": {
+        "block": ".rodata",
+        "ghidra": "0012fa50",
+        "offset": "0x165c8"
+      },
+      "reference": {
+        "block": ".rodata",
+        "ghidra": "0012fa50",
+        "offset": "0x165c8"
+      },
+      "value": "[msm-dsi-info]: DSI_%d: Expected %u bytes for long read but received %u bytes\n"
+    },
+    {
+      "entry": {
+        "block": ".rodata",
+        "ghidra": "00136810",
+        "offset": "0x1d388"
+      },
+      "reference": {
+        "block": ".rodata",
+        "ghidra": "00136810",
+        "offset": "0x1d388"
+      },
+      "value": "*ERROR* [msm-dsi-error]: DSI_%d: Panel detected error, no data read\n"
+    },
+    {
+      "entry": {
+        "block": ".rodata",
+        "ghidra": "00151348",
+        "offset": "0x37ec0"
+      },
+      "reference": {
+        "block": ".rodata",
+        "ghidra": "00151348",
+        "offset": "0x37ec0"
+      },
+      "value": "[msm-dsi-info]: DSI_%d: Expected %u bytes for short read but received %u bytes\n"
+    },
+    {
+      "entry": {
+        "block": ".rodata",
+        "ghidra": "00151398",
+        "offset": "0x37f10"
+      },
+      "reference": {
+        "block": ".rodata",
+        "ghidra": "00151398",
+        "offset": "0x37f10"
+      },
+      "value": "[msm-dsi-debug]: DSI_%d: Read %d bytes\n"
+    }
+  ],
+  "selector": "dsi_ctrl_hw_cmn_get_cmd_read_data",
+  "sha256": "1bec69faec736e7288f38e4cb83314c37c60d33e6b383213316fd880aa0b1804",
+  "size_bytes": 844,
+  "status": "ok"
+}

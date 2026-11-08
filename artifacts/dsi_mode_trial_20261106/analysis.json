@@ -1,0 +1,141 @@
+{
+  "capture": "artifacts/dsi_mode_trial_20261106/run.json",
+  "video": "artifacts/optical/pacman_dsi_mode90_20261106.mp4",
+  "video_bytes": 39096951,
+  "decoded_frames": 1005,
+  "candidate_applications": 1,
+  "native_packet_verification": [
+    {
+      "label": "baseline",
+      "matched_packets": 75,
+      "page23_opcode80_payload": "80 50"
+    },
+    {
+      "label": "candidate",
+      "matched_packets": 75,
+      "page23_opcode80_payload": "80 90"
+    },
+    {
+      "label": "return",
+      "matched_packets": 75,
+      "page23_opcode80_payload": "80 50"
+    }
+  ],
+  "native_callback_entries": 15,
+  "native_callback_returns": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "native_controller_return_count": 380,
+  "native_negative_returns": 0,
+  "native_probe_misses": 0,
+  "trace_lost_marker": false,
+  "roi_xywh": [
+    540,
+    190,
+    60,
+    500
+  ],
+  "analysis_windows": [
+    {
+      "label": "pre_replay",
+      "window_s_relative_first_frame": [
+        1,
+        2
+      ],
+      "frames": 30,
+      "dominant_period_px": 93.55509355509355,
+      "moving_component_at_q93_RMS_Y_codes": 4.03590012399378,
+      "mean_Y_minus16": 17.66061333333333,
+      "max_Y": 43,
+      "fraction_Y_ge235": 0.0,
+      "q93_amplitude_ratio_to_baseline": 0.8770138812667535,
+      "mean_signal_ratio_to_baseline": 1.011491700053489,
+      "image_phase_drift_cycles_per_second": 1.110757254317116,
+      "phase_fit_residual_cycles_RMS": 0.01232941218663456,
+      "q93_normalized_image_amplitude_ratio": 0.8670500027042988
+    },
+    {
+      "label": "baseline",
+      "window_s_relative_first_frame": [
+        6,
+        10
+      ],
+      "frames": 120,
+      "dominant_period_px": 93.74999999999999,
+      "moving_component_at_q93_RMS_Y_codes": 4.6018657289259215,
+      "mean_Y_minus16": 17.45996861111111,
+      "max_Y": 47,
+      "fraction_Y_ge235": 0.0,
+      "q93_amplitude_ratio_to_baseline": 1.0,
+      "mean_signal_ratio_to_baseline": 1.0,
+      "image_phase_drift_cycles_per_second": 1.1668386501604409,
+      "phase_fit_residual_cycles_RMS": 0.01787981488170193,
+      "q93_normalized_image_amplitude_ratio": 1.0
+    },
+    {
+      "label": "candidate",
+      "window_s_relative_first_frame": [
+        15,
+        19
+      ],
+      "frames": 120,
+      "dominant_period_px": 92.97520661157024,
+      "moving_component_at_q93_RMS_Y_codes": 1.8569030547658776,
+      "mean_Y_minus16": 7.981710555555555,
+      "max_Y": 36,
+      "fraction_Y_ge235": 0.0,
+      "q93_amplitude_ratio_to_baseline": 0.40351091582137055,
+      "mean_signal_ratio_to_baseline": 0.4571434653368268,
+      "image_phase_drift_cycles_per_second": 1.1856902668047182,
+      "phase_fit_residual_cycles_RMS": 0.01793130596730743,
+      "q93_normalized_image_amplitude_ratio": 0.8826789540217109
+    },
+    {
+      "label": "return",
+      "window_s_relative_first_frame": [
+        24,
+        28
+      ],
+      "frames": 120,
+      "dominant_period_px": 93.16770186335403,
+      "moving_component_at_q93_RMS_Y_codes": 4.134190120232497,
+      "mean_Y_minus16": 15.490460277777778,
+      "max_Y": 45,
+      "fraction_Y_ge235": 0.0,
+      "q93_amplitude_ratio_to_baseline": 0.8983726087978277,
+      "mean_signal_ratio_to_baseline": 0.8871986326435901,
+      "image_phase_drift_cycles_per_second": 1.272191048733537,
+      "phase_fit_residual_cycles_RMS": 0.025311190582964452,
+      "q93_normalized_image_amplitude_ratio": 1.012594672425207
+    }
+  ],
+  "method": "Original limited-range Y; per-window temporal mean removal, per-frame quadratic background, Hann spatial Fourier magnitude averaged in quadrature. Broad search periods20..180px. Values are video codes, not luminance/modulation depth/Hz. Pre-replay1s is a shorter diagnostic window, not an equal-precision comparison.",
+  "observation": "Fine train remains in baseline/candidate/return with similar ~93px spacing. Candidate lowers the video signal at unchanged DBV/manual camera settings. Full stock packets restore the original band class; return-window mean signal is0.887 of baseline, not an exact photometric match. A broad moving band remains.",
+  "conclusion_status": "confirmed-on-target for native packets and observed optical effect; register semantic decoding remains hypothesis/unknown",
+  "candidate_sufficient_for_requested_pwm_goal": false,
+  "pwm_hz": "unknown",
+  "greater_equal_2000_hz_verified": false,
+  "low_frequency_component_eliminated": false,
+  "limitations": [
+    "Only the isolated23:80=90 in full stock OFF context atDBV3600/software120 was tested; no global conclusion about this register in other combinations.",
+    "Physical fundamental Hz and calibrated brightness/duty/depth are not established; FAST ISP and harmonic/rolling-shutter ambiguities remain.",
+    "No panel temperature measurement; fixed camera and short A/B/A sequence do not substitute for thermal calibration.",
+    "Temporal image-phase drift is an alias, not physical Hz. Candidate retains comparable spatial and aliased temporal structure; no isolated frequency multiplier demonstrated. Return signal is not exactly photometrically matched; uncalibrated ISP/phase/thermal contributions are unresolved."
+  ],
+  "return_verified": true,
+  "persistent_changes": false
+}

@@ -1,0 +1,90 @@
+{
+  "source": "artifacts/pacman_readout_capture_20261106.json",
+  "video_frames": [
+    125,
+    150,
+    175
+  ],
+  "method": "Native HEVC Y plane; 4K area-reduced exactly 3x3 to 720p; x edges from columns averaged over y190:690; screen-top transition from smoothed screen-minus-background contrast; same-frame A1 x-profile correlation",
+  "records": [
+    {
+      "clip": "A1",
+      "frame_index": 125,
+      "screen_left_edge_output_x": 137,
+      "screen_right_edge_output_x": 744,
+      "screen_top_transition_output_y": 58,
+      "column_profile_correlation_to_A1_same_index": 1.0
+    },
+    {
+      "clip": "A1",
+      "frame_index": 150,
+      "screen_left_edge_output_x": 138,
+      "screen_right_edge_output_x": 744,
+      "screen_top_transition_output_y": 52,
+      "column_profile_correlation_to_A1_same_index": 0.9999999999999999
+    },
+    {
+      "clip": "A1",
+      "frame_index": 175,
+      "screen_left_edge_output_x": 136,
+      "screen_right_edge_output_x": 744,
+      "screen_top_transition_output_y": 51,
+      "column_profile_correlation_to_A1_same_index": 1.0
+    },
+    {
+      "clip": "B",
+      "frame_index": 125,
+      "screen_left_edge_output_x": 139,
+      "screen_right_edge_output_x": 744,
+      "screen_top_transition_output_y": 55,
+      "column_profile_correlation_to_A1_same_index": 0.9989941778545703
+    },
+    {
+      "clip": "B",
+      "frame_index": 150,
+      "screen_left_edge_output_x": 138,
+      "screen_right_edge_output_x": 747,
+      "screen_top_transition_output_y": 53,
+      "column_profile_correlation_to_A1_same_index": 0.9990675608767268
+    },
+    {
+      "clip": "B",
+      "frame_index": 175,
+      "screen_left_edge_output_x": 136,
+      "screen_right_edge_output_x": 747,
+      "screen_top_transition_output_y": 54,
+      "column_profile_correlation_to_A1_same_index": 0.9987783414617118
+    },
+    {
+      "clip": "A2",
+      "frame_index": 125,
+      "screen_left_edge_output_x": 136,
+      "screen_right_edge_output_x": 747,
+      "screen_top_transition_output_y": 53,
+      "column_profile_correlation_to_A1_same_index": 0.9997983809023693
+    },
+    {
+      "clip": "A2",
+      "frame_index": 150,
+      "screen_left_edge_output_x": 138,
+      "screen_right_edge_output_x": 747,
+      "screen_top_transition_output_y": 54,
+      "column_profile_correlation_to_A1_same_index": 0.9998925215175031
+    },
+    {
+      "clip": "A2",
+      "frame_index": 175,
+      "screen_left_edge_output_x": 138,
+      "screen_right_edge_output_x": 747,
+      "screen_top_transition_output_y": 52,
+      "column_profile_correlation_to_A1_same_index": 0.9999065507223952
+    }
+  ],
+  "limits": [
+    "These are three selected static image frames, not a calibrated sensor or emission timing experiment",
+    "Matching screen-image edges does not establish identical active-array row mapping or rolling readout time",
+    "Temporal flicker bands and UI changes can affect profiles; fixed edge windows were chosen after initial inspection of frame 150, then applied unchanged to frames 125/150/175",
+    "No physical PWM frequency or absence of low-frequency modulation is established"
+  ],
+  "physical_pwm_hz": null
+}

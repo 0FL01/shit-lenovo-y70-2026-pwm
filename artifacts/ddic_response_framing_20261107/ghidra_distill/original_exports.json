@@ -1,0 +1,62 @@
+{
+  "scope": "Structured projection read from all three original manifests before cache deletion; no instruction listings",
+  "binary": "/mnt/kston/legion-Y70-madness/artifacts/kernel/gki_r59/target_vendor/msm_drm.ko",
+  "sha256": "1bec69faec736e7288f38e4cb83314c37c60d33e6b383213316fd880aa0b1804",
+  "elf_type": "ET_REL",
+  "ghidra_version": "12.1.4",
+  "language": "AARCH64:LE:64:v8A",
+  "image_base": "00100000",
+  "address_model": "import address + memory block offset; NOT live VA",
+  "original_cache": "/home/stfu/.cache/opencode-tmp/opencode/ghidra-toolkit-20261107/ddic-response-20261107",
+  "analysis": true,
+  "status": "ok",
+  "filter": "",
+  "timebox_seconds": null,
+  "unknown_parameters": "Original successful manifests omit timebox; all three analysis.log files are empty. Exact shell argv/project-location/timebox cannot be recovered. Tool default timebox was 300 s, not proof of the original supplied limit.",
+  "exports": [
+    {
+      "directory": "controller-transfer",
+      "command": "decompile",
+      "selector": "dsi_ctrl_cmd_transfer",
+      "function": {
+        "name": "dsi_ctrl_cmd_transfer",
+        "entry": {"block": ".text", "ghidra": "0033db30", "offset": "0x1970c0"}
+      },
+      "instruction_count": 515
+    },
+    {
+      "directory": "read-data",
+      "command": "decompile",
+      "selector": "dsi_ctrl_hw_cmn_get_cmd_read_data",
+      "function": {
+        "name": "dsi_ctrl_hw_cmn_get_cmd_read_data",
+        "entry": {"block": ".text", "ghidra": "0033808c", "offset": "0x19161c"}
+      },
+      "instruction_count": 211
+    },
+    {
+      "directory": "read-data-xrefs",
+      "command": "xrefs",
+      "selector": "dsi_ctrl_hw_cmn_get_cmd_read_data",
+      "target": {"block": ".text", "ghidra": "0033808c", "offset": "0x19161c"},
+      "incoming": [
+        {
+          "from": {"block": ".text", "ghidra": "0034282c", "offset": "0x19bdbc"},
+          "to": {"block": ".text", "ghidra": "0033808c", "offset": "0x19161c"},
+          "type": "DATA"
+        },
+        {
+          "from": {"block": ".text", "ghidra": "00342af8", "offset": "0x19c088"},
+          "to": {"block": ".text", "ghidra": "0033808c", "offset": "0x19161c"},
+          "type": "DATA"
+        },
+        {
+          "from": {"block": null, "ghidra": "Entry Point", "offset": null},
+          "to": {"block": ".text", "ghidra": "0033808c", "offset": "0x19161c"},
+          "type": "EXTERNAL"
+        }
+      ],
+      "outgoing": []
+    }
+  ]
+}

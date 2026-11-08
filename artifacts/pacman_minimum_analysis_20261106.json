@@ -1,0 +1,77 @@
+{
+  "capture": "artifacts/pacman_minimum_capture_20261106.json",
+  "video": "artifacts/optical/pacman_minimum_20261106.mp4",
+  "decoded_frames": 815,
+  "native_pre_transfer_DCS_payloads": [
+    "51 0E 10",
+    "51 01 CC",
+    "51 0E 10"
+  ],
+  "roi_xywh": [
+    540,
+    190,
+    60,
+    500
+  ],
+  "phases": [
+    {
+      "dbv": 3600,
+      "window_s": [
+        4,
+        8
+      ],
+      "frames": 121,
+      "period_peak_pixels": 93,
+      "correlation_at_peak": 0.9131996767166357,
+      "raw_Y_min_max": [
+        15,
+        71
+      ],
+      "fraction_Y_le16": 0.00011763085399449036,
+      "fraction_Y_ge235": 0.0
+    },
+    {
+      "dbv": 460,
+      "window_s": [
+        12,
+        16
+      ],
+      "frames": 120,
+      "period_peak_pixels": 93,
+      "correlation_at_peak": 0.7548054623626668,
+      "raw_Y_min_max": [
+        16,
+        48
+      ],
+      "fraction_Y_le16": 0.00013027777777777777,
+      "fraction_Y_ge235": 0.0
+    },
+    {
+      "dbv": 3600,
+      "window_s": [
+        20,
+        24
+      ],
+      "frames": 120,
+      "period_peak_pixels": 93,
+      "correlation_at_peak": 0.9149001763557552,
+      "raw_Y_min_max": [
+        15,
+        71
+      ],
+      "fraction_Y_le16": 5.888888888888889e-05,
+      "fraction_Y_ge235": 0.0
+    }
+  ],
+  "method": "Unmodified limited-range Y plane; per-frame quadratic background removal and median normalized spatial autocorrelation, lags50..150. Visual peak spacing checked against original samples; pixel lag is not Hz.",
+  "observation": "At3600 narrow dark bands; at460 narrow bright bands separated by broad dark intervals; return3600 restores narrow dark bands. Same approximately93px spacing; no denser train was observed at minimum.",
+  "limits": [
+    "Near-black signal and uncalibrated ISP at460 prevent calibrated duty or modulation-depth claims.",
+    "Same image spacing alone does not prove exact or unchanged physical Hz; no >=2000Hz claim.",
+    "Only supported minimum and upper low-range endpoint sampled, not every possible DBV."
+  ],
+  "pwm_hz": "unknown",
+  "greater_equal_2000_hz_verified": false,
+  "target_restored": true,
+  "camera_iso_returned_to6400": true
+}

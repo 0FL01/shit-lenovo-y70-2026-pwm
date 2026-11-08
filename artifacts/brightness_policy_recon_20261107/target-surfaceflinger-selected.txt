@@ -1,0 +1,218 @@
+# Target special-idle property readers
+
+/home/stfu/.cache/opencode-tmp/opencode/brightness-policy-recon-20261107/current/surfaceflinger:	file format elf64-littleaarch64
+
+Disassembly of section .text:
+
+0000000000188000 <.text>:
+  2cabac: b0ffebd5     	adrp	x21, 0x43000
+  2cabb0: 912f2eb5     	add	x21, x21, #0xbcb
+  2cabb4: d0ffed80     	adrp	x0, 0x7c000
+  2cabb8: 9106a400     	add	x0, x0, #0x1a9
+  2cabbc: d101c3a1     	sub	x1, x29, #0x70
+  2cabc0: aa1503e2     	mov	x2, x21
+  2cabc4: 94121059     	bl	0x74ed28 <property_get@plt>
+  2cabc8: d101c3a0     	sub	x0, x29, #0x70
+  2cabcc: 94121279     	bl	0x74f5b0 <atof@plt>
+  2cabd0: 1e780008     	fcvtzs	w8, d0
+  2cabd4: d0ffed80     	adrp	x0, 0x7c000
+  2cabd8: 91071800     	add	x0, x0, #0x1c6
+  2cabdc: d101c3a1     	sub	x1, x29, #0x70
+  2cabe0: aa1503e2     	mov	x2, x21
+  2cabe4: b9160ee8     	str	w8, [x23, #0x160c]
+  2cabe8: 94121050     	bl	0x74ed28 <property_get@plt>
+  2cabec: d101c3a0     	sub	x0, x29, #0x70
+  2cabf0: 94121054     	bl	0x74ed40 <atoi@plt>
+  2cabf4: 6f00e400     	movi	v0.2d, #0000000000000000
+  2cabf8: b91612e0     	str	w0, [x23, #0x1610]
+  2cabfc: d0ffeb80     	adrp	x0, 0x3c000
+  2cac00: 912c8000     	add	x0, x0, #0xb20
+  2cac04: d101c3a1     	sub	x1, x29, #0x70
+  2cac08: aa1503e2     	mov	x2, x21
+  2cac0c: ad3c83a0     	stp	q0, q0, [x29, #-0x70]
+  2cac10: ad3d83a0     	stp	q0, q0, [x29, #-0x50]
+  2cac14: 3c9d03a0     	stur	q0, [x29, #-0x30]
+  2cac18: 3c84c320     	stur	q0, [x25, #0x4c]
+  2cac1c: 94121043     	bl	0x74ed28 <property_get@plt>
+  2cac20: d101c3a0     	sub	x0, x29, #0x70
+  2cac24: 94121263     	bl	0x74f5b0 <atof@plt>
+  2cac28: 6f00e401     	movi	v1.2d, #0000000000000000
+  2cac2c: 1e780008     	fcvtzs	w8, d0
+  2cac30: b0ffed00     	adrp	x0, 0x6b000
+  2cac34: 91262000     	add	x0, x0, #0x988
+  2cac38: 6f00e400     	movi	v0.2d, #0000000000000000
+  2cac3c: d101c3a1     	sub	x1, x29, #0x70
+  2cac40: aa1503e2     	mov	x2, x21
+  2cac44: ad3c87a1     	stp	q1, q1, [x29, #-0x70]
+  2cac48: ad3d87a1     	stp	q1, q1, [x29, #-0x50]
+  2cac4c: 3c9d03a1     	stur	q1, [x29, #-0x30]
+  2cac50: b91616e8     	str	w8, [x23, #0x1614]
+  2cac54: 3c84c320     	stur	q0, [x25, #0x4c]
+  2cac58: 94121034     	bl	0x74ed28 <property_get@plt>
+  2cac5c: d101c3a0     	sub	x0, x29, #0x70
+  2cac60: 94121038     	bl	0x74ed40 <atoi@plt>
+  2cac64: b955a2e3     	ldr	w3, [x23, #0x15a0]
+  2cac68: b95582e4     	ldr	w4, [x23, #0x1580]
+  2cac6c: 90ffece2     	adrp	x2, 0x66000
+  2cac70: 910aa042     	add	x2, x2, #0x2a8
+  2cac74: b955c2e5     	ldr	w5, [x23, #0x15c0]
+  2cac78: b955e2e6     	ldr	w6, [x23, #0x15e0]
+  2cac7c: b95602e7     	ldr	w7, [x23, #0x1600]
+  2cac80: b9560ee8     	ldr	w8, [x23, #0x160c]
+  2cac84: aa1403e1     	mov	x1, x20
+  2cac88: b95612e9     	ldr	w9, [x23, #0x1610]
+  2cac8c: b95616ea     	ldr	w10, [x23, #0x1614]
+  2cac90: b9161ae0     	str	w0, [x23, #0x1618]
+  2cac94: b9001be0     	str	w0, [sp, #0x18]
+  2cac98: 52800080     	mov	w0, #0x4                // =4
+  2cac9c: b90013ea     	str	w10, [sp, #0x10]
+  2caca0: b9000be9     	str	w9, [sp, #0x8]
+  2caca4: b90003e8     	str	w8, [sp]
+  2caca8: 94120a38     	bl	0x74d588 <__android_log_print@plt>
+
+# Target updateSpecialFlagByBrightnessZone
+
+/home/stfu/.cache/opencode-tmp/opencode/brightness-policy-recon-20261107/current/surfaceflinger:	file format elf64-littleaarch64
+
+Disassembly of section .text:
+
+0000000000188000 <.text>:
+  2a5574: d503233f     	paciasp
+  2a5578: a9be7bfd     	stp	x29, x30, [sp, #-0x20]!
+  2a557c: a9014ff4     	stp	x20, x19, [sp, #0x10]
+  2a5580: 910003fd     	mov	x29, sp
+  2a5584: f9400028     	ldr	x8, [x1]
+  2a5588: 3942e10a     	ldrb	w10, [x8, #0xb8]
+  2a558c: 3942e509     	ldrb	w9, [x8, #0xb9]
+  2a5590: 7100055f     	cmp	w10, #0x1
+  2a5594: 54000121     	b.ne	0x2a55b8 <.text+0x11d5b8>
+  2a5598: 370001c9     	tbnz	w9, #0x0, 0x2a55d0 <.text+0x11d5d0>
+  2a559c: 3942e909     	ldrb	w9, [x8, #0xba]
+  2a55a0: 37000189     	tbnz	w9, #0x0, 0x2a55d0 <.text+0x11d5d0>
+  2a55a4: 5282c289     	mov	w9, #0x1614             // =5652
+  2a55a8: 5282c18a     	mov	w10, #0x160c            // =5644
+  2a55ac: 8b090009     	add	x9, x0, x9
+  2a55b0: 8b0a000a     	add	x10, x0, x10
+  2a55b4: 1400000b     	b	0x2a55e0 <.text+0x11d5e0>
+  2a55b8: 37000069     	tbnz	w9, #0x0, 0x2a55c4 <.text+0x11d5c4>
+  2a55bc: 3942e909     	ldrb	w9, [x8, #0xba]
+  2a55c0: 36000649     	tbz	w9, #0x0, 0x2a5688 <.text+0x11d688>
+  2a55c4: f9408109     	ldr	x9, [x8, #0x100]
+  2a55c8: 39554d29     	ldrb	w9, [x9, #0x553]
+  2a55cc: 360005e9     	tbz	w9, #0x0, 0x2a5688 <.text+0x11d688>
+  2a55d0: 5282c209     	mov	w9, #0x1610             // =5648
+  2a55d4: 5282c30b     	mov	w11, #0x1618            // =5656
+  2a55d8: 8b09000a     	add	x10, x0, x9
+  2a55dc: 8b0b0009     	add	x9, x0, x11
+  2a55e0: bd400140     	ldr	s0, [x10]
+  2a55e4: 5e21d801     	scvtf	s1, s0
+  2a55e8: bd401440     	ldr	s0, [x2, #0x14]
+  2a55ec: 1e212000     	fcmp	s0, s1
+  2a55f0: 5400008c     	b.gt	0x2a5600 <.text+0x11d600>
+  2a55f4: b940a50a     	ldr	w10, [x8, #0xa4]
+  2a55f8: 7100055f     	cmp	w10, #0x1
+  2a55fc: 54000661     	b.ne	0x2a56c8 <.text+0x11d6c8>
+  2a5600: 52800024     	mov	w4, #0x1                // =1
+  2a5604: f9408108     	ldr	x8, [x8, #0x100]
+  2a5608: b944a909     	ldr	w9, [x8, #0x4a8]
+  2a560c: 6b04013f     	cmp	w9, w4
+  2a5610: 54000280     	b.eq	0x2a5660 <.text+0x11d660>
+  2a5614: b904a904     	str	w4, [x8, #0x4a8]
+  2a5618: 90ffeca8     	adrp	x8, 0x39000
+  2a561c: 912a5d08     	add	x8, x8, #0xa97
+  2a5620: 2d420440     	ldp	s0, s1, [x2, #0x10]
+  2a5624: 90ffec89     	adrp	x9, 0x35000
+  2a5628: 910d7529     	add	x9, x9, #0x35d
+  2a562c: d0ffeda2     	adrp	x2, 0x5b000
+  2a5630: 9132a042     	add	x2, x2, #0xca8
+  2a5634: 52800080     	mov	w0, #0x4                // =4
+  2a5638: aa0103f4     	mov	x20, x1
+  2a563c: aa0803e1     	mov	x1, x8
+  2a5640: 1e22c000     	fcvt	d0, s0
+  2a5644: 1e22c021     	fcvt	d1, s1
+  2a5648: 2a0303f3     	mov	w19, w3
+  2a564c: aa0903e3     	mov	x3, x9
+  2a5650: 94129fce     	bl	0x74d588 <__android_log_print@plt>
+  2a5654: f9400288     	ldr	x8, [x20]
+  2a5658: 2a1303e3     	mov	w3, w19
+  2a565c: f9408108     	ldr	x8, [x8, #0x100]
+  2a5660: 360000c3     	tbz	w3, #0x0, 0x2a5678 <.text+0x11d678>
+  2a5664: b944a509     	ldr	w9, [x8, #0x4a4]
+  2a5668: 5280004a     	mov	w10, #0x2               // =2
+  2a566c: 7100113f     	cmp	w9, #0x4
+  2a5670: 1a8a0124     	csel	w4, w9, w10, eq
+  2a5674: 14000002     	b	0x2a567c <.text+0x11d67c>
+  2a5678: 52800024     	mov	w4, #0x1                // =1
+  2a567c: b944a109     	ldr	w9, [x8, #0x4a0]
+  2a5680: 6b04013f     	cmp	w9, w4
+  2a5684: 540000a1     	b.ne	0x2a5698 <.text+0x11d698>
+  2a5688: a9414ff4     	ldp	x20, x19, [sp, #0x10]
+  2a568c: a8c27bfd     	ldp	x29, x30, [sp], #0x20
+  2a5690: d50323bf     	autiasp
+  2a5694: d65f03c0     	ret
+  2a5698: 90ffeca1     	adrp	x1, 0x39000
+  2a569c: 912a5c21     	add	x1, x1, #0xa97
+  2a56a0: d0ffed22     	adrp	x2, 0x4b000
+  2a56a4: 9134a842     	add	x2, x2, #0xd2a
+  2a56a8: 90ffec83     	adrp	x3, 0x35000
+  2a56ac: 910d7463     	add	x3, x3, #0x35d
+  2a56b0: 52800080     	mov	w0, #0x4                // =4
+  2a56b4: b904a104     	str	w4, [x8, #0x4a0]
+  2a56b8: a9414ff4     	ldp	x20, x19, [sp, #0x10]
+  2a56bc: a8c27bfd     	ldp	x29, x30, [sp], #0x20
+  2a56c0: d50323bf     	autiasp
+  2a56c4: 14129fb1     	b	0x74d588 <__android_log_print@plt>
+  2a56c8: b9400129     	ldr	w9, [x9]
+  2a56cc: 1e220121     	scvtf	s1, w9
+  2a56d0: 1e212000     	fcmp	s0, s1
+  2a56d4: 5400006d     	b.le	0x2a56e0 <.text+0x11d6e0>
+  2a56d8: 52800044     	mov	w4, #0x2                // =2
+  2a56dc: 17ffffca     	b	0x2a5604 <.text+0x11d604>
+  2a56e0: 2a1f03e4     	mov	w4, wzr
+  2a56e4: 17ffffc8     	b	0x2a5604 <.text+0x11d604>
+
+# Target special-idle mode filter
+
+/home/stfu/.cache/opencode-tmp/opencode/brightness-policy-recon-20261107/current/surfaceflinger:	file format elf64-littleaarch64
+
+Disassembly of section .text:
+
+0000000000188000 <.text>:
+  25d3e8: 36000136     	tbz	w22, #0x0, 0x25d40c <.text+0xd540c>
+  25d3ec: b944aea8     	ldr	w8, [x21, #0x4ac]
+  25d3f0: 7100091f     	cmp	w8, #0x2
+  25d3f4: 540001e0     	b.eq	0x25d430 <.text+0xd5430>
+  25d3f8: 7100051f     	cmp	w8, #0x1
+  25d3fc: 540001e1     	b.ne	0x25d438 <.text+0xd5438>
+  25d400: 3940c388     	ldrb	w8, [x28, #0x30]
+  25d404: 37180348     	tbnz	w8, #0x3, 0x25d46c <.text+0xd546c>
+  25d408: 1400000c     	b	0x25d438 <.text+0xd5438>
+  25d40c: 395556a8     	ldrb	w8, [x21, #0x555]
+  25d410: 7100051f     	cmp	w8, #0x1
+  25d414: 54000201     	b.ne	0x25d454 <.text+0xd5454>
+  25d418: 395602a8     	ldrb	w8, [x21, #0x580]
+  25d41c: 7100051f     	cmp	w8, #0x1
+  25d420: 540001a1     	b.ne	0x25d454 <.text+0xd5454>
+  25d424: 3940c388     	ldrb	w8, [x28, #0x30]
+  25d428: 36280168     	tbz	w8, #0x5, 0x25d454 <.text+0xd5454>
+  25d42c: 14000010     	b	0x25d46c <.text+0xd546c>
+  25d430: 3940c388     	ldrb	w8, [x28, #0x30]
+  25d434: 372001c8     	tbnz	w8, #0x4, 0x25d46c <.text+0xd546c>
+  25d438: b944aaa8     	ldr	w8, [x21, #0x4a8]
+  25d43c: 7100091f     	cmp	w8, #0x2
+  25d440: 54000120     	b.eq	0x25d464 <.text+0xd5464>
+  25d444: 7100051f     	cmp	w8, #0x1
+  25d448: 54000061     	b.ne	0x25d454 <.text+0xd5454>
+  25d44c: 3940c388     	ldrb	w8, [x28, #0x30]
+  25d450: 371800e8     	tbnz	w8, #0x3, 0x25d46c <.text+0xd546c>
+  25d454: 2a1f03fc     	mov	w28, wzr
+  25d458: 52800033     	mov	w19, #0x1               // =1
+  25d45c: b5000797     	cbnz	x23, 0x25d54c <.text+0xd554c>
+  25d460: 14000045     	b	0x25d574 <.text+0xd5574>
+  25d464: 3940c388     	ldrb	w8, [x28, #0x30]
+  25d468: 3627ff68     	tbz	w8, #0x4, 0x25d454 <.text+0xd5454>
+  25d46c: b4000097     	cbz	x23, 0x25d47c <.text+0xd547c>
+  25d470: 910022e1     	add	x1, x23, #0x8
+  25d474: 52800020     	mov	w0, #0x1                // =1
+  25d478: 97fcac8e     	bl	0x1886b0 <.text+0x6b0>
+  25d47c: f9403be8     	ldr	x8, [sp, #0x70]

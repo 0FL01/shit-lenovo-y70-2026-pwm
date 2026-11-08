@@ -1,0 +1,21 @@
+{
+  "observed_at_utc": "2026-11-06T08:44:07.314758+00:00",
+  "build_report": "artifacts/kernel/gki_r59/baseline_build_native_git.json",
+  "config_byte_equal_to_target": true,
+  "config_lines": 8085,
+  "google_exported_symbols": 10210,
+  "baseline_exported_symbols": 10210,
+  "missing_symbols": [],
+  "extra_symbols": [],
+  "crc_changes": [],
+  "export_crc_maps_equal": true,
+  "baseline_kernel_bytes": 41306624,
+  "google_kernel_bytes": 41306624,
+  "kernel_byte_equal_to_google": false,
+  "baseline_kernel_sha256": "988ad8de3573527c34d53f5db002fd33e0fee83a71bfad8d2caf9912589dd2f3",
+  "google_kernel_sha256": "fe3ef36476044dcbdb0f281143793199edbbd75acd1d0fa401f35d99005bda6c",
+  "baseline_linux_version": "Linux version 6.12.58-android16-6-g09eda8c8505a-ab15950084-4k (kleaf@build-host) (Android (14043575, +pgo, +bolt, +lto, +mlgo, based on r536225) clang version 19.0.1 (https://android.googlesource.com/toolchain/llvm-project b3a530ec6537146650e42be89f1089e9a3588460), LLD 19.0.1) #1 SMP PREEMPT Mon Jul 27 12:15:30 UTC 2026",
+  "google_linux_version": "Linux version 6.12.58-android16-6-g09eda8c8505a-ab15950084-4k (kleaf@build-host) (Android (14043575, +pgo, +bolt, +lto, +mlgo, based on r536225) clang version 19.0.1 (https://android.googlesource.com/toolchain/llvm-project b3a530ec6537146650e42be89f1089e9a3588460), LLD 19.0.1) #1 SMP PREEMPT Mon Jul 27 12:15:30 UTC 2026",
+  "baseline_config_crc_pass": true,
+  "limits": "Offline GKI baseline; this is not a Motorola stock boot partition original, device boot test or vendor-module readback proof. No KSU or device writes."
+}

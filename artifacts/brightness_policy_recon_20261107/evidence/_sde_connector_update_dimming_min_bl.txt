@@ -1,0 +1,67 @@
+
+/mnt/kston/legion-Y70-madness/artifacts/kernel/gki_r59/target_vendor/msm_drm.ko:     file format elf64-littleaarch64
+
+
+Disassembly of section .text:
+
+00000000000e66f4 <_sde_connector_update_dimming_min_bl>:
+   e66f4:	b4000300 	cbz	x0, e6754 <_sde_connector_update_dimming_min_bl+0x60>
+   e66f8:	b94ab008 	ldr	w8, [x0, #2736]
+   e66fc:	7100411f 	cmp	w8, #0x10
+   e6700:	54000281 	b.ne	e6750 <_sde_connector_update_dimming_min_bl+0x5c>  // b.any
+   e6704:	52828e08 	mov	w8, #0x1470                	// #5232
+   e6708:	38686808 	ldrb	w8, [x0, x8]
+   e670c:	7100051f 	cmp	w8, #0x1
+   e6710:	912b2008 	add	x8, x0, #0xac8
+   e6714:	54000041 	b.ne	e671c <_sde_connector_update_dimming_min_bl+0x28>  // b.any
+   e6718:	f9400108 	ldr	x8, [x8]
+   e671c:	d503233f 	paciasp
+   e6720:	a9be7bfd 	stp	x29, x30, [sp, #-32]!
+   e6724:	f9000bf3 	str	x19, [sp, #16]
+   e6728:	910003fd 	mov	x29, sp
+   e672c:	f9400104 	ldr	x4, [x8]
+   e6730:	b40000c4 	cbz	x4, e6748 <_sde_connector_update_dimming_min_bl+0x54>
+   e6734:	f9409093 	ldr	x19, [x4, #288]
+   e6738:	b40002d3 	cbz	x19, e6790 <_sde_connector_update_dimming_min_bl+0x9c>
+   e673c:	b9460a68 	ldr	w8, [x19, #1544]
+   e6740:	6b01011f 	cmp	w8, w1
+   e6744:	540000a1 	b.ne	e6758 <_sde_connector_update_dimming_min_bl+0x64>  // b.any
+   e6748:	2a1f03e0 	mov	w0, wzr
+   e674c:	1400000d 	b	e6780 <_sde_connector_update_dimming_min_bl+0x8c>
+   e6750:	2a1f03e0 	mov	w0, wzr
+   e6754:	d65f03c0 	ret
+   e6758:	b9460e68 	ldr	w8, [x19, #1548]
+   e675c:	b9060a61 	str	w1, [x19, #1544]
+   e6760:	91172261 	add	x1, x19, #0x5c8
+   e6764:	321f0108 	orr	w8, w8, #0x2
+   e6768:	b9060e68 	str	w8, [x19, #1548]
+   e676c:	97fffd64 	bl	e5cfc <sde_dimming_bl_notify>
+   e6770:	b9460e68 	ldr	w8, [x19, #1548]
+   e6774:	2a1f03e0 	mov	w0, wzr
+   e6778:	121e7908 	and	w8, w8, #0xfffffffd
+   e677c:	b9060e68 	str	w8, [x19, #1548]
+   e6780:	f9400bf3 	ldr	x19, [sp, #16]
+   e6784:	a8c27bfd 	ldp	x29, x30, [sp], #32
+   e6788:	d50323bf 	autiasp
+   e678c:	d65f03c0 	ret
+   e6790:	90000001 	adrp	x1, 0 <msm_hdcp_register_cb-0x4>
+			e6790: R_AARCH64_ADR_PREL_PG_HI21	.rodata+0x457af
+		; rodata string: '_sde_connector_update_dimming_min_bl'
+   e6794:	91000021 	add	x1, x1, #0x0
+			e6794: R_AARCH64_ADD_ABS_LO12_NC	.rodata+0x457af
+		; rodata string: '_sde_connector_update_dimming_min_bl'
+   e6798:	90000000 	adrp	x0, 0 <msm_hdcp_register_cb-0x4>
+			e6798: R_AARCH64_ADR_PREL_PG_HI21	.rodata+0x20f7
+   e679c:	91000000 	add	x0, x0, #0x0
+			e679c: R_AARCH64_ADD_ABS_LO12_NC	.rodata+0x20f7
+   e67a0:	528086c2 	mov	w2, #0x436                 	// #1078
+   e67a4:	aa0103e3 	mov	x3, x1
+   e67a8:	aa1f03e5 	mov	x5, xzr
+   e67ac:	94000000 	bl	0 <_printk>
+			e67ac: R_AARCH64_CALL26	_printk
+   e67b0:	128002a0 	mov	w0, #0xffffffea            	// #-22
+   e67b4:	17fffff3 	b	e6780 <_sde_connector_update_dimming_min_bl+0x8c>
+
+Disassembly of section .init.text:
+
+Disassembly of section .exit.text:

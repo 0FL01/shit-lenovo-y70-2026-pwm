@@ -1,0 +1,64 @@
+{
+  "source_kind": "public community mirror history with Motorola-origin commit metadata; not authenticated OEM release history",
+  "commit": "095bde01bd8d139edc442787c2eac3432ce691c8",
+  "raw_url": "https://raw.githubusercontent.com/moto-sm8850/android_kernel_motorola_sm8850-devicetrees/095bde01bd8d139edc442787c2eac3432ce691c8/display/dsi-panel-mot-boe-ili97701A-682-1440x3168-dsc-cmd-common_v4.dtsi",
+  "cached_source": "/home/stfu/.cache/opencode-tmp/opencode/ilitek-em-external-20261106/verified-095bde-v4.dtsi",
+  "parent_verified_raw_source": true,
+  "official_repository_commit_resolution": "GitHub API422 for095bde01/64ed3fa0/5f9158e2/b14e5ddd; do not label these retrievable official-repository commits",
+  "target_dc_comparison": [
+    {
+      "property": "qcom,mdss-dsi-dc-off-command",
+      "bytes": 875,
+      "packet_count": 75,
+      "matches_selected_target_bytes": true
+    },
+    {
+      "property": "qcom,mdss-dsi-dc-on-command",
+      "bytes": 875,
+      "packet_count": 75,
+      "matches_selected_target_bytes": true
+    }
+  ],
+  "commit_purpose": "update DC on/off code for boe DVT2 panel to optimize motion blur",
+  "dc_difference_count": 34,
+  "od_associated_tail_difference_count": 23,
+  "od_associated_tail_packet_indices": [
+    49,
+    50,
+    51,
+    52,
+    53,
+    54,
+    55,
+    56,
+    57,
+    58,
+    59,
+    60,
+    61,
+    62,
+    63,
+    64,
+    65,
+    66,
+    67,
+    69,
+    71,
+    72,
+    73
+  ],
+  "remaining_difference_packet_indices": [
+    6,
+    9,
+    12,
+    16,
+    17,
+    27,
+    28,
+    42,
+    43,
+    45,
+    46
+  ],
+  "limits": "Commit purpose supports OD/motion-compensation association; it is not a DDIC register manual and does not define per-byte fields, pulse count or opticalHz."
+}

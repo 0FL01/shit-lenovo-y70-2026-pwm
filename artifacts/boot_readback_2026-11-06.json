@@ -1,0 +1,39 @@
+{
+  "started_at_utc": "2026-11-06T07:55:47.467843+00:00",
+  "status": "confirmed-on-target",
+  "scope": "Agreed bootloader transition, read-only capability/partition-size queries and one boot_b fetch attempt, then normal reboot. No unlock, image writes, erase, AVB or slot changes.",
+  "fastboot_identity": {
+    "product": "avr",
+    "sku": "XT2611-1",
+    "securestate": "flashing_unlocked:SDP",
+    "current-slot": "b",
+    "is-userspace": "no"
+  },
+  "readback": {
+    "observed_at_utc": "2026-11-06T07:56:00.946889+00:00",
+    "max-fetch-size": "not found; remote FAILED despite host exit 0",
+    "partition-size:boot_b": "0x0000000006000000",
+    "partition-size:vendor_boot_b": "0x0000000006000000",
+    "partition-size:recovery_b": "0x0000000008000000",
+    "command": "fastboot -s <omitted> fetch boot_b artifacts/originals/W3WWS36.65-64-4-1/boot_b.img",
+    "exit_code": 1,
+    "stderr": "(bootloader) max-fetch-size: not found\nfastboot: error: Unable to get max-fetch-size. Device does not support fetch command.",
+    "bytes_received": 0,
+    "empty_output_removed": true,
+    "original_image_obtained": false,
+    "limit": "This Motorola bootloader does not support the host fastboot fetch flow. No fastbootd/OEM-specific readback experiment was performed."
+  },
+  "normal_reboot": {
+    "observed_at_utc": "2026-11-06T07:56:01.199127+00:00",
+    "exit_code": 0,
+    "protocol": "Rebooting OKAY"
+  },
+  "android_return": {
+    "observed_at_utc": "2026-11-06T07:58:53.044955+00:00",
+    "authorized_adb": true,
+    "sys.boot_completed": "1",
+    "ro.build.display.id": "W3WWS36.65-64-4-1",
+    "ro.boot.flash.locked": "0",
+    "ro.boot.slot_suffix": "_b"
+  }
+}

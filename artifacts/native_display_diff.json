@@ -1,0 +1,468 @@
+{
+  "date_utc": "2026-10-28",
+  "status": "reported",
+  "cn_root": "extracted/XT2611-1/W3WWL36.65-11-18/filesystems",
+  "global_root": "extracted/XT2611-3/W3WW36.65-64-4/filesystems",
+  "scope": "Offline file and instruction comparisons against the pre-OTA T01 inventory (2026-10-28 17:43-17:49 UTC). GLOBAL W3WW36.65-64-4 is not current OTA W3WWS36.65-64-4-1; no live driver-byte or cross-SKU boot compatibility claim.",
+  "global_vs_saved_target_files": [
+    {
+      "path": "/vendor/etc/init/com.motorola.hardware.display.panel-service.rc",
+      "size_bytes": 133,
+      "matches_saved_target": true
+    },
+    {
+      "path": "/vendor/etc/vintf/manifest/com.motorola.hardware.display.panel-service.xml",
+      "size_bytes": 351,
+      "matches_saved_target": true
+    },
+    {
+      "path": "/vendor/etc/init/vendor.qti.hardware.display.composer-service.rc",
+      "size_bytes": 324,
+      "matches_saved_target": true
+    },
+    {
+      "path": "/vendor/etc/vintf/manifest/vendor.qti.hardware.display.composer-service3_v4.xml",
+      "size_bytes": 940,
+      "matches_saved_target": true
+    },
+    {
+      "path": "/vendor/etc/init/init.qti.display_boot.rc",
+      "size_bytes": 1741,
+      "matches_saved_target": true
+    },
+    {
+      "path": "/vendor/etc/display/qdcm_calib_data_mipi_mot_cmd_boe_1440p_dsc_682.json",
+      "size_bytes": 1058416,
+      "matches_saved_target": true
+    },
+    {
+      "path": "/vendor/etc/display/panel_mipi_mot_cmd_boe_1440p_dsc_682_C3D_cali_p3.txt",
+      "size_bytes": 143565,
+      "matches_saved_target": true
+    },
+    {
+      "path": "/vendor/etc/display/panel_mipi_mot_cmd_boe_1440p_dsc_682_C3D_cali_pcc.txt",
+      "size_bytes": 164,
+      "matches_saved_target": true
+    },
+    {
+      "path": "/vendor/etc/display/panel_mipi_mot_cmd_boe_1440p_dsc_682_C3D_cali_srgb.txt",
+      "size_bytes": 144726,
+      "matches_saved_target": true
+    },
+    {
+      "path": "/vendor/etc/display/FOSSConfig.xml",
+      "size_bytes": 5053,
+      "matches_saved_target": true
+    },
+    {
+      "path": "/vendor/lib64/libqservice.so",
+      "size_bytes": 85416,
+      "matches_saved_target": true
+    }
+  ],
+  "vendor_binaries": [
+    {
+      "path": "/vendor/bin/hw/com.motorola.hardware.display.panel-service",
+      "cn_size_bytes": 52528,
+      "global_size_bytes": 52528,
+      "bytes_equal": true,
+      "cn_elf_build_id": "bf798ae48f0e3a933282f55ffd66a72b",
+      "global_elf_build_id": "bf798ae48f0e3a933282f55ffd66a72b"
+    },
+    {
+      "path": "/vendor/lib64/hw/displaypanel.default.so",
+      "cn_size_bytes": 52080,
+      "global_size_bytes": 52080,
+      "bytes_equal": true,
+      "cn_elf_build_id": "37539c0f74fbff02b72d6eacd0397747",
+      "global_elf_build_id": "37539c0f74fbff02b72d6eacd0397747"
+    },
+    {
+      "path": "/vendor/lib64/com.motorola.hardware.display.panel-V2-ndk.so",
+      "cn_size_bytes": 85408,
+      "global_size_bytes": 85408,
+      "bytes_equal": true,
+      "cn_elf_build_id": "f3956e660feb12f6a5cf8cdb2a2071f3",
+      "global_elf_build_id": "f3956e660feb12f6a5cf8cdb2a2071f3"
+    },
+    {
+      "path": "/vendor/bin/hw/vendor.qti.hardware.display.composer-service",
+      "cn_size_bytes": 393456,
+      "global_size_bytes": 393456,
+      "bytes_equal": true,
+      "cn_elf_build_id": "a91a189ecec9b7843202f4d25ccae08f",
+      "global_elf_build_id": "a91a189ecec9b7843202f4d25ccae08f"
+    },
+    {
+      "path": "/vendor/lib64/libsdmcore.so",
+      "cn_size_bytes": 964040,
+      "global_size_bytes": 964040,
+      "bytes_equal": true,
+      "cn_elf_build_id": "267b81f2531862c26bf387386b064014",
+      "global_elf_build_id": "267b81f2531862c26bf387386b064014"
+    },
+    {
+      "path": "/vendor/lib64/libsdmextension.so",
+      "cn_size_bytes": 2590928,
+      "global_size_bytes": 2590928,
+      "bytes_equal": true,
+      "cn_elf_build_id": "2be8be5248849e993564f5d7f49afe25",
+      "global_elf_build_id": "2be8be5248849e993564f5d7f49afe25"
+    },
+    {
+      "path": "/vendor/lib64/libqservice.so",
+      "cn_size_bytes": 85416,
+      "global_size_bytes": 85416,
+      "bytes_equal": true,
+      "cn_elf_build_id": "9dad3bb35c25768c119a167ea70da25c",
+      "global_elf_build_id": "9dad3bb35c25768c119a167ea70da25c"
+    }
+  ],
+  "foss_unified_diff": "--- CN/FOSSConfig.xml\n+++ GLOBAL/FOSSConfig.xml\n@@ -24,7 +24,7 @@\n       <PowerProfileOutput units='uint'>0 45 73 143 253 438 717 1023</PowerProfileOutput>\n       <LutUpdateSpeedTableLength units='uint'>4</LutUpdateSpeedTableLength>\n       <LutUpdateSpeedInput units='uint'>55 128 175 204</LutUpdateSpeedInput>\n-      <LutUpdateSpeedOutput units='uint'>8 8 8 8</LutUpdateSpeedOutput>\n+      <LutUpdateSpeedOutput units='uint'>3 3 3 3</LutUpdateSpeedOutput>\n       <MaxBrightnessLevel units='uint'>16380</MaxBrightnessLevel>\n    </default>\n ",
+  "display_property_differences": [
+    {
+      "partition": "vendor_a",
+      "key": "debug.sf.danmaku_weight_threshold",
+      "cn": null,
+      "global": {
+        "value": "20",
+        "line": 433,
+        "file": "extracted/XT2611-3/W3WW36.65-64-4/filesystems/vendor_a/build.prop"
+      }
+    },
+    {
+      "partition": "vendor_a",
+      "key": "persist.sys.sf.specified_feature_enabled",
+      "cn": {
+        "value": "true",
+        "line": 407,
+        "file": "extracted/XT2611-1/W3WWL36.65-11-18/filesystems/vendor_a/build.prop"
+      },
+      "global": {
+        "value": "false",
+        "line": 408,
+        "file": "extracted/XT2611-3/W3WW36.65-64-4/filesystems/vendor_a/build.prop"
+      }
+    },
+    {
+      "partition": "vendor_a",
+      "key": "persist.sys.sf.specified_feature_id",
+      "cn": {
+        "value": "30022",
+        "line": 406,
+        "file": "extracted/XT2611-1/W3WWL36.65-11-18/filesystems/vendor_a/build.prop"
+      },
+      "global": {
+        "value": "30040",
+        "line": 407,
+        "file": "extracted/XT2611-3/W3WW36.65-64-4/filesystems/vendor_a/build.prop"
+      }
+    }
+  ],
+  "module_functions": [
+    {
+      "name": "panelDC_show",
+      "cn": {
+        "address": 1766100,
+        "size_bytes": 152,
+        "file_offset": 2032340
+      },
+      "global": {
+        "address": 1765900,
+        "size_bytes": 152,
+        "file_offset": 2413588
+      },
+      "instruction_bytes_equal": true,
+      "limitation": "Relocatable instruction bytes only; this comparison alone does not establish equal relocation targets or all referenced data"
+    },
+    {
+      "name": "dsi_panel_send_param_cmd",
+      "cn": {
+        "address": 1852980,
+        "size_bytes": 764,
+        "file_offset": 2119220
+      },
+      "global": {
+        "address": 1852780,
+        "size_bytes": 764,
+        "file_offset": 2500468
+      },
+      "instruction_bytes_equal": true,
+      "limitation": "Relocatable instruction bytes only; this comparison alone does not establish equal relocation targets or all referenced data"
+    },
+    {
+      "name": "dsi_display_set_param",
+      "cn": {
+        "address": 1705564,
+        "size_bytes": 176,
+        "file_offset": 1971804
+      },
+      "global": {
+        "address": 1705364,
+        "size_bytes": 176,
+        "file_offset": 2353052
+      },
+      "instruction_bytes_equal": true,
+      "limitation": "Relocatable instruction bytes only; this comparison alone does not establish equal relocation targets or all referenced data"
+    },
+    {
+      "name": "dsi_panel_set_param",
+      "cn": {
+        "address": 1793396,
+        "size_bytes": 1844,
+        "file_offset": 2059636
+      },
+      "global": {
+        "address": 1793196,
+        "size_bytes": 1844,
+        "file_offset": 2440884
+      },
+      "instruction_bytes_equal": true,
+      "limitation": "Relocatable instruction bytes only; this comparison alone does not establish equal relocation targets or all referenced data"
+    },
+    {
+      "name": "msm_ioctl_set_panel_feature",
+      "cn": {
+        "address": 1926008,
+        "size_bytes": 172,
+        "file_offset": 2192248
+      },
+      "global": {
+        "address": 1925808,
+        "size_bytes": 172,
+        "file_offset": 2573496
+      },
+      "instruction_bytes_equal": true,
+      "limitation": "Relocatable instruction bytes only; this comparison alone does not establish equal relocation targets or all referenced data"
+    },
+    {
+      "name": "sde_kms_set_panel_feature",
+      "cn": {
+        "address": 861624,
+        "size_bytes": 488,
+        "file_offset": 1127864
+      },
+      "global": {
+        "address": 861324,
+        "size_bytes": 588,
+        "file_offset": 1509012
+      },
+      "instruction_bytes_equal": false,
+      "limitation": "Relocatable instruction bytes only; this comparison alone does not establish equal relocation targets or all referenced data"
+    },
+    {
+      "name": "dsi_host_transfer_sub",
+      "cn": {
+        "address": 1710924,
+        "size_bytes": 1364,
+        "file_offset": 1977164
+      },
+      "global": {
+        "address": 1710724,
+        "size_bytes": 1364,
+        "file_offset": 2358412
+      },
+      "instruction_bytes_equal": true,
+      "limitation": "Relocatable instruction bytes only; this comparison alone does not establish equal relocation targets or all referenced data"
+    },
+    {
+      "name": "dsi_panel_enable",
+      "cn": {
+        "address": 1851620,
+        "size_bytes": 1360,
+        "file_offset": 2117860
+      },
+      "global": {
+        "address": 1851420,
+        "size_bytes": 1360,
+        "file_offset": 2499108
+      },
+      "instruction_bytes_equal": true,
+      "limitation": "Relocatable instruction bytes only; this comparison alone does not establish equal relocation targets or all referenced data"
+    },
+    {
+      "name": "sde_connector_atomic_set_property",
+      "cn": {
+        "address": 930064,
+        "size_bytes": 1152,
+        "file_offset": 1196304
+      },
+      "global": {
+        "address": 929864,
+        "size_bytes": 1152,
+        "file_offset": 1577552
+      },
+      "instruction_bytes_equal": true,
+      "limitation": "Relocatable instruction bytes only; this comparison alone does not establish equal relocation targets or all referenced data"
+    }
+  ],
+  "module_summary": {
+    "cn_size_bytes": 6075488,
+    "global_size_bytes": 6071656,
+    "cn_elf_build_id": "13232a6fe74b761626ed9c14ee2f59b68ca46504",
+    "global_elf_build_id": "8c58ca326e99f7c98644d723230b40a7686dee81",
+    "vermagic_both": "6.12.58-android16-6-maybe-dirty-4k SMP preempt mod_unload modversions aarch64",
+    "cn_global_bytes_equal": false,
+    "ramdisk_equals_vendor_dlkm_in_each_archive": "verified byte-for-byte"
+  },
+  "avb_info_image": {
+    "cn": {
+      "vbmeta.img": [
+        "Public key (sha1):        27bcbab040b154eecdce885d6c0e6283cee9c227",
+        "Algorithm:                SHA256_RSA4096",
+        "Rollback Index:           0",
+        "Flags:                    0",
+        "Rollback Index Location:  0",
+        "Chain Partition descriptor:",
+        "Partition Name:          vbmeta_system",
+        "Rollback Index Location: 2",
+        "Public key (sha1):       27bcbab040b154eecdce885d6c0e6283cee9c227",
+        "Flags:                   0",
+        "Hash Algorithm:        sha256",
+        "Partition Name:        boot",
+        "Flags:                 0",
+        "Hash Algorithm:        sha256",
+        "Partition Name:        dtbo",
+        "Flags:                 0",
+        "Hash Algorithm:        sha256",
+        "Partition Name:        init_boot",
+        "Flags:                 0",
+        "Hash Algorithm:        sha256",
+        "Partition Name:        pvmfw",
+        "Flags:                 0",
+        "Hash Algorithm:        sha256",
+        "Partition Name:        recovery",
+        "Flags:                 0",
+        "Hash Algorithm:        sha256",
+        "Partition Name:        vendor_boot",
+        "Flags:                 0",
+        "Hash Algorithm:        sha256",
+        "Partition Name:        odm",
+        "Flags:                 0",
+        "Hash Algorithm:        sha256",
+        "Partition Name:        product",
+        "Flags:                 0",
+        "Hash Algorithm:        sha256",
+        "Partition Name:        system_dlkm",
+        "Flags:                 0",
+        "Hash Algorithm:        sha256",
+        "Partition Name:        vendor",
+        "Flags:                 0",
+        "Hash Algorithm:        sha256",
+        "Partition Name:        vendor_dlkm",
+        "Flags:                 0"
+      ],
+      "vbmeta_system.img": [
+        "Public key (sha1):        27bcbab040b154eecdce885d6c0e6283cee9c227",
+        "Algorithm:                SHA256_RSA4096",
+        "Rollback Index:           0",
+        "Flags:                    0",
+        "Rollback Index Location:  0",
+        "Hash Algorithm:        sha256",
+        "Partition Name:        system",
+        "Flags:                 0",
+        "Hash Algorithm:        sha256",
+        "Partition Name:        system_ext",
+        "Flags:                 0"
+      ]
+    },
+    "global": {
+      "vbmeta.img": [
+        "Public key (sha1):        27bcbab040b154eecdce885d6c0e6283cee9c227",
+        "Algorithm:                SHA256_RSA4096",
+        "Rollback Index:           2",
+        "Flags:                    0",
+        "Rollback Index Location:  0",
+        "Chain Partition descriptor:",
+        "Partition Name:          vbmeta_system",
+        "Rollback Index Location: 2",
+        "Public key (sha1):       27bcbab040b154eecdce885d6c0e6283cee9c227",
+        "Flags:                   0",
+        "Hash Algorithm:        sha256",
+        "Partition Name:        boot",
+        "Flags:                 0",
+        "Hash Algorithm:        sha256",
+        "Partition Name:        dtbo",
+        "Flags:                 0",
+        "Hash Algorithm:        sha256",
+        "Partition Name:        init_boot",
+        "Flags:                 0",
+        "Hash Algorithm:        sha256",
+        "Partition Name:        pvmfw",
+        "Flags:                 0",
+        "Hash Algorithm:        sha256",
+        "Partition Name:        recovery",
+        "Flags:                 0",
+        "Hash Algorithm:        sha256",
+        "Partition Name:        vendor_boot",
+        "Flags:                 0",
+        "Hash Algorithm:        sha256",
+        "Partition Name:        odm",
+        "Flags:                 0",
+        "Hash Algorithm:        sha256",
+        "Partition Name:        product",
+        "Flags:                 0",
+        "Hash Algorithm:        sha256",
+        "Partition Name:        system_dlkm",
+        "Flags:                 0",
+        "Hash Algorithm:        sha256",
+        "Partition Name:        vendor",
+        "Flags:                 0",
+        "Hash Algorithm:        sha256",
+        "Partition Name:        vendor_dlkm",
+        "Flags:                 0"
+      ],
+      "vbmeta_system.img": [
+        "Public key (sha1):        27bcbab040b154eecdce885d6c0e6283cee9c227",
+        "Algorithm:                SHA256_RSA4096",
+        "Rollback Index:           2",
+        "Flags:                    0",
+        "Rollback Index Location:  0",
+        "Hash Algorithm:        sha256",
+        "Partition Name:        system",
+        "Flags:                 0",
+        "Hash Algorithm:        sha256",
+        "Partition Name:        system_ext",
+        "Flags:                 0"
+      ]
+    }
+  },
+  "avb_limit": "Public key identities/header metadata only, not cryptographic signature verification or measured target rollback indices. Top-level and vbmeta_system embedded public key bytes were compared directly and are equal between archives; HAB CID/security-version metadata differs.",
+  "jni_bridge": {
+    "reference_build": "W3WW36.65-64-4",
+    "native_method": "com.motorola.server.display.PanelsService.setDcMode_native(I)V",
+    "jni_library": "/system/lib64/libandroid_servers.so",
+    "jni_library_build_id": "8d567075b807eb266248626fd529073e",
+    "jni_method_table_entry_va_hex": "0xec5e0",
+    "jni_function_va_hex": "0xc81e0",
+    "system_client": "/system/lib64/com.motorola.hardware.display.panel-V1-ndk.so",
+    "system_client_build_id": "7e37f775d0d5d9b88a99e2f006c79834",
+    "system_set_dc_va_hex": "0x8f60",
+    "system_vtable_slot_va_hex": "0x10060",
+    "system_vtable_relocation": {
+      "format": "APS2 packed RELA",
+      "section_offset_hex": "0x3a68",
+      "r_offset_hex": "0x10060",
+      "r_info_hex": "0x4000000101",
+      "type": "R_AARCH64_ABS64",
+      "symbol_index": 64,
+      "symbol_value_hex": "0x8f60",
+      "addend": 0,
+      "raw_slot_value": 0
+    },
+    "binder_transaction": 4,
+    "vendor_client_interface_version": 2,
+    "vendor_service_set_dc_va_hex": "0x56fc",
+    "vendor_service_vtable_slot_va_hex": "0x8090",
+    "vendor_service_slot_relocation": "RELR, load_bias + raw 0x56fc",
+    "hardware_function_pointer_offset_hex": "0x88",
+    "legacy_set_dc_va_hex": "0x419c",
+    "legacy_panel_mode_set_dc_va_hex": "0x4760",
+    "hal_modes": {
+      "0": "OFF -> kernel PARAM_DC=3, value=0",
+      "1": "ON -> kernel PARAM_DC=3, value=1"
+    },
+    "error_model": "JNI discards AIDL status and integer return; service may return OK Binder status with negative HAL integer result. Java software cache is not acknowledgement."
+  }
+}

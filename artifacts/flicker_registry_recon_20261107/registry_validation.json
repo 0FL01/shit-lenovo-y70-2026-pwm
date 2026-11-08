@@ -1,0 +1,1459 @@
+{
+  "scope": "Target binary static evidence plus bounded merge model; not live ADC qualification",
+  "segments": {
+    "21": {
+      "vaddr": 2988441600,
+      "filesz": 3760276,
+      "flags": "0x8000005"
+    },
+    "22": {
+      "vaddr": 2992205824,
+      "filesz": 2457604,
+      "flags": "0x8000006"
+    },
+    "27": {
+      "vaddr": 2986459136,
+      "filesz": 498212,
+      "flags": "0x8000005"
+    }
+  },
+  "verified_ranges": {
+    "private_field_callback": [
+      {
+        "va": "0xb231adb4",
+        "bytes": "76789f5b",
+        "decoded": "\tcall 0xb2019ea0"
+      },
+      {
+        "va": "0xb231adb8",
+        "bytes": "01400175",
+        "decoded": "\tp1 = cmp.eq(r1,#0)"
+      },
+      {
+        "va": "0xb231adbc",
+        "bytes": "02400275",
+        "decoded": "\tp2 = cmp.eq(r2,#0)"
+      },
+      {
+        "va": "0xb231adc0",
+        "bytes": "04c09da0",
+        "decoded": "\tallocframe(#32)"
+      },
+      {
+        "va": "0xb231adc4",
+        "bytes": "0140c16b",
+        "decoded": "\tp1 = not(p1)"
+      },
+      {
+        "va": "0xb231adc8",
+        "bytes": "0240c26b",
+        "decoded": "\tp2 = not(p2)"
+      },
+      {
+        "va": "0xb231adcc",
+        "bytes": "00400375",
+        "decoded": "\tp0 = cmp.eq(r3,#0)"
+      },
+      {
+        "va": "0xb231add0",
+        "bytes": "03c00075",
+        "decoded": "\tp3 = cmp.eq(r0,#0)"
+      },
+      {
+        "va": "0xb231add4",
+        "bytes": "0141636b",
+        "decoded": "\tp1 = and(p1,!p3)"
+      },
+      {
+        "va": "0xb231add8",
+        "bytes": "00c0c06b",
+        "decoded": "\tp0 = not(p0)"
+      },
+      {
+        "va": "0xb231addc",
+        "bytes": "8141106b",
+        "decoded": "\tp1 = and(p0,and(p1,p2))"
+      },
+      {
+        "va": "0xb231ade0",
+        "bytes": "56d9205c",
+        "decoded": "\tif (!p1.new) jump:t 0xb231ae88"
+      },
+      {
+        "va": "0xb231ade4",
+        "bytes": "02404189",
+        "decoded": "\tr2 = p1"
+      },
+      {
+        "va": "0xb231ade8",
+        "bytes": "104300f5",
+        "decoded": "\tr17:16 = combine(r0,r3)"
+      },
+      {
+        "va": "0xb231adec",
+        "bytes": "12408191",
+        "decoded": "\tr18 = memw(r1+#0)"
+      },
+      {
+        "va": "0xb231adf0",
+        "bytes": "01d6bda1",
+        "decoded": "\tmemw(r29+#4) = r2.new"
+      },
+      {
+        "va": "0xb231adf4",
+        "bytes": "c342240b",
+        "decoded": "\timmext(#2990584000)"
+      },
+      {
+        "va": "0xb231adf8",
+        "bytes": "e0613273",
+        "decoded": "\tr1:0 = combine(##-1304383281,r18)"
+      },
+      {
+        "va": "0xb231adfc",
+        "bytes": "33c08191",
+        "decoded": "\tr19 = memw(r1+#4)"
+      },
+      {
+        "va": "0xb231ae00",
+        "bytes": "9859f05b",
+        "decoded": "\tcall 0xb229e130"
+      },
+      {
+        "va": "0xb231ae04",
+        "bytes": "02c07370",
+        "decoded": "\tr2 = r19"
+      },
+      {
+        "va": "0xb231ae08",
+        "bytes": "12e04010",
+        "decoded": "\tp0 = cmp.eq(r0,#0); if (!p0.new) jump:t 0xb231ae2c"
+      },
+      {
+        "va": "0xb231ae0c",
+        "bytes": "82c53191",
+        "decoded": "\tr2 = memub(r17+#44)"
+      },
+      {
+        "va": "0xb231ae10",
+        "bytes": "0ee3c211",
+        "decoded": "\tp0 = tstbit(r2,#0); if (!p0.new) jump:t 0xb231ae2c"
+      },
+      {
+        "va": "0xb231ae14",
+        "bytes": "02c63191",
+        "decoded": "\tr2 = memub(r17+#48)"
+      },
+      {
+        "va": "0xb231ae18",
+        "bytes": "e2400276",
+        "decoded": "\tr2 = and(r2,#7)"
+      },
+      {
+        "va": "0xb231ae1c",
+        "bytes": "00c2b0a1",
+        "decoded": "\tmemb(r16+#0) = r2.new"
+      },
+      {
+        "va": "0xb231ae20",
+        "bytes": "22c09d91",
+        "decoded": "\tr2 = memw(r29+#4)"
+      },
+      {
+        "va": "0xb231ae24",
+        "bytes": "01404285",
+        "decoded": "\tp1 = r2"
+      },
+      {
+        "va": "0xb231ae28",
+        "bytes": "32c00058",
+        "decoded": "\tjump 0xb231ae88"
+      },
+      {
+        "va": "0xb231ae2c",
+        "bytes": "8259f05b",
+        "decoded": "\tcall 0xb229e130"
+      },
+      {
+        "va": "0xb231ae30",
+        "bytes": "c342240b",
+        "decoded": "\timmext(#2990584000)"
+      },
+      {
+        "va": "0xb231ae34",
+        "bytes": "40633273",
+        "decoded": "\tr1:0 = combine(##-1304383270,r18)"
+      },
+      {
+        "va": "0xb231ae38",
+        "bytes": "02c07370",
+        "decoded": "\tr2 = r19"
+      },
+      {
+        "va": "0xb231ae3c",
+        "bytes": "0ae04010",
+        "decoded": "\tp0 = cmp.eq(r0,#0); if (!p0.new) jump:t 0xb231ae50"
+      },
+      {
+        "va": "0xb231ae40",
+        "bytes": "82c53191",
+        "decoded": "\tr2 = memub(r17+#44)"
+      },
+      {
+        "va": "0xb231ae44",
+        "bytes": "06e3c211",
+        "decoded": "\tp0 = tstbit(r2,#0); if (!p0.new) jump:t 0xb231ae50"
+      },
+      {
+        "va": "0xb231ae48",
+        "bytes": "e260007c",
+        "decoded": "\tr3:2 = combine(#7,#1)"
+      },
+      {
+        "va": "0xb231ae4c",
+        "bytes": "16c00058",
+        "decoded": "\tjump 0xb231ae74"
+      },
+      {
+        "va": "0xb231ae50",
+        "bytes": "7059f05b",
+        "decoded": "\tcall 0xb229e130"
+      },
+      {
+        "va": "0xb231ae54",
+        "bytes": "c342240b",
+        "decoded": "\timmext(#2990584000)"
+      },
+      {
+        "va": "0xb231ae58",
+        "bytes": "a0643273",
+        "decoded": "\tr1:0 = combine(##-1304383259,r18)"
+      },
+      {
+        "va": "0xb231ae5c",
+        "bytes": "02c07370",
+        "decoded": "\tr2 = r19"
+      },
+      {
+        "va": "0xb231ae60",
+        "bytes": "18e04010",
+        "decoded": "\tp0 = cmp.eq(r0,#0); if (!p0.new) jump:t 0xb231ae90"
+      },
+      {
+        "va": "0xb231ae64",
+        "bytes": "82c53191",
+        "decoded": "\tr2 = memub(r17+#44)"
+      },
+      {
+        "va": "0xb231ae68",
+        "bytes": "4260007e",
+        "decoded": "\tif (p0.new) r2 = #2"
+      },
+      {
+        "va": "0xb231ae6c",
+        "bytes": "14e3c211",
+        "decoded": "\tp0 = tstbit(r2,#0); if (!p0.new) jump:t 0xb231ae90"
+      },
+      {
+        "va": "0xb231ae70",
+        "bytes": "63c00078",
+        "decoded": "\tr3 = #3"
+      },
+      {
+        "va": "0xb231ae74",
+        "bytes": "24c09d91",
+        "decoded": "\tr4 = memw(r29+#4)"
+      },
+      {
+        "va": "0xb231ae78",
+        "bytes": "01c04485",
+        "decoded": "\tp1 = r4"
+      },
+      {
+        "va": "0xb231ae7c",
+        "bytes": "04c63191",
+        "decoded": "\tr4 = memub(r17+#48)"
+      },
+      {
+        "va": "0xb231ae80",
+        "bytes": "034403f1",
+        "decoded": "\tr3 = and(r3,r4)"
+      },
+      {
+        "va": "0xb231ae84",
+        "bytes": "02c2b03b",
+        "decoded": "\tmemb(r16+r2<<#0) = r3.new"
+      },
+      {
+        "va": "0xb231ae88",
+        "bytes": "2040807a",
+        "decoded": "\tr0 = mux(p1,#1,#0)"
+      },
+      {
+        "va": "0xb231ae8c",
+        "bytes": "84f89f59",
+        "decoded": "\tjump 0xb2019f90"
+      },
+      {
+        "va": "0xb231ae90",
+        "bytes": "5059f05b",
+        "decoded": "\tcall 0xb229e130"
+      },
+      {
+        "va": "0xb231ae94",
+        "bytes": "c342240b",
+        "decoded": "\timmext(#2990584000)"
+      },
+      {
+        "va": "0xb231ae98",
+        "bytes": "00663273",
+        "decoded": "\tr1:0 = combine(##-1304383248,r18)"
+      },
+      {
+        "va": "0xb231ae9c",
+        "bytes": "02c07370",
+        "decoded": "\tr2 = r19"
+      },
+      {
+        "va": "0xb231aea0",
+        "bytes": "08e04010",
+        "decoded": "\tp0 = cmp.eq(r0,#0); if (!p0.new) jump:t 0xb231aeb0"
+      },
+      {
+        "va": "0xb231aea4",
+        "bytes": "82c53191",
+        "decoded": "\tr2 = memub(r17+#44)"
+      },
+      {
+        "va": "0xb231aea8",
+        "bytes": "04e3c211",
+        "decoded": "\tp0 = tstbit(r2,#0); if (!p0.new) jump:t 0xb231aeb0"
+      },
+      {
+        "va": "0xb231aeac",
+        "bytes": "e2c33216",
+        "decoded": "\tr2 = #3 ; jump 0xb231ae70"
+      },
+      {
+        "va": "0xb231aeb0",
+        "bytes": "4059f05b",
+        "decoded": "\tcall 0xb229e130"
+      },
+      {
+        "va": "0xb231aeb4",
+        "bytes": "c342240b",
+        "decoded": "\timmext(#2990584000)"
+      },
+      {
+        "va": "0xb231aeb8",
+        "bytes": "60673273",
+        "decoded": "\tr1:0 = combine(##-1304383237,r18)"
+      },
+      {
+        "va": "0xb231aebc",
+        "bytes": "02c07370",
+        "decoded": "\tr2 = r19"
+      },
+      {
+        "va": "0xb231aec0",
+        "bytes": "10e04010",
+        "decoded": "\tp0 = cmp.eq(r0,#0); if (!p0.new) jump:t 0xb231aee0"
+      },
+      {
+        "va": "0xb231aec4",
+        "bytes": "82c53191",
+        "decoded": "\tr2 = memub(r17+#44)"
+      },
+      {
+        "va": "0xb231aec8",
+        "bytes": "82400078",
+        "decoded": "\tr2 = #4"
+      },
+      {
+        "va": "0xb231aecc",
+        "bytes": "0ce3c211",
+        "decoded": "\tp0 = tstbit(r2,#0); if (!p0.new) jump:t 0xb231aee0"
+      },
+      {
+        "va": "0xb231aed0",
+        "bytes": "024210f3",
+        "decoded": "\tr2 = add(r16,r2)"
+      },
+      {
+        "va": "0xb231aed4",
+        "bytes": "c0c0d191",
+        "decoded": "\tr1:0 = memd(r17+#48)"
+      },
+      {
+        "va": "0xb231aed8",
+        "bytes": "a47fff59",
+        "decoded": "\tjump 0xb231ae20"
+      },
+      {
+        "va": "0xb231aedc",
+        "bytes": "00c002a1",
+        "decoded": "\tmemb(r2+#0) = r0"
+      },
+      {
+        "va": "0xb231aee0",
+        "bytes": "2859f05b",
+        "decoded": "\tcall 0xb229e130"
+      },
+      {
+        "va": "0xb231aee4",
+        "bytes": "c442240b",
+        "decoded": "\timmext(#2990584064)"
+      },
+      {
+        "va": "0xb231aee8",
+        "bytes": "20603273",
+        "decoded": "\tr1:0 = combine(##-1304383231,r18)"
+      },
+      {
+        "va": "0xb231aeec",
+        "bytes": "02c07370",
+        "decoded": "\tr2 = r19"
+      },
+      {
+        "va": "0xb231aef0",
+        "bytes": "08e04010",
+        "decoded": "\tp0 = cmp.eq(r0,#0); if (!p0.new) jump:t 0xb231af00"
+      },
+      {
+        "va": "0xb231aef4",
+        "bytes": "82c53191",
+        "decoded": "\tr2 = memub(r17+#44)"
+      },
+      {
+        "va": "0xb231aef8",
+        "bytes": "a2400078",
+        "decoded": "\tr2 = #5"
+      },
+      {
+        "va": "0xb231aefc",
+        "bytes": "ece3b211",
+        "decoded": "\tp0 = tstbit(r2,#0); if (p0.new) jump:t 0xb231aed0"
+      },
+      {
+        "va": "0xb231af00",
+        "bytes": "1859f05b",
+        "decoded": "\tcall 0xb229e130"
+      },
+      {
+        "va": "0xb231af04",
+        "bytes": "c442240b",
+        "decoded": "\timmext(#2990584064)"
+      },
+      {
+        "va": "0xb231af08",
+        "bytes": "e0603273",
+        "decoded": "\tr1:0 = combine(##-1304383225,r18)"
+      },
+      {
+        "va": "0xb231af0c",
+        "bytes": "02c07370",
+        "decoded": "\tr2 = r19"
+      },
+      {
+        "va": "0xb231af10",
+        "bytes": "0ae04010",
+        "decoded": "\tp0 = cmp.eq(r0,#0); if (!p0.new) jump:t 0xb231af24"
+      },
+      {
+        "va": "0xb231af14",
+        "bytes": "82c53191",
+        "decoded": "\tr2 = memub(r17+#44)"
+      },
+      {
+        "va": "0xb231af18",
+        "bytes": "c260007e",
+        "decoded": "\tif (p0.new) r2 = #6"
+      },
+      {
+        "va": "0xb231af1c",
+        "bytes": "06e3c211",
+        "decoded": "\tp0 = tstbit(r2,#0); if (!p0.new) jump:t 0xb231af24"
+      },
+      {
+        "va": "0xb231af20",
+        "bytes": "aac13316",
+        "decoded": "\tr3 = #1 ; jump 0xb231ae74"
+      },
+      {
+        "va": "0xb231af24",
+        "bytes": "0659f05b",
+        "decoded": "\tcall 0xb229e130"
+      },
+      {
+        "va": "0xb231af28",
+        "bytes": "c442240b",
+        "decoded": "\timmext(#2990584064)"
+      },
+      {
+        "va": "0xb231af2c",
+        "bytes": "00623273",
+        "decoded": "\tr1:0 = combine(##-1304383216,r18)"
+      },
+      {
+        "va": "0xb231af30",
+        "bytes": "02c07370",
+        "decoded": "\tr2 = r19"
+      },
+      {
+        "va": "0xb231af34",
+        "bytes": "08e04010",
+        "decoded": "\tp0 = cmp.eq(r0,#0); if (!p0.new) jump:t 0xb231af44"
+      },
+      {
+        "va": "0xb231af38",
+        "bytes": "82c53191",
+        "decoded": "\tr2 = memub(r17+#44)"
+      },
+      {
+        "va": "0xb231af3c",
+        "bytes": "04e3c211",
+        "decoded": "\tp0 = tstbit(r2,#0); if (!p0.new) jump:t 0xb231af44"
+      },
+      {
+        "va": "0xb231af40",
+        "bytes": "f0c73216",
+        "decoded": "\tr2 = #7 ; jump 0xb231af20"
+      },
+      {
+        "va": "0xb231af44",
+        "bytes": "f658f05b",
+        "decoded": "\tcall 0xb229e130"
+      },
+      {
+        "va": "0xb231af48",
+        "bytes": "c442240b",
+        "decoded": "\timmext(#2990584064)"
+      },
+      {
+        "va": "0xb231af4c",
+        "bytes": "40633273",
+        "decoded": "\tr1:0 = combine(##-1304383206,r18)"
+      },
+      {
+        "va": "0xb231af50",
+        "bytes": "02c07370",
+        "decoded": "\tr2 = r19"
+      },
+      {
+        "va": "0xb231af54",
+        "bytes": "08e04010",
+        "decoded": "\tp0 = cmp.eq(r0,#0); if (!p0.new) jump:t 0xb231af64"
+      },
+      {
+        "va": "0xb231af58",
+        "bytes": "82c53191",
+        "decoded": "\tr2 = memub(r17+#44)"
+      },
+      {
+        "va": "0xb231af5c",
+        "bytes": "04e3c211",
+        "decoded": "\tp0 = tstbit(r2,#0); if (!p0.new) jump:t 0xb231af64"
+      },
+      {
+        "va": "0xb231af60",
+        "bytes": "e0c83216",
+        "decoded": "\tr2 = #8 ; jump 0xb231af20"
+      },
+      {
+        "va": "0xb231af64",
+        "bytes": "e658f05b",
+        "decoded": "\tcall 0xb229e130"
+      },
+      {
+        "va": "0xb231af68",
+        "bytes": "c442240b",
+        "decoded": "\timmext(#2990584064)"
+      },
+      {
+        "va": "0xb231af6c",
+        "bytes": "80643273",
+        "decoded": "\tr1:0 = combine(##-1304383196,r18)"
+      },
+      {
+        "va": "0xb231af70",
+        "bytes": "02c07370",
+        "decoded": "\tr2 = r19"
+      },
+      {
+        "va": "0xb231af74",
+        "bytes": "123c0059",
+        "decoded": "\tp0 = cmp.eq(r0,#0)\u000b\tr2 = memw(r29+#4)"
+      },
+      {
+        "va": "0xb231af78",
+        "bytes": "01404285",
+        "decoded": "\tp1 = r2"
+      },
+      {
+        "va": "0xb231af7c",
+        "bytes": "8860ff5c",
+        "decoded": "\tif (!p0) jump:nt 0xb231ae88"
+      },
+      {
+        "va": "0xb231af80",
+        "bytes": "82c53141",
+        "decoded": "\tif (p0) r2 = memub(r17+#44)"
+      },
+      {
+        "va": "0xb231af84",
+        "bytes": "82e3f211",
+        "decoded": "\tp0 = tstbit(r2,#0); if (!p0.new) jump:t 0xb231ae88"
+      },
+      {
+        "va": "0xb231af88",
+        "bytes": "e260047c",
+        "decoded": "\tr3:2 = combine(#7,#9)"
+      },
+      {
+        "va": "0xb231af8c",
+        "bytes": "7affff59",
+        "decoded": "\tjump 0xb231ae7c"
+      }
+    ],
+    "private_group_decode_and_synthesis": [
+      {
+        "va": "0xb231b678",
+        "bytes": "5c55f05b",
+        "decoded": "\tcall 0xb229e130"
+      },
+      {
+        "va": "0xb231b67c",
+        "bytes": "c842240b",
+        "decoded": "\timmext(#2990584320)"
+      },
+      {
+        "va": "0xb231b680",
+        "bytes": "c0663373",
+        "decoded": "\tr1:0 = combine(##-1304382922,r19)"
+      },
+      {
+        "va": "0xb231b684",
+        "bytes": "02c07270",
+        "decoded": "\tr2 = r18"
+      },
+      {
+        "va": "0xb231b688",
+        "bytes": "007eff0f",
+        "decoded": "\timmext(#4294934528)"
+      },
+      {
+        "va": "0xb231b68c",
+        "bytes": "21601674",
+        "decoded": "\tif (p0.new) r1 = add(r22,##-32767)"
+      },
+      {
+        "va": "0xb231b690",
+        "bytes": "d4e04010",
+        "decoded": "\tp0 = cmp.eq(r0,#0); if (!p0.new) jump:t 0xb231b830"
+      },
+      {
+        "va": "0xb231b694",
+        "bytes": "62460078",
+        "decoded": "\tr2 = #51"
+      },
+      {
+        "va": "0xb231b698",
+        "bytes": "8b2d1a28",
+        "decoded": "\tr18 = #1\u000b\tr19 = add(r29,#96)"
+      },
+      {
+        "va": "0xb231b69c",
+        "bytes": "126f9f5b",
+        "decoded": "\tcall 0xb20194c0"
+      },
+      {
+        "va": "0xb231b6a0",
+        "bytes": "804013b0",
+        "decoded": "\tr0 = add(r19,#4)"
+      },
+      {
+        "va": "0xb231b6a4",
+        "bytes": "60d21da1",
+        "decoded": "\tmemb(r29+#96) = r18"
+      },
+      {
+        "va": "0xb231b6a8",
+        "bytes": "004813b0",
+        "decoded": "\tr0 = add(r19,#64)"
+      },
+      {
+        "va": "0xb231b6ac",
+        "bytes": "b646230b",
+        "decoded": "\timmext(#2989600128)"
+      },
+      {
+        "va": "0xb231b6b0",
+        "bytes": "0128432b",
+        "decoded": "\tr3 = ##2989600180\u000b\tr1 = #0"
+      },
+      {
+        "va": "0xb231b6b4",
+        "bytes": "024f0078",
+        "decoded": "\tr2 = #120"
+      },
+      {
+        "va": "0xb231b6b8",
+        "bytes": "a34534b0",
+        "decoded": "\tr3 = add(r20,#557)"
+      },
+      {
+        "va": "0xb231b6bc",
+        "bytes": "16400078",
+        "decoded": "\tr22 = #0"
+      },
+      {
+        "va": "0xb231b6c0",
+        "bytes": "26c39da1",
+        "decoded": "\tmemw(r29+#152) = r3"
+      },
+      {
+        "va": "0xb231b6c4",
+        "bytes": "fe709f5b",
+        "decoded": "\tcall 0xb20198c0"
+      },
+      {
+        "va": "0xb231b6c8",
+        "bytes": "27c39da1",
+        "decoded": "\tmemw(r29+#156) = r3"
+      },
+      {
+        "va": "0xb231b6cc",
+        "bytes": "02641db0",
+        "decoded": "\tr2 = add(r29,#288)"
+      },
+      {
+        "va": "0xb231b6d0",
+        "bytes": "01407170",
+        "decoded": "\tr1 = r17"
+      },
+      {
+        "va": "0xb231b6d4",
+        "bytes": "00461db0",
+        "decoded": "\tr0 = add(r29,#48)"
+      },
+      {
+        "va": "0xb231b6d8",
+        "bytes": "46d6bda1",
+        "decoded": "\tmemw(r29+#280) = r2.new"
+      },
+      {
+        "va": "0xb231b6dc",
+        "bytes": "02481db0",
+        "decoded": "\tr2 = add(r29,#64)"
+      },
+      {
+        "va": "0xb231b6e0",
+        "bytes": "234015b8",
+        "decoded": "\tr3 = add(r21,#-32767)"
+      },
+      {
+        "va": "0xb231b6e4",
+        "bytes": "47d69da1",
+        "decoded": "\tmemw(r29+#284) = r22"
+      },
+      {
+        "va": "0xb231b6e8",
+        "bytes": "3267b55b",
+        "decoded": "\tcall 0xb20c854c"
+      },
+      {
+        "va": "0xb231b6ec",
+        "bytes": "3b0923e9",
+        "decoded": "\tmemw(r29+#72) = r3\u000b\tmemw(r29+#76) = r19"
+      },
+      {
+        "va": "0xb231b6f0",
+        "bytes": "00404085",
+        "decoded": "\tp0 = r0"
+      },
+      {
+        "va": "0xb231b6f4",
+        "bytes": "af410000",
+        "decoded": "\timmext(#27584)"
+      },
+      {
+        "va": "0xb231b6f8",
+        "bytes": "6967007e",
+        "decoded": "\tif (p0.new) r9 = ##27643"
+      },
+      {
+        "va": "0xb231b6fc",
+        "bytes": "50f8205c",
+        "decoded": "\tif (!p0.new) jump:t 0xb231b990"
+      },
+      {
+        "va": "0xb231b700",
+        "bytes": "6d430000",
+        "decoded": "\timmext(#56128)"
+      },
+      {
+        "va": "0xb231b704",
+        "bytes": "e2460078",
+        "decoded": "\tr2 = ##56183"
+      },
+      {
+        "va": "0xb231b708",
+        "bytes": "a4400078",
+        "decoded": "\tr4 = #5"
+      },
+      {
+        "va": "0xb231b70c",
+        "bytes": "3becb4a1",
+        "decoded": "\tmemh(r20+#630) = r2.new"
+      },
+      {
+        "va": "0xb231b710",
+        "bytes": "e65f0078",
+        "decoded": "\tr6 = #255"
+      },
+      {
+        "va": "0xb231b714",
+        "bytes": "014e0078",
+        "decoded": "\tr1 = #112"
+      },
+      {
+        "va": "0xb231b718",
+        "bytes": "a2453493",
+        "decoded": "\tr2 = memub(r20+#557)"
+      },
+      {
+        "va": "0xb231b71c",
+        "bytes": "7ac414a3",
+        "decoded": "\tmemb(r20+#634) = r4"
+      },
+      {
+        "va": "0xb231b720",
+        "bytes": "83470078",
+        "decoded": "\tr3 = #60"
+      },
+      {
+        "va": "0xb231b724",
+        "bytes": "e55f0378",
+        "decoded": "\tr5 = #1791"
+      },
+      {
+        "va": "0xb231b728",
+        "bytes": "c4453493",
+        "decoded": "\tr4 = memub(r20+#558)"
+      },
+      {
+        "va": "0xb231b72c",
+        "bytes": "7fc614a3",
+        "decoded": "\tmemb(r20+#639) = r6"
+      },
+      {
+        "va": "0xb231b730",
+        "bytes": "466d2473",
+        "decoded": "\tr7:6 = combine(#106,r4)"
+      },
+      {
+        "va": "0xb231b734",
+        "bytes": "e8453493",
+        "decoded": "\tr8 = memub(r20+#559)"
+      },
+      {
+        "va": "0xb231b738",
+        "bytes": "85c114a3",
+        "decoded": "\tmemb(r20+#645) = r1"
+      },
+      {
+        "va": "0xb231b73c",
+        "bytes": "c644428e",
+        "decoded": "\tr6 |= asl(r2,#4)"
+      },
+      {
+        "va": "0xb231b740",
+        "bytes": "21463493",
+        "decoded": "\tr1 = memub(r20+#561)"
+      },
+      {
+        "va": "0xb231b744",
+        "bytes": "75c4b4a3",
+        "decoded": "\tmemb(r20+#629) = r6.new"
+      },
+      {
+        "va": "0xb231b748",
+        "bytes": "06463493",
+        "decoded": "\tr6 = memub(r20+#560)"
+      },
+      {
+        "va": "0xb231b74c",
+        "bytes": "79c314a3",
+        "decoded": "\tmemb(r20+#633) = r3"
+      },
+      {
+        "va": "0xb231b750",
+        "bytes": "4042068c",
+        "decoded": "\tr0 = asl(r6,#2)"
+      },
+      {
+        "va": "0xb231b754",
+        "bytes": "3e6554a1",
+        "decoded": "\tmemh(r20+#636) = r5"
+      },
+      {
+        "va": "0xb231b758",
+        "bytes": "7bc114a3",
+        "decoded": "\tmemb(r20+#635) = r1"
+      },
+      {
+        "va": "0xb231b75c",
+        "bytes": "c044488e",
+        "decoded": "\tr0 |= asl(r8,#4)"
+      },
+      {
+        "va": "0xb231b760",
+        "bytes": "61463493",
+        "decoded": "\tr1 = memub(r20+#563)"
+      },
+      {
+        "va": "0xb231b764",
+        "bytes": "2cd214a3",
+        "decoded": "\tmemb(r20+#556) = r18"
+      },
+      {
+        "va": "0xb231b768",
+        "bytes": "4343018c",
+        "decoded": "\tr3 = asl(r1,#3)"
+      },
+      {
+        "va": "0xb231b76c",
+        "bytes": "784014a3",
+        "decoded": "\tmemb(r20+#632) = r0"
+      },
+      {
+        "va": "0xb231b770",
+        "bytes": "74d214a3",
+        "decoded": "\tmemb(r20+#628) = r18"
+      },
+      {
+        "va": "0xb231b774",
+        "bytes": "40463493",
+        "decoded": "\tr0 = memub(r20+#562)"
+      },
+      {
+        "va": "0xb231b778",
+        "bytes": "7ec2b4a3",
+        "decoded": "\tmemb(r20+#638) = r0.new"
+      },
+      {
+        "va": "0xb231b77c",
+        "bytes": "a0463493",
+        "decoded": "\tr0 = memub(r20+#565)"
+      },
+      {
+        "va": "0xb231b780",
+        "bytes": "41e954a1",
+        "decoded": "\tmemh(r20+#642) = r9"
+      },
+      {
+        "va": "0xb231b784",
+        "bytes": "4541008c",
+        "decoded": "\tr5 = asl(r0,#1)"
+      },
+      {
+        "va": "0xb231b788",
+        "bytes": "81463493",
+        "decoded": "\tr1 = memub(r20+#564)"
+      },
+      {
+        "va": "0xb231b78c",
+        "bytes": "80c714a3",
+        "decoded": "\tmemb(r20+#640) = r7"
+      },
+      {
+        "va": "0xb231b790",
+        "bytes": "0143c5ef",
+        "decoded": "\tr1 |= or(r5,r3)"
+      },
+      {
+        "va": "0xb231b794",
+        "bytes": "c0463493",
+        "decoded": "\tr0 = memub(r20+#566)"
+      },
+      {
+        "va": "0xb231b798",
+        "bytes": "81c4b4a3",
+        "decoded": "\tmemb(r20+#641) = r1.new"
+      },
+      {
+        "va": "0xb231b79c",
+        "bytes": "4344008c",
+        "decoded": "\tr3 = asl(r0,#4)"
+      },
+      {
+        "va": "0xb231b7a0",
+        "bytes": "84c2b4a3",
+        "decoded": "\tmemb(r20+#644) = r3.new"
+      },
+      {
+        "va": "0xb231b7a4",
+        "bytes": "00601073",
+        "decoded": "\tr1:0 = combine(r16,#0)"
+      },
+      {
+        "va": "0xb231b7a8",
+        "bytes": "020814e8",
+        "decoded": "\tmemw(r29+#4) = r4\u000b\tmemw(r29+#0) = r2"
+      },
+      {
+        "va": "0xb231b7ac",
+        "bytes": "785b250b",
+        "decoded": "\timmext(#2992037376)"
+      },
+      {
+        "va": "0xb231b7b0",
+        "bytes": "0243007c",
+        "decoded": "\tr3:2 = combine(##-1302929896,#0)"
+      },
+      {
+        "va": "0xb231b7b4",
+        "bytes": "36284468",
+        "decoded": "\tr4 = #4\u000b\tmemw(r29+#12) = r6"
+      },
+      {
+        "va": "0xb231b7b8",
+        "bytes": "045cb85b",
+        "decoded": "\tcall 0xb20defc0"
+      },
+      {
+        "va": "0xb231b7bc",
+        "bytes": "02c89da1",
+        "decoded": "\tmemw(r29+#8) = r8"
+      },
+      {
+        "va": "0xb231b7c0",
+        "bytes": "00601073",
+        "decoded": "\tr1:0 = combine(r16,#0)"
+      },
+      {
+        "va": "0xb231b7c4",
+        "bytes": "44400078",
+        "decoded": "\tr4 = #2"
+      },
+      {
+        "va": "0xb231b7c8",
+        "bytes": "22463493",
+        "decoded": "\tr2 = memub(r20+#561)"
+      },
+      {
+        "va": "0xb231b7cc",
+        "bytes": "43c63493",
+        "decoded": "\tr3 = memub(r20+#562)"
+      },
+      {
+        "va": "0xb231b7d0",
+        "bytes": "795b250b",
+        "decoded": "\timmext(#2992037440)"
+      },
+      {
+        "va": "0xb231b7d4",
+        "bytes": "0244007c",
+        "decoded": "\tr3:2 = combine(##-1302929824,#0)"
+      },
+      {
+        "va": "0xb231b7d8",
+        "bytes": "020813e8",
+        "decoded": "\tmemw(r29+#4) = r3\u000b\tmemw(r29+#0) = r2"
+      },
+      {
+        "va": "0xb231b7dc",
+        "bytes": "f2dbb85b",
+        "decoded": "\tcall 0xb20defc0"
+      },
+      {
+        "va": "0xb231b7e0",
+        "bytes": "00601073",
+        "decoded": "\tr1:0 = combine(r16,#0)"
+      },
+      {
+        "va": "0xb231b7e4",
+        "bytes": "62463493",
+        "decoded": "\tr2 = memub(r20+#563)"
+      },
+      {
+        "va": "0xb231b7e8",
+        "bytes": "83c63493",
+        "decoded": "\tr3 = memub(r20+#564)"
+      },
+      {
+        "va": "0xb231b7ec",
+        "bytes": "a4463493",
+        "decoded": "\tr4 = memub(r20+#565)"
+      },
+      {
+        "va": "0xb231b7f0",
+        "bytes": "c5c63493",
+        "decoded": "\tr5 = memub(r20+#566)"
+      },
+      {
+        "va": "0xb231b7f4",
+        "bytes": "84400078",
+        "decoded": "\tr4 = #4"
+      },
+      {
+        "va": "0xb231b7f8",
+        "bytes": "130824e8",
+        "decoded": "\tmemw(r29+#8) = r4\u000b\tmemw(r29+#4) = r3"
+      },
+      {
+        "va": "0xb231b7fc",
+        "bytes": "7b5b250b",
+        "decoded": "\timmext(#2992037568)"
+      },
+      {
+        "va": "0xb231b800",
+        "bytes": "0243007c",
+        "decoded": "\tr3:2 = combine(##-1302929704,#0)"
+      },
+      {
+        "va": "0xb231b804",
+        "bytes": "350802e8",
+        "decoded": "\tmemw(r29+#0) = r2\u000b\tmemw(r29+#12) = r5"
+      },
+      {
+        "va": "0xb231b808",
+        "bytes": "dcdbb85b",
+        "decoded": "\tcall 0xb20defc0"
+      },
+      {
+        "va": "0xb231b80c",
+        "bytes": "7651005a",
+        "decoded": "\tcall 0xb231daf8"
+      },
+      {
+        "va": "0xb231b810",
+        "bytes": "804e34b0",
+        "decoded": "\tr0 = add(r20,#628)"
+      },
+      {
+        "va": "0xb231b814",
+        "bytes": "c1c00078",
+        "decoded": "\tr1 = #6"
+      },
+      {
+        "va": "0xb231b818",
+        "bytes": "bce14010",
+        "decoded": "\tp0 = cmp.eq(r0,#1); if (!p0.new) jump:t 0xb231b990"
+      },
+      {
+        "va": "0xb231b81c",
+        "bytes": "7c5b250b",
+        "decoded": "\timmext(#2992037632)"
+      },
+      {
+        "va": "0xb231b820",
+        "bytes": "0247007c",
+        "decoded": "\tr3:2 = combine(##-1302929608,#0)"
+      },
+      {
+        "va": "0xb231b824",
+        "bytes": "883d1428",
+        "decoded": "\tr4 = #1\u000b\tr1:0 = combine(r16,#0)"
+      },
+      {
+        "va": "0xb231b828",
+        "bytes": "12e0b85b",
+        "decoded": "\tcall 0xb20df84c"
+      },
+      {
+        "va": "0xb231b82c",
+        "bytes": "a0f39f59",
+        "decoded": "\tjump 0xb2019f6c"
+      }
+    ],
+    "client_calibration_tail": [
+      {
+        "va": "0xb2319e10",
+        "bytes": "25c09191",
+        "decoded": "\tr5 = memw(r17+#4)"
+      },
+      {
+        "va": "0xb2319e14",
+        "bytes": "2a400000",
+        "decoded": "\timmext(#2688)"
+      },
+      {
+        "va": "0xb2319e18",
+        "bytes": "62c72591",
+        "decoded": "\tr2 = memub(r5+##2747)"
+      },
+      {
+        "va": "0xb2319e1c",
+        "bytes": "2a400000",
+        "decoded": "\timmext(#2688)"
+      },
+      {
+        "va": "0xb2319e20",
+        "bytes": "72670574",
+        "decoded": "\tif (p0.new) r18 = add(r5,##2747)"
+      },
+      {
+        "va": "0xb2319e24",
+        "bytes": "2ae3c211",
+        "decoded": "\tp0 = tstbit(r2,#0); if (!p0.new) jump:t 0xb2319e70"
+      },
+      {
+        "va": "0xb2319e28",
+        "bytes": "645b250b",
+        "decoded": "\timmext(#2992036096)"
+      },
+      {
+        "va": "0xb2319e2c",
+        "bytes": "0241007c",
+        "decoded": "\tr3:2 = combine(##-1302931192,#0)"
+      },
+      {
+        "va": "0xb2319e30",
+        "bytes": "883d1428",
+        "decoded": "\tr4 = #1\u000b\tr1:0 = combine(r16,#0)"
+      },
+      {
+        "va": "0xb2319e34",
+        "bytes": "c6e8b85b",
+        "decoded": "\tcall 0xb20defc0"
+      },
+      {
+        "va": "0xb2319e38",
+        "bytes": "01407070",
+        "decoded": "\tr1 = r16"
+      },
+      {
+        "va": "0xb2319e3c",
+        "bytes": "e0d49591",
+        "decoded": "\tr0 = memw(r21+#668)"
+      },
+      {
+        "va": "0xb2319e40",
+        "bytes": "22c08091",
+        "decoded": "\tr2 = memw(r0+#4)"
+      },
+      {
+        "va": "0xb2319e44",
+        "bytes": "22c08291",
+        "decoded": "\tr2 = memw(r2+#4)"
+      },
+      {
+        "va": "0xb2319e48",
+        "bytes": "00c0a250",
+        "decoded": "\tcallr r2"
+      },
+      {
+        "va": "0xb2319e4c",
+        "bytes": "464f005a",
+        "decoded": "\tcall 0xb231bcd8"
+      },
+      {
+        "va": "0xb2319e50",
+        "bytes": "00d011f5",
+        "decoded": "\tr1:0 = combine(r17,r16)"
+      },
+      {
+        "va": "0xb2319e54",
+        "bytes": "3a4e005a",
+        "decoded": "\tcall 0xb231bac8"
+      },
+      {
+        "va": "0xb2319e58",
+        "bytes": "005011f5",
+        "decoded": "\tr1:0 = combine(r17,r16)"
+      },
+      {
+        "va": "0xb2319e5c",
+        "bytes": "42c00078",
+        "decoded": "\tr2 = #2"
+      },
+      {
+        "va": "0xb2319e60",
+        "bytes": "344e005a",
+        "decoded": "\tcall 0xb231bac8"
+      },
+      {
+        "va": "0xb2319e64",
+        "bytes": "005011f5",
+        "decoded": "\tr1:0 = combine(r17,r16)"
+      },
+      {
+        "va": "0xb2319e68",
+        "bytes": "02c10078",
+        "decoded": "\tr2 = #8"
+      },
+      {
+        "va": "0xb2319e6c",
+        "bytes": "00c0123c",
+        "decoded": "\tmemb(r18+#0) = #0"
+      }
+    ]
+  },
+  "direct_mode_writer_calls_in_saved_b21_b27": [
+    "0xb231d49c",
+    "0xb231d4c8",
+    "0xb231f330",
+    "0xb231f408",
+    "0xb231f508",
+    "0xb231f744"
+  ],
+  "initial_table_hex": "01 44 77 02 40 70 05 00 ff 06 00 ff 60 0b 3f db 00 3f 6a 0b ff 6b 70 ff",
+  "mode2_hex": "03 00 3f 04 1e ff 0e 17 37 00 10 10",
+  "mode1_hex": "03 05 3f 04 a6 ff 0e 00 ff 00 10 10",
+  "merge_model_register_cases": 256,
+  "merge_allowed_registers": [
+    "0x1",
+    "0x2",
+    "0x5",
+    "0x6",
+    "0x60",
+    "0xdb",
+    "0x6a",
+    "0x6b"
+  ],
+  "maximum_merge_write_va": "0xb259ddf7",
+  "reference_config": "extracted/XT2611-1/W3WWL36.65-11-18/filesystems/vendor_a/etc/sensors/config/stk6a2x_0.json",
+  "reference_private_config_not_target_identity": {
+    "als0_dgain": "4",
+    "als1_dgain": "4",
+    "als0_again": "0",
+    "als1_again": "0",
+    "wait1": "0",
+    "wait2": "0",
+    "autogain": "1",
+    "autogain0": "1",
+    "autogain1": "1",
+    "max_dgain": "7"
+  },
+  "limits": [
+    "Direct-call search is not all indirect callsites or unsaved segments",
+    "b22 is writable; bounded merge evidence does not prove no other table writer",
+    "Model tests address bounds, not firmware execution, physical sample timing or Hz"
+  ],
+  "device_io": false,
+  "physical_pwm_hz": null,
+  "registry_followup": {
+    "callback": "0xb231adb4",
+    "callback_literal_in_consumer": "0xb231b6b0",
+    "field_names_from_target_bytes": [
+      {
+        "name": "als0_dgain",
+        "name_va": "0xb240b0cf",
+        "state_offset": 557,
+        "mask": 7
+      },
+      {
+        "name": "als1_dgain",
+        "name_va": "0xb240b0da",
+        "state_offset": 558,
+        "mask": 7
+      },
+      {
+        "name": "als0_again",
+        "name_va": "0xb240b0e5",
+        "state_offset": 559,
+        "mask": 3
+      },
+      {
+        "name": "als1_again",
+        "name_va": "0xb240b0f0",
+        "state_offset": 560,
+        "mask": 3
+      },
+      {
+        "name": "wait1",
+        "name_va": "0xb240b0fb",
+        "state_offset": 561,
+        "mask": 255
+      },
+      {
+        "name": "wait2",
+        "name_va": "0xb240b101",
+        "state_offset": 562,
+        "mask": 255
+      },
+      {
+        "name": "autogain",
+        "name_va": "0xb240b107",
+        "state_offset": 563,
+        "mask": 1
+      },
+      {
+        "name": "autogain0",
+        "name_va": "0xb240b110",
+        "state_offset": 564,
+        "mask": 1
+      },
+      {
+        "name": "autogain1",
+        "name_va": "0xb240b11a",
+        "state_offset": 565,
+        "mask": 1
+      },
+      {
+        "name": "max_dgain",
+        "name_va": "0xb240b124",
+        "state_offset": 566,
+        "mask": 7
+      }
+    ],
+    "verified_call_packets": [
+      {
+        "start": "0xb231b678",
+        "end_exclusive": "0xb231b688",
+        "parse_bits": [
+          1,
+          1,
+          1,
+          3
+        ]
+      },
+      {
+        "start": "0xb231b80c",
+        "end_exclusive": "0xb231b818",
+        "parse_bits": [
+          1,
+          1,
+          3
+        ]
+      }
+    ],
+    "reference_default_triples_not_live_config": [
+      [
+        1,
+        68,
+        119
+      ],
+      [
+        219,
+        0,
+        60
+      ],
+      [
+        5,
+        0,
+        255
+      ],
+      [
+        6,
+        0,
+        255
+      ],
+      [
+        106,
+        11,
+        251
+      ],
+      [
+        107,
+        112,
+        112
+      ]
+    ],
+    "reference_default_merge_equals_initial": true,
+    "wire_schema_field_ids": "unknown; generic decoder outside saved target segments",
+    "wait05_06_physical_sampling_effect": "unknown; not inferred from names",
+    "calibration_tail_indirect_side_effects": "not fully resolved"
+  }
+}

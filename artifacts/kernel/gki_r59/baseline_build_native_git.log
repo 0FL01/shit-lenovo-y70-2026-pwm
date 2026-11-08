@@ -1,0 +1,64 @@
+Computing main repo mapping: 
+Loading: 
+Loading: 0 packages loaded
+Analyzing: target //common:kernel_aarch64 (0 packages loaded, 0 targets configured)
+Analyzing: target //common:kernel_aarch64 (0 packages loaded, 0 targets configured)
+
+INFO: From BazelWorkspaceStatusAction stable-status.txt:
+WARNING: Unable to determine repo root. Please specify --repo_manifest.
+INFO: Analyzed target //common:kernel_aarch64 (5 packages loaded, 5634 targets configured).
+[16 / 588] [Prepa] Writing repo mapping manifest for //build/kernel:check_buildtime_symbol_protection [for tool]
+[92 / 616] [Prepa] Creating symlink prebuilts/clang-tools/bindgen [for tool]
+[167 / 616] [Prepa] Symlinking virtual headers for //prebuilts/kernel-build-tools:linux_x86_imported_libs [for tool]
+[225 / 616] [Prepa] action 'SolibSymlink _solib_x86_64/_U_S_Sprebuilts_Skernel-build-tools_Clinux_Ux86_Uimported_Ulibs_Ulinux-x86_Slib64_Slibc++.so___Uprebuilts_Skernel-build-tools_Slinux-x86_Slib64/libc++.so'
+[235 / 616] [Prepa] Creating symlink prebuilts/kernel-build-tools/img2simg [for tool]
+[283 / 616] [Prepa] Symlinking virtual headers for //prebuilts/kernel-build-tools:linux_x86_imported_libs [for tool]
+[346 / 616] checking cached actions
+[368 / 616] checking cached actions
+[391 / 616] Compiling lib/lz4hc.c [for tool]; 0s linux-sandbox ... (5 actions running)
+[425 / 616] Compiling src/zopfli/deflate.c [for tool]; 0s linux-sandbox ... (6 actions, 5 running)
+[482 / 616] Compiling toys/posix/ps.c [for tool]; 0s linux-sandbox ... (5 actions, 4 running)
+[610 / 616] [Prepa] Creating abi_symbollist.raw //common:kernel_aarch64_raw_kmi_symbol_list
+[611 / 616] Creating kernel config (trim) //common:kernel_aarch64_config; 1s linux-sandbox
+[612 / 616] [Prepa] Copying .config //common:kernel_aarch64
+[613 / 616] Building kernel (trim) //common:kernel_aarch64; 1s linux-sandbox
+[613 / 616] Building kernel (trim) //common:kernel_aarch64; 11s linux-sandbox
+[613 / 616] Building kernel (trim) //common:kernel_aarch64; 41s linux-sandbox
+[613 / 616] Building kernel (trim) //common:kernel_aarch64; 101s linux-sandbox
+[613 / 616] Building kernel (trim) //common:kernel_aarch64; 161s linux-sandbox
+[613 / 616] Building kernel (trim) //common:kernel_aarch64; 221s linux-sandbox
+[613 / 616] Building kernel (trim) //common:kernel_aarch64; 281s linux-sandbox
+[613 / 616] Building kernel (trim) //common:kernel_aarch64; 341s linux-sandbox
+INFO: From Building kernel (trim) //common:kernel_aarch64:
+warning: overriding the module target triple with aarch64-unknown-linux-gnu [-Woverride-module]
+1 warning generated.
+warning: overriding the module target triple with aarch64-unknown-linux-gnu [-Woverride-module]
+1 warning generated.
+warning: overriding the module target triple with aarch64-unknown-linux-gnu [-Woverride-module]
+1 warning generated.
+WARN: multiple IDs found for 'inode': 322, 30144 - using 322
+WARN: multiple IDs found for 'module': 257, 30186 - using 257
+WARN: multiple IDs found for 'vm_area_struct': 588, 30261 - using 588
+WARN: multiple IDs found for 'task_struct': 435, 30268 - using 435
+WARN: multiple IDs found for 'cgroup': 503, 30281 - using 503
+WARN: multiple IDs found for 'seq_file': 519, 30297 - using 519
+WARN: multiple IDs found for 'file': 248, 30311 - using 248
+WARN: multiple IDs found for 'path': 2025, 30397 - using 2025
+[614 / 616] [Prepa] Checking for kmi_symbol_list_violations (trim) //common:kernel_aarch64 ... (2 actions, 0 running)
+INFO: Found 1 target...
+Target //common:kernel_aarch64 up-to-date:
+  bazel-bin/common/kernel_aarch64/System.map
+  bazel-bin/common/kernel_aarch64/modules.builtin
+  bazel-bin/common/kernel_aarch64/modules.builtin.modinfo
+  bazel-bin/common/kernel_aarch64/vmlinux
+  bazel-bin/common/kernel_aarch64/vmlinux.symvers
+  bazel-bin/common/kernel_aarch64/Image
+  bazel-bin/common/kernel_aarch64/Image.lz4
+  bazel-bin/common/kernel_aarch64/Image.gz
+  bazel-bin/common/kernel_aarch64_kmi_strict_out/kmi_symbol_list_strict_mode_checked
+  bazel-bin/common/kernel_aarch64/kernel_aarch64_Module.symvers
+  bazel-bin/common/kernel_aarch64/kernel_aarch64_dot_config
+  bazel-bin/common/kernel_aarch64_kmi_symbol_list_violations/kernel_aarch64_kmi_symbol_list_violations_checked
+INFO: Elapsed time: 414.342s, Critical Path: 402.35s
+INFO: 616 processes: 465 internal, 151 linux-sandbox.
+INFO: Build completed successfully, 616 total actions

@@ -1,0 +1,105 @@
+--- a/06-tools/analyze_dsi_redraw.py
++++ b/06-tools/analyze_dsi_redraw.py
+@@ -10,6 +10,8 @@
+ 
+ import numpy as np
+ from PIL import Image, ImageDraw, ImageFont
++
++from optical_spectrum import analyze_profiles
+ 
+ 
+ ROOT = Path(__file__).resolve().parents[1]
+@@ -25,7 +27,7 @@
+     assert report['target_restored'] and not report['cleanup_errors']
+     assert report['candidate_attempts_by_name'] == dict.fromkeys(LABELS[1::2], 1)
+     assert [s['label'] for s in report['stages']] == LABELS
+-    assert not (OUT / 'analysis.json').exists(), 'Do not overwrite analyzed evidence'
++    assert not (OUT / 'analysis_spatial_v2.json').exists(), 'Do not overwrite v2 analyzed evidence'
+     video = ROOT / report['video']
+     assert video.stat().st_size == report['video_bytes']
+     probe = json.loads(subprocess.check_output([
+@@ -44,7 +46,7 @@
+     pixels = np.frombuffer(raw, dtype=np.uint8).reshape(-1, 500, 60)
+     assert len(pixels) == len(pts) == int(stream['nb_frames'])
+     profiles = pixels.mean(axis=2)
+-    cache = PRIVATE / 'analysis-profiles.npz'
++    cache = PRIVATE / 'analysis-profiles-spatial-v2.npz'
+     np.savez_compressed(cache, pts_s=pts, profiles=profiles, roi_xywh=[540, 190, 60, 500])
+     cache.chmod(0o600)
+ 
+@@ -60,13 +62,6 @@
+         programs[name] = (ROOT / 'artifacts/dsi_block_trials_20261106' / (name + '.bin')).read_bytes()
+     packet_pattern = r'dsi-ctrl-1: dsi_ctrl_cmd_transfer len=(\d+), type=0x([0-9a-fA-F]+) (hs|lp) cmds= ([0-9A-Fa-f ]+)'
+     marker = 'PWM_BLOCK_REDRAW'
+-    x = np.linspace(-1, 1, 500)
+-    polynomial = np.column_stack((np.ones(500), x, x*x))
+-    inverse = np.linalg.pinv(polynomial)
+-    window = np.hanning(500)
+-    frequencies = np.linspace(1/180, 1/20, 2001)
+-    basis = np.exp(-2j*np.pi*np.outer(np.arange(500), frequencies))
+-    q_basis = np.exp(-2j*np.pi*np.arange(500)/93.43)
+     results = []
+     sheet = Image.new('RGB', (1920, 1188), '#202020')
+     draw = ImageDraw.Draw(sheet)
+@@ -102,18 +97,31 @@
+         mask = (pts >= center-1.25) & (pts < center+1.25)
+         assert mask.sum() >= 70
+         selected = profiles[mask]
+-        signal = selected - selected.mean(axis=0)
+-        signal -= (signal @ inverse.T) @ polynomial.T
+-        weighted = signal * window
+-        amplitudes = np.sqrt(np.mean(np.abs(weighted @ basis)**2, axis=0))*2/window.sum()
++        # Spatial detrend only: retain stationary as well as moving stripes.
++        spectrum = analyze_profiles(selected, peak_count=8)
++        spectrum_file = OUT / (label + '-spectrum-spatial-v2.npz')
++        np.savez_compressed(spectrum_file, **{
++            key: spectrum[key] for key in (
++                'frequencies_cycles_per_row', 'total_power', 'coherent_power',
++                'incoherent_power', 'raw_mean_per_frame')})
++        frequencies = spectrum['frequencies_cycles_per_row']
++        amplitudes = spectrum['total_rms_amplitude']
+         peak = int(amplitudes.argmax())
+-        q = float(np.sqrt(np.mean(np.abs(weighted @ q_basis)**2))*2/window.sum())
++        old_component = analyze_profiles(selected, frequencies=[1/93.43], peak_count=0)
++        q = float(old_component['total_rms_amplitude'][0])
+         mean = float(selected.mean()-16)
+         result = {'label': label, 'window_s': [center-1.25, center+1.25],
+                   'frames': int(mask.sum()), 'dominant_period_px': float(1/frequencies[peak])
+                   if 0 < peak < len(frequencies)-1 else None,
+                   'spectral_search_boundary': peak in (0, len(frequencies)-1),
+-                  'q93_rms_Y_codes': q, 'mean_Y_minus16': mean, 'normalized_q': q/mean,
++                  'q93_total_rms_Y_codes': q,
++                  'q93_coherent_Y_codes': float(old_component['coherent_amplitude'][0]),
++                  'q93_incoherent_rms_Y_codes': float(old_component['incoherent_rms_amplitude'][0]),
++                  'spatial_spectrum_peaks': spectrum['peaks'],
++                  'full_spectrum_npz': str(spectrum_file.relative_to(ROOT)),
++                  'raw_mean_Y': spectrum['raw_mean'],
++                  'power_partition_max_abs_error': spectrum['power_partition_max_abs_error'],
++                  'mean_Y_minus16': mean, 'normalized_q': q/mean,
+                   'pixel_Y_min': int(pixels[mask].min()), 'pixel_Y_max': int(pixels[mask].max()),
+                   'fraction_Y_ge235': float(np.mean(pixels[mask] >= 235))}
+         results.append(result)
+@@ -141,12 +149,12 @@
+     for name in ('mode_entry', 'mode_return', 'mode_ctrl_return'):
+         rows = re.findall(r'^\s*'+name+r'\s+(\d+)\s+(\d+)\s*$', profile, re.M)
+         assert len(rows) == 1 and int(rows[0][1]) == 0
+-    comparison = ROOT / 'artifacts/optical/pacman_dsi_blocks_redraw_comparison.png'
++    comparison = ROOT / 'artifacts/optical/pacman_dsi_blocks_redraw_comparison_spatial_v2.png'
+     sheet.save(comparison)
+     output = {'capture': str((OUT/'run.json').relative_to(ROOT)), 'video': report['video'],
+               'video_bytes': video.stat().st_size, 'decoded_frames': len(pts),
+               'roi_xywh': [540,190,60,500], 'stages': results,
+-              'method': 'Original limited-range Y; temporal mean removal per stage, per-frame quadratic detrend, Hann spatial Fourier. q93 is an image component, not Hz/depth. Comparison images alone use equal gamma2.',
++              'method': 'Spatial v2: original limited-range Y; per-frame quadratic spatial detrend only; full spatial spectrum through Nyquist; separate total/coherent/incoherent powers. Static image content also contributes. q93 is an image component, not Hz/depth. Comparison images alone use equal gamma2.',
+               'window_alignment': 'Coarse native record-tap origin, central2.5s windows inside7s holds; contact-sheet inspection required. No sensor-to-video timestamp accuracy claim.',
+               'native': {'table_packets_matched': matched, 'post_table_DBV_writes': 9,
+                          'callback_returns': returns, 'controller_return_count': len(controller),
+@@ -158,7 +166,7 @@
+               'limits': ['Image amplitude is not calibrated modulation depth/luminance.',
+                          'Same DBV does not guarantee same optical brightness across programs.',
+                          'No independently measured panel temperature or numerical carrier frequency.']}
+-    (OUT/'analysis.json').write_text(json.dumps(output, indent=2)+'\n')
++    (OUT/'analysis_spatial_v2.json').write_text(json.dumps(output, indent=2)+'\n')
+     print(json.dumps({'stages': results, 'native': output['native']}, indent=2))
+ 
+ 

@@ -1,0 +1,734 @@
+{
+  "address_model": "import address + memory block offset; NOT live VA",
+  "analysis": true,
+  "binary": "/mnt/kston/legion-Y70-madness/artifacts/kernel/gki_r59/target_vendor/msm_drm.ko",
+  "branch_count": 22,
+  "callees": [
+    {
+      "entry": {
+        "block": "EXTERNAL",
+        "ghidra": "003d2990",
+        "offset": "0x990"
+      },
+      "name": "<EXTERNAL>::drm_dev_printk"
+    }
+  ],
+  "callers": [
+    {
+      "from": {
+        "block": ".text",
+        "ghidra": "00341a1c",
+        "offset": "0x19afac"
+      },
+      "function": {
+        "entry": {
+          "block": ".text",
+          "ghidra": "00341778",
+          "offset": "0x19ad08"
+        },
+        "name": "dsi_ctrl_dev_probe"
+      },
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": {
+        "block": null,
+        "ghidra": "Entry Point",
+        "offset": null
+      },
+      "function": null,
+      "type": "EXTERNAL"
+    }
+  ],
+  "command": "brief",
+  "constants": [
+    {
+      "bits": 32,
+      "hex": "0x2",
+      "signed": 2
+    },
+    {
+      "bits": 64,
+      "hex": "0x2",
+      "signed": 2
+    },
+    {
+      "bits": 64,
+      "hex": "0x4",
+      "signed": 4
+    },
+    {
+      "bits": 64,
+      "hex": "0x8",
+      "signed": 8
+    },
+    {
+      "bits": 32,
+      "hex": "0xc",
+      "signed": 12
+    },
+    {
+      "bits": 64,
+      "hex": "0x10",
+      "signed": 16
+    },
+    {
+      "bits": 64,
+      "hex": "0x20",
+      "signed": 32
+    },
+    {
+      "bits": 64,
+      "hex": "0x38",
+      "signed": 56
+    },
+    {
+      "bits": 64,
+      "hex": "0x3c",
+      "signed": 60
+    },
+    {
+      "bits": 64,
+      "hex": "0x40",
+      "signed": 64
+    },
+    {
+      "bits": 64,
+      "hex": "0x48",
+      "signed": 72
+    },
+    {
+      "bits": 64,
+      "hex": "0x58",
+      "signed": 88
+    },
+    {
+      "bits": 64,
+      "hex": "0x60",
+      "signed": 96
+    },
+    {
+      "bits": 64,
+      "hex": "0x78",
+      "signed": 120
+    },
+    {
+      "bits": 64,
+      "hex": "0x8c",
+      "signed": 140
+    },
+    {
+      "bits": 64,
+      "hex": "0x90",
+      "signed": 144
+    },
+    {
+      "bits": 64,
+      "hex": "0xa8",
+      "signed": 168
+    },
+    {
+      "bits": 64,
+      "hex": "0xc0",
+      "signed": 192
+    },
+    {
+      "bits": 64,
+      "hex": "0xd4",
+      "signed": 212
+    },
+    {
+      "bits": 64,
+      "hex": "0xd8",
+      "signed": 216
+    },
+    {
+      "bits": 64,
+      "hex": "0xf0",
+      "signed": 240
+    },
+    {
+      "bits": 64,
+      "hex": "0x108",
+      "signed": 264
+    },
+    {
+      "bits": 64,
+      "hex": "0x120",
+      "signed": 288
+    },
+    {
+      "bits": 64,
+      "hex": "0x138",
+      "signed": 312
+    },
+    {
+      "bits": 64,
+      "hex": "0x144",
+      "signed": 324
+    },
+    {
+      "bits": 64,
+      "hex": "0x150",
+      "signed": 336
+    },
+    {
+      "bits": 64,
+      "hex": "0x168",
+      "signed": 360
+    },
+    {
+      "bits": 64,
+      "hex": "0x17c",
+      "signed": 380
+    },
+    {
+      "bits": 64,
+      "hex": "0x180",
+      "signed": 384
+    },
+    {
+      "bits": 64,
+      "hex": "0x198",
+      "signed": 408
+    },
+    {
+      "bits": 64,
+      "hex": "0x1b0",
+      "signed": 432
+    },
+    {
+      "bits": 64,
+      "hex": "0x1b8",
+      "signed": 440
+    },
+    {
+      "bits": 64,
+      "hex": "0x1c8",
+      "signed": 456
+    },
+    {
+      "bits": 64,
+      "hex": "0x1e0",
+      "signed": 480
+    },
+    {
+      "bits": 64,
+      "hex": "0x1f8",
+      "signed": 504
+    },
+    {
+      "bits": 64,
+      "hex": "0x210",
+      "signed": 528
+    },
+    {
+      "bits": 64,
+      "hex": "0x228",
+      "signed": 552
+    },
+    {
+      "bits": 64,
+      "hex": "0x240",
+      "signed": 576
+    },
+    {
+      "bits": 64,
+      "hex": "0x258",
+      "signed": 600
+    },
+    {
+      "bits": 64,
+      "hex": "0x270",
+      "signed": 624
+    },
+    {
+      "bits": 64,
+      "hex": "0x288",
+      "signed": 648
+    },
+    {
+      "bits": 64,
+      "hex": "0x290",
+      "signed": 656
+    },
+    {
+      "bits": 64,
+      "hex": "0x2a0",
+      "signed": 672
+    },
+    {
+      "bits": 64,
+      "hex": "0x2b8",
+      "signed": 696
+    },
+    {
+      "bits": 64,
+      "hex": "0x2d0",
+      "signed": 720
+    },
+    {
+      "bits": 64,
+      "hex": "0x2e8",
+      "signed": 744
+    },
+    {
+      "bits": 64,
+      "hex": "0x2f0",
+      "signed": 752
+    },
+    {
+      "bits": 64,
+      "hex": "0x300",
+      "signed": 768
+    },
+    {
+      "bits": 64,
+      "hex": "0x318",
+      "signed": 792
+    },
+    {
+      "bits": 64,
+      "hex": "0x330",
+      "signed": 816
+    },
+    {
+      "bits": 64,
+      "hex": "0x348",
+      "signed": 840
+    },
+    {
+      "bits": 64,
+      "hex": "0x360",
+      "signed": 864
+    },
+    {
+      "bits": 64,
+      "hex": "0x378",
+      "signed": 888
+    },
+    {
+      "bits": 64,
+      "hex": "0x380",
+      "signed": 896
+    },
+    {
+      "bits": 64,
+      "hex": "0x390",
+      "signed": 912
+    },
+    {
+      "bits": 64,
+      "hex": "0x3a8",
+      "signed": 936
+    },
+    {
+      "bits": 64,
+      "hex": "0x3c0",
+      "signed": 960
+    },
+    {
+      "bits": 64,
+      "hex": "0x3d8",
+      "signed": 984
+    },
+    {
+      "bits": 64,
+      "hex": "0x3dc",
+      "signed": 988
+    },
+    {
+      "bits": 64,
+      "hex": "0x3f0",
+      "signed": 1008
+    },
+    {
+      "bits": 64,
+      "hex": "0x408",
+      "signed": 1032
+    },
+    {
+      "bits": 64,
+      "hex": "0x420",
+      "signed": 1056
+    },
+    {
+      "bits": 64,
+      "hex": "0x438",
+      "signed": 1080
+    },
+    {
+      "bits": 64,
+      "hex": "0x450",
+      "signed": 1104
+    },
+    {
+      "bits": 64,
+      "hex": "0x468",
+      "signed": 1128
+    },
+    {
+      "bits": 64,
+      "hex": "0x480",
+      "signed": 1152
+    },
+    {
+      "bits": 64,
+      "hex": "0x498",
+      "signed": 1176
+    },
+    {
+      "bits": 64,
+      "hex": "0x4b0",
+      "signed": 1200
+    },
+    {
+      "bits": 64,
+      "hex": "0x4b8",
+      "signed": 1208
+    },
+    {
+      "bits": 64,
+      "hex": "0x4c8",
+      "signed": 1224
+    },
+    {
+      "bits": 64,
+      "hex": "0x4e0",
+      "signed": 1248
+    },
+    {
+      "bits": 64,
+      "hex": "0x4f8",
+      "signed": 1272
+    },
+    {
+      "bits": 64,
+      "hex": "0x510",
+      "signed": 1296
+    },
+    {
+      "bits": 64,
+      "hex": "0x518",
+      "signed": 1304
+    },
+    {
+      "bits": 64,
+      "hex": "0x528",
+      "signed": 1320
+    },
+    {
+      "bits": 64,
+      "hex": "0x540",
+      "signed": 1344
+    },
+    {
+      "bits": 64,
+      "hex": "0x558",
+      "signed": 1368
+    },
+    {
+      "bits": 64,
+      "hex": "0x564",
+      "signed": 1380
+    },
+    {
+      "bits": 64,
+      "hex": "0x570",
+      "signed": 1392
+    },
+    {
+      "bits": 64,
+      "hex": "0x588",
+      "signed": 1416
+    },
+    {
+      "bits": 64,
+      "hex": "0x5a0",
+      "signed": 1440
+    },
+    {
+      "bits": 64,
+      "hex": "0x5b8",
+      "signed": 1464
+    },
+    {
+      "bits": 64,
+      "hex": "0x5e0",
+      "signed": 1504
+    },
+    {
+      "bits": 64,
+      "hex": "0x5e1",
+      "signed": 1505
+    },
+    {
+      "bits": 64,
+      "hex": "0x5e2",
+      "signed": 1506
+    },
+    {
+      "bits": 64,
+      "hex": "0x628",
+      "signed": 1576
+    },
+    {
+      "bits": 64,
+      "hex": "0x684",
+      "signed": 1668
+    },
+    {
+      "bits": 64,
+      "hex": "0x6c0",
+      "signed": 1728
+    },
+    {
+      "bits": 64,
+      "hex": "0x6e0",
+      "signed": 1760
+    },
+    {
+      "bits": 64,
+      "hex": "0x79c",
+      "signed": 1948
+    },
+    {
+      "bits": 64,
+      "hex": "0x7b0",
+      "signed": 1968
+    },
+    {
+      "bits": 64,
+      "hex": "0x7c8",
+      "signed": 1992
+    },
+    {
+      "bits": 64,
+      "hex": "0x7cc",
+      "signed": 1996
+    },
+    {
+      "bits": 64,
+      "hex": "0x85c",
+      "signed": 2140
+    },
+    {
+      "bits": 64,
+      "hex": "0x864",
+      "signed": 2148
+    },
+    {
+      "bits": 64,
+      "hex": "0x8e8",
+      "signed": 2280
+    },
+    {
+      "bits": 64,
+      "hex": "0x9d0",
+      "signed": 2512
+    },
+    {
+      "bits": 64,
+      "hex": "0x9d4",
+      "signed": 2516
+    },
+    {
+      "bits": 64,
+      "hex": "0xa18",
+      "signed": 2584
+    },
+    {
+      "bits": 64,
+      "hex": "0xa88",
+      "signed": 2696
+    },
+    {
+      "bits": 64,
+      "hex": "0xb08",
+      "signed": 2824
+    },
+    {
+      "bits": 64,
+      "hex": "0xb10",
+      "signed": 2832
+    },
+    {
+      "bits": 64,
+      "hex": "0xb22",
+      "signed": 2850
+    },
+    {
+      "bits": 64,
+      "hex": "0xb8c",
+      "signed": 2956
+    },
+    {
+      "bits": 64,
+      "hex": "0xbd8",
+      "signed": 3032
+    },
+    {
+      "bits": 64,
+      "hex": "0xbe0",
+      "signed": 3040
+    },
+    {
+      "bits": 64,
+      "hex": "0xbec",
+      "signed": 3052
+    },
+    {
+      "bits": 64,
+      "hex": "0xc4c",
+      "signed": 3148
+    },
+    {
+      "bits": 64,
+      "hex": "0xc7c",
+      "signed": 3196
+    },
+    {
+      "bits": 64,
+      "hex": "0xcb4",
+      "signed": 3252
+    },
+    {
+      "bits": 64,
+      "hex": "0xcd0",
+      "signed": 3280
+    },
+    {
+      "bits": 64,
+      "hex": "0xcd7",
+      "signed": 3287
+    },
+    {
+      "bits": 64,
+      "hex": "0xd10",
+      "signed": 3344
+    },
+    {
+      "bits": 64,
+      "hex": "0xd18",
+      "signed": 3352
+    },
+    {
+      "bits": 64,
+      "hex": "0xe18",
+      "signed": 3608
+    },
+    {
+      "bits": 64,
+      "hex": "0xe3c",
+      "signed": 3644
+    },
+    {
+      "bits": 64,
+      "hex": "0xe7c",
+      "signed": 3708
+    },
+    {
+      "bits": 64,
+      "hex": "0xecc",
+      "signed": 3788
+    },
+    {
+      "bits": 64,
+      "hex": "0xf70",
+      "signed": 3952
+    },
+    {
+      "bits": 64,
+      "hex": "0xf84",
+      "signed": 3972
+    },
+    {
+      "bits": 64,
+      "hex": "0xfa4",
+      "signed": 4004
+    },
+    {
+      "bits": 64,
+      "hex": "0xfb0",
+      "signed": 4016
+    },
+    {
+      "bits": 64,
+      "hex": "0x156000",
+      "signed": 1400832
+    },
+    {
+      "bits": 64,
+      "hex": "0x163000",
+      "signed": 1454080
+    },
+    {
+      "bits": 64,
+      "hex": "0x336000",
+      "signed": 3366912
+    },
+    {
+      "bits": 64,
+      "hex": "0x337000",
+      "signed": 3371008
+    },
+    {
+      "bits": 64,
+      "hex": "0x338000",
+      "signed": 3375104
+    },
+    {
+      "bits": 64,
+      "hex": "0x339000",
+      "signed": 3379200
+    },
+    {
+      "bits": 64,
+      "hex": "0x33a000",
+      "signed": 3383296
+    },
+    {
+      "bits": 64,
+      "hex": "0xfffffdf4",
+      "signed": 4294966772
+    },
+    {
+      "bits": 64,
+      "hex": "0xfffffffffffffff0",
+      "signed": -16
+    }
+  ],
+  "elf_type": "ET_REL",
+  "filter": "",
+  "function": {
+    "entry": {
+      "block": ".text",
+      "ghidra": "00342620",
+      "offset": "0x19bbb0"
+    },
+    "name": "dsi_catalog_ctrl_setup"
+  },
+  "ghidra_version": "12.1.4",
+  "image_base": "00100000",
+  "instruction_count": 428,
+  "language": "AARCH64:LE:64:v8A",
+  "referenced_strings": [
+    {
+      "entry": {
+        "block": ".rodata",
+        "ghidra": "00163b22",
+        "offset": "0x4a69a"
+      },
+      "reference": {
+        "block": ".rodata",
+        "ghidra": "00163b22",
+        "offset": "0x4a69a"
+      },
+      "value": "*ERROR* [msm-dsi-error]: Unsupported version: %d\n"
+    }
+  ],
+  "selector": "dsi_catalog_ctrl_setup",
+  "sha256": "1bec69faec736e7288f38e4cb83314c37c60d33e6b383213316fd880aa0b1804",
+  "size_bytes": 1712,
+  "status": "ok"
+}

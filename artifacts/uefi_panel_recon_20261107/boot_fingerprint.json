@@ -1,0 +1,251 @@
+{
+  "scope": "GLOBAL64 reference init v0-v4 and stored selected-v4 command addresses versus four historical long-read dictionaries; no boot execution or response-length qualification",
+  "reference_xml": [
+    "/home/stfu/.cache/opencode-tmp/opencode/uefi-panel-recon-20261107/global64/display/Panel_mot_boe_ili97701A_682_1440x3168_dsc_cmd_v0.xml.raw",
+    "/home/stfu/.cache/opencode-tmp/opencode/uefi-panel-recon-20261107/global64/display/Panel_mot_boe_ili97701A_682_1440x3168_dsc_cmd_v1.xml.raw",
+    "/home/stfu/.cache/opencode-tmp/opencode/uefi-panel-recon-20261107/global64/display/Panel_mot_boe_ili97701A_682_1440x3168_dsc_cmd_v2.xml.raw",
+    "/home/stfu/.cache/opencode-tmp/opencode/uefi-panel-recon-20261107/global64/display/Panel_mot_boe_ili97701A_682_1440x3168_dsc_cmd_v3.xml.raw",
+    "/home/stfu/.cache/opencode-tmp/opencode/uefi-panel-recon-20261107/global64/display/Panel_mot_boe_ili97701A_682_1440x3168_dsc_cmd_v4.xml.raw"
+  ],
+  "selected_arrays": [
+    "artifacts/device_tree/selected_boe_v4/qcom,mdss-dsi-display-timings/timing@0/qcom,mdss-dsi-on-command",
+    "artifacts/device_tree/selected_boe_v4/qcom,mdss-dsi-dc-off-command",
+    "artifacts/device_tree/selected_boe_v4/qcom,mdss-dsi-display-timings/timing@0/qcom,mdss-dsi-timing-switch-command"
+  ],
+  "archived_dumps": [
+    "s1_dbv3584_120",
+    "s2_dbv3646_120",
+    "s3_dbv3584_144",
+    "s4_dbv3584_60"
+  ],
+  "variant_write_presence_or_value_differences": 96,
+  "overwritten_if_all_three_selected_arrays_execute": 53,
+  "not_overwritten_in_these_three_arrays": 43,
+  "survivors_not_in_archived_pages": 25,
+  "survivors_with_archived_addresses": [
+    {
+      "address": "51:82",
+      "write_present_in": [
+        0
+      ],
+      "write_data_bytes": {
+        "0": 6
+      },
+      "archived_prefix_matches_out_of_four": {
+        "0": 0
+      }
+    },
+    {
+      "address": "51:83",
+      "write_present_in": [
+        0
+      ],
+      "write_data_bytes": {
+        "0": 6
+      },
+      "archived_prefix_matches_out_of_four": {
+        "0": 4
+      }
+    },
+    {
+      "address": "51:8A",
+      "write_present_in": [
+        0
+      ],
+      "write_data_bytes": {
+        "0": 6
+      },
+      "archived_prefix_matches_out_of_four": {
+        "0": 0
+      }
+    },
+    {
+      "address": "51:8B",
+      "write_present_in": [
+        0
+      ],
+      "write_data_bytes": {
+        "0": 6
+      },
+      "archived_prefix_matches_out_of_four": {
+        "0": 4
+      }
+    },
+    {
+      "address": "51:92",
+      "write_present_in": [
+        0
+      ],
+      "write_data_bytes": {
+        "0": 6
+      },
+      "archived_prefix_matches_out_of_four": {
+        "0": 0
+      }
+    },
+    {
+      "address": "51:93",
+      "write_present_in": [
+        0
+      ],
+      "write_data_bytes": {
+        "0": 6
+      },
+      "archived_prefix_matches_out_of_four": {
+        "0": 4
+      }
+    },
+    {
+      "address": "51:9A",
+      "write_present_in": [
+        0
+      ],
+      "write_data_bytes": {
+        "0": 6
+      },
+      "archived_prefix_matches_out_of_four": {
+        "0": 0
+      }
+    },
+    {
+      "address": "51:9B",
+      "write_present_in": [
+        0
+      ],
+      "write_data_bytes": {
+        "0": 6
+      },
+      "archived_prefix_matches_out_of_four": {
+        "0": 4
+      }
+    },
+    {
+      "address": "51:A3",
+      "write_present_in": [
+        0
+      ],
+      "write_data_bytes": {
+        "0": 6
+      },
+      "archived_prefix_matches_out_of_four": {
+        "0": 0
+      }
+    },
+    {
+      "address": "51:AA",
+      "write_present_in": [
+        0
+      ],
+      "write_data_bytes": {
+        "0": 6
+      },
+      "archived_prefix_matches_out_of_four": {
+        "0": 0
+      }
+    },
+    {
+      "address": "51:AB",
+      "write_present_in": [
+        0
+      ],
+      "write_data_bytes": {
+        "0": 6
+      },
+      "archived_prefix_matches_out_of_four": {
+        "0": 0
+      }
+    },
+    {
+      "address": "51:B2",
+      "write_present_in": [
+        0
+      ],
+      "write_data_bytes": {
+        "0": 6
+      },
+      "archived_prefix_matches_out_of_four": {
+        "0": 0
+      }
+    },
+    {
+      "address": "51:B3",
+      "write_present_in": [
+        0
+      ],
+      "write_data_bytes": {
+        "0": 6
+      },
+      "archived_prefix_matches_out_of_four": {
+        "0": 0
+      }
+    },
+    {
+      "address": "51:BA",
+      "write_present_in": [
+        0
+      ],
+      "write_data_bytes": {
+        "0": 6
+      },
+      "archived_prefix_matches_out_of_four": {
+        "0": 0
+      }
+    },
+    {
+      "address": "51:BB",
+      "write_present_in": [
+        0
+      ],
+      "write_data_bytes": {
+        "0": 6
+      },
+      "archived_prefix_matches_out_of_four": {
+        "0": 0
+      }
+    },
+    {
+      "address": "63:F8",
+      "write_present_in": [
+        3
+      ],
+      "write_data_bytes": {
+        "3": 16
+      },
+      "archived_prefix_matches_out_of_four": {
+        "3": 4
+      }
+    },
+    {
+      "address": "63:F9",
+      "write_present_in": [
+        3
+      ],
+      "write_data_bytes": {
+        "3": 16
+      },
+      "archived_prefix_matches_out_of_four": {
+        "3": 4
+      }
+    },
+    {
+      "address": "63:FA",
+      "write_present_in": [
+        3
+      ],
+      "write_data_bytes": {
+        "3": 16
+      },
+      "archived_prefix_matches_out_of_four": {
+        "3": 4
+      }
+    }
+  ],
+  "limits": [
+    "Absence of a UEFI write is not a DDIC default value",
+    "The three selected Android arrays are a conditional address overlay, not a boot trace",
+    "Legacy 40-byte readback does not qualify response length or payload",
+    "No inference of live boot variant, silicon revision, page semantics or OLED PWM Hz"
+  ],
+  "physical_pwm_hz": null,
+  "device_io": false
+}

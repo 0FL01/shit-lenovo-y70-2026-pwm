@@ -1,0 +1,218 @@
+{
+  "scope": "offline static dataflow and translated-clamp model, not device execution/emulation",
+  "module_sha256": "1bec69faec736e7288f38e4cb83314c37c60d33e6b383213316fd880aa0b1804",
+  "backlight_function_instructions": 153,
+  "w21_writes": [
+    {
+      "offset": "0x1a0354",
+      "instruction": "mov w21, w2"
+    },
+    {
+      "offset": "0x1a0488",
+      "instruction": "csel w21, w8, w9, hi"
+    },
+    {
+      "offset": "0x1a04bc",
+      "instruction": "mov w21, wzr"
+    },
+    {
+      "offset": "0x1a0540",
+      "instruction": "ldp x22, x21, [sp, #0x40]"
+    }
+  ],
+  "capstone_cmp_alias_metadata_not_actual_writes": [
+    {
+      "offset": "0x1a03a8",
+      "instruction": "cmp w21, w1"
+    },
+    {
+      "offset": "0x1a03b8",
+      "instruction": "cmp w21, #0"
+    }
+  ],
+  "lut_value_load_destination": "w5 (debug-call argument), not retained DBV w21",
+  "panel_call_argument": "w1=w21 at .text0x1a04fc",
+  "deferred_backlight_store": "w21 at connector+0x1570",
+  "all_u16_clamp_cases": 65536,
+  "panel_properties": {
+    "qcom,mdss-dsi-bl-min-level": 460,
+    "qcom,mdss-dsi-bl-max-level": 16180,
+    "qcom,mdss-dsi-panel-APL-THRESHOLD-BL": 16000
+  },
+  "apl_hbm_packets": {
+    "panel-apl-on": [
+      {
+        "index": 0,
+        "offset": 0,
+        "header": "39 00 00 40 00 00 04",
+        "page": 30,
+        "opcode": 255,
+        "is_page_selector": true,
+        "payload": "ff 5a a5 1e",
+        "data": "5a a5 1e"
+      },
+      {
+        "index": 1,
+        "offset": 11,
+        "header": "39 00 00 40 00 00 02",
+        "page": 30,
+        "opcode": 128,
+        "is_page_selector": false,
+        "payload": "80 a9",
+        "data": "a9"
+      },
+      {
+        "index": 2,
+        "offset": 20,
+        "header": "39 00 00 40 00 00 02",
+        "page": 30,
+        "opcode": 133,
+        "is_page_selector": false,
+        "payload": "85 08",
+        "data": "08"
+      },
+      {
+        "index": 3,
+        "offset": 29,
+        "header": "39 00 00 00 00 00 04",
+        "page": 0,
+        "opcode": 255,
+        "is_page_selector": true,
+        "payload": "ff 5a a5 00",
+        "data": "5a a5 00"
+      }
+    ],
+    "panel-apl-off": [
+      {
+        "index": 0,
+        "offset": 0,
+        "header": "39 00 00 40 00 00 04",
+        "page": 30,
+        "opcode": 255,
+        "is_page_selector": true,
+        "payload": "ff 5a a5 1e",
+        "data": "5a a5 1e"
+      },
+      {
+        "index": 1,
+        "offset": 11,
+        "header": "39 00 00 40 00 00 02",
+        "page": 30,
+        "opcode": 128,
+        "is_page_selector": false,
+        "payload": "80 89",
+        "data": "89"
+      },
+      {
+        "index": 2,
+        "offset": 20,
+        "header": "39 00 00 00 00 00 04",
+        "page": 0,
+        "opcode": 255,
+        "is_page_selector": true,
+        "payload": "ff 5a a5 00",
+        "data": "5a a5 00"
+      }
+    ],
+    "hbm-on": [
+      {
+        "index": 0,
+        "offset": 0,
+        "header": "39 00 00 40 00 00 04",
+        "page": 30,
+        "opcode": 255,
+        "is_page_selector": true,
+        "payload": "ff 5a a5 1e",
+        "data": "5a a5 1e"
+      },
+      {
+        "index": 1,
+        "offset": 11,
+        "header": "39 00 00 40 00 00 02",
+        "page": 30,
+        "opcode": 128,
+        "is_page_selector": false,
+        "payload": "80 a9",
+        "data": "a9"
+      },
+      {
+        "index": 2,
+        "offset": 20,
+        "header": "39 00 00 40 00 00 02",
+        "page": 30,
+        "opcode": 133,
+        "is_page_selector": false,
+        "payload": "85 08",
+        "data": "08"
+      },
+      {
+        "index": 3,
+        "offset": 29,
+        "header": "39 00 00 40 00 00 04",
+        "page": 0,
+        "opcode": 255,
+        "is_page_selector": true,
+        "payload": "ff 5a a5 00",
+        "data": "5a a5 00"
+      },
+      {
+        "index": 4,
+        "offset": 40,
+        "header": "39 00 00 00 00 00 03",
+        "page": 0,
+        "opcode": 81,
+        "is_page_selector": false,
+        "payload": "51 3f fc",
+        "data": "3f fc"
+      }
+    ],
+    "hbm-off": [
+      {
+        "index": 0,
+        "offset": 0,
+        "header": "39 00 00 40 00 00 04",
+        "page": 30,
+        "opcode": 255,
+        "is_page_selector": true,
+        "payload": "ff 5a a5 1e",
+        "data": "5a a5 1e"
+      },
+      {
+        "index": 1,
+        "offset": 11,
+        "header": "39 00 00 40 00 00 02",
+        "page": 30,
+        "opcode": 128,
+        "is_page_selector": false,
+        "payload": "80 89",
+        "data": "89"
+      },
+      {
+        "index": 2,
+        "offset": 20,
+        "header": "39 00 00 40 00 00 04",
+        "page": 0,
+        "opcode": 255,
+        "is_page_selector": true,
+        "payload": "ff 5a a5 00",
+        "data": "5a a5 00"
+      },
+      {
+        "index": 3,
+        "offset": 31,
+        "header": "39 00 00 00 00 00 02",
+        "page": 0,
+        "opcode": 110,
+        "is_page_selector": false,
+        "payload": "6e 00",
+        "data": "00"
+      }
+    ]
+  },
+  "cn_digital_dimming_identity_to_target": "unknown",
+  "cn_build_prop_disable_stc_dimming": "1",
+  "physical_pwm_hz": null,
+  "new_dsi_sent": false,
+  "device_io_performed": false,
+  "attempt_note": "Initial diagnostic assumed min1 and stack-restore offset1a0544, and trusted Capstone CMP writes; corrected from actualDT460/instructions1a0540 and architectural CMP alias before validation."
+}

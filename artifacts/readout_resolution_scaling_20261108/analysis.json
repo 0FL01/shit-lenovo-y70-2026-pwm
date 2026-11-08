@@ -1,0 +1,401 @@
+{
+  "source": "artifacts/pacman_readout_capture_20261106.json",
+  "method": "Original HEVC Y plane, fixed central 720p ROI and geometrically 3x 4K ROI; per-frame x-mean, degree-2 Legendre detrend, Hann FFT; band peaks at 1x/2x/3x candidate fine spatial q, 3 overlapping 75-frame windows",
+  "recorded_conditions": "stock DBV3600/DC0/requested120, 100us/ISO6400; all three recorded rollingShutterSkew 15047630ns/cropRegion 4080x3072",
+  "results": [
+    {
+      "label": "A1",
+      "video": "artifacts/optical/pacman_readout_A1_20261106.mp4",
+      "output_size": [
+        1280,
+        720
+      ],
+      "roi_xywh_output": [
+        540,
+        190,
+        60,
+        500
+      ],
+      "decoded_frames": 125,
+      "saturated_fraction_selected_roi": 0.0,
+      "windows": [
+        {
+          "frame_indices_inclusive": [
+            90,
+            164
+          ],
+          "frames": 75,
+          "raw_mean_Y_codes": 32.77008577777778,
+          "peaks": [
+            {
+              "harmonic_band": 1,
+              "cycles_per_output_row": 0.0106201171875,
+              "cycles_per_720p_equivalent_row": 0.0106201171875,
+              "period_output_rows": 94.16091954022988,
+              "period_720p_equivalent_rows": 94.1609195402299,
+              "rms_fourier_amplitude_Y_codes": 4.490663361610082,
+              "at_band_edge": false
+            },
+            {
+              "harmonic_band": 2,
+              "cycles_per_output_row": 0.021240234375,
+              "cycles_per_720p_equivalent_row": 0.021240234375,
+              "period_output_rows": 47.08045977011494,
+              "period_720p_equivalent_rows": 47.08045977011495,
+              "rms_fourier_amplitude_Y_codes": 3.7204929298795837,
+              "at_band_edge": false
+            },
+            {
+              "harmonic_band": 3,
+              "cycles_per_output_row": 0.031982421875,
+              "cycles_per_720p_equivalent_row": 0.031982421875,
+              "period_output_rows": 31.267175572519083,
+              "period_720p_equivalent_rows": 31.26717557251908,
+              "rms_fourier_amplitude_Y_codes": 2.9073070195230377,
+              "at_band_edge": false
+            }
+          ]
+        },
+        {
+          "frame_indices_inclusive": [
+            115,
+            189
+          ],
+          "frames": 75,
+          "raw_mean_Y_codes": 32.70601377777778,
+          "peaks": [
+            {
+              "harmonic_band": 1,
+              "cycles_per_output_row": 0.0106201171875,
+              "cycles_per_720p_equivalent_row": 0.0106201171875,
+              "period_output_rows": 94.16091954022988,
+              "period_720p_equivalent_rows": 94.1609195402299,
+              "rms_fourier_amplitude_Y_codes": 4.641336138652403,
+              "at_band_edge": false
+            },
+            {
+              "harmonic_band": 2,
+              "cycles_per_output_row": 0.0213623046875,
+              "cycles_per_720p_equivalent_row": 0.0213623046875,
+              "period_output_rows": 46.81142857142857,
+              "period_720p_equivalent_rows": 46.811428571428564,
+              "rms_fourier_amplitude_Y_codes": 3.758888613066615,
+              "at_band_edge": false
+            },
+            {
+              "harmonic_band": 3,
+              "cycles_per_output_row": 0.031982421875,
+              "cycles_per_720p_equivalent_row": 0.031982421875,
+              "period_output_rows": 31.267175572519083,
+              "period_720p_equivalent_rows": 31.26717557251908,
+              "rms_fourier_amplitude_Y_codes": 2.845265596762317,
+              "at_band_edge": false
+            }
+          ]
+        },
+        {
+          "frame_indices_inclusive": [
+            140,
+            214
+          ],
+          "frames": 75,
+          "raw_mean_Y_codes": 32.69587466666666,
+          "peaks": [
+            {
+              "harmonic_band": 1,
+              "cycles_per_output_row": 0.0107421875,
+              "cycles_per_720p_equivalent_row": 0.0107421875,
+              "period_output_rows": 93.0909090909091,
+              "period_720p_equivalent_rows": 93.0909090909091,
+              "rms_fourier_amplitude_Y_codes": 4.492841059639857,
+              "at_band_edge": false
+            },
+            {
+              "harmonic_band": 2,
+              "cycles_per_output_row": 0.021484375,
+              "cycles_per_720p_equivalent_row": 0.021484375,
+              "period_output_rows": 46.54545454545455,
+              "period_720p_equivalent_rows": 46.54545454545455,
+              "rms_fourier_amplitude_Y_codes": 3.6793715916606127,
+              "at_band_edge": false
+            },
+            {
+              "harmonic_band": 3,
+              "cycles_per_output_row": 0.0321044921875,
+              "cycles_per_720p_equivalent_row": 0.0321044921875,
+              "period_output_rows": 31.14828897338403,
+              "period_720p_equivalent_rows": 31.14828897338403,
+              "rms_fourier_amplitude_Y_codes": 2.8131055245005823,
+              "at_band_edge": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "B",
+      "video": "artifacts/optical/pacman_readout_B_20261106.mp4",
+      "output_size": [
+        3840,
+        2160
+      ],
+      "roi_xywh_output": [
+        1620,
+        570,
+        180,
+        1500
+      ],
+      "decoded_frames": 125,
+      "saturated_fraction_selected_roi": 0.0,
+      "windows": [
+        {
+          "frame_indices_inclusive": [
+            90,
+            164
+          ],
+          "frames": 75,
+          "raw_mean_Y_codes": 32.34649491358025,
+          "peaks": [
+            {
+              "harmonic_band": 1,
+              "cycles_per_output_row": 0.0035400390625,
+              "cycles_per_720p_equivalent_row": 0.0106201171875,
+              "period_output_rows": 282.48275862068965,
+              "period_720p_equivalent_rows": 94.16091954022988,
+              "rms_fourier_amplitude_Y_codes": 4.435166298813141,
+              "at_band_edge": false
+            },
+            {
+              "harmonic_band": 2,
+              "cycles_per_output_row": 0.007110595703125,
+              "cycles_per_720p_equivalent_row": 0.021331787109375,
+              "period_output_rows": 140.6351931330472,
+              "period_720p_equivalent_rows": 46.87839771101574,
+              "rms_fourier_amplitude_Y_codes": 3.8874841172293575,
+              "at_band_edge": false
+            },
+            {
+              "harmonic_band": 3,
+              "cycles_per_output_row": 0.01068115234375,
+              "cycles_per_720p_equivalent_row": 0.03204345703125,
+              "period_output_rows": 93.62285714285714,
+              "period_720p_equivalent_rows": 31.207619047619044,
+              "rms_fourier_amplitude_Y_codes": 3.04740524036593,
+              "at_band_edge": false
+            }
+          ]
+        },
+        {
+          "frame_indices_inclusive": [
+            115,
+            189
+          ],
+          "frames": 75,
+          "raw_mean_Y_codes": 32.34013155555555,
+          "peaks": [
+            {
+              "harmonic_band": 1,
+              "cycles_per_output_row": 0.003570556640625,
+              "cycles_per_720p_equivalent_row": 0.010711669921875,
+              "period_output_rows": 280.0683760683761,
+              "period_720p_equivalent_rows": 93.35612535612536,
+              "rms_fourier_amplitude_Y_codes": 4.470085297016306,
+              "at_band_edge": false
+            },
+            {
+              "harmonic_band": 2,
+              "cycles_per_output_row": 0.00714111328125,
+              "cycles_per_720p_equivalent_row": 0.02142333984375,
+              "period_output_rows": 140.03418803418805,
+              "period_720p_equivalent_rows": 46.67806267806268,
+              "rms_fourier_amplitude_Y_codes": 3.8804719552931553,
+              "at_band_edge": false
+            },
+            {
+              "harmonic_band": 3,
+              "cycles_per_output_row": 0.010711669921875,
+              "cycles_per_720p_equivalent_row": 0.032135009765625,
+              "period_output_rows": 93.35612535612536,
+              "period_720p_equivalent_rows": 31.11870845204179,
+              "rms_fourier_amplitude_Y_codes": 2.998867599273212,
+              "at_band_edge": false
+            }
+          ]
+        },
+        {
+          "frame_indices_inclusive": [
+            140,
+            214
+          ],
+          "frames": 75,
+          "raw_mean_Y_codes": 32.334141283950615,
+          "peaks": [
+            {
+              "harmonic_band": 1,
+              "cycles_per_output_row": 0.00360107421875,
+              "cycles_per_720p_equivalent_row": 0.01080322265625,
+              "period_output_rows": 277.6949152542373,
+              "period_720p_equivalent_rows": 92.56497175141243,
+              "rms_fourier_amplitude_Y_codes": 4.21975320088979,
+              "at_band_edge": false
+            },
+            {
+              "harmonic_band": 2,
+              "cycles_per_output_row": 0.007171630859375,
+              "cycles_per_720p_equivalent_row": 0.021514892578125,
+              "period_output_rows": 139.43829787234043,
+              "period_720p_equivalent_rows": 46.47943262411348,
+              "rms_fourier_amplitude_Y_codes": 3.761698818814323,
+              "at_band_edge": false
+            },
+            {
+              "harmonic_band": 3,
+              "cycles_per_output_row": 0.010711669921875,
+              "cycles_per_720p_equivalent_row": 0.032135009765625,
+              "period_output_rows": 93.35612535612536,
+              "period_720p_equivalent_rows": 31.11870845204179,
+              "rms_fourier_amplitude_Y_codes": 2.9919139957871694,
+              "at_band_edge": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "A2",
+      "video": "artifacts/optical/pacman_readout_A2_20261106.mp4",
+      "output_size": [
+        1280,
+        720
+      ],
+      "roi_xywh_output": [
+        540,
+        190,
+        60,
+        500
+      ],
+      "decoded_frames": 125,
+      "saturated_fraction_selected_roi": 0.0,
+      "windows": [
+        {
+          "frame_indices_inclusive": [
+            90,
+            164
+          ],
+          "frames": 75,
+          "raw_mean_Y_codes": 32.667528888888896,
+          "peaks": [
+            {
+              "harmonic_band": 1,
+              "cycles_per_output_row": 0.0107421875,
+              "cycles_per_720p_equivalent_row": 0.0107421875,
+              "period_output_rows": 93.0909090909091,
+              "period_720p_equivalent_rows": 93.0909090909091,
+              "rms_fourier_amplitude_Y_codes": 4.514277943658699,
+              "at_band_edge": false
+            },
+            {
+              "harmonic_band": 2,
+              "cycles_per_output_row": 0.021484375,
+              "cycles_per_720p_equivalent_row": 0.021484375,
+              "period_output_rows": 46.54545454545455,
+              "period_720p_equivalent_rows": 46.54545454545455,
+              "rms_fourier_amplitude_Y_codes": 3.6748892772000117,
+              "at_band_edge": false
+            },
+            {
+              "harmonic_band": 3,
+              "cycles_per_output_row": 0.0321044921875,
+              "cycles_per_720p_equivalent_row": 0.0321044921875,
+              "period_output_rows": 31.14828897338403,
+              "period_720p_equivalent_rows": 31.14828897338403,
+              "rms_fourier_amplitude_Y_codes": 2.8065103070897535,
+              "at_band_edge": false
+            }
+          ]
+        },
+        {
+          "frame_indices_inclusive": [
+            115,
+            189
+          ],
+          "frames": 75,
+          "raw_mean_Y_codes": 32.72684044444444,
+          "peaks": [
+            {
+              "harmonic_band": 1,
+              "cycles_per_output_row": 0.0107421875,
+              "cycles_per_720p_equivalent_row": 0.0107421875,
+              "period_output_rows": 93.0909090909091,
+              "period_720p_equivalent_rows": 93.0909090909091,
+              "rms_fourier_amplitude_Y_codes": 4.232666922310183,
+              "at_band_edge": false
+            },
+            {
+              "harmonic_band": 2,
+              "cycles_per_output_row": 0.021484375,
+              "cycles_per_720p_equivalent_row": 0.021484375,
+              "period_output_rows": 46.54545454545455,
+              "period_720p_equivalent_rows": 46.54545454545455,
+              "rms_fourier_amplitude_Y_codes": 3.55154719499125,
+              "at_band_edge": false
+            },
+            {
+              "harmonic_band": 3,
+              "cycles_per_output_row": 0.0322265625,
+              "cycles_per_720p_equivalent_row": 0.0322265625,
+              "period_output_rows": 31.03030303030303,
+              "period_720p_equivalent_rows": 31.030303030303035,
+              "rms_fourier_amplitude_Y_codes": 2.817272386923364,
+              "at_band_edge": false
+            }
+          ]
+        },
+        {
+          "frame_indices_inclusive": [
+            140,
+            214
+          ],
+          "frames": 75,
+          "raw_mean_Y_codes": 32.76461288888889,
+          "peaks": [
+            {
+              "harmonic_band": 1,
+              "cycles_per_output_row": 0.0107421875,
+              "cycles_per_720p_equivalent_row": 0.0107421875,
+              "period_output_rows": 93.0909090909091,
+              "period_720p_equivalent_rows": 93.0909090909091,
+              "rms_fourier_amplitude_Y_codes": 4.035009214488389,
+              "at_band_edge": false
+            },
+            {
+              "harmonic_band": 2,
+              "cycles_per_output_row": 0.021484375,
+              "cycles_per_720p_equivalent_row": 0.021484375,
+              "period_output_rows": 46.54545454545455,
+              "period_720p_equivalent_rows": 46.54545454545455,
+              "rms_fourier_amplitude_Y_codes": 3.4910770696138234,
+              "at_band_edge": false
+            },
+            {
+              "harmonic_band": 3,
+              "cycles_per_output_row": 0.0321044921875,
+              "cycles_per_720p_equivalent_row": 0.0321044921875,
+              "period_output_rows": 31.14828897338403,
+              "period_720p_equivalent_rows": 31.14828897338403,
+              "rms_fourier_amplitude_Y_codes": 2.8608758032113073,
+              "at_band_edge": false
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "limits": [
+    "4K ROI assumes the recorded matching field of view scales by three; exact sensor mapping unverified",
+    "Encoded frame PTS are not certified exposure timestamps; window selection is based on start/hold logs, not per-frame sensor time",
+    "Peak interpolation is not extra resolution beyond the 500 or 1500-row record",
+    "Normalized spatial period is not camera row time, physical emission period, fundamental or optical PWM Hz"
+  ],
+  "physical_pwm_hz": null
+}

@@ -1,0 +1,39 @@
+{
+  "owner_report": "Open Camera accidentally changed after prior captures; reset before next capture",
+  "observed_changed_field": "manual focus result/request 0.78288585, previously9.11752701",
+  "restored_metadata": {
+    "android.sensor.exposureTime": [
+      "100000",
+      "100000"
+    ],
+    "android.sensor.sensitivity": [
+      "6400",
+      "6400"
+    ],
+    "android.control.aeMode": [
+      "OFF",
+      "OFF"
+    ],
+    "android.control.afMode": [
+      "OFF",
+      "OFF"
+    ],
+    "android.lens.focusDistance": [
+      "9.11752701",
+      "9.11752701"
+    ],
+    "android.control.videoStabilizationMode": [
+      "OFF",
+      "OFF"
+    ],
+    "android.lens.opticalStabilizationMode": [
+      "OFF",
+      "OFF"
+    ]
+  },
+  "resolution": [
+    "1280x720 HD"
+  ],
+  "private_metadata": "/home/stfu/.cache/opencode-tmp/opencode/dsi-redraw-control-20261106/camera-restored-settled.txt",
+  "settlement_note": "Immediate snapshot still old result; later settled result/request verified without reapplying control."
+}

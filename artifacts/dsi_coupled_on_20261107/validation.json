@@ -1,0 +1,277 @@
+{
+  "status": "offline-validated-unapproved",
+  "device_io": false,
+  "scope": "S0C1 interaction: native full ON except both tested selector high bytes remain native OFF; NOT a decoded frequency multiplier",
+  "candidate": "on_keep_pwm_selectors.bin",
+  "bytes": 875,
+  "packets": 75,
+  "candidate_sha256": "dbe3e4cddda896b6c6864cbab6ff9271cff6745913afb3ccfa43a4f786c4b3b9",
+  "stock_off_sha256": "b5ed66ba69e6221de5fdeaf4d003c9628602d743880acd1c8e2cf7198facd193",
+  "native_on_sha256": "4c1fc1807aadb63b54efab3cc7baa2c81f7a0107e81bd85dd35db16190fe7c33",
+  "changes_from_native_on": [
+    {
+      "offset": 68,
+      "page_opcode": "23:A9",
+      "from": "8e",
+      "to": "0e"
+    },
+    {
+      "offset": 97,
+      "page_opcode": "24:9D",
+      "from": "8e",
+      "to": "0e"
+    }
+  ],
+  "changes_from_stock_off": [
+    {
+      "packet": 12,
+      "page": "23",
+      "opcode": "80",
+      "stock_off": "50",
+      "candidate": "90"
+    },
+    {
+      "packet": 16,
+      "page": "53",
+      "opcode": "95",
+      "stock_off": "00 a0",
+      "candidate": "44 50"
+    },
+    {
+      "packet": 17,
+      "page": "53",
+      "opcode": "A2",
+      "stock_off": "10 10 10 10 48 10 10 10 4b 4b 10 10 10 10 48 10 10 10 4b 4b 10 10 10 10 48 10 10 10 4b 4b",
+      "candidate": "10 10 10 10 48 10 10 74 7b b4 10 10 10 10 48 10 10 74 7b b4 10 10 10 10 48 10 10 74 7b b4"
+    },
+    {
+      "packet": 27,
+      "page": "63",
+      "opcode": "F2",
+      "stock_off": "00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+      "candidate": "00 00 00 00 00 20 20 20 20 20 00 00 00 00 00 00"
+    },
+    {
+      "packet": 28,
+      "page": "63",
+      "opcode": "F3",
+      "stock_off": "00 00 00 00 00 20 20 20 20 20 00 00 00 00 00 00",
+      "candidate": "00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00"
+    },
+    {
+      "packet": 42,
+      "page": "51",
+      "opcode": "A1",
+      "stock_off": "44 44 79 7b 22 22",
+      "candidate": "44 44 79 79 22 22"
+    },
+    {
+      "packet": 43,
+      "page": "51",
+      "opcode": "A2",
+      "stock_off": "7e 7e 85 85 22 22",
+      "candidate": "78 78 78 78 22 22"
+    },
+    {
+      "packet": 45,
+      "page": "52",
+      "opcode": "81",
+      "stock_off": "46 47 48 4b 00 00",
+      "candidate": "46 47 49 48 00 00"
+    },
+    {
+      "packet": 46,
+      "page": "52",
+      "opcode": "82",
+      "stock_off": "4e 4e 50 50 00 00",
+      "candidate": "4a 4a 4b 4b 00 00"
+    },
+    {
+      "packet": 49,
+      "page": "5A",
+      "opcode": "86",
+      "stock_off": "0a 1e 04",
+      "candidate": "0a 1e 01"
+    },
+    {
+      "packet": 50,
+      "page": "5A",
+      "opcode": "8A",
+      "stock_off": "12 2e 0f",
+      "candidate": "32 38 18"
+    },
+    {
+      "packet": 51,
+      "page": "5A",
+      "opcode": "8F",
+      "stock_off": "27 3e 23",
+      "candidate": "6e 6c 32"
+    },
+    {
+      "packet": 52,
+      "page": "5A",
+      "opcode": "90",
+      "stock_off": "0a 09 01",
+      "candidate": "14 43 01"
+    },
+    {
+      "packet": 53,
+      "page": "5A",
+      "opcode": "91",
+      "stock_off": "09 06 00",
+      "candidate": "13 40 00"
+    },
+    {
+      "packet": 54,
+      "page": "5A",
+      "opcode": "92",
+      "stock_off": "07 05 00",
+      "candidate": "11 3f 00"
+    },
+    {
+      "packet": 55,
+      "page": "5A",
+      "opcode": "93",
+      "stock_off": "04 02 00",
+      "candidate": "0e 3c 00"
+    },
+    {
+      "packet": 56,
+      "page": "5A",
+      "opcode": "94",
+      "stock_off": "00 00 00",
+      "candidate": "06 1a 00"
+    },
+    {
+      "packet": 57,
+      "page": "5A",
+      "opcode": "95",
+      "stock_off": "26 24 16",
+      "candidate": "46 46 37"
+    },
+    {
+      "packet": 58,
+      "page": "5A",
+      "opcode": "9B",
+      "stock_off": "00 00 00",
+      "candidate": "01 00 00"
+    },
+    {
+      "packet": 59,
+      "page": "5A",
+      "opcode": "9C",
+      "stock_off": "34 3e 3c",
+      "candidate": "48 42 3c"
+    },
+    {
+      "packet": 60,
+      "page": "5A",
+      "opcode": "AE",
+      "stock_off": "10 2d 07",
+      "candidate": "15 2d 07"
+    },
+    {
+      "packet": 61,
+      "page": "5A",
+      "opcode": "B3",
+      "stock_off": "1c 21 22",
+      "candidate": "36 3d 22"
+    },
+    {
+      "packet": 62,
+      "page": "5A",
+      "opcode": "B9",
+      "stock_off": "24 1c 20",
+      "candidate": "36 3d 30"
+    },
+    {
+      "packet": 63,
+      "page": "5A",
+      "opcode": "BF",
+      "stock_off": "09 00 00",
+      "candidate": "00 f8 fe"
+    },
+    {
+      "packet": 64,
+      "page": "5A",
+      "opcode": "C0",
+      "stock_off": "3a 39 3e",
+      "candidate": "44 46 3e"
+    },
+    {
+      "packet": 65,
+      "page": "5A",
+      "opcode": "D7",
+      "stock_off": "1a 20 1d",
+      "candidate": "24 34 22"
+    },
+    {
+      "packet": 66,
+      "page": "5A",
+      "opcode": "DD",
+      "stock_off": "2a 27 33",
+      "candidate": "34 43 38"
+    },
+    {
+      "packet": 67,
+      "page": "5A",
+      "opcode": "E4",
+      "stock_off": "32 30 3d",
+      "candidate": "3c 43 3d"
+    },
+    {
+      "packet": 69,
+      "page": "5B",
+      "opcode": "DD",
+      "stock_off": "39 3a 42",
+      "candidate": "40 44 47"
+    },
+    {
+      "packet": 71,
+      "page": "5C",
+      "opcode": "C8",
+      "stock_off": "08 04 06",
+      "candidate": "14 19 06"
+    },
+    {
+      "packet": 72,
+      "page": "5C",
+      "opcode": "C9",
+      "stock_off": "08 04 06",
+      "candidate": "14 19 06"
+    },
+    {
+      "packet": 73,
+      "page": "5C",
+      "opcode": "CA",
+      "stock_off": "00 00 00",
+      "candidate": "00 14 00"
+    }
+  ],
+  "changed_bytes_from_off": 83,
+  "native_chunk_ranges": [
+    [
+      0,
+      253
+    ],
+    [
+      253,
+      500
+    ],
+    [
+      500,
+      754
+    ],
+    [
+      754,
+      864
+    ],
+    [
+      864,
+      875
+    ]
+  ],
+  "pwm_hz": "unknown",
+  "frequency_multiplier": null,
+  "greater_equal_2000_hz_verified": false
+}

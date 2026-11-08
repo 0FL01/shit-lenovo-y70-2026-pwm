@@ -1,0 +1,31 @@
+{
+  "at_utc": "2026-11-06T13:21:01.362940+00:00",
+  "status": "confirmed-on-target current DC service/HAL bytes vs available CN reference; CN/GLOBAL equality is prior recorded evidence, not a fresh GLOBAL recheck",
+  "missing_historical_extraction": "extracted/XT2611-3/W3WW36.65-64-4/filesystems is absent; no broad re-extraction performed",
+  "files": [
+    {
+      "target_path": "/vendor/bin/hw/com.motorola.hardware.display.panel-service",
+      "saved": "artifacts/current_display_path/com.motorola.hardware.display.panel-service",
+      "size_bytes": 52528,
+      "available_cn_reference": "extracted/XT2611-1/W3WWL36.65-11-18/filesystems/vendor_a/bin/hw/com.motorola.hardware.display.panel-service",
+      "byte_equal_cn_reference": true,
+      "historical_cn_global_equality": true
+    },
+    {
+      "target_path": "/vendor/lib64/hw/displaypanel.default.so",
+      "saved": "artifacts/current_display_path/displaypanel.default.so",
+      "size_bytes": 52080,
+      "available_cn_reference": "extracted/XT2611-1/W3WWL36.65-11-18/filesystems/vendor_a/lib64/hw/displaypanel.default.so",
+      "byte_equal_cn_reference": true,
+      "historical_cn_global_equality": true
+    },
+    {
+      "target_path": "/vendor/lib64/com.motorola.hardware.display.panel-V2-ndk.so",
+      "saved": "artifacts/current_display_path/com.motorola.hardware.display.panel-V2-ndk.so",
+      "size_bytes": 85408,
+      "available_cn_reference": "extracted/XT2611-1/W3WWL36.65-11-18/filesystems/vendor_a/lib64/com.motorola.hardware.display.panel-V2-ndk.so",
+      "byte_equal_cn_reference": true,
+      "historical_cn_global_equality": true
+    }
+  ]
+}

@@ -1,0 +1,114 @@
+{
+  "capture": "artifacts/ddic_regdump_20261107/stock_timing_history.json",
+  "phases": [
+    {
+      "label": "initial120",
+      "software_refresh": 120.00001,
+      "read_4f81": "10",
+      "native_write_count": 0,
+      "native_decomposition": "No transition write",
+      "preview_autocorrelation": [
+        {
+          "lag_px": 206,
+          "correlation": 0.9251791234511608
+        },
+        {
+          "lag_px": 204,
+          "correlation": 0.8890352009649156
+        },
+        {
+          "lag_px": 205,
+          "correlation": 0.9716492619587761
+        }
+      ]
+    },
+    {
+      "label": "native30",
+      "software_refresh": 30.000002,
+      "read_4f81": "06",
+      "native_write_count": 47,
+      "native_decomposition": "One native128-byte DSC PPS(type0x0a), then exact live timing@7(14packets),DBV, timing@4(30packets),DBV. PPS payload not claimed DT byte matched.",
+      "preview_autocorrelation": [
+        {
+          "lag_px": 205,
+          "correlation": 0.9766774137261685
+        },
+        {
+          "lag_px": 206,
+          "correlation": 0.8925199086413095
+        },
+        {
+          "lag_px": 205,
+          "correlation": 0.8113859382564066
+        }
+      ]
+    },
+    {
+      "label": "return120",
+      "software_refresh": 120.00001,
+      "read_4f81": "06",
+      "native_write_count": 15,
+      "native_decomposition": "Exact live timing@0(14packets),DBV",
+      "preview_autocorrelation": [
+        {
+          "lag_px": 205,
+          "correlation": 0.8063146383784555
+        },
+        {
+          "lag_px": 205,
+          "correlation": 0.9069783237438706
+        },
+        {
+          "lag_px": 206,
+          "correlation": 0.9273533655433415
+        }
+      ]
+    },
+    {
+      "label": "dc_cycle120",
+      "software_refresh": 120.00001,
+      "read_4f81": "10",
+      "native_write_count": 150,
+      "native_decomposition": "Exact live DC ON75 thenOFF75",
+      "preview_autocorrelation": [
+        {
+          "lag_px": 205,
+          "correlation": 0.978497831642423
+        },
+        {
+          "lag_px": 205,
+          "correlation": 0.9147555361002987
+        },
+        {
+          "lag_px": 204,
+          "correlation": 0.7874740563515689
+        }
+      ]
+    }
+  ],
+  "stock_transition_writes": 212,
+  "DT_matched_packets": 208,
+  "other_writes": "One128-byte DSC PPS(type0x0a),threeunchangedDBV3584writes",
+  "short_reads": 60,
+  "page_callback_rc0": 125,
+  "controller_returns_nonnegative": 403,
+  "probe_misses": 0,
+  "esd_restored": "reg_read",
+  "comparison": "artifacts/optical/ddic_timing_history_20261107.png",
+  "assessment": {
+    "status": "confirmed-on-target",
+    "stock_mode_history_explains_4f81_06": true,
+    "stock_120_transition_does_not_restore_4f81": true,
+    "direct_06_equals_six_pulses_inference_supported": false,
+    "fine_train_retained_in_all_four_conditions": true,
+    "pwm_hz": "unknown",
+    "greater_equal_2000_hz_verified": false
+  },
+  "analysis_correction": "Initialofflineexact-entire-windowtiming@4assumptionfailedbeforepublication. Actualtracecontainsintermediatetiming@7plusDSCPPSandDBV; allorderedsegmentsnowaccountedfor. Noexperimentrepeated.",
+  "limitations": [
+    "Full stock transitions, not isolated4F81 writes: other timing parameters also change.",
+    "Same final120Hz/DC0 state shows10/06/10 and fine spatial pattern~205px; this does not prove the register never influences emission under other conditions.",
+    "Preview spatial correlation on3frames/state; not frequency/duty/depth calibration.",
+    "ESDmode and captured temporary policy restored; original pre-investigation automatic policy is still pending session cleanup."
+  ]
+}

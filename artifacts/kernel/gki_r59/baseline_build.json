@@ -1,0 +1,11 @@
+{
+  "started_at_utc": "2026-11-06T08:31:09.467106+00:00",
+  "command": [
+    "bash",
+    "06-tools/build_gki_baseline.sh"
+  ],
+  "purpose": "local unmodified GKI reproduction only; no KSU, Motorola image packaging or device writes",
+  "log": "artifacts/kernel/gki_r59/baseline_build.log",
+  "finished_at_utc": "2026-11-06T08:31:16.083244+00:00",
+  "exit_code": 1
+}

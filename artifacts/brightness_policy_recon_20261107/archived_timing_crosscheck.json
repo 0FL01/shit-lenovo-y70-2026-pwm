@@ -1,0 +1,90 @@
+{
+  "scope": "offline check of existing exactDT timing packets and captured holds; no optical reprocessing or replay",
+  "base_rate_phases": [
+    {
+      "phase": 1,
+      "requested_refresh": 120,
+      "timing_matches": [],
+      "hold_write_packets": 0
+    },
+    {
+      "phase": 2,
+      "requested_refresh": 144,
+      "timing_matches": [
+        {
+          "packet_index": 0,
+          "timing": 1,
+          "packets": 10
+        }
+      ],
+      "hold_write_packets": 0
+    },
+    {
+      "phase": 3,
+      "requested_refresh": 120,
+      "timing_matches": [
+        {
+          "packet_index": 0,
+          "timing": 0,
+          "packets": 14
+        }
+      ],
+      "hold_write_packets": 0
+    },
+    {
+      "phase": 4,
+      "requested_refresh": 90,
+      "timing_matches": [
+        {
+          "packet_index": 1,
+          "timing": 7,
+          "packets": 14
+        },
+        {
+          "packet_index": 16,
+          "timing": 2,
+          "packets": 10
+        }
+      ],
+      "hold_write_packets": 0
+    },
+    {
+      "phase": 5,
+      "requested_refresh": 120,
+      "timing_matches": [
+        {
+          "packet_index": 0,
+          "timing": 0,
+          "packets": 14
+        }
+      ],
+      "hold_write_packets": 0
+    }
+  ],
+  "selector_holds": [
+    {
+      "label": "baseline",
+      "after_read_end_write_packets": 0
+    },
+    {
+      "label": "a9_only",
+      "after_read_end_write_packets": 0
+    },
+    {
+      "label": "return_a9_only",
+      "after_read_end_write_packets": 0
+    },
+    {
+      "label": "9d_only",
+      "after_read_end_write_packets": 0
+    },
+    {
+      "label": "return_9d_only",
+      "after_read_end_write_packets": 0
+    }
+  ],
+  "inference": "Historical90Hz transition contained idle timing7 BEFORE timing2; no logged timing changes during checked holds. CurrentSFflag1 does not establish those past holds were1Hz. No correction to A9opticalbaseline follows.",
+  "absolute_initial_panel_state_proved": false,
+  "physical_pwm_hz": null,
+  "new_device_actions": false
+}

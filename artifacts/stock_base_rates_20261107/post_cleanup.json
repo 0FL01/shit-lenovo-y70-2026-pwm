@@ -1,0 +1,20 @@
+{
+  "observed_at_utc": "2026-11-07T07:38:51.162317+00:00",
+  "root_uid0": true,
+  "selinux": "Enforcing",
+  "screen_brightness": "52",
+  "screen_brightness_mode": "0",
+  "min_refresh_rate": "120.0",
+  "peak_refresh_rate": "120.0",
+  "screen_off_timeout": "1800000",
+  "native_dbv": "828",
+  "dc": "0",
+  "logger": "ctrl->ctrl->mipi_cmd_log_en: 0",
+  "own_probes_instance_ui_files_absent": true,
+  "esd": "reg_read",
+  "stay_on": "7",
+  "camera_exposure_ns": [
+    "100000",
+    "100000"
+  ]
+}

@@ -1,0 +1,17 @@
+* text=auto eol=lf
+
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.mp4 binary
+*.bin binary
+*.ko binary
+*.so binary
+*.der binary
+
+# Two unique boot images needed for rollback/reinstall.
+artifacts/originals/**/*.img filter=lfs diff=lfs merge=lfs -text
+artifacts/kernel/gki_r59/kernelsu_next/persistent/boot.img filter=lfs diff=lfs merge=lfs -text
+
+# Preserve this vendor XML byte-for-byte (it contains CRLF in the dump).
+artifacts/current_display_path/als/als_comp_config.xml -text

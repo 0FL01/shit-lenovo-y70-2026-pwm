@@ -1,0 +1,64 @@
+Computing main repo mapping: 
+Loading: 
+Loading: 0 packages loaded
+Loading: 0 packages loaded
+    currently loading: common
+Analyzing: target //common:kernel_aarch64 (1 packages loaded)
+Analyzing: target //common:kernel_aarch64 (1 packages loaded, 0 targets configured)
+Analyzing: target //common:kernel_aarch64 (1 packages loaded, 0 targets configured)
+
+INFO: From BazelWorkspaceStatusAction stable-status.txt:
+WARNING: Unable to determine repo root. Please specify --repo_manifest.
+INFO: Analyzed target //common:kernel_aarch64 (1 packages loaded, 94020 targets configured).
+[1 / 1] no actions running
+[543 / 548] Creating kernel config (trim) //common:kernel_aarch64_config; 1s linux-sandbox
+[544 / 548] [Prepa] Copying .config //common:kernel_aarch64
+[545 / 548] Building kernel (trim) //common:kernel_aarch64; 1s linux-sandbox
+[545 / 548] Building kernel (trim) //common:kernel_aarch64; 11s linux-sandbox
+[545 / 548] Building kernel (trim) //common:kernel_aarch64; 41s linux-sandbox
+[545 / 548] Building kernel (trim) //common:kernel_aarch64; 101s linux-sandbox
+[545 / 548] Building kernel (trim) //common:kernel_aarch64; 161s linux-sandbox
+[545 / 548] Building kernel (trim) //common:kernel_aarch64; 221s linux-sandbox
+[545 / 548] Building kernel (trim) //common:kernel_aarch64; 281s linux-sandbox
+[545 / 548] Building kernel (trim) //common:kernel_aarch64; 341s linux-sandbox
+[545 / 548] Building kernel (trim) //common:kernel_aarch64; 401s linux-sandbox
+INFO: From Building kernel (trim) //common:kernel_aarch64:
+warning: overriding the module target triple with aarch64-unknown-linux-gnu [-Woverride-module]
+1 warning generated.
+warning: overriding the module target triple with aarch64-unknown-linux-gnu [-Woverride-module]
+1 warning generated.
+/mnt/kston/legion-Y70-madness/sources/gki-15950084/out/bazel/output_user_root/0f9cb5958c12735bcdc365375591c216/sandbox/linux-sandbox/156/execroot/_main/common/drivers/kernelsu/Kbuild:121: "KSU_GIT_VERSION not defined! It is better to make KernelSU-Next a git repository!"
+/mnt/kston/legion-Y70-madness/sources/gki-15950084/out/bazel/output_user_root/0f9cb5958c12735bcdc365375591c216/sandbox/linux-sandbox/156/execroot/_main/common/drivers/kernelsu/Kbuild:132: "KSU_VERSION_TAG not defined! It is better to make KernelSU-Next a git submodule!"
+warning: overriding the module target triple with aarch64-unknown-linux-gnu [-Woverride-module]
+1 warning generated.
+WARN: multiple IDs found for 'inode': 322, 30145 - using 322
+WARN: multiple IDs found for 'module': 257, 30187 - using 257
+WARN: multiple IDs found for 'vm_area_struct': 588, 30262 - using 588
+WARN: multiple IDs found for 'task_struct': 435, 30269 - using 435
+WARN: multiple IDs found for 'cgroup': 503, 30282 - using 503
+WARN: multiple IDs found for 'seq_file': 519, 30298 - using 519
+WARN: multiple IDs found for 'file': 248, 30312 - using 248
+WARN: multiple IDs found for 'path': 2025, 30398 - using 2025
+-- KernelSU-Next version fallback: 33355
+-- KernelSU-Next tag fallback: v3.4.2
+-- KernelSU-Next new DCACHE flush: 1
+-- KernelSU-Next Manager signature size: 0x3e6
+-- KernelSU-Next Manager signature hash: 79e590113c4c4c0c222978e413a5faa801666957b1212a328e46c00c69821bf7
+[546 / 548] [Prepa] Checking for kmi_symbol_list_strict_mode (trim) //common:kernel_aarch64
+INFO: Found 1 target...
+Target //common:kernel_aarch64 up-to-date:
+  bazel-bin/common/kernel_aarch64/System.map
+  bazel-bin/common/kernel_aarch64/modules.builtin
+  bazel-bin/common/kernel_aarch64/modules.builtin.modinfo
+  bazel-bin/common/kernel_aarch64/vmlinux
+  bazel-bin/common/kernel_aarch64/vmlinux.symvers
+  bazel-bin/common/kernel_aarch64/Image
+  bazel-bin/common/kernel_aarch64/Image.lz4
+  bazel-bin/common/kernel_aarch64/Image.gz
+  bazel-bin/common/kernel_aarch64_kmi_strict_out/kmi_symbol_list_strict_mode_checked
+  bazel-bin/common/kernel_aarch64/kernel_aarch64_Module.symvers
+  bazel-bin/common/kernel_aarch64/kernel_aarch64_dot_config
+  bazel-bin/common/kernel_aarch64_kmi_symbol_list_violations/kernel_aarch64_kmi_symbol_list_violations_checked
+INFO: Elapsed time: 419.716s, Critical Path: 414.98s
+INFO: 8 processes: 10 action cache hit, 1 internal, 7 linux-sandbox.
+INFO: Build completed successfully, 8 total actions

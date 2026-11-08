@@ -1,0 +1,43 @@
+{
+  "scope": "Offline CN11/GLOBAL64 bootloader XML, pinned public DT, saved selected v4 DT; no live bootloader identity",
+  "source_archive": "/home/stfu/.cache/opencode-tmp/opencode/ddic-table-format-20261107/display-source.tar.gz",
+  "source_pin": "f088523dfba85c95c15f43726fcf972c0c7a957a",
+  "xml_directory": "/home/stfu/.cache/opencode-tmp/opencode/uefi-panel-recon-20261107",
+  "cn_equals_public_dt_timing0": {
+    "v2": 92,
+    "v3": 133,
+    "v4": 92
+  },
+  "global_packet_counts": {
+    "v2": 95,
+    "v3": 136,
+    "v4": 95
+  },
+  "v2_to_v4_changed_packet_indices_only": [
+    44,
+    45,
+    46
+  ],
+  "v2_to_v4_changed_page_opcodes": [
+    "1E:CA",
+    "1E:CB",
+    "1E:CC"
+  ],
+  "v3_to_v4_shared_prefix_changed_indices_only": [
+    44,
+    45,
+    46
+  ],
+  "v3_only_inserted_before_display_on": 41,
+  "v3_only_page_2f_table_rows_of_three_pairs": 24,
+  "v3_63_f1_f4_equal_selected_v4_dc_off": [
+    "63:F1",
+    "63:F2",
+    "63:F3",
+    "63:F4"
+  ],
+  "selected_v4_global_uefi_equals_target_timing0": true,
+  "semantic_limit": "2F table and 53:F0/63:F1-F4 emission/PWM semantics unknown; other selected variants not portable",
+  "physical_pwm_hz": null,
+  "device_io": false
+}

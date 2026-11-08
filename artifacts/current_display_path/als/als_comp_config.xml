@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configstore>
+	<config type="default">
+		<configuration>
+			<name>panelId</name>
+			<value>1</value>
+		</configuration>
+		<!-- type 0:qdutils::DISPLAY_PRIMARY 3:qdutils::DISPLAY_BUILTIN_2-->
+		<configuration>
+			<name>qdutilsDisplayType</name>
+			<value>0</value>
+		</configuration>
+		<configuration>
+			<name>dbvNodePath</name>
+			<value>/sys/class/backlight/panel0-backlight/brightness</value>
+		</configuration>
+		<configuration>
+			<name>dpmsNodePath</name>
+			<value>/sys/class/drm/card0-DSI-1/dpms</value>
+		</configuration>
+		<configuration>
+			<name>dcNodePath</name>
+			<value>/sys/class/drm/card0-DSI-1/panelDC</value>
+		</configuration>
+		<configuration>
+			<name>brightnessRange</name>
+			<value>14056</value>
+		</configuration>
+		<!-- windowLeft Top Width Height -->
+		<configuration>
+			<name>windowRect</name>
+			<value>816,2,120,104</value>
+		</configuration>
+		<configuration>
+			<name>panelWidthCorrect</name>
+			<value>1440</value>
+		</configuration>
+		<configuration>
+			<name>passByLuxThresh</name>
+			<value>5000.0</value>
+		</configuration>
+		<configuration>
+			<name>pwmToDcDbv</name>
+			<value>3601</value>
+		</configuration>
+		<!-- model input select  0:juno 1:maven/frontier 2:maven/frontier-small_cnn 3:urus 4:urus-small_cnn -->
+		<configuration>
+			<name>model_input_select</name>
+			<value>4</value>
+		</configuration>
+		<configuration>
+			<name>lux_filter_so</name>
+			<value>panel_als_comp_filter_avr.so</value>
+		</configuration>
+		<configuration>
+			<name>sensorChNum</name>
+			<value>5</value>
+		</configuration>
+		<configuration>
+			<name>matrix_formula</name>
+			<value>1</value>
+		</configuration>
+		<configuration>
+			<name>lux_minimum_threshold</name>
+			<value>1.0</value>
+		</configuration>
+		<!--
+		<configuration>
+ 			<name>als_lux_ch_coefs</name>
+ 			<value>0.849843,3.796,-3.306,6.09,-5.03</value>
+ 		</configuration>
+		-->
+		<configuration>
+			<name>als_lux_ch_coefs</name>
+			<value>1.0,0.5,1.15,0.0,180.0,-16.98387827,65.07309718,-143.0058914,24.75010845,31.19170907,-54.6613904,169.6862636,-186.6531415,58.22680539,-2.824946706,-54.6613904,169.6862636,-186.6531415,58.22680539,-2.824946706</value>
+		</configuration>
+		<configuration>
+			<name>lux_coef_correct</name>
+			<value>1.0</value>
+		</configuration>
+		<!-- channel raw data under dvb 10000 -->
+		<configuration>
+			<name>single_golden_ch</name>
+			<value>121.62023,68.858734,46.77657,21.966454</value>
+		</configuration>
+		<!-- channel raw data under multi panel dbv & fps -->
+		<configuration>
+			<name>multi_dbv_golden_ch_new</name>
+			<value>12,0,0,60,2000,0,154,154,48,358,442,0,0,60,4500,0,599,573,187,1373,1779,0,0,60,6716,0,1205,1175,460,2804,3627,0,0,60,9000,0,2043,1967,839,4793,6232,0,0,60,14000,0,4810,4656,2086,11397,14714,0,0,60,435,1,76,79,9,174,219,0,0,60,1200,1,90,104,13,222,284,0,0,60,2000,1,173,189,40,413,537,0,0,60,4500,1,595,595,195,1381,1785,0,0,60,6716,1,1194,1141,425,2721,3579,0,0,60,9000,1,2079,1951,797,4737,6219,0,0,60,14000,1,5082,4748,2053,11654,15290</value>
+		</configuration>
+		<!-- type 1:dc on and dc off model 2: one model-->
+		<configuration>
+			<name>tensorflow_use_type</name>
+			<value>1</value>
+		</configuration>
+		<configuration>
+			<name>tfModePath</name>
+			<value>/vendor/etc/sensors/als_comp_tf_avr_small_dc0.config</value>
+		</configuration>
+		<configuration>
+			<name>tfModeDcPath</name>
+			<value>/vendor/etc/sensors/als_comp_tf_avr_small_dc1.config</value>
+		</configuration>
+	</config>
+</Configstore>

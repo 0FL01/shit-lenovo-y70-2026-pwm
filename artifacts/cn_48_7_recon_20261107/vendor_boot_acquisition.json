@@ -1,0 +1,90 @@
+{
+  "source": "https://mirrors.lolinet.com/firmware/lenowow/2026/Legion_Y70_2026/XT2611-1/XT2611-1_AVR_RETCN_16_W3WWL36.65-48-7_subsidy-DEFAULT_regulatory-DEFAULT_CFC.xml.zip",
+  "etag": "\"6a8b97ec-37f3dd586\"",
+  "member": "vendor_boot.img",
+  "bytes": 100663296,
+  "compressed_bytes": 7367257,
+  "zip_crc32": "e12a38e5",
+  "zip_crc_verified": true,
+  "sha256_for_module_provenance": "c18bd22aa1b72666afea69acd3da8967afc7ab231e2ab41494bbe28a8214e68c",
+  "local_path": "/home/stfu/.cache/opencode-tmp/opencode/cn-48-7-dtbo-20261107/members/vendor_boot.img",
+  "downloaded_bytes": 7373078,
+  "scope": "offline module extraction only; no boot/flash compatibility established or device I/O",
+  "range_requests": [
+    {
+      "start": 15019660656,
+      "end": 15019660677,
+      "bytes": 22
+    },
+    {
+      "start": 15019660636,
+      "end": 15019660655,
+      "bytes": 20
+    },
+    {
+      "start": 15019660580,
+      "end": 15019660635,
+      "bytes": 56
+    },
+    {
+      "start": 15019654902,
+      "end": 15019660579,
+      "bytes": 5678
+    },
+    {
+      "start": 21240140,
+      "end": 21240169,
+      "bytes": 30
+    },
+    {
+      "start": 21240170,
+      "end": 21240184,
+      "bytes": 15
+    },
+    {
+      "start": 21240213,
+      "end": 22288788,
+      "bytes": 1048576
+    },
+    {
+      "start": 22288789,
+      "end": 23126745,
+      "bytes": 837957
+    },
+    {
+      "start": 23126746,
+      "end": 23983372,
+      "bytes": 856627
+    },
+    {
+      "start": 23983373,
+      "end": 24839951,
+      "bytes": 856579
+    },
+    {
+      "start": 24839952,
+      "end": 25760683,
+      "bytes": 920732
+    },
+    {
+      "start": 25760684,
+      "end": 26520734,
+      "bytes": 760051
+    },
+    {
+      "start": 26520735,
+      "end": 27344854,
+      "bytes": 824120
+    },
+    {
+      "start": 27344855,
+      "end": 28201525,
+      "bytes": 856671
+    },
+    {
+      "start": 28201526,
+      "end": 28607469,
+      "bytes": 405944
+    }
+  ]
+}

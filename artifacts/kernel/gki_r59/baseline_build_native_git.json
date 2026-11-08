@@ -1,0 +1,12 @@
+{
+  "started_at_utc": "2026-11-06T08:33:27.840613+00:00",
+  "command": [
+    "bash",
+    "06-tools/build_gki_baseline.sh"
+  ],
+  "change": "Use documented extra_git_project for native-Git workspace rather than stamping unselected CI projects. Full pinned manifest retained as provenance; config/KMI validation unchanged.",
+  "purpose": "unmodified kernel baseline only; no device writes",
+  "log": "artifacts/kernel/gki_r59/baseline_build_native_git.log",
+  "finished_at_utc": "2026-11-06T08:40:22.373430+00:00",
+  "exit_code": 0
+}

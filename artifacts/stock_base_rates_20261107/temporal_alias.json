@@ -1,0 +1,150 @@
+{
+  "method": "Raw profiles, polynomial+broad spatial nuisance and four spatial harmonics; no temporal mean subtraction; unwrapped complex phase vs video PTS",
+  "stages": [
+    {
+      "phase": 1,
+      "requested_refresh": 120,
+      "spatial_train_cycles_per_row": 0.010706583658854168,
+      "harmonics": [
+        {
+          "spatial_harmonic": 1,
+          "sampled_alias_cycles_per_second": 1.3511779229610628,
+          "phase_residual_rms_cycles": 0.010799583073664657
+        },
+        {
+          "spatial_harmonic": 2,
+          "sampled_alias_cycles_per_second": 2.7068350535532386,
+          "phase_residual_rms_cycles": 0.020057478486647372
+        },
+        {
+          "spatial_harmonic": 3,
+          "sampled_alias_cycles_per_second": 4.060593383073586,
+          "phase_residual_rms_cycles": 0.029857882956003327
+        },
+        {
+          "spatial_harmonic": 4,
+          "sampled_alias_cycles_per_second": 5.413960434820016,
+          "phase_residual_rms_cycles": 0.03866311265805957
+        }
+      ]
+    },
+    {
+      "phase": 2,
+      "requested_refresh": 144,
+      "spatial_train_cycles_per_row": 0.011439005533854168,
+      "harmonics": [
+        {
+          "spatial_harmonic": 1,
+          "sampled_alias_cycles_per_second": 1.310753587889231,
+          "phase_residual_rms_cycles": 0.03005779767306622
+        },
+        {
+          "spatial_harmonic": 2,
+          "sampled_alias_cycles_per_second": 2.6221708345437245,
+          "phase_residual_rms_cycles": 0.059301167588202516
+        },
+        {
+          "spatial_harmonic": 3,
+          "sampled_alias_cycles_per_second": 3.9339772349803197,
+          "phase_residual_rms_cycles": 0.08920579716056529
+        },
+        {
+          "spatial_harmonic": 4,
+          "sampled_alias_cycles_per_second": 5.245434690798497,
+          "phase_residual_rms_cycles": 0.11864925772975991
+        }
+      ]
+    },
+    {
+      "phase": 3,
+      "requested_refresh": 120,
+      "spatial_train_cycles_per_row": 0.010706583658854168,
+      "harmonics": [
+        {
+          "spatial_harmonic": 1,
+          "sampled_alias_cycles_per_second": 1.33694542497628,
+          "phase_residual_rms_cycles": 0.011609354567976718
+        },
+        {
+          "spatial_harmonic": 2,
+          "sampled_alias_cycles_per_second": 2.6773409485687716,
+          "phase_residual_rms_cycles": 0.027931116840983372
+        },
+        {
+          "spatial_harmonic": 3,
+          "sampled_alias_cycles_per_second": 4.016032187179309,
+          "phase_residual_rms_cycles": 0.045611599444237705
+        },
+        {
+          "spatial_harmonic": 4,
+          "sampled_alias_cycles_per_second": 5.355499636246098,
+          "phase_residual_rms_cycles": 0.06358681965525956
+        }
+      ]
+    },
+    {
+      "phase": 4,
+      "requested_refresh": 90,
+      "spatial_train_cycles_per_row": 0.010716756184895832,
+      "harmonics": [
+        {
+          "spatial_harmonic": 1,
+          "sampled_alias_cycles_per_second": 1.281251576936617,
+          "phase_residual_rms_cycles": 0.010589213814236506
+        },
+        {
+          "spatial_harmonic": 2,
+          "sampled_alias_cycles_per_second": 2.5508546427195355,
+          "phase_residual_rms_cycles": 0.01683198358959529
+        },
+        {
+          "spatial_harmonic": 3,
+          "sampled_alias_cycles_per_second": 3.8199075680361316,
+          "phase_residual_rms_cycles": 0.022708609305220187
+        },
+        {
+          "spatial_harmonic": 4,
+          "sampled_alias_cycles_per_second": 5.086467805821702,
+          "phase_residual_rms_cycles": 0.028162913872231375
+        }
+      ]
+    },
+    {
+      "phase": 5,
+      "requested_refresh": 120,
+      "spatial_train_cycles_per_row": 0.01073455810546875,
+      "harmonics": [
+        {
+          "spatial_harmonic": 1,
+          "sampled_alias_cycles_per_second": 1.3020471188933347,
+          "phase_residual_rms_cycles": 0.016431934097760274
+        },
+        {
+          "spatial_harmonic": 2,
+          "sampled_alias_cycles_per_second": 2.6020016482545105,
+          "phase_residual_rms_cycles": 0.03404750537074094
+        },
+        {
+          "spatial_harmonic": 3,
+          "sampled_alias_cycles_per_second": 3.903809489335988,
+          "phase_residual_rms_cycles": 0.05049663808733017
+        },
+        {
+          "spatial_harmonic": 4,
+          "sampled_alias_cycles_per_second": 5.204369006788644,
+          "phase_residual_rms_cycles": 0.06684290811043311
+        }
+      ]
+    }
+  ],
+  "synthetic_signed_and_stationary_alias_tests_passed": true,
+  "pwm_hz": "unknown",
+  "greater_equal_2000_hz_verified": false,
+  "interpretation": "Same approximate sampled alias (~1.3 cycles/s) across base modes is compatible with a shared carrier and changed spatial scan phase, but also with carriers separated by integer multiples of camera cadence.",
+  "limits": [
+    "30fps temporal alias branches remain; sign follows the chosen spatial complex component.",
+    "Spatial harmonic number is not established as physical PWM harmonic number.",
+    "Video PTS is not per-frame sensor timestamp calibration; reported residuals are not physical-Hz confidence intervals.",
+    "Spatial peak interpolation and model nuisance choices are not calibrated metrology."
+  ]
+}

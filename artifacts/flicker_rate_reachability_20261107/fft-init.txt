@@ -1,0 +1,69 @@
+# Diagnostic linear sweep: code/data boundaries NOT inferred.
+b2034d70: 	immext(#2986779264)
+b2034d74: 	r3:2 = combine(##-1308188024,#1)
+b2034d78: 	r1:0 = combine(r0,#0)	allocframe(#8)
+b2034d7c: 	call 0xb20df84c
+b2034d80: 	r4 = #1
+b2034d84: 	immext(#1024)
+b2034d88: 	memw(r29+#0) = ##1024
+b2034d8c: 	dealloc_return
+b2034d90: 	call 0xb2019e7c
+b2034d94: 	allocframe(#56)
+b2034d98: 	r17:16 = combine(r1,r0)
+b2034d9c: 	r19:18 = combine(r4,r2)
+b2034da0: 	r21:20 = combine(r5,r3)
+b2034da4: 	r22 = memw(r0+#4)
+b2034da8: 	immext(#2986779264)
+b2034dac: 	r3:2 = combine(##-1308188024,#1)
+b2034db0: 	r4 = #1	r1:0 = combine(r16,#0)
+b2034db4: 	call 0xb20df84c
+b2034db8: 	immext(#1024)
+b2034dbc: 	memw(r29+#0) = ##1024
+b2034dc0: 	immext(#512)
+b2034dc4: 	p0 = cmph.gtu(r17,##512)
+b2034dc8: 	if (p0.new) jump:nt 0xb2034e64
+b2034dcc: 	p1 = tstbit(r20,#0)
+b2034dd0: 	immext(#512)
+b2034dd4: 	p0 = cmph.gtu(r19,##512)
+b2034dd8: 	if (p0.new) jump:nt 0xb2034e64
+b2034ddc: 	p0 = tstbit(r21,#0)
+b2034de0: 	r4 = mux(p1,#1,#0)
+b2034de4: 	r5 = add(r22,#14466)
+b2034de8: 	r3 = #0
+b2034dec: 	r2 = add(r5,#14)
+b2034df0: 	r6 = mux(p0,#1,#0)
+b2034df4: 	memh(r5+#6) = r17
+b2034df8: 	memh(r5+#8) = r18
+b2034dfc: 	memw(r2+#4) = r19
+b2034e00: 	if (p0) r3 = add(r22,#8)
+b2034e04: 	memh(r5+#10) = r3
+b2034e08: 	memb(r5+#14) = r4
+b2034e0c: 	immext(#14464)
+b2034e10: 	if (p0) r6 = add(r22,##14472)
+b2034e14: 	if (!p0) jump:nt 0xb2034e48
+b2034e18: 	memb(r5+#22) = r6
+b2034e1c: 	loop0(0xb2034e2c,#6)
+b2034e20: 	r5 = add(r22,#14488)
+b2034e24: 	r7 = add(r3,#14512)
+b2034e28: 	r4 = memw(r29+#64)
+b2034e2c: 	r8 = memw(r4++#4)
+b2034e30: 	memw(r7++#4) = r8.new
+b2034e34: 	r4 = memub(r2+#0)
+b2034e38: 	immext(#14464)
+b2034e3c: 	r18 = memuh(r3+##14466)
+b2034e40: 	r19 = memw(r2+#4)	r17 = memuh(r6+#0)
+b2034e44: 	r3 = memub(r5+#0)
+b2034e48: 	immext(#2986779520)
+b2034e4c: 	r3:2 = combine(##-1308187760,#1)
+b2034e50: 	memw(r29+#16) = r3	memw(r29+#8) = r4
+b2034e54: 	r1:0 = combine(r16,#0)
+b2034e58: 	r4 = #5
+b2034e5c: 	memw(r29+#12) = r19	memw(r29+#4) = r18
+b2034e60: 	jump 0xb2034e70
+b2034e64: 	immext(#2986779328)
+b2034e68: 	r3:2 = combine(##-1308187920,#1)
+b2034e6c: 	r4 = #1	r1:0 = combine(r16,#0)
+b2034e70: 	call 0xb20df84c
+b2034e74: 	memw(r29+#0) = r17
+b2034e78: 	jump 0xb2019f6c
+b2034e7c: 	jumpr r31

@@ -1,0 +1,73 @@
+
+/mnt/kston/legion-Y70-madness/artifacts/kernel/gki_r59/target_vendor/msm_drm.ko:     file format elf64-littleaarch64
+
+
+Disassembly of section .text:
+
+00000000000e6618 <_sde_connector_update_dimming_ctrl>:
+   e6618:	b40004e0 	cbz	x0, e66b4 <_sde_connector_update_dimming_ctrl+0x9c>
+   e661c:	b94ab008 	ldr	w8, [x0, #2736]
+   e6620:	7100411f 	cmp	w8, #0x10
+   e6624:	54000461 	b.ne	e66b0 <_sde_connector_update_dimming_ctrl+0x98>  // b.any
+   e6628:	52828e08 	mov	w8, #0x1470                	// #5232
+   e662c:	38686808 	ldrb	w8, [x0, x8]
+   e6630:	7100051f 	cmp	w8, #0x1
+   e6634:	912b2008 	add	x8, x0, #0xac8
+   e6638:	54000041 	b.ne	e6640 <_sde_connector_update_dimming_ctrl+0x28>  // b.any
+   e663c:	f9400108 	ldr	x8, [x8]
+   e6640:	d503233f 	paciasp
+   e6644:	a9be7bfd 	stp	x29, x30, [sp, #-32]!
+   e6648:	a9014ff4 	stp	x20, x19, [sp, #16]
+   e664c:	910003fd 	mov	x29, sp
+   e6650:	f9400104 	ldr	x4, [x8]
+   e6654:	b4000324 	cbz	x4, e66b8 <_sde_connector_update_dimming_ctrl+0xa0>
+   e6658:	f9409093 	ldr	x19, [x4, #288]
+   e665c:	b4000393 	cbz	x19, e66cc <_sde_connector_update_dimming_ctrl+0xb4>
+   e6660:	b9460e68 	ldr	w8, [x19, #1548]
+   e6664:	f100003f 	cmp	x1, #0x0
+   e6668:	1a9f07e9 	cset	w9, ne	// ne = any
+   e666c:	1200010a 	and	w10, w8, #0x1
+   e6670:	6b0a013f 	cmp	w9, w10
+   e6674:	54000220 	b.eq	e66b8 <_sde_connector_update_dimming_ctrl+0xa0>  // b.none
+   e6678:	f100003f 	cmp	x1, #0x0
+   e667c:	121f7908 	and	w8, w8, #0xfffffffe
+   e6680:	aa0103f4 	mov	x20, x1
+   e6684:	1a880508 	cinc	w8, w8, ne	// ne = any
+   e6688:	91172261 	add	x1, x19, #0x5c8
+   e668c:	3918427f 	strb	wzr, [x19, #1552]
+   e6690:	b9060e68 	str	w8, [x19, #1548]
+   e6694:	97fffd9a 	bl	e5cfc <sde_dimming_bl_notify>
+   e6698:	2a1f03e0 	mov	w0, wzr
+   e669c:	b5000114 	cbnz	x20, e66bc <_sde_connector_update_dimming_ctrl+0xa4>
+   e66a0:	2a1f03e0 	mov	w0, wzr
+   e66a4:	52800028 	mov	w8, #0x1                   	// #1
+   e66a8:	39184268 	strb	w8, [x19, #1552]
+   e66ac:	14000004 	b	e66bc <_sde_connector_update_dimming_ctrl+0xa4>
+   e66b0:	2a1f03e0 	mov	w0, wzr
+   e66b4:	d65f03c0 	ret
+   e66b8:	2a1f03e0 	mov	w0, wzr
+   e66bc:	a9414ff4 	ldp	x20, x19, [sp, #16]
+   e66c0:	a8c27bfd 	ldp	x29, x30, [sp], #32
+   e66c4:	d50323bf 	autiasp
+   e66c8:	d65f03c0 	ret
+   e66cc:	90000001 	adrp	x1, 0 <msm_hdcp_register_cb-0x4>
+			e66cc: R_AARCH64_ADR_PREL_PG_HI21	.rodata+0x2140
+		; rodata string: '_sde_connector_update_dimming_ctrl'
+   e66d0:	91000021 	add	x1, x1, #0x0
+			e66d0: R_AARCH64_ADD_ABS_LO12_NC	.rodata+0x2140
+		; rodata string: '_sde_connector_update_dimming_ctrl'
+   e66d4:	90000000 	adrp	x0, 0 <msm_hdcp_register_cb-0x4>
+			e66d4: R_AARCH64_ADR_PREL_PG_HI21	.rodata+0x20f7
+   e66d8:	91000000 	add	x0, x0, #0x0
+			e66d8: R_AARCH64_ADD_ABS_LO12_NC	.rodata+0x20f7
+   e66dc:	528081a2 	mov	w2, #0x40d                 	// #1037
+   e66e0:	aa0103e3 	mov	x3, x1
+   e66e4:	aa1f03e5 	mov	x5, xzr
+   e66e8:	94000000 	bl	0 <_printk>
+			e66e8: R_AARCH64_CALL26	_printk
+   e66ec:	128002a0 	mov	w0, #0xffffffea            	// #-22
+   e66f0:	17fffff3 	b	e66bc <_sde_connector_update_dimming_ctrl+0xa4>
+
+Disassembly of section .init.text:
+
+Disassembly of section .exit.text:

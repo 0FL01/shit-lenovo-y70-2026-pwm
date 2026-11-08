@@ -1,0 +1,45 @@
+{
+  "checked_on": "2026-11-07",
+  "status": "offline-checked; hardware approval absent",
+  "runner": "06-tools/run_dsi_mode_trial.py --coupled-on",
+  "analyzer": "06-tools/analyze_dsi_redraw.py --coupled-on",
+  "unit_test_command": "OPENBLAS_NUM_THREADS=2 python3 -m unittest discover -s 06-tools -p 'test_*.py' -v",
+  "unit_tests_passed": 14,
+  "syntax_checked": [
+    "06-tools/run_dsi_mode_trial.py",
+    "06-tools/analyze_dsi_redraw.py",
+    "06-tools/test_coupled_on.py"
+  ],
+  "checks": {
+    "missing_authorization_refused_before_subprocess_or_output": true,
+    "optimized_python_refused": true,
+    "wrong_scope_hash_or_reboot_approval_refused": true,
+    "altered_candidate_refused": true,
+    "missing_capture_refused_by_analyzer": true,
+    "candidate_independent_packet_decoder_matches": true,
+    "actual_ast_extracted_camera_guard_rejects_changed_crop_zoom_and_request_result_mismatch": true,
+    "actual_ast_extracted_awake_manual_guard_passes_only_awake_manual_of_four_combinations": true
+  },
+  "independent_review_reported_synthetic_decoder": {
+    "ffprobe_ffmpeg_mocked": true,
+    "stages": 3,
+    "table_packets": 225,
+    "same_dbv_writes": 3,
+    "tx_callbacks": 37,
+    "short_reads": 9,
+    "page_writes": 22,
+    "real_panel_evidence": false
+  },
+  "authorization_created": false,
+  "hardware_run_created": false,
+  "device_io": false,
+  "phone_reboot_or_flash": false,
+  "live_cleanup_recovery_qualified": false,
+  "pwm_hz": "unknown",
+  "greater_equal_2000_hz_verified": false,
+  "limits": [
+    "Offline checks and synthetic decoder output are not a physical S0C1 experiment.",
+    "Exact owner approval for stock -> S0C1 -> stock, including emergency ordinary reboot, is still required.",
+    "A9-only remains the saved experimental panel baseline; a historical cross-capture comparison is not a simultaneous head-to-head."
+  ]
+}

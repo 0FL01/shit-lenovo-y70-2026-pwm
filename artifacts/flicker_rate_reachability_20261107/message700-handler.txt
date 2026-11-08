@@ -1,0 +1,61 @@
+# Diagnostic linear sweep: code/data boundaries NOT inferred.
+b231fd6c: 	call 0xb2019ea0
+b231fd70: 	p0 = cmp.eq(r0,#0)	allocframe(#96)
+b231fd74: 	if (p0) jump:nt 0xb231fe1c
+b231fd78: 	r16 = r0
+b231fd7c: 	r1 = #0
+b231fd80: 	r17 = add(r29,#8)	r18 = memw(r0+#4)
+b231fd84: 	r0 = add(r17,#8)
+b231fd88: 	r2 = #40
+b231fd8c: 	r3 = #0
+b231fd90: 	memh(r18+#1956) = r3.new
+b231fd94: 	call 0xb20198c0
+b231fd98: 	r2 = #1
+b231fd9c: 	immext(#128)
+b231fda0: 	memw(r29+#8) = ##128
+b231fda4: 	memw(r29+#12) = #5
+b231fda8: 	memb(r29+#16) = r2
+b231fdac: 	immext(#512)
+b231fdb0: 	memw(r29+#20) = ##512
+b231fdb4: 	memb(r29+#24) = r2
+b231fdb8: 	immext(#1062678720)
+b231fdbc: 	memw(r29+#56) = ##1062678780
+b231fdc0: 	immext(#3218550976)
+b231fdc4: 	memw(r29+#60) = ##-1076416260
+b231fdc8: 	immext(#1062678720)
+b231fdcc: 	memw(r29+#64) = ##1062678780
+b231fdd0: 	immext(#1065353216)
+b231fdd4: 	memw(r29+#68) = ##1065353216
+b231fdd8: 	immext(#3218336448)
+b231fddc: 	memw(r29+#72) = ##-1076630796
+b231fde0: 	call 0xb20d8b60
+b231fde4: 	immext(#1060433408)
+b231fde8: 	memw(r29+#76) = ##1060433416
+b231fdec: 	memh(r29+#52) = #6
+b231fdf0: 	r2 = add(r18,#200)
+b231fdf4: 	r5:4 = combine(r1,r0)
+b231fdf8: 	memw(r29+#4) = r2.new
+b231fdfc: 	immext(#2987221824)
+b231fe00: 	r1:0 = combine(##-1307745444,r16)
+b231fe04: 	r2 = r17
+b231fe08: 	call 0xb20e9fe4
+b231fe0c: 	immext(#640)
+b231fe10: 	memw(r29+#0) = ##701
+b231fe14: 	call 0xb231fe20
+b231fe18: 	r0 = r16
+b231fe1c: 	jump 0xb2019f90
+b231fe20: 	p0 = cmp.eq(r0,#0); if (p0.new) jump:nt 0xb231fe58
+b231fe24: 	memd(r29+#-16) = r17:16	allocframe(#16)
+b231fe28: 	r16 = r0	r17 = memw(r0+#4)
+b231fe2c: 	r2 = memw(r17+#2620)
+b231fe30: 	if (cmp.eq(r2.new,#0)) jump:nt 0xb231fe58
+b231fe34: 	call 0xb20d8b60
+b231fe38: 	r2 = add(r17,#200)
+b231fe3c: 	r5:4 = combine(r1,r0)
+b231fe40: 	r1:0 = combine(#0,r16)
+b231fe44: 	memw(r29+#4) = r2.new
+b231fe48: 	call 0xb20e9fe4
+b231fe4c: 	r2 = #0
+b231fe50: 	immext(#704)
+b231fe54: 	memw(r29+#0) = ##705
+b231fe58: 	r17:16 = memd(r29+#8)	dealloc_return

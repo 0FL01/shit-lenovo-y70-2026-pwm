@@ -1,0 +1,43 @@
+# External inputs: re-downloadable or re-creatable.
+# URLs, sizes and pinned revisions are recorded in RECONSTRUCTION.md.
+/downloads/
+/extracted/
+/sources/
+/.venv/
+
+# Python caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Secrets and local-only state
+/artifacts/key
+.env
+.env.*
+*.local
+
+# Firmware images extracted from service ZIPs (re-creatable)
+/artifacts/firmware/**/*.img
+
+# Kernel build outputs (reproducible with 06-tools/build_gki_*.sh)
+/artifacts/kernel/gki_r59/google_certified_boot.img
+/artifacts/kernel/gki_r59/kernelsu_next/boot-ram-test.img
+/artifacts/kernel/gki_r59/**/Image
+/artifacts/kernel/gki_r59/**/*.ko
+/artifacts/kernel/gki_r59/**/Module.symvers
+/artifacts/kernel/gki_r59/*Module.symvers
+/artifacts/kernel/gki_r59/**/*.o
+/artifacts/kernel/gki_r59/**/*.a
+/artifacts/kernel/gki_r59/**/*.cmd
+
+# Vendor binaries extracted from the ROM (not redistributed)
+/artifacts/current_display_path/*.so
+
+# Raw optical recordings: stored as GitHub Release assets, not in Git.
+/artifacts/optical/*.mp4
+
+# OS noise
+.DS_Store
+Thumbs.db

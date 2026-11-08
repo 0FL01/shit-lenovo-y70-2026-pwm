@@ -1,0 +1,863 @@
+{
+  "address_model": "import address + memory block offset; NOT live VA",
+  "analysis": true,
+  "binary": "/mnt/kston/legion-Y70-madness/artifacts/kernel/gki_r59/target_vendor/msm_drm.ko",
+  "branch_count": 86,
+  "callees": [
+    {
+      "entry": {
+        "block": ".text",
+        "ghidra": "0033e39c",
+        "offset": "0x19792c"
+      },
+      "name": "dsi_message_tx"
+    },
+    {
+      "entry": {
+        "block": ".text",
+        "ghidra": "00340840",
+        "offset": "0x199dd0"
+      },
+      "name": "dsi_ctrl_dma_cmd_wait_for_done"
+    },
+    {
+      "entry": {
+        "block": "EXTERNAL",
+        "ghidra": "003d2000",
+        "offset": "0x0"
+      },
+      "name": "<EXTERNAL>::_printk"
+    },
+    {
+      "entry": {
+        "block": "EXTERNAL",
+        "ghidra": "003d2008",
+        "offset": "0x8"
+      },
+      "name": "<EXTERNAL>::snprintf"
+    },
+    {
+      "entry": {
+        "block": "EXTERNAL",
+        "ghidra": "003d2018",
+        "offset": "0x18"
+      },
+      "name": "<EXTERNAL>::__stack_chk_fail"
+    },
+    {
+      "entry": {
+        "block": "EXTERNAL",
+        "ghidra": "003d2020",
+        "offset": "0x20"
+      },
+      "name": "<EXTERNAL>::memcpy"
+    },
+    {
+      "entry": {
+        "block": "EXTERNAL",
+        "ghidra": "003d20a8",
+        "offset": "0xa8"
+      },
+      "name": "<EXTERNAL>::kfree"
+    },
+    {
+      "entry": {
+        "block": "EXTERNAL",
+        "ghidra": "003d2130",
+        "offset": "0x130"
+      },
+      "name": "<EXTERNAL>::mutex_lock"
+    },
+    {
+      "entry": {
+        "block": "EXTERNAL",
+        "ghidra": "003d2138",
+        "offset": "0x138"
+      },
+      "name": "<EXTERNAL>::mutex_unlock"
+    },
+    {
+      "entry": {
+        "block": "EXTERNAL",
+        "ghidra": "003d2230",
+        "offset": "0x230"
+      },
+      "name": "<EXTERNAL>::usleep_range_state"
+    },
+    {
+      "entry": {
+        "block": "EXTERNAL",
+        "ghidra": "003d22c8",
+        "offset": "0x2c8"
+      },
+      "name": "<EXTERNAL>::__kmalloc_noprof"
+    },
+    {
+      "entry": {
+        "block": "EXTERNAL",
+        "ghidra": "003d23f0",
+        "offset": "0x3f0"
+      },
+      "name": "<EXTERNAL>::strnlen"
+    },
+    {
+      "entry": {
+        "block": "EXTERNAL",
+        "ghidra": "003d2430",
+        "offset": "0x430"
+      },
+      "name": "<EXTERNAL>::__fortify_panic"
+    },
+    {
+      "entry": {
+        "block": "EXTERNAL",
+        "ghidra": "003d2990",
+        "offset": "0x990"
+      },
+      "name": "<EXTERNAL>::drm_dev_printk"
+    }
+  ],
+  "callers": [
+    {
+      "from": {
+        "block": ".text",
+        "ghidra": "003487e4",
+        "offset": "0x1a1d74"
+      },
+      "function": {
+        "entry": {
+          "block": ".text",
+          "ghidra": "003484f4",
+          "offset": "0x1a1a84"
+        },
+        "name": "dsi_host_transfer_sub"
+      },
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": {
+        "block": ".text",
+        "ghidra": "0034889c",
+        "offset": "0x1a1e2c"
+      },
+      "function": {
+        "entry": {
+          "block": ".text",
+          "ghidra": "003484f4",
+          "offset": "0x1a1a84"
+        },
+        "name": "dsi_host_transfer_sub"
+      },
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": {
+        "block": ".text",
+        "ghidra": "00348968",
+        "offset": "0x1a1ef8"
+      },
+      "function": {
+        "entry": {
+          "block": ".text",
+          "ghidra": "003484f4",
+          "offset": "0x1a1a84"
+        },
+        "name": "dsi_host_transfer_sub"
+      },
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": {
+        "block": ".text",
+        "ghidra": "003489f0",
+        "offset": "0x1a1f80"
+      },
+      "function": {
+        "entry": {
+          "block": ".text",
+          "ghidra": "003484f4",
+          "offset": "0x1a1a84"
+        },
+        "name": "dsi_host_transfer_sub"
+      },
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": {
+        "block": ".text",
+        "ghidra": "003490b4",
+        "offset": "0x1a2644"
+      },
+      "function": {
+        "entry": {
+          "block": ".text",
+          "ghidra": "00348c70",
+          "offset": "0x1a2200"
+        },
+        "name": "dsi_display_cmd_receive"
+      },
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": {
+        "block": ".text",
+        "ghidra": "003553f8",
+        "offset": "0x1ae988"
+      },
+      "function": {
+        "entry": {
+          "block": ".text",
+          "ghidra": "003552a8",
+          "offset": "0x1ae838"
+        },
+        "name": "dsi_display_validate_status"
+      },
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": {
+        "block": ".text",
+        "ghidra": "003721d4",
+        "offset": "0x1cb764"
+      },
+      "function": {
+        "entry": {
+          "block": ".text",
+          "ghidra": "003720e0",
+          "offset": "0x1cb670"
+        },
+        "name": "mot_nt37705A_display_read_cellid"
+      },
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": {
+        "block": null,
+        "ghidra": "Entry Point",
+        "offset": null
+      },
+      "function": null,
+      "type": "EXTERNAL"
+    }
+  ],
+  "command": "brief",
+  "constants": [
+    {
+      "bits": 32,
+      "hex": "0x2",
+      "signed": 2
+    },
+    {
+      "bits": 64,
+      "hex": "0x2",
+      "signed": 2
+    },
+    {
+      "bits": 32,
+      "hex": "0x3",
+      "signed": 3
+    },
+    {
+      "bits": 64,
+      "hex": "0x3",
+      "signed": 3
+    },
+    {
+      "bits": 32,
+      "hex": "0x4",
+      "signed": 4
+    },
+    {
+      "bits": 64,
+      "hex": "0x4",
+      "signed": 4
+    },
+    {
+      "bits": 64,
+      "hex": "0x5",
+      "signed": 5
+    },
+    {
+      "bits": 64,
+      "hex": "0x8",
+      "signed": 8
+    },
+    {
+      "bits": 32,
+      "hex": "0x9",
+      "signed": 9
+    },
+    {
+      "bits": 64,
+      "hex": "0x9",
+      "signed": 9
+    },
+    {
+      "bits": 32,
+      "hex": "0xa",
+      "signed": 10
+    },
+    {
+      "bits": 64,
+      "hex": "0xa",
+      "signed": 10
+    },
+    {
+      "bits": 64,
+      "hex": "0xb",
+      "signed": 11
+    },
+    {
+      "bits": 64,
+      "hex": "0xc",
+      "signed": 12
+    },
+    {
+      "bits": 32,
+      "hex": "0xe",
+      "signed": 14
+    },
+    {
+      "bits": 64,
+      "hex": "0xe",
+      "signed": 14
+    },
+    {
+      "bits": 32,
+      "hex": "0xf",
+      "signed": 15
+    },
+    {
+      "bits": 64,
+      "hex": "0xf",
+      "signed": 15
+    },
+    {
+      "bits": 32,
+      "hex": "0x10",
+      "signed": 16
+    },
+    {
+      "bits": 64,
+      "hex": "0x10",
+      "signed": 16
+    },
+    {
+      "bits": 64,
+      "hex": "0x14",
+      "signed": 20
+    },
+    {
+      "bits": 64,
+      "hex": "0x18",
+      "signed": 24
+    },
+    {
+      "bits": 64,
+      "hex": "0x20",
+      "signed": 32
+    },
+    {
+      "bits": 32,
+      "hex": "0x22",
+      "signed": 34
+    },
+    {
+      "bits": 32,
+      "hex": "0x28",
+      "signed": 40
+    },
+    {
+      "bits": 64,
+      "hex": "0x2c",
+      "signed": 44
+    },
+    {
+      "bits": 64,
+      "hex": "0x30",
+      "signed": 48
+    },
+    {
+      "bits": 64,
+      "hex": "0x31",
+      "signed": 49
+    },
+    {
+      "bits": 64,
+      "hex": "0x32",
+      "signed": 50
+    },
+    {
+      "bits": 64,
+      "hex": "0x34",
+      "signed": 52
+    },
+    {
+      "bits": 64,
+      "hex": "0x37",
+      "signed": 55
+    },
+    {
+      "bits": 64,
+      "hex": "0x38",
+      "signed": 56
+    },
+    {
+      "bits": 64,
+      "hex": "0x3f",
+      "signed": 63
+    },
+    {
+      "bits": 64,
+      "hex": "0x40",
+      "signed": 64
+    },
+    {
+      "bits": 64,
+      "hex": "0x48",
+      "signed": 72
+    },
+    {
+      "bits": 64,
+      "hex": "0x58",
+      "signed": 88
+    },
+    {
+      "bits": 64,
+      "hex": "0x60",
+      "signed": 96
+    },
+    {
+      "bits": 64,
+      "hex": "0x64",
+      "signed": 100
+    },
+    {
+      "bits": 64,
+      "hex": "0x68",
+      "signed": 104
+    },
+    {
+      "bits": 64,
+      "hex": "0x80",
+      "signed": 128
+    },
+    {
+      "bits": 64,
+      "hex": "0x90",
+      "signed": 144
+    },
+    {
+      "bits": 64,
+      "hex": "0xa0",
+      "signed": 160
+    },
+    {
+      "bits": 64,
+      "hex": "0xb0",
+      "signed": 176
+    },
+    {
+      "bits": 64,
+      "hex": "0xc0",
+      "signed": 192
+    },
+    {
+      "bits": 64,
+      "hex": "0xd0",
+      "signed": 208
+    },
+    {
+      "bits": 64,
+      "hex": "0xe0",
+      "signed": 224
+    },
+    {
+      "bits": 64,
+      "hex": "0x258",
+      "signed": 600
+    },
+    {
+      "bits": 64,
+      "hex": "0x263",
+      "signed": 611
+    },
+    {
+      "bits": 64,
+      "hex": "0x2e5",
+      "signed": 741
+    },
+    {
+      "bits": 64,
+      "hex": "0x3e8",
+      "signed": 1000
+    },
+    {
+      "bits": 64,
+      "hex": "0x498",
+      "signed": 1176
+    },
+    {
+      "bits": 64,
+      "hex": "0x5bb",
+      "signed": 1467
+    },
+    {
+      "bits": 64,
+      "hex": "0x5eb",
+      "signed": 1515
+    },
+    {
+      "bits": 64,
+      "hex": "0x631",
+      "signed": 1585
+    },
+    {
+      "bits": 64,
+      "hex": "0x644",
+      "signed": 1604
+    },
+    {
+      "bits": 64,
+      "hex": "0x648",
+      "signed": 1608
+    },
+    {
+      "bits": 64,
+      "hex": "0x65d",
+      "signed": 1629
+    },
+    {
+      "bits": 64,
+      "hex": "0x67c",
+      "signed": 1660
+    },
+    {
+      "bits": 64,
+      "hex": "0x710",
+      "signed": 1808
+    },
+    {
+      "bits": 64,
+      "hex": "0x855",
+      "signed": 2133
+    },
+    {
+      "bits": 64,
+      "hex": "0x901",
+      "signed": 2305
+    },
+    {
+      "bits": 64,
+      "hex": "0x973",
+      "signed": 2419
+    },
+    {
+      "bits": 64,
+      "hex": "0xa71",
+      "signed": 2673
+    },
+    {
+      "bits": 64,
+      "hex": "0xb78",
+      "signed": 2936
+    },
+    {
+      "bits": 64,
+      "hex": "0xb80",
+      "signed": 2944
+    },
+    {
+      "bits": 64,
+      "hex": "0xc9f",
+      "signed": 3231
+    },
+    {
+      "bits": 64,
+      "hex": "0xcd7",
+      "signed": 3287
+    },
+    {
+      "bits": 64,
+      "hex": "0xdc0",
+      "signed": 3520
+    },
+    {
+      "bits": 32,
+      "hex": "0x4395",
+      "signed": 17301
+    },
+    {
+      "bits": 32,
+      "hex": "0x5512",
+      "signed": 21778
+    },
+    {
+      "bits": 32,
+      "hex": "0x7061",
+      "signed": 28769
+    },
+    {
+      "bits": 32,
+      "hex": "0x7907",
+      "signed": 30983
+    },
+    {
+      "bits": 32,
+      "hex": "0x8228",
+      "signed": 33320
+    },
+    {
+      "bits": 32,
+      "hex": "0x8336",
+      "signed": 33590
+    },
+    {
+      "bits": 64,
+      "hex": "0x20000",
+      "signed": 131072
+    },
+    {
+      "bits": 64,
+      "hex": "0x40000",
+      "signed": 262144
+    },
+    {
+      "bits": 64,
+      "hex": "0x11c000",
+      "signed": 1163264
+    },
+    {
+      "bits": 64,
+      "hex": "0x120000",
+      "signed": 1179648
+    },
+    {
+      "bits": 64,
+      "hex": "0x124000",
+      "signed": 1196032
+    },
+    {
+      "bits": 64,
+      "hex": "0x12b000",
+      "signed": 1224704
+    },
+    {
+      "bits": 64,
+      "hex": "0x136000",
+      "signed": 1269760
+    },
+    {
+      "bits": 64,
+      "hex": "0x156000",
+      "signed": 1400832
+    },
+    {
+      "bits": 64,
+      "hex": "0x158000",
+      "signed": 1409024
+    },
+    {
+      "bits": 64,
+      "hex": "0x16b000",
+      "signed": 1486848
+    },
+    {
+      "bits": 64,
+      "hex": "0x177000",
+      "signed": 1536000
+    },
+    {
+      "bits": 64,
+      "hex": "0x17b000",
+      "signed": 1552384
+    },
+    {
+      "bits": 64,
+      "hex": "0x187000",
+      "signed": 1601536
+    },
+    {
+      "bits": 64,
+      "hex": "0x18e000",
+      "signed": 1630208
+    },
+    {
+      "bits": 64,
+      "hex": "0x14000000",
+      "signed": 335544320
+    },
+    {
+      "bits": 64,
+      "hex": "0xffffffea",
+      "signed": 4294967274
+    },
+    {
+      "bits": 32,
+      "hex": "0xfffffff0",
+      "signed": -16
+    },
+    {
+      "bits": 32,
+      "hex": "0xfffffff4",
+      "signed": -12
+    },
+    {
+      "bits": 64,
+      "hex": "0xfffffff4",
+      "signed": 4294967284
+    },
+    {
+      "bits": 32,
+      "hex": "0xfffffff7",
+      "signed": -9
+    },
+    {
+      "bits": 32,
+      "hex": "0xfffffff8",
+      "signed": -8
+    },
+    {
+      "bits": 32,
+      "hex": "0xfffffffc",
+      "signed": -4
+    }
+  ],
+  "elf_type": "ET_REL",
+  "filter": "",
+  "function": {
+    "entry": {
+      "block": ".text",
+      "ghidra": "0033db30",
+      "offset": "0x1970c0"
+    },
+    "name": "dsi_ctrl_cmd_transfer"
+  },
+  "ghidra_version": "12.1.4",
+  "image_base": "00100000",
+  "instruction_count": 515,
+  "language": "AARCH64:LE:64:v8A",
+  "referenced_strings": [
+    {
+      "entry": {
+        "block": ".rodata",
+        "ghidra": "0011ca71",
+        "offset": "0x35e9"
+      },
+      "reference": {
+        "block": ".rodata",
+        "ghidra": "0011ca71",
+        "offset": "0x35e9"
+      },
+      "value": "*ERROR* [msm-dsi-error]: %s: failed to send max return size packet, rc=%d\n"
+    },
+    {
+      "entry": {
+        "block": ".rodata",
+        "ghidra": "00124631",
+        "offset": "0xb1a9"
+      },
+      "reference": {
+        "block": ".rodata",
+        "ghidra": "00124631",
+        "offset": "0xb1a9"
+      },
+      "value": "*ERROR* [msm-dsi-error]: %s: Failed to set max return packet size, rc=%d\n"
+    },
+    {
+      "entry": {
+        "block": ".rodata",
+        "ghidra": "0012bc9f",
+        "offset": "0x12817"
+      },
+      "reference": {
+        "block": ".rodata",
+        "ghidra": "0012bc9f",
+        "offset": "0x12817"
+      },
+      "value": " %02X"
+    },
+    {
+      "entry": {
+        "block": ".rodata",
+        "ghidra": "00136855",
+        "offset": "0x1d3cd"
+      },
+      "reference": {
+        "block": ".rodata",
+        "ghidra": "00136855",
+        "offset": "0x1d3cd"
+      },
+      "value": "*ERROR* [msm-dsi-error]: %s: Invalid params\n"
+    },
+    {
+      "entry": {
+        "block": ".rodata",
+        "ghidra": "00136901",
+        "offset": "0x1d479"
+      },
+      "reference": {
+        "block": ".rodata",
+        "ghidra": "00136901",
+        "offset": "0x1d479"
+      },
+      "value": "*ERROR* [msm-dsi-error]: %s: command msg transfer failed, rc = %d\n"
+    },
+    {
+      "entry": {
+        "block": ".rodata",
+        "ghidra": "00158973",
+        "offset": "0x3f4eb"
+      },
+      "reference": {
+        "block": ".rodata",
+        "ghidra": "00158973",
+        "offset": "0x3f4eb"
+      },
+      "value": "%s: dsi_ctrl_cmd_transfer len=%zd, type=0x%x %s cmds=%s\n"
+    },
+    {
+      "entry": {
+        "block": ".rodata",
+        "ghidra": "0016b5bb",
+        "offset": "0x52133"
+      },
+      "reference": {
+        "block": ".rodata",
+        "ghidra": "0016b5bb",
+        "offset": "0x52133"
+      },
+      "value": "*ERROR* [msm-dsi-error]: %s: Rx ACK_ERROR 0x%x\n"
+    },
+    {
+      "entry": {
+        "block": ".rodata",
+        "ghidra": "0017b644",
+        "offset": "0x621bc"
+      },
+      "reference": {
+        "block": ".rodata",
+        "ghidra": "0017b644",
+        "offset": "0x621bc"
+      },
+      "value": "*ERROR* [msm-dsi-error]: %s: read message failed read length, rc=%d\n"
+    },
+    {
+      "entry": {
+        "block": ".rodata",
+        "ghidra": "0018e2e5",
+        "offset": "0x74e5d"
+      },
+      "reference": {
+        "block": ".rodata",
+        "ghidra": "0018e2e5",
+        "offset": "0x74e5d"
+      },
+      "value": "*ERROR* [msm-dsi-error]: %s: Message transmission failed, rc=%d\n"
+    }
+  ],
+  "selector": "dsi_ctrl_cmd_transfer",
+  "sha256": "1bec69faec736e7288f38e4cb83314c37c60d33e6b383213316fd880aa0b1804",
+  "size_bytes": 2060,
+  "status": "ok"
+}

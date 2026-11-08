@@ -1,0 +1,100 @@
+{
+  "address_model": "import address + memory block offset; NOT live VA",
+  "analysis": true,
+  "binary": "/mnt/kston/legion-Y70-madness/artifacts/current_display_path/als/motorola.hardware.sensorext-service",
+  "command": "xrefs",
+  "elf_type": "ET_DYN",
+  "filter": "",
+  "ghidra_version": "12.1.4",
+  "image_base": "00100000",
+  "incoming": [
+    {
+      "from": {
+        "block": ".eh_frame_hdr",
+        "ghidra": "00105cd4",
+        "offset": "0x2dc"
+      },
+      "to": {
+        "block": ".text",
+        "ghidra": "001147a8",
+        "offset": "0xc7a8"
+      },
+      "type": "INDIRECTION"
+    },
+    {
+      "from": {
+        "block": ".eh_frame",
+        "ghidra": "0010736c",
+        "offset": "0x155c"
+      },
+      "to": {
+        "block": ".text",
+        "ghidra": "001147a8",
+        "offset": "0xc7a8"
+      },
+      "type": "DATA"
+    },
+    {
+      "from": {
+        "block": ".text",
+        "ghidra": "001087c4",
+        "offset": "0x7c4"
+      },
+      "to": {
+        "block": ".text",
+        "ghidra": "001147a8",
+        "offset": "0xc7a8"
+      },
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": {
+        "block": ".text",
+        "ghidra": "001089a8",
+        "offset": "0x9a8"
+      },
+      "to": {
+        "block": ".text",
+        "ghidra": "001147a8",
+        "offset": "0xc7a8"
+      },
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": {
+        "block": ".text",
+        "ghidra": "001089c4",
+        "offset": "0x9c4"
+      },
+      "to": {
+        "block": ".text",
+        "ghidra": "001147a8",
+        "offset": "0xc7a8"
+      },
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": {
+        "block": null,
+        "ghidra": "Entry Point",
+        "offset": null
+      },
+      "to": {
+        "block": ".text",
+        "ghidra": "001147a8",
+        "offset": "0xc7a8"
+      },
+      "type": "EXTERNAL"
+    }
+  ],
+  "language": "AARCH64:LE:64:v8A",
+  "outgoing": [],
+  "selector": "001147a8",
+  "sha256": "b1a3bbb2dcb2fc975403c40df5a8404f62d3c95ac7239f5cdc2b0c05a7643f71",
+  "status": "ok",
+  "target": {
+    "block": ".text",
+    "ghidra": "001147a8",
+    "offset": "0xc7a8"
+  }
+}

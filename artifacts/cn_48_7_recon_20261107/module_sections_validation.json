@@ -1,0 +1,415 @@
+{
+  "scoped_comparison_rerun_exact": true,
+  "symtab_lengths_equal": true,
+  "all_section_names_equal": true,
+  "changed_sections": [
+    {
+      "section": ".note.gnu.build-id",
+      "type": 7,
+      "flags": 2,
+      "cn_bytes": 36,
+      "target_bytes": 36,
+      "attributes_equal": true,
+      "allocated": true
+    },
+    {
+      "section": ".symtab",
+      "type": 2,
+      "flags": 0,
+      "cn_bytes": 458496,
+      "target_bytes": 458496,
+      "attributes_equal": true,
+      "allocated": false
+    },
+    {
+      "section": ".strtab",
+      "type": 3,
+      "flags": 0,
+      "cn_bytes": 191417,
+      "target_bytes": 191417,
+      "attributes_equal": true,
+      "allocated": false
+    }
+  ],
+  "allocated_sections": [
+    {
+      "section": "__ksymtab",
+      "equal": true,
+      "type": 1,
+      "bytes": 60
+    },
+    {
+      "section": "__ksymtab_gpl",
+      "equal": true,
+      "type": 1,
+      "bytes": 480
+    },
+    {
+      "section": "__kcrctab",
+      "equal": true,
+      "type": 1,
+      "bytes": 20
+    },
+    {
+      "section": "__kcrctab_gpl",
+      "equal": true,
+      "type": 1,
+      "bytes": 160
+    },
+    {
+      "section": ".altinstructions",
+      "equal": true,
+      "type": 1,
+      "bytes": 15432
+    },
+    {
+      "section": "__bug_table",
+      "equal": true,
+      "type": 1,
+      "bytes": 1176
+    },
+    {
+      "section": "__jump_table",
+      "equal": true,
+      "type": 1,
+      "bytes": 8112
+    },
+    {
+      "section": ".bss",
+      "equal": true,
+      "type": 8,
+      "bytes": 34978
+    },
+    {
+      "section": ".data",
+      "equal": true,
+      "type": 1,
+      "bytes": 43136
+    },
+    {
+      "section": ".rodata",
+      "equal": true,
+      "type": 1,
+      "bytes": 579048
+    },
+    {
+      "section": ".text",
+      "equal": true,
+      "type": 1,
+      "bytes": 1951928
+    },
+    {
+      "section": ".codetag.alloc_tags",
+      "equal": true,
+      "type": 1,
+      "bytes": 14760
+    },
+    {
+      "section": ".plt",
+      "equal": true,
+      "type": 1,
+      "bytes": 1
+    },
+    {
+      "section": ".init.plt",
+      "equal": true,
+      "type": 1,
+      "bytes": 1
+    },
+    {
+      "section": ".text.ftrace_trampoline",
+      "equal": true,
+      "type": 1,
+      "bytes": 1
+    },
+    {
+      "section": ".init.eh_frame",
+      "equal": true,
+      "type": 1,
+      "bytes": 222176
+    },
+    {
+      "section": ".hyp.text",
+      "equal": true,
+      "type": 1,
+      "bytes": 0
+    },
+    {
+      "section": ".hyp.bss",
+      "equal": true,
+      "type": 1,
+      "bytes": 0
+    },
+    {
+      "section": ".hyp.rodata",
+      "equal": true,
+      "type": 1,
+      "bytes": 0
+    },
+    {
+      "section": ".hyp.event_ids",
+      "equal": true,
+      "type": 1,
+      "bytes": 0
+    },
+    {
+      "section": ".hyp.patchable_function_entries",
+      "equal": true,
+      "type": 1,
+      "bytes": 0
+    },
+    {
+      "section": ".hyp.data",
+      "equal": true,
+      "type": 1,
+      "bytes": 0
+    },
+    {
+      "section": ".init.text",
+      "equal": true,
+      "type": 1,
+      "bytes": 1012
+    },
+    {
+      "section": ".exit.text",
+      "equal": true,
+      "type": 1,
+      "bytes": 384
+    },
+    {
+      "section": ".data..percpu",
+      "equal": true,
+      "type": 1,
+      "bytes": 5904
+    },
+    {
+      "section": ".data..once",
+      "equal": true,
+      "type": 1,
+      "bytes": 7
+    },
+    {
+      "section": "__tracepoints_ptrs",
+      "equal": true,
+      "type": 1,
+      "bytes": 52
+    },
+    {
+      "section": "__tracepoints_strings",
+      "equal": true,
+      "type": 1,
+      "bytes": 255
+    },
+    {
+      "section": "__tracepoints",
+      "equal": true,
+      "type": 1,
+      "bytes": 1040
+    },
+    {
+      "section": ".ref.data",
+      "equal": true,
+      "type": 1,
+      "bytes": 936
+    },
+    {
+      "section": "_ftrace_events",
+      "equal": true,
+      "type": 1,
+      "bytes": 104
+    },
+    {
+      "section": "__bpf_raw_tp_map",
+      "equal": true,
+      "type": 1,
+      "bytes": 416
+    },
+    {
+      "section": "__param",
+      "equal": true,
+      "type": 1,
+      "bytes": 280
+    },
+    {
+      "section": ".modinfo",
+      "equal": true,
+      "type": 1,
+      "bytes": 2064
+    },
+    {
+      "section": ".data..read_mostly",
+      "equal": true,
+      "type": 1,
+      "bytes": 2
+    },
+    {
+      "section": ".init.data",
+      "equal": true,
+      "type": 1,
+      "bytes": 8
+    },
+    {
+      "section": ".exit.data",
+      "equal": true,
+      "type": 1,
+      "bytes": 8
+    },
+    {
+      "section": "__ksymtab_strings",
+      "equal": true,
+      "type": 1,
+      "bytes": 1017
+    },
+    {
+      "section": ".gnu.linkonce.this_module",
+      "equal": true,
+      "type": 1,
+      "bytes": 1600
+    },
+    {
+      "section": "__versions",
+      "equal": true,
+      "type": 1,
+      "bytes": 50432
+    },
+    {
+      "section": "__version_ext_crcs",
+      "equal": true,
+      "type": 1,
+      "bytes": 3152
+    },
+    {
+      "section": "__version_ext_names",
+      "equal": true,
+      "type": 1,
+      "bytes": 16000
+    },
+    {
+      "section": ".note.Linux",
+      "equal": true,
+      "type": 7,
+      "bytes": 48
+    },
+    {
+      "section": ".note.gnu.build-id",
+      "equal": false,
+      "type": 7,
+      "bytes": 36
+    },
+    {
+      "section": ".note.gnu.property",
+      "equal": true,
+      "type": 7,
+      "bytes": 32
+    }
+  ],
+  "limits": "No assertion of source reproducibility,module compatibility,runtimeconfigurationoropticalHz; buildmetadata isnotfrequencycontrol.",
+  "all_rela_sections_semantically_equal": [
+    {
+      "section": ".rela.text",
+      "resolved_entries": 90800,
+      "equal": true
+    },
+    {
+      "section": ".rela.init.text",
+      "resolved_entries": 80,
+      "equal": true
+    },
+    {
+      "section": ".rela.exit.text",
+      "resolved_entries": 37,
+      "equal": true
+    },
+    {
+      "section": ".rela.rodata",
+      "resolved_entries": 1394,
+      "equal": true
+    },
+    {
+      "section": ".rela.data",
+      "resolved_entries": 1091,
+      "equal": true
+    },
+    {
+      "section": ".rela.init.eh_frame",
+      "resolved_entries": 4047,
+      "equal": true
+    },
+    {
+      "section": ".rela__jump_table",
+      "resolved_entries": 1521,
+      "equal": true
+    },
+    {
+      "section": ".rela.altinstructions",
+      "resolved_entries": 2572,
+      "equal": true
+    },
+    {
+      "section": ".rela.codetag.alloc_tags",
+      "resolved_entries": 1476,
+      "equal": true
+    },
+    {
+      "section": ".rela__bug_table",
+      "resolved_entries": 196,
+      "equal": true
+    },
+    {
+      "section": ".rela__tracepoints_ptrs",
+      "resolved_entries": 13,
+      "equal": true
+    },
+    {
+      "section": ".rela__tracepoints",
+      "resolved_entries": 52,
+      "equal": true
+    },
+    {
+      "section": ".rela.ref.data",
+      "resolved_entries": 104,
+      "equal": true
+    },
+    {
+      "section": ".rela_ftrace_events",
+      "resolved_entries": 13,
+      "equal": true
+    },
+    {
+      "section": ".rela__bpf_raw_tp_map",
+      "resolved_entries": 26,
+      "equal": true
+    },
+    {
+      "section": ".rela__param",
+      "resolved_entries": 28,
+      "equal": true
+    },
+    {
+      "section": ".rela.init.data",
+      "resolved_entries": 1,
+      "equal": true
+    },
+    {
+      "section": ".rela.exit.data",
+      "resolved_entries": 1,
+      "equal": true
+    },
+    {
+      "section": ".rela__ksymtab_gpl",
+      "resolved_entries": 120,
+      "equal": true
+    },
+    {
+      "section": ".rela__ksymtab",
+      "resolved_entries": 15,
+      "equal": true
+    },
+    {
+      "section": ".rela.gnu.linkonce.this_module",
+      "resolved_entries": 2,
+      "equal": true
+    }
+  ],
+  "all46_changed_symbols_are_local_unique_id_names_only": true
+}

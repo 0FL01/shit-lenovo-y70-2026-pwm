@@ -1,0 +1,25 @@
+{
+  "prepared_at_utc": "2026-11-06T11:26:50.900507+00:00",
+  "image": "artifacts/kernel/gki_r59/kernelsu_next/boot-ram-test.img",
+  "bytes": 41644032,
+  "sha256": "d58ca6ed816f9ce508dea5b6ca50584dc8f942ed4ec9cfda51461c983aad2cfd",
+  "header": {
+    "version": 4,
+    "header_bytes": 1584,
+    "kernel_bytes": 41638400,
+    "ramdisk_bytes": 0,
+    "os_version_patch_packed": 0,
+    "cmdline": "",
+    "signature_bytes": 0
+  },
+  "mkbootimg_commit": "167f905b0c2bf311fedb039e8b30840176750ae8",
+  "kernel_proof": "artifacts/kernel/gki_r59/kernelsu_next_validation.json",
+  "kernel_sha256": "a6edb2ae26b273eb7b4ac510875efc8b9ac0c7963c084072896bfb0184a6723d",
+  "layout_reference": "Google r59 v4 header; no Motorola/cross-SKU payload used",
+  "avb_footer_present": false,
+  "oem_signature_claimed": false,
+  "offline_packaging_pass": true,
+  "allowed_proposal": "fastboot boot only; NEVER flash this experimental image",
+  "on_target_boot_or_vendor_compatibility_verified": false,
+  "ramdisk_dependency": "Existing active-slot init_boot/vendor_boot; target RAM path untested"
+}

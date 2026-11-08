@@ -1,0 +1,77 @@
+{
+  "scope": "CN reference file contents and libstcMotoColor ELF; live target files only inventoried, not read/compared",
+  "files": [
+    {
+      "name": "panel_mipi_mot_cmd_boe_1440p_dsc_682_C3D_cali_srgb.txt",
+      "bytes": 144726,
+      "rows": 4913,
+      "columns": 6,
+      "first3columns": "complete17x17x17inputlattice0..4095",
+      "last3columns_range": [
+        0,
+        4095
+      ]
+    },
+    {
+      "name": "panel_mipi_mot_cmd_boe_1440p_dsc_682_C3D_cali_p3.txt",
+      "bytes": 143565,
+      "rows": 4913,
+      "columns": 6,
+      "first3columns": "complete17x17x17inputlattice0..4095",
+      "last3columns_range": [
+        0,
+        4095
+      ]
+    },
+    {
+      "name": "panel_mipi_mot_cmd_boe_1440p_dsc_682_C3D_cali_pcc.txt",
+      "bytes": 164,
+      "rows": 3,
+      "columns": 11,
+      "nonzero_coefficients": [
+        {
+          "row": 0,
+          "column": 1,
+          "value": 0.994627594627595
+        },
+        {
+          "row": 1,
+          "column": 2,
+          "value": 0.999023199023199
+        },
+        {
+          "row": 2,
+          "column": 3,
+          "value": 1.0
+        }
+      ]
+    }
+  ],
+  "ranges": [
+    {
+      "name": "load-calibrated",
+      "start": "0xad8c",
+      "size": 2516,
+      "verified_words": 629
+    },
+    {
+      "name": "read-3dlut",
+      "start": "0xf674",
+      "size": 1192,
+      "verified_words": 298
+    },
+    {
+      "name": "read-pcc",
+      "start": "0xfb1c",
+      "size": 2340,
+      "verified_words": 585
+    },
+    {
+      "name": "render-calibration",
+      "start": "0xcc60",
+      "size": 1096,
+      "verified_words": 274
+    }
+  ],
+  "no_device_actions_in_this_analysis": true
+}

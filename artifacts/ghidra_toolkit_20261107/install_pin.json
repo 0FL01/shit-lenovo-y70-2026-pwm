@@ -1,0 +1,12 @@
+{
+  "tag": "Ghidra_12.1.4_build",
+  "url": "https://github.com/NationalSecurityAgency/ghidra/releases/download/Ghidra_12.1.4_build/ghidra_12.1.4_PUBLIC_20260921.zip",
+  "sha256": "ddac49f903da9d5bac833e5cc79395098b9c33cfd3279be5f31bd00387d2d4db",
+  "published_checksum_source": "https://api.github.com/repos/NationalSecurityAgency/ghidra/releases/tags/Ghidra_12.1.4_build (body and asset digest)",
+  "install_dir": "/home/stfu/tools/ghidra-12.1.4",
+  "pyghidra_venv": "/home/stfu/tools/ghidra-12.1.4-pyvenv",
+  "pyghidra_version": "3.1.0",
+  "java_home": "/home/stfu/.sdkman/candidates/java/current",
+  "project_and_jvm_temp_root": "/home/stfu/.cache/opencode-tmp/opencode/ghidra-toolkit-20261107",
+  "session_timebox": "2026-11-07T20:00:40Z to 2026-11-07T21:15:40Z"
+}

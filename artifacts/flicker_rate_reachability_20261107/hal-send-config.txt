@@ -1,0 +1,921 @@
+
+extracted/XT2611-1/W3WWL36.65-11-18/filesystems/vendor_a/lib64/sensors.qsh.so:	file format elf64-littleaarch64
+
+Disassembly of section .text:
+
+0000000000050400 <qsh_sensor::send_sensor_config_request()>:
+   50400: d503233f     	paciasp
+   50404: d104c3ff     	sub	sp, sp, #0x130
+   50408: a90d7bfd     	stp	x29, x30, [sp, #0xd0]
+   5040c: a90e6ffc     	stp	x28, x27, [sp, #0xe0]
+   50410: a90f67fa     	stp	x26, x25, [sp, #0xf0]
+   50414: a9105ff8     	stp	x24, x23, [sp, #0x100]
+   50418: a91157f6     	stp	x22, x21, [sp, #0x110]
+   5041c: a9124ff4     	stp	x20, x19, [sp, #0x120]
+   50420: 910343fd     	add	x29, sp, #0xd0
+   50424: d53bd048     	mrs	x8, TPIDR_EL0
+   50428: 6f00e400     	movi	v0.2d, #0000000000000000
+   5042c: aa0003f3     	mov	x19, x0
+   50430: f90007e8     	str	x8, [sp, #0x8]
+   50434: d10183a0     	sub	x0, x29, #0x60
+   50438: aa1f03e1     	mov	x1, xzr
+   5043c: f9401508     	ldr	x8, [x8, #0x28]
+   50440: 2a1f03e2     	mov	w2, wzr
+   50444: f81f03a8     	stur	x8, [x29, #-0x10]
+   50448: a9017fff     	stp	xzr, xzr, [sp, #0x10]
+   5044c: f90013ff     	str	xzr, [sp, #0x20]
+   50450: f81e03bf     	stur	xzr, [x29, #-0x20]
+   50454: ad3d03a0     	stp	q0, q0, [x29, #-0x60]
+   50458: ad3e03a0     	stp	q0, q0, [x29, #-0x40]
+   5045c: 94010437     	bl	0x91538 <_ZN22sns_client_request_msgC2EPN6google8protobuf5ArenaEb@plt>
+   50460: f9400274     	ldr	x20, [x19]
+   50464: d503201f     	nop
+   50468: 10224e5c     	adr	x28, 0x94e30 <vtable for accelerometer>
+   5046c: cb1c0288     	sub	x8, x20, x28
+   50470: d1004108     	sub	x8, x8, #0x10
+   50474: 93c81508     	ror	x8, x8, #0x5
+   50478: f1044d1f     	cmp	x8, #0x113
+   5047c: 54005bc8     	b.hi	0x50ff4 <qsh_sensor::send_sensor_config_request()+0xbf4>
+   50480: d503201f     	nop
+   50484: 10e60c69     	adr	x9, 0x1c610 <typeinfo name for std::bad_alloc+0xd>
+   50488: 38686928     	ldrb	w8, [x9, x8]
+   5048c: 36105b48     	tbz	w8, #0x2, 0x50ff4 <qsh_sensor::send_sensor_config_request()+0xbf4>
+   50490: f9403289     	ldr	x9, [x20, #0x60]
+   50494: 9100a3e8     	add	x8, sp, #0x28
+   50498: aa1303e0     	mov	x0, x19
+   5049c: d63f0120     	blr	x9
+   504a0: d2847dd5     	mov	x21, #0x23ee            // =9198
+   504a4: f85a03a1     	ldur	x1, [x29, #-0x60]
+   504a8: f2b5f0f5     	movk	x21, #0xaf87, lsl #16
+   504ac: f2cc5c55     	movk	x21, #0x62e2, lsl #32
+   504b0: f2e1f715     	movk	x21, #0xfb8, lsl #48
+   504b4: aa1503e0     	mov	x0, x21
+   504b8: 940100f0     	bl	0x90878 <__cfi_slowpath@plt>
+   504bc: d10183a0     	sub	x0, x29, #0x60
+   504c0: 9100a3e1     	add	x1, sp, #0x28
+   504c4: 94000362     	bl	0x5124c <qsh_sensor::send_sensor_config_request()+0xe4c>
+   504c8: 9100a3e0     	add	x0, sp, #0x28
+   504cc: 940103eb     	bl	0x91478 <_ZN22sns_client_request_msgD1Ev@plt>
+   504d0: f85a03a1     	ldur	x1, [x29, #-0x60]
+   504d4: aa1503e0     	mov	x0, x21
+   504d8: 940100e8     	bl	0x90878 <__cfi_slowpath@plt>
+   504dc: f85a03a1     	ldur	x1, [x29, #-0x60]
+   504e0: aa1503e0     	mov	x0, x21
+   504e4: 940100e5     	bl	0x90878 <__cfi_slowpath@plt>
+   504e8: b85b03a8     	ldur	w8, [x29, #-0x50]
+   504ec: f85b83b7     	ldur	x23, [x29, #-0x48]
+   504f0: 32000108     	orr	w8, w8, #0x1
+   504f4: b81b03a8     	stur	w8, [x29, #-0x50]
+   504f8: b50001b7     	cbnz	x23, 0x5052c <qsh_sensor::send_sensor_config_request()+0x12c>
+   504fc: d28c13e0     	mov	x0, #0x609f             // =24735
+   50500: f85a03a1     	ldur	x1, [x29, #-0x60]
+   50504: f2b34060     	movk	x0, #0x9a03, lsl #16
+   50508: f2c295a0     	movk	x0, #0x14ad, lsl #32
+   5050c: f2fe93c0     	movk	x0, #0xf49e, lsl #48
+   50510: 940100da     	bl	0x90878 <__cfi_slowpath@plt>
+   50514: f85a83a8     	ldur	x8, [x29, #-0x58]
+   50518: 927ef500     	and	x0, x8, #0xfffffffffffffffc
+   5051c: 37005448     	tbnz	w8, #0x0, 0x50fa4 <qsh_sensor::send_sensor_config_request()+0xba4>
+   50520: 9401016c     	bl	0x90ad0 <_ZN6google8protobuf5Arena18CreateMaybeMessageI12sns_std_suidJEEEPT_PS1_DpOT0_@plt>
+   50524: aa0003f7     	mov	x23, x0
+   50528: f81b83a0     	stur	x0, [x29, #-0x48]
+   5052c: d29e6ab6     	mov	x22, #0xf355            // =62293
+   50530: f94002e1     	ldr	x1, [x23]
+   50534: f2b0e056     	movk	x22, #0x8702, lsl #16
+   50538: f2d13276     	movk	x22, #0x8993, lsl #32
+   5053c: f2e05b56     	movk	x22, #0x2da, lsl #48
+   50540: aa1603e0     	mov	x0, x22
+   50544: 940100cd     	bl	0x90878 <__cfi_slowpath@plt>
+   50548: f94002e1     	ldr	x1, [x23]
+   5054c: f940a274     	ldr	x20, [x19, #0x140]
+   50550: aa1603e0     	mov	x0, x22
+   50554: 940100c9     	bl	0x90878 <__cfi_slowpath@plt>
+   50558: b94012e8     	ldr	w8, [x23, #0x10]
+   5055c: f85a03a1     	ldur	x1, [x29, #-0x60]
+   50560: aa1503e0     	mov	x0, x21
+   50564: f90012f4     	str	x20, [x23, #0x20]
+   50568: 321f0108     	orr	w8, w8, #0x2
+   5056c: b90012e8     	str	w8, [x23, #0x10]
+   50570: 940100c2     	bl	0x90878 <__cfi_slowpath@plt>
+   50574: f85a03a1     	ldur	x1, [x29, #-0x60]
+   50578: aa1503e0     	mov	x0, x21
+   5057c: 940100bf     	bl	0x90878 <__cfi_slowpath@plt>
+   50580: b85b03a8     	ldur	w8, [x29, #-0x50]
+   50584: f85b83b7     	ldur	x23, [x29, #-0x48]
+   50588: 32000108     	orr	w8, w8, #0x1
+   5058c: b81b03a8     	stur	w8, [x29, #-0x50]
+   50590: b50001b7     	cbnz	x23, 0x505c4 <qsh_sensor::send_sensor_config_request()+0x1c4>
+   50594: d28c13e0     	mov	x0, #0x609f             // =24735
+   50598: f85a03a1     	ldur	x1, [x29, #-0x60]
+   5059c: f2b34060     	movk	x0, #0x9a03, lsl #16
+   505a0: f2c295a0     	movk	x0, #0x14ad, lsl #32
+   505a4: f2fe93c0     	movk	x0, #0xf49e, lsl #48
+   505a8: 940100b4     	bl	0x90878 <__cfi_slowpath@plt>
+   505ac: f85a83a8     	ldur	x8, [x29, #-0x58]
+   505b0: 927ef500     	and	x0, x8, #0xfffffffffffffffc
+   505b4: 37004fc8     	tbnz	w8, #0x0, 0x50fac <qsh_sensor::send_sensor_config_request()+0xbac>
+   505b8: 94010146     	bl	0x90ad0 <_ZN6google8protobuf5Arena18CreateMaybeMessageI12sns_std_suidJEEEPT_PS1_DpOT0_@plt>
+   505bc: aa0003f7     	mov	x23, x0
+   505c0: f81b83a0     	stur	x0, [x29, #-0x48]
+   505c4: f94002e1     	ldr	x1, [x23]
+   505c8: aa1603e0     	mov	x0, x22
+   505cc: 940100ab     	bl	0x90878 <__cfi_slowpath@plt>
+   505d0: f94002e1     	ldr	x1, [x23]
+   505d4: f9409e74     	ldr	x20, [x19, #0x138]
+   505d8: aa1603e0     	mov	x0, x22
+   505dc: 940100a7     	bl	0x90878 <__cfi_slowpath@plt>
+   505e0: b94012e8     	ldr	w8, [x23, #0x10]
+   505e4: f9000ef4     	str	x20, [x23, #0x18]
+   505e8: 32000108     	orr	w8, w8, #0x1
+   505ec: b90012e8     	str	w8, [x23, #0x10]
+   505f0: 3945a268     	ldrb	w8, [x19, #0x168]
+   505f4: 7100051f     	cmp	w8, #0x1
+   505f8: 540009e1     	b.ne	0x50734 <qsh_sensor::send_sensor_config_request()+0x334>
+   505fc: 90fffe61     	adrp	x1, 0x1c000
+   50600: 91094021     	add	x1, x1, #0x250
+   50604: d0fffe22     	adrp	x2, 0x16000
+   50608: 9122cc42     	add	x2, x2, #0x8b3
+   5060c: 52800040     	mov	w0, #0x2                // =2
+   50610: 52804383     	mov	w3, #0x21c              // =540
+   50614: 94010093     	bl	0x90860 <_Z15sns_log_messageiPKcz@plt>
+   50618: f85a03a1     	ldur	x1, [x29, #-0x60]
+   5061c: aa1503e0     	mov	x0, x21
+   50620: 94010096     	bl	0x90878 <__cfi_slowpath@plt>
+   50624: f85a03a1     	ldur	x1, [x29, #-0x60]
+   50628: aa1503e0     	mov	x0, x21
+   5062c: 94010093     	bl	0x90878 <__cfi_slowpath@plt>
+   50630: b85b03a8     	ldur	w8, [x29, #-0x50]
+   50634: f85d03b7     	ldur	x23, [x29, #-0x30]
+   50638: 321d0108     	orr	w8, w8, #0x8
+   5063c: b81b03a8     	stur	w8, [x29, #-0x50]
+   50640: b50001b7     	cbnz	x23, 0x50674 <qsh_sensor::send_sensor_config_request()+0x274>
+   50644: d28c13e0     	mov	x0, #0x609f             // =24735
+   50648: f85a03a1     	ldur	x1, [x29, #-0x60]
+   5064c: f2b34060     	movk	x0, #0x9a03, lsl #16
+   50650: f2c295a0     	movk	x0, #0x14ad, lsl #32
+   50654: f2fe93c0     	movk	x0, #0xf49e, lsl #48
+   50658: 94010088     	bl	0x90878 <__cfi_slowpath@plt>
+   5065c: f85a83a8     	ldur	x8, [x29, #-0x58]
+   50660: 927ef500     	and	x0, x8, #0xfffffffffffffffc
+   50664: 37004b88     	tbnz	w8, #0x0, 0x50fd4 <qsh_sensor::send_sensor_config_request()+0xbd4>
+   50668: 94010624     	bl	0x91ef8 <_ZN6google8protobuf5Arena18CreateMaybeMessageI27sns_resampler_client_configJEEEPT_PS1_DpOT0_@plt>
+   5066c: aa0003f7     	mov	x23, x0
+   50670: f81d03a0     	stur	x0, [x29, #-0x30]
+   50674: d29a6e36     	mov	x22, #0xd371            // =54129
+   50678: f94002e1     	ldr	x1, [x23]
+   5067c: f2a94416     	movk	x22, #0x4a20, lsl #16
+   50680: f2c8e736     	movk	x22, #0x4739, lsl #32
+   50684: f2f7c156     	movk	x22, #0xbe0a, lsl #48
+   50688: aa1603e0     	mov	x0, x22
+   5068c: 9401007b     	bl	0x90878 <__cfi_slowpath@plt>
+   50690: f94002e1     	ldr	x1, [x23]
+   50694: aa1603e0     	mov	x0, x22
+   50698: 94010078     	bl	0x90878 <__cfi_slowpath@plt>
+   5069c: b94012e8     	ldr	w8, [x23, #0x10]
+   506a0: f85a03a1     	ldur	x1, [x29, #-0x60]
+   506a4: 52800034     	mov	w20, #0x1               // =1
+   506a8: aa1503e0     	mov	x0, x21
+   506ac: b9001af4     	str	w20, [x23, #0x18]
+   506b0: 32000108     	orr	w8, w8, #0x1
+   506b4: b90012e8     	str	w8, [x23, #0x10]
+   506b8: 94010070     	bl	0x90878 <__cfi_slowpath@plt>
+   506bc: f85a03a1     	ldur	x1, [x29, #-0x60]
+   506c0: aa1503e0     	mov	x0, x21
+   506c4: 9401006d     	bl	0x90878 <__cfi_slowpath@plt>
+   506c8: b85b03a8     	ldur	w8, [x29, #-0x50]
+   506cc: f85d03b7     	ldur	x23, [x29, #-0x30]
+   506d0: 321d0108     	orr	w8, w8, #0x8
+   506d4: b81b03a8     	stur	w8, [x29, #-0x50]
+   506d8: b50001b7     	cbnz	x23, 0x5070c <qsh_sensor::send_sensor_config_request()+0x30c>
+   506dc: d28c13e0     	mov	x0, #0x609f             // =24735
+   506e0: f85a03a1     	ldur	x1, [x29, #-0x60]
+   506e4: f2b34060     	movk	x0, #0x9a03, lsl #16
+   506e8: f2c295a0     	movk	x0, #0x14ad, lsl #32
+   506ec: f2fe93c0     	movk	x0, #0xf49e, lsl #48
+   506f0: 94010062     	bl	0x90878 <__cfi_slowpath@plt>
+   506f4: f85a83a8     	ldur	x8, [x29, #-0x58]
+   506f8: 927ef500     	and	x0, x8, #0xfffffffffffffffc
+   506fc: 37004708     	tbnz	w8, #0x0, 0x50fdc <qsh_sensor::send_sensor_config_request()+0xbdc>
+   50700: 940105fe     	bl	0x91ef8 <_ZN6google8protobuf5Arena18CreateMaybeMessageI27sns_resampler_client_configJEEEPT_PS1_DpOT0_@plt>
+   50704: aa0003f7     	mov	x23, x0
+   50708: f81d03a0     	stur	x0, [x29, #-0x30]
+   5070c: f94002e1     	ldr	x1, [x23]
+   50710: aa1603e0     	mov	x0, x22
+   50714: 94010059     	bl	0x90878 <__cfi_slowpath@plt>
+   50718: f94002e1     	ldr	x1, [x23]
+   5071c: aa1603e0     	mov	x0, x22
+   50720: 94010056     	bl	0x90878 <__cfi_slowpath@plt>
+   50724: b94012e8     	ldr	w8, [x23, #0x10]
+   50728: 390072f4     	strb	w20, [x23, #0x1c]
+   5072c: 321f0108     	orr	w8, w8, #0x2
+   50730: b90012e8     	str	w8, [x23, #0x10]
+   50734: f9400261     	ldr	x1, [x19]
+   50738: cb1c0028     	sub	x8, x1, x28
+   5073c: d1004108     	sub	x8, x8, #0x10
+   50740: 93c81508     	ror	x8, x8, #0x5
+   50744: f104611f     	cmp	x8, #0x118
+   50748: 54004648     	b.hi	0x51010 <qsh_sensor::send_sensor_config_request()+0xc10>
+   5074c: d503201f     	nop
+   50750: 10e5f609     	adr	x9, 0x1c610 <typeinfo name for std::bad_alloc+0xd>
+   50754: 38686928     	ldrb	w8, [x9, x8]
+   50758: 360045c8     	tbz	w8, #0x0, 0x51010 <qsh_sensor::send_sensor_config_request()+0xc10>
+   5075c: f9407668     	ldr	x8, [x19, #0xe8]
+   50760: d29ef9f4     	mov	x20, #0xf7cf            // =63439
+   50764: f9400261     	ldr	x1, [x19]
+   50768: f2bc6a74     	movk	x20, #0xe353, lsl #16
+   5076c: d343fd08     	lsr	x8, x8, #3
+   50770: f2d374b4     	movk	x20, #0x9ba5, lsl #32
+   50774: cb1c0029     	sub	x9, x1, x28
+   50778: f2e41894     	movk	x20, #0x20c4, lsl #48
+   5077c: d1004129     	sub	x9, x9, #0x10
+   50780: 9bd47d08     	umulh	x8, x8, x20
+   50784: 93c91529     	ror	x9, x9, #0x5
+   50788: f104613f     	cmp	x9, #0x118
+   5078c: d344fd05     	lsr	x5, x8, #4
+   50790: b9417668     	ldr	w8, [x19, #0x174]
+   50794: 540000c8     	b.hi	0x507ac <qsh_sensor::send_sensor_config_request()+0x3ac>
+   50798: d503201f     	nop
+   5079c: 10e5f3aa     	adr	x10, 0x1c610 <typeinfo name for std::bad_alloc+0xd>
+   507a0: 38696949     	ldrb	w9, [x10, x9]
+   507a4: 12000129     	and	w9, w9, #0x1
+   507a8: 14000002     	b	0x507b0 <qsh_sensor::send_sensor_config_request()+0x3b0>
+   507ac: 2a1f03e9     	mov	w9, wzr
+   507b0: d28701d7     	mov	x23, #0x380e            // =14350
+   507b4: d28706b8     	mov	x24, #0x3835            // =14389
+   507b8: f2b9d597     	movk	x23, #0xceac, lsl #16
+   507bc: f2bce3b8     	movk	x24, #0xe71d, lsl #16
+   507c0: f2c73117     	movk	x23, #0x3988, lsl #32
+   507c4: f2d1aa38     	movk	x24, #0x8d51, lsl #32
+   507c8: f2fd1877     	movk	x23, #0xe8c3, lsl #48
+   507cc: f2f29c98     	movk	x24, #0x94e4, lsl #48
+   507d0: 34000688     	cbz	w8, 0x508a0 <qsh_sensor::send_sensor_config_request()+0x4a0>
+   507d4: 36004849     	tbz	w9, #0x0, 0x510dc <qsh_sensor::send_sensor_config_request()+0xcdc>
+   507d8: 39432268     	ldrb	w8, [x19, #0xc8]
+   507dc: 721f091f     	tst	w8, #0xe
+   507e0: 540005a1     	b.ne	0x50894 <qsh_sensor::send_sensor_config_request()+0x494>
+   507e4: f9400261     	ldr	x1, [x19]
+   507e8: cb1c0028     	sub	x8, x1, x28
+   507ec: d1004108     	sub	x8, x8, #0x10
+   507f0: 93c81508     	ror	x8, x8, #0x5
+   507f4: f104611f     	cmp	x8, #0x118
+   507f8: 54004848     	b.hi	0x51100 <qsh_sensor::send_sensor_config_request()+0xd00>
+   507fc: d503201f     	nop
+   50800: 10e5f089     	adr	x9, 0x1c610 <typeinfo name for std::bad_alloc+0xd>
+   50804: 38686928     	ldrb	w8, [x9, x8]
+   50808: 360047c8     	tbz	w8, #0x0, 0x51100 <qsh_sensor::send_sensor_config_request()+0xd00>
+   5080c: f9407268     	ldr	x8, [x19, #0xe0]
+   50810: d343fd08     	lsr	x8, x8, #3
+   50814: 9bd47d09     	umulh	x9, x8, x20
+   50818: cb1c0028     	sub	x8, x1, x28
+   5081c: d1004108     	sub	x8, x8, #0x10
+   50820: 93c81508     	ror	x8, x8, #0x5
+   50824: f104611f     	cmp	x8, #0x118
+   50828: d344fd36     	lsr	x22, x9, #4
+   5082c: 540047c8     	b.hi	0x51124 <qsh_sensor::send_sensor_config_request()+0xd24>
+   50830: d503201f     	nop
+   50834: 10e5eee9     	adr	x9, 0x1c610 <typeinfo name for std::bad_alloc+0xd>
+   50838: 38686928     	ldrb	w8, [x9, x8]
+   5083c: 36004748     	tbz	w8, #0x0, 0x51124 <qsh_sensor::send_sensor_config_request()+0xd24>
+   50840: b940aa68     	ldr	w8, [x19, #0xa8]
+   50844: 9bc87ec9     	umulh	x9, x22, x8
+   50848: eb0903ff     	cmp	xzr, x9
+   5084c: 54004581     	b.ne	0x510fc <qsh_sensor::send_sensor_config_request()+0xcfc>
+   50850: 9b087ed6     	mul	x22, x22, x8
+   50854: 6b1600bf     	cmp	w5, w22
+   50858: 540001e9     	b.ls	0x50894 <qsh_sensor::send_sensor_config_request()+0x494>
+   5085c: 39452268     	ldrb	w8, [x19, #0x148]
+   50860: f940ae69     	ldr	x9, [x19, #0x158]
+   50864: 9105266a     	add	x10, x19, #0x149
+   50868: 7200011f     	tst	w8, #0x1
+   5086c: 9a890144     	csel	x4, x10, x9, eq
+   50870: b0fffe21     	adrp	x1, 0x15000
+   50874: 911e6421     	add	x1, x1, #0x799
+   50878: d0fffe22     	adrp	x2, 0x16000
+   5087c: 9122cc42     	add	x2, x2, #0x8b3
+   50880: 52800040     	mov	w0, #0x2                // =2
+   50884: 52804a23     	mov	w3, #0x251              // =593
+   50888: 2a1603e6     	mov	w6, w22
+   5088c: 9400fff5     	bl	0x90860 <_Z15sns_log_messageiPKcz@plt>
+   50890: 140000a2     	b	0x50b18 <qsh_sensor::send_sensor_config_request()+0x718>
+   50894: 2a1f03f9     	mov	w25, wzr
+   50898: 2a0503f6     	mov	w22, w5
+   5089c: 140000a0     	b	0x50b1c <qsh_sensor::send_sensor_config_request()+0x71c>
+   508a0: 36004529     	tbz	w9, #0x0, 0x51144 <qsh_sensor::send_sensor_config_request()+0xd44>
+   508a4: 39432268     	ldrb	w8, [x19, #0xc8]
+   508a8: 721f091f     	tst	w8, #0xe
+   508ac: 540005a1     	b.ne	0x50960 <qsh_sensor::send_sensor_config_request()+0x560>
+   508b0: f9400261     	ldr	x1, [x19]
+   508b4: cb1c0028     	sub	x8, x1, x28
+   508b8: d1004108     	sub	x8, x8, #0x10
+   508bc: 93c81508     	ror	x8, x8, #0x5
+   508c0: f104611f     	cmp	x8, #0x118
+   508c4: 54004508     	b.hi	0x51164 <qsh_sensor::send_sensor_config_request()+0xd64>
+   508c8: d503201f     	nop
+   508cc: 10e5ea29     	adr	x9, 0x1c610 <typeinfo name for std::bad_alloc+0xd>
+   508d0: 38686928     	ldrb	w8, [x9, x8]
+   508d4: 36004488     	tbz	w8, #0x0, 0x51164 <qsh_sensor::send_sensor_config_request()+0xd64>
+   508d8: f9407268     	ldr	x8, [x19, #0xe0]
+   508dc: d343fd08     	lsr	x8, x8, #3
+   508e0: 9bd47d09     	umulh	x9, x8, x20
+   508e4: cb1c0028     	sub	x8, x1, x28
+   508e8: d1004108     	sub	x8, x8, #0x10
+   508ec: 93c81508     	ror	x8, x8, #0x5
+   508f0: f104611f     	cmp	x8, #0x118
+   508f4: d344fd36     	lsr	x22, x9, #4
+   508f8: 54004488     	b.hi	0x51188 <qsh_sensor::send_sensor_config_request()+0xd88>
+   508fc: d503201f     	nop
+   50900: 10e5e889     	adr	x9, 0x1c610 <typeinfo name for std::bad_alloc+0xd>
+   50904: 38686928     	ldrb	w8, [x9, x8]
+   50908: 36004408     	tbz	w8, #0x0, 0x51188 <qsh_sensor::send_sensor_config_request()+0xd88>
+   5090c: b940aa68     	ldr	w8, [x19, #0xa8]
+   50910: 9bc87ec9     	umulh	x9, x22, x8
+   50914: eb0903ff     	cmp	xzr, x9
+   50918: 54003f21     	b.ne	0x510fc <qsh_sensor::send_sensor_config_request()+0xcfc>
+   5091c: 9b087ed6     	mul	x22, x22, x8
+   50920: 6b1600bf     	cmp	w5, w22
+   50924: 540001e9     	b.ls	0x50960 <qsh_sensor::send_sensor_config_request()+0x560>
+   50928: 39452268     	ldrb	w8, [x19, #0x148]
+   5092c: f940ae69     	ldr	x9, [x19, #0x158]
+   50930: 9105266a     	add	x10, x19, #0x149
+   50934: 7200011f     	tst	w8, #0x1
+   50938: 9a890144     	csel	x4, x10, x9, eq
+   5093c: b0fffe21     	adrp	x1, 0x15000
+   50940: 911e6421     	add	x1, x1, #0x799
+   50944: d0fffe22     	adrp	x2, 0x16000
+   50948: 9122cc42     	add	x2, x2, #0x8b3
+   5094c: 52800040     	mov	w0, #0x2                // =2
+   50950: 52804663     	mov	w3, #0x233              // =563
+   50954: 2a1603e6     	mov	w6, w22
+   50958: 9400ffc2     	bl	0x90860 <_Z15sns_log_messageiPKcz@plt>
+   5095c: 14000002     	b	0x50964 <qsh_sensor::send_sensor_config_request()+0x564>
+   50960: 2a0503f6     	mov	w22, w5
+   50964: f9400261     	ldr	x1, [x19]
+   50968: cb1c0028     	sub	x8, x1, x28
+   5096c: d1004108     	sub	x8, x8, #0x10
+   50970: 93c81508     	ror	x8, x8, #0x5
+   50974: f104611f     	cmp	x8, #0x118
+   50978: 54003a68     	b.hi	0x510c4 <qsh_sensor::send_sensor_config_request()+0xcc4>
+   5097c: d503201f     	nop
+   50980: 10e5e489     	adr	x9, 0x1c610 <typeinfo name for std::bad_alloc+0xd>
+   50984: 38686928     	ldrb	w8, [x9, x8]
+   50988: 360039e8     	tbz	w8, #0x0, 0x510c4 <qsh_sensor::send_sensor_config_request()+0xcc4>
+   5098c: f9400261     	ldr	x1, [x19]
+   50990: cb1c0028     	sub	x8, x1, x28
+   50994: d1004108     	sub	x8, x8, #0x10
+   50998: 93c81509     	ror	x9, x8, #0x5
+   5099c: f9406668     	ldr	x8, [x19, #0xc8]
+   509a0: f104613f     	cmp	x9, #0x118
+   509a4: 927f0908     	and	x8, x8, #0xe
+   509a8: 540008a8     	b.hi	0x50abc <qsh_sensor::send_sensor_config_request()+0x6bc>
+   509ac: d503201f     	nop
+   509b0: 10e5e30a     	adr	x10, 0x1c610 <typeinfo name for std::bad_alloc+0xd>
+   509b4: 38696949     	ldrb	w9, [x10, x9]
+   509b8: 12000129     	and	w9, w9, #0x1
+   509bc: b4000848     	cbz	x8, 0x50ac4 <qsh_sensor::send_sensor_config_request()+0x6c4>
+   509c0: 36004009     	tbz	w9, #0x0, 0x511c0 <qsh_sensor::send_sensor_config_request()+0xdc0>
+   509c4: b940a668     	ldr	w8, [x19, #0xa4]
+   509c8: 7100011f     	cmp	w8, #0x0
+   509cc: 5a9f03f9     	csetm	w25, ne
+   509d0: 6b16033f     	cmp	w25, w22
+   509d4: 54000a29     	b.ls	0x50b18 <qsh_sensor::send_sensor_config_request()+0x718>
+   509d8: f85a03a1     	ldur	x1, [x29, #-0x60]
+   509dc: aa1503e0     	mov	x0, x21
+   509e0: 9400ffa6     	bl	0x90878 <__cfi_slowpath@plt>
+   509e4: f85a03a1     	ldur	x1, [x29, #-0x60]
+   509e8: aa1503e0     	mov	x0, x21
+   509ec: 9400ffa3     	bl	0x90878 <__cfi_slowpath@plt>
+   509f0: b85b03a8     	ldur	w8, [x29, #-0x50]
+   509f4: f85c83ba     	ldur	x26, [x29, #-0x38]
+   509f8: 321e0108     	orr	w8, w8, #0x4
+   509fc: b81b03a8     	stur	w8, [x29, #-0x50]
+   50a00: b50001ba     	cbnz	x26, 0x50a34 <qsh_sensor::send_sensor_config_request()+0x634>
+   50a04: d28c13e0     	mov	x0, #0x609f             // =24735
+   50a08: f85a03a1     	ldur	x1, [x29, #-0x60]
+   50a0c: f2b34060     	movk	x0, #0x9a03, lsl #16
+   50a10: f2c295a0     	movk	x0, #0x14ad, lsl #32
+   50a14: f2fe93c0     	movk	x0, #0xf49e, lsl #48
+   50a18: 9400ff98     	bl	0x90878 <__cfi_slowpath@plt>
+   50a1c: f85a83a8     	ldur	x8, [x29, #-0x58]
+   50a20: 927ef500     	and	x0, x8, #0xfffffffffffffffc
+   50a24: 37002e08     	tbnz	w8, #0x0, 0x50fe4 <qsh_sensor::send_sensor_config_request()+0xbe4>
+   50a28: 94010024     	bl	0x90ab8 <_ZN6google8protobuf5Arena18CreateMaybeMessageI15sns_std_requestJEEEPT_PS1_DpOT0_@plt>
+   50a2c: aa0003fa     	mov	x26, x0
+   50a30: f81c83a0     	stur	x0, [x29, #-0x38]
+   50a34: f9400341     	ldr	x1, [x26]
+   50a38: aa1803e0     	mov	x0, x24
+   50a3c: 9400ff8f     	bl	0x90878 <__cfi_slowpath@plt>
+   50a40: f9400341     	ldr	x1, [x26]
+   50a44: aa1803e0     	mov	x0, x24
+   50a48: 9400ff8c     	bl	0x90878 <__cfi_slowpath@plt>
+   50a4c: b9401348     	ldr	w8, [x26, #0x10]
+   50a50: f940135b     	ldr	x27, [x26, #0x20]
+   50a54: 321f0108     	orr	w8, w8, #0x2
+   50a58: b9001348     	str	w8, [x26, #0x10]
+   50a5c: b50001bb     	cbnz	x27, 0x50a90 <qsh_sensor::send_sensor_config_request()+0x690>
+   50a60: d28c13e0     	mov	x0, #0x609f             // =24735
+   50a64: f9400341     	ldr	x1, [x26]
+   50a68: f2b34060     	movk	x0, #0x9a03, lsl #16
+   50a6c: f2c295a0     	movk	x0, #0x14ad, lsl #32
+   50a70: f2fe93c0     	movk	x0, #0xf49e, lsl #48
+   50a74: 9400ff81     	bl	0x90878 <__cfi_slowpath@plt>
+   50a78: f9400748     	ldr	x8, [x26, #0x8]
+   50a7c: 927ef500     	and	x0, x8, #0xfffffffffffffffc
+   50a80: 37002b68     	tbnz	w8, #0x0, 0x50fec <qsh_sensor::send_sensor_config_request()+0xbec>
+   50a84: 940104f9     	bl	0x91e68 <_ZN6google8protobuf5Arena18CreateMaybeMessageI26sns_std_request_batch_specJEEEPT_PS1_DpOT0_@plt>
+   50a88: aa0003fb     	mov	x27, x0
+   50a8c: f9001340     	str	x0, [x26, #0x20]
+   50a90: f9400361     	ldr	x1, [x27]
+   50a94: aa1703e0     	mov	x0, x23
+   50a98: 9400ff78     	bl	0x90878 <__cfi_slowpath@plt>
+   50a9c: f9400361     	ldr	x1, [x27]
+   50aa0: aa1703e0     	mov	x0, x23
+   50aa4: 9400ff75     	bl	0x90878 <__cfi_slowpath@plt>
+   50aa8: b9401368     	ldr	w8, [x27, #0x10]
+   50aac: b9001f79     	str	w25, [x27, #0x1c]
+   50ab0: 321f0108     	orr	w8, w8, #0x2
+   50ab4: b9001368     	str	w8, [x27, #0x10]
+   50ab8: 14000019     	b	0x50b1c <qsh_sensor::send_sensor_config_request()+0x71c>
+   50abc: 2a1f03e9     	mov	w9, wzr
+   50ac0: b5fff808     	cbnz	x8, 0x509c0 <qsh_sensor::send_sensor_config_request()+0x5c0>
+   50ac4: 360038a9     	tbz	w9, #0x0, 0x511d8 <qsh_sensor::send_sensor_config_request()+0xdd8>
+   50ac8: f9407268     	ldr	x8, [x19, #0xe0]
+   50acc: d343fd08     	lsr	x8, x8, #3
+   50ad0: 9bd47d09     	umulh	x9, x8, x20
+   50ad4: cb1c0028     	sub	x8, x1, x28
+   50ad8: d1004108     	sub	x8, x8, #0x10
+   50adc: 93c81508     	ror	x8, x8, #0x5
+   50ae0: f104611f     	cmp	x8, #0x118
+   50ae4: d344fd39     	lsr	x25, x9, #4
+   50ae8: 54003608     	b.hi	0x511a8 <qsh_sensor::send_sensor_config_request()+0xda8>
+   50aec: d503201f     	nop
+   50af0: 10e5d909     	adr	x9, 0x1c610 <typeinfo name for std::bad_alloc+0xd>
+   50af4: 38686928     	ldrb	w8, [x9, x8]
+   50af8: 36003588     	tbz	w8, #0x0, 0x511a8 <qsh_sensor::send_sensor_config_request()+0xda8>
+   50afc: b940a668     	ldr	w8, [x19, #0xa4]
+   50b00: 9bc87f29     	umulh	x9, x25, x8
+   50b04: eb0903ff     	cmp	xzr, x9
+   50b08: 54002fa1     	b.ne	0x510fc <qsh_sensor::send_sensor_config_request()+0xcfc>
+   50b0c: 9b087f39     	mul	x25, x25, x8
+   50b10: 6b16033f     	cmp	w25, w22
+   50b14: 54fff628     	b.hi	0x509d8 <qsh_sensor::send_sensor_config_request()+0x5d8>
+   50b18: 2a1f03f9     	mov	w25, wzr
+   50b1c: f9400261     	ldr	x1, [x19]
+   50b20: cb1c0028     	sub	x8, x1, x28
+   50b24: d1004108     	sub	x8, x8, #0x10
+   50b28: 93c81508     	ror	x8, x8, #0x5
+   50b2c: f104611f     	cmp	x8, #0x118
+   50b30: 540027c8     	b.hi	0x51028 <qsh_sensor::send_sensor_config_request()+0xc28>
+   50b34: d503201f     	nop
+   50b38: 10e5d6c9     	adr	x9, 0x1c610 <typeinfo name for std::bad_alloc+0xd>
+   50b3c: 38686928     	ldrb	w8, [x9, x8]
+   50b40: 36002748     	tbz	w8, #0x0, 0x51028 <qsh_sensor::send_sensor_config_request()+0xc28>
+   50b44: f9406668     	ldr	x8, [x19, #0xc8]
+   50b48: 927f0908     	and	x8, x8, #0xe
+   50b4c: f100091f     	cmp	x8, #0x2
+   50b50: 540006a1     	b.ne	0x50c24 <qsh_sensor::send_sensor_config_request()+0x824>
+   50b54: f9400261     	ldr	x1, [x19]
+   50b58: cb1c0028     	sub	x8, x1, x28
+   50b5c: d1004108     	sub	x8, x8, #0x10
+   50b60: 93c81508     	ror	x8, x8, #0x5
+   50b64: f104611f     	cmp	x8, #0x118
+   50b68: 54002928     	b.hi	0x5108c <qsh_sensor::send_sensor_config_request()+0xc8c>
+   50b6c: d503201f     	nop
+   50b70: 10e5d509     	adr	x9, 0x1c610 <typeinfo name for std::bad_alloc+0xd>
+   50b74: 38686928     	ldrb	w8, [x9, x8]
+   50b78: 360028a8     	tbz	w8, #0x0, 0x5108c <qsh_sensor::send_sensor_config_request()+0xc8c>
+   50b7c: f9407268     	ldr	x8, [x19, #0xe0]
+   50b80: d363fd09     	lsr	x9, x8, #35
+   50b84: f101f53f     	cmp	x9, #0x7d
+   50b88: 54000143     	b.lo	0x50bb0 <qsh_sensor::send_sensor_config_request()+0x7b0>
+   50b8c: b0fffe21     	adrp	x1, 0x15000
+   50b90: 911f4c21     	add	x1, x1, #0x7d3
+   50b94: d0fffe22     	adrp	x2, 0x16000
+   50b98: 9122cc42     	add	x2, x2, #0x8b3
+   50b9c: 52800040     	mov	w0, #0x2                // =2
+   50ba0: 52804b63     	mov	w3, #0x25b              // =603
+   50ba4: 9400ff2f     	bl	0x90860 <_Z15sns_log_messageiPKcz@plt>
+   50ba8: 12800008     	mov	w8, #-0x1               // =-1
+   50bac: 14000004     	b	0x50bbc <qsh_sensor::send_sensor_config_request()+0x7bc>
+   50bb0: d343fd08     	lsr	x8, x8, #3
+   50bb4: 9bd47d08     	umulh	x8, x8, x20
+   50bb8: d344fd08     	lsr	x8, x8, #4
+   50bbc: f9400261     	ldr	x1, [x19]
+   50bc0: 3945226a     	ldrb	w10, [x19, #0x148]
+   50bc4: 6b0802df     	cmp	w22, w8
+   50bc8: f940ae6b     	ldr	x11, [x19, #0x158]
+   50bcc: 1a8882d6     	csel	w22, w22, w8, hi
+   50bd0: 91052668     	add	x8, x19, #0x149
+   50bd4: cb1c0029     	sub	x9, x1, x28
+   50bd8: 7200015f     	tst	w10, #0x1
+   50bdc: d1004129     	sub	x9, x9, #0x10
+   50be0: 9a8b0104     	csel	x4, x8, x11, eq
+   50be4: 93c91529     	ror	x9, x9, #0x5
+   50be8: f104613f     	cmp	x9, #0x118
+   50bec: 540025c8     	b.hi	0x510a4 <qsh_sensor::send_sensor_config_request()+0xca4>
+   50bf0: d503201f     	nop
+   50bf4: 10e5d0e8     	adr	x8, 0x1c610 <typeinfo name for std::bad_alloc+0xd>
+   50bf8: 38696908     	ldrb	w8, [x8, x9]
+   50bfc: 36002548     	tbz	w8, #0x0, 0x510a4 <qsh_sensor::send_sensor_config_request()+0xca4>
+   50c00: f9407265     	ldr	x5, [x19, #0xe0]
+   50c04: f0fffe41     	adrp	x1, 0x1b000
+   50c08: 91008821     	add	x1, x1, #0x22
+   50c0c: d0fffe22     	adrp	x2, 0x16000
+   50c10: 9122cc42     	add	x2, x2, #0x8b3
+   50c14: 52800040     	mov	w0, #0x2                // =2
+   50c18: 52804c43     	mov	w3, #0x262              // =610
+   50c1c: 2a1603e6     	mov	w6, w22
+   50c20: 9400ff10     	bl	0x90860 <_Z15sns_log_messageiPKcz@plt>
+   50c24: f85a03a1     	ldur	x1, [x29, #-0x60]
+   50c28: aa1503e0     	mov	x0, x21
+   50c2c: 9400ff13     	bl	0x90878 <__cfi_slowpath@plt>
+   50c30: f85a03a1     	ldur	x1, [x29, #-0x60]
+   50c34: aa1503e0     	mov	x0, x21
+   50c38: 9400ff10     	bl	0x90878 <__cfi_slowpath@plt>
+   50c3c: b85b03a8     	ldur	w8, [x29, #-0x50]
+   50c40: f85c83ba     	ldur	x26, [x29, #-0x38]
+   50c44: 321e0108     	orr	w8, w8, #0x4
+   50c48: b81b03a8     	stur	w8, [x29, #-0x50]
+   50c4c: b50001ba     	cbnz	x26, 0x50c80 <qsh_sensor::send_sensor_config_request()+0x880>
+   50c50: d28c13e0     	mov	x0, #0x609f             // =24735
+   50c54: f85a03a1     	ldur	x1, [x29, #-0x60]
+   50c58: f2b34060     	movk	x0, #0x9a03, lsl #16
+   50c5c: f2c295a0     	movk	x0, #0x14ad, lsl #32
+   50c60: f2fe93c0     	movk	x0, #0xf49e, lsl #48
+   50c64: 9400ff05     	bl	0x90878 <__cfi_slowpath@plt>
+   50c68: f85a83a8     	ldur	x8, [x29, #-0x58]
+   50c6c: 927ef500     	and	x0, x8, #0xfffffffffffffffc
+   50c70: 37001a28     	tbnz	w8, #0x0, 0x50fb4 <qsh_sensor::send_sensor_config_request()+0xbb4>
+   50c74: 9400ff91     	bl	0x90ab8 <_ZN6google8protobuf5Arena18CreateMaybeMessageI15sns_std_requestJEEEPT_PS1_DpOT0_@plt>
+   50c78: aa0003fa     	mov	x26, x0
+   50c7c: f81c83a0     	stur	x0, [x29, #-0x38]
+   50c80: f9400341     	ldr	x1, [x26]
+   50c84: aa1803e0     	mov	x0, x24
+   50c88: 9400fefc     	bl	0x90878 <__cfi_slowpath@plt>
+   50c8c: f9400341     	ldr	x1, [x26]
+   50c90: aa1803e0     	mov	x0, x24
+   50c94: 9400fef9     	bl	0x90878 <__cfi_slowpath@plt>
+   50c98: b9401348     	ldr	w8, [x26, #0x10]
+   50c9c: f9401358     	ldr	x24, [x26, #0x20]
+   50ca0: 321f0108     	orr	w8, w8, #0x2
+   50ca4: b9001348     	str	w8, [x26, #0x10]
+   50ca8: b50001b8     	cbnz	x24, 0x50cdc <qsh_sensor::send_sensor_config_request()+0x8dc>
+   50cac: d28c13e0     	mov	x0, #0x609f             // =24735
+   50cb0: f9400341     	ldr	x1, [x26]
+   50cb4: f2b34060     	movk	x0, #0x9a03, lsl #16
+   50cb8: f2c295a0     	movk	x0, #0x14ad, lsl #32
+   50cbc: f2fe93c0     	movk	x0, #0xf49e, lsl #48
+   50cc0: 9400feee     	bl	0x90878 <__cfi_slowpath@plt>
+   50cc4: f9400748     	ldr	x8, [x26, #0x8]
+   50cc8: 927ef500     	and	x0, x8, #0xfffffffffffffffc
+   50ccc: 37001788     	tbnz	w8, #0x0, 0x50fbc <qsh_sensor::send_sensor_config_request()+0xbbc>
+   50cd0: 94010466     	bl	0x91e68 <_ZN6google8protobuf5Arena18CreateMaybeMessageI26sns_std_request_batch_specJEEEPT_PS1_DpOT0_@plt>
+   50cd4: aa0003f8     	mov	x24, x0
+   50cd8: f9001340     	str	x0, [x26, #0x20]
+   50cdc: f9400301     	ldr	x1, [x24]
+   50ce0: aa1703e0     	mov	x0, x23
+   50ce4: 9400fee5     	bl	0x90878 <__cfi_slowpath@plt>
+   50ce8: f9400301     	ldr	x1, [x24]
+   50cec: aa1703e0     	mov	x0, x23
+   50cf0: 9400fee2     	bl	0x90878 <__cfi_slowpath@plt>
+   50cf4: b9401308     	ldr	w8, [x24, #0x10]
+   50cf8: f85a03a1     	ldur	x1, [x29, #-0x60]
+   50cfc: aa1503e0     	mov	x0, x21
+   50d00: b9001b16     	str	w22, [x24, #0x18]
+   50d04: 32000108     	orr	w8, w8, #0x1
+   50d08: b9001308     	str	w8, [x24, #0x10]
+   50d0c: 9400fedb     	bl	0x90878 <__cfi_slowpath@plt>
+   50d10: f85a03a1     	ldur	x1, [x29, #-0x60]
+   50d14: aa1503e0     	mov	x0, x21
+   50d18: 9400fed8     	bl	0x90878 <__cfi_slowpath@plt>
+   50d1c: b85b03a8     	ldur	w8, [x29, #-0x50]
+   50d20: f85c03b8     	ldur	x24, [x29, #-0x40]
+   50d24: 321f0108     	orr	w8, w8, #0x2
+   50d28: b81b03a8     	stur	w8, [x29, #-0x50]
+   50d2c: b50001b8     	cbnz	x24, 0x50d60 <qsh_sensor::send_sensor_config_request()+0x960>
+   50d30: d28c13e0     	mov	x0, #0x609f             // =24735
+   50d34: f85a03a1     	ldur	x1, [x29, #-0x60]
+   50d38: f2b34060     	movk	x0, #0x9a03, lsl #16
+   50d3c: f2c295a0     	movk	x0, #0x14ad, lsl #32
+   50d40: f2fe93c0     	movk	x0, #0xf49e, lsl #48
+   50d44: 9400fecd     	bl	0x90878 <__cfi_slowpath@plt>
+   50d48: f85a83a8     	ldur	x8, [x29, #-0x58]
+   50d4c: 927ef500     	and	x0, x8, #0xfffffffffffffffc
+   50d50: 370013a8     	tbnz	w8, #0x0, 0x50fc4 <qsh_sensor::send_sensor_config_request()+0xbc4>
+   50d54: 94010205     	bl	0x91568 <_ZN6google8protobuf5Arena18CreateMaybeMessageI37sns_client_request_msg_suspend_configJEEEPT_PS1_DpOT0_@plt>
+   50d58: aa0003f8     	mov	x24, x0
+   50d5c: f81c03a0     	stur	x0, [x29, #-0x40]
+   50d60: d28c1eb7     	mov	x23, #0x60f5            // =24821
+   50d64: f9400301     	ldr	x1, [x24]
+   50d68: f2a9b917     	movk	x23, #0x4dc8, lsl #16
+   50d6c: f2d3fdd7     	movk	x23, #0x9fee, lsl #32
+   50d70: f2f45117     	movk	x23, #0xa288, lsl #48
+   50d74: aa1703e0     	mov	x0, x23
+   50d78: 9400fec0     	bl	0x90878 <__cfi_slowpath@plt>
+   50d7c: f9400261     	ldr	x1, [x19]
+   50d80: cb1c0028     	sub	x8, x1, x28
+   50d84: d1004108     	sub	x8, x8, #0x10
+   50d88: 93c81508     	ror	x8, x8, #0x5
+   50d8c: f1044d1f     	cmp	x8, #0x113
+   50d90: 54001588     	b.hi	0x51040 <qsh_sensor::send_sensor_config_request()+0xc40>
+   50d94: d503201f     	nop
+   50d98: 10e5c3c9     	adr	x9, 0x1c610 <typeinfo name for std::bad_alloc+0xd>
+   50d9c: 38686928     	ldrb	w8, [x9, x8]
+   50da0: 36101508     	tbz	w8, #0x2, 0x51040 <qsh_sensor::send_sensor_config_request()+0xc40>
+   50da4: cb1c0028     	sub	x8, x1, x28
+   50da8: d1004108     	sub	x8, x8, #0x10
+   50dac: 93c81508     	ror	x8, x8, #0x5
+   50db0: f104611f     	cmp	x8, #0x118
+   50db4: 54001548     	b.hi	0x5105c <qsh_sensor::send_sensor_config_request()+0xc5c>
+   50db8: d503201f     	nop
+   50dbc: 10e5c2a9     	adr	x9, 0x1c610 <typeinfo name for std::bad_alloc+0xd>
+   50dc0: 38686928     	ldrb	w8, [x9, x8]
+   50dc4: 360014c8     	tbz	w8, #0x0, 0x5105c <qsh_sensor::send_sensor_config_request()+0xc5c>
+   50dc8: b940ca68     	ldr	w8, [x19, #0xc8]
+   50dcc: f9400301     	ldr	x1, [x24]
+   50dd0: 52800034     	mov	w20, #0x1               // =1
+   50dd4: aa1703e0     	mov	x0, x23
+   50dd8: 0a28029a     	bic	w26, w20, w8
+   50ddc: 9400fea7     	bl	0x90878 <__cfi_slowpath@plt>
+   50de0: b9401308     	ldr	w8, [x24, #0x10]
+   50de4: f85a03a1     	ldur	x1, [x29, #-0x60]
+   50de8: aa1503e0     	mov	x0, x21
+   50dec: b9002b1a     	str	w26, [x24, #0x28]
+   50df0: 32000108     	orr	w8, w8, #0x1
+   50df4: b9001308     	str	w8, [x24, #0x10]
+   50df8: 9400fea0     	bl	0x90878 <__cfi_slowpath@plt>
+   50dfc: f85a03a1     	ldur	x1, [x29, #-0x60]
+   50e00: aa1503e0     	mov	x0, x21
+   50e04: 9400fe9d     	bl	0x90878 <__cfi_slowpath@plt>
+   50e08: b85b03a8     	ldur	w8, [x29, #-0x50]
+   50e0c: f85c03b8     	ldur	x24, [x29, #-0x40]
+   50e10: 321f0108     	orr	w8, w8, #0x2
+   50e14: b81b03a8     	stur	w8, [x29, #-0x50]
+   50e18: b50001b8     	cbnz	x24, 0x50e4c <qsh_sensor::send_sensor_config_request()+0xa4c>
+   50e1c: d28c13e0     	mov	x0, #0x609f             // =24735
+   50e20: f85a03a1     	ldur	x1, [x29, #-0x60]
+   50e24: f2b34060     	movk	x0, #0x9a03, lsl #16
+   50e28: f2c295a0     	movk	x0, #0x14ad, lsl #32
+   50e2c: f2fe93c0     	movk	x0, #0xf49e, lsl #48
+   50e30: 9400fe92     	bl	0x90878 <__cfi_slowpath@plt>
+   50e34: f85a83a8     	ldur	x8, [x29, #-0x58]
+   50e38: 927ef500     	and	x0, x8, #0xfffffffffffffffc
+   50e3c: 37000c88     	tbnz	w8, #0x0, 0x50fcc <qsh_sensor::send_sensor_config_request()+0xbcc>
+   50e40: 940101ca     	bl	0x91568 <_ZN6google8protobuf5Arena18CreateMaybeMessageI37sns_client_request_msg_suspend_configJEEEPT_PS1_DpOT0_@plt>
+   50e44: aa0003f8     	mov	x24, x0
+   50e48: f81c03a0     	stur	x0, [x29, #-0x40]
+   50e4c: f9400301     	ldr	x1, [x24]
+   50e50: aa1703e0     	mov	x0, x23
+   50e54: 9400fe89     	bl	0x90878 <__cfi_slowpath@plt>
+   50e58: f9400301     	ldr	x1, [x24]
+   50e5c: aa1703e0     	mov	x0, x23
+   50e60: 9400fe86     	bl	0x90878 <__cfi_slowpath@plt>
+   50e64: b9401308     	ldr	w8, [x24, #0x10]
+   50e68: f85a03a1     	ldur	x1, [x29, #-0x60]
+   50e6c: aa1503e0     	mov	x0, x21
+   50e70: b9002f14     	str	w20, [x24, #0x2c]
+   50e74: 321f0108     	orr	w8, w8, #0x2
+   50e78: b9001308     	str	w8, [x24, #0x10]
+   50e7c: 9400fe7f     	bl	0x90878 <__cfi_slowpath@plt>
+   50e80: f85a03a1     	ldur	x1, [x29, #-0x60]
+   50e84: aa1503e0     	mov	x0, x21
+   50e88: 9400fe7c     	bl	0x90878 <__cfi_slowpath@plt>
+   50e8c: d28c13e0     	mov	x0, #0x609f             // =24735
+   50e90: b85b03a8     	ldur	w8, [x29, #-0x50]
+   50e94: f85a03a1     	ldur	x1, [x29, #-0x60]
+   50e98: f2b34060     	movk	x0, #0x9a03, lsl #16
+   50e9c: b81e43b4     	stur	w20, [x29, #-0x1c]
+   50ea0: f2c295a0     	movk	x0, #0x14ad, lsl #32
+   50ea4: 321a0108     	orr	w8, w8, #0x40
+   50ea8: f2fe93c0     	movk	x0, #0xf49e, lsl #48
+   50eac: b81b03a8     	stur	w8, [x29, #-0x50]
+   50eb0: 9400fe72     	bl	0x90878 <__cfi_slowpath@plt>
+   50eb4: d10183a0     	sub	x0, x29, #0x60
+   50eb8: 910043e1     	add	x1, sp, #0x10
+   50ebc: 9400fe75     	bl	0x90890 <_ZNK6google8protobuf11MessageLite17SerializeToStringEPNSt3__112basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEE@plt>
+   50ec0: 39452268     	ldrb	w8, [x19, #0x148]
+   50ec4: f940ae69     	ldr	x9, [x19, #0x158]
+   50ec8: 9105266a     	add	x10, x19, #0x149
+   50ecc: 3945a267     	ldrb	w7, [x19, #0x168]
+   50ed0: 7200011f     	tst	w8, #0x1
+   50ed4: 9a890144     	csel	x4, x10, x9, eq
+   50ed8: f0fffe41     	adrp	x1, 0x1b000
+   50edc: 91141c21     	add	x1, x1, #0x507
+   50ee0: d0fffe22     	adrp	x2, 0x16000
+   50ee4: 9122cc42     	add	x2, x2, #0x8b3
+   50ee8: 52800060     	mov	w0, #0x3                // =3
+   50eec: 52804e63     	mov	w3, #0x273              // =627
+   50ef0: 2a1603e5     	mov	w5, w22
+   50ef4: 2a1903e6     	mov	w6, w25
+   50ef8: 9400fe5a     	bl	0x90860 <_Z15sns_log_messageiPKcz@plt>
+   50efc: f9409260     	ldr	x0, [x19, #0x120]
+   50f00: b40000c0     	cbz	x0, 0x50f18 <qsh_sensor::send_sensor_config_request()+0xb18>
+   50f04: d503201f     	nop
+   50f08: 302587c3     	adr	x3, 0x9c001 <sensor_discovery::_laterboot+0x1>
+   50f0c: 910043e1     	add	x1, sp, #0x10
+   50f10: 91052262     	add	x2, x19, #0x148
+   50f14: 94010363     	bl	0x91ca0 <_ZN16sensors_diag_log15log_request_msgERKNSt3__112basic_stringIcNS0_11char_traitsIcEENS0_9allocatorIcEEEES8_Pc@plt>
+   50f18: f9400261     	ldr	x1, [x19]
+   50f1c: cb1c0028     	sub	x8, x1, x28
+   50f20: d1004108     	sub	x8, x8, #0x10
+   50f24: 93c81508     	ror	x8, x8, #0x5
+   50f28: f1044d1f     	cmp	x8, #0x113
+   50f2c: 54000a48     	b.hi	0x51074 <qsh_sensor::send_sensor_config_request()+0xc74>
+   50f30: d503201f     	nop
+   50f34: 10e5b6e9     	adr	x9, 0x1c610 <typeinfo name for std::bad_alloc+0xd>
+   50f38: 38686928     	ldrb	w8, [x9, x8]
+   50f3c: 361009c8     	tbz	w8, #0x2, 0x51074 <qsh_sensor::send_sensor_config_request()+0xc74>
+   50f40: 910043e1     	add	x1, sp, #0x10
+   50f44: aa1303e0     	mov	x0, x19
+   50f48: 940102ba     	bl	0x91a30 <_ZN10qsh_sensor24send_sync_sensor_requestERNSt3__112basic_stringIcNS0_11char_traitsIcEENS0_9allocatorIcEEEE@plt>
+   50f4c: d10183a0     	sub	x0, x29, #0x60
+   50f50: 9401014a     	bl	0x91478 <_ZN22sns_client_request_msgD1Ev@plt>
+   50f54: 394043e8     	ldrb	w8, [sp, #0x10]
+   50f58: 360000a8     	tbz	w8, #0x0, 0x50f6c <qsh_sensor::send_sensor_config_request()+0xb6c>
+   50f5c: f9400be8     	ldr	x8, [sp, #0x10]
+   50f60: f94013e0     	ldr	x0, [sp, #0x20]
+   50f64: 927ff901     	and	x1, x8, #0xfffffffffffffffe
+   50f68: 9400fee0     	bl	0x90ae8 <_ZdlPvm@plt>
+   50f6c: f94007e8     	ldr	x8, [sp, #0x8]
+   50f70: f9401508     	ldr	x8, [x8, #0x28]
+   50f74: f85f03a9     	ldur	x9, [x29, #-0x10]
+   50f78: eb09011f     	cmp	x8, x9
+   50f7c: 54001661     	b.ne	0x51248 <qsh_sensor::send_sensor_config_request()+0xe48>
+   50f80: a9524ff4     	ldp	x20, x19, [sp, #0x120]
+   50f84: a95157f6     	ldp	x22, x21, [sp, #0x110]
+   50f88: a9505ff8     	ldp	x24, x23, [sp, #0x100]
+   50f8c: a94f67fa     	ldp	x26, x25, [sp, #0xf0]
+   50f90: a94e6ffc     	ldp	x28, x27, [sp, #0xe0]
+   50f94: a94d7bfd     	ldp	x29, x30, [sp, #0xd0]
+   50f98: 9104c3ff     	add	sp, sp, #0x130
+   50f9c: d50323bf     	autiasp
+   50fa0: d65f03c0     	ret
+   50fa4: f9400000     	ldr	x0, [x0]
+   50fa8: 17fffd5e     	b	0x50520 <qsh_sensor::send_sensor_config_request()+0x120>
+   50fac: f9400000     	ldr	x0, [x0]
+   50fb0: 17fffd82     	b	0x505b8 <qsh_sensor::send_sensor_config_request()+0x1b8>
+   50fb4: f9400000     	ldr	x0, [x0]
+   50fb8: 17ffff2f     	b	0x50c74 <qsh_sensor::send_sensor_config_request()+0x874>
+   50fbc: f9400000     	ldr	x0, [x0]
+   50fc0: 17ffff44     	b	0x50cd0 <qsh_sensor::send_sensor_config_request()+0x8d0>
+   50fc4: f9400000     	ldr	x0, [x0]
+   50fc8: 17ffff63     	b	0x50d54 <qsh_sensor::send_sensor_config_request()+0x954>
+   50fcc: f9400000     	ldr	x0, [x0]
+   50fd0: 17ffff9c     	b	0x50e40 <qsh_sensor::send_sensor_config_request()+0xa40>
+   50fd4: f9400000     	ldr	x0, [x0]
+   50fd8: 17fffda4     	b	0x50668 <qsh_sensor::send_sensor_config_request()+0x268>
+   50fdc: f9400000     	ldr	x0, [x0]
+   50fe0: 17fffdc8     	b	0x50700 <qsh_sensor::send_sensor_config_request()+0x300>
+   50fe4: f9400000     	ldr	x0, [x0]
+   50fe8: 17fffe90     	b	0x50a28 <qsh_sensor::send_sensor_config_request()+0x628>
+   50fec: f9400000     	ldr	x0, [x0]
+   50ff0: 17fffea5     	b	0x50a84 <qsh_sensor::send_sensor_config_request()+0x684>
+   50ff4: d29fdea0     	mov	x0, #0xfef5             // =65269
+   50ff8: aa1403e1     	mov	x1, x20
+   50ffc: f2bf3d20     	movk	x0, #0xf9e9, lsl #16
+   51000: f2c33c80     	movk	x0, #0x19e4, lsl #32
+   51004: f2fd9ee0     	movk	x0, #0xecf7, lsl #48
+   51008: 9400fe1c     	bl	0x90878 <__cfi_slowpath@plt>
+   5100c: 17fffd21     	b	0x50490 <qsh_sensor::send_sensor_config_request()+0x90>
+   51010: d288f3a0     	mov	x0, #0x479d             // =18333
+   51014: f2a1b040     	movk	x0, #0xd82, lsl #16
+   51018: f2d340e0     	movk	x0, #0x9a07, lsl #32
+   5101c: f2e2e0e0     	movk	x0, #0x1707, lsl #48
+   51020: 9400fe16     	bl	0x90878 <__cfi_slowpath@plt>
+   51024: 17fffdce     	b	0x5075c <qsh_sensor::send_sensor_config_request()+0x35c>
+   51028: d288f3a0     	mov	x0, #0x479d             // =18333
+   5102c: f2a1b040     	movk	x0, #0xd82, lsl #16
+   51030: f2d340e0     	movk	x0, #0x9a07, lsl #32
+   51034: f2e2e0e0     	movk	x0, #0x1707, lsl #48
+   51038: 9400fe10     	bl	0x90878 <__cfi_slowpath@plt>
+   5103c: 17fffec2     	b	0x50b44 <qsh_sensor::send_sensor_config_request()+0x744>
+   51040: d29fdea0     	mov	x0, #0xfef5             // =65269
+   51044: f2bf3d20     	movk	x0, #0xf9e9, lsl #16
+   51048: f2c33c80     	movk	x0, #0x19e4, lsl #32
+   5104c: f2fd9ee0     	movk	x0, #0xecf7, lsl #48
+   51050: 9400fe0a     	bl	0x90878 <__cfi_slowpath@plt>
+   51054: f9400261     	ldr	x1, [x19]
+   51058: 17ffff53     	b	0x50da4 <qsh_sensor::send_sensor_config_request()+0x9a4>
+   5105c: d288f3a0     	mov	x0, #0x479d             // =18333
+   51060: f2a1b040     	movk	x0, #0xd82, lsl #16
+   51064: f2d340e0     	movk	x0, #0x9a07, lsl #32
+   51068: f2e2e0e0     	movk	x0, #0x1707, lsl #48
+   5106c: 9400fe03     	bl	0x90878 <__cfi_slowpath@plt>
+   51070: 17ffff56     	b	0x50dc8 <qsh_sensor::send_sensor_config_request()+0x9c8>
+   51074: d29fdea0     	mov	x0, #0xfef5             // =65269
+   51078: f2bf3d20     	movk	x0, #0xf9e9, lsl #16
+   5107c: f2c33c80     	movk	x0, #0x19e4, lsl #32
+   51080: f2fd9ee0     	movk	x0, #0xecf7, lsl #48
+   51084: 9400fdfd     	bl	0x90878 <__cfi_slowpath@plt>
+   51088: 17ffffae     	b	0x50f40 <qsh_sensor::send_sensor_config_request()+0xb40>
+   5108c: d288f3a0     	mov	x0, #0x479d             // =18333
+   51090: f2a1b040     	movk	x0, #0xd82, lsl #16
+   51094: f2d340e0     	movk	x0, #0x9a07, lsl #32
+   51098: f2e2e0e0     	movk	x0, #0x1707, lsl #48
+   5109c: 9400fdf7     	bl	0x90878 <__cfi_slowpath@plt>
+   510a0: 17fffeb7     	b	0x50b7c <qsh_sensor::send_sensor_config_request()+0x77c>
+   510a4: d288f3a0     	mov	x0, #0x479d             // =18333
+   510a8: aa0403f4     	mov	x20, x4
+   510ac: f2a1b040     	movk	x0, #0xd82, lsl #16
+   510b0: f2d340e0     	movk	x0, #0x9a07, lsl #32
+   510b4: f2e2e0e0     	movk	x0, #0x1707, lsl #48
+   510b8: 9400fdf0     	bl	0x90878 <__cfi_slowpath@plt>
+   510bc: aa1403e4     	mov	x4, x20
+   510c0: 17fffed0     	b	0x50c00 <qsh_sensor::send_sensor_config_request()+0x800>
+   510c4: d288f3a0     	mov	x0, #0x479d             // =18333
+   510c8: f2a1b040     	movk	x0, #0xd82, lsl #16
+   510cc: f2d340e0     	movk	x0, #0x9a07, lsl #32
+   510d0: f2e2e0e0     	movk	x0, #0x1707, lsl #48
+   510d4: 9400fde9     	bl	0x90878 <__cfi_slowpath@plt>
+   510d8: 17fffe2d     	b	0x5098c <qsh_sensor::send_sensor_config_request()+0x58c>
+   510dc: d288f3a0     	mov	x0, #0x479d             // =18333
+   510e0: aa0503f6     	mov	x22, x5
+   510e4: f2a1b040     	movk	x0, #0xd82, lsl #16
+   510e8: f2d340e0     	movk	x0, #0x9a07, lsl #32
+   510ec: f2e2e0e0     	movk	x0, #0x1707, lsl #48
+   510f0: 9400fde2     	bl	0x90878 <__cfi_slowpath@plt>
+   510f4: aa1603e5     	mov	x5, x22
+   510f8: 17fffdb8     	b	0x507d8 <qsh_sensor::send_sensor_config_request()+0x3d8>
+   510fc: 97ff7c54     	bl	0x3024c <.text+0x24c>
+   51100: d288f3a0     	mov	x0, #0x479d             // =18333
+   51104: aa0503f6     	mov	x22, x5
+   51108: f2a1b040     	movk	x0, #0xd82, lsl #16
+   5110c: f2d340e0     	movk	x0, #0x9a07, lsl #32
+   51110: f2e2e0e0     	movk	x0, #0x1707, lsl #48
+   51114: 9400fdd9     	bl	0x90878 <__cfi_slowpath@plt>
+   51118: f9400261     	ldr	x1, [x19]
+   5111c: aa1603e5     	mov	x5, x22
+   51120: 17fffdbb     	b	0x5080c <qsh_sensor::send_sensor_config_request()+0x40c>
+   51124: d288f3a0     	mov	x0, #0x479d             // =18333
+   51128: aa0503f9     	mov	x25, x5
+   5112c: f2a1b040     	movk	x0, #0xd82, lsl #16
+   51130: f2d340e0     	movk	x0, #0x9a07, lsl #32
+   51134: f2e2e0e0     	movk	x0, #0x1707, lsl #48
+   51138: 9400fdd0     	bl	0x90878 <__cfi_slowpath@plt>
+   5113c: aa1903e5     	mov	x5, x25
+   51140: 17fffdc0     	b	0x50840 <qsh_sensor::send_sensor_config_request()+0x440>
+   51144: d288f3a0     	mov	x0, #0x479d             // =18333
+   51148: aa0503f6     	mov	x22, x5
+   5114c: f2a1b040     	movk	x0, #0xd82, lsl #16
+   51150: f2d340e0     	movk	x0, #0x9a07, lsl #32
+   51154: f2e2e0e0     	movk	x0, #0x1707, lsl #48
+   51158: 9400fdc8     	bl	0x90878 <__cfi_slowpath@plt>
+   5115c: aa1603e5     	mov	x5, x22
+   51160: 17fffdd1     	b	0x508a4 <qsh_sensor::send_sensor_config_request()+0x4a4>
+   51164: d288f3a0     	mov	x0, #0x479d             // =18333
+   51168: aa0503f6     	mov	x22, x5
+   5116c: f2a1b040     	movk	x0, #0xd82, lsl #16
+   51170: f2d340e0     	movk	x0, #0x9a07, lsl #32
+   51174: f2e2e0e0     	movk	x0, #0x1707, lsl #48
+   51178: 9400fdc0     	bl	0x90878 <__cfi_slowpath@plt>
+   5117c: f9400261     	ldr	x1, [x19]
+   51180: aa1603e5     	mov	x5, x22
+   51184: 17fffdd5     	b	0x508d8 <qsh_sensor::send_sensor_config_request()+0x4d8>
+   51188: d288f3a0     	mov	x0, #0x479d             // =18333
+   5118c: aa0503f9     	mov	x25, x5
+   51190: f2a1b040     	movk	x0, #0xd82, lsl #16
+   51194: f2d340e0     	movk	x0, #0x9a07, lsl #32
+   51198: f2e2e0e0     	movk	x0, #0x1707, lsl #48
+   5119c: 9400fdb7     	bl	0x90878 <__cfi_slowpath@plt>
+   511a0: aa1903e5     	mov	x5, x25
+   511a4: 17fffdda     	b	0x5090c <qsh_sensor::send_sensor_config_request()+0x50c>
+   511a8: d288f3a0     	mov	x0, #0x479d             // =18333
+   511ac: f2a1b040     	movk	x0, #0xd82, lsl #16
+   511b0: f2d340e0     	movk	x0, #0x9a07, lsl #32
+   511b4: f2e2e0e0     	movk	x0, #0x1707, lsl #48
+   511b8: 9400fdb0     	bl	0x90878 <__cfi_slowpath@plt>
+   511bc: 17fffe50     	b	0x50afc <qsh_sensor::send_sensor_config_request()+0x6fc>
+   511c0: d288f3a0     	mov	x0, #0x479d             // =18333
+   511c4: f2a1b040     	movk	x0, #0xd82, lsl #16
+   511c8: f2d340e0     	movk	x0, #0x9a07, lsl #32
+   511cc: f2e2e0e0     	movk	x0, #0x1707, lsl #48
+   511d0: 9400fdaa     	bl	0x90878 <__cfi_slowpath@plt>
+   511d4: 17fffdfc     	b	0x509c4 <qsh_sensor::send_sensor_config_request()+0x5c4>
+   511d8: d288f3a0     	mov	x0, #0x479d             // =18333
+   511dc: f2a1b040     	movk	x0, #0xd82, lsl #16
+   511e0: f2d340e0     	movk	x0, #0x9a07, lsl #32
+   511e4: f2e2e0e0     	movk	x0, #0x1707, lsl #48
+   511e8: 9400fda4     	bl	0x90878 <__cfi_slowpath@plt>
+   511ec: f9400261     	ldr	x1, [x19]
+   511f0: 17fffe36     	b	0x50ac8 <qsh_sensor::send_sensor_config_request()+0x6c8>
+   511f4: 14000005     	b	0x51208 <qsh_sensor::send_sensor_config_request()+0xe08>
+   511f8: 14000004     	b	0x51208 <qsh_sensor::send_sensor_config_request()+0xe08>
+   511fc: 14000003     	b	0x51208 <qsh_sensor::send_sensor_config_request()+0xe08>
+   51200: 14000002     	b	0x51208 <qsh_sensor::send_sensor_config_request()+0xe08>
+   51204: 14000001     	b	0x51208 <qsh_sensor::send_sensor_config_request()+0xe08>
+   51208: aa0003f3     	mov	x19, x0
+   5120c: d10183a0     	sub	x0, x29, #0x60
+   51210: 9401009a     	bl	0x91478 <_ZN22sns_client_request_msgD1Ev@plt>
+   51214: 394043e8     	ldrb	w8, [sp, #0x10]
+   51218: 360000a8     	tbz	w8, #0x0, 0x5122c <qsh_sensor::send_sensor_config_request()+0xe2c>
+   5121c: f9400be8     	ldr	x8, [sp, #0x10]
+   51220: f94013e0     	ldr	x0, [sp, #0x20]
+   51224: 927ff901     	and	x1, x8, #0xfffffffffffffffe
+   51228: 9400fe30     	bl	0x90ae8 <_ZdlPvm@plt>
+   5122c: f94007e8     	ldr	x8, [sp, #0x8]
+   51230: f9401508     	ldr	x8, [x8, #0x28]
+   51234: f85f03a9     	ldur	x9, [x29, #-0x10]
+   51238: eb09011f     	cmp	x8, x9
+   5123c: 54000061     	b.ne	0x51248 <qsh_sensor::send_sensor_config_request()+0xe48>
+   51240: aa1303e0     	mov	x0, x19
+   51244: 940107a7     	bl	0x930e0 <_Unwind_Resume@plt>
+   51248: 9401079a     	bl	0x930b0 <__stack_chk_fail@plt>

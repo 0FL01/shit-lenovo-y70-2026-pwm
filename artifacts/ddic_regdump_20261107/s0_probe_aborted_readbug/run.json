@@ -1,0 +1,189 @@
+{
+  "started_at_utc": "2026-11-07T05:46:12.471+00:00",
+  "label": "s0_probe",
+  "scope": "probe",
+  "brightness_setting": 52,
+  "refresh_request": 120.0,
+  "events": [
+    {
+      "at_utc": "2026-11-07T05:46:12.554+00:00",
+      "command": "getprop ro.boot.hardware.sku; getprop ro.build.display.id; getprop ro.boot.slot_suffix; uname -r; getenforce",
+      "exit_code": 0,
+      "stdout": "XT2611-1\nW3WWS36.65-64-4-1\n_b\n6.12.58-android16-6-g09eda8c8505a-dirty-ab15950084-4k\nEnforcing",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T05:46:12.616+00:00",
+      "command": "su -c 'cat /sys/class/drm/card0-DSI-1/panelName'",
+      "exit_code": 0,
+      "stdout": "boe_ili97701A_682_1440x3168_dsc_cmd_v4",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T05:46:12.673+00:00",
+      "command": "settings get system screen_brightness_mode",
+      "exit_code": 0,
+      "stdout": "1",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T05:46:12.727+00:00",
+      "command": "settings get system screen_brightness",
+      "exit_code": 0,
+      "stdout": "38",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T05:46:12.784+00:00",
+      "command": "settings get system min_refresh_rate",
+      "exit_code": 0,
+      "stdout": "null",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T05:46:12.840+00:00",
+      "command": "settings get system peak_refresh_rate",
+      "exit_code": 0,
+      "stdout": "null",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T05:46:12.899+00:00",
+      "command": "settings get system screen_off_timeout",
+      "exit_code": 0,
+      "stdout": "300000",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T05:46:12.958+00:00",
+      "command": "su -c 'cat /sys/class/drm/card0-DSI-1/panelDC'",
+      "exit_code": 0,
+      "stdout": "0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T05:46:13.145+00:00",
+      "command": "settings put system screen_brightness_mode 0; settings put system screen_brightness 52; settings put system min_refresh_rate 120.0; settings put system peak_refresh_rate 120.0; settings put system screen_off_timeout 1800000; input keyevent 224",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T05:46:13.197+00:00",
+      "command": "dumpsys power | grep mWakefulness=",
+      "exit_code": 0,
+      "stdout": "mWakefulness=Awake",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T05:46:15.733+00:00",
+      "command": "su -c 'cat /sys/class/backlight/panel0-backlight/brightness'",
+      "exit_code": 0,
+      "stdout": "3584",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T05:46:15.762+00:00",
+      "command": "dumpsys display | grep -m1 -o 'mActiveSfDisplayMode=[^}]*'",
+      "exit_code": 0,
+      "stdout": "mActiveSfDisplayMode=DisplayMode{id=0, width=1440, height=3168, xDpi=508.0, yDpi=512.5299, peakRefreshRate=120.00001, vsyncRate=120.00001, appVsyncOffsetNanos=2000000, presentationDeadlineNanos=9333333, supportedHdrTypes=[1, 4, 1, 2, 3], group=3",
+      "stderr": "Failed to write while dumping service display: Broken pipe"
+    },
+    {
+      "at_utc": "2026-11-07T05:46:15.788+00:00",
+      "command": "su -c 'mkdir -m 700 -p /data/local/tmp/ddic-regdump/dbg'",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T05:46:15.839+00:00",
+      "command": "su -c 'mv /data/local/tmp/ddic_regdump.sh /data/local/tmp/ddic-regdump/run.sh && chmod 700 /data/local/tmp/ddic-regdump/run.sh && chown root:root /data/local/tmp/ddic-regdump/run.sh'",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T05:46:15.865+00:00",
+      "command": "su -c 'echo '\"'\"'0x86'\"'\"' > /data/local/tmp/ddic-regdump/regs'",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T05:46:15.922+00:00",
+      "command": "su -c 'unshare -m /system/bin/sh /data/local/tmp/ddic-regdump/run.sh 2 6 /data/local/tmp/ddic-regdump/regs 0x5a'",
+      "exit_code": 13,
+      "stdout": "ESD_UNEXPECTED",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T05:46:15.962+00:00",
+      "command": "su -c 'rm -f /data/local/tmp/ddic-regdump/run.sh /data/local/tmp/ddic-regdump/regs; rmdir /data/local/tmp/ddic-regdump/dbg /data/local/tmp/ddic-regdump'",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T05:46:15.993+00:00",
+      "command": "settings put system screen_brightness_mode 1",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T05:46:16.017+00:00",
+      "command": "settings put system screen_brightness 38",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T05:46:16.046+00:00",
+      "command": "settings delete system min_refresh_rate",
+      "exit_code": 0,
+      "stdout": "Deleted 1 rows",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T05:46:16.075+00:00",
+      "command": "settings delete system peak_refresh_rate",
+      "exit_code": 0,
+      "stdout": "Deleted 1 rows",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T05:46:16.104+00:00",
+      "command": "settings put system screen_off_timeout 300000",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T05:46:16.135+00:00",
+      "command": "input keyevent 223",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T05:46:16.201+00:00",
+      "command": "su -c 'unshare -m /system/bin/sh -c '\"'\"'mount -o rprivate none /; mkdir -p /data/local/tmp/ddic-chk; mount -t debugfs debugfs /data/local/tmp/ddic-chk && cat /data/local/tmp/ddic-chk/qcom,mdss_dsi_mot_boe_ili97701A_682_1440x3168_dsc_cmd_v4/esd_check_mode; umount /data/local/tmp/ddic-chk; rmdir /data/local/tmp/ddic-chk'\"'\"''",
+      "exit_code": 0,
+      "stdout": "reg_read\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+      "stderr": ""
+    }
+  ],
+  "original_settings": {
+    "screen_brightness_mode": "1",
+    "screen_brightness": "38",
+    "min_refresh_rate": "null",
+    "peak_refresh_rate": "null",
+    "screen_off_timeout": "300000"
+  },
+  "panel_dc_before": "0",
+  "dbv_before": "3584",
+  "refresh_before": "mActiveSfDisplayMode=DisplayMode{id=0, width=1440, height=3168, xDpi=508.0, yDpi=512.5299, peakRefreshRate=120.00001, vsyncRate=120.00001, appVsyncOffsetNanos=2000000, presentationDeadlineNanos=9333333, supportedHdrTypes=[1, 4, 1, 2, 3], group=3",
+  "esd_mode_after": "reg_read\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+  "finished_at_utc": "2026-11-07T05:46:16.201+00:00"
+}

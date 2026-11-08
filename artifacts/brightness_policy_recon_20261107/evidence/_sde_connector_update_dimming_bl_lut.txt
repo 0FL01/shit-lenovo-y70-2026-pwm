@@ -1,0 +1,99 @@
+
+/mnt/kston/legion-Y70-madness/artifacts/kernel/gki_r59/target_vendor/msm_drm.ko:     file format elf64-littleaarch64
+
+
+Disassembly of section .text:
+
+00000000000e64e0 <_sde_connector_update_dimming_bl_lut>:
+   e64e0:	d503233f 	paciasp
+   e64e4:	d10103ff 	sub	sp, sp, #0x40
+   e64e8:	a9017bfd 	stp	x29, x30, [sp, #16]
+   e64ec:	a9025bf7 	stp	x23, x22, [sp, #32]
+   e64f0:	a9034ff5 	stp	x21, x19, [sp, #48]
+   e64f4:	910043fd 	add	x29, sp, #0x10
+   e64f8:	d5384108 	mrs	x8, sp_el0
+   e64fc:	f9438908 	ldr	x8, [x8, #1808]
+   e6500:	f90007e8 	str	x8, [sp, #8]
+   e6504:	f90003ff 	str	xzr, [sp]
+   e6508:	b4000520 	cbz	x0, e65ac <_sde_connector_update_dimming_bl_lut+0xcc>
+   e650c:	b94ab008 	ldr	w8, [x0, #2736]
+   e6510:	7100411f 	cmp	w8, #0x10
+   e6514:	540004a1 	b.ne	e65a8 <_sde_connector_update_dimming_bl_lut+0xc8>  // b.any
+   e6518:	52828e08 	mov	w8, #0x1470                	// #5232
+   e651c:	38686808 	ldrb	w8, [x0, x8]
+   e6520:	7100051f 	cmp	w8, #0x1
+   e6524:	912b2008 	add	x8, x0, #0xac8
+   e6528:	54000041 	b.ne	e6530 <_sde_connector_update_dimming_bl_lut+0x50>  // b.any
+   e652c:	f9400108 	ldr	x8, [x8]
+   e6530:	f9400113 	ldr	x19, [x8]
+   e6534:	b40003b3 	cbz	x19, e65a8 <_sde_connector_update_dimming_bl_lut+0xc8>
+   e6538:	f9409268 	ldr	x8, [x19, #288]
+   e653c:	b4000568 	cbz	x8, e65e8 <_sde_connector_update_dimming_bl_lut+0x108>
+   e6540:	aa0003f5 	mov	x21, x0
+   e6544:	91342000 	add	x0, x0, #0xd08
+   e6548:	aa0103f6 	mov	x22, x1
+   e654c:	91070021 	add	x1, x1, #0x1c0
+   e6550:	52800102 	mov	w2, #0x8                   	// #8
+   e6554:	94000000 	bl	1db8bc <msm_property_is_dirty>
+			e6554: R_AARCH64_CALL26	msm_property_is_dirty
+   e6558:	36000400 	tbz	w0, #0, e65d8 <_sde_connector_update_dimming_bl_lut+0xf8>
+   e655c:	f9409277 	ldr	x23, [x19, #288]
+   e6560:	913422a0 	add	x0, x21, #0xd08
+   e6564:	910702c1 	add	x1, x22, #0x1c0
+   e6568:	910003e2 	mov	x2, sp
+   e656c:	52800103 	mov	w3, #0x8                   	// #8
+   e6570:	94000000 	bl	1dc628 <msm_property_get_blob>
+			e6570: R_AARCH64_CALL26	msm_property_get_blob
+   e6574:	f90302e0 	str	x0, [x23, #1536]
+   e6578:	b945eae2 	ldr	w2, [x23, #1512]
+   e657c:	aa1503e0 	mov	x0, x21
+   e6580:	f945cea8 	ldr	x8, [x21, #2968]
+   e6584:	aa1303e1 	mov	x1, x19
+   e6588:	b85fc110 	ldur	w16, [x8, #-4]
+   e658c:	728ea291 	movk	w17, #0x7514
+   e6590:	72a7ee51 	movk	w17, #0x3f72, lsl #16
+   e6594:	6b11021f 	cmp	w16, w17
+   e6598:	54000040 	b.eq	e65a0 <_sde_connector_update_dimming_bl_lut+0xc0>  // b.none
+   e659c:	d4304500 	brk	#0x8228
+   e65a0:	d63f0100 	blr	x8
+   e65a4:	340001e0 	cbz	w0, e65e0 <_sde_connector_update_dimming_bl_lut+0x100>
+   e65a8:	2a1f03e0 	mov	w0, wzr
+   e65ac:	d5384108 	mrs	x8, sp_el0
+   e65b0:	f9438908 	ldr	x8, [x8, #1808]
+   e65b4:	f94007e9 	ldr	x9, [sp, #8]
+   e65b8:	eb09011f 	cmp	x8, x9
+   e65bc:	540002c1 	b.ne	e6614 <_sde_connector_update_dimming_bl_lut+0x134>  // b.any
+   e65c0:	a9434ff5 	ldp	x21, x19, [sp, #48]
+   e65c4:	a9425bf7 	ldp	x23, x22, [sp, #32]
+   e65c8:	a9417bfd 	ldp	x29, x30, [sp, #16]
+   e65cc:	910103ff 	add	sp, sp, #0x40
+   e65d0:	d50323bf 	autiasp
+   e65d4:	d65f03c0 	ret
+   e65d8:	12800780 	mov	w0, #0xffffffc3            	// #-61
+   e65dc:	17fffff4 	b	e65ac <_sde_connector_update_dimming_bl_lut+0xcc>
+   e65e0:	b91222bf 	str	wzr, [x21, #4640]
+   e65e4:	17fffff2 	b	e65ac <_sde_connector_update_dimming_bl_lut+0xcc>
+   e65e8:	90000001 	adrp	x1, 0 <msm_hdcp_register_cb-0x4>
+			e65e8: R_AARCH64_ADR_PREL_PG_HI21	.rodata+0x18cba
+		; rodata string: '_sde_connector_update_dimming_bl_lut'
+   e65ec:	91000021 	add	x1, x1, #0x0
+			e65ec: R_AARCH64_ADD_ABS_LO12_NC	.rodata+0x18cba
+		; rodata string: '_sde_connector_update_dimming_bl_lut'
+   e65f0:	90000000 	adrp	x0, 0 <msm_hdcp_register_cb-0x4>
+			e65f0: R_AARCH64_ADR_PREL_PG_HI21	.rodata+0x20f7
+   e65f4:	91000000 	add	x0, x0, #0x0
+			e65f4: R_AARCH64_ADD_ABS_LO12_NC	.rodata+0x20f7
+   e65f8:	52807ca2 	mov	w2, #0x3e5                 	// #997
+   e65fc:	aa0103e3 	mov	x3, x1
+   e6600:	aa1303e4 	mov	x4, x19
+   e6604:	aa1f03e5 	mov	x5, xzr
+   e6608:	94000000 	bl	0 <_printk>
+			e6608: R_AARCH64_CALL26	_printk
+   e660c:	128002a0 	mov	w0, #0xffffffea            	// #-22
+   e6610:	17ffffe7 	b	e65ac <_sde_connector_update_dimming_bl_lut+0xcc>
+   e6614:	94000000 	bl	0 <__stack_chk_fail>
+			e6614: R_AARCH64_CALL26	__stack_chk_fail
+
+Disassembly of section .init.text:
+
+Disassembly of section .exit.text:

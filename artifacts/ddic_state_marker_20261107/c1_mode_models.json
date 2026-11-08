@@ -1,0 +1,102 @@
+{
+  "scope": "Static comparison of archivedC1byte2 with selectedDT mode encoding; no frequency decoder",
+  "states": [
+    {
+      "state": "s1_dbv3584_120",
+      "software_requested_hz": 120,
+      "reference_timing": "timing@0",
+      "native_00:60": "60 00",
+      "23:C1_observations": [
+        {
+          "pass": 1,
+          "raw_line": 3779,
+          "prefix": "00 00 65"
+        },
+        {
+          "pass": 2,
+          "raw_line": 4035,
+          "prefix": "00 00 65"
+        }
+      ],
+      "hypothesis_only_high_nibble": 6,
+      "hypothesis_only_whole_byte": 101,
+      "high_nibble_times_software_hz_NOT_measured_hz": 720,
+      "whole_byte_times_software_hz_NOT_measured_hz": 12120
+    },
+    {
+      "state": "s2_dbv3646_120",
+      "software_requested_hz": 120,
+      "reference_timing": "timing@0",
+      "native_00:60": "60 00",
+      "23:C1_observations": [
+        {
+          "pass": 1,
+          "raw_line": 3779,
+          "prefix": "00 00 10"
+        },
+        {
+          "pass": 2,
+          "raw_line": 4035,
+          "prefix": "00 00 10"
+        }
+      ],
+      "hypothesis_only_high_nibble": 1,
+      "hypothesis_only_whole_byte": 16,
+      "high_nibble_times_software_hz_NOT_measured_hz": 120,
+      "whole_byte_times_software_hz_NOT_measured_hz": 1920
+    },
+    {
+      "state": "s3_dbv3584_144",
+      "software_requested_hz": 144,
+      "reference_timing": "timing@1",
+      "native_00:60": "60 01",
+      "23:C1_observations": [
+        {
+          "pass": 1,
+          "raw_line": 3779,
+          "prefix": "00 00 55"
+        },
+        {
+          "pass": 2,
+          "raw_line": 4035,
+          "prefix": "00 00 55"
+        }
+      ],
+      "hypothesis_only_high_nibble": 5,
+      "hypothesis_only_whole_byte": 85,
+      "high_nibble_times_software_hz_NOT_measured_hz": 720,
+      "whole_byte_times_software_hz_NOT_measured_hz": 12240
+    },
+    {
+      "state": "s4_dbv3584_60",
+      "software_requested_hz": 60,
+      "reference_timing": "timing@3",
+      "native_00:60": "60 00",
+      "23:C1_observations": [
+        {
+          "pass": 1,
+          "raw_line": 3779,
+          "prefix": "00 00 65"
+        },
+        {
+          "pass": 2,
+          "raw_line": 4035,
+          "prefix": "00 00 65"
+        }
+      ],
+      "hypothesis_only_high_nibble": 6,
+      "hypothesis_only_whole_byte": 101,
+      "high_nibble_times_software_hz_NOT_measured_hz": 360,
+      "whole_byte_times_software_hz_NOT_measured_hz": 6060
+    }
+  ],
+  "limits": [
+    "Thirdbyte response validity not established by40byte requests",
+    "No synchronized optical samples for these dump runs",
+    "00:60 encoding alone doesnotprove physicalbase frequency",
+    "Nibble/wholebyte multiplications are alternativehypotheses notPWMmeasurement",
+    "No07EC/C1 writability or highfrequencyvalue established"
+  ],
+  "new_dsi_sent": false,
+  "physical_pwm_hz": null
+}

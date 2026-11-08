@@ -1,0 +1,9 @@
+{
+  "observed_at_utc": "2026-11-06T08:36:58.176898+00:00",
+  "commit": "4c706b5938665866ebe16944a481a7b91e3396af",
+  "full_ancestor_count": 3355,
+  "upstream_kernel_version_code": 33355,
+  "upstream_tag": "v3.4.2",
+  "reason": "Kbuild uses commit count/tag, while hermetic builds without Git metadata fall back to version 1/v0.0.1; Manager minimum kernel version is 33188. Preserve the pinned release metadata rather than invent a version or run network fetch during compilation.",
+  "scope": "source metadata acquisition only; no root integration/device changes"
+}

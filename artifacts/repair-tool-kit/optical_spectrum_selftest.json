@@ -1,0 +1,39 @@
+{
+  "kind": "synthetic_regression_evidence_not_device_measurement",
+  "test_command": "OPENBLAS_NUM_THREADS=2 python -m unittest discover -s audit -p test_optical_spectrum.py -v",
+  "test_count": 10,
+  "test_result": "PASS",
+  "example_note": "Same spatial sine amplitude in every case; only frame-to-frame phase drift changes. Hertz here describes known synthetic input, never camera-to-optical calibration.",
+  "examples": [
+    {
+      "synthetic_beat_hz": 0.0,
+      "new_total_amplitude": 1.0000074135754526,
+      "old_temporal_residual_amplitude": 7.472849588480146e-17,
+      "ratio_old_to_total": 7.472794188356589e-17
+    },
+    {
+      "synthetic_beat_hz": 0.02,
+      "new_total_amplitude": 1.0000074040000064,
+      "old_temporal_residual_amplitude": 0.09053310260203115,
+      "ratio_old_to_total": 0.09053243229990182
+    },
+    {
+      "synthetic_beat_hz": 0.1,
+      "new_total_amplitude": 1.0000051012913997,
+      "old_temporal_residual_amplitude": 0.43520395777199644,
+      "ratio_old_to_total": 0.43520173768111486
+    },
+    {
+      "synthetic_beat_hz": 0.5,
+      "new_total_amplitude": 1.0000048287291015,
+      "old_temporal_residual_amplitude": 0.9836446885913478,
+      "ratio_old_to_total": 0.9836399388605497
+    },
+    {
+      "synthetic_beat_hz": 1.2,
+      "new_total_amplitude": 1.000004725040239,
+      "old_temporal_residual_amplitude": 1.000004725040239,
+      "ratio_old_to_total": 1.0
+    }
+  ]
+}

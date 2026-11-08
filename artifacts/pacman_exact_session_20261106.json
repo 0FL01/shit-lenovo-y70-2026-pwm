@@ -1,0 +1,65 @@
+{
+  "started_at_utc": "2026-11-06T17:23:38.558945+00:00",
+  "camera": "PacmanPro/A142P",
+  "duplicate_transports_verified": true,
+  "screen_timeout_before": "1800000",
+  "adb_wifi_enabled_observed": "1",
+  "scope": "Owner authorized autonomous capture; keep camera configured/awake between experiments. No Wi-Fi/ADB enablement changes.",
+  "camera_restore_required": true,
+  "target_restore_required": false,
+  "screen_timeout_override_verified": true,
+  "opencamera_api_before": [
+    "Original camera API"
+  ],
+  "camera2_selected": true,
+  "focus_selection_before": [],
+  "camera_ready": true,
+  "camera_metadata": {
+    "android.sensor.exposureTime": [
+      "100000",
+      "100000"
+    ],
+    "android.sensor.sensitivity": [
+      "6400",
+      "6400"
+    ],
+    "android.control.aeMode": [
+      "OFF",
+      "OFF"
+    ],
+    "android.lens.focusDistance": [
+      "8.95698452",
+      "0.00000000"
+    ]
+  },
+  "target_before": {
+    "screen_brightness": "58",
+    "screen_brightness_mode": "1",
+    "min_refresh_rate": "null",
+    "peak_refresh_rate": "null",
+    "screen_off_timeout": "300000",
+    "bl_power": "0"
+  },
+  "retry_reason": "Verified wake/dismiss independently; capture now awaits interactive and keyguard completion instead of immediate assertion",
+  "metrology_manual_focus_preparation": {
+    "android.control.afMode": [
+      "OFF"
+    ],
+    "android.lens.focusDistance": [
+      "0.00000000"
+    ],
+    "android.sensor.exposureTime": [
+      "100000"
+    ],
+    "android.sensor.sensitivity": [
+      "6400"
+    ],
+    "android.control.aeMode": [
+      "OFF"
+    ]
+  },
+  "metrology_manual_focus_result_request": [
+    "9.11752701",
+    "9.11752701"
+  ]
+}

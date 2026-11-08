@@ -1,0 +1,2228 @@
+{
+  "video": "/mnt/kston/legion-Y70-madness/artifacts/optical/pacman_exposure_notch_supported_20261107.mp4",
+  "source": "/mnt/kston/legion-Y70-madness/artifacts/exposure_notch_20261107/supported/analysis.json",
+  "profiles": "/home/stfu/.cache/opencode-tmp/opencode/exposure-notch-20261107-supported/profiles.npz",
+  "window_frame_indices_inclusive": [
+    [
+      643,
+      717
+    ],
+    [
+      1864,
+      1938
+    ],
+    [
+      2721,
+      2795
+    ],
+    [
+      3700,
+      3774
+    ],
+    [
+      4926,
+      5000
+    ],
+    [
+      5657,
+      5731
+    ]
+  ],
+  "strips_x_original_video": {
+    "left": [
+      210,
+      270
+    ],
+    "mid": [
+      350,
+      410
+    ],
+    "center": [
+      540,
+      600
+    ],
+    "right": [
+      640,
+      700
+    ],
+    "outside_screen": [
+      900,
+      960
+    ]
+  },
+  "rows_y_original_video": [
+    190,
+    690
+  ],
+  "method": "Native limited-range Y, stage windows 6x75; raw or subtract each stage mean row profile (moving_only); degree1/2/3 Legendre detrend, Hann Fourier, two fixed broad q; per-frame unit-phase coherence to center",
+  "records": [
+    {
+      "degree": 1,
+      "phase": 1,
+      "exposure_ns": 100000,
+      "mode": "raw",
+      "broad_cycles_per_output_row": 0.0035677334189589353,
+      "frames": 75,
+      "strips": {
+        "left": {
+          "mean_fourier_amplitude_Y_codes": 0.26403634214902133,
+          "unit_phase_coherence_with_center": 0.3272244436866926
+        },
+        "mid": {
+          "mean_fourier_amplitude_Y_codes": 0.39738624157405517,
+          "unit_phase_coherence_with_center": 0.26908362503592614
+        },
+        "center": {
+          "mean_fourier_amplitude_Y_codes": 0.2943416133449345,
+          "unit_phase_coherence_with_center": 1.0
+        },
+        "right": {
+          "mean_fourier_amplitude_Y_codes": 0.27993120478966005,
+          "unit_phase_coherence_with_center": 0.804303412206554
+        },
+        "outside_screen": {
+          "mean_fourier_amplitude_Y_codes": 0.07726296371293291,
+          "unit_phase_coherence_with_center": 0.5962333112339218
+        }
+      }
+    },
+    {
+      "degree": 1,
+      "phase": 1,
+      "exposure_ns": 100000,
+      "mode": "raw",
+      "broad_cycles_per_output_row": 0.00390625,
+      "frames": 75,
+      "strips": {
+        "left": {
+          "mean_fourier_amplitude_Y_codes": 0.265321459893611,
+          "unit_phase_coherence_with_center": 0.3064441745066183
+        },
+        "mid": {
+          "mean_fourier_amplitude_Y_codes": 0.38421303045909266,
+          "unit_phase_coherence_with_center": 0.3002170516145768
+        },
+        "center": {
+          "mean_fourier_amplitude_Y_codes": 0.28562379041739494,
+          "unit_phase_coherence_with_center": 1.0
+        },
+        "right": {
+          "mean_fourier_amplitude_Y_codes": 0.27270601090024127,
+          "unit_phase_coherence_with_center": 0.7262131217500616
+        },
+        "outside_screen": {
+          "mean_fourier_amplitude_Y_codes": 0.06364769423977423,
+          "unit_phase_coherence_with_center": 0.5589710979632626
+        }
+      }
+    },
+    {
+      "degree": 1,
+      "phase": 1,
+      "exposure_ns": 100000,
+      "mode": "moving_only",
+      "broad_cycles_per_output_row": 0.0035677334189589353,
+      "frames": 75,
+      "strips": {
+        "left": {
+          "mean_fourier_amplitude_Y_codes": 0.263802225062746,
+          "unit_phase_coherence_with_center": 0.97031888412869
+        },
+        "mid": {
+          "mean_fourier_amplitude_Y_codes": 0.3309692340813928,
+          "unit_phase_coherence_with_center": 0.9810314250748124
+        },
+        "center": {
+          "mean_fourier_amplitude_Y_codes": 0.2778465186447255,
+          "unit_phase_coherence_with_center": 1.0
+        },
+        "right": {
+          "mean_fourier_amplitude_Y_codes": 0.24661588797933295,
+          "unit_phase_coherence_with_center": 0.9487349939019665
+        },
+        "outside_screen": {
+          "mean_fourier_amplitude_Y_codes": 0.03602699395819255,
+          "unit_phase_coherence_with_center": 0.5062388214732838
+        }
+      }
+    },
+    {
+      "degree": 1,
+      "phase": 1,
+      "exposure_ns": 100000,
+      "mode": "moving_only",
+      "broad_cycles_per_output_row": 0.00390625,
+      "frames": 75,
+      "strips": {
+        "left": {
+          "mean_fourier_amplitude_Y_codes": 0.25971982189587434,
+          "unit_phase_coherence_with_center": 0.955700452177182
+        },
+        "mid": {
+          "mean_fourier_amplitude_Y_codes": 0.3215810836312074,
+          "unit_phase_coherence_with_center": 0.9679633168882248
+        },
+        "center": {
+          "mean_fourier_amplitude_Y_codes": 0.2715896297403158,
+          "unit_phase_coherence_with_center": 1.0
+        },
+        "right": {
+          "mean_fourier_amplitude_Y_codes": 0.24587155203757438,
+          "unit_phase_coherence_with_center": 0.9228199376574753
+        },
+        "outside_screen": {
+          "mean_fourier_amplitude_Y_codes": 0.0352181954664905,
+          "unit_phase_coherence_with_center": 0.5231065415260515
+        }
+      }
+    },
+    {
+      "degree": 1,
+      "phase": 2,
+      "exposure_ns": 500000,
+      "mode": "raw",
+      "broad_cycles_per_output_row": 0.0035677334189589353,
+      "frames": 75,
+      "strips": {
+        "left": {
+          "mean_fourier_amplitude_Y_codes": 0.9184736082727581,
+          "unit_phase_coherence_with_center": 0.4762488210899954
+        },
+        "mid": {
+          "mean_fourier_amplitude_Y_codes": 1.5326156279112069,
+          "unit_phase_coherence_with_center": 0.2310400337205475
+        },
+        "center": {
+          "mean_fourier_amplitude_Y_codes": 0.7584263761639529,
+          "unit_phase_coherence_with_center": 1.0
+        },
+        "right": {
+          "mean_fourier_amplitude_Y_codes": 0.8182445090143747,
+          "unit_phase_coherence_with_center": 0.7489918276550874
+        },
+        "outside_screen": {
+          "mean_fourier_amplitude_Y_codes": 0.07009147934404321,
+          "unit_phase_coherence_with_center": 0.42329155282189923
+        }
+      }
+    },
+    {
+      "degree": 1,
+      "phase": 2,
+      "exposure_ns": 500000,
+      "mode": "raw",
+      "broad_cycles_per_output_row": 0.00390625,
+      "frames": 75,
+      "strips": {
+        "left": {
+          "mean_fourier_amplitude_Y_codes": 0.9086913047557357,
+          "unit_phase_coherence_with_center": 0.36638763905312505
+        },
+        "mid": {
+          "mean_fourier_amplitude_Y_codes": 1.4445451992972171,
+          "unit_phase_coherence_with_center": 0.09710635948389539
+        },
+        "center": {
+          "mean_fourier_amplitude_Y_codes": 0.6919754004384965,
+          "unit_phase_coherence_with_center": 1.0
+        },
+        "right": {
+          "mean_fourier_amplitude_Y_codes": 0.9167220110899283,
+          "unit_phase_coherence_with_center": 0.5875688928007835
+        },
+        "outside_screen": {
+          "mean_fourier_amplitude_Y_codes": 0.06314891969251873,
+          "unit_phase_coherence_with_center": 0.4360428935532307
+        }
+      }
+    },
+    {
+      "degree": 1,
+      "phase": 2,
+      "exposure_ns": 500000,
+      "mode": "moving_only",
+      "broad_cycles_per_output_row": 0.0035677334189589353,
+      "frames": 75,
+      "strips": {
+        "left": {
+          "mean_fourier_amplitude_Y_codes": 0.5827704389874755,
+          "unit_phase_coherence_with_center": 0.9508181080624224
+        },
+        "mid": {
+          "mean_fourier_amplitude_Y_codes": 0.6652434934989231,
+          "unit_phase_coherence_with_center": 0.9367039292276493
+        },
+        "center": {
+          "mean_fourier_amplitude_Y_codes": 0.7028003279927895,
+          "unit_phase_coherence_with_center": 1.0
+        },
+        "right": {
+          "mean_fourier_amplitude_Y_codes": 0.7126885327614687,
+          "unit_phase_coherence_with_center": 0.7460680897501958
+        },
+        "outside_screen": {
+          "mean_fourier_amplitude_Y_codes": 0.04178283184598581,
+          "unit_phase_coherence_with_center": 0.3907393866634017
+        }
+      }
+    },
+    {
+      "degree": 1,
+      "phase": 2,
+      "exposure_ns": 500000,
+      "mode": "moving_only",
+      "broad_cycles_per_output_row": 0.00390625,
+      "frames": 75,
+      "strips": {
+        "left": {
+          "mean_fourier_amplitude_Y_codes": 0.5631875291961326,
+          "unit_phase_coherence_with_center": 0.9475700607511506
+        },
+        "mid": {
+          "mean_fourier_amplitude_Y_codes": 0.6450935053419498,
+          "unit_phase_coherence_with_center": 0.9311095137303746
+        },
+        "center": {
+          "mean_fourier_amplitude_Y_codes": 0.6746092685154582,
+          "unit_phase_coherence_with_center": 1.0
+        },
+        "right": {
+          "mean_fourier_amplitude_Y_codes": 0.6975373160871832,
+          "unit_phase_coherence_with_center": 0.7830489043702986
+        },
+        "outside_screen": {
+          "mean_fourier_amplitude_Y_codes": 0.040595218023448655,
+          "unit_phase_coherence_with_center": 0.4237956725324959
+        }
+      }
+    },
+    {
+      "degree": 1,
+      "phase": 3,
+      "exposure_ns": 1000000,
+      "mode": "raw",
+      "broad_cycles_per_output_row": 0.0035677334189589353,
+      "frames": 75,
+      "strips": {
+        "left": {
+          "mean_fourier_amplitude_Y_codes": 1.884598174990329,
+          "unit_phase_coherence_with_center": 0.42288839455245275
+        },
+        "mid": {
+          "mean_fourier_amplitude_Y_codes": 2.892464202368447,
+          "unit_phase_coherence_with_center": 0.16466136819019958
+        },
+        "center": {
+          "mean_fourier_amplitude_Y_codes": 1.3981410868016944,
+          "unit_phase_coherence_with_center": 1.0
+        },
+        "right": {
+          "mean_fourier_amplitude_Y_codes": 1.2479347035074007,
+          "unit_phase_coherence_with_center": 0.926548162396767
+        },
+        "outside_screen": {
+          "mean_fourier_amplitude_Y_codes": 0.05088905768833374,
+          "unit_phase_coherence_with_center": 0.6974644888637445
+        }
+      }
+    },
+    {
+      "degree": 1,
+      "phase": 3,
+      "exposure_ns": 1000000,
+      "mode": "raw",
+      "broad_cycles_per_output_row": 0.00390625,
+      "frames": 75,
+      "strips": {
+        "left": {
+          "mean_fourier_amplitude_Y_codes": 1.8342247468086705,
+          "unit_phase_coherence_with_center": 0.3092408296806015
+        },
+        "mid": {
+          "mean_fourier_amplitude_Y_codes": 2.6414459863613104,
+          "unit_phase_coherence_with_center": 0.0801785347183109
+        },
+        "center": {
+          "mean_fourier_amplitude_Y_codes": 1.3225000741542645,
+          "unit_phase_coherence_with_center": 1.0
+        },
+        "right": {
+          "mean_fourier_amplitude_Y_codes": 1.4031302987058758,
+          "unit_phase_coherence_with_center": 0.6795672707029086
+        },
+        "outside_screen": {
+          "mean_fourier_amplitude_Y_codes": 0.046926262955685465,
+          "unit_phase_coherence_with_center": 0.693771869050822
+        }
+      }
+    },
+    {
+      "degree": 1,
+      "phase": 3,
+      "exposure_ns": 1000000,
+      "mode": "moving_only",
+      "broad_cycles_per_output_row": 0.0035677334189589353,
+      "frames": 75,
+      "strips": {
+        "left": {
+          "mean_fourier_amplitude_Y_codes": 1.1115282945129497,
+          "unit_phase_coherence_with_center": 0.9939725325748812
+        },
+        "mid": {
+          "mean_fourier_amplitude_Y_codes": 1.2181298529397526,
+          "unit_phase_coherence_with_center": 0.9945232376325698
+        },
+        "center": {
+          "mean_fourier_amplitude_Y_codes": 1.39040113657103,
+          "unit_phase_coherence_with_center": 1.0
+        },
+        "right": {
+          "mean_fourier_amplitude_Y_codes": 1.1866724714051937,
+          "unit_phase_coherence_with_center": 0.9878549361857271
+        },
+        "outside_screen": {
+          "mean_fourier_amplitude_Y_codes": 0.045321715604266725,
+          "unit_phase_coherence_with_center": 0.7590241603794956
+        }
+      }
+    },
+    {
+      "degree": 1,
+      "phase": 3,
+      "exposure_ns": 1000000,
+      "mode": "moving_only",
+      "broad_cycles_per_output_row": 0.00390625,
+      "frames": 75,
+      "strips": {
+        "left": {
+          "mean_fourier_amplitude_Y_codes": 1.0591835091166097,
+          "unit_phase_coherence_with_center": 0.9918475168223123
+        },
+        "mid": {
+          "mean_fourier_amplitude_Y_codes": 1.1560959524996481,
+          "unit_phase_coherence_with_center": 0.9936670422104231
+        },
+        "center": {
+          "mean_fourier_amplitude_Y_codes": 1.3292418467932463,
+          "unit_phase_coherence_with_center": 1.0
+        },
+        "right": {
+          "mean_fourier_amplitude_Y_codes": 1.1303906539187636,
+          "unit_phase_coherence_with_center": 0.9822813731154859
+        },
+        "outside_screen": {
+          "mean_fourier_amplitude_Y_codes": 0.04217551237280302,
+          "unit_phase_coherence_with_center": 0.7616427622725521
+        }
+      }
+    },
+    {
+      "degree": 1,
+      "phase": 4,
+      "exposure_ns": 1428571,
+      "mode": "raw",
+      "broad_cycles_per_output_row": 0.0035677334189589353,
+      "frames": 75,
+      "strips": {
+        "left": {
+          "mean_fourier_amplitude_Y_codes": 2.2383602134236784,
+          "unit_phase_coherence_with_center": 0.48692439101644786
+        },
+        "mid": {
+          "mean_fourier_amplitude_Y_codes": 3.5141089513062904,
+          "unit_phase_coherence_with_center": 0.2759033740016592
+        },
+        "center": {
+          "mean_fourier_amplitude_Y_codes": 1.4198067927135674,
+          "unit_phase_coherence_with_center": 1.0
+        },
+        "right": {
+          "mean_fourier_amplitude_Y_codes": 1.280018350361249,
+          "unit_phase_coherence_with_center": 0.883529609478719
+        },
+        "outside_screen": {
+          "mean_fourier_amplitude_Y_codes": 0.1593346973783251,
+          "unit_phase_coherence_with_center": 0.39963249116596533
+        }
+      }
+    },
+    {
+      "degree": 1,
+      "phase": 4,
+      "exposure_ns": 1428571,
+      "mode": "raw",
+      "broad_cycles_per_output_row": 0.00390625,
+      "frames": 75,
+      "strips": {
+        "left": {
+          "mean_fourier_amplitude_Y_codes": 2.2086341351737215,
+          "unit_phase_coherence_with_center": 0.38461728683223095
+        },
+        "mid": {
+          "mean_fourier_amplitude_Y_codes": 3.264636258060594,
+          "unit_phase_coherence_with_center": 0.1808232555972
+        },
+        "center": {
+          "mean_fourier_amplitude_Y_codes": 1.3125024666992562,
+          "unit_phase_coherence_with_center": 1.0
+        },
+        "right": {
+          "mean_fourier_amplitude_Y_codes": 1.599858536152062,
+          "unit_phase_coherence_with_center": 0.6144256256683446
+        },
+        "outside_screen": {
+          "mean_fourier_amplitude_Y_codes": 0.1537638369038778,
+          "unit_phase_coherence_with_center": 0.4091636742832486
+        }
+      }
+    },
+    {
+      "degree": 1,
+      "phase": 4,
+      "exposure_ns": 1428571,
+      "mode": "moving_only",
+      "broad_cycles_per_output_row": 0.0035677334189589353,
+      "frames": 75,
+      "strips": {
+        "left": {
+          "mean_fourier_amplitude_Y_codes": 1.1070351387392876,
+          "unit_phase_coherence_with_center": 0.9977401597940599
+        },
+        "mid": {
+          "mean_fourier_amplitude_Y_codes": 1.2188170942276126,
+          "unit_phase_coherence_with_center": 0.9969096721282594
+        },
+        "center": {
+          "mean_fourier_amplitude_Y_codes": 1.3116710536384213,
+          "unit_phase_coherence_with_center": 1.0
+        },
+        "right": {
+          "mean_fourier_amplitude_Y_codes": 1.1147077169280086,
+          "unit_phase_coherence_with_center": 0.9990003926269717
+        },
+        "outside_screen": {
+          "mean_fourier_amplitude_Y_codes": 0.0366246751687351,
+          "unit_phase_coherence_with_center": 0.8350805965371471
+        }
+      }
+    },
+    {
+      "degree": 1,
+      "phase": 4,
+      "exposure_ns": 1428571,
+      "mode": "moving_only",
+      "broad_cycles_per_output_row": 0.00390625,
+      "frames": 75,
+      "strips": {
+        "left": {
+          "mean_fourier_amplitude_Y_codes": 1.0633290764901056,
+          "unit_phase_coherence_with_center": 0.9979880782655488
+        },
+        "mid": {
+          "mean_fourier_amplitude_Y_codes": 1.1647891917456308,
+          "unit_phase_coherence_with_center": 0.9975135792603552
+        },
+        "center": {
+          "mean_fourier_amplitude_Y_codes": 1.2579044361345684,
+          "unit_phase_coherence_with_center": 1.0
+        },
+        "right": {
+          "mean_fourier_amplitude_Y_codes": 1.0646069028194785,
+          "unit_phase_coherence_with_center": 0.9989435719435826
+        },
+        "outside_screen": {
+          "mean_fourier_amplitude_Y_codes": 0.03630685577015802,
+          "unit_phase_coherence_with_center": 0.8585800343475135
+        }
+      }
+    },
+    {
+      "degree": 1,
+      "phase": 5,
+      "exposure_ns": 2000000,
+      "mode": "raw",
+      "broad_cycles_per_output_row": 0.0035677334189589353,
+      "frames": 75,
+      "strips": {
+        "left": {
+          "mean_fourier_amplitude_Y_codes": 2.4493040660843453,
+          "unit_phase_coherence_with_center": 0.5997205125017965
+        },
+        "mid": {
+          "mean_fourier_amplitude_Y_codes": 3.867169012228531,
+          "unit_phase_coherence_with_center": 0.48024118582184305
+        },
+        "center": {
+          "mean_fourier_amplitude_Y_codes": 1.7289135907479487,
+          "unit_phase_coherence_with_center": 1.0
+        },
+        "right": {
+          "mean_fourier_amplitude_Y_codes": 1.6885493624353753,
+          "unit_phase_coherence_with_center": 0.7500545742872414
+        },
+        "outside_screen": {
+          "mean_fourier_amplitude_Y_codes": 0.14729336963599632,
+          "unit_phase_coherence_with_center": 0.5350779874640534
+        }
+      }
+    },
+    {
+      "degree": 1,
+      "phase": 5,
+      "exposure_ns": 2000000,
+      "mode": "raw",
+      "broad_cycles_per_output_row": 0.00390625,
+      "frames": 75,
+      "strips": {
+        "left": {
+          "mean_fourier_amplitude_Y_codes": 2.5090366817861054,
+          "unit_phase_coherence_with_center": 0.49830504483775945
+        },
+        "mid": {
+          "mean_fourier_amplitude_Y_codes": 3.697871445588022,
+          "unit_phase_coherence_with_center": 0.3750171681341063
+        },
+        "center": {
+          "mean_fourier_amplitude_Y_codes": 1.603157384468995,
+          "unit_phase_coherence_with_center": 1.0
+        },
+        "right": {
+          "mean_fourier_amplitude_Y_codes": 2.117520187620544,
+          "unit_phase_coherence_with_center": 0.6696644932027886
+        },
+        "outside_screen": {
+          "mean_fourier_amplitude_Y_codes": 0.1303618297897696,
+          "unit_phase_coherence_with_center": 0.5324554936354233
+        }
+      }
+    },
+    {
+      "degree": 1,
+      "phase": 5,
+      "exposure_ns": 2000000,
+      "mode": "moving_only",
+      "broad_cycles_per_output_row": 0.0035677334189589353,
+      "frames": 75,
+      "strips": {
+        "left": {
+          "mean_fourier_amplitude_Y_codes": 1.1381726361932123,
+          "unit_phase_coherence_with_center": 0.9940062815229946
+        },
+        "mid": {
+          "mean_fourier_amplitude_Y_codes": 1.2550067237139533,
+          "unit_phase_coherence_with_center": 0.9941578416841371
+        },
+        "center": {
+          "mean_fourier_amplitude_Y_codes": 1.3985682129834371,
+          "unit_phase_coherence_with_center": 1.0
+        },
+        "right": {
+          "mean_fourier_amplitude_Y_codes": 1.2282568879951385,
+          "unit_phase_coherence_with_center": 0.9960236056712248
+        },
+        "outside_screen": {
+          "mean_fourier_amplitude_Y_codes": 0.04662832849081704,
+          "unit_phase_coherence_with_center": 0.43664284144004334
+        }
+      }
+    },
+    {
+      "degree": 1,
+      "phase": 5,
+      "exposure_ns": 2000000,
+      "mode": "moving_only",
+      "broad_cycles_per_output_row": 0.00390625,
+      "frames": 75,
+      "strips": {
+        "left": {
+          "mean_fourier_amplitude_Y_codes": 1.1003930313978865,
+          "unit_phase_coherence_with_center": 0.9953365362067012
+        },
+        "mid": {
+          "mean_fourier_amplitude_Y_codes": 1.220195086625804,
+          "unit_phase_coherence_with_center": 0.995274356542948
+        },
+        "center": {
+          "mean_fourier_amplitude_Y_codes": 1.3670279008718098,
+          "unit_phase_coherence_with_center": 1.0
+        },
+        "right": {
+          "mean_fourier_amplitude_Y_codes": 1.190158891584894,
+          "unit_phase_coherence_with_center": 0.9958785982789183
+        },
+        "outside_screen": {
+          "mean_fourier_amplitude_Y_codes": 0.041976688069307426,
+          "unit_phase_coherence_with_center": 0.5803888526942939
+        }
+      }
+    },
+    {
+      "degree": 1,
+      "phase": 6,
+      "exposure_ns": 100000,
+      "mode": "raw",
+      "broad_cycles_per_output_row": 0.0035677334189589353,
+      "frames": 75,
+      "strips": {
+        "left": {
+          "mean_fourier_amplitude_Y_codes": 0.304884867287832,
+          "unit_phase_coherence_with_center": 0.7563499304051292
+        },
+        "mid": {
+          "mean_fourier_amplitude_Y_codes": 0.4454743045536343,
+          "unit_phase_coherence_with_center": 0.26594016754004784
+        },
+        "center": {
+          "mean_fourier_amplitude_Y_codes": 0.3864193149571758,
+          "unit_phase_coherence_with_center": 1.0
+        },
+        "right": {
+          "mean_fourier_amplitude_Y_codes": 0.40011805850089305,
+          "unit_phase_coherence_with_center": 0.9317770869472272
+        },
+        "outside_screen": {
+          "mean_fourier_amplitude_Y_codes": 0.07719803734287818,
+          "unit_phase_coherence_with_center": 0.26161423876249396
+        }
+      }
+    },
+    {
+      "degree": 1,
+      "phase": 6,
+      "exposure_ns": 100000,
+      "mode": "raw",
+      "broad_cycles_per_output_row": 0.00390625,
+      "frames": 75,
+      "strips": {
+        "left": {
+          "mean_fourier_amplitude_Y_codes": 0.3001301931189154,
+          "unit_phase_coherence_with_center": 0.7601690550222523
+        },
+        "mid": {
+          "mean_fourier_amplitude_Y_codes": 0.41909251736085545,
+          "unit_phase_coherence_with_center": 0.2903384867316086
+        },
+        "center": {
+          "mean_fourier_amplitude_Y_codes": 0.38196978367786005,
+          "unit_phase_coherence_with_center": 1.0
+        },
+        "right": {
+          "mean_fourier_amplitude_Y_codes": 0.3926487041999047,
+          "unit_phase_coherence_with_center": 0.9497772102188269
+        },
+        "outside_screen": {
+          "mean_fourier_amplitude_Y_codes": 0.06853858688679286,
+          "unit_phase_coherence_with_center": 0.2969167758766897
+        }
+      }
+    },
+    {
+      "degree": 1,
+      "phase": 6,
+      "exposure_ns": 100000,
+      "mode": "moving_only",
+      "broad_cycles_per_output_row": 0.0035677334189589353,
+      "frames": 75,
+      "strips": {
+        "left": {
+          "mean_fourier_amplitude_Y_codes": 0.3034139298540937,
+          "unit_phase_coherence_with_center": 0.9434610895627262
+        },
+        "mid": {
+          "mean_fourier_amplitude_Y_codes": 0.3476966151875239,
+          "unit_phase_coherence_with_center": 0.9744421969940259
+        },
+        "center": {
+          "mean_fourier_amplitude_Y_codes": 0.3697745414766552,
+          "unit_phase_coherence_with_center": 1.0
+        },
+        "right": {
+          "mean_fourier_amplitude_Y_codes": 0.3391961144917568,
+          "unit_phase_coherence_with_center": 0.9686062276592614
+        },
+        "outside_screen": {
+          "mean_fourier_amplitude_Y_codes": 0.044295731222326024,
+          "unit_phase_coherence_with_center": 0.2779969733965934
+        }
+      }
+    },
+    {
+      "degree": 1,
+      "phase": 6,
+      "exposure_ns": 100000,
+      "mode": "moving_only",
+      "broad_cycles_per_output_row": 0.00390625,
+      "frames": 75,
+      "strips": {
+        "left": {
+          "mean_fourier_amplitude_Y_codes": 0.29911324819128426,
+          "unit_phase_coherence_with_center": 0.9025901595584677
+        },
+        "mid": {
+          "mean_fourier_amplitude_Y_codes": 0.34139354652316595,
+          "unit_phase_coherence_with_center": 0.9638442249677137
+        },
+        "center": {
+          "mean_fourier_amplitude_Y_codes": 0.3618931596969343,
+          "unit_phase_coherence_with_center": 1.0
+        },
+        "right": {
+          "mean_fourier_amplitude_Y_codes": 0.3314736057947219,
+          "unit_phase_coherence_with_center": 0.9231274357010842
+        },
+        "outside_screen": {
+          "mean_fourier_amplitude_Y_codes": 0.0437339091059244,
+          "unit_phase_coherence_with_center": 0.26842402532450477
+        }
+      }
+    },
+    {
+      "degree": 2,
+      "phase": 1,
+      "exposure_ns": 100000,
+      "mode": "raw",
+      "broad_cycles_per_output_row": 0.0035677334189589353,
+      "frames": 75,
+      "strips": {
+        "left": {
+          "mean_fourier_amplitude_Y_codes": 0.2645420300859805,
+          "unit_phase_coherence_with_center": 0.5563168169998642
+        },
+        "mid": {
+          "mean_fourier_amplitude_Y_codes": 0.3933774436453654,
+          "unit_phase_coherence_with_center": 0.37690490241216795
+        },
+        "center": {
+          "mean_fourier_amplitude_Y_codes": 0.289932626547112,
+          "unit_phase_coherence_with_center": 1.0
+        },
+        "right": {
+          "mean_fourier_amplitude_Y_codes": 0.25561640897904214,
+          "unit_phase_coherence_with_center": 0.8021471835660359
+        },
+        "outside_screen": {
+          "mean_fourier_amplitude_Y_codes": 0.04008698134199489,
+          "unit_phase_coherence_with_center": 0.2057129427181076
+        }
+      }
+    },
+    {
+      "degree": 2,
+      "phase": 1,
+      "exposure_ns": 100000,
+      "mode": "raw",
+      "broad_cycles_per_output_row": 0.00390625,
+      "frames": 75,
+      "strips": {
+        "left": {
+          "mean_fourier_amplitude_Y_codes": 0.2658660520324234,
+          "unit_phase_coherence_with_center": 0.5016086660029867
+        },
+        "mid": {
+          "mean_fourier_amplitude_Y_codes": 0.38550549124382677,
+          "unit_phase_coherence_with_center": 0.3776291311913109
+        },
+        "center": {
+          "mean_fourier_amplitude_Y_codes": 0.28530927809056156,
+          "unit_phase_coherence_with_center": 1.0
+        },
+        "right": {
+          "mean_fourier_amplitude_Y_codes": 0.2702513832882934,
+          "unit_phase_coherence_with_center": 0.7228477141543099
+        },
+        "outside_screen": {
+          "mean_fourier_amplitude_Y_codes": 0.04126708123751156,
+          "unit_phase_coherence_with_center": 0.221545509769927
+        }
+      }
+    },
+    {
+      "degree": 2,
+      "phase": 1,
+      "exposure_ns": 100000,
+      "mode": "moving_only",
+      "broad_cycles_per_output_row": 0.0035677334189589353,
+      "frames": 75,
+      "strips": {
+        "left": {
+          "mean_fourier_amplitude_Y_codes": 0.2561093986784827,
+          "unit_phase_coherence_with_center": 0.9602208082819481
+        },
+        "mid": {
+          "mean_fourier_amplitude_Y_codes": 0.3119523682301056,
+          "unit_phase_coherence_with_center": 0.981260330503625
+        },
+        "center": {
+          "mean_fourier_amplitude_Y_codes": 0.2697404521414978,
+          "unit_phase_coherence_with_center": 1.0
+        },
+        "right": {
+          "mean_fourier_amplitude_Y_codes": 0.24042995497295597,
+          "unit_phase_coherence_with_center": 0.9291591513050366
+        },
+        "outside_screen": {
+          "mean_fourier_amplitude_Y_codes": 0.03307728525631901,
+          "unit_phase_coherence_with_center": 0.48397365335973563
+        }
+      }
+    },
+    {
+      "degree": 2,
+      "phase": 1,
+      "exposure_ns": 100000,
+      "mode": "moving_only",
+      "broad_cycles_per_output_row": 0.00390625,
+      "frames": 75,
+      "strips": {
+        "left": {
+          "mean_fourier_amplitude_Y_codes": 0.255431643566559,
+          "unit_phase_coherence_with_center": 0.944574071896801
+        },
+        "mid": {
+          "mean_fourier_amplitude_Y_codes": 0.30921879948165526,
+          "unit_phase_coherence_with_center": 0.9703345503337851
+        },
+        "center": {
+          "mean_fourier_amplitude_Y_codes": 0.2682737797458179,
+          "unit_phase_coherence_with_center": 1.0
+        },
+        "right": {
+          "mean_fourier_amplitude_Y_codes": 0.24188979655014511,
+          "unit_phase_coherence_with_center": 0.9112247647543805
+        },
+        "outside_screen": {
+          "mean_fourier_amplitude_Y_codes": 0.033263214946076654,
+          "unit_phase_coherence_with_center": 0.48426922053116533
+        }
+      }
+    },
+    {
+      "degree": 2,
+      "phase": 2,
+      "exposure_ns": 500000,
+      "mode": "raw",
+      "broad_cycles_per_output_row": 0.0035677334189589353,
+      "frames": 75,
+      "strips": {
+        "left": {
+          "mean_fourier_amplitude_Y_codes": 0.9172842999064721,
+          "unit_phase_coherence_with_center": 0.48114184123278275
+        },
+        "mid": {
+          "mean_fourier_amplitude_Y_codes": 1.6124009137254791,
+          "unit_phase_coherence_with_center": 0.05053382575165684
+        },
+        "center": {
+          "mean_fourier_amplitude_Y_codes": 0.9017484078656566,
+          "unit_phase_coherence_with_center": 1.0
+        },
+        "right": {
+          "mean_fourier_amplitude_Y_codes": 1.0066155863237243,
+          "unit_phase_coherence_with_center": 0.709835518599519
+        },
+        "outside_screen": {
+          "mean_fourier_amplitude_Y_codes": 0.07088605804616743,
+          "unit_phase_coherence_with_center": 0.5759549976002795
+        }
+      }
+    },
+    {
+      "degree": 2,
+      "phase": 2,
+      "exposure_ns": 500000,
+      "mode": "raw",
+      "broad_cycles_per_output_row": 0.00390625,
+      "frames": 75,
+      "strips": {
+        "left": {
+          "mean_fourier_amplitude_Y_codes": 0.8822751761519464,
+          "unit_phase_coherence_with_center": 0.38101531616795403
+        },
+        "mid": {
+          "mean_fourier_amplitude_Y_codes": 1.4962033885051007,
+          "unit_phase_coherence_with_center": 0.03914517379545062
+        },
+        "center": {
+          "mean_fourier_amplitude_Y_codes": 0.8274456458451218,
+          "unit_phase_coherence_with_center": 1.0
+        },
+        "right": {
+          "mean_fourier_amplitude_Y_codes": 1.0753043170565708,
+          "unit_phase_coherence_with_center": 0.5856073162136242
+        },
+        "outside_screen": {
+          "mean_fourier_amplitude_Y_codes": 0.06424559999516606,
+          "unit_phase_coherence_with_center": 0.5710999684003223
+        }
+      }
+    },
+    {
+      "degree": 2,
+      "phase": 2,
+      "exposure_ns": 500000,
+      "mode": "moving_only",
+      "broad_cycles_per_output_row": 0.0035677334189589353,
+      "frames": 75,
+      "strips": {
+        "left": {
+          "mean_fourier_amplitude_Y_codes": 0.7025110418691406,
+          "unit_phase_coherence_with_center": 0.969226317469905
+        },
+        "mid": {
+          "mean_fourier_amplitude_Y_codes": 0.8288051149636617,
+          "unit_phase_coherence_with_center": 0.9395175654887085
+        },
+        "center": {
+          "mean_fourier_amplitude_Y_codes": 0.8526128297458143,
+          "unit_phase_coherence_with_center": 1.0
+        },
+        "right": {
+          "mean_fourier_amplitude_Y_codes": 0.8306002999936839,
+          "unit_phase_coherence_with_center": 0.759314689764609
+        },
+        "outside_screen": {
+          "mean_fourier_amplitude_Y_codes": 0.04541335017567203,
+          "unit_phase_coherence_with_center": 0.5179726791436273
+        }
+      }
+    },
+    {
+      "degree": 2,
+      "phase": 2,
+      "exposure_ns": 500000,
+      "mode": "moving_only",
+      "broad_cycles_per_output_row": 0.00390625,
+      "frames": 75,
+      "strips": {
+        "left": {
+          "mean_fourier_amplitude_Y_codes": 0.6491757870260403,
+          "unit_phase_coherence_with_center": 0.9531650395162116
+        },
+        "mid": {
+          "mean_fourier_amplitude_Y_codes": 0.7699683439830456,
+          "unit_phase_coherence_with_center": 0.9120322851835225
+        },
+        "center": {
+          "mean_fourier_amplitude_Y_codes": 0.7916844121955886,
+          "unit_phase_coherence_with_center": 1.0
+        },
+        "right": {
+          "mean_fourier_amplitude_Y_codes": 0.7719059202111688,
+          "unit_phase_coherence_with_center": 0.7398989571821382
+        },
+        "outside_screen": {
+          "mean_fourier_amplitude_Y_codes": 0.043907410427976364,
+          "unit_phase_coherence_with_center": 0.5143737931683579
+        }
+      }
+    },
+    {
+      "degree": 2,
+      "phase": 3,
+      "exposure_ns": 1000000,
+      "mode": "raw",
+      "broad_cycles_per_output_row": 0.0035677334189589353,
+      "frames": 75,
+      "strips": {
+        "left": {
+          "mean_fourier_amplitude_Y_codes": 1.642748212800644,
+          "unit_phase_coherence_with_center": 0.29610184333954
+        },
+        "mid": {
+          "mean_fourier_amplitude_Y_codes": 2.9278717696143457,
+          "unit_phase_coherence_with_center": 0.14324904549134188
+        },
+        "center": {
+          "mean_fourier_amplitude_Y_codes": 1.6202689528327927,
+          "unit_phase_coherence_with_center": 1.0
+        },
+        "right": {
+          "mean_fourier_amplitude_Y_codes": 1.451325563235786,
+          "unit_phase_coherence_with_center": 0.8255001010571831
+        },
+        "outside_screen": {
+          "mean_fourier_amplitude_Y_codes": 0.05698337011404584,
+          "unit_phase_coherence_with_center": 0.645848123630044
+        }
+      }
+    },
+    {
+      "degree": 2,
+      "phase": 3,
+      "exposure_ns": 1000000,
+      "mode": "raw",
+      "broad_cycles_per_output_row": 0.00390625,
+      "frames": 75,
+      "strips": {
+        "left": {
+          "mean_fourier_amplitude_Y_codes": 1.640073649637975,
+          "unit_phase_coherence_with_center": 0.24561571315520814
+        },
+        "mid": {
+          "mean_fourier_amplitude_Y_codes": 2.6668018730678766,
+          "unit_phase_coherence_with_center": 0.19307343169100127
+        },
+        "center": {
+          "mean_fourier_amplitude_Y_codes": 1.5481257818668168,
+          "unit_phase_coherence_with_center": 1.0
+        },
+        "right": {
+          "mean_fourier_amplitude_Y_codes": 1.6402385738191962,
+          "unit_phase_coherence_with_center": 0.5350449763498961
+        },
+        "outside_screen": {
+          "mean_fourier_amplitude_Y_codes": 0.052552139265724225,
+          "unit_phase_coherence_with_center": 0.6165482605005712
+        }
+      }
+    },
+    {
+      "degree": 2,
+      "phase": 3,
+      "exposure_ns": 1000000,
+      "mode": "moving_only",
+      "broad_cycles_per_output_row": 0.0035677334189589353,
+      "frames": 75,
+      "strips": {
+        "left": {
+          "mean_fourier_amplitude_Y_codes": 1.2760356969560378,
+          "unit_phase_coherence_with_center": 0.9945144013774666
+        },
+        "mid": {
+          "mean_fourier_amplitude_Y_codes": 1.3999155851180682,
+          "unit_phase_coherence_with_center": 0.994157503900237
+        },
+        "center": {
+          "mean_fourier_amplitude_Y_codes": 1.5846896895613118,
+          "unit_phase_coherence_with_center": 1.0
+        },
+        "right": {
+          "mean_fourier_amplitude_Y_codes": 1.353108905167529,
+          "unit_phase_coherence_with_center": 0.9865215162822667
+        },
+        "outside_screen": {
+          "mean_fourier_amplitude_Y_codes": 0.050806753934569786,
+          "unit_phase_coherence_with_center": 0.767241322898923
+        }
+      }
+    },
+    {
+      "degree": 2,
+      "phase": 3,
+      "exposure_ns": 1000000,
+      "mode": "moving_only",
+      "broad_cycles_per_output_row": 0.00390625,
+      "frames": 75,
+      "strips": {
+        "left": {
+          "mean_fourier_amplitude_Y_codes": 1.1953526888351573,
+          "unit_phase_coherence_with_center": 0.9924251835865179
+        },
+        "mid": {
+          "mean_fourier_amplitude_Y_codes": 1.308398570364037,
+          "unit_phase_coherence_with_center": 0.9932010552147881
+        },
+        "center": {
+          "mean_fourier_amplitude_Y_codes": 1.4932380743234723,
+          "unit_phase_coherence_with_center": 1.0
+        },
+        "right": {
+          "mean_fourier_amplitude_Y_codes": 1.2669775460258657,
+          "unit_phase_coherence_with_center": 0.9836036579066249
+        },
+        "outside_screen": {
+          "mean_fourier_amplitude_Y_codes": 0.047301200127123695,
+          "unit_phase_coherence_with_center": 0.7735251348544477
+        }
+      }
+    },
+    {
+      "degree": 2,
+      "phase": 4,
+      "exposure_ns": 1428571,
+      "mode": "raw",
+      "broad_cycles_per_output_row": 0.0035677334189589353,
+      "frames": 75,
+      "strips": {
+        "left": {
+          "mean_fourier_amplitude_Y_codes": 1.9906538774975164,
+          "unit_phase_coherence_with_center": 0.2901612510683339
+        },
+        "mid": {
+          "mean_fourier_amplitude_Y_codes": 3.5798695195139345,
+          "unit_phase_coherence_with_center": 0.09806581413007429
+        },
+        "center": {
+          "mean_fourier_amplitude_Y_codes": 1.663284336256556,
+          "unit_phase_coherence_with_center": 1.0
+        },
+        "right": {
+          "mean_fourier_amplitude_Y_codes": 1.540414544806135,
+          "unit_phase_coherence_with_center": 0.7937540296895912
+        },
+        "outside_screen": {
+          "mean_fourier_amplitude_Y_codes": 0.16138425168818002,
+          "unit_phase_coherence_with_center": 0.4383236557841509
+        }
+      }
+    },
+    {
+      "degree": 2,
+      "phase": 4,
+      "exposure_ns": 1428571,
+      "mode": "raw",
+      "broad_cycles_per_output_row": 0.00390625,
+      "frames": 75,
+      "strips": {
+        "left": {
+          "mean_fourier_amplitude_Y_codes": 2.0172423896900034,
+          "unit_phase_coherence_with_center": 0.2765037661988274
+        },
+        "mid": {
+          "mean_fourier_amplitude_Y_codes": 3.309801159671964,
+          "unit_phase_coherence_with_center": 0.15566872955902827
+        },
+        "center": {
+          "mean_fourier_amplitude_Y_codes": 1.556550817114641,
+          "unit_phase_coherence_with_center": 1.0
+        },
+        "right": {
+          "mean_fourier_amplitude_Y_codes": 1.9262285502331364,
+          "unit_phase_coherence_with_center": 0.5076403375419197
+        },
+        "outside_screen": {
+          "mean_fourier_amplitude_Y_codes": 0.155563248187255,
+          "unit_phase_coherence_with_center": 0.46707357557276374
+        }
+      }
+    },
+    {
+      "degree": 2,
+      "phase": 4,
+      "exposure_ns": 1428571,
+      "mode": "moving_only",
+      "broad_cycles_per_output_row": 0.0035677334189589353,
+      "frames": 75,
+      "strips": {
+        "left": {
+          "mean_fourier_amplitude_Y_codes": 1.3398165383200524,
+          "unit_phase_coherence_with_center": 0.9987856507846098
+        },
+        "mid": {
+          "mean_fourier_amplitude_Y_codes": 1.4756011144434473,
+          "unit_phase_coherence_with_center": 0.9981932885154172
+        },
+        "center": {
+          "mean_fourier_amplitude_Y_codes": 1.5893153832063116,
+          "unit_phase_coherence_with_center": 1.0
+        },
+        "right": {
+          "mean_fourier_amplitude_Y_codes": 1.363281826458036,
+          "unit_phase_coherence_with_center": 0.9992252427045938
+        },
+        "outside_screen": {
+          "mean_fourier_amplitude_Y_codes": 0.0474022079444813,
+          "unit_phase_coherence_with_center": 0.925134789785695
+        }
+      }
+    },
+    {
+      "degree": 2,
+      "phase": 4,
+      "exposure_ns": 1428571,
+      "mode": "moving_only",
+      "broad_cycles_per_output_row": 0.00390625,
+      "frames": 75,
+      "strips": {
+        "left": {
+          "mean_fourier_amplitude_Y_codes": 1.2426642366708882,
+          "unit_phase_coherence_with_center": 0.9987866830713835
+        },
+        "mid": {
+          "mean_fourier_amplitude_Y_codes": 1.363541987312271,
+          "unit_phase_coherence_with_center": 0.9982670866932823
+        },
+        "center": {
+          "mean_fourier_amplitude_Y_codes": 1.4746979860379468,
+          "unit_phase_coherence_with_center": 1.0
+        },
+        "right": {
+          "mean_fourier_amplitude_Y_codes": 1.2598212035831138,
+          "unit_phase_coherence_with_center": 0.9990781542138711
+        },
+        "outside_screen": {
+          "mean_fourier_amplitude_Y_codes": 0.04582829958903256,
+          "unit_phase_coherence_with_center": 0.9105010166175942
+        }
+      }
+    },
+    {
+      "degree": 2,
+      "phase": 5,
+      "exposure_ns": 2000000,
+      "mode": "raw",
+      "broad_cycles_per_output_row": 0.0035677334189589353,
+      "frames": 75,
+      "strips": {
+        "left": {
+          "mean_fourier_amplitude_Y_codes": 2.308045237285308,
+          "unit_phase_coherence_with_center": 0.3641378333726111
+        },
+        "mid": {
+          "mean_fourier_amplitude_Y_codes": 4.101089149185776,
+          "unit_phase_coherence_with_center": 0.2097796165766919
+        },
+        "center": {
+          "mean_fourier_amplitude_Y_codes": 1.967197975941393,
+          "unit_phase_coherence_with_center": 1.0
+        },
+        "right": {
+          "mean_fourier_amplitude_Y_codes": 1.9729885867963777,
+          "unit_phase_coherence_with_center": 0.7121465961569083
+        },
+        "outside_screen": {
+          "mean_fourier_amplitude_Y_codes": 0.138923898975138,
+          "unit_phase_coherence_with_center": 0.5498612195671692
+        }
+      }
+    },
+    {
+      "degree": 2,
+      "phase": 5,
+      "exposure_ns": 2000000,
+      "mode": "raw",
+      "broad_cycles_per_output_row": 0.00390625,
+      "frames": 75,
+      "strips": {
+        "left": {
+          "mean_fourier_amplitude_Y_codes": 2.403386552517426,
+          "unit_phase_coherence_with_center": 0.3569659489785599
+        },
+        "mid": {
+          "mean_fourier_amplitude_Y_codes": 3.882145570403828,
+          "unit_phase_coherence_with_center": 0.19455297724518317
+        },
+        "center": {
+          "mean_fourier_amplitude_Y_codes": 1.8483749060480255,
+          "unit_phase_coherence_with_center": 1.0
+        },
+        "right": {
+          "mean_fourier_amplitude_Y_codes": 2.49344330399171,
+          "unit_phase_coherence_with_center": 0.5712234155832919
+        },
+        "outside_screen": {
+          "mean_fourier_amplitude_Y_codes": 0.1270605748795233,
+          "unit_phase_coherence_with_center": 0.5549497944173334
+        }
+      }
+    },
+    {
+      "degree": 2,
+      "phase": 5,
+      "exposure_ns": 2000000,
+      "mode": "moving_only",
+      "broad_cycles_per_output_row": 0.0035677334189589353,
+      "frames": 75,
+      "strips": {
+        "left": {
+          "mean_fourier_amplitude_Y_codes": 1.4141401963023492,
+          "unit_phase_coherence_with_center": 0.9983916768251804
+        },
+        "mid": {
+          "mean_fourier_amplitude_Y_codes": 1.5649601094593104,
+          "unit_phase_coherence_with_center": 0.9970712067830985
+        },
+        "center": {
+          "mean_fourier_amplitude_Y_codes": 1.724276109646507,
+          "unit_phase_coherence_with_center": 1.0
+        },
+        "right": {
+          "mean_fourier_amplitude_Y_codes": 1.5006012196157532,
+          "unit_phase_coherence_with_center": 0.9979353175528797
+        },
+        "outside_screen": {
+          "mean_fourier_amplitude_Y_codes": 0.05241547769021897,
+          "unit_phase_coherence_with_center": 0.828919080462932
+        }
+      }
+    },
+    {
+      "degree": 2,
+      "phase": 5,
+      "exposure_ns": 2000000,
+      "mode": "moving_only",
+      "broad_cycles_per_output_row": 0.00390625,
+      "frames": 75,
+      "strips": {
+        "left": {
+          "mean_fourier_amplitude_Y_codes": 1.3438975329695857,
+          "unit_phase_coherence_with_center": 0.9981091060349527
+        },
+        "mid": {
+          "mean_fourier_amplitude_Y_codes": 1.4855595010647977,
+          "unit_phase_coherence_with_center": 0.997270434086875
+        },
+        "center": {
+          "mean_fourier_amplitude_Y_codes": 1.6468606970709325,
+          "unit_phase_coherence_with_center": 1.0
+        },
+        "right": {
+          "mean_fourier_amplitude_Y_codes": 1.4297744286857828,
+          "unit_phase_coherence_with_center": 0.9973341522418557
+        },
+        "outside_screen": {
+          "mean_fourier_amplitude_Y_codes": 0.05168327491586656,
+          "unit_phase_coherence_with_center": 0.8309844603322365
+        }
+      }
+    },
+    {
+      "degree": 2,
+      "phase": 6,
+      "exposure_ns": 100000,
+      "mode": "raw",
+      "broad_cycles_per_output_row": 0.0035677334189589353,
+      "frames": 75,
+      "strips": {
+        "left": {
+          "mean_fourier_amplitude_Y_codes": 0.28324932443016865,
+          "unit_phase_coherence_with_center": 0.8345884342344557
+        },
+        "mid": {
+          "mean_fourier_amplitude_Y_codes": 0.4249344662347433,
+          "unit_phase_coherence_with_center": 0.28962382396337694
+        },
+        "center": {
+          "mean_fourier_amplitude_Y_codes": 0.36679256236761226,
+          "unit_phase_coherence_with_center": 1.0
+        },
+        "right": {
+          "mean_fourier_amplitude_Y_codes": 0.3557870953631119,
+          "unit_phase_coherence_with_center": 0.965552716542747
+        },
+        "outside_screen": {
+          "mean_fourier_amplitude_Y_codes": 0.0464609712098347,
+          "unit_phase_coherence_with_center": 0.2349414094687071
+        }
+      }
+    },
+    {
+      "degree": 2,
+      "phase": 6,
+      "exposure_ns": 100000,
+      "mode": "raw",
+      "broad_cycles_per_output_row": 0.00390625,
+      "frames": 75,
+      "strips": {
+        "left": {
+          "mean_fourier_amplitude_Y_codes": 0.2830142415550429,
+          "unit_phase_coherence_with_center": 0.84587475130002
+        },
+        "mid": {
+          "mean_fourier_amplitude_Y_codes": 0.40449266741985207,
+          "unit_phase_coherence_with_center": 0.31136289761189784
+        },
+        "center": {
+          "mean_fourier_amplitude_Y_codes": 0.36992253503411104,
+          "unit_phase_coherence_with_center": 1.0
+        },
+        "right": {
+          "mean_fourier_amplitude_Y_codes": 0.3667534399573139,
+          "unit_phase_coherence_with_center": 0.9563476879017151
+        },
+        "outside_screen": {
+          "mean_fourier_amplitude_Y_codes": 0.04820245722369866,
+          "unit_phase_coherence_with_center": 0.23781013548845772
+        }
+      }
+    },
+    {
+      "degree": 2,
+      "phase": 6,
+      "exposure_ns": 100000,
+      "mode": "moving_only",
+      "broad_cycles_per_output_row": 0.0035677334189589353,
+      "frames": 75,
+      "strips": {
+        "left": {
+          "mean_fourier_amplitude_Y_codes": 0.2845700038031897,
+          "unit_phase_coherence_with_center": 0.9721422816056758
+        },
+        "mid": {
+          "mean_fourier_amplitude_Y_codes": 0.3229418518413132,
+          "unit_phase_coherence_with_center": 0.9795813937394509
+        },
+        "center": {
+          "mean_fourier_amplitude_Y_codes": 0.3494851544131521,
+          "unit_phase_coherence_with_center": 1.0
+        },
+        "right": {
+          "mean_fourier_amplitude_Y_codes": 0.32413614046088,
+          "unit_phase_coherence_with_center": 0.9736435598679367
+        },
+        "outside_screen": {
+          "mean_fourier_amplitude_Y_codes": 0.040968658043142266,
+          "unit_phase_coherence_with_center": 0.2092373850003817
+        }
+      }
+    },
+    {
+      "degree": 2,
+      "phase": 6,
+      "exposure_ns": 100000,
+      "mode": "moving_only",
+      "broad_cycles_per_output_row": 0.00390625,
+      "frames": 75,
+      "strips": {
+        "left": {
+          "mean_fourier_amplitude_Y_codes": 0.2859748712452079,
+          "unit_phase_coherence_with_center": 0.9633155063287293
+        },
+        "mid": {
+          "mean_fourier_amplitude_Y_codes": 0.32446361714413713,
+          "unit_phase_coherence_with_center": 0.976454317436119
+        },
+        "center": {
+          "mean_fourier_amplitude_Y_codes": 0.3497600595498676,
+          "unit_phase_coherence_with_center": 1.0
+        },
+        "right": {
+          "mean_fourier_amplitude_Y_codes": 0.32402418672052913,
+          "unit_phase_coherence_with_center": 0.9715583255087238
+        },
+        "outside_screen": {
+          "mean_fourier_amplitude_Y_codes": 0.04156184879823739,
+          "unit_phase_coherence_with_center": 0.22485099804415223
+        }
+      }
+    },
+    {
+      "degree": 3,
+      "phase": 1,
+      "exposure_ns": 100000,
+      "mode": "raw",
+      "broad_cycles_per_output_row": 0.0035677334189589353,
+      "frames": 75,
+      "strips": {
+        "left": {
+          "mean_fourier_amplitude_Y_codes": 0.2528302308945804,
+          "unit_phase_coherence_with_center": 0.6574621746064799
+        },
+        "mid": {
+          "mean_fourier_amplitude_Y_codes": 0.3071462350298781,
+          "unit_phase_coherence_with_center": 0.6172089014892261
+        },
+        "center": {
+          "mean_fourier_amplitude_Y_codes": 0.2653544930238577,
+          "unit_phase_coherence_with_center": 1.0
+        },
+        "right": {
+          "mean_fourier_amplitude_Y_codes": 0.24977122435337382,
+          "unit_phase_coherence_with_center": 0.7945270356089742
+        },
+        "outside_screen": {
+          "mean_fourier_amplitude_Y_codes": 0.04563066546449777,
+          "unit_phase_coherence_with_center": 0.27362441952512556
+        }
+      }
+    },
+    {
+      "degree": 3,
+      "phase": 1,
+      "exposure_ns": 100000,
+      "mode": "raw",
+      "broad_cycles_per_output_row": 0.00390625,
+      "frames": 75,
+      "strips": {
+        "left": {
+          "mean_fourier_amplitude_Y_codes": 0.26374137430222844,
+          "unit_phase_coherence_with_center": 0.614592840845144
+        },
+        "mid": {
+          "mean_fourier_amplitude_Y_codes": 0.3151829973268188,
+          "unit_phase_coherence_with_center": 0.5765313306671069
+        },
+        "center": {
+          "mean_fourier_amplitude_Y_codes": 0.27239984049786226,
+          "unit_phase_coherence_with_center": 1.0
+        },
+        "right": {
+          "mean_fourier_amplitude_Y_codes": 0.27220459177245837,
+          "unit_phase_coherence_with_center": 0.6733655990649489
+        },
+        "outside_screen": {
+          "mean_fourier_amplitude_Y_codes": 0.046097943855487135,
+          "unit_phase_coherence_with_center": 0.29706777473542106
+        }
+      }
+    },
+    {
+      "degree": 3,
+      "phase": 1,
+      "exposure_ns": 100000,
+      "mode": "moving_only",
+      "broad_cycles_per_output_row": 0.0035677334189589353,
+      "frames": 75,
+      "strips": {
+        "left": {
+          "mean_fourier_amplitude_Y_codes": 0.23812872195611987,
+          "unit_phase_coherence_with_center": 0.9412482930807001
+        },
+        "mid": {
+          "mean_fourier_amplitude_Y_codes": 0.2783063253919609,
+          "unit_phase_coherence_with_center": 0.9590183315207894
+        },
+        "center": {
+          "mean_fourier_amplitude_Y_codes": 0.25181462979545066,
+          "unit_phase_coherence_with_center": 1.0
+        },
+        "right": {
+          "mean_fourier_amplitude_Y_codes": 0.22646775414368245,
+          "unit_phase_coherence_with_center": 0.9053260848603658
+        },
+        "outside_screen": {
+          "mean_fourier_amplitude_Y_codes": 0.03153983971083299,
+          "unit_phase_coherence_with_center": 0.4517003682488574
+        }
+      }
+    },
+    {
+      "degree": 3,
+      "phase": 1,
+      "exposure_ns": 100000,
+      "mode": "moving_only",
+      "broad_cycles_per_output_row": 0.00390625,
+      "frames": 75,
+      "strips": {
+        "left": {
+          "mean_fourier_amplitude_Y_codes": 0.2434057200781745,
+          "unit_phase_coherence_with_center": 0.9159213914112436
+        },
+        "mid": {
+          "mean_fourier_amplitude_Y_codes": 0.2848893826160992,
+          "unit_phase_coherence_with_center": 0.941119382521093
+        },
+        "center": {
+          "mean_fourier_amplitude_Y_codes": 0.25761757093077053,
+          "unit_phase_coherence_with_center": 1.0
+        },
+        "right": {
+          "mean_fourier_amplitude_Y_codes": 0.23212701282170983,
+          "unit_phase_coherence_with_center": 0.8816137288321638
+        },
+        "outside_screen": {
+          "mean_fourier_amplitude_Y_codes": 0.03274714099717232,
+          "unit_phase_coherence_with_center": 0.44780502402697336
+        }
+      }
+    },
+    {
+      "degree": 3,
+      "phase": 2,
+      "exposure_ns": 500000,
+      "mode": "raw",
+      "broad_cycles_per_output_row": 0.0035677334189589353,
+      "frames": 75,
+      "strips": {
+        "left": {
+          "mean_fourier_amplitude_Y_codes": 0.9857524230541311,
+          "unit_phase_coherence_with_center": 0.6124497372661094
+        },
+        "mid": {
+          "mean_fourier_amplitude_Y_codes": 1.1587484763056164,
+          "unit_phase_coherence_with_center": 0.3665370695790703
+        },
+        "center": {
+          "mean_fourier_amplitude_Y_codes": 0.8819978805949205,
+          "unit_phase_coherence_with_center": 1.0
+        },
+        "right": {
+          "mean_fourier_amplitude_Y_codes": 1.0443838337928295,
+          "unit_phase_coherence_with_center": 0.7463204520239209
+        },
+        "outside_screen": {
+          "mean_fourier_amplitude_Y_codes": 0.042364345114578254,
+          "unit_phase_coherence_with_center": 0.679571006604272
+        }
+      }
+    },
+    {
+      "degree": 3,
+      "phase": 2,
+      "exposure_ns": 500000,
+      "mode": "raw",
+      "broad_cycles_per_output_row": 0.00390625,
+      "frames": 75,
+      "strips": {
+        "left": {
+          "mean_fourier_amplitude_Y_codes": 0.996498947085983,
+          "unit_phase_coherence_with_center": 0.5120920662948
+        },
+        "mid": {
+          "mean_fourier_amplitude_Y_codes": 1.137898559343366,
+          "unit_phase_coherence_with_center": 0.2936809376822121
+        },
+        "center": {
+          "mean_fourier_amplitude_Y_codes": 0.8534284577275224,
+          "unit_phase_coherence_with_center": 1.0
+        },
+        "right": {
+          "mean_fourier_amplitude_Y_codes": 1.1360443269399099,
+          "unit_phase_coherence_with_center": 0.5710709209491448
+        },
+        "outside_screen": {
+          "mean_fourier_amplitude_Y_codes": 0.04320600052516691,
+          "unit_phase_coherence_with_center": 0.6770474262149123
+        }
+      }
+    },
+    {
+      "degree": 3,
+      "phase": 2,
+      "exposure_ns": 500000,
+      "mode": "moving_only",
+      "broad_cycles_per_output_row": 0.0035677334189589353,
+      "frames": 75,
+      "strips": {
+        "left": {
+          "mean_fourier_amplitude_Y_codes": 0.770762767176943,
+          "unit_phase_coherence_with_center": 0.9063977568499866
+        },
+        "mid": {
+          "mean_fourier_amplitude_Y_codes": 0.8776248112699928,
+          "unit_phase_coherence_with_center": 0.8577236945333934
+        },
+        "center": {
+          "mean_fourier_amplitude_Y_codes": 0.8712855769157511,
+          "unit_phase_coherence_with_center": 1.0
+        },
+        "right": {
+          "mean_fourier_amplitude_Y_codes": 0.8929324473805971,
+          "unit_phase_coherence_with_center": 0.871770652695428
+        },
+        "outside_screen": {
+          "mean_fourier_amplitude_Y_codes": 0.04122988875252562,
+          "unit_phase_coherence_with_center": 0.6466181805559029
+        }
+      }
+    },
+    {
+      "degree": 3,
+      "phase": 2,
+      "exposure_ns": 500000,
+      "mode": "moving_only",
+      "broad_cycles_per_output_row": 0.00390625,
+      "frames": 75,
+      "strips": {
+        "left": {
+          "mean_fourier_amplitude_Y_codes": 0.7427611349219573,
+          "unit_phase_coherence_with_center": 0.914081792376319
+        },
+        "mid": {
+          "mean_fourier_amplitude_Y_codes": 0.8454811579612008,
+          "unit_phase_coherence_with_center": 0.8486093605842319
+        },
+        "center": {
+          "mean_fourier_amplitude_Y_codes": 0.8441469409519184,
+          "unit_phase_coherence_with_center": 1.0
+        },
+        "right": {
+          "mean_fourier_amplitude_Y_codes": 0.8652758927198613,
+          "unit_phase_coherence_with_center": 0.8673470287937737
+        },
+        "outside_screen": {
+          "mean_fourier_amplitude_Y_codes": 0.04194705288514783,
+          "unit_phase_coherence_with_center": 0.6452010479108183
+        }
+      }
+    },
+    {
+      "degree": 3,
+      "phase": 3,
+      "exposure_ns": 1000000,
+      "mode": "raw",
+      "broad_cycles_per_output_row": 0.0035677334189589353,
+      "frames": 75,
+      "strips": {
+        "left": {
+          "mean_fourier_amplitude_Y_codes": 1.6585416601742682,
+          "unit_phase_coherence_with_center": 0.3112849938535121
+        },
+        "mid": {
+          "mean_fourier_amplitude_Y_codes": 1.8040364020208248,
+          "unit_phase_coherence_with_center": 0.2217236075437555
+        },
+        "center": {
+          "mean_fourier_amplitude_Y_codes": 1.5445805230526484,
+          "unit_phase_coherence_with_center": 1.0
+        },
+        "right": {
+          "mean_fourier_amplitude_Y_codes": 1.6429065878422335,
+          "unit_phase_coherence_with_center": 0.7311547232217331
+        },
+        "outside_screen": {
+          "mean_fourier_amplitude_Y_codes": 0.04767661940113558,
+          "unit_phase_coherence_with_center": 0.6214521725164059
+        }
+      }
+    },
+    {
+      "degree": 3,
+      "phase": 3,
+      "exposure_ns": 1000000,
+      "mode": "raw",
+      "broad_cycles_per_output_row": 0.00390625,
+      "frames": 75,
+      "strips": {
+        "left": {
+          "mean_fourier_amplitude_Y_codes": 1.7787415274537124,
+          "unit_phase_coherence_with_center": 0.36522922229247606
+        },
+        "mid": {
+          "mean_fourier_amplitude_Y_codes": 1.8065838877638283,
+          "unit_phase_coherence_with_center": 0.15616772113459135
+        },
+        "center": {
+          "mean_fourier_amplitude_Y_codes": 1.528565501381464,
+          "unit_phase_coherence_with_center": 1.0
+        },
+        "right": {
+          "mean_fourier_amplitude_Y_codes": 1.928658970633484,
+          "unit_phase_coherence_with_center": 0.6019572755937699
+        },
+        "outside_screen": {
+          "mean_fourier_amplitude_Y_codes": 0.04611163199770841,
+          "unit_phase_coherence_with_center": 0.5806101716645626
+        }
+      }
+    },
+    {
+      "degree": 3,
+      "phase": 3,
+      "exposure_ns": 1000000,
+      "mode": "moving_only",
+      "broad_cycles_per_output_row": 0.0035677334189589353,
+      "frames": 75,
+      "strips": {
+        "left": {
+          "mean_fourier_amplitude_Y_codes": 1.2266610530614788,
+          "unit_phase_coherence_with_center": 0.9926826349141549
+        },
+        "mid": {
+          "mean_fourier_amplitude_Y_codes": 1.322848466661612,
+          "unit_phase_coherence_with_center": 0.9955754367985539
+        },
+        "center": {
+          "mean_fourier_amplitude_Y_codes": 1.5134720155048995,
+          "unit_phase_coherence_with_center": 1.0
+        },
+        "right": {
+          "mean_fourier_amplitude_Y_codes": 1.3196818621898971,
+          "unit_phase_coherence_with_center": 0.9892460283401081
+        },
+        "outside_screen": {
+          "mean_fourier_amplitude_Y_codes": 0.047381614780232895,
+          "unit_phase_coherence_with_center": 0.814388954855478
+        }
+      }
+    },
+    {
+      "degree": 3,
+      "phase": 3,
+      "exposure_ns": 1000000,
+      "mode": "moving_only",
+      "broad_cycles_per_output_row": 0.00390625,
+      "frames": 75,
+      "strips": {
+        "left": {
+          "mean_fourier_amplitude_Y_codes": 1.1932160466520936,
+          "unit_phase_coherence_with_center": 0.9907031046209738
+        },
+        "mid": {
+          "mean_fourier_amplitude_Y_codes": 1.2860788375028425,
+          "unit_phase_coherence_with_center": 0.9945215398256934
+        },
+        "center": {
+          "mean_fourier_amplitude_Y_codes": 1.4832729147024524,
+          "unit_phase_coherence_with_center": 1.0
+        },
+        "right": {
+          "mean_fourier_amplitude_Y_codes": 1.2852602237157391,
+          "unit_phase_coherence_with_center": 0.986185078580919
+        },
+        "outside_screen": {
+          "mean_fourier_amplitude_Y_codes": 0.04590837165608245,
+          "unit_phase_coherence_with_center": 0.7968078953739419
+        }
+      }
+    },
+    {
+      "degree": 3,
+      "phase": 4,
+      "exposure_ns": 1428571,
+      "mode": "raw",
+      "broad_cycles_per_output_row": 0.0035677334189589353,
+      "frames": 75,
+      "strips": {
+        "left": {
+          "mean_fourier_amplitude_Y_codes": 2.057475825815976,
+          "unit_phase_coherence_with_center": 0.3065036901693514
+        },
+        "mid": {
+          "mean_fourier_amplitude_Y_codes": 2.2971673317213654,
+          "unit_phase_coherence_with_center": 0.2356917485057919
+        },
+        "center": {
+          "mean_fourier_amplitude_Y_codes": 1.6200043461517175,
+          "unit_phase_coherence_with_center": 1.0
+        },
+        "right": {
+          "mean_fourier_amplitude_Y_codes": 1.8281468665180538,
+          "unit_phase_coherence_with_center": 0.6222019042473294
+        },
+        "outside_screen": {
+          "mean_fourier_amplitude_Y_codes": 0.09784000346567492,
+          "unit_phase_coherence_with_center": 0.49638543719270534
+        }
+      }
+    },
+    {
+      "degree": 3,
+      "phase": 4,
+      "exposure_ns": 1428571,
+      "mode": "raw",
+      "broad_cycles_per_output_row": 0.00390625,
+      "frames": 75,
+      "strips": {
+        "left": {
+          "mean_fourier_amplitude_Y_codes": 2.1763147838198442,
+          "unit_phase_coherence_with_center": 0.32346377024546713
+        },
+        "mid": {
+          "mean_fourier_amplitude_Y_codes": 2.3078344250834215,
+          "unit_phase_coherence_with_center": 0.1988578118812652
+        },
+        "center": {
+          "mean_fourier_amplitude_Y_codes": 1.5870177700495878,
+          "unit_phase_coherence_with_center": 1.0
+        },
+        "right": {
+          "mean_fourier_amplitude_Y_codes": 2.2124074701859784,
+          "unit_phase_coherence_with_center": 0.49218840065689395
+        },
+        "outside_screen": {
+          "mean_fourier_amplitude_Y_codes": 0.10346132013032897,
+          "unit_phase_coherence_with_center": 0.5120989841539985
+        }
+      }
+    },
+    {
+      "degree": 3,
+      "phase": 4,
+      "exposure_ns": 1428571,
+      "mode": "moving_only",
+      "broad_cycles_per_output_row": 0.0035677334189589353,
+      "frames": 75,
+      "strips": {
+        "left": {
+          "mean_fourier_amplitude_Y_codes": 1.3372010296226973,
+          "unit_phase_coherence_with_center": 0.9988408412944317
+        },
+        "mid": {
+          "mean_fourier_amplitude_Y_codes": 1.4789988914715018,
+          "unit_phase_coherence_with_center": 0.9989409926316266
+        },
+        "center": {
+          "mean_fourier_amplitude_Y_codes": 1.6145512083425348,
+          "unit_phase_coherence_with_center": 1.0
+        },
+        "right": {
+          "mean_fourier_amplitude_Y_codes": 1.398194629729283,
+          "unit_phase_coherence_with_center": 0.9993459928830772
+        },
+        "outside_screen": {
+          "mean_fourier_amplitude_Y_codes": 0.05026209064608308,
+          "unit_phase_coherence_with_center": 0.8614238168912512
+        }
+      }
+    },
+    {
+      "degree": 3,
+      "phase": 4,
+      "exposure_ns": 1428571,
+      "mode": "moving_only",
+      "broad_cycles_per_output_row": 0.00390625,
+      "frames": 75,
+      "strips": {
+        "left": {
+          "mean_fourier_amplitude_Y_codes": 1.2885681229852168,
+          "unit_phase_coherence_with_center": 0.9988293259327717
+        },
+        "mid": {
+          "mean_fourier_amplitude_Y_codes": 1.421218338242787,
+          "unit_phase_coherence_with_center": 0.9986436447976668
+        },
+        "center": {
+          "mean_fourier_amplitude_Y_codes": 1.5556839651758947,
+          "unit_phase_coherence_with_center": 1.0
+        },
+        "right": {
+          "mean_fourier_amplitude_Y_codes": 1.3418874916702441,
+          "unit_phase_coherence_with_center": 0.9991673181009739
+        },
+        "outside_screen": {
+          "mean_fourier_amplitude_Y_codes": 0.049671686762344285,
+          "unit_phase_coherence_with_center": 0.8273766799303998
+        }
+      }
+    },
+    {
+      "degree": 3,
+      "phase": 5,
+      "exposure_ns": 2000000,
+      "mode": "raw",
+      "broad_cycles_per_output_row": 0.0035677334189589353,
+      "frames": 75,
+      "strips": {
+        "left": {
+          "mean_fourier_amplitude_Y_codes": 2.3228984303503584,
+          "unit_phase_coherence_with_center": 0.3406808436803133
+        },
+        "mid": {
+          "mean_fourier_amplitude_Y_codes": 2.6538793409735333,
+          "unit_phase_coherence_with_center": 0.08371225138571702
+        },
+        "center": {
+          "mean_fourier_amplitude_Y_codes": 1.537606368922098,
+          "unit_phase_coherence_with_center": 1.0
+        },
+        "right": {
+          "mean_fourier_amplitude_Y_codes": 2.097965542603495,
+          "unit_phase_coherence_with_center": 0.5604235147895136
+        },
+        "outside_screen": {
+          "mean_fourier_amplitude_Y_codes": 0.05950834085771298,
+          "unit_phase_coherence_with_center": 0.6125354971485237
+        }
+      }
+    },
+    {
+      "degree": 3,
+      "phase": 5,
+      "exposure_ns": 2000000,
+      "mode": "raw",
+      "broad_cycles_per_output_row": 0.00390625,
+      "frames": 75,
+      "strips": {
+        "left": {
+          "mean_fourier_amplitude_Y_codes": 2.4977885015288463,
+          "unit_phase_coherence_with_center": 0.32890088286783464
+        },
+        "mid": {
+          "mean_fourier_amplitude_Y_codes": 2.7263290190055263,
+          "unit_phase_coherence_with_center": 0.05874151912356714
+        },
+        "center": {
+          "mean_fourier_amplitude_Y_codes": 1.527762372592174,
+          "unit_phase_coherence_with_center": 1.0
+        },
+        "right": {
+          "mean_fourier_amplitude_Y_codes": 2.6229377998573606,
+          "unit_phase_coherence_with_center": 0.4556573871488339
+        },
+        "outside_screen": {
+          "mean_fourier_amplitude_Y_codes": 0.06144443679584176,
+          "unit_phase_coherence_with_center": 0.6065832242984149
+        }
+      }
+    },
+    {
+      "degree": 3,
+      "phase": 5,
+      "exposure_ns": 2000000,
+      "mode": "moving_only",
+      "broad_cycles_per_output_row": 0.0035677334189589353,
+      "frames": 75,
+      "strips": {
+        "left": {
+          "mean_fourier_amplitude_Y_codes": 1.2299404226337627,
+          "unit_phase_coherence_with_center": 0.9952973898673888
+        },
+        "mid": {
+          "mean_fourier_amplitude_Y_codes": 1.3566438294462178,
+          "unit_phase_coherence_with_center": 0.9971168573900124
+        },
+        "center": {
+          "mean_fourier_amplitude_Y_codes": 1.5108145916711693,
+          "unit_phase_coherence_with_center": 1.0
+        },
+        "right": {
+          "mean_fourier_amplitude_Y_codes": 1.3162011516288157,
+          "unit_phase_coherence_with_center": 0.9978046300178037
+        },
+        "outside_screen": {
+          "mean_fourier_amplitude_Y_codes": 0.04496331887272447,
+          "unit_phase_coherence_with_center": 0.8997132232603128
+        }
+      }
+    },
+    {
+      "degree": 3,
+      "phase": 5,
+      "exposure_ns": 2000000,
+      "mode": "moving_only",
+      "broad_cycles_per_output_row": 0.00390625,
+      "frames": 75,
+      "strips": {
+        "left": {
+          "mean_fourier_amplitude_Y_codes": 1.2118440584993908,
+          "unit_phase_coherence_with_center": 0.9948028237562458
+        },
+        "mid": {
+          "mean_fourier_amplitude_Y_codes": 1.335001272895631,
+          "unit_phase_coherence_with_center": 0.9964763907729074
+        },
+        "center": {
+          "mean_fourier_amplitude_Y_codes": 1.491407638136322,
+          "unit_phase_coherence_with_center": 1.0
+        },
+        "right": {
+          "mean_fourier_amplitude_Y_codes": 1.2953472953586673,
+          "unit_phase_coherence_with_center": 0.997305640232919
+        },
+        "outside_screen": {
+          "mean_fourier_amplitude_Y_codes": 0.046160344796027646,
+          "unit_phase_coherence_with_center": 0.8659866262163731
+        }
+      }
+    },
+    {
+      "degree": 3,
+      "phase": 6,
+      "exposure_ns": 100000,
+      "mode": "raw",
+      "broad_cycles_per_output_row": 0.0035677334189589353,
+      "frames": 75,
+      "strips": {
+        "left": {
+          "mean_fourier_amplitude_Y_codes": 0.2612982177343219,
+          "unit_phase_coherence_with_center": 0.870815548456559
+        },
+        "mid": {
+          "mean_fourier_amplitude_Y_codes": 0.31469627203518347,
+          "unit_phase_coherence_with_center": 0.6813125783655495
+        },
+        "center": {
+          "mean_fourier_amplitude_Y_codes": 0.3219503019175793,
+          "unit_phase_coherence_with_center": 1.0
+        },
+        "right": {
+          "mean_fourier_amplitude_Y_codes": 0.3146148110006478,
+          "unit_phase_coherence_with_center": 0.9684188530001034
+        },
+        "outside_screen": {
+          "mean_fourier_amplitude_Y_codes": 0.05089593408916319,
+          "unit_phase_coherence_with_center": 0.2540204510264636
+        }
+      }
+    },
+    {
+      "degree": 3,
+      "phase": 6,
+      "exposure_ns": 100000,
+      "mode": "raw",
+      "broad_cycles_per_output_row": 0.00390625,
+      "frames": 75,
+      "strips": {
+        "left": {
+          "mean_fourier_amplitude_Y_codes": 0.2729198882681535,
+          "unit_phase_coherence_with_center": 0.8317887889078722
+        },
+        "mid": {
+          "mean_fourier_amplitude_Y_codes": 0.3243702578951152,
+          "unit_phase_coherence_with_center": 0.6577368599408384
+        },
+        "center": {
+          "mean_fourier_amplitude_Y_codes": 0.33504336089695314,
+          "unit_phase_coherence_with_center": 1.0
+        },
+        "right": {
+          "mean_fourier_amplitude_Y_codes": 0.32994834582024746,
+          "unit_phase_coherence_with_center": 0.9505444173603621
+        },
+        "outside_screen": {
+          "mean_fourier_amplitude_Y_codes": 0.052458309457896625,
+          "unit_phase_coherence_with_center": 0.2584980932031261
+        }
+      }
+    },
+    {
+      "degree": 3,
+      "phase": 6,
+      "exposure_ns": 100000,
+      "mode": "moving_only",
+      "broad_cycles_per_output_row": 0.0035677334189589353,
+      "frames": 75,
+      "strips": {
+        "left": {
+          "mean_fourier_amplitude_Y_codes": 0.26002572353349584,
+          "unit_phase_coherence_with_center": 0.9246863850840236
+        },
+        "mid": {
+          "mean_fourier_amplitude_Y_codes": 0.2918586405566776,
+          "unit_phase_coherence_with_center": 0.941478282972933
+        },
+        "center": {
+          "mean_fourier_amplitude_Y_codes": 0.30676654025024086,
+          "unit_phase_coherence_with_center": 1.0
+        },
+        "right": {
+          "mean_fourier_amplitude_Y_codes": 0.2945576263531079,
+          "unit_phase_coherence_with_center": 0.9723816787162728
+        },
+        "outside_screen": {
+          "mean_fourier_amplitude_Y_codes": 0.03473892917906869,
+          "unit_phase_coherence_with_center": 0.2898992032952454
+        }
+      }
+    },
+    {
+      "degree": 3,
+      "phase": 6,
+      "exposure_ns": 100000,
+      "mode": "moving_only",
+      "broad_cycles_per_output_row": 0.00390625,
+      "frames": 75,
+      "strips": {
+        "left": {
+          "mean_fourier_amplitude_Y_codes": 0.2695656490987054,
+          "unit_phase_coherence_with_center": 0.9160644792869383
+        },
+        "mid": {
+          "mean_fourier_amplitude_Y_codes": 0.3023213260211635,
+          "unit_phase_coherence_with_center": 0.9237549501836337
+        },
+        "center": {
+          "mean_fourier_amplitude_Y_codes": 0.3184138547386168,
+          "unit_phase_coherence_with_center": 1.0
+        },
+        "right": {
+          "mean_fourier_amplitude_Y_codes": 0.3035323604588976,
+          "unit_phase_coherence_with_center": 0.9755837337164477
+        },
+        "outside_screen": {
+          "mean_fourier_amplitude_Y_codes": 0.03691464225999608,
+          "unit_phase_coherence_with_center": 0.2766062832913631
+        }
+      }
+    }
+  ],
+  "physical_pwm_hz": null,
+  "limits": [
+    "Moving-only subtraction discards stationary camera-image structure and is not total panel modulation",
+    "Camera Y codes vary nonlinearly with exposure; ratios are not calibrated optical modulation",
+    "Less than two cycles of broad band fit the 500-row ROI; UI, ISP and detrend can change the result",
+    "Offscreen strip has low signal; its phase resultant is not a positive optical control",
+    "No sensor row-time, panel-emission origin, low-frequency envelope or fundamental PWM Hz is established"
+  ]
+}

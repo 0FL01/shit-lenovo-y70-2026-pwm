@@ -1,0 +1,1017 @@
+{
+  "capture": "artifacts/dsi_block_trials_20261106/with_redraw/run.json",
+  "video": "artifacts/optical/pacman_dsi_blocks_redraw_20261106.mp4",
+  "video_bytes": 178509912,
+  "decoded_frames": 4617,
+  "roi_xywh": [
+    540,
+    190,
+    60,
+    500
+  ],
+  "stages": [
+    {
+      "label": "baseline",
+      "window_s": [
+        13.2281445,
+        15.7281445
+      ],
+      "frames": 75,
+      "dominant_period_px": 93.0909090909091,
+      "spectral_search_boundary": false,
+      "q93_total_rms_Y_codes": 4.114054370507793,
+      "q93_coherent_Y_codes": 0.17537123812509947,
+      "q93_incoherent_rms_Y_codes": 4.110314865351892,
+      "spatial_spectrum_peaks": [
+        {
+          "index": 22,
+          "frequency_cycles_per_row": 0.0107421875,
+          "period_rows": 93.0909090909091,
+          "total_rms_amplitude": 4.117453954171425,
+          "coherent_amplitude": 0.17312808141191705,
+          "incoherent_rms_amplitude": 4.113812554328227,
+          "amplitude_relative_to_maximum": 1.0,
+          "at_frequency_boundary": false
+        },
+        {
+          "index": 44,
+          "frequency_cycles_per_row": 0.021484375,
+          "period_rows": 46.54545454545455,
+          "total_rms_amplitude": 3.622657584418027,
+          "coherent_amplitude": 0.12026356341134731,
+          "incoherent_rms_amplitude": 3.6206608028448426,
+          "amplitude_relative_to_maximum": 0.8798295317298896,
+          "at_frequency_boundary": false
+        },
+        {
+          "index": 66,
+          "frequency_cycles_per_row": 0.0322265625,
+          "period_rows": 31.03030303030303,
+          "total_rms_amplitude": 2.984516767912636,
+          "coherent_amplitude": 0.09992216639474943,
+          "incoherent_rms_amplitude": 2.982843592717303,
+          "amplitude_relative_to_maximum": 0.7248452080172016,
+          "at_frequency_boundary": false
+        },
+        {
+          "index": 88,
+          "frequency_cycles_per_row": 0.04296875,
+          "period_rows": 23.272727272727273,
+          "total_rms_amplitude": 2.2847978552591828,
+          "coherent_amplitude": 0.059475849257084615,
+          "incoherent_rms_amplitude": 2.2840236125644826,
+          "amplitude_relative_to_maximum": 0.554905502451202,
+          "at_frequency_boundary": false
+        },
+        {
+          "index": 110,
+          "frequency_cycles_per_row": 0.0537109375,
+          "period_rows": 18.618181818181817,
+          "total_rms_amplitude": 1.606350224818753,
+          "coherent_amplitude": 0.0290129894730244,
+          "incoherent_rms_amplitude": 1.606088195342054,
+          "amplitude_relative_to_maximum": 0.3901319219833283,
+          "at_frequency_boundary": false
+        },
+        {
+          "index": 131,
+          "frequency_cycles_per_row": 0.06396484375,
+          "period_rows": 15.633587786259541,
+          "total_rms_amplitude": 1.0154712265229557,
+          "coherent_amplitude": 0.010714624473097406,
+          "incoherent_rms_amplitude": 1.0154146979034906,
+          "amplitude_relative_to_maximum": 0.24662600670838683,
+          "at_frequency_boundary": false
+        },
+        {
+          "index": 5,
+          "frequency_cycles_per_row": 0.00244140625,
+          "period_rows": 409.6,
+          "total_rms_amplitude": 0.835227237854324,
+          "coherent_amplitude": 0.29069857033179464,
+          "incoherent_rms_amplitude": 0.7830063090811045,
+          "amplitude_relative_to_maximum": 0.20285041366598616,
+          "at_frequency_boundary": false
+        },
+        {
+          "index": 153,
+          "frequency_cycles_per_row": 0.07470703125,
+          "period_rows": 13.38562091503268,
+          "total_rms_amplitude": 0.5597657139307042,
+          "coherent_amplitude": 0.005324135813789329,
+          "incoherent_rms_amplitude": 0.5597403934594922,
+          "amplitude_relative_to_maximum": 0.13594947755605163,
+          "at_frequency_boundary": false
+        }
+      ],
+      "full_spectrum_npz": "artifacts/dsi_block_trials_20261106/with_redraw/baseline-spectrum-spatial-v2.npz",
+      "raw_mean_Y": 33.48691644444445,
+      "power_partition_max_abs_error": 3.552713678800501e-15,
+      "mean_Y_minus16": 17.486916444444446,
+      "normalized_q": 0.23526471253968956,
+      "pixel_Y_min": 15,
+      "pixel_Y_max": 46,
+      "fraction_Y_ge235": 0.0
+    },
+    {
+      "label": "mode90",
+      "window_s": [
+        29.1538485,
+        31.6538485
+      ],
+      "frames": 75,
+      "dominant_period_px": 93.0909090909091,
+      "spectral_search_boundary": false,
+      "q93_total_rms_Y_codes": 4.388609097420002,
+      "q93_coherent_Y_codes": 0.1859373099244897,
+      "q93_incoherent_rms_Y_codes": 4.384668416965603,
+      "spatial_spectrum_peaks": [
+        {
+          "index": 22,
+          "frequency_cycles_per_row": 0.0107421875,
+          "period_rows": 93.0909090909091,
+          "total_rms_amplitude": 4.3822255541970625,
+          "coherent_amplitude": 0.1855563847603247,
+          "incoherent_rms_amplitude": 4.378295288800476,
+          "amplitude_relative_to_maximum": 1.0,
+          "at_frequency_boundary": false
+        },
+        {
+          "index": 44,
+          "frequency_cycles_per_row": 0.021484375,
+          "period_rows": 46.54545454545455,
+          "total_rms_amplitude": 3.7378094846195062,
+          "coherent_amplitude": 0.12094721371116654,
+          "incoherent_rms_amplitude": 3.7358521805348563,
+          "amplitude_relative_to_maximum": 0.8529477632751311,
+          "at_frequency_boundary": false
+        },
+        {
+          "index": 66,
+          "frequency_cycles_per_row": 0.0322265625,
+          "period_rows": 31.03030303030303,
+          "total_rms_amplitude": 3.0230322982655458,
+          "coherent_amplitude": 0.09993806749882883,
+          "incoherent_rms_amplitude": 3.0213799262954777,
+          "amplitude_relative_to_maximum": 0.6898395029827359,
+          "at_frequency_boundary": false
+        },
+        {
+          "index": 88,
+          "frequency_cycles_per_row": 0.04296875,
+          "period_rows": 23.272727272727273,
+          "total_rms_amplitude": 2.2660687484726103,
+          "coherent_amplitude": 0.050948251619911254,
+          "incoherent_rms_amplitude": 2.265495938743016,
+          "amplitude_relative_to_maximum": 0.5171045443569855,
+          "at_frequency_boundary": false
+        },
+        {
+          "index": 110,
+          "frequency_cycles_per_row": 0.0537109375,
+          "period_rows": 18.618181818181817,
+          "total_rms_amplitude": 1.5720038406953585,
+          "coherent_amplitude": 0.03543766880107705,
+          "incoherent_rms_amplitude": 1.5716043544069553,
+          "amplitude_relative_to_maximum": 0.3587227132089942,
+          "at_frequency_boundary": false
+        },
+        {
+          "index": 7,
+          "frequency_cycles_per_row": 0.00341796875,
+          "period_rows": 292.57142857142856,
+          "total_rms_amplitude": 1.0060647348235023,
+          "coherent_amplitude": 0.17531884929019098,
+          "incoherent_rms_amplitude": 0.9906712632044231,
+          "amplitude_relative_to_maximum": 0.2295784921111482,
+          "at_frequency_boundary": false
+        },
+        {
+          "index": 132,
+          "frequency_cycles_per_row": 0.064453125,
+          "period_rows": 15.515151515151516,
+          "total_rms_amplitude": 0.9786465106639938,
+          "coherent_amplitude": 0.02476965566354993,
+          "incoherent_rms_amplitude": 0.978332999031066,
+          "amplitude_relative_to_maximum": 0.22332180271430763,
+          "at_frequency_boundary": false
+        },
+        {
+          "index": 154,
+          "frequency_cycles_per_row": 0.0751953125,
+          "period_rows": 13.2987012987013,
+          "total_rms_amplitude": 0.537311554538539,
+          "coherent_amplitude": 0.004645446303155816,
+          "incoherent_rms_amplitude": 0.5372914725447128,
+          "amplitude_relative_to_maximum": 0.12261156982755726,
+          "at_frequency_boundary": false
+        }
+      ],
+      "full_spectrum_npz": "artifacts/dsi_block_trials_20261106/with_redraw/mode90-spectrum-spatial-v2.npz",
+      "raw_mean_Y": 33.551424000000004,
+      "power_partition_max_abs_error": 1.0658141036401503e-14,
+      "mean_Y_minus16": 17.551424000000004,
+      "normalized_q": 0.2500429080523609,
+      "pixel_Y_min": 15,
+      "pixel_Y_max": 48,
+      "fraction_Y_ge235": 0.0,
+      "normalized_q_ratio_to_adjacent_stock": 0.9811989352346676,
+      "mean_signal_ratio_to_adjacent_stock": 1.0054573285304442
+    },
+    {
+      "label": "return_mode90",
+      "window_s": [
+        45.3339785,
+        47.8339785
+      ],
+      "frames": 75,
+      "dominant_period_px": 93.0909090909091,
+      "spectral_search_boundary": false,
+      "q93_total_rms_Y_codes": 4.781590102028815,
+      "q93_coherent_Y_codes": 0.06528862823996076,
+      "q93_incoherent_rms_Y_codes": 4.781144350345687,
+      "spatial_spectrum_peaks": [
+        {
+          "index": 22,
+          "frequency_cycles_per_row": 0.0107421875,
+          "period_rows": 93.0909090909091,
+          "total_rms_amplitude": 4.776318380045971,
+          "coherent_amplitude": 0.06672946038185522,
+          "incoherent_rms_amplitude": 4.775852222031385,
+          "amplitude_relative_to_maximum": 1.0,
+          "at_frequency_boundary": false
+        },
+        {
+          "index": 44,
+          "frequency_cycles_per_row": 0.021484375,
+          "period_rows": 46.54545454545455,
+          "total_rms_amplitude": 3.885092437955384,
+          "coherent_amplitude": 0.11032798731710695,
+          "incoherent_rms_amplitude": 3.883525587230328,
+          "amplitude_relative_to_maximum": 0.813407341978319,
+          "at_frequency_boundary": false
+        },
+        {
+          "index": 66,
+          "frequency_cycles_per_row": 0.0322265625,
+          "period_rows": 31.03030303030303,
+          "total_rms_amplitude": 2.9816957317797397,
+          "coherent_amplitude": 0.09896267938472597,
+          "incoherent_rms_amplitude": 2.9800529903010973,
+          "amplitude_relative_to_maximum": 0.6242665363842519,
+          "at_frequency_boundary": false
+        },
+        {
+          "index": 88,
+          "frequency_cycles_per_row": 0.04296875,
+          "period_rows": 23.272727272727273,
+          "total_rms_amplitude": 2.1261436327450984,
+          "coherent_amplitude": 0.03106007480016321,
+          "incoherent_rms_amplitude": 2.125916747856306,
+          "amplitude_relative_to_maximum": 0.44514277809190655,
+          "at_frequency_boundary": false
+        },
+        {
+          "index": 9,
+          "frequency_cycles_per_row": 0.00439453125,
+          "period_rows": 227.55555555555554,
+          "total_rms_amplitude": 1.4719110664651998,
+          "coherent_amplitude": 0.15963068043574247,
+          "incoherent_rms_amplitude": 1.4632293851089595,
+          "amplitude_relative_to_maximum": 0.3081685409863806,
+          "at_frequency_boundary": false
+        },
+        {
+          "index": 110,
+          "frequency_cycles_per_row": 0.0537109375,
+          "period_rows": 18.618181818181817,
+          "total_rms_amplitude": 1.4321788288404504,
+          "coherent_amplitude": 0.0243540696497627,
+          "incoherent_rms_amplitude": 1.431971744508354,
+          "amplitude_relative_to_maximum": 0.29984995029302586,
+          "at_frequency_boundary": false
+        },
+        {
+          "index": 132,
+          "frequency_cycles_per_row": 0.064453125,
+          "period_rows": 15.515151515151516,
+          "total_rms_amplitude": 0.8751502056876549,
+          "coherent_amplitude": 0.02144789736579447,
+          "incoherent_rms_amplitude": 0.8748873471560388,
+          "amplitude_relative_to_maximum": 0.18322694093085806,
+          "at_frequency_boundary": false
+        },
+        {
+          "index": 34,
+          "frequency_cycles_per_row": 0.0166015625,
+          "period_rows": 60.23529411764706,
+          "total_rms_amplitude": 0.7878620345869292,
+          "coherent_amplitude": 0.0493892387207869,
+          "incoherent_rms_amplitude": 0.7863124624740705,
+          "amplitude_relative_to_maximum": 0.1649517414664778,
+          "at_frequency_boundary": false
+        }
+      ],
+      "full_spectrum_npz": "artifacts/dsi_block_trials_20261106/with_redraw/return_mode90-spectrum-spatial-v2.npz",
+      "raw_mean_Y": 33.42540355555555,
+      "power_partition_max_abs_error": 3.552713678800501e-15,
+      "mean_Y_minus16": 17.42540355555556,
+      "normalized_q": 0.27440340688720233,
+      "pixel_Y_min": 15,
+      "pixel_Y_max": 47,
+      "fraction_Y_ge235": 0.0
+    },
+    {
+      "label": "thresholds",
+      "window_s": [
+        61.55834,
+        64.05834
+      ],
+      "frames": 75,
+      "dominant_period_px": 227.55555555555554,
+      "spectral_search_boundary": false,
+      "q93_total_rms_Y_codes": 1.8412640718098703,
+      "q93_coherent_Y_codes": 0.13929304321561004,
+      "q93_incoherent_rms_Y_codes": 1.8359876988285075,
+      "spatial_spectrum_peaks": [
+        {
+          "index": 9,
+          "frequency_cycles_per_row": 0.00439453125,
+          "period_rows": 227.55555555555554,
+          "total_rms_amplitude": 2.4340233754662353,
+          "coherent_amplitude": 0.39784667809737356,
+          "incoherent_rms_amplitude": 2.4012887816843125,
+          "amplitude_relative_to_maximum": 1.0,
+          "at_frequency_boundary": false
+        },
+        {
+          "index": 150,
+          "frequency_cycles_per_row": 0.0732421875,
+          "period_rows": 13.653333333333334,
+          "total_rms_amplitude": 0.1955048377927472,
+          "coherent_amplitude": 0.03490144798713153,
+          "incoherent_rms_amplitude": 0.19236431719206643,
+          "amplitude_relative_to_maximum": 0.0803216763500878,
+          "at_frequency_boundary": false
+        },
+        {
+          "index": 139,
+          "frequency_cycles_per_row": 0.06787109375,
+          "period_rows": 14.733812949640289,
+          "total_rms_amplitude": 0.19376226082276227,
+          "coherent_amplitude": 0.043718699861990035,
+          "incoherent_rms_amplitude": 0.1887656986889445,
+          "amplitude_relative_to_maximum": 0.07960575184930065,
+          "at_frequency_boundary": false
+        },
+        {
+          "index": 163,
+          "frequency_cycles_per_row": 0.07958984375,
+          "period_rows": 12.56441717791411,
+          "total_rms_amplitude": 0.19002920246888583,
+          "coherent_amplitude": 0.028548726395682324,
+          "incoherent_rms_amplitude": 0.1878724780593083,
+          "amplitude_relative_to_maximum": 0.0780720532038793,
+          "at_frequency_boundary": false
+        },
+        {
+          "index": 130,
+          "frequency_cycles_per_row": 0.0634765625,
+          "period_rows": 15.753846153846155,
+          "total_rms_amplitude": 0.18825380690023827,
+          "coherent_amplitude": 0.04214657290233233,
+          "incoherent_rms_amplitude": 0.183475235944856,
+          "amplitude_relative_to_maximum": 0.07734264543132352,
+          "at_frequency_boundary": false
+        },
+        {
+          "index": 244,
+          "frequency_cycles_per_row": 0.119140625,
+          "period_rows": 8.39344262295082,
+          "total_rms_amplitude": 0.05386686170390884,
+          "coherent_amplitude": 0.03007168768262516,
+          "incoherent_rms_amplitude": 0.04469152480892424,
+          "amplitude_relative_to_maximum": 0.022130790627099335,
+          "at_frequency_boundary": false
+        },
+        {
+          "index": 256,
+          "frequency_cycles_per_row": 0.125,
+          "period_rows": 8.0,
+          "total_rms_amplitude": 0.044828491260582845,
+          "coherent_amplitude": 0.02674598217207025,
+          "incoherent_rms_amplitude": 0.035975631562926776,
+          "amplitude_relative_to_maximum": 0.018417444841504853,
+          "at_frequency_boundary": false
+        },
+        {
+          "index": 349,
+          "frequency_cycles_per_row": 0.17041015625,
+          "period_rows": 5.868194842406877,
+          "total_rms_amplitude": 0.04457352877195612,
+          "coherent_amplitude": 0.03357515508965946,
+          "incoherent_rms_amplitude": 0.02931737416430255,
+          "amplitude_relative_to_maximum": 0.018312695441315592,
+          "at_frequency_boundary": false
+        }
+      ],
+      "full_spectrum_npz": "artifacts/dsi_block_trials_20261106/with_redraw/thresholds-spectrum-spatial-v2.npz",
+      "raw_mean_Y": 34.42122266666667,
+      "power_partition_max_abs_error": 2.6645352591003757e-15,
+      "mean_Y_minus16": 18.421222666666672,
+      "normalized_q": 0.09995341270922534,
+      "pixel_Y_min": 14,
+      "pixel_Y_max": 47,
+      "fraction_Y_ge235": 0.0,
+      "normalized_q_ratio_to_adjacent_stock": 0.39341853176731323,
+      "mean_signal_ratio_to_adjacent_stock": 1.0541013494221243
+    },
+    {
+      "label": "return_thresholds",
+      "window_s": [
+        77.926628,
+        80.426628
+      ],
+      "frames": 75,
+      "dominant_period_px": 93.0909090909091,
+      "spectral_search_boundary": false,
+      "q93_total_rms_Y_codes": 4.096278125550347,
+      "q93_coherent_Y_codes": 0.13807680839038355,
+      "q93_incoherent_rms_Y_codes": 4.09395032662183,
+      "spatial_spectrum_peaks": [
+        {
+          "index": 22,
+          "frequency_cycles_per_row": 0.0107421875,
+          "period_rows": 93.0909090909091,
+          "total_rms_amplitude": 4.095578884234361,
+          "coherent_amplitude": 0.13551408841447696,
+          "incoherent_rms_amplitude": 4.093336332238968,
+          "amplitude_relative_to_maximum": 1.0,
+          "at_frequency_boundary": false
+        },
+        {
+          "index": 44,
+          "frequency_cycles_per_row": 0.021484375,
+          "period_rows": 46.54545454545455,
+          "total_rms_amplitude": 3.624168862143174,
+          "coherent_amplitude": 0.10449457221863426,
+          "incoherent_rms_amplitude": 3.6226621186228494,
+          "amplitude_relative_to_maximum": 0.8848978287524026,
+          "at_frequency_boundary": false
+        },
+        {
+          "index": 66,
+          "frequency_cycles_per_row": 0.0322265625,
+          "period_rows": 31.03030303030303,
+          "total_rms_amplitude": 3.0049009892585428,
+          "coherent_amplitude": 0.010976348373551874,
+          "incoherent_rms_amplitude": 3.0048809419049123,
+          "amplitude_relative_to_maximum": 0.7336938377199118,
+          "at_frequency_boundary": false
+        },
+        {
+          "index": 88,
+          "frequency_cycles_per_row": 0.04296875,
+          "period_rows": 23.272727272727273,
+          "total_rms_amplitude": 2.316181059391459,
+          "coherent_amplitude": 0.01685921400657359,
+          "incoherent_rms_amplitude": 2.3161197004444354,
+          "amplitude_relative_to_maximum": 0.5655320346306679,
+          "at_frequency_boundary": false
+        },
+        {
+          "index": 110,
+          "frequency_cycles_per_row": 0.0537109375,
+          "period_rows": 18.618181818181817,
+          "total_rms_amplitude": 1.632976920793251,
+          "coherent_amplitude": 0.0350879852636015,
+          "incoherent_rms_amplitude": 1.632599907244132,
+          "amplitude_relative_to_maximum": 0.3987169987322865,
+          "at_frequency_boundary": false
+        },
+        {
+          "index": 132,
+          "frequency_cycles_per_row": 0.064453125,
+          "period_rows": 15.515151515151516,
+          "total_rms_amplitude": 1.0302882089946785,
+          "coherent_amplitude": 0.0028149990160190146,
+          "incoherent_rms_amplitude": 1.0302843633550895,
+          "amplitude_relative_to_maximum": 0.2515610706366076,
+          "at_frequency_boundary": false
+        },
+        {
+          "index": 5,
+          "frequency_cycles_per_row": 0.00244140625,
+          "period_rows": 409.6,
+          "total_rms_amplitude": 0.7343598443678547,
+          "coherent_amplitude": 0.18042968442264506,
+          "incoherent_rms_amplitude": 0.7118493590635062,
+          "amplitude_relative_to_maximum": 0.17930550604084824,
+          "at_frequency_boundary": false
+        },
+        {
+          "index": 154,
+          "frequency_cycles_per_row": 0.0751953125,
+          "period_rows": 13.2987012987013,
+          "total_rms_amplitude": 0.5636735374559,
+          "coherent_amplitude": 0.009563546366422692,
+          "incoherent_rms_amplitude": 0.563592401837485,
+          "amplitude_relative_to_maximum": 0.1376297596478293,
+          "at_frequency_boundary": false
+        }
+      ],
+      "full_spectrum_npz": "artifacts/dsi_block_trials_20261106/with_redraw/return_thresholds-spectrum-spatial-v2.npz",
+      "raw_mean_Y": 33.52611733333334,
+      "power_partition_max_abs_error": 3.552713678800501e-15,
+      "mean_Y_minus16": 17.52611733333333,
+      "normalized_q": 0.2337242212660268,
+      "pixel_Y_min": 15,
+      "pixel_Y_max": 45,
+      "fraction_Y_ge235": 0.0
+    },
+    {
+      "label": "page53",
+      "window_s": [
+        94.486883,
+        96.986883
+      ],
+      "frames": 75,
+      "dominant_period_px": 93.0909090909091,
+      "spectral_search_boundary": false,
+      "q93_total_rms_Y_codes": 4.662278143813141,
+      "q93_coherent_Y_codes": 0.1564987541073116,
+      "q93_incoherent_rms_Y_codes": 4.659650805612,
+      "spatial_spectrum_peaks": [
+        {
+          "index": 22,
+          "frequency_cycles_per_row": 0.0107421875,
+          "period_rows": 93.0909090909091,
+          "total_rms_amplitude": 4.655238539204152,
+          "coherent_amplitude": 0.1569806307455091,
+          "incoherent_rms_amplitude": 4.652590991959464,
+          "amplitude_relative_to_maximum": 1.0,
+          "at_frequency_boundary": false
+        },
+        {
+          "index": 44,
+          "frequency_cycles_per_row": 0.021484375,
+          "period_rows": 46.54545454545455,
+          "total_rms_amplitude": 3.858534938368607,
+          "coherent_amplitude": 0.07630083492799888,
+          "incoherent_rms_amplitude": 3.8577804568430953,
+          "amplitude_relative_to_maximum": 0.8288586945381863,
+          "at_frequency_boundary": false
+        },
+        {
+          "index": 66,
+          "frequency_cycles_per_row": 0.0322265625,
+          "period_rows": 31.03030303030303,
+          "total_rms_amplitude": 2.989755940168174,
+          "coherent_amplitude": 0.03240528084029122,
+          "incoherent_rms_amplitude": 2.9895803182962895,
+          "amplitude_relative_to_maximum": 0.6422347458653097,
+          "at_frequency_boundary": false
+        },
+        {
+          "index": 88,
+          "frequency_cycles_per_row": 0.04296875,
+          "period_rows": 23.272727272727273,
+          "total_rms_amplitude": 2.1759010027837395,
+          "coherent_amplitude": 0.01668151479297814,
+          "incoherent_rms_amplitude": 2.175837057543486,
+          "amplitude_relative_to_maximum": 0.46740913155348773,
+          "at_frequency_boundary": false
+        },
+        {
+          "index": 110,
+          "frequency_cycles_per_row": 0.0537109375,
+          "period_rows": 18.618181818181817,
+          "total_rms_amplitude": 1.4729038667569114,
+          "coherent_amplitude": 0.029204814619797223,
+          "incoherent_rms_amplitude": 1.47261430100026,
+          "amplitude_relative_to_maximum": 0.3163970770461776,
+          "at_frequency_boundary": false
+        },
+        {
+          "index": 9,
+          "frequency_cycles_per_row": 0.00439453125,
+          "period_rows": 227.55555555555554,
+          "total_rms_amplitude": 1.3226201086613456,
+          "coherent_amplitude": 0.19871318569541857,
+          "incoherent_rms_amplitude": 1.3076073652538547,
+          "amplitude_relative_to_maximum": 0.28411435794812295,
+          "at_frequency_boundary": false
+        },
+        {
+          "index": 132,
+          "frequency_cycles_per_row": 0.064453125,
+          "period_rows": 15.515151515151516,
+          "total_rms_amplitude": 0.9163976542905948,
+          "coherent_amplitude": 0.03215276157252414,
+          "incoherent_rms_amplitude": 0.9158334241075529,
+          "amplitude_relative_to_maximum": 0.19685299616188087,
+          "at_frequency_boundary": false
+        },
+        {
+          "index": 154,
+          "frequency_cycles_per_row": 0.0751953125,
+          "period_rows": 13.2987012987013,
+          "total_rms_amplitude": 0.509185400972885,
+          "coherent_amplitude": 0.014651208339625328,
+          "incoherent_rms_amplitude": 0.5089745717205394,
+          "amplitude_relative_to_maximum": 0.10937901391835746,
+          "at_frequency_boundary": false
+        }
+      ],
+      "full_spectrum_npz": "artifacts/dsi_block_trials_20261106/with_redraw/page53-spectrum-spatial-v2.npz",
+      "raw_mean_Y": 33.44216844444445,
+      "power_partition_max_abs_error": 3.552713678800501e-15,
+      "mean_Y_minus16": 17.44216844444444,
+      "normalized_q": 0.2672992270808013,
+      "pixel_Y_min": 15,
+      "pixel_Y_max": 46,
+      "fraction_Y_ge235": 0.0,
+      "normalized_q_ratio_to_adjacent_stock": 1.0713741341478888,
+      "mean_signal_ratio_to_adjacent_stock": 1.0009508105571367
+    },
+    {
+      "label": "return_page53",
+      "window_s": [
+        110.99489,
+        113.49489
+      ],
+      "frames": 75,
+      "dominant_period_px": 93.0909090909091,
+      "spectral_search_boundary": false,
+      "q93_total_rms_Y_codes": 4.59564602949339,
+      "q93_coherent_Y_codes": 0.2937442049635873,
+      "q93_incoherent_rms_Y_codes": 4.586248659901541,
+      "spatial_spectrum_peaks": [
+        {
+          "index": 22,
+          "frequency_cycles_per_row": 0.0107421875,
+          "period_rows": 93.0909090909091,
+          "total_rms_amplitude": 4.5992918159569385,
+          "coherent_amplitude": 0.29417551844894335,
+          "incoherent_rms_amplitude": 4.589874287240748,
+          "amplitude_relative_to_maximum": 1.0,
+          "at_frequency_boundary": false
+        },
+        {
+          "index": 44,
+          "frequency_cycles_per_row": 0.021484375,
+          "period_rows": 46.54545454545455,
+          "total_rms_amplitude": 3.784934018213221,
+          "coherent_amplitude": 0.10300059328770551,
+          "incoherent_rms_amplitude": 3.7835322649622087,
+          "amplitude_relative_to_maximum": 0.8229384369745018,
+          "at_frequency_boundary": false
+        },
+        {
+          "index": 66,
+          "frequency_cycles_per_row": 0.0322265625,
+          "period_rows": 31.03030303030303,
+          "total_rms_amplitude": 2.9371009270500053,
+          "coherent_amplitude": 0.10931883345714502,
+          "incoherent_rms_amplitude": 2.9350657996592795,
+          "amplitude_relative_to_maximum": 0.6385985157236442,
+          "at_frequency_boundary": false
+        },
+        {
+          "index": 88,
+          "frequency_cycles_per_row": 0.04296875,
+          "period_rows": 23.272727272727273,
+          "total_rms_amplitude": 2.117971802215157,
+          "coherent_amplitude": 0.0635758669280429,
+          "incoherent_rms_amplitude": 2.1170173981625346,
+          "amplitude_relative_to_maximum": 0.46049954796670955,
+          "at_frequency_boundary": false
+        },
+        {
+          "index": 110,
+          "frequency_cycles_per_row": 0.0537109375,
+          "period_rows": 18.618181818181817,
+          "total_rms_amplitude": 1.4286441228636984,
+          "coherent_amplitude": 0.033920443377767,
+          "incoherent_rms_amplitude": 1.428241377818904,
+          "amplitude_relative_to_maximum": 0.31062263062046036,
+          "at_frequency_boundary": false
+        },
+        {
+          "index": 9,
+          "frequency_cycles_per_row": 0.00439453125,
+          "period_rows": 227.55555555555554,
+          "total_rms_amplitude": 1.3382618105100919,
+          "coherent_amplitude": 0.2054043027811129,
+          "incoherent_rms_amplitude": 1.322404531854286,
+          "amplitude_relative_to_maximum": 0.2909712764619721,
+          "at_frequency_boundary": false
+        },
+        {
+          "index": 131,
+          "frequency_cycles_per_row": 0.06396484375,
+          "period_rows": 15.633587786259541,
+          "total_rms_amplitude": 0.8967569016912591,
+          "coherent_amplitude": 0.007873319349659234,
+          "incoherent_rms_amplitude": 0.8967223380586239,
+          "amplitude_relative_to_maximum": 0.1949771698721139,
+          "at_frequency_boundary": false
+        },
+        {
+          "index": 34,
+          "frequency_cycles_per_row": 0.0166015625,
+          "period_rows": 60.23529411764706,
+          "total_rms_amplitude": 0.7177487642339849,
+          "coherent_amplitude": 0.03359134165051456,
+          "incoherent_rms_amplitude": 0.7169622795695257,
+          "amplitude_relative_to_maximum": 0.1560563654047354,
+          "at_frequency_boundary": false
+        }
+      ],
+      "full_spectrum_npz": "artifacts/dsi_block_trials_20261106/with_redraw/return_page53-spectrum-spatial-v2.npz",
+      "raw_mean_Y": 33.32508266666667,
+      "power_partition_max_abs_error": 7.105427357601002e-15,
+      "mean_Y_minus16": 17.325082666666667,
+      "normalized_q": 0.2652596883901385,
+      "pixel_Y_min": 15,
+      "pixel_Y_max": 47,
+      "fraction_Y_ge235": 0.0
+    },
+    {
+      "label": "page63",
+      "window_s": [
+        127.713729,
+        130.213729
+      ],
+      "frames": 75,
+      "dominant_period_px": 93.0909090909091,
+      "spectral_search_boundary": false,
+      "q93_total_rms_Y_codes": 4.422042067909307,
+      "q93_coherent_Y_codes": 0.09987223456756335,
+      "q93_incoherent_rms_Y_codes": 4.4209141121630156,
+      "spatial_spectrum_peaks": [
+        {
+          "index": 22,
+          "frequency_cycles_per_row": 0.0107421875,
+          "period_rows": 93.0909090909091,
+          "total_rms_amplitude": 4.415314840893669,
+          "coherent_amplitude": 0.10057610357862509,
+          "incoherent_rms_amplitude": 4.4141691847509446,
+          "amplitude_relative_to_maximum": 1.0,
+          "at_frequency_boundary": false
+        },
+        {
+          "index": 44,
+          "frequency_cycles_per_row": 0.021484375,
+          "period_rows": 46.54545454545455,
+          "total_rms_amplitude": 3.7591780809616844,
+          "coherent_amplitude": 0.144324133647727,
+          "incoherent_rms_amplitude": 3.756406579276211,
+          "amplitude_relative_to_maximum": 0.8513952495856035,
+          "at_frequency_boundary": false
+        },
+        {
+          "index": 66,
+          "frequency_cycles_per_row": 0.0322265625,
+          "period_rows": 31.03030303030303,
+          "total_rms_amplitude": 3.0078376761314467,
+          "coherent_amplitude": 0.07028105709093165,
+          "incoherent_rms_amplitude": 3.0070164713499667,
+          "amplitude_relative_to_maximum": 0.6812283573242659,
+          "at_frequency_boundary": false
+        },
+        {
+          "index": 88,
+          "frequency_cycles_per_row": 0.04296875,
+          "period_rows": 23.272727272727273,
+          "total_rms_amplitude": 2.2574990467372076,
+          "coherent_amplitude": 0.04724910743595438,
+          "incoherent_rms_amplitude": 2.2570045343033556,
+          "amplitude_relative_to_maximum": 0.5112883515867885,
+          "at_frequency_boundary": false
+        },
+        {
+          "index": 110,
+          "frequency_cycles_per_row": 0.0537109375,
+          "period_rows": 18.618181818181817,
+          "total_rms_amplitude": 1.561949148082015,
+          "coherent_amplitude": 0.017279688094968923,
+          "incoherent_rms_amplitude": 1.5618535634218313,
+          "amplitude_relative_to_maximum": 0.3537571394944677,
+          "at_frequency_boundary": false
+        },
+        {
+          "index": 8,
+          "frequency_cycles_per_row": 0.00390625,
+          "period_rows": 256.0,
+          "total_rms_amplitude": 1.0609113544331141,
+          "coherent_amplitude": 0.2480288944924956,
+          "incoherent_rms_amplitude": 1.031510818877793,
+          "amplitude_relative_to_maximum": 0.24027988776863385,
+          "at_frequency_boundary": false
+        },
+        {
+          "index": 132,
+          "frequency_cycles_per_row": 0.064453125,
+          "period_rows": 15.515151515151516,
+          "total_rms_amplitude": 0.9693345132552628,
+          "coherent_amplitude": 0.024013529727014475,
+          "incoherent_rms_amplitude": 0.9690370214691837,
+          "amplitude_relative_to_maximum": 0.21953916044162944,
+          "at_frequency_boundary": false
+        },
+        {
+          "index": 31,
+          "frequency_cycles_per_row": 0.01513671875,
+          "period_rows": 66.06451612903226,
+          "total_rms_amplitude": 0.5342739333720067,
+          "coherent_amplitude": 0.009754355951561117,
+          "incoherent_rms_amplitude": 0.5341848822465549,
+          "amplitude_relative_to_maximum": 0.12100471939705856,
+          "at_frequency_boundary": false
+        }
+      ],
+      "full_spectrum_npz": "artifacts/dsi_block_trials_20261106/with_redraw/page63-spectrum-spatial-v2.npz",
+      "raw_mean_Y": 33.525168888888885,
+      "power_partition_max_abs_error": 7.105427357601002e-15,
+      "mean_Y_minus16": 17.525168888888892,
+      "normalized_q": 0.25232521842987315,
+      "pixel_Y_min": 15,
+      "pixel_Y_max": 47,
+      "fraction_Y_ge235": 0.0,
+      "normalized_q_ratio_to_adjacent_stock": 0.9996705205699005,
+      "mean_signal_ratio_to_adjacent_stock": 1.006400049228105
+    },
+    {
+      "label": "return_page63",
+      "window_s": [
+        144.5702005,
+        147.0702005
+      ],
+      "frames": 75,
+      "dominant_period_px": 93.0909090909091,
+      "spectral_search_boundary": false,
+      "q93_total_rms_Y_codes": 4.192813638509143,
+      "q93_coherent_Y_codes": 0.2754472983466332,
+      "q93_incoherent_rms_Y_codes": 4.183756086712251,
+      "spatial_spectrum_peaks": [
+        {
+          "index": 22,
+          "frequency_cycles_per_row": 0.0107421875,
+          "period_rows": 93.0909090909091,
+          "total_rms_amplitude": 4.197473818880601,
+          "coherent_amplitude": 0.2757264655524621,
+          "incoherent_rms_amplitude": 4.188407976353551,
+          "amplitude_relative_to_maximum": 1.0,
+          "at_frequency_boundary": false
+        },
+        {
+          "index": 44,
+          "frequency_cycles_per_row": 0.021484375,
+          "period_rows": 46.54545454545455,
+          "total_rms_amplitude": 3.6604405770452395,
+          "coherent_amplitude": 0.183714201366586,
+          "incoherent_rms_amplitude": 3.6558274453665787,
+          "amplitude_relative_to_maximum": 0.872057988921875,
+          "at_frequency_boundary": false
+        },
+        {
+          "index": 66,
+          "frequency_cycles_per_row": 0.0322265625,
+          "period_rows": 31.03030303030303,
+          "total_rms_amplitude": 2.978516282180055,
+          "coherent_amplitude": 0.09993665381521899,
+          "incoherent_rms_amplitude": 2.976839248000455,
+          "amplitude_relative_to_maximum": 0.7095973460947941,
+          "at_frequency_boundary": false
+        },
+        {
+          "index": 88,
+          "frequency_cycles_per_row": 0.04296875,
+          "period_rows": 23.272727272727273,
+          "total_rms_amplitude": 2.260665542650628,
+          "coherent_amplitude": 0.02981752108028559,
+          "incoherent_rms_amplitude": 2.260468891881612,
+          "amplitude_relative_to_maximum": 0.538577639837075,
+          "at_frequency_boundary": false
+        },
+        {
+          "index": 110,
+          "frequency_cycles_per_row": 0.0537109375,
+          "period_rows": 18.618181818181817,
+          "total_rms_amplitude": 1.577430346501496,
+          "coherent_amplitude": 0.0204271002349257,
+          "incoherent_rms_amplitude": 1.5772980795144027,
+          "amplitude_relative_to_maximum": 0.37580468981273396,
+          "at_frequency_boundary": false
+        },
+        {
+          "index": 131,
+          "frequency_cycles_per_row": 0.06396484375,
+          "period_rows": 15.633587786259541,
+          "total_rms_amplitude": 1.0010234614787807,
+          "coherent_amplitude": 0.019641917861400397,
+          "incoherent_rms_amplitude": 1.000830737684293,
+          "amplitude_relative_to_maximum": 0.23848235978890217,
+          "at_frequency_boundary": false
+        },
+        {
+          "index": 6,
+          "frequency_cycles_per_row": 0.0029296875,
+          "period_rows": 341.3333333333333,
+          "total_rms_amplitude": 0.9488171750393875,
+          "coherent_amplitude": 0.39505844254717687,
+          "incoherent_rms_amplitude": 0.8626603379209701,
+          "amplitude_relative_to_maximum": 0.2260448107553466,
+          "at_frequency_boundary": false
+        },
+        {
+          "index": 153,
+          "frequency_cycles_per_row": 0.07470703125,
+          "period_rows": 13.38562091503268,
+          "total_rms_amplitude": 0.5513031506368548,
+          "coherent_amplitude": 0.016311094740384797,
+          "incoherent_rms_amplitude": 0.551061804238411,
+          "amplitude_relative_to_maximum": 0.13134165320032382,
+          "at_frequency_boundary": false
+        }
+      ],
+      "full_spectrum_npz": "artifacts/dsi_block_trials_20261106/with_redraw/return_page63-spectrum-spatial-v2.npz",
+      "raw_mean_Y": 33.502357777777775,
+      "power_partition_max_abs_error": 3.552713678800501e-15,
+      "mean_Y_minus16": 17.502357777777775,
+      "normalized_q": 0.23955707520918318,
+      "pixel_Y_min": 15,
+      "pixel_Y_max": 46,
+      "fraction_Y_ge235": 0.0
+    }
+  ],
+  "method": "Spatial v2: original limited-range Y; per-frame quadratic spatial detrend only; full spatial spectrum through Nyquist; separate total/coherent/incoherent powers. Static image content also contributes. q93 is an image component, not Hz/depth. Comparison images alone use equal gamma2.",
+  "window_alignment": "Coarse native record-tap origin, central2.5s windows inside7s holds; contact-sheet inspection required. No sensor-to-video timestamp accuracy claim.",
+  "native": {
+    "table_packets_matched": 675,
+    "post_table_DBV_writes": 9,
+    "callback_returns": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "controller_return_count": 803,
+    "controller_negative_returns": 0,
+    "probe_misses": 0
+  },
+  "pwm_hz": "unknown",
+  "greater_equal_2000_hz_verified": false,
+  "target_restored": true,
+  "camera_original_restoration_pending": true,
+  "comparison_image": "artifacts/optical/pacman_dsi_blocks_redraw_comparison_spatial_v2.png",
+  "limits": [
+    "Image amplitude is not calibrated modulation depth/luminance.",
+    "Static UI content can contribute coherent peaks; inspect flat ROI and original frames.",
+    "Spatial detrending attenuates broad bands; envelope must be assessed separately from raw profiles.",
+    "Same DBV does not guarantee same optical brightness across programs.",
+    "No independently measured panel temperature or numerical carrier frequency."
+  ]
+}

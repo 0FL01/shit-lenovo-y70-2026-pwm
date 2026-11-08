@@ -1,0 +1,108 @@
+{
+  "status": "reported; offline byte comparison of saved target evidence",
+  "device_io": false,
+  "source_pin": "f088523dfba85c95c15f43726fcf972c0c7a957a",
+  "source": "/home/stfu/.cache/opencode-tmp/opencode/ddic-4f-followup-20261107/origin-v4-at-f088.dtsi",
+  "captured_pps_source": "/home/stfu/.cache/opencode-tmp/opencode/stock-base-rates-20261107/phase-4-kernel.txt",
+  "modes": [
+    {
+      "timing": "timing@0",
+      "init_packets": 95,
+      "dsc_chain_matches_native_pps": true,
+      "lhbm_payloads_equal_pinned_source": true,
+      "transition_tail_equal_pinned_source": true
+    },
+    {
+      "timing": "timing@1",
+      "init_packets": 91,
+      "dsc_chain_matches_native_pps": true,
+      "lhbm_payloads_equal_pinned_source": true,
+      "transition_tail_equal_pinned_source": true
+    },
+    {
+      "timing": "timing@2",
+      "init_packets": 91,
+      "dsc_chain_matches_native_pps": true,
+      "lhbm_payloads_equal_pinned_source": true,
+      "transition_tail_equal_pinned_source": true
+    },
+    {
+      "timing": "timing@3",
+      "init_packets": 95,
+      "dsc_chain_matches_native_pps": true,
+      "lhbm_payloads_equal_pinned_source": true,
+      "transition_tail_equal_pinned_source": true
+    },
+    {
+      "timing": "timing@4",
+      "init_packets": 95,
+      "dsc_chain_matches_native_pps": true,
+      "lhbm_payloads_equal_pinned_source": true,
+      "transition_tail_equal_pinned_source": true
+    },
+    {
+      "timing": "timing@5",
+      "init_packets": 95,
+      "dsc_chain_matches_native_pps": true,
+      "lhbm_payloads_equal_pinned_source": true,
+      "transition_tail_equal_pinned_source": true
+    },
+    {
+      "timing": "timing@6",
+      "init_packets": 95,
+      "dsc_chain_matches_native_pps": true,
+      "lhbm_payloads_equal_pinned_source": true,
+      "transition_tail_equal_pinned_source": true
+    },
+    {
+      "timing": "timing@7",
+      "init_packets": 95,
+      "dsc_chain_matches_native_pps": true,
+      "lhbm_payloads_equal_pinned_source": true,
+      "transition_tail_equal_pinned_source": true
+    }
+  ],
+  "dsc": {
+    "page": "07",
+    "initial_opcode": "81",
+    "continuation_opcode": "FE",
+    "prefix_zero_bytes": 5,
+    "pps_prefix_bytes": 94,
+    "unwritten_zero_pps_tail_bytes": 34,
+    "version_byte": 17,
+    "picture_height": 3168,
+    "picture_width": 1440,
+    "slice_height": 22,
+    "slice_width": 720
+  },
+  "source_annotated_lhbm_page_1e_payloads": [
+    "c0 10",
+    "c1 70 9c c9",
+    "c2 ff ff ff 78 e5 7a f0",
+    "c5 44 00 00 44 00 00 44 00 00 44 00 00 44 00 00 42 02 eb 21 23 90 10 08 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+    "c7 55 ff ff 55 ff ff 54 10 ff 43 80 80 44 00 00 33 90 6b 32 0c ae 20 50 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+    "c8 44 00 00 44 00 00 14 00",
+    "c9 00",
+    "ca ec ec ed ed ee ef f8 ff fc fc f2 fb ff ff ff ff ff ff ff ff ff ff ff ff ff",
+    "cb f0 f0 f0 f1 f1 f2 fa ff ff fe eb f0 f2 ff fe fb ff f9 ff ff ff ff ff ff ff",
+    "cc ec ec ec ed ee ef f9 ff ff fe e9 ed ef f1 f4 f5 f4 f4 ff ff ff ff ff ff ff"
+  ],
+  "source_annotated_transition_and_dimming_tail": [
+    "97 03",
+    "b1 03",
+    "98 03 00",
+    "99 05 00",
+    "9a 0b 00",
+    "9b 17 00",
+    "a0 00 00",
+    "a1 01 02",
+    "ce 55"
+  ],
+  "pwm_hz": "unknown",
+  "frequency_multiplier": null,
+  "limits": [
+    "Block equality does not establish whole-source or whole-module equivalence.",
+    "Source labels constrain roles, not every bit or indirect optical effect.",
+    "No emission microcode or pulse count/period encoding identified in these blocks."
+  ]
+}

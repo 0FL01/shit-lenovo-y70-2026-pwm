@@ -1,0 +1,12 @@
+test_a_module (__main__.KnownAnswerTests.test_a_module) ... skipped 'set GHIDRA_TOOLKIT_KNOWN_ANSWER=1 in PyGhidra venv'
+test_b_als_and_debugdata (__main__.KnownAnswerTests.test_b_als_and_debugdata) ... skipped 'set GHIDRA_TOOLKIT_KNOWN_ANSWER=1 in PyGhidra venv'
+test_elf_validation (__main__.UnitTests.test_elf_validation) ... ok
+test_project_default_and_escape_rejected (__main__.UnitTests.test_project_default_and_escape_rejected) ... ok
+test_provenance_hash_and_stable_json (__main__.UnitTests.test_provenance_hash_and_stable_json) ... ok
+test_selector_and_timebox_validation (__main__.UnitTests.test_selector_and_timebox_validation) ... ok
+test_timebox_reaps_worker (__main__.UnitTests.test_timebox_reaps_worker) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.512s
+
+OK (skipped=2)

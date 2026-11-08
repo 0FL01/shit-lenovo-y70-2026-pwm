@@ -1,0 +1,58 @@
+# statuses: user-reported | confirmed-on-target | confirmed-primary-source | reported-secondary-source | hypothesis | unknown | rejected
+claims:
+  - id: C01
+    statement: 'Owner has physical XT2611-1, hardware PVT, running global Edge 70 Max ROM.'
+    status: confirmed-on-target
+    evidence: 'ADB: ro.boot.hardware.sku=XT2611-1, ro.boot.hardware.revision=pvt, build W3WW36.65-64-4 (pre-OTA; W3WWS36.65-64-4-1 after 2026-10-28); fastboot: sku XT2611-1, hwrev PVT.'
+  - id: C02
+    statement: 'Stock/source build W3WWL36.65-11-18 for XT2611-1 has published kernel-msm tag MMI-W3WWL36.65-11-18.'
+    status: confirmed-primary-source
+    evidence: 'https://github.com/MotorolaMobilityLLC/kernel-msm/issues/854'
+  - id: C03
+    statement: 'Tag MMI-W3WWL36.65-11-18 has release description "Avr push for Android 16".'
+    status: confirmed-primary-source
+    evidence: 'https://github.com/MotorolaMobilityLLC/kernel-msm/releases/tag/MMI-W3WWL36.65-11-18'
+  - id: C04
+    statement: 'RETCN stock ROM packages for XT2611-1 exist in two listed builds W3WWL36.65-11-18 and W3WWL36.65-48-7.'
+    status: confirmed-primary-source
+    evidence: 'https://mirrors.lolinet.com/firmware/lenowow/2026/Legion_Y70_2026/XT2611-1/'
+  - id: C05
+    statement: 'RETEU stock ROM packages for XT2611-3 exist, but are not confirmed flash-compatible with XT2611-1.'
+    status: confirmed-primary-source
+    evidence: 'https://mirrors.lolinet.com/firmware/lenomola/2026/avr/official/TELEU/'
+  - id: C06
+    statement: 'China Y70 2026 reviews mention 720 Hz PWM and DC-like dimming.'
+    status: reported-secondary-source
+    evidence: 'https://mobile.zol.com.cn/1183/11838624.html'
+  - id: C07
+    statement: 'An independent Y70 2026 review saw DC-dimming setting affect visible dark-exposure bands; did not establish real PWM frequency.'
+    status: reported-secondary-source
+    evidence: 'https://mt.today/obzor_lenovo_legion_y70_new_generation_vozvraschenie_legendy!8vlpht'
+  - id: C08
+    statement: 'Notebookcheck measured a 167 Hz optical component and 14% amplitude on the global Edge 70 Max test unit.'
+    status: reported-secondary-source
+    evidence: 'https://www.notebookcheck.net/Motorola-Edge-70-Max-smartphone-review-Record-breaking-battery-life-and-flagship-features-at-a-low-price.1430009.0.html'
+  - id: C09
+    statement: 'Pixel 8 Pro HK3 kernel patch changes panel DSI 0xBD subcommand 0x21 using a module_param_array.'
+    status: confirmed-primary-source
+    evidence: 'https://github.com/updateing/android_kernel_google_zuma/commit/6f7795dcf7b6a5c6f1c344c9de05ca10489b7d4d'
+  - id: C10
+    statement: 'Pixel 8 Pro experimental modifications were reported at 3840 Hz and up to 4800 Hz with green tint / refresh-state color artifacts.'
+    status: reported-secondary-source
+    evidence: 'https://www.androidcentral.com/phones/google-pixel-8-pro-display-upgrade'
+  - id: C11
+    statement: 'Owner-device panel has a writable DSI command enabling increased PWM.'
+    status: unknown
+    evidence: 'Not demonstrated; must be proven independently.'
+  - id: C12
+    statement: 'China and global variants differ in panel-DCS configuration rather than measurement or panel revision.'
+    status: hypothesis
+    evidence: 'Archive comparison: all 18 BOE DC arrays equal, but 36 ILI97701A v2-v4 init/timing-switch properties differ. This does not isolate region from build age/panel revision or prove optical causality; current OTA is newer. See artifacts/display_diffs.md and regional_dtbo_diff.json.'
+  - id: C13
+    statement: 'BOE Q10 identifies exact panel driver IC for owner device.'
+    status: unknown
+    evidence: 'BOE Q10 is a marketing/material description from reviews, not a unique panel-ID proof.'
+  - id: C41
+    statement: 'The installed W3WWS36.65-64-4-1 kernel differs from the RETEU reference W3WW36.65-64-4 kernel; the mirror boot.img is not a valid stock-image base for the installed build.'
+    status: confirmed-on-target
+    evidence: 'grep -aoE "Linux version 6[^\ ]*" on artifacts/firmware/w3ww_base_36.65-64-4/boot.img returns gb0a9599c6c01-ab14987696-4k; installed device reports g09eda8c8505a-ab15950084-4k (artifacts/device_inventory.json build.uname). Mirrors list -64-4 as newest; exact W3WWS36.65-64-4-1 factory package absent.'

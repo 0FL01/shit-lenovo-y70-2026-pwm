@@ -1,0 +1,256 @@
+Config threshold load
+
+artifacts/current_display_path/als/motorola.hardware.sensorext-service:	file format elf64-littleaarch64
+
+Disassembly of section .text:
+
+0000000000008000 <.text>:
+   134f0:      	adrp	x8, 0x4000
+   134f4:      	add	x8, x8, #0xca4
+   134f8:      	ldr	x0, [x19, #0x40]
+   134fc:      	ldr	x8, [x8]
+   13500:      	mov	w22, #0x14              // =20
+   13504:      	mov	w9, #0x7662             // =30306
+   13508:      	add	x1, sp, #0x3b8
+   1350c:      	strb	w22, [sp, #0x3b8]
+   13510:      	sturh	w9, [x21, #0xb1]
+   13514:      	stur	x8, [x21, #0xa9]
+   13518:      	strb	wzr, [sp, #0x3c3]
+   1351c:      	bl	0x18060 <.text+0x10060>
+   13520:      	ldrb	w8, [sp, #0x3b8]
+   13524:      	str	w0, [x19, #0xf0]
+
+Optional brightness table load
+
+artifacts/current_display_path/als/motorola.hardware.sensorext-service:	file format elf64-littleaarch64
+
+Disassembly of section .text:
+
+0000000000008000 <.text>:
+   14160:      	add	x0, x19, #0x200
+   14164:      	mov	w1, wzr
+   14168:      	mov	w2, #0x4e20             // =20000
+   1416c:      	bl	0x1b988 <memset@plt>
+   14170:      	ldr	x20, [x19, #0x40]
+   14174:      	mov	w0, #0x20               // =32
+   14178:      	bl	0x1b148 <_Znwm@plt>
+   1417c:      	adrp	x8, 0x5000
+   14180:      	add	x8, x8, #0x6cb
+   14184:      	adrp	x9, 0x4000
+   14188:      	ldr	q0, [x8]
+   1418c:      	ldur	q1, [x8, #0xb]
+   14190:      	ldr	q2, [x9, #0x460]
+   14194:      	str	x0, [sp, #0x20]
+   14198:      	add	x1, sp, #0x10
+   1419c:      	add	x2, x19, #0x200
+   141a0:      	str	q0, [x0]
+   141a4:      	stur	q1, [x0, #0xb]
+   141a8:      	strb	wzr, [x0, #0x1b]
+   141ac:      	mov	x0, x20
+   141b0:      	str	q2, [sp, #0x10]
+   141b4:      	bl	0x18418 <.text+0x10418>
+   141b8:      	ldrb	w8, [sp, #0x10]
+   141bc:      	and	w9, w0, #0x1
+   141c0:      	strb	w9, [x24, #0x20]
+
+Actual read-only DC reader
+
+artifacts/current_display_path/als/motorola.hardware.sensorext-service:	file format elf64-littleaarch64
+
+Disassembly of section .text:
+
+0000000000008000 <.text>:
+    c5bc:      	paciasp
+    c5c0:      	sub	sp, sp, #0x40
+    c5c4:      	stp	x29, x30, [sp, #0x10]
+    c5c8:      	stp	x22, x21, [sp, #0x20]
+    c5cc:      	stp	x20, x19, [sp, #0x30]
+    c5d0:      	add	x29, sp, #0x10
+    c5d4:      	mrs	x21, TPIDR_EL0
+    c5d8:      	add	x22, x0, #0x1b9
+    c5dc:      	mov	x20, x0
+    c5e0:      	ldr	x8, [x21, #0x28]
+    c5e4:      	mov	w1, wzr
+    c5e8:      	str	x8, [sp, #0x8]
+    c5ec:      	ldrb	w8, [x0, #0x1b8]
+    c5f0:      	ldr	x9, [x0, #0x1c8]
+    c5f4:      	strh	wzr, [sp, #0x4]
+    c5f8:      	tst	w8, #0x1
+    c5fc:      	csel	x0, x22, x9, eq
+    c600:      	bl	0x1b748 <__open_2@plt>
+    c604:      	mov	w19, w0
+    c608:      	tbnz	w0, #0x1f, 0xc63c <.text+0x463c>
+    c60c:      	add	x1, sp, #0x4
+    c610:      	mov	w0, w19
+    c614:      	mov	w2, #0x1                // =1
+    c618:      	bl	0x1b760 <read@plt>
+    c61c:      	mov	x20, x0
+    c620:      	mov	w0, w19
+    c624:      	bl	0x1b718 <close@plt>
+    c628:      	cmp	w20, #0x1
+    c62c:      	b.lt	0xc674 <.text+0x4674>
+    c630:      	add	x0, sp, #0x4
+    c634:      	bl	0x1b778 <atoi@plt>
+    c638:      	b	0xc690 <.text+0x4690>
+    c63c:      	ldrb	w8, [x20, #0x1b8]
+    c640:      	ldr	x9, [x20, #0x1c8]
+    c644:      	mov	w1, wzr
+    c648:      	tst	w8, #0x1
+    c64c:      	csel	x0, x22, x9, eq
+    c650:      	bl	0x1b748 <__open_2@plt>
+    c654:      	tbnz	w0, #0x1f, 0xc68c <.text+0x468c>
+    c658:      	add	x1, sp, #0x4
+    c65c:      	mov	w2, #0x1                // =1
+    c660:      	bl	0x1b760 <read@plt>
+    c664:      	mov	x20, x0
+    c668:      	cmn	w20, #0x1
+    c66c:      	b.ne	0xc620 <.text+0x4620>
+    c670:      	b	0xc60c <.text+0x460c>
+    c674:      	adrp	x1, 0x4000
+    c678:      	add	x1, x1, #0xb7b
+    c67c:      	adrp	x2, 0x5000
+    c680:      	add	x2, x2, #0x8e4
+    c684:      	mov	w0, #0x6                // =6
+    c688:      	bl	0x1b1f0 <__android_log_print@plt>
+    c68c:      	mov	w0, wzr
+    c690:      	ldr	x8, [x21, #0x28]
+    c694:      	ldr	x9, [sp, #0x8]
+    c698:      	cmp	x8, x9
+    c69c:      	b.ne	0xc6b8 <.text+0x46b8>
+    c6a0:      	ldp	x20, x19, [sp, #0x30]
+    c6a4:      	ldp	x22, x21, [sp, #0x20]
+    c6a8:      	ldp	x29, x30, [sp, #0x10]
+    c6ac:      	add	sp, sp, #0x40
+    c6b0:      	autiasp
+    c6b4:      	ret
+    c6b8:      	bl	0x1b220 <__stack_chk_fail@plt>
+
+Brightness/threshold selection and model call
+
+artifacts/current_display_path/als/motorola.hardware.sensorext-service:	file format elf64-littleaarch64
+
+Disassembly of section .text:
+
+0000000000008000 <.text>:
+   147f0:      	ldr	s9, [x0, #0xf8]
+   147f4:      	ldr	x0, [x0, #0x48]
+   147f8:      	bl	0xc0ac <.text+0x40ac>
+   147fc:      	ldr	w20, [x19, #0xd8]
+   14800:      	cmp	w0, w20
+   14804:      	b.hi	0x14844 <.text+0xc844>
+   14808:      	ldrb	w8, [x27, #0x20]
+   1480c:      	mov	w3, w0
+   14810:      	cmp	w8, #0x1
+   14814:      	b.ne	0x14840 <.text+0xc840>
+   14818:      	add	x20, x19, w3, uxtw #2
+   1481c:      	adrp	x1, 0x4000
+   14820:      	add	x1, x1, #0xde4
+   14824:      	adrp	x2, 0x5000
+   14828:      	add	x2, x2, #0x2e1
+   1482c:      	mov	w0, #0x3                // =3
+   14830:      	ldr	w4, [x20, #0x200]
+   14834:      	bl	0x1b1f0 <__android_log_print@plt>
+   14838:      	ldr	w20, [x20, #0x200]
+   1483c:      	b	0x14844 <.text+0xc844>
+   14840:      	mov	w20, w3
+   14844:      	ldr	x0, [x19, #0x48]
+   14848:      	sub	x8, x29, #0x48
+   1484c:      	stp	xzr, xzr, [x29, #-0x48]
+   14850:      	stur	xzr, [x29, #-0x38]
+   14854:      	sub	x22, x29, #0x48
+   14858:      	bl	0xc1b0 <.text+0x41b0>
+   1485c:      	ldr	x0, [x19, #0x48]
+   14860:      	bl	0xc5bc <.text+0x45bc>
+   14864:      	ldurb	w8, [x29, #-0x48]
+   14868:      	ldur	x9, [x29, #-0x40]
+   1486c:      	ubfx	w10, w8, #1, #7
+   14870:      	tst	w8, #0x1
+   14874:      	csel	x9, x10, x9, eq
+   14878:      	cmp	x9, #0x3
+   1487c:      	b.ne	0x148b4 <.text+0xc8b4>
+   14880:      	ldur	x9, [x29, #-0x38]
+   14884:      	tst	w8, #0x1
+   14888:      	mov	w11, #0x664f            // =26191
+   1488c:      	csinc	x9, x9, x22, ne
+   14890:      	ldrh	w10, [x9]
+   14894:      	ldrb	w9, [x9, #0x2]
+   14898:      	cmp	w10, w11
+   1489c:      	mov	w10, #0x66              // =102
+   148a0:      	ccmp	w9, w10, #0x0, eq
+   148a4:      	cset	w9, eq
+   148a8:      	fmul	s8, s8, s9
+   148ac:      	tbz	w9, #0x0, 0x148c0 <.text+0xc8c0>
+   148b0:      	b	0x1499c <.text+0xc99c>
+   148b4:      	mov	w9, wzr
+   148b8:      	fmul	s8, s8, s9
+   148bc:      	tbnz	w9, #0x0, 0x1499c <.text+0xc99c>
+   148c0:      	cbz	w20, 0x1499c <.text+0xc99c>
+   148c4:      	ldr	s0, [x19, #0xf4]
+   148c8:      	fcmp	s8, s0
+   148cc:      	b.gt	0x1499c <.text+0xc99c>
+   148d0:      	ldr	w8, [x19, #0xf0]
+   148d4:      	ldp	w2, w1, [x19, #0xdc]
+   148d8:      	sub	w9, w8, #0x1
+   148dc:      	ldr	x8, [x19, #0x48]
+   148e0:      	ldp	w3, w4, [x19, #0xe4]
+   148e4:      	cmp	w9, w20
+   148e8:      	csel	w22, wzr, w0, lo
+   148ec:      	mov	x0, x8
+   148f0:      	bl	0xba34 <.text+0x3a34>
+   148f4:      	cbz	x0, 0x14a30 <.text+0xca30>
+   148f8:      	ldr	s0, [x19, #0xd8]
+   148fc:      	ucvtf	s1, w20
+   14900:      	mov	x3, x0
+   14904:      	ldr	x0, [x19, #0x50]
+   14908:      	ldr	w4, [x19, #0x138]
+   1490c:      	ldr	w5, [x19, #0x13c]
+   14910:      	ucvtf	s0, s0
+   14914:      	sub	x8, x29, #0x60
+   14918:      	mov	w1, w21
+   1491c:      	mov	w2, w22
+   14920:      	stp	xzr, xzr, [x29, #-0x60]
+   14924:      	stur	xzr, [x29, #-0x50]
+   14928:      	fdiv	s0, s1, s0
+   1492c:      	bl	0xede4 <.text+0x6de4>
+
+Active model-input4 selector
+
+artifacts/current_display_path/als/motorola.hardware.sensorext-service:	file format elf64-littleaarch64
+
+Disassembly of section .text:
+
+0000000000008000 <.text>:
+    eed0:      	fmov	s0, #1.00000000
+    eed4:      	fcmp	s8, s0
+    eed8:      	fcsel	s0, s0, s8, gt
+    eedc:      	cmp	w21, #0x1
+    eee0:      	str	s0, [x19, #0x1b8]
+    eee4:      	b.ne	0xf364 <.text+0x7364>
+    eee8:      	ldrb	w8, [x19, #0x198]
+    eeec:      	ldr	x9, [x19, #0x1a0]
+    eef0:      	ldr	x1, [x19, #0x1b0]
+    eef4:      	ubfx	w10, w8, #1, #7
+    eef8:      	tst	w8, #0x1
+    eefc:      	csel	x8, x10, x9, eq
+    ef00:      	cbz	x8, 0xf368 <.text+0x7368>
+    ef04:      	add	x2, x19, #0x190
+    ef08:      	b	0xf36c <.text+0x736c>
+
+Active model-input4 dispatch
+
+artifacts/current_display_path/als/motorola.hardware.sensorext-service:	file format elf64-littleaarch64
+
+Disassembly of section .text:
+
+0000000000008000 <.text>:
+    f364:      	ldr	x1, [x19, #0x1b0]
+    f368:      	add	x2, x19, #0xc0
+    f36c:      	mov	x8, x20
+    f370:      	mov	x0, x19
+    f374:      	ldp	x20, x19, [sp, #0x40]
+    f378:      	ldp	x22, x21, [sp, #0x30]
+    f37c:      	ldp	x24, x23, [sp, #0x20]
+    f380:      	ldp	x29, x30, [sp, #0x10]
+    f384:      	ldr	d8, [sp], #0x50
+    f388:      	autiasp
+    f38c:      	b	0xebc0 <.text+0x6bc0>

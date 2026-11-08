@@ -1,0 +1,88 @@
+{
+  "observed_at_utc": "2026-11-06T09:18:26.390594+00:00",
+  "build_report": "artifacts/kernel/gki_r59/kernelsu_next_build.json",
+  "config_changes": {
+    "CONFIG_KSU": {
+      "target": null,
+      "root": "y"
+    },
+    "CONFIG_KSU_DEBUG": {
+      "target": null,
+      "root": "n"
+    },
+    "CONFIG_KSU_DISABLE_MANAGER": {
+      "target": null,
+      "root": "n"
+    },
+    "CONFIG_KSU_DISABLE_POLICY": {
+      "target": null,
+      "root": "n"
+    },
+    "CONFIG_SYSTEM_TRUSTED_KEYS": {
+      "target": "\"\"",
+      "root": "\"certs/google_gki_r59.pem\""
+    }
+  },
+  "config_changes_within_root_only_contract": true,
+  "security_configuration_unchanged": {
+    "CONFIG_MODVERSIONS": {
+      "target": "y",
+      "root": "y"
+    },
+    "CONFIG_MODULE_SIG": {
+      "target": "y",
+      "root": "y"
+    },
+    "CONFIG_MODULE_SIG_PROTECT": {
+      "target": "y",
+      "root": "y"
+    },
+    "CONFIG_MODULE_SIG_ALL": {
+      "target": "y",
+      "root": "y"
+    },
+    "CONFIG_MODULE_SIG_FORCE": {
+      "target": "n",
+      "root": "n"
+    },
+    "CONFIG_TRIM_UNUSED_KSYMS": {
+      "target": "y",
+      "root": "y"
+    },
+    "CONFIG_CFI_CLANG": {
+      "target": "y",
+      "root": "y"
+    },
+    "CONFIG_CFI_ICALL_NORMALIZE_INTEGERS": {
+      "target": "y",
+      "root": "y"
+    },
+    "CONFIG_SECURITY_SELINUX": {
+      "target": "y",
+      "root": "y"
+    }
+  },
+  "google_exported_symbols": 10210,
+  "root_exported_symbols": 10210,
+  "export_crc_maps_equal": true,
+  "missing_symbols": [],
+  "extra_symbols": [],
+  "changed_crc_symbols": [],
+  "builtin_ksu_symbols": {
+    "kernelsu_init": "0xffffffc082134db8",
+    "ksu_syscall_hook_init": "0xffffffc082135200"
+  },
+  "compiled_ksu_version_33355_and_tag_v3_4_2": true,
+  "builtin_certificate_count": 2,
+  "google_r59_public_certificate_retained": true,
+  "certificate_sha256": [
+    "ac5ce437d450a4eb2ef5c5528de4e7937b20fdc3ef4b52fb2dbc7d65f2e97ac3",
+    "dd1224298b6239681fb1eb2e06e65b4d6c5d7181b75044f44cf30f38dafa88e8"
+  ],
+  "image_path": "artifacts/kernel/gki_r59/kernelsu_next/Image",
+  "image_bytes": 41638400,
+  "image_sha256": "a6edb2ae26b273eb7b4ac510875efc8b9ac0c7963c084072896bfb0184a6723d",
+  "root_kernel_offline_validation_pass": true,
+  "deployment_status": "NOT booted/installed. No Motorola boot packaging, device UID0, post-reboot root, panel or PWM change verified. Actual target original image/module signing and recovery/image gates remain unpassed.",
+  "kernel_linux_version": "Linux version 6.12.58-android16-6-g09eda8c8505a-dirty-ab15950084-4k (kleaf@build-host) (Android (14043575, +pgo, +bolt, +lto, +mlgo, based on r536225) clang version 19.0.1 (https://android.googlesource.com/toolchain/llvm-project b3a530ec6537146650e42be89f1089e9a3588460), LLD 19.0.1) #1 SMP PREEMPT Mon Jul 27 12:15:30 UTC 2026\n"
+}

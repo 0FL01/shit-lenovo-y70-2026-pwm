@@ -1,0 +1,38 @@
+{
+  "observed_at_utc": "2026-11-06T07:45:07.689680+00:00",
+  "status": "confirmed-on-target",
+  "scope": "Read-only post-unlock Android boot, identity and security-state verification; one authorized ADB target, transport identifier omitted",
+  "commands": "adb shell getprop <each property below>; uname -r; id -u; getenforce; all exit codes 0",
+  "properties": {
+    "sys.boot_completed": "1",
+    "ro.boot.hardware.sku": "XT2611-1",
+    "ro.build.display.id": "W3WWS36.65-64-4-1",
+    "ro.boot.flash.locked": "0",
+    "ro.boot.vbmeta.device_state": "unlocked",
+    "ro.boot.verifiedbootstate": "orange",
+    "ro.boot.slot_suffix": "_b"
+  },
+  "kernel_release": "6.12.58-android16-6-g09eda8c8505a-ab15950084-4k",
+  "shell_uid": 2000,
+  "selinux": "Enforcing",
+  "owner_observation": "reported: completed initial Android setup and enabled ADB debugging after the approved unlock",
+  "kernel_config_read": {
+    "observed_at_utc": "2026-11-06T07:46:31.577038+00:00",
+    "command": "adb exec-out cat /proc/config.gz",
+    "exit_code": 0,
+    "gzip_signature_verified": true,
+    "gzip_decompression_succeeded": true,
+    "saved_path": "artifacts/kernel/target_config_20261106.config",
+    "config_lines": 8085,
+    "selected_values": [
+      "CONFIG_LOCALVERSION=\"-4k\"",
+      "CONFIG_KPROBES=y",
+      "CONFIG_CFI_CLANG=y",
+      "CONFIG_CFI_ICALL_NORMALIZE_INTEGERS=y",
+      "CONFIG_MODVERSIONS=y",
+      "CONFIG_MODULE_SIG=y",
+      "CONFIG_EXT4_FS=y"
+    ]
+  },
+  "limits": "Root not established; custom-kernel build, source/config reproduction, vendor-module ABI and recovery originals still unverified. No new image/AVB/slot/DSI/settings changes by these reads."
+}

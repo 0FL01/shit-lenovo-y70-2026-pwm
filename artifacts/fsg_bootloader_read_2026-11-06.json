@@ -1,0 +1,169 @@
+{
+  "started_at_utc": "2026-11-06T10:54:45.610679+00:00",
+  "owner_confirmation": "Explicit question answer: yes, only read-only bootloader metadata roundtrip",
+  "authorized_scope": [
+    "adb reboot bootloader",
+    "identity/slot/mode guards",
+    "getvar version-baseband",
+    "getvar fsg-id",
+    "fastboot reboot and normal Android verification"
+  ],
+  "image_operations_authorized": false,
+  "partition_writes": false,
+  "events": [
+    {
+      "at_utc": "2026-11-06T10:54:45.626704+00:00",
+      "command": "adb shell getprop ro.boot.hardware.sku",
+      "exit_code": 0,
+      "stdout": "XT2611-1",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T10:54:45.673290+00:00",
+      "command": "adb shell getprop ro.build.display.id",
+      "exit_code": 0,
+      "stdout": "W3WWS36.65-64-4-1",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T10:54:45.711284+00:00",
+      "command": "adb shell getprop ro.boot.slot_suffix",
+      "exit_code": 0,
+      "stdout": "_b",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T10:54:45.750995+00:00",
+      "command": "adb shell getprop sys.boot_completed",
+      "exit_code": 0,
+      "stdout": "1",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T10:54:45.791511+00:00",
+      "command": "adb reboot bootloader",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T10:54:49.156837+00:00",
+      "command": "fastboot getvar product",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "< waiting for <target>>\nproduct: avr\nFinished. Total time: 0.000s",
+      "remote_failed": false,
+      "parsed_value": "avr"
+    },
+    {
+      "at_utc": "2026-11-06T10:54:57.172196+00:00",
+      "command": "fastboot getvar sku",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "sku: XT2611-1\nFinished. Total time: 0.000s",
+      "remote_failed": false,
+      "parsed_value": "XT2611-1"
+    },
+    {
+      "at_utc": "2026-11-06T10:54:57.175225+00:00",
+      "command": "fastboot getvar current-slot",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "current-slot: b\nFinished. Total time: 0.000s",
+      "remote_failed": false,
+      "parsed_value": "b"
+    },
+    {
+      "at_utc": "2026-11-06T10:54:57.177479+00:00",
+      "command": "fastboot getvar is-userspace",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "is-userspace: no\nFinished. Total time: 0.000s",
+      "remote_failed": false,
+      "parsed_value": "no"
+    },
+    {
+      "at_utc": "2026-11-06T10:54:57.179718+00:00",
+      "command": "fastboot getvar version-baseband",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "(bootloader) version-baseband[0]: M8845_DE90_31.179.01.104.17R AVR_PVT_P\n(bootloader) version-baseband[1]: RCDSDS_CUST\nversion-baseband: Done\nFinished. Total time: 0.003s",
+      "remote_failed": false,
+      "parsed_value": "Done"
+    },
+    {
+      "at_utc": "2026-11-06T10:54:57.184261+00:00",
+      "command": "fastboot getvar fsg-id",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "(bootloader) fsg-id: not found\ngetvar:fsg-id                                      FAILED (remote: '')\nFinished. Total time: 0.020s",
+      "remote_failed": true,
+      "parsed_value": null
+    },
+    {
+      "at_utc": "2026-11-06T10:54:57.206267+00:00",
+      "command": "fastboot reboot",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "Rebooting                                          OKAY [  0.000s]\nFinished. Total time: 0.250s"
+    },
+    {
+      "at_utc": "2026-11-06T10:54:57.459357+00:00",
+      "command": "adb wait-for-device",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T10:55:20.594514+00:00",
+      "command": "adb shell bounded boot-complete wait + build/sku/slot",
+      "exit_code": 0,
+      "stdout": "boot_completed=1\nbuild=W3WWS36.65-64-4-1\nsku=XT2611-1\nslot=_b",
+      "stderr": ""
+    }
+  ],
+  "android_preflight": {
+    "ro.boot.hardware.sku": "XT2611-1",
+    "ro.build.display.id": "W3WWS36.65-64-4-1",
+    "ro.boot.slot_suffix": "_b",
+    "sys.boot_completed": "1"
+  },
+  "bootloader_transition_accepted": true,
+  "bootloader_guards": {
+    "product": "avr",
+    "sku": "XT2611-1",
+    "current-slot": "b",
+    "is-userspace": "no"
+  },
+  "version_baseband": "Done",
+  "fsg_id": null,
+  "normal_reboot_accepted": true,
+  "stock_android_return_verified": true,
+  "finished_at_utc": "2026-11-06T10:55:28.819502+00:00",
+  "fsg_value_established": false,
+  "version_baseband_interpretation": "Literal Done returned, not a usable FSG/software-version tag",
+  "supplemental_android_property_scan_at_utc": "2026-11-06T11:02:18.446820+00:00",
+  "visible_fsg_property_names": [
+    "dev.mnt.blk.vendor.fsg",
+    "dev.mnt.dev.vendor.fsg",
+    "dev.mnt.rootdisk.vendor.fsg"
+  ],
+  "visible_nonempty_fsg_property_names": [
+    "dev.mnt.blk.vendor.fsg",
+    "dev.mnt.dev.vendor.fsg",
+    "dev.mnt.rootdisk.vendor.fsg"
+  ],
+  "fsg_directory_metadata": {
+    "at_utc": "2026-11-06T11:04:35.217689+00:00",
+    "directory_stat": {
+      "command": "adb shell ls -ld /vendor/fsg",
+      "exit_code": 0,
+      "stdout": "drwxr-xr-x 5 root root 12288 1969-12-31 19:00 /vendor/fsg",
+      "stderr": ""
+    },
+    "listing_exit_code": 1,
+    "listing_error": "ls: /vendor/fsg: Permission denied",
+    "entry_names_private": true,
+    "file_contents_read": false
+  }
+}

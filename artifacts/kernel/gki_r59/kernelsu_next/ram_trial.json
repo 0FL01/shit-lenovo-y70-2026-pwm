@@ -1,0 +1,442 @@
+{
+  "started_at_utc": "2026-11-06T11:43:40.926113+00:00",
+  "owner_confirmation": "Explicit RAM-only image/Manager/shell-root/original-boot-read/stock-return approval; owner reports physical button entry and says continue",
+  "physical_bootloader_entry": "reported by owner; fastboot presence independently observed",
+  "image": "artifacts/kernel/gki_r59/kernelsu_next/boot-ram-test.img",
+  "image_sha256": "d58ca6ed816f9ce508dea5b6ca50584dc8f942ed4ec9cfda51461c983aad2cfd",
+  "persistent_flash_authorized": false,
+  "image_application_count": 1,
+  "events": [
+    {
+      "at_utc": "2026-11-06T11:43:40.926304+00:00",
+      "command": "fastboot getvar product",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "product: avr\nFinished. Total time: 0.000s"
+    },
+    {
+      "at_utc": "2026-11-06T11:43:40.928465+00:00",
+      "command": "fastboot getvar sku",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "sku: XT2611-1\nFinished. Total time: 0.000s"
+    },
+    {
+      "at_utc": "2026-11-06T11:43:40.930552+00:00",
+      "command": "fastboot getvar hwrev",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "hwrev: PVT\nFinished. Total time: 0.000s"
+    },
+    {
+      "at_utc": "2026-11-06T11:43:40.932486+00:00",
+      "command": "fastboot getvar current-slot",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "current-slot: b\nFinished. Total time: 0.000s"
+    },
+    {
+      "at_utc": "2026-11-06T11:43:40.934407+00:00",
+      "command": "fastboot getvar securestate",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "securestate: flashing_unlocked:SDP\nFinished. Total time: 0.000s"
+    },
+    {
+      "at_utc": "2026-11-06T11:43:40.936052+00:00",
+      "command": "fastboot getvar is-userspace",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "is-userspace: no\nFinished. Total time: 0.000s"
+    },
+    {
+      "at_utc": "2026-11-06T11:43:40.937998+00:00",
+      "command": "fastboot boot artifacts/kernel/gki_r59/kernelsu_next/boot-ram-test.img",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "Sending 'boot.img' (40668 KB)                      OKAY [  0.925s]\nBooting                                            OKAY [ 10.318s]\nFinished. Total time: 11.270s"
+    },
+    {
+      "at_utc": "2026-11-06T11:43:52.209457+00:00",
+      "command": "adb wait-for-device",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T11:44:01.428962+00:00",
+      "command": "adb shell bounded boot wait + identity/kernel/security",
+      "exit_code": 0,
+      "stdout": "boot_completed=1\nbuild=W3WWS36.65-64-4-1\nsku=XT2611-1\nslot=_b\nkernel=6.12.58-android16-6-g09eda8c8505a-dirty-ab15950084-4k\nselinux=Enforcing",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T11:45:12.269724+00:00",
+      "command": "adb shell uname -r",
+      "exit_code": 0,
+      "stdout": "6.12.58-android16-6-g09eda8c8505a-dirty-ab15950084-4k",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T11:45:12.340681+00:00",
+      "command": "adb shell loaded display/storage modules",
+      "exit_code": 0,
+      "stdout": "msm_drm 3338240 23 - Live 0x0000000000000000 (O)\nqcom_hv_haptics 126976 3 - Live 0x0000000000000000 (O)\nqcom_spmi_wled 36864 1 camera, Live 0x0000000000000000 (O)\nqcom_q6v5_pas 77824 5 adsp_sleepmon, Live 0x0000000000000000 (O)\nqcom_cpuss_sleep_stats_v4 20480 0 - Live 0x0000000000000000 (O)\nqcom_q6v5 28672 1 qcom_q6v5_pas, Live 0x0000000000000000 (O)\nqcom_lpm_monitor 24576 0 - Live 0x0000000000000000 (O)\nqcom_cpuss_sleep_stats 24576 0 - Live 0x0000000000000000 (O)\nqcom_i2c_pmic 24576 0 - Live 0x0000000000000000 (O)\nqcom_va_minidump 28672 7 qca_cld3_wcn7750,ipam,msm_drm,camera,msm_kgsl,msm_video,gsim, Live 0x0000000000000000 (O)\nqcom_voltage_adj 20480 0 - Live 0x0000000000000000 (O)\nqcom_pmic_ecid 16384 0 - Live 0x0000000000000000 (O)\nqcom_spss 28672 0 - Live 0x0000000000000000 (O)\nqcom_amoled_regulator 24576 0 - Live 0x0000000000000000 (O)\nqcom_fdcvs 16384 0 - Live 0x0000000000000000 (O)\nqcom_sysmon 28672 3 qcom_q6v5_pas,qcom_q6v5,qcom_spss, Live 0x0000000000000000 (O)\nqcom_cache_allocation 53248 0 - Live 0x0000000000000000 (O)\nqcom_spmi_temp_alarm 24576 0 - Live 0x0000000000000000 (O)\nqcom_stats 40960 1 sys_pm_vx, Live 0x0000000000000000 (O)\nqcom_pd_mapper 28672 0 - Live 0x0000000000000000 (O)\nqcom_ramdump 28672 4 ipam,icnss2,qcom_q6v5_pas,microdump_collector, Live 0x0000000000000000 (O)\nqcom_pdr_msg 20480 2 pdr_interface,qcom_pd_mapper, Live 0x0000000000000000 (O)\nqcom_dynamic_ramoops 16384 0 - Live 0x0000000000000000 (O)\nqcom_rng 20480 0 - Live 0x0000000000000000 (O)\nqcom_glink_spss 24576 2 qcom_spss,glink_probe, Live 0x0000000000000000 (O)\nqcom_edac 16384 0 - Live 0x0000000000000000 (O)\nqcom_pon 16384 0 - Live 0x0000000000000000 (O)\nqcom_pil_info 16384 1 qcom_q6v5_pas, Live 0x0000000000000000 (O)\nqcom_spmi_adc5_gen3 45056 0 - Live 0x0000000000000000 (O)\nqcom_vadc_common 32768 1 qcom_spmi_adc5_gen3, Live 0x0000000000000000 (O)\nqcom_cpufreq_hw_debug 16384 0 - Live 0x0000000000000000 (O)\nqcom_lpm 65536 0 [permanent], Live 0x0000000000000000 (O)\nqcom_smd 32768 1 rproc_qcom_common, Live 0x0000000000000000 (O)\nqcom_glink_smem 24576 2 glink_probe,rproc_qcom_common, Live 0x0000000000000000 (O)\nqcom_glink 61440 9 frpc_adsprpc,qrtr_smd,qcom_spss,msm_memshare,glink_probe,qcom_glink_spss,glink_pkt,rproc_qcom_common,qcom_glink_smem, Live 0x0000000000000000 (O)\nqcom_dcvs 65536 3 msm_kgsl,memlat,bwmon, Live 0x0000000000000000 (O)\nqcom_rpmh 65536 6 msm_drm,camera,clk_rpmh,dcvs_fp,icc_bcm_voter,rpmh_regulator,[permanent], Live 0x0000000000000000 (O)\nqcom_soc_wdt 16384 0 - Live 0x0000000000000000 (O)\nqcom_aoss 36864 172 ipam,msm_kgsl,btpower,icnss2,qcom_q6v5,qcom_spss,mem_offline,qcom_fdcvs,sys_pm_vx,qcom_stats,msm_qmp, Live 0x0000000000000000 (O)\nqcom_dload_mode 20480 0 - Live 0x0000000000000000 (O)\nqcom_iommu_debug 53248 0 - Live 0x0000000000000000 (O)\nqcom_logbuf_boot_log 20480 0 - Live 0x0000000000000000 (O)\nqcom_logbuf_vendor_hooks 16384 0 - Live 0x0000000000000000 (O)\nqcom_pmu_lib 36864 2 memlat,msm_performance, Live 0x0000000000000000 (O)\nqcom_wdt_core 28672 1 qcom_soc_wdt, Live 0x0000000000000000 (O)\nqcom_tsens 65536 0 - Live 0x0000000000000000 (O)\nufshcd_crypto_qti 20480 1 ufs_qcom, Live 0x0000000000000000 (O)\nqcom_pdc 24576 0 [permanent], Live 0x0000000000000000 (O)\nqcom_ipc_logging 40960 58 audio_pkt_dlkm,rmnet_ctl,ipanetm,ipam,mmi_glink_charger,msm_drm,qti_glink_charger_v2,usb_f_qdss,usb_f_gsi,altmode_glink,icnss2,charger_ulog_glink,gsim,bm_adsp_ulog,dwc3_msm,ucsi_qti_glink,slim_qcom_ngd_ctrl,qti_pmic_glink,snd_usb_audio_qmi,cnss_plat_ipc_qmi_svc,smp2p,nxp_nci,qti_ocp_notifier,qsee_ipc_irq_bridge,glink_probe,spi_cnss_proto,msm_geni_serial,qti_ptd_share,qti_dynamic_hw_trip,qti_power_telemetry,bcl_pmic5,f_fs_ipc_log,spi_msm_geni,sps_drv,glink_pkt,i3c_master_msm_geni,qcom_spmi_adc5_gen3,bam_dma,qmi_helpers,mhi_dev_uci,mhi_dev_satellite,mhi,pci_msm_drv,qcom_glink_smem,qcom_glink,rpmh_regulator,sdhci_msm,ufs_qcom,i2c_msm_geni,qcom_rpmh,msm_qmp,crm_v2,msm_gpi,qcom_aoss,pmic_pon_log,qrtr,qcom_tsens,qcom_pdc,[permanent], Live 0x0000000000000000 (O)\nqcom_dma_heaps 73728 155 smmu_proxy_dlkm,msm_sysstats,minidump,[permanent], Live 0x0000000000000000 (O)\nqcom_iommu_util 90112 8 qca_cld3_wcn7750,ipam,coresight_tmc,msm_drm,camera,msm_kgsl,arm_smmu,qcom_iommu_debug,[permanent], Live 0x0000000000000000 (O)\nqcom_ice 24576 3 sdhci_msm,ufs_qcom,ufshcd_crypto_qti, Live 0x0000000000000000 (O)\nqcom_cpu_vendor_hooks 16384 0 - Live 0x0000000000000000 (O)\nqcom_llcc_pmu 24576 1 qcom_pmu_lib, Live 0x0000000000000000 (O)\nqcom_spmi_pmic 20480 0 - Live 0x0000000000000000 (O)\nqcom_scm 122880 46 ipam,msm_drm,camera,msm_kgsl,msm_video,msm_eva,dmesg_dumper,phy_msm_snps_eusb2,phy_msm_m31_eusb2,qcom_q6v5_pas,frpc_adsprpc,msm_hw_fence,coresight_tmc_sec,coresight_tpdm,qrtr_gunyah,gh_panic_notifier,msm_hfi_core,msm_memshare,core_hang_detect,qcom_cpuss_sleep_stats,hdcp_qseecom_dlkm,qcom_spss,tz_log_dlkm,spmi_pmic_err_debug,audpkt_ion_dlkm,msm_sharedmem,phy_msm_snps_hs,eud,governor_msm_adreno_tz,smcinvoke_dlkm,arm_smmu,memory_dump_v2,qcom_dload_mode,qcom_wdt_core,si_core_module,pinctrl_msm,qcom_pdc,qcom_dma_heaps,gh_rm_drv,qcom_iommu_util,arm_smmu_pmu,gic_intr_routing,secure_buffer,mem_prot,mdt_loader,qcom_ice, Live 0x0000000000000000 (O)\nqcom_scmi_client 16384 9 coresight_uetm,cpucp_log,qti_dynamic_hw_trip,memlat,mpam_msc_slc,llcc_heuristics,mpam,cpucp_fast,qcom_pmu_lib, Live 0x0000000000000000 (O)\nqcom_cpufreq_hw 36864 0 - Live 0x0000000000000000 (O)\nqcom_scmi_vendor 16384 1 - Live 0x0000000000000000 (O)\nqcom_reboot_reason 16384 0 - Live 0x0000000000000000 (O)\nqcom_ipcc 20480 57 [permanent], Live 0x0000000000000000 (O)\nqcom_cpucp 16384 9 - Live 0x0000000000000000 (O)\nqcom_sdei 16384 1 qcom_wdt_core, Live 0x0000000000000000 (O)\nqcom_hwspinlock 16384 2 - Live 0x0000000000000000 (O)",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T11:45:13.668979+00:00",
+      "command": "adb install official KernelSU-Next33355 APK (native verification)",
+      "exit_code": 0,
+      "stdout": "Performing Streamed Install\nSuccess",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T11:45:13.725403+00:00",
+      "command": "adb shell resolve Manager launcher",
+      "exit_code": 0,
+      "stdout": "priority=0 preferredOrder=0 match=0x108000 specificIndex=-1 isDefault=false\ncom.rifsxd.ksunext/.ui.MainActivity",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T11:45:13.775047+00:00",
+      "command": "adb shell launch verified Manager",
+      "exit_code": 0,
+      "stdout": "Starting: Intent { cmp=com.rifsxd.ksunext/.ui.MainActivity }",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T11:45:16.020547+00:00",
+      "command": "adb shell Manager UI hierarchy",
+      "exit_code": 0,
+      "stdout": "UI hierchary dumped to: /dev/tty",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T11:46:36.343081+00:00",
+      "command": "adb shell input keyevent KEYCODE_WAKEUP",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T11:46:36.385531+00:00",
+      "command": "adb shell wm dismiss-keyguard",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T11:46:38.633409+00:00",
+      "command": "adb shell uiautomator dump /data/local/tmp/ksu-ram-ui.xml",
+      "exit_code": 0,
+      "stdout": "UI hierchary dumped to: /data/local/tmp/ksu-ram-ui.xml",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T11:52:56.622927+00:00",
+      "command": "authorized shell su -c id",
+      "exit_code": 0,
+      "stdout": "uid=0(root) gid=0(root) groups=0(root) context=u:r:ksu:s0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T11:52:56.736813+00:00",
+      "command": "su getenforce",
+      "exit_code": 0,
+      "stdout": "Enforcing",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T11:52:56.804189+00:00",
+      "command": "root active boot size",
+      "exit_code": 0,
+      "stdout": "100663296",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T11:53:05.855845+00:00",
+      "command": "adb reboot to unchanged stock",
+      "exit_code": 255,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T11:53:41.235500+00:00",
+      "command": "adb reboot (correct host transport command)",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T11:54:06.377938+00:00",
+      "command": "adb wait-for-device",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T11:54:14.592463+00:00",
+      "command": "stock boot completion/kernel/slot/Enforcing",
+      "exit_code": 0,
+      "stdout": "boot_completed=1\nbuild=W3WWS36.65-64-4-1\nslot=_b\nkernel=6.12.58-android16-6-g09eda8c8505a-ab15950084-4k\nselinux=Enforcing",
+      "stderr": ""
+    }
+  ],
+  "bootloader_guards": {
+    "product": "avr",
+    "sku": "XT2611-1",
+    "hwrev": "PVT",
+    "current-slot": "b",
+    "securestate": "flashing_unlocked:SDP",
+    "is-userspace": "no"
+  },
+  "ram_boot_command_accepted": true,
+  "android_after": {
+    "boot_completed": "1",
+    "build": "W3WWS36.65-64-4-1",
+    "sku": "XT2611-1",
+    "slot": "_b",
+    "kernel": "6.12.58-android16-6-g09eda8c8505a-dirty-ab15950084-4k",
+    "selinux": "Enforcing"
+  },
+  "expected_ram_kernel_booted": true,
+  "stock_return_verified": true,
+  "phase_finished_at_utc": "2026-11-06T11:44:09.647610+00:00",
+  "manager_installed_native_package_verification": true,
+  "manager_ui_packages": [
+    "com.rifsxd.ksunext"
+  ],
+  "manager_ui_snapshot": [],
+  "shell_root_grant_ui": {
+    "at_utc": "2026-11-06T11:51:01.353901+00:00",
+    "method": "Official Manager App Profile for com.android.shell; Superuser toggle only, owner-approved UID2000",
+    "after_nodes": [
+      {
+        "text": "",
+        "content-desc": "Shell",
+        "class": "android.view.View",
+        "clickable": "false",
+        "checkable": "false",
+        "checked": "false",
+        "enabled": "true",
+        "bounds": "[65,397][221,553]"
+      },
+      {
+        "text": "Shell",
+        "content-desc": "",
+        "class": "android.widget.TextView",
+        "clickable": "false",
+        "checkable": "false",
+        "checked": "false",
+        "enabled": "true",
+        "bounds": "[286,404][413,482]"
+      },
+      {
+        "text": "com.android.shell",
+        "content-desc": "",
+        "class": "android.widget.TextView",
+        "clickable": "false",
+        "checkable": "false",
+        "checked": "false",
+        "enabled": "true",
+        "bounds": "[286,482][656,547]"
+      },
+      {
+        "text": "",
+        "content-desc": "",
+        "class": "android.view.View",
+        "clickable": "true",
+        "checkable": "true",
+        "checked": "true",
+        "enabled": "true",
+        "bounds": "[0,592][1440,800]"
+      },
+      {
+        "text": "",
+        "content-desc": "Superuser",
+        "class": "android.view.View",
+        "clickable": "false",
+        "checkable": "false",
+        "checked": "false",
+        "enabled": "true",
+        "bounds": "[52,657][130,735]"
+      },
+      {
+        "text": "",
+        "content-desc": "",
+        "class": "android.view.View",
+        "clickable": "true",
+        "checkable": "true",
+        "checked": "true",
+        "enabled": "true",
+        "bounds": "[1219,618][1388,774]"
+      },
+      {
+        "text": "Superuser",
+        "content-desc": "",
+        "class": "android.widget.TextView",
+        "clickable": "false",
+        "checkable": "false",
+        "checked": "false",
+        "enabled": "true",
+        "bounds": "[182,657][444,735]"
+      },
+      {
+        "text": "App Profile",
+        "content-desc": "",
+        "class": "android.widget.TextView",
+        "clickable": "false",
+        "checkable": "false",
+        "checked": "false",
+        "enabled": "true",
+        "bounds": "[182,846][470,924]"
+      },
+      {
+        "text": "Default",
+        "content-desc": "",
+        "class": "android.widget.TextView",
+        "clickable": "false",
+        "checkable": "false",
+        "checked": "false",
+        "enabled": "true",
+        "bounds": "[182,924][336,989]"
+      },
+      {
+        "text": "",
+        "content-desc": "",
+        "class": "android.view.View",
+        "clickable": "true",
+        "checkable": "true",
+        "checked": "true",
+        "enabled": "true",
+        "bounds": "[172,1060][440,1216]"
+      },
+      {
+        "text": "Default",
+        "content-desc": "",
+        "class": "android.widget.TextView",
+        "clickable": "false",
+        "checkable": "false",
+        "checked": "false",
+        "enabled": "true",
+        "bounds": "[224,1106][388,1171]"
+      },
+      {
+        "text": "",
+        "content-desc": "",
+        "class": "android.view.View",
+        "clickable": "true",
+        "checkable": "true",
+        "checked": "false",
+        "enabled": "true",
+        "bounds": "[561,1060][871,1216]"
+      },
+      {
+        "text": "Template",
+        "content-desc": "",
+        "class": "android.widget.TextView",
+        "clickable": "false",
+        "checkable": "false",
+        "checked": "false",
+        "enabled": "true",
+        "bounds": "[613,1106][819,1171]"
+      },
+      {
+        "text": "",
+        "content-desc": "",
+        "class": "android.view.View",
+        "clickable": "true",
+        "checkable": "true",
+        "checked": "false",
+        "enabled": "true",
+        "bounds": "[991,1060][1268,1216]"
+      },
+      {
+        "text": "Custom",
+        "content-desc": "",
+        "class": "android.widget.TextView",
+        "clickable": "false",
+        "checkable": "false",
+        "checked": "false",
+        "enabled": "true",
+        "bounds": "[1043,1106][1216,1171]"
+      },
+      {
+        "text": "App Profile",
+        "content-desc": "",
+        "class": "android.widget.TextView",
+        "clickable": "false",
+        "checkable": "false",
+        "checked": "false",
+        "enabled": "true",
+        "bounds": "[182,208][575,299]"
+      },
+      {
+        "text": "",
+        "content-desc": "Home",
+        "class": "android.view.View",
+        "clickable": "false",
+        "checkable": "false",
+        "checked": "false",
+        "enabled": "true",
+        "bounds": "[389,2888][467,2966]"
+      },
+      {
+        "text": "",
+        "content-desc": "Superuser",
+        "class": "android.view.View",
+        "clickable": "false",
+        "checkable": "false",
+        "checked": "false",
+        "enabled": "true",
+        "bounds": "[584,2888][662,2966]"
+      },
+      {
+        "text": "",
+        "content-desc": "Module",
+        "class": "android.view.View",
+        "clickable": "false",
+        "checkable": "false",
+        "checked": "false",
+        "enabled": "true",
+        "bounds": "[779,2888][857,2966]"
+      },
+      {
+        "text": "",
+        "content-desc": "Settings",
+        "class": "android.view.View",
+        "clickable": "false",
+        "checkable": "false",
+        "checked": "false",
+        "enabled": "true",
+        "bounds": "[974,2888][1052,2966]"
+      }
+    ]
+  },
+  "su_uid0_verified": true,
+  "original_boot": {
+    "read_at_utc": "2026-11-06T11:53:01.971132+00:00",
+    "status": "confirmed-on-target; unchanged active boot_b read during approved RAM-root trial",
+    "path": "artifacts/originals/W3WWS36.65-64-4-1/boot_b.img",
+    "bytes": 100663296,
+    "sha256": "49dcb9dd513ed5b364b9f84c6be4ab7bdc015a50562f5cca4779e46bf9287049",
+    "kernel_bytes": 41306624,
+    "kernel_sha256": "fe3ef36476044dcbdb0f281143793199edbbd75acd1d0fa401f35d99005bda6c",
+    "kernel_byte_equal_google_r59": true,
+    "header_version": 4,
+    "ramdisk_bytes": 0,
+    "os_version_patch_packed": 0,
+    "slot": "b",
+    "partition_image_writes_performed": false
+  },
+  "vendor_module_read": {
+    "path": "artifacts/kernel/gki_r59/target_vendor/msm_drm.ko",
+    "bytes": 6071656,
+    "sha256": "1bec69faec736e7288f38e4cb83314c37c60d33e6b383213316fd880aa0b1804",
+    "status": "Actual current target file, loaded msm_drm independently observed"
+  },
+  "normal_stock_reboot_requested": true,
+  "finished_at_utc": "2026-11-06T11:54:14.592861+00:00",
+  "ram_experiment_pass": true
+}

@@ -1,0 +1,83 @@
+{
+  "status": "offline-validated-unapproved-unrun",
+  "device_io": false,
+  "hypothesis": "9D may select a different optical regime only with the rest of ON loaded and A9 left OFF; not a decoded frequency setter",
+  "candidate": "on_keep_a9_off.bin",
+  "candidate_sha256": "8604d62cb74646105413c94105a5d66273e865bda2be0e0225f5dc3f69eac62e",
+  "stock_sha256": "b5ed66ba69e6221de5fdeaf4d003c9628602d743880acd1c8e2cf7198facd193",
+  "native_on_sha256": "4c1fc1807aadb63b54efab3cc7baa2c81f7a0107e81bd85dd35db16190fe7c33",
+  "bytes": 875,
+  "packets": 75,
+  "selectors": {
+    "23:A9": "0e",
+    "24:9D": "8e"
+  },
+  "changed_from_native_on_offsets": [
+    68
+  ],
+  "changed_from_s0c1_offsets": [
+    97
+  ],
+  "changed_from_stock_packets": [
+    9,
+    12,
+    16,
+    17,
+    27,
+    28,
+    42,
+    43,
+    45,
+    46,
+    49,
+    50,
+    51,
+    52,
+    53,
+    54,
+    55,
+    56,
+    57,
+    58,
+    59,
+    60,
+    61,
+    62,
+    63,
+    64,
+    65,
+    66,
+    67,
+    69,
+    71,
+    72,
+    73
+  ],
+  "changed_from_stock_bytes": 84,
+  "chunk_ranges": [
+    [
+      0,
+      253
+    ],
+    [
+      253,
+      500
+    ],
+    [
+      500,
+      754
+    ],
+    [
+      754,
+      864
+    ],
+    [
+      864,
+      875
+    ]
+  ],
+  "prior_875_byte_candidates_compared": 7,
+  "pwm_hz": "unknown",
+  "frequency_multiplier": null,
+  "greater_equal_2000_hz_verified": false
+}

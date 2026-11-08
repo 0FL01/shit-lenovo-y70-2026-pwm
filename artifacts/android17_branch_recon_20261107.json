@@ -1,0 +1,334 @@
+{
+  "checked_at_utc": "2026-11-07T10:48:22.368863+00:00",
+  "status": "reported; official public repository snapshot",
+  "scope": "Android17 source hypothesis, not a device experiment",
+  "branch_counts": {
+    "kernel-display-devicetree": 65,
+    "kernel-msm-5.4-techpack-display": 58
+  },
+  "complete_branch_pages": true,
+  "android17_or_ai71_named_branches": [],
+  "android16_dts_trees_checked": 10,
+  "trees_truncated": false,
+  "trees_with_ili97701": [
+    {
+      "name": "android-16-release-w3wb36.36-48-5",
+      "sha": "3a248241db09b1d39d12b90beb8c9bbf55e8fdc9",
+      "url": "https://api.github.com/repos/MotorolaMobilityLLC/kernel-display-devicetree/git/trees/3a248241db09b1d39d12b90beb8c9bbf55e8fdc9?recursive=1",
+      "tree_entries": 385,
+      "truncated": false,
+      "panel_files": [
+        {
+          "path": "display/dsi-panel-mot-boe-ili97701A-682-1440x3168-dsc-cmd-common_v0.dtsi",
+          "blob": "32ff9f5ee6542c175edc6625956dee48ca61b098",
+          "bytes": 10765
+        },
+        {
+          "path": "display/dsi-panel-mot-boe-ili97701A-682-1440x3168-dsc-cmd-common_v1.dtsi",
+          "blob": "5fd215c59eacd6d05e2e09c9707a88f66154dec4",
+          "bytes": 8465
+        },
+        {
+          "path": "display/dsi-panel-mot-boe-ili97701A-682-1440x3168-dsc-cmd-common_v2.dtsi",
+          "blob": "b72de73f001abf671ff2031cb1129fd133a62590",
+          "bytes": 60091
+        }
+      ]
+    },
+    {
+      "name": "android-16-release-w3wwl36.65-11-18",
+      "sha": "f088523dfba85c95c15f43726fcf972c0c7a957a",
+      "url": "https://api.github.com/repos/MotorolaMobilityLLC/kernel-display-devicetree/git/trees/f088523dfba85c95c15f43726fcf972c0c7a957a?recursive=1",
+      "tree_entries": 409,
+      "truncated": false,
+      "panel_files": [
+        {
+          "path": "display/dsi-panel-mot-boe-ili97701A-682-1440x3168-dsc-cmd-common_v0.dtsi",
+          "blob": "32ff9f5ee6542c175edc6625956dee48ca61b098",
+          "bytes": 10765
+        },
+        {
+          "path": "display/dsi-panel-mot-boe-ili97701A-682-1440x3168-dsc-cmd-common_v1.dtsi",
+          "blob": "5fd215c59eacd6d05e2e09c9707a88f66154dec4",
+          "bytes": 8465
+        },
+        {
+          "path": "display/dsi-panel-mot-boe-ili97701A-682-1440x3168-dsc-cmd-common_v2.dtsi",
+          "blob": "0e507ffe355e20b5193dbc5aeb8b89a57ec9e955",
+          "bytes": 59798
+        },
+        {
+          "path": "display/dsi-panel-mot-boe-ili97701A-682-1440x3168-dsc-cmd-common_v3.dtsi",
+          "blob": "0acc2cc27d2d65cbdd0916dc84baceb0a95056d1",
+          "bytes": 75326
+        },
+        {
+          "path": "display/dsi-panel-mot-boe-ili97701A-682-1440x3168-dsc-cmd-common_v4.dtsi",
+          "blob": "bccd97fa5e77ba0cbfbd4e05698514dbed308cc7",
+          "bytes": 61742
+        }
+      ]
+    }
+  ],
+  "alternative_v2_git_blob": "b72de73f001abf671ff2031cb1129fd133a62590",
+  "known_f088_v2_git_blob": "0e507ffe355e20b5193dbc5aeb8b89a57ec9e955",
+  "dc_comparison": [
+    {
+      "mode": "off",
+      "w3wb_packets": 34,
+      "f088_packets": 48,
+      "delta_packets": 14,
+      "inserted_count": 14,
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          2
+        ],
+        [
+          "equal",
+          0,
+          16,
+          2,
+          18
+        ],
+        [
+          "insert",
+          16,
+          16,
+          18,
+          21
+        ],
+        [
+          "equal",
+          16,
+          18,
+          21,
+          23
+        ],
+        [
+          "insert",
+          18,
+          18,
+          23,
+          25
+        ],
+        [
+          "equal",
+          18,
+          25,
+          25,
+          32
+        ],
+        [
+          "insert",
+          25,
+          25,
+          32,
+          39
+        ],
+        [
+          "equal",
+          25,
+          34,
+          39,
+          48
+        ]
+      ],
+      "existing_packets_changed": false,
+      "inserted_packets": [
+        {
+          "page": 8,
+          "payload": "ff 5a a5 08"
+        },
+        {
+          "page": 8,
+          "payload": "98 02"
+        },
+        {
+          "page": 0,
+          "payload": "ff 5a a5 00"
+        },
+        {
+          "page": 0,
+          "payload": "00 00"
+        },
+        {
+          "page": 0,
+          "payload": "00 00"
+        },
+        {
+          "page": 0,
+          "payload": "ff 5a a5 00"
+        },
+        {
+          "page": 0,
+          "payload": "00 00"
+        },
+        {
+          "page": 0,
+          "payload": "ff 5a a5 00"
+        },
+        {
+          "page": 0,
+          "payload": "00 00"
+        },
+        {
+          "page": 0,
+          "payload": "00 00"
+        },
+        {
+          "page": 8,
+          "payload": "ff 5a a5 08"
+        },
+        {
+          "page": 8,
+          "payload": "98 a6"
+        },
+        {
+          "page": 0,
+          "payload": "ff 5a a5 00"
+        },
+        {
+          "page": 0,
+          "payload": "00 00"
+        }
+      ]
+    },
+    {
+      "mode": "on",
+      "w3wb_packets": 34,
+      "f088_packets": 48,
+      "delta_packets": 14,
+      "inserted_count": 14,
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          2
+        ],
+        [
+          "equal",
+          0,
+          16,
+          2,
+          18
+        ],
+        [
+          "insert",
+          16,
+          16,
+          18,
+          21
+        ],
+        [
+          "equal",
+          16,
+          18,
+          21,
+          23
+        ],
+        [
+          "insert",
+          18,
+          18,
+          23,
+          25
+        ],
+        [
+          "equal",
+          18,
+          25,
+          25,
+          32
+        ],
+        [
+          "insert",
+          25,
+          25,
+          32,
+          39
+        ],
+        [
+          "equal",
+          25,
+          34,
+          39,
+          48
+        ]
+      ],
+      "existing_packets_changed": false,
+      "inserted_packets": [
+        {
+          "page": 8,
+          "payload": "ff 5a a5 08"
+        },
+        {
+          "page": 8,
+          "payload": "98 02"
+        },
+        {
+          "page": 0,
+          "payload": "ff 5a a5 00"
+        },
+        {
+          "page": 0,
+          "payload": "00 00"
+        },
+        {
+          "page": 0,
+          "payload": "00 00"
+        },
+        {
+          "page": 0,
+          "payload": "ff 5a a5 00"
+        },
+        {
+          "page": 0,
+          "payload": "00 00"
+        },
+        {
+          "page": 0,
+          "payload": "ff 5a a5 00"
+        },
+        {
+          "page": 0,
+          "payload": "00 00"
+        },
+        {
+          "page": 0,
+          "payload": "00 00"
+        },
+        {
+          "page": 8,
+          "payload": "ff 5a a5 08"
+        },
+        {
+          "page": 8,
+          "payload": "98 a6"
+        },
+        {
+          "page": 0,
+          "payload": "ff 5a a5 00"
+        },
+        {
+          "page": 0,
+          "payload": "00 00"
+        }
+      ]
+    }
+  ],
+  "two_parsers_agree": true,
+  "private_evidence_directory": "/home/stfu/.cache/opencode-tmp/opencode/android17-branch-recon-20261107",
+  "device_io": false,
+  "pwm_hz": "unknown",
+  "limits": [
+    "No Android17-named branch in the two checked repos; not proof of absence everywhere.",
+    "ILI97701 filename inventory covers all ten Android16 DTS trees, not unnamed or binary embedded payloads.",
+    "Alternate official v2 is an older code state, not a new high-PWM profile."
+  ]
+}

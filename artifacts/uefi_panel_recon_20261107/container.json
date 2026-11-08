@@ -1,0 +1,450 @@
+[
+  {
+    "label": "cn11",
+    "entries": [
+      {
+        "name": "index.xml",
+        "header": "0x100",
+        "start": "0x200",
+        "size": 129
+      },
+      {
+        "name": "pkg.xml",
+        "header": "0x1200",
+        "start": "0x1300",
+        "size": 80
+      },
+      {
+        "name": "default.xml",
+        "header": "0x2300",
+        "start": "0x2400",
+        "size": 1899
+      },
+      {
+        "name": "abl.elf",
+        "header": "0x3400",
+        "start": "0x3500",
+        "size": 1047680
+      },
+      {
+        "name": "xbl_sc.elf",
+        "header": "0x103500",
+        "start": "0x103600",
+        "size": 5241984
+      },
+      {
+        "name": "xbl_config.elf",
+        "header": "0x603600",
+        "start": "0x603700",
+        "size": 523392
+      },
+      {
+        "name": "uefi.elf",
+        "header": "0x683700",
+        "start": "0x683800",
+        "size": 13630592
+      },
+      {
+        "name": "XblRamdump.elf",
+        "header": "0x1383800",
+        "start": "0x1383900",
+        "size": 2096256
+      },
+      {
+        "name": "qupfw.elf",
+        "header": "0x1583900",
+        "start": "0x1583a00",
+        "size": 81024
+      },
+      {
+        "name": "aop.mbn",
+        "header": "0x1597a00",
+        "start": "0x1597b00",
+        "size": 523392
+      },
+      {
+        "name": "aop_devcfg.mbn",
+        "header": "0x1617b00",
+        "start": "0x1617c00",
+        "size": 523392
+      },
+      {
+        "name": "tz.mbn",
+        "header": "0x1697c00",
+        "start": "0x1697d00",
+        "size": 8387712
+      },
+      {
+        "name": "hyp.mbn",
+        "header": "0x1e97d00",
+        "start": "0x1e97e00",
+        "size": 8387712
+      },
+      {
+        "name": "devcfg.mbn",
+        "header": "0x2697e00",
+        "start": "0x2697f00",
+        "size": 261248
+      },
+      {
+        "name": "keymaster.mbn",
+        "header": "0x26d7f00",
+        "start": "0x26d8000",
+        "size": 10484864
+      },
+      {
+        "name": "storsec.mbn",
+        "header": "0x30d8000",
+        "start": "0x30d8100",
+        "size": 130176
+      },
+      {
+        "name": "uefi_sec.mbn",
+        "header": "0x30f8100",
+        "start": "0x30f8200",
+        "size": 2096256
+      },
+      {
+        "name": "prov64.mbn",
+        "header": "0x32f8200",
+        "start": "0x32f8300",
+        "size": 261248
+      },
+      {
+        "name": "cpucp.elf",
+        "header": "0x3338300",
+        "start": "0x3338400",
+        "size": 1047680
+      },
+      {
+        "name": "cpucp_dtbs.elf",
+        "header": "0x3438400",
+        "start": "0x3438500",
+        "size": 64640
+      },
+      {
+        "name": "shrm.elf",
+        "header": "0x3448500",
+        "start": "0x3448600",
+        "size": 261248
+      },
+      {
+        "name": "sdi.mbn",
+        "header": "0x3488600",
+        "start": "0x3488700",
+        "size": 523392
+      },
+      {
+        "name": "dcd.mbn",
+        "header": "0x3508700",
+        "start": "0x3508800",
+        "size": 23680
+      },
+      {
+        "name": "pdp.elf",
+        "header": "0x350e800",
+        "start": "0x350e900",
+        "size": 523392
+      },
+      {
+        "name": "pdp_cdb.elf",
+        "header": "0x358e900",
+        "start": "0x358ea00",
+        "size": 130176
+      },
+      {
+        "name": "signed_firmware_soc_view.elf",
+        "header": "0x35aea00",
+        "start": "0x35aeb00",
+        "size": 1047680
+      },
+      {
+        "name": "sequencer_ram.elf",
+        "header": "0x36aeb00",
+        "start": "0x36aec00",
+        "size": 64640
+      },
+      {
+        "name": "tme_config.elf",
+        "header": "0x36bec00",
+        "start": "0x36bed00",
+        "size": 130176
+      },
+      {
+        "name": "secretkeeper.mbn",
+        "header": "0x36ded00",
+        "start": "0x36dee00",
+        "size": 8387712
+      },
+      {
+        "name": "soccp.bin",
+        "header": "0x3edee00",
+        "start": "0x3edef00",
+        "size": 8388608
+      },
+      {
+        "name": "tz_qti_config.mbn",
+        "header": "0x46def00",
+        "start": "0x46df000",
+        "size": 203904
+      },
+      {
+        "name": "dcp.bin",
+        "header": "0x4711000",
+        "start": "0x4711100",
+        "size": 8388608
+      },
+      {
+        "name": "hyp_ac_config.mbn",
+        "header": "0x4f11100",
+        "start": "0x4f11200",
+        "size": 261248
+      },
+      {
+        "name": "tz_ac_config.mbn",
+        "header": "0x4f51200",
+        "start": "0x4f51300",
+        "size": 261248
+      },
+      {
+        "name": "xbl_ac_config.mbn",
+        "header": "0x4f91300",
+        "start": "0x4f91400",
+        "size": 130176
+      },
+      {
+        "name": "LONELY_N_SINGLE",
+        "header": "0x4fb1400",
+        "start": "0x4fb1500",
+        "size": 0
+      }
+    ],
+    "all_recipe_files_present": true,
+    "zero_padding_checked": true,
+    "terminal_marker_valid": true
+  },
+  {
+    "label": "global64",
+    "entries": [
+      {
+        "name": "index.xml",
+        "header": "0x100",
+        "start": "0x200",
+        "size": 129
+      },
+      {
+        "name": "pkg.xml",
+        "header": "0x1200",
+        "start": "0x1300",
+        "size": 80
+      },
+      {
+        "name": "default.xml",
+        "header": "0x2300",
+        "start": "0x2400",
+        "size": 1899
+      },
+      {
+        "name": "abl.elf",
+        "header": "0x3400",
+        "start": "0x3500",
+        "size": 1047680
+      },
+      {
+        "name": "xbl_sc.elf",
+        "header": "0x103500",
+        "start": "0x103600",
+        "size": 5241984
+      },
+      {
+        "name": "xbl_config.elf",
+        "header": "0x603600",
+        "start": "0x603700",
+        "size": 523392
+      },
+      {
+        "name": "uefi.elf",
+        "header": "0x683700",
+        "start": "0x683800",
+        "size": 13630592
+      },
+      {
+        "name": "XblRamdump.elf",
+        "header": "0x1383800",
+        "start": "0x1383900",
+        "size": 2096256
+      },
+      {
+        "name": "qupfw.elf",
+        "header": "0x1583900",
+        "start": "0x1583a00",
+        "size": 81024
+      },
+      {
+        "name": "aop.mbn",
+        "header": "0x1597a00",
+        "start": "0x1597b00",
+        "size": 523392
+      },
+      {
+        "name": "aop_devcfg.mbn",
+        "header": "0x1617b00",
+        "start": "0x1617c00",
+        "size": 523392
+      },
+      {
+        "name": "tz.mbn",
+        "header": "0x1697c00",
+        "start": "0x1697d00",
+        "size": 8387712
+      },
+      {
+        "name": "hyp.mbn",
+        "header": "0x1e97d00",
+        "start": "0x1e97e00",
+        "size": 8387712
+      },
+      {
+        "name": "devcfg.mbn",
+        "header": "0x2697e00",
+        "start": "0x2697f00",
+        "size": 261248
+      },
+      {
+        "name": "keymaster.mbn",
+        "header": "0x26d7f00",
+        "start": "0x26d8000",
+        "size": 10484864
+      },
+      {
+        "name": "storsec.mbn",
+        "header": "0x30d8000",
+        "start": "0x30d8100",
+        "size": 130176
+      },
+      {
+        "name": "uefi_sec.mbn",
+        "header": "0x30f8100",
+        "start": "0x30f8200",
+        "size": 2096256
+      },
+      {
+        "name": "prov64.mbn",
+        "header": "0x32f8200",
+        "start": "0x32f8300",
+        "size": 261248
+      },
+      {
+        "name": "cpucp.elf",
+        "header": "0x3338300",
+        "start": "0x3338400",
+        "size": 1047680
+      },
+      {
+        "name": "cpucp_dtbs.elf",
+        "header": "0x3438400",
+        "start": "0x3438500",
+        "size": 64640
+      },
+      {
+        "name": "shrm.elf",
+        "header": "0x3448500",
+        "start": "0x3448600",
+        "size": 261248
+      },
+      {
+        "name": "sdi.mbn",
+        "header": "0x3488600",
+        "start": "0x3488700",
+        "size": 523392
+      },
+      {
+        "name": "dcd.mbn",
+        "header": "0x3508700",
+        "start": "0x3508800",
+        "size": 23680
+      },
+      {
+        "name": "pdp.elf",
+        "header": "0x350e800",
+        "start": "0x350e900",
+        "size": 523392
+      },
+      {
+        "name": "pdp_cdb.elf",
+        "header": "0x358e900",
+        "start": "0x358ea00",
+        "size": 130176
+      },
+      {
+        "name": "signed_firmware_soc_view.elf",
+        "header": "0x35aea00",
+        "start": "0x35aeb00",
+        "size": 1047680
+      },
+      {
+        "name": "sequencer_ram.elf",
+        "header": "0x36aeb00",
+        "start": "0x36aec00",
+        "size": 64640
+      },
+      {
+        "name": "tme_config.elf",
+        "header": "0x36bec00",
+        "start": "0x36bed00",
+        "size": 130176
+      },
+      {
+        "name": "secretkeeper.mbn",
+        "header": "0x36ded00",
+        "start": "0x36dee00",
+        "size": 8387712
+      },
+      {
+        "name": "soccp.bin",
+        "header": "0x3edee00",
+        "start": "0x3edef00",
+        "size": 8388608
+      },
+      {
+        "name": "tz_qti_config.mbn",
+        "header": "0x46def00",
+        "start": "0x46df000",
+        "size": 203904
+      },
+      {
+        "name": "dcp.bin",
+        "header": "0x4711000",
+        "start": "0x4711100",
+        "size": 8388608
+      },
+      {
+        "name": "hyp_ac_config.mbn",
+        "header": "0x4f11100",
+        "start": "0x4f11200",
+        "size": 261248
+      },
+      {
+        "name": "tz_ac_config.mbn",
+        "header": "0x4f51200",
+        "start": "0x4f51300",
+        "size": 261248
+      },
+      {
+        "name": "xbl_ac_config.mbn",
+        "header": "0x4f91300",
+        "start": "0x4f91400",
+        "size": 130176
+      },
+      {
+        "name": "LONELY_N_SINGLE",
+        "header": "0x4fb1400",
+        "start": "0x4fb1500",
+        "size": 0
+      }
+    ],
+    "all_recipe_files_present": true,
+    "zero_padding_checked": true,
+    "terminal_marker_valid": true
+  }
+]

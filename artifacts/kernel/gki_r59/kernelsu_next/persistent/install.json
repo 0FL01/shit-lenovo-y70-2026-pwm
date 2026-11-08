@@ -1,0 +1,250 @@
+{
+  "started_at_utc": "2026-11-06T12:15:45.628950+00:00",
+  "owner_authorization": "Explicit new instruction: Продолжить, шей постоянный kernel; separate from completed RAM-only trial. Exact boot_b candidate and original rollback described in flash_proposal experiment2 before execution.",
+  "image": "artifacts/kernel/gki_r59/kernelsu_next/persistent/boot.img",
+  "image_sha256": "42db701abff335256e41d8b2ce591088512a172c7a4a7af3d37b0d2d489f5c17",
+  "partition": "boot_b",
+  "original": "artifacts/originals/W3WWS36.65-64-4-1/boot_b.img",
+  "original_sha256": "49dcb9dd513ed5b364b9f84c6be4ab7bdc015a50562f5cca4779e46bf9287049",
+  "other_partition_or_slot_changes_authorized": false,
+  "events": [
+    {
+      "at_utc": "2026-11-06T12:15:45.629174+00:00",
+      "command": "preflight stock identity",
+      "exit_code": 0,
+      "stdout": "XT2611-1|W3WWS36.65-64-4-1|_b|6.12.58-android16-6-g09eda8c8505a-ab15950084-4k|Enforcing",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T12:15:45.717691+00:00",
+      "command": "adb reboot bootloader",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T12:15:48.033496+00:00",
+      "command": "fastboot getvar product",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "< waiting for <target>>\nproduct: avr\nFinished. Total time: 0.000s"
+    },
+    {
+      "at_utc": "2026-11-06T12:15:56.040611+00:00",
+      "command": "fastboot getvar sku",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "sku: XT2611-1\nFinished. Total time: 0.000s"
+    },
+    {
+      "at_utc": "2026-11-06T12:15:56.043775+00:00",
+      "command": "fastboot getvar hwrev",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "hwrev: PVT\nFinished. Total time: 0.000s"
+    },
+    {
+      "at_utc": "2026-11-06T12:15:56.045801+00:00",
+      "command": "fastboot getvar current-slot",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "current-slot: b\nFinished. Total time: 0.000s"
+    },
+    {
+      "at_utc": "2026-11-06T12:15:56.047762+00:00",
+      "command": "fastboot getvar securestate",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "securestate: flashing_unlocked:SDP\nFinished. Total time: 0.000s"
+    },
+    {
+      "at_utc": "2026-11-06T12:15:56.049677+00:00",
+      "command": "fastboot getvar is-userspace",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "is-userspace: no\nFinished. Total time: 0.000s"
+    },
+    {
+      "at_utc": "2026-11-06T12:15:56.051803+00:00",
+      "command": "fastboot getvar partition-size:boot_b",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "partition-size:boot_b: 0x0000000006000000\nFinished. Total time: 0.000s"
+    },
+    {
+      "at_utc": "2026-11-06T12:15:56.053824+00:00",
+      "command": "fastboot reboot after guard mismatch",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "Rebooting                                          OKAY [  0.000s]\nFinished. Total time: 0.250s"
+    },
+    {
+      "at_utc": "2026-11-06T12:17:59.608244+00:00",
+      "command": "adb wait-for-device",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T12:17:59.615833+00:00",
+      "command": "boot completion/identity/kernel/Enforcing",
+      "exit_code": 0,
+      "stdout": "boot=1\nbuild=W3WWS36.65-64-4-1\nsku=XT2611-1\nslot=_b\nkernel=6.12.58-android16-6-g09eda8c8505a-ab15950084-4k\nselinux=Enforcing",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T12:17:59.844333+00:00",
+      "command": "adb reboot bootloader",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T12:18:02.240664+00:00",
+      "command": "fastboot getvar product",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "< waiting for <target>>\nproduct: avr\nFinished. Total time: 0.000s"
+    },
+    {
+      "at_utc": "2026-11-06T12:18:10.247564+00:00",
+      "command": "fastboot getvar sku",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "sku: XT2611-1\nFinished. Total time: 0.000s"
+    },
+    {
+      "at_utc": "2026-11-06T12:18:10.253408+00:00",
+      "command": "fastboot getvar hwrev",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "hwrev: PVT\nFinished. Total time: 0.000s"
+    },
+    {
+      "at_utc": "2026-11-06T12:18:10.255594+00:00",
+      "command": "fastboot getvar current-slot",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "current-slot: b\nFinished. Total time: 0.000s"
+    },
+    {
+      "at_utc": "2026-11-06T12:18:10.257869+00:00",
+      "command": "fastboot getvar securestate",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "securestate: flashing_unlocked:SDP\nFinished. Total time: 0.000s"
+    },
+    {
+      "at_utc": "2026-11-06T12:18:10.259850+00:00",
+      "command": "fastboot getvar is-userspace",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "is-userspace: no\nFinished. Total time: 0.000s"
+    },
+    {
+      "at_utc": "2026-11-06T12:18:10.261748+00:00",
+      "command": "fastboot getvar partition-size:boot_b",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "partition-size:boot_b: 0x0000000006000000\nFinished. Total time: 0.000s"
+    },
+    {
+      "at_utc": "2026-11-06T12:18:10.264172+00:00",
+      "command": "fastboot flash boot_b artifacts/kernel/gki_r59/kernelsu_next/persistent/boot.img",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "Sending 'boot_b' (98304 KB)                        OKAY [  2.238s]\nWriting 'boot_b'                                   OKAY [  0.509s]\nFinished. Total time: 2.748s"
+    },
+    {
+      "at_utc": "2026-11-06T12:18:13.020244+00:00",
+      "command": "fastboot reboot",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "Rebooting                                          OKAY [  0.000s]\nFinished. Total time: 0.250s"
+    },
+    {
+      "at_utc": "2026-11-06T12:18:13.273425+00:00",
+      "command": "adb wait-for-device",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T12:18:37.110995+00:00",
+      "command": "boot completion/identity/kernel/Enforcing",
+      "exit_code": 0,
+      "stdout": "boot=1\nbuild=W3WWS36.65-64-4-1\nsku=XT2611-1\nslot=_b\nkernel=6.12.58-android16-6-g09eda8c8505a-dirty-ab15950084-4k\nselinux=Enforcing",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T12:18:45.327655+00:00",
+      "command": "persistent boot1 authorized su -c id",
+      "exit_code": 0,
+      "stdout": "uid=0(root) gid=0(root) groups=0(root) context=u:r:ksu:s0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T12:18:45.353033+00:00",
+      "command": "adb reboot for persistence proof",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T12:18:48.682436+00:00",
+      "command": "adb wait-for-device",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T12:19:15.120235+00:00",
+      "command": "boot completion/identity/kernel/Enforcing",
+      "exit_code": 0,
+      "stdout": "boot=1\nbuild=W3WWS36.65-64-4-1\nsku=XT2611-1\nslot=_b\nkernel=6.12.58-android16-6-g09eda8c8505a-dirty-ab15950084-4k\nselinux=Enforcing",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T12:19:23.405335+00:00",
+      "command": "persistent boot2 authorized su -c id",
+      "exit_code": 0,
+      "stdout": "uid=0(root) gid=0(root) groups=0(root) context=u:r:ksu:s0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T12:19:23.436527+00:00",
+      "command": "loaded msm_drm after ordinary reboot",
+      "exit_code": 0,
+      "stdout": "msm_drm 3338240 23 - Live 0x0000000000000000 (O)",
+      "stderr": ""
+    }
+  ],
+  "candidate_flash_count": 1,
+  "bootloader_guards": {
+    "product": "avr",
+    "sku": "XT2611-1",
+    "hwrev": "PVT",
+    "current-slot": "b",
+    "securestate": "flashing_unlocked:SDP",
+    "is-userspace": "no",
+    "partition-size:boot_b": "0x0000000006000000"
+  },
+  "resumed_after_guard_fix_at_utc": "2026-11-06T12:17:59.607943+00:00",
+  "guard_fix": "Parse protocol hex partition size numerically; zero-padded 0x0000000006000000 equals96MiB. No prior flash attempted.",
+  "bootloader_guards_after_fix": {
+    "product": "avr",
+    "sku": "XT2611-1",
+    "hwrev": "PVT",
+    "current-slot": "b",
+    "securestate": "flashing_unlocked:SDP",
+    "is-userspace": "no",
+    "partition-size:boot_b": "0x0000000006000000"
+  },
+  "boot_b_bytes_parsed": 100663296,
+  "candidate_flash_accepted": true,
+  "root_boot1_verified": true,
+  "root_after_ordinary_reboot_verified": true,
+  "msm_drm_loaded_after_reboot": true,
+  "persistent_root_install_pass": true,
+  "finished_at_utc": "2026-11-06T12:19:23.460408+00:00"
+}

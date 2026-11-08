@@ -1,0 +1,16 @@
+{
+  "approved_at_utc": "2026-11-07T09:41:57.779304+00:00",
+  "timestamp_basis": "Recorded after receiving the owner's confirmation in this session",
+  "owner_confirmation": "да сука подтверждаю, yolo mode, фиксируй в AGENTS.md что такие действия апрувед by default, accpted all risks",
+  "proposal": "artifacts/dsi_coupled_on_20261107/proposal.md",
+  "candidates": ["s0c1"],
+  "sequence": ["stock", "s0c1", "stock"],
+  "program_sha256": {
+    "stock": "b5ed66ba69e6221de5fdeaf4d003c9628602d743880acd1c8e2cf7198facd193",
+    "s0c1": "dbe3e4cddda896b6c6864cbab6ff9271cff6745913afb3ccfa43a4f786c4b3b9"
+  },
+  "emergency_reboot_approved": true,
+  "scope": "One stock OFF -> S0C1 -> stock OFF series, each once, DBV3600/software120/DC0, identical DBV replay/redraw, short selectors/DBV readback, 7s optical holds, stock and captured-policy restoration. Ordinary emergency reboot on uncertain queue with identity/root/Enforcing recheck. No flash, AVB/slot/kernel changes, second candidate, repeat or persistence.",
+  "risk_acceptance": "Owner explicitly accepts irreversible panel/device damage. This does not prove compatibility or a frequency multiplier.",
+  "blanket_approval_request": "Recorded as owner preference only; operation-specific gates remain in force. This record authorizes only the finite S0C1 proposal."
+}

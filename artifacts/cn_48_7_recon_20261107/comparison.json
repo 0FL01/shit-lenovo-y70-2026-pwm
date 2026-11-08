@@ -1,0 +1,457 @@
+{
+  "scope": "Offline binary table comparison; no firmware flash compatibility claim",
+  "reference_build": "W3WWL36.65-48-7",
+  "target_build": "W3WWS36.65-64-4-1",
+  "image": "/home/stfu/.cache/opencode-tmp/opencode/cn-48-7-dtbo-20261107/members/dtbo.img",
+  "dtbo_entries": 1,
+  "selected_entry": 0,
+  "dtb_offset": 64,
+  "selected_node": "/fragment@169/__overlay__/qcom,mdss_dsi_mot_boe_ili97701A_682_1440x3168_dsc_cmd_v4",
+  "reference_properties": 415,
+  "target_properties": 425,
+  "equal_shared_properties": 412,
+  "differences": [
+    {
+      "property": "name",
+      "reference_hex": null,
+      "target_hex": "71 63 6f 6d 2c 6d 64 73 73 5f 64 73 69 5f 6d 6f 74 5f 62 6f 65 5f 69 6c 69 39 37 37 30 31 41 5f 36 38 32 5f 31 34 34 30 78 33 31 36 38 5f 64 73 63 5f 63 6d 64 5f 76 34 00"
+    },
+    {
+      "property": "phandle",
+      "reference_hex": "00 00 00 e4",
+      "target_hex": "00 00 07 4d"
+    },
+    {
+      "property": "qcom,mdss-dsi-display-timings/name",
+      "reference_hex": null,
+      "target_hex": "71 63 6f 6d 2c 6d 64 73 73 2d 64 73 69 2d 64 69 73 70 6c 61 79 2d 74 69 6d 69 6e 67 73 00"
+    },
+    {
+      "property": "qcom,mdss-dsi-display-timings/timing@0/name",
+      "reference_hex": null,
+      "target_hex": "74 69 6d 69 6e 67 00"
+    },
+    {
+      "property": "qcom,mdss-dsi-display-timings/timing@1/name",
+      "reference_hex": null,
+      "target_hex": "74 69 6d 69 6e 67 00"
+    },
+    {
+      "property": "qcom,mdss-dsi-display-timings/timing@2/name",
+      "reference_hex": null,
+      "target_hex": "74 69 6d 69 6e 67 00"
+    },
+    {
+      "property": "qcom,mdss-dsi-display-timings/timing@3/name",
+      "reference_hex": null,
+      "target_hex": "74 69 6d 69 6e 67 00"
+    },
+    {
+      "property": "qcom,mdss-dsi-display-timings/timing@4/name",
+      "reference_hex": null,
+      "target_hex": "74 69 6d 69 6e 67 00"
+    },
+    {
+      "property": "qcom,mdss-dsi-display-timings/timing@5/name",
+      "reference_hex": null,
+      "target_hex": "74 69 6d 69 6e 67 00"
+    },
+    {
+      "property": "qcom,mdss-dsi-display-timings/timing@6/name",
+      "reference_hex": null,
+      "target_hex": "74 69 6d 69 6e 67 00"
+    },
+    {
+      "property": "qcom,mdss-dsi-display-timings/timing@7/name",
+      "reference_hex": null,
+      "target_hex": "74 69 6d 69 6e 67 00"
+    },
+    {
+      "property": "qcom,panel-supply-entries",
+      "reference_hex": "00 00 00 db",
+      "target_hex": "00 00 07 44"
+    },
+    {
+      "property": "qcom,platform-reset-gpio",
+      "reference_hex": "ff ff ff ff 00 00 00 92 00 00 00 00",
+      "target_hex": "00 00 00 29 00 00 00 92 00 00 00 00"
+    }
+  ],
+  "commands": [
+    {
+      "property": "qcom,mdss-dsi-dc-off-command",
+      "equal": true,
+      "format": "dsi_packets",
+      "reference_packets": 75,
+      "target_packets": 75
+    },
+    {
+      "property": "qcom,mdss-dsi-dc-on-command",
+      "equal": true,
+      "format": "dsi_packets",
+      "reference_packets": 75,
+      "target_packets": 75
+    },
+    {
+      "property": "qcom,mdss-dsi-display-timings/timing@0/qcom,mdss-dsi-off-command",
+      "equal": true,
+      "format": "dsi_packets",
+      "reference_packets": 3,
+      "target_packets": 3
+    },
+    {
+      "property": "qcom,mdss-dsi-display-timings/timing@0/qcom,mdss-dsi-on-command",
+      "equal": true,
+      "format": "dsi_packets",
+      "reference_packets": 95,
+      "target_packets": 95
+    },
+    {
+      "property": "qcom,mdss-dsi-display-timings/timing@0/qcom,mdss-dsi-pcd-check-disable-command",
+      "equal": true,
+      "format": "dsi_packets",
+      "reference_packets": 1,
+      "target_packets": 1
+    },
+    {
+      "property": "qcom,mdss-dsi-display-timings/timing@0/qcom,mdss-dsi-pcd-check-enable-command",
+      "equal": true,
+      "format": "dsi_packets",
+      "reference_packets": 1,
+      "target_packets": 1
+    },
+    {
+      "property": "qcom,mdss-dsi-display-timings/timing@0/qcom,mdss-dsi-timing-switch-command",
+      "equal": true,
+      "format": "dsi_packets",
+      "reference_packets": 14,
+      "target_packets": 14
+    },
+    {
+      "property": "qcom,mdss-dsi-display-timings/timing@1/qcom,mdss-dsi-off-command",
+      "equal": true,
+      "format": "dsi_packets",
+      "reference_packets": 3,
+      "target_packets": 3
+    },
+    {
+      "property": "qcom,mdss-dsi-display-timings/timing@1/qcom,mdss-dsi-on-command",
+      "equal": true,
+      "format": "dsi_packets",
+      "reference_packets": 91,
+      "target_packets": 91
+    },
+    {
+      "property": "qcom,mdss-dsi-display-timings/timing@1/qcom,mdss-dsi-pcd-check-disable-command",
+      "equal": true,
+      "format": "dsi_packets",
+      "reference_packets": 1,
+      "target_packets": 1
+    },
+    {
+      "property": "qcom,mdss-dsi-display-timings/timing@1/qcom,mdss-dsi-pcd-check-enable-command",
+      "equal": true,
+      "format": "dsi_packets",
+      "reference_packets": 1,
+      "target_packets": 1
+    },
+    {
+      "property": "qcom,mdss-dsi-display-timings/timing@1/qcom,mdss-dsi-timing-switch-command",
+      "equal": true,
+      "format": "dsi_packets",
+      "reference_packets": 10,
+      "target_packets": 10
+    },
+    {
+      "property": "qcom,mdss-dsi-display-timings/timing@2/qcom,mdss-dsi-off-command",
+      "equal": true,
+      "format": "dsi_packets",
+      "reference_packets": 3,
+      "target_packets": 3
+    },
+    {
+      "property": "qcom,mdss-dsi-display-timings/timing@2/qcom,mdss-dsi-on-command",
+      "equal": true,
+      "format": "dsi_packets",
+      "reference_packets": 91,
+      "target_packets": 91
+    },
+    {
+      "property": "qcom,mdss-dsi-display-timings/timing@2/qcom,mdss-dsi-pcd-check-disable-command",
+      "equal": true,
+      "format": "dsi_packets",
+      "reference_packets": 1,
+      "target_packets": 1
+    },
+    {
+      "property": "qcom,mdss-dsi-display-timings/timing@2/qcom,mdss-dsi-pcd-check-enable-command",
+      "equal": true,
+      "format": "dsi_packets",
+      "reference_packets": 1,
+      "target_packets": 1
+    },
+    {
+      "property": "qcom,mdss-dsi-display-timings/timing@2/qcom,mdss-dsi-timing-switch-command",
+      "equal": true,
+      "format": "dsi_packets",
+      "reference_packets": 10,
+      "target_packets": 10
+    },
+    {
+      "property": "qcom,mdss-dsi-display-timings/timing@3/qcom,mdss-dsi-off-command",
+      "equal": true,
+      "format": "dsi_packets",
+      "reference_packets": 3,
+      "target_packets": 3
+    },
+    {
+      "property": "qcom,mdss-dsi-display-timings/timing@3/qcom,mdss-dsi-on-command",
+      "equal": true,
+      "format": "dsi_packets",
+      "reference_packets": 95,
+      "target_packets": 95
+    },
+    {
+      "property": "qcom,mdss-dsi-display-timings/timing@3/qcom,mdss-dsi-pcd-check-disable-command",
+      "equal": true,
+      "format": "dsi_packets",
+      "reference_packets": 1,
+      "target_packets": 1
+    },
+    {
+      "property": "qcom,mdss-dsi-display-timings/timing@3/qcom,mdss-dsi-pcd-check-enable-command",
+      "equal": true,
+      "format": "dsi_packets",
+      "reference_packets": 1,
+      "target_packets": 1
+    },
+    {
+      "property": "qcom,mdss-dsi-display-timings/timing@3/qcom,mdss-dsi-timing-switch-command",
+      "equal": true,
+      "format": "dsi_packets",
+      "reference_packets": 14,
+      "target_packets": 14
+    },
+    {
+      "property": "qcom,mdss-dsi-display-timings/timing@4/qcom,mdss-dsi-off-command",
+      "equal": true,
+      "format": "dsi_packets",
+      "reference_packets": 3,
+      "target_packets": 3
+    },
+    {
+      "property": "qcom,mdss-dsi-display-timings/timing@4/qcom,mdss-dsi-on-command",
+      "equal": true,
+      "format": "dsi_packets",
+      "reference_packets": 95,
+      "target_packets": 95
+    },
+    {
+      "property": "qcom,mdss-dsi-display-timings/timing@4/qcom,mdss-dsi-pcd-check-disable-command",
+      "equal": true,
+      "format": "dsi_packets",
+      "reference_packets": 1,
+      "target_packets": 1
+    },
+    {
+      "property": "qcom,mdss-dsi-display-timings/timing@4/qcom,mdss-dsi-pcd-check-enable-command",
+      "equal": true,
+      "format": "dsi_packets",
+      "reference_packets": 1,
+      "target_packets": 1
+    },
+    {
+      "property": "qcom,mdss-dsi-display-timings/timing@4/qcom,mdss-dsi-timing-switch-command",
+      "equal": true,
+      "format": "dsi_packets",
+      "reference_packets": 30,
+      "target_packets": 30
+    },
+    {
+      "property": "qcom,mdss-dsi-display-timings/timing@5/qcom,mdss-dsi-off-command",
+      "equal": true,
+      "format": "dsi_packets",
+      "reference_packets": 3,
+      "target_packets": 3
+    },
+    {
+      "property": "qcom,mdss-dsi-display-timings/timing@5/qcom,mdss-dsi-on-command",
+      "equal": true,
+      "format": "dsi_packets",
+      "reference_packets": 95,
+      "target_packets": 95
+    },
+    {
+      "property": "qcom,mdss-dsi-display-timings/timing@5/qcom,mdss-dsi-pcd-check-disable-command",
+      "equal": true,
+      "format": "dsi_packets",
+      "reference_packets": 1,
+      "target_packets": 1
+    },
+    {
+      "property": "qcom,mdss-dsi-display-timings/timing@5/qcom,mdss-dsi-pcd-check-enable-command",
+      "equal": true,
+      "format": "dsi_packets",
+      "reference_packets": 1,
+      "target_packets": 1
+    },
+    {
+      "property": "qcom,mdss-dsi-display-timings/timing@5/qcom,mdss-dsi-timing-switch-command",
+      "equal": true,
+      "format": "dsi_packets",
+      "reference_packets": 30,
+      "target_packets": 30
+    },
+    {
+      "property": "qcom,mdss-dsi-display-timings/timing@6/qcom,mdss-dsi-off-command",
+      "equal": true,
+      "format": "dsi_packets",
+      "reference_packets": 3,
+      "target_packets": 3
+    },
+    {
+      "property": "qcom,mdss-dsi-display-timings/timing@6/qcom,mdss-dsi-on-command",
+      "equal": true,
+      "format": "dsi_packets",
+      "reference_packets": 95,
+      "target_packets": 95
+    },
+    {
+      "property": "qcom,mdss-dsi-display-timings/timing@6/qcom,mdss-dsi-pcd-check-disable-command",
+      "equal": true,
+      "format": "dsi_packets",
+      "reference_packets": 1,
+      "target_packets": 1
+    },
+    {
+      "property": "qcom,mdss-dsi-display-timings/timing@6/qcom,mdss-dsi-pcd-check-enable-command",
+      "equal": true,
+      "format": "dsi_packets",
+      "reference_packets": 1,
+      "target_packets": 1
+    },
+    {
+      "property": "qcom,mdss-dsi-display-timings/timing@6/qcom,mdss-dsi-timing-switch-command",
+      "equal": true,
+      "format": "dsi_packets",
+      "reference_packets": 14,
+      "target_packets": 14
+    },
+    {
+      "property": "qcom,mdss-dsi-display-timings/timing@7/qcom,mdss-dsi-off-command",
+      "equal": true,
+      "format": "dsi_packets",
+      "reference_packets": 3,
+      "target_packets": 3
+    },
+    {
+      "property": "qcom,mdss-dsi-display-timings/timing@7/qcom,mdss-dsi-on-command",
+      "equal": true,
+      "format": "dsi_packets",
+      "reference_packets": 95,
+      "target_packets": 95
+    },
+    {
+      "property": "qcom,mdss-dsi-display-timings/timing@7/qcom,mdss-dsi-pcd-check-disable-command",
+      "equal": true,
+      "format": "dsi_packets",
+      "reference_packets": 1,
+      "target_packets": 1
+    },
+    {
+      "property": "qcom,mdss-dsi-display-timings/timing@7/qcom,mdss-dsi-pcd-check-enable-command",
+      "equal": true,
+      "format": "dsi_packets",
+      "reference_packets": 1,
+      "target_packets": 1
+    },
+    {
+      "property": "qcom,mdss-dsi-display-timings/timing@7/qcom,mdss-dsi-timing-switch-command",
+      "equal": true,
+      "format": "dsi_packets",
+      "reference_packets": 14,
+      "target_packets": 14
+    },
+    {
+      "property": "qcom,mdss-dsi-hbm-fod-on-command",
+      "equal": true,
+      "format": "dsi_packets",
+      "reference_packets": 2,
+      "target_packets": 2
+    },
+    {
+      "property": "qcom,mdss-dsi-hbm-off-command",
+      "equal": true,
+      "format": "dsi_packets",
+      "reference_packets": 4,
+      "target_packets": 4
+    },
+    {
+      "property": "qcom,mdss-dsi-hbm-on-command",
+      "equal": true,
+      "format": "dsi_packets",
+      "reference_packets": 5,
+      "target_packets": 5
+    },
+    {
+      "property": "qcom,mdss-dsi-panel-apl-off-command",
+      "equal": true,
+      "format": "dsi_packets",
+      "reference_packets": 3,
+      "target_packets": 3
+    },
+    {
+      "property": "qcom,mdss-dsi-panel-apl-on-command",
+      "equal": true,
+      "format": "dsi_packets",
+      "reference_packets": 4,
+      "target_packets": 4
+    },
+    {
+      "property": "qcom,mdss-dsi-panel-cellid-command",
+      "equal": true,
+      "format": "dsi_packets",
+      "reference_packets": 1,
+      "target_packets": 1
+    },
+    {
+      "property": "qcom,mdss-dsi-panel-cellid-send-back-command",
+      "equal": true,
+      "format": "dsi_packets",
+      "reference_packets": 1,
+      "target_packets": 1
+    },
+    {
+      "property": "qcom,mdss-dsi-panel-cellid-send-command",
+      "equal": true,
+      "format": "dsi_packets",
+      "reference_packets": 1,
+      "target_packets": 1
+    },
+    {
+      "property": "qcom,mdss-dsi-panel-pcd-reg-command",
+      "equal": true,
+      "format": "dsi_packets",
+      "reference_packets": 1,
+      "target_packets": 1
+    },
+    {
+      "property": "qcom,mdss-dsi-panel-status-command",
+      "equal": true,
+      "format": "dsi_packets",
+      "reference_packets": 1,
+      "target_packets": 1
+    },
+    {
+      "property": "qcom,mdss-dsi-te-dcs-command",
+      "equal": true,
+      "format": "u32",
+      "reference_packets": null,
+      "target_packets": null
+    }
+  ],
+  "equal_command_properties": 53,
+  "equal_packet_arrays": 52,
+  "physical_pwm_hz": null,
+  "device_io": false
+}

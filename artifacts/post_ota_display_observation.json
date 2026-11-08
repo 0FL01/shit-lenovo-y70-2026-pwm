@@ -1,0 +1,103 @@
+{
+  "date_utc": "2026-10-28T20:03:47.881721+00:00",
+  "status": "confirmed-on-target",
+  "scope": "Narrow post-OTA identity and read-only DC setting/sysfs check; no settings or device state writes, no reboot or DSI commands",
+  "snapshot_note": "Historical 2026-10-28 snapshot. The subsequent owner-unlocked report was corrected on 2026-11-06: only Android OEM unlocking enabled; fresh ADB still reports locked/green. See artifacts/unlock_pwm_recon_2026-11-06.md. Original observation values are unchanged.",
+  "transport": "adb exec-out on one authorized device; serial/transport identifiers omitted",
+  "command_notes": "UID: id -u; properties: getprop with each exact key below; kernel: uname -r; panel reads: cat /sys/class/drm/card0-DSI-1/<listed attribute>. No panelCellId or register-read nodes queried.",
+  "uid": {
+    "exit_code": 0,
+    "stdout": "2000",
+    "stderr": ""
+  },
+  "properties": {
+    "ro.build.display.id": {
+      "exit_code": 0,
+      "stdout": "W3WWS36.65-64-4-1",
+      "stderr": ""
+    },
+    "ro.build.fingerprint": {
+      "exit_code": 0,
+      "stdout": "motorola/avr_g/avr:16/W3WWS36.65-64-4-1/c9a7f-8fbf58:user/release-keys",
+      "stderr": ""
+    },
+    "ro.vendor.build.fingerprint": {
+      "exit_code": 0,
+      "stdout": "motorola/avr_g/avr:16/WWWS36V.65-64-ST9.5/c9a7f:user/release-keys",
+      "stderr": ""
+    },
+    "ro.bootimage.build.fingerprint": {
+      "exit_code": 0,
+      "stdout": "motorola/avr_g/avr:16/WWWS36V.65-64-ST9.5/c9a7f:user/release-keys",
+      "stderr": ""
+    },
+    "ro.build.version.security_patch": {
+      "exit_code": 0,
+      "stdout": "2026-10-01",
+      "stderr": ""
+    },
+    "ro.vendor.build.security_patch": {
+      "exit_code": 0,
+      "stdout": "2026-10-01",
+      "stderr": ""
+    },
+    "ro.boot.slot_suffix": {
+      "exit_code": 0,
+      "stdout": "_b",
+      "stderr": ""
+    },
+    "ro.boot.flash.locked": {
+      "exit_code": 0,
+      "stdout": "1",
+      "stderr": ""
+    },
+    "ro.boot.verifiedbootstate": {
+      "exit_code": 0,
+      "stdout": "green",
+      "stderr": ""
+    },
+    "ro.boot.vbmeta.device_state": {
+      "exit_code": 0,
+      "stdout": "locked",
+      "stderr": ""
+    }
+  },
+  "kernel": {
+    "exit_code": 0,
+    "stdout": "6.12.58-android16-6-g09eda8c8505a-ab15950084-4k",
+    "stderr": ""
+  },
+  "panel_sysfs": {
+    "panelName": {
+      "exit_code": 0,
+      "stdout": "cat: /sys/class/drm/card0-DSI-1/panelName: Permission denied",
+      "stderr": ""
+    },
+    "panelSupplier": {
+      "exit_code": 0,
+      "stdout": "cat: /sys/class/drm/card0-DSI-1/panelSupplier: Permission denied",
+      "stderr": ""
+    },
+    "panelId": {
+      "exit_code": 0,
+      "stdout": "cat: /sys/class/drm/card0-DSI-1/panelId: Permission denied",
+      "stderr": ""
+    },
+    "panelVer": {
+      "exit_code": 0,
+      "stdout": "cat: /sys/class/drm/card0-DSI-1/panelVer: Permission denied",
+      "stderr": ""
+    },
+    "panelDC": {
+      "exit_code": 0,
+      "stdout": "cat: /sys/class/drm/card0-DSI-1/panelDC: Permission denied",
+      "stderr": ""
+    }
+  },
+  "motorola_global_dc_setting": {
+    "command": ["content", "call", "--uri", "content://com.motorola.android.providers.settings", "--method", "GET_global", "--arg", "display_dc_mode_enabled", "--user", "0"],
+    "exit_code": 0,
+    "stdout": "Result: Bundle[{value=1}]",
+    "stderr": ""
+  }
+}

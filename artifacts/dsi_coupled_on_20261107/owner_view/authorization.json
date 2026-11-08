@@ -1,0 +1,17 @@
+{
+  "approved_at_utc": "2026-11-07T09:54:25+00:00",
+  "timestamp_basis": "Recorded after the owner's separate request for manual viewing",
+  "owner_confirmation": "стоп, включи SOC1 и дай я погляжу на экран и поясни простыми словами что это за профиль такой и что там достигнуто",
+  "proposal": "artifacts/dsi_coupled_on_20261107/proposal.md",
+  "owner_view_plan": "artifacts/dsi_coupled_on_20261107/owner_view/plan.md",
+  "owner_view_approved": true,
+  "candidates": ["s0c1"],
+  "sequence": ["stock", "s0c1", "stock"],
+  "program_sha256": {
+    "stock": "b5ed66ba69e6221de5fdeaf4d003c9628602d743880acd1c8e2cf7198facd193",
+    "s0c1": "dbe3e4cddda896b6c6864cbab6ff9271cff6745913afb3ccfa43a4f786c4b3b9"
+  },
+  "emergency_reboot_approved": true,
+  "recovery_basis": "Same exact profile and previously confirmed emergency ordinary-reboot recovery; no new bytes or flash operation",
+  "scope": "Separate user-requested manual inspection, not a repeat optical measurement: stock precondition -> same S0C1 once; leave active temporarily for owner viewing, with ESD/logging/probes/files cleaned. Final stock return and captured settings restoration on owner request using --coupled-on-return; reboot also reinitializes stock. No camera recording, no automatic persistence, no other profile or partition write."
+}

@@ -1,0 +1,15 @@
+{
+  "at_utc": "2026-11-07T06:25:37.187928+00:00",
+  "reason": "s5 census has no finish/raw artifact, no matching host/device process, live ESD still esd_sw_sim_success. Restore known stock page0 and native ESD mode before further work.",
+  "before_esd": "esd_sw_sim_success",
+  "after_esd": "reg_read",
+  "stock_page0_restored": true,
+  "post": {
+    "dbv": 3584,
+    "bl_power": 0,
+    "dc": 0,
+    "selinux": "Enforcing"
+  },
+  "new_profile_or_register_values_sent": false,
+  "scope": "Known factory page selector plus restored protection; no image/AVB/slot/security changes"
+}

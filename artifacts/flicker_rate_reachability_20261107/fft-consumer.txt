@@ -1,0 +1,79 @@
+# Diagnostic linear sweep: code/data boundaries NOT inferred.
+b20343d4: 	call 0xb2019e90
+b20343d8: 	allocframe(#576)
+b20343dc: 	r16 = r0	r17 = memw(r0+#4)
+b20343e0: 	r0 = memw(r17+#28)
+b20343e4: 	if (cmp.eq(r0.new,#0)) jump:nt 0xb2034504
+b20343e8: 	r2 = memw(r0+#0)
+b20343ec: 	r2 = memw(r2+#12)
+b20343f0: 	callr r2
+b20343f4: 	r20 = add(r17,#8)
+b20343f8: 	p0 = cmp.eq(r0,#0); if (p0.new) jump:nt 0xb2034504
+b20343fc: 	immext(#2987221824)
+b2034400: 	r17 = ##-1307745444
+b2034404: 	immext(#2987221760)
+b2034408: 	r18 = ##-1307745512
+b203440c: 	r2 = memw(r0+#8)
+b2034410: 	r3 = and(r2,#-256)
+b2034414: 	r2 = and(r2,#255)
+b2034418: 	immext(#512)
+b203441c: 	p0 = cmp.eq(r3,##512)
+b2034420: 	if (!p0.new) jump:t 0xb20344f0
+b2034424: 	p0 = cmp.gt(r2,#191)
+b2034428: 	if (!p0.new) r1 = add(r0,#16)
+b203442c: 	if (p0.new) jump:t 0xb2034480
+b2034430: 	p0 = cmpb.eq(r2,#189)
+b2034434: 	if (p0.new) jump:nt 0xb20344a0
+b2034438: 	p0 = cmpb.eq(r2,#190)
+b203443c: 	if (!p0.new) jump:nt 0xb20344f0
+b2034440: 	r19 = add(r29,#12)	r2 = memw(r0+#12)
+b2034444: 	call 0xb20c7d44
+b2034448: 	r0 = r19
+b203444c: 	call 0xb20c854c
+b2034450: 	r1:0 = combine(r18,r19)
+b2034454: 	r2 = add(r29,#28)
+b2034458: 	p0 = r0
+b203445c: 	if (!p0.new) jump:t 0xb20344f0
+b2034460: 	if (p0.new) r2 = memub(r29+#28)
+b2034464: 	r3 = add(r29,#28)
+b2034468: 	r0 = r16
+b203446c: 	r1 = memub(r29+#548)
+b2034470: 	call 0xb2034870
+b2034474: 	r3 = add(r3,#4)
+b2034478: 	r4 = memw(r29+#544)
+b203447c: 	jump 0xb20344f0
+b2034480: 	p0 = cmpb.eq(r2,#192)
+b2034484: 	if (p0.new) r0 = add(r16,#0)
+b2034488: 	if (p0.new) jump:nt 0xb20344ec
+b203448c: 	p0 = cmpb.eq(r2,#193)
+b2034490: 	if (p0.new) r0 = add(r16,#0)
+b2034494: 	if (!p0.new) jump:nt 0xb20344f0
+b2034498: 	call 0xb2034d70
+b203449c: 	jump 0xb20344f0
+b20344a0: 	r19 = add(r29,#12)	r2 = memw(r0+#12)
+b20344a4: 	call 0xb20c7d44
+b20344a8: 	r0 = r19
+b20344ac: 	call 0xb20c854c
+b20344b0: 	r1:0 = combine(r17,r19)
+b20344b4: 	r2 = add(r29,#28)
+b20344b8: 	p0 = r0
+b20344bc: 	if (!p0.new) jump:t 0xb20344f0
+b20344c0: 	if (p0.new) r4 = memuh(r29+#40)
+b20344c4: 	if (p0.new) r2 = memuh(r29+#32)
+b20344c8: 	r6 = add(r29,#28)
+b20344cc: 	r0 = r16
+b20344d0: 	r1 = memuh(r29+#28)
+b20344d4: 	r6 = add(r6,#48)
+b20344d8: 	r3 = memub(r29+#36)
+b20344dc: 	r5 = memub(r29+#44)
+b20344e0: 	call 0xb2034d90
+b20344e4: 	memw(r29+#0) = r6
+b20344e8: 	jump 0xb20344f0
+b20344ec: 	call 0xb2034e7c
+b20344f0: 	r0 = memw(r20+#20)
+b20344f4: 	r2 = memw(r0+#0)
+b20344f8: 	r2 = memw(r2+#16)
+b20344fc: 	callr r2
+b2034500: 	p0 = cmp.eq(r0,#0); if (!p0.new) jump:t 0xb203440c
+b2034504: 	immext(#4294859328)
+b2034508: 	r0 = #0 ; jump 0xb2019f80

@@ -1,0 +1,763 @@
+# Dimming implementation
+
+extracted/XT2611-1/W3WWL36.65-11-18/filesystems/vendor_a/lib64/libdigital-dimming.so:	file format elf64-littleaarch64
+
+Disassembly of section .text:
+
+000000000000973c <__ubsan_handle_cfi_check_fail_minimal_abort>:
+    9d74: d503233f     	paciasp
+    9d78: 6dbb2beb     	stp	d11, d10, [sp, #-0x50]!
+    9d7c: 6d0123e9     	stp	d9, d8, [sp, #0x10]
+    9d80: a9027bfd     	stp	x29, x30, [sp, #0x20]
+    9d84: f9001bf5     	str	x21, [sp, #0x30]
+    9d88: a9044ff4     	stp	x20, x19, [sp, #0x40]
+    9d8c: 910083fd     	add	x29, sp, #0x20
+    9d90: fd400020     	ldr	d0, [x1]
+    9d94: 2f00e401     	movi	d1, #0000000000000000
+    9d98: 1e6e1002     	fmov	d2, #1.00000000
+    9d9c: fd400043     	ldr	d3, [x2]
+    9da0: fd400009     	ldr	d9, [x0]
+    9da4: aa0503f3     	mov	x19, x5
+    9da8: 1e602008     	fcmp	d0, #0.0
+    9dac: aa0403f4     	mov	x20, x4
+    9db0: 1e604c20     	fcsel	d0, d1, d0, mi
+    9db4: 1e622000     	fcmp	d0, d2
+    9db8: 1e60cc48     	fcsel	d8, d2, d0, gt
+    9dbc: 1e602068     	fcmp	d3, #0.0
+    9dc0: 1e634c20     	fcsel	d0, d1, d3, mi
+    9dc4: 1e622000     	fcmp	d0, d2
+    9dc8: 1e60cc4a     	fcsel	d10, d2, d0, gt
+    9dcc: b4000564     	cbz	x4, 0x9e78 <__ubsan_handle_cfi_check_fail_minimal_abort+0x73c>
+    9dd0: b4000553     	cbz	x19, 0x9e78 <__ubsan_handle_cfi_check_fail_minimal_abort+0x73c>
+    9dd4: 1e602128     	fcmp	d9, #0.0
+    9dd8: 54000500     	b.eq	0x9e78 <__ubsan_handle_cfi_check_fail_minimal_abort+0x73c>
+    9ddc: 1e6e100b     	fmov	d11, #1.00000000
+    9de0: fd400060     	ldr	d0, [x3]
+    9de4: 2f00e402     	movi	d2, #0000000000000000
+    9de8: aa0003f5     	mov	x21, x0
+    9dec: 1e602008     	fcmp	d0, #0.0
+    9df0: 1e691961     	fdiv	d1, d11, d9
+    9df4: 1e604c40     	fcsel	d0, d2, d0, mi
+    9df8: 1e6b2000     	fcmp	d0, d11
+    9dfc: 1e60cd60     	fcsel	d0, d11, d0, gt
+    9e00: 94001aa4     	bl	0x10890 <pow@plt>
+    9e04: 1e602008     	fcmp	d0, #0.0
+    9e08: 54000620     	b.eq	0x9ecc <__ubsan_handle_cfi_check_fail_minimal_abort+0x790>
+    9e0c: 1e6c1001     	fmov	d1, #0.50000000
+    9e10: 1e601820     	fdiv	d0, d1, d0
+    9e14: 1e7c1001     	fmov	d1, #-0.50000000
+    9e18: 1e600900     	fmul	d0, d8, d0
+    9e1c: 1e6b2800     	fadd	d0, d0, d11
+    9e20: 1e612800     	fadd	d0, d0, d1
+    9e24: 1e6b2000     	fcmp	d0, d11
+    9e28: 5400052c     	b.gt	0x9ecc <__ubsan_handle_cfi_check_fail_minimal_abort+0x790>
+    9e2c: 1e602008     	fcmp	d0, #0.0
+    9e30: 540004c1     	b.ne	0x9ec8 <__ubsan_handle_cfi_check_fail_minimal_abort+0x78c>
+    9e34: d503201f     	nop
+    9e38: 50fd00e1     	adr	x1, 0x3e56
+    9e3c: d0ffffc2     	adrp	x2, 0x3000
+    9e40: 912f4042     	add	x2, x2, #0xbd0
+    9e44: f0ffffc3     	adrp	x3, 0x4000
+    9e48: 91195063     	add	x3, x3, #0x654
+    9e4c: d0ffffc4     	adrp	x4, 0x3000
+    9e50: 913ec484     	add	x4, x4, #0xfb1
+    9e54: 528000c0     	mov	w0, #0x6                // =6
+    9e58: 528004c5     	mov	w5, #0x26               // =38
+    9e5c: a9444ff4     	ldp	x20, x19, [sp, #0x40]
+    9e60: f9401bf5     	ldr	x21, [sp, #0x30]
+    9e64: a9427bfd     	ldp	x29, x30, [sp, #0x20]
+    9e68: 6d4123e9     	ldp	d9, d8, [sp, #0x10]
+    9e6c: 6cc52beb     	ldp	d11, d10, [sp], #0x50
+    9e70: d50323bf     	autiasp
+    9e74: 1400190d     	b	0x102a8 <__android_log_print@plt>
+    9e78: d503201f     	nop
+    9e7c: 50fcfec1     	adr	x1, 0x3e56
+    9e80: f0ffffc2     	adrp	x2, 0x4000
+    9e84: 91240842     	add	x2, x2, #0x902
+    9e88: f0ffffc3     	adrp	x3, 0x4000
+    9e8c: 91195063     	add	x3, x3, #0x654
+    9e90: d0ffffc4     	adrp	x4, 0x3000
+    9e94: 913ec484     	add	x4, x4, #0xfb1
+    9e98: 528000c0     	mov	w0, #0x6                // =6
+    9e9c: 52800345     	mov	w5, #0x1a               // =26
+    9ea0: aa1403e6     	mov	x6, x20
+    9ea4: aa1303e7     	mov	x7, x19
+    9ea8: 1e604120     	fmov	d0, d9
+    9eac: a9444ff4     	ldp	x20, x19, [sp, #0x40]
+    9eb0: f9401bf5     	ldr	x21, [sp, #0x30]
+    9eb4: a9427bfd     	ldp	x29, x30, [sp, #0x20]
+    9eb8: 6d4123e9     	ldp	d9, d8, [sp, #0x10]
+    9ebc: 6cc52beb     	ldp	d11, d10, [sp], #0x50
+    9ec0: d50323bf     	autiasp
+    9ec4: 140018f9     	b	0x102a8 <__android_log_print@plt>
+    9ec8: 1e60400b     	fmov	d11, d0
+    9ecc: 1e604100     	fmov	d0, d8
+    9ed0: 1e604121     	fmov	d1, d9
+    9ed4: 94001a6f     	bl	0x10890 <pow@plt>
+    9ed8: 1e6b1800     	fdiv	d0, d0, d11
+    9edc: 1e6a2000     	fcmp	d0, d10
+    9ee0: 1e604d40     	fcsel	d0, d10, d0, mi
+    9ee4: 1e602148     	fcmp	d10, #0.0
+    9ee8: fd000280     	str	d0, [x20]
+    9eec: 54000061     	b.ne	0x9ef8 <__ubsan_handle_cfi_check_fail_minimal_abort+0x7bc>
+    9ef0: fd00026b     	str	d11, [x19]
+    9ef4: 14000008     	b	0x9f14 <__ubsan_handle_cfi_check_fail_minimal_abort+0x7d8>
+    9ef8: 1e604100     	fmov	d0, d8
+    9efc: fd4002a1     	ldr	d1, [x21]
+    9f00: 94001a64     	bl	0x10890 <pow@plt>
+    9f04: 1e6a1800     	fdiv	d0, d0, d10
+    9f08: 1e6b2000     	fcmp	d0, d11
+    9f0c: 1e6b4c00     	fcsel	d0, d0, d11, mi
+    9f10: fd000260     	str	d0, [x19]
+    9f14: a9444ff4     	ldp	x20, x19, [sp, #0x40]
+    9f18: f9401bf5     	ldr	x21, [sp, #0x30]
+    9f1c: a9427bfd     	ldp	x29, x30, [sp, #0x20]
+    9f20: 6d4123e9     	ldp	d9, d8, [sp, #0x10]
+    9f24: 6cc52beb     	ldp	d11, d10, [sp], #0x50
+    9f28: d50323bf     	autiasp
+    9f2c: d65f03c0     	ret
+
+# GetDigitalDimmingInterface implementation
+
+extracted/XT2611-1/W3WWL36.65-11-18/filesystems/vendor_a/lib64/libdigital-dimming.so:	file format elf64-littleaarch64
+
+Disassembly of section .text:
+
+000000000000a000 <__cfi_check>:
+    a3e8: d503233f     	paciasp
+    a3ec: d104c3ff     	sub	sp, sp, #0x130
+    a3f0: a90e7bfd     	stp	x29, x30, [sp, #0xe0]
+    a3f4: f9007bfc     	str	x28, [sp, #0xf0]
+    a3f8: a9105ff8     	stp	x24, x23, [sp, #0x100]
+    a3fc: a91157f6     	stp	x22, x21, [sp, #0x110]
+    a400: a9124ff4     	stp	x20, x19, [sp, #0x120]
+    a404: 910383fd     	add	x29, sp, #0xe0
+    a408: d53bd055     	mrs	x21, TPIDR_EL0
+    a40c: f94016a8     	ldr	x8, [x21, #0x28]
+    a410: f81f83a8     	stur	x8, [x29, #-0x8]
+    a414: f9400006     	ldr	x6, [x0]
+    a418: f9400027     	ldr	x7, [x1]
+    a41c: b4000ce6     	cbz	x6, 0xa5b8 <__cfi_check+0x5b8>
+    a420: f9400048     	ldr	x8, [x2]
+    a424: b4000cc7     	cbz	x7, 0xa5bc <__cfi_check+0x5bc>
+    a428: b4000ca8     	cbz	x8, 0xa5bc <__cfi_check+0x5bc>
+    a42c: 6f00e400     	movi	v0.2d, #0000000000000000
+    a430: aa0003f8     	mov	x24, x0
+    a434: aa0103f7     	mov	x23, x1
+    a438: aa0203f6     	mov	x22, x2
+    a43c: b0ffffc0     	adrp	x0, 0x3000
+    a440: 91353400     	add	x0, x0, #0xd4d
+    a444: 9101c3e1     	add	x1, sp, #0x70
+    a448: aa1f03e2     	mov	x2, xzr
+    a44c: aa0303f4     	mov	x20, x3
+    a450: 3c8bc3e0     	stur	q0, [sp, #0xbc]
+    a454: ad0403e0     	stp	q0, q0, [sp, #0x80]
+    a458: ad0503e0     	stp	q0, q0, [sp, #0xa0]
+    a45c: 3d801fe0     	str	q0, [sp, #0x70]
+    a460: 94001798     	bl	0x102c0 <property_get@plt>
+    a464: 7100041f     	cmp	w0, #0x1
+    a468: 5400008b     	b.lt	0xa478 <__cfi_check+0x478>
+    a46c: 9101c3e0     	add	x0, sp, #0x70
+    a470: 940017dc     	bl	0x103e0 <atoi@plt>
+    a474: 34000d80     	cbz	w0, 0xa624 <__cfi_check+0x624>
+    a478: 52800800     	mov	w0, #0x40               // =64
+    a47c: 940017df     	bl	0x103f8 <_Znwm@plt>
+    a480: f9400708     	ldr	x8, [x24, #0x8]
+    a484: 3dc00300     	ldr	q0, [x24]
+    a488: aa0003f3     	mov	x19, x0
+    a48c: 3d800fe0     	str	q0, [sp, #0x30]
+    a490: b4000088     	cbz	x8, 0xa4a0 <__cfi_check+0x4a0>
+    a494: 91002101     	add	x1, x8, #0x8
+    a498: 52800020     	mov	w0, #0x1                // =1
+    a49c: 97fffdc5     	bl	0x9bb0 <__ubsan_handle_cfi_check_fail_minimal_abort+0x474>
+    a4a0: f94006e8     	ldr	x8, [x23, #0x8]
+    a4a4: 3dc002e0     	ldr	q0, [x23]
+    a4a8: 3d800be0     	str	q0, [sp, #0x20]
+    a4ac: b4000088     	cbz	x8, 0xa4bc <__cfi_check+0x4bc>
+    a4b0: 91002101     	add	x1, x8, #0x8
+    a4b4: 52800020     	mov	w0, #0x1                // =1
+    a4b8: 97fffdbe     	bl	0x9bb0 <__ubsan_handle_cfi_check_fail_minimal_abort+0x474>
+    a4bc: f94006c8     	ldr	x8, [x22, #0x8]
+    a4c0: 3dc002c0     	ldr	q0, [x22]
+    a4c4: 3d8007e0     	str	q0, [sp, #0x10]
+    a4c8: b4000088     	cbz	x8, 0xa4d8 <__cfi_check+0x4d8>
+    a4cc: 91002101     	add	x1, x8, #0x8
+    a4d0: 52800020     	mov	w0, #0x1                // =1
+    a4d4: 97fffdb7     	bl	0x9bb0 <__ubsan_handle_cfi_check_fail_minimal_abort+0x474>
+    a4d8: 9100c3e1     	add	x1, sp, #0x30
+    a4dc: 910083e2     	add	x2, sp, #0x20
+    a4e0: 910043e3     	add	x3, sp, #0x10
+    a4e4: aa1303e0     	mov	x0, x19
+    a4e8: aa1403e4     	mov	x4, x20
+    a4ec: 940017a5     	bl	0x10380 <_ZN14digitaldimming21DigitalDimmingDefaultC1ENSt3__110shared_ptrI16SubjectInterfaceINS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE13DimmingBlInfoEEENS2_IN3sdm11GenericIntfI15DimmingBlParams12DimmingBlOpsNSD_14GenericPayloadEEEEENS2_IN15snapdragoncolor20ScPostBlendInterfaceEEERKS9_@plt>
+    a4f0: f9400ff4     	ldr	x20, [sp, #0x18]
+    a4f4: b4000174     	cbz	x20, 0xa520 <__cfi_check+0x520>
+    a4f8: 91002281     	add	x1, x20, #0x8
+    a4fc: 92800000     	mov	x0, #-0x1               // =-1
+    a500: 97fffdb8     	bl	0x9be0 <__ubsan_handle_cfi_check_fail_minimal_abort+0x4a4>
+    a504: b50000e0     	cbnz	x0, 0xa520 <__cfi_check+0x520>
+    a508: f9400288     	ldr	x8, [x20]
+    a50c: aa1403e0     	mov	x0, x20
+    a510: f9400908     	ldr	x8, [x8, #0x10]
+    a514: d63f0100     	blr	x8
+    a518: aa1403e0     	mov	x0, x20
+    a51c: 9400185f     	bl	0x10698 <_ZNSt3__119__shared_weak_count14__release_weakEv@plt>
+    a520: f94017f4     	ldr	x20, [sp, #0x28]
+    a524: b4000174     	cbz	x20, 0xa550 <__cfi_check+0x550>
+    a528: 91002281     	add	x1, x20, #0x8
+    a52c: 92800000     	mov	x0, #-0x1               // =-1
+    a530: 97fffdac     	bl	0x9be0 <__ubsan_handle_cfi_check_fail_minimal_abort+0x4a4>
+    a534: b50000e0     	cbnz	x0, 0xa550 <__cfi_check+0x550>
+    a538: f9400288     	ldr	x8, [x20]
+    a53c: aa1403e0     	mov	x0, x20
+    a540: f9400908     	ldr	x8, [x8, #0x10]
+    a544: d63f0100     	blr	x8
+    a548: aa1403e0     	mov	x0, x20
+    a54c: 94001853     	bl	0x10698 <_ZNSt3__119__shared_weak_count14__release_weakEv@plt>
+    a550: f9401ff4     	ldr	x20, [sp, #0x38]
+    a554: b4000174     	cbz	x20, 0xa580 <__cfi_check+0x580>
+    a558: 91002281     	add	x1, x20, #0x8
+    a55c: 92800000     	mov	x0, #-0x1               // =-1
+    a560: 97fffda0     	bl	0x9be0 <__ubsan_handle_cfi_check_fail_minimal_abort+0x4a4>
+    a564: b50000e0     	cbnz	x0, 0xa580 <__cfi_check+0x580>
+    a568: f9400288     	ldr	x8, [x20]
+    a56c: aa1403e0     	mov	x0, x20
+    a570: f9400908     	ldr	x8, [x8, #0x10]
+    a574: d63f0100     	blr	x8
+    a578: aa1403e0     	mov	x0, x20
+    a57c: 94001847     	bl	0x10698 <_ZNSt3__119__shared_weak_count14__release_weakEv@plt>
+    a580: d0000068     	adrp	x8, 0x18000 <digitaldimming::DigitalDimming::kClientName>
+    a584: b940e908     	ldr	w8, [x8, #0xe8]
+    a588: 34000348     	cbz	w8, 0xa5f0 <__cfi_check+0x5f0>
+    a58c: b0ffffc1     	adrp	x1, 0x3000
+    a590: 91395821     	add	x1, x1, #0xe56
+    a594: d0ffffc2     	adrp	x2, 0x4000
+    a598: 911bcc42     	add	x2, x2, #0x6f3
+    a59c: d0ffffc3     	adrp	x3, 0x4000
+    a5a0: 91195063     	add	x3, x3, #0x654
+    a5a4: b0ffffc4     	adrp	x4, 0x3000
+    a5a8: 913ee484     	add	x4, x4, #0xfb9
+    a5ac: 52800080     	mov	w0, #0x4                // =4
+    a5b0: 528005e5     	mov	w5, #0x2f               // =47
+    a5b4: 1400006b     	b	0xa760 <__cfi_check+0x760>
+    a5b8: f9400048     	ldr	x8, [x2]
+    a5bc: b0ffffc1     	adrp	x1, 0x3000
+    a5c0: 91395821     	add	x1, x1, #0xe56
+    a5c4: b0ffffc2     	adrp	x2, 0x3000
+    a5c8: 91369442     	add	x2, x2, #0xda5
+    a5cc: d0ffffc3     	adrp	x3, 0x4000
+    a5d0: 91195063     	add	x3, x3, #0x654
+    a5d4: b0ffffc4     	adrp	x4, 0x3000
+    a5d8: 913ee484     	add	x4, x4, #0xfb9
+    a5dc: 528000c0     	mov	w0, #0x6                // =6
+    a5e0: 528004a5     	mov	w5, #0x25               // =37
+    a5e4: f90003e8     	str	x8, [sp]
+    a5e8: 94001730     	bl	0x102a8 <__android_log_print@plt>
+    a5ec: aa1f03f3     	mov	x19, xzr
+    a5f0: f94016a8     	ldr	x8, [x21, #0x28]
+    a5f4: f85f83a9     	ldur	x9, [x29, #-0x8]
+    a5f8: eb09011f     	cmp	x8, x9
+    a5fc: 54000b61     	b.ne	0xa768 <__cfi_check+0x768>
+    a600: aa1303e0     	mov	x0, x19
+    a604: a9524ff4     	ldp	x20, x19, [sp, #0x120]
+    a608: f9407bfc     	ldr	x28, [sp, #0xf0]
+    a60c: a95157f6     	ldp	x22, x21, [sp, #0x110]
+    a610: a9505ff8     	ldp	x24, x23, [sp, #0x100]
+    a614: a94e7bfd     	ldp	x29, x30, [sp, #0xe0]
+    a618: 9104c3ff     	add	sp, sp, #0x130
+    a61c: d50323bf     	autiasp
+    a620: d65f03c0     	ret
+    a624: 52805800     	mov	w0, #0x2c0              // =704
+    a628: 94001774     	bl	0x103f8 <_Znwm@plt>
+    a62c: f9400708     	ldr	x8, [x24, #0x8]
+    a630: 3dc00300     	ldr	q0, [x24]
+    a634: aa0003f3     	mov	x19, x0
+    a638: 3d801be0     	str	q0, [sp, #0x60]
+    a63c: b4000088     	cbz	x8, 0xa64c <__cfi_check+0x64c>
+    a640: 91002101     	add	x1, x8, #0x8
+    a644: 52800020     	mov	w0, #0x1                // =1
+    a648: 97fffd5a     	bl	0x9bb0 <__ubsan_handle_cfi_check_fail_minimal_abort+0x474>
+    a64c: f94006e8     	ldr	x8, [x23, #0x8]
+    a650: 3dc002e0     	ldr	q0, [x23]
+    a654: 3d8017e0     	str	q0, [sp, #0x50]
+    a658: b4000088     	cbz	x8, 0xa668 <__cfi_check+0x668>
+    a65c: 91002101     	add	x1, x8, #0x8
+    a660: 52800020     	mov	w0, #0x1                // =1
+    a664: 97fffd53     	bl	0x9bb0 <__ubsan_handle_cfi_check_fail_minimal_abort+0x474>
+    a668: f94006c8     	ldr	x8, [x22, #0x8]
+    a66c: 3dc002c0     	ldr	q0, [x22]
+    a670: 3d8013e0     	str	q0, [sp, #0x40]
+    a674: b4000088     	cbz	x8, 0xa684 <__cfi_check+0x684>
+    a678: 91002101     	add	x1, x8, #0x8
+    a67c: 52800020     	mov	w0, #0x1                // =1
+    a680: 97fffd4c     	bl	0x9bb0 <__ubsan_handle_cfi_check_fail_minimal_abort+0x474>
+    a684: 910183e1     	add	x1, sp, #0x60
+    a688: 910143e2     	add	x2, sp, #0x50
+    a68c: 910103e3     	add	x3, sp, #0x40
+    a690: aa1303e0     	mov	x0, x19
+    a694: aa1403e4     	mov	x4, x20
+    a698: 94001746     	bl	0x103b0 <_ZN14digitaldimming14DigitalDimmingC1ENSt3__110shared_ptrI16SubjectInterfaceINS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE13DimmingBlInfoEEENS2_IN3sdm11GenericIntfI15DimmingBlParams12DimmingBlOpsNSD_14GenericPayloadEEEEENS2_IN15snapdragoncolor20ScPostBlendInterfaceEEERKS9_@plt>
+    a69c: f94027f4     	ldr	x20, [sp, #0x48]
+    a6a0: b4000174     	cbz	x20, 0xa6cc <__cfi_check+0x6cc>
+    a6a4: 91002281     	add	x1, x20, #0x8
+    a6a8: 92800000     	mov	x0, #-0x1               // =-1
+    a6ac: 97fffd4d     	bl	0x9be0 <__ubsan_handle_cfi_check_fail_minimal_abort+0x4a4>
+    a6b0: b50000e0     	cbnz	x0, 0xa6cc <__cfi_check+0x6cc>
+    a6b4: f9400288     	ldr	x8, [x20]
+    a6b8: aa1403e0     	mov	x0, x20
+    a6bc: f9400908     	ldr	x8, [x8, #0x10]
+    a6c0: d63f0100     	blr	x8
+    a6c4: aa1403e0     	mov	x0, x20
+    a6c8: 940017f4     	bl	0x10698 <_ZNSt3__119__shared_weak_count14__release_weakEv@plt>
+    a6cc: f9402ff4     	ldr	x20, [sp, #0x58]
+    a6d0: b4000174     	cbz	x20, 0xa6fc <__cfi_check+0x6fc>
+    a6d4: 91002281     	add	x1, x20, #0x8
+    a6d8: 92800000     	mov	x0, #-0x1               // =-1
+    a6dc: 97fffd41     	bl	0x9be0 <__ubsan_handle_cfi_check_fail_minimal_abort+0x4a4>
+    a6e0: b50000e0     	cbnz	x0, 0xa6fc <__cfi_check+0x6fc>
+    a6e4: f9400288     	ldr	x8, [x20]
+    a6e8: aa1403e0     	mov	x0, x20
+    a6ec: f9400908     	ldr	x8, [x8, #0x10]
+    a6f0: d63f0100     	blr	x8
+    a6f4: aa1403e0     	mov	x0, x20
+    a6f8: 940017e8     	bl	0x10698 <_ZNSt3__119__shared_weak_count14__release_weakEv@plt>
+    a6fc: f94037f4     	ldr	x20, [sp, #0x68]
+    a700: b4000174     	cbz	x20, 0xa72c <__cfi_check+0x72c>
+    a704: 91002281     	add	x1, x20, #0x8
+    a708: 92800000     	mov	x0, #-0x1               // =-1
+    a70c: 97fffd35     	bl	0x9be0 <__ubsan_handle_cfi_check_fail_minimal_abort+0x4a4>
+    a710: b50000e0     	cbnz	x0, 0xa72c <__cfi_check+0x72c>
+    a714: f9400288     	ldr	x8, [x20]
+    a718: aa1403e0     	mov	x0, x20
+    a71c: f9400908     	ldr	x8, [x8, #0x10]
+    a720: d63f0100     	blr	x8
+    a724: aa1403e0     	mov	x0, x20
+    a728: 940017dc     	bl	0x10698 <_ZNSt3__119__shared_weak_count14__release_weakEv@plt>
+    a72c: d0000068     	adrp	x8, 0x18000 <digitaldimming::DigitalDimming::kClientName>
+    a730: b940e908     	ldr	w8, [x8, #0xe8]
+    a734: 34fff5e8     	cbz	w8, 0xa5f0 <__cfi_check+0x5f0>
+    a738: b0ffffc1     	adrp	x1, 0x3000
+    a73c: 91395821     	add	x1, x1, #0xe56
+    a740: b0ffffc2     	adrp	x2, 0x3000
+    a744: 9137b442     	add	x2, x2, #0xded
+    a748: d0ffffc3     	adrp	x3, 0x4000
+    a74c: 91195063     	add	x3, x3, #0x654
+    a750: b0ffffc4     	adrp	x4, 0x3000
+    a754: 913ee484     	add	x4, x4, #0xfb9
+    a758: 52800080     	mov	w0, #0x4                // =4
+    a75c: 52800565     	mov	w5, #0x2b               // =43
+    a760: 940016d2     	bl	0x102a8 <__android_log_print@plt>
+    a764: 17ffffa3     	b	0xa5f0 <__cfi_check+0x5f0>
+    a768: 94001838     	bl	0x10848 <__stack_chk_fail@plt>
+
+# Default SetParameter
+
+extracted/XT2611-1/W3WWL36.65-11-18/filesystems/vendor_a/lib64/libdigital-dimming.so:	file format elf64-littleaarch64
+
+Disassembly of section .text:
+
+000000000000a884 <digitaldimming::DigitalDimmingDefault::SetParameter(digitaldimming::DigitalDimmingParams, sdm::GenericPayload const&)>:
+    a884: d503233f     	paciasp
+    a888: a9be7bfd     	stp	x29, x30, [sp, #-0x20]!
+    a88c: a9014ff4     	stp	x20, x19, [sp, #0x10]
+    a890: 910003fd     	mov	x29, sp
+    a894: aa0003f3     	mov	x19, x0
+    a898: 91004000     	add	x0, x0, #0x10
+    a89c: 2a0103f4     	mov	w20, w1
+    a8a0: 94001772     	bl	0x10668 <_ZNSt3__15mutex4lockEv@plt>
+    a8a4: 3940e268     	ldrb	w8, [x19, #0x38]
+    a8a8: 360001e8     	tbz	w8, #0x0, 0xa8e4 <digitaldimming::DigitalDimmingDefault::SetParameter(digitaldimming::DigitalDimmingParams, sdm::GenericPayload const&)+0x60>
+    a8ac: b0ffffc1     	adrp	x1, 0x3000
+    a8b0: 91395821     	add	x1, x1, #0xe56
+    a8b4: d0ffffc2     	adrp	x2, 0x4000
+    a8b8: 911c7442     	add	x2, x2, #0x71d
+    a8bc: d0ffffc3     	adrp	x3, 0x4000
+    a8c0: 91195063     	add	x3, x3, #0x654
+    a8c4: d0ffffc4     	adrp	x4, 0x4000
+    a8c8: 9109a084     	add	x4, x4, #0x268
+    a8cc: 528000c0     	mov	w0, #0x6                // =6
+    a8d0: 52800c05     	mov	w5, #0x60               // =96
+    a8d4: 2a1403e6     	mov	w6, w20
+    a8d8: 94001674     	bl	0x102a8 <__android_log_print@plt>
+    a8dc: 12800bd4     	mov	w20, #-0x5f             // =-95
+    a8e0: 1400000e     	b	0xa918 <digitaldimming::DigitalDimmingDefault::SetParameter(digitaldimming::DigitalDimmingParams, sdm::GenericPayload const&)+0x94>
+    a8e4: b0ffffc1     	adrp	x1, 0x3000
+    a8e8: 91395821     	add	x1, x1, #0xe56
+    a8ec: b0ffffc2     	adrp	x2, 0x3000
+    a8f0: 91384042     	add	x2, x2, #0xe10
+    a8f4: d0ffffc3     	adrp	x3, 0x4000
+    a8f8: 91195063     	add	x3, x3, #0x654
+    a8fc: d0ffffc4     	adrp	x4, 0x4000
+    a900: 9109a084     	add	x4, x4, #0x268
+    a904: 528000c0     	mov	w0, #0x6                // =6
+    a908: 52800b85     	mov	w5, #0x5c               // =92
+    a90c: 2a1f03e6     	mov	w6, wzr
+    a910: 94001666     	bl	0x102a8 <__android_log_print@plt>
+    a914: 12800194     	mov	w20, #-0xd              // =-13
+    a918: 91004260     	add	x0, x19, #0x10
+    a91c: 94001759     	bl	0x10680 <_ZNSt3__15mutex6unlockEv@plt>
+    a920: 2a1403e0     	mov	w0, w20
+    a924: a9414ff4     	ldp	x20, x19, [sp, #0x10]
+    a928: a8c27bfd     	ldp	x29, x30, [sp], #0x20
+    a92c: d50323bf     	autiasp
+    a930: d65f03c0     	ret
+
+# CalculateDimmingLuts
+
+extracted/XT2611-1/W3WWL36.65-11-18/filesystems/vendor_a/lib64/libdigital-dimming.so:	file format elf64-littleaarch64
+
+Disassembly of section .text:
+
+000000000000b928 <digitaldimming::DigitalDimming::CalculateDimmingLuts(double const&, unsigned int const&, unsigned int const&, unsigned int const&, std::__1::vector<std::__1::pair<unsigned int, unsigned int>, std::__1::allocator<std::__1::pair<unsigned int, unsigned int>>> const&)>:
+    b928: d503233f     	paciasp
+    b92c: d10283ff     	sub	sp, sp, #0xa0
+    b930: fd001be8     	str	d8, [sp, #0x30]
+    b934: a9047bfd     	stp	x29, x30, [sp, #0x40]
+    b938: a9056ffc     	stp	x28, x27, [sp, #0x50]
+    b93c: a90667fa     	stp	x26, x25, [sp, #0x60]
+    b940: a9075ff8     	stp	x24, x23, [sp, #0x70]
+    b944: a90857f6     	stp	x22, x21, [sp, #0x80]
+    b948: a9094ff4     	stp	x20, x19, [sp, #0x90]
+    b94c: 910103fd     	add	x29, sp, #0x40
+    b950: d53bd059     	mrs	x25, TPIDR_EL0
+    b954: f9401728     	ldr	x8, [x25, #0x28]
+    b958: f81e83a8     	stur	x8, [x29, #-0x18]
+    b95c: a94020a9     	ldp	x9, x8, [x5]
+    b960: a901ffff     	stp	xzr, xzr, [sp, #0x18]
+    b964: cb090108     	sub	x8, x8, x9
+    b968: d343fd08     	lsr	x8, x8, #3
+    b96c: 34000e88     	cbz	w8, 0xbb3c <digitaldimming::DigitalDimming::CalculateDimmingLuts(double const&, unsigned int const&, unsigned int const&, unsigned int const&, std::__1::vector<std::__1::pair<unsigned int, unsigned int>, std::__1::allocator<std::__1::pair<unsigned int, unsigned int>>> const&)+0x214>
+    b970: b9400069     	ldr	w9, [x3]
+    b974: aa0303f4     	mov	x20, x3
+    b978: 34000f89     	cbz	w9, 0xbb68 <digitaldimming::DigitalDimming::CalculateDimmingLuts(double const&, unsigned int const&, unsigned int const&, unsigned int const&, std::__1::vector<std::__1::pair<unsigned int, unsigned int>, std::__1::allocator<std::__1::pair<unsigned int, unsigned int>>> const&)+0x240>
+    b97c: 5100051b     	sub	w27, w8, #0x1
+    b980: b9400088     	ldr	w8, [x4]
+    b984: aa0503f3     	mov	x19, x5
+    b988: aa0403f8     	mov	x24, x4
+    b98c: aa0203f6     	mov	x22, x2
+    b990: aa0103f7     	mov	x23, x1
+    b994: aa0003f5     	mov	x21, x0
+    b998: f90003f9     	str	x25, [sp]
+    b99c: aa1f03f9     	mov	x25, xzr
+    b9a0: b000007c     	adrp	x28, 0x18000 <digitaldimming::DigitalDimming::kClientName>
+    b9a4: 1280001a     	mov	w26, #-0x1              // =-1
+    b9a8: 1e630320     	ucvtf	d0, w25
+    b9ac: 1e630101     	ucvtf	d1, w8
+    b9b0: bd400282     	ldr	s2, [x20]
+    b9b4: 910043e1     	add	x1, sp, #0x10
+    b9b8: 910023e2     	add	x2, sp, #0x8
+    b9bc: 910962a3     	add	x3, x21, #0x258
+    b9c0: 7e61d842     	ucvtf	d2, d2
+    b9c4: 910083e4     	add	x4, sp, #0x20
+    b9c8: 910063e5     	add	x5, sp, #0x18
+    b9cc: aa1703e0     	mov	x0, x23
+    b9d0: 1e611800     	fdiv	d0, d0, d1
+    b9d4: bd4002c1     	ldr	s1, [x22]
+    b9d8: 7e61d821     	ucvtf	d1, d1
+    b9dc: 1e621821     	fdiv	d1, d1, d2
+    b9e0: 6d0083e1     	stp	d1, d0, [sp, #0x8]
+    b9e4: 9400122b     	bl	0x10290 <_ZN14digitaldimming7DimmingERKdS1_S1_S1_PdS2_@plt>
+    b9e8: b940eb88     	ldr	w8, [x28, #0xe8]
+    b9ec: f94112a9     	ldr	x9, [x21, #0x220]
+    b9f0: fd400fe0     	ldr	d0, [sp, #0x18]
+    b9f4: 7100091f     	cmp	w8, #0x2
+    b9f8: fc397920     	str	d0, [x9, x25, lsl #3]
+    b9fc: 540001e3     	b.lo	0xba38 <digitaldimming::DigitalDimming::CalculateDimmingLuts(double const&, unsigned int const&, unsigned int const&, unsigned int const&, std::__1::vector<std::__1::pair<unsigned int, unsigned int>, std::__1::allocator<std::__1::pair<unsigned int, unsigned int>>> const&)+0x110>
+    ba00: f94112a8     	ldr	x8, [x21, #0x220]
+    ba04: 52800080     	mov	w0, #0x4                // =4
+    ba08: 90ffffc1     	adrp	x1, 0x3000
+    ba0c: 91395821     	add	x1, x1, #0xe56
+    ba10: b0ffffc2     	adrp	x2, 0x4000
+    ba14: 91054842     	add	x2, x2, #0x152
+    ba18: fc797900     	ldr	d0, [x8, x25, lsl #3]
+    ba1c: b0ffffc3     	adrp	x3, 0x4000
+    ba20: 91195063     	add	x3, x3, #0x654
+    ba24: b0ffffc4     	adrp	x4, 0x4000
+    ba28: 91221884     	add	x4, x4, #0x886
+    ba2c: 52804dc5     	mov	w5, #0x26e              // =622
+    ba30: 2a1903e6     	mov	w6, w25
+    ba34: 9400121d     	bl	0x102a8 <__android_log_print@plt>
+    ba38: eb1a033f     	cmp	x25, x26
+    ba3c: 54000d20     	b.eq	0xbbe0 <digitaldimming::DigitalDimming::CalculateDimmingLuts(double const&, unsigned int const&, unsigned int const&, unsigned int const&, std::__1::vector<std::__1::pair<unsigned int, unsigned int>, std::__1::allocator<std::__1::pair<unsigned int, unsigned int>>> const&)+0x2b8>
+    ba40: b9400308     	ldr	w8, [x24]
+    ba44: 91000739     	add	x25, x25, #0x1
+    ba48: 6b19011f     	cmp	w8, w25
+    ba4c: 54fffae2     	b.hs	0xb9a8 <digitaldimming::DigitalDimming::CalculateDimmingLuts(double const&, unsigned int const&, unsigned int const&, unsigned int const&, std::__1::vector<std::__1::pair<unsigned int, unsigned int>, std::__1::allocator<std::__1::pair<unsigned int, unsigned int>>> const&)+0x80>
+    ba50: 1e630368     	ucvtf	d8, w27
+    ba54: b9400288     	ldr	w8, [x20]
+    ba58: aa1f03f8     	mov	x24, xzr
+    ba5c: b0ffffda     	adrp	x26, 0x4000
+    ba60: 91221b5a     	add	x26, x26, #0x886
+    ba64: 12800019     	mov	w25, #-0x1              // =-1
+    ba68: bd4002c2     	ldr	s2, [x22]
+    ba6c: 1e630300     	ucvtf	d0, w24
+    ba70: 1e630101     	ucvtf	d1, w8
+    ba74: 910043e1     	add	x1, sp, #0x10
+    ba78: 910023e2     	add	x2, sp, #0x8
+    ba7c: 910962a3     	add	x3, x21, #0x258
+    ba80: 7e61d842     	ucvtf	d2, d2
+    ba84: 910083e4     	add	x4, sp, #0x20
+    ba88: 910063e5     	add	x5, sp, #0x18
+    ba8c: aa1703e0     	mov	x0, x23
+    ba90: 1e611800     	fdiv	d0, d0, d1
+    ba94: 1e611841     	fdiv	d1, d2, d1
+    ba98: 6d0083e1     	stp	d1, d0, [sp, #0x8]
+    ba9c: 940011fd     	bl	0x10290 <_ZN14digitaldimming7DimmingERKdS1_S1_S1_PdS2_@plt>
+    baa0: fd4013e0     	ldr	d0, [sp, #0x20]
+    baa4: f9400269     	ldr	x9, [x19]
+    baa8: 1e680800     	fmul	d0, d0, d8
+    baac: 1e790008     	fcvtzu	w8, d0
+    bab0: 6b08037f     	cmp	w27, w8
+    bab4: 1a883368     	csel	w8, w27, w8, lo
+    bab8: 8b284d28     	add	x8, x9, w8, uxtw #3
+    babc: f94106a9     	ldr	x9, [x21, #0x208]
+    bac0: b9400508     	ldr	w8, [x8, #0x4]
+    bac4: b8387928     	str	w8, [x9, x24, lsl #2]
+    bac8: b940eb88     	ldr	w8, [x28, #0xe8]
+    bacc: 7100091f     	cmp	w8, #0x2
+    bad0: 540001c3     	b.lo	0xbb08 <digitaldimming::DigitalDimming::CalculateDimmingLuts(double const&, unsigned int const&, unsigned int const&, unsigned int const&, std::__1::vector<std::__1::pair<unsigned int, unsigned int>, std::__1::allocator<std::__1::pair<unsigned int, unsigned int>>> const&)+0x1e0>
+    bad4: f94106a8     	ldr	x8, [x21, #0x208]
+    bad8: 52800080     	mov	w0, #0x4                // =4
+    badc: 90ffffc1     	adrp	x1, 0x3000
+    bae0: 91395821     	add	x1, x1, #0xe56
+    bae4: 90ffffc2     	adrp	x2, 0x3000
+    bae8: 913ad042     	add	x2, x2, #0xeb4
+    baec: b8787907     	ldr	w7, [x8, x24, lsl #2]
+    baf0: b0ffffc3     	adrp	x3, 0x4000
+    baf4: 91195063     	add	x3, x3, #0x654
+    baf8: aa1a03e4     	mov	x4, x26
+    bafc: 52804f65     	mov	w5, #0x27b              // =635
+    bb00: 2a1803e6     	mov	w6, w24
+    bb04: 940011e9     	bl	0x102a8 <__android_log_print@plt>
+    bb08: eb19031f     	cmp	x24, x25
+    bb0c: 540006a0     	b.eq	0xbbe0 <digitaldimming::DigitalDimming::CalculateDimmingLuts(double const&, unsigned int const&, unsigned int const&, unsigned int const&, std::__1::vector<std::__1::pair<unsigned int, unsigned int>, std::__1::allocator<std::__1::pair<unsigned int, unsigned int>>> const&)+0x2b8>
+    bb10: b9400288     	ldr	w8, [x20]
+    bb14: 91000718     	add	x24, x24, #0x1
+    bb18: 6b18011f     	cmp	w8, w24
+    bb1c: 54fffa62     	b.hs	0xba68 <digitaldimming::DigitalDimming::CalculateDimmingLuts(double const&, unsigned int const&, unsigned int const&, unsigned int const&, std::__1::vector<std::__1::pair<unsigned int, unsigned int>, std::__1::allocator<std::__1::pair<unsigned int, unsigned int>>> const&)+0x140>
+    bb20: f9410aa9     	ldr	x9, [x21, #0x210]
+    bb24: f94106a8     	ldr	x8, [x21, #0x208]
+    bb28: eb08013f     	cmp	x9, x8
+    bb2c: 540003a0     	b.eq	0xbba0 <digitaldimming::DigitalDimming::CalculateDimmingLuts(double const&, unsigned int const&, unsigned int const&, unsigned int const&, std::__1::vector<std::__1::pair<unsigned int, unsigned int>, std::__1::allocator<std::__1::pair<unsigned int, unsigned int>>> const&)+0x278>
+    bb30: 2a1f03e0     	mov	w0, wzr
+    bb34: b900011f     	str	wzr, [x8]
+    bb38: 1400001b     	b	0xbba4 <digitaldimming::DigitalDimming::CalculateDimmingLuts(double const&, unsigned int const&, unsigned int const&, unsigned int const&, std::__1::vector<std::__1::pair<unsigned int, unsigned int>, std::__1::allocator<std::__1::pair<unsigned int, unsigned int>>> const&)+0x27c>
+    bb3c: 90ffffc1     	adrp	x1, 0x3000
+    bb40: 91395821     	add	x1, x1, #0xe56
+    bb44: b0ffffc2     	adrp	x2, 0x4000
+    bb48: 91217842     	add	x2, x2, #0x85e
+    bb4c: b0ffffc3     	adrp	x3, 0x4000
+    bb50: 91195063     	add	x3, x3, #0x654
+    bb54: b0ffffc4     	adrp	x4, 0x4000
+    bb58: 91221884     	add	x4, x4, #0x886
+    bb5c: 528000c0     	mov	w0, #0x6                // =6
+    bb60: 52804be5     	mov	w5, #0x25f              // =607
+    bb64: 1400000b     	b	0xbb90 <digitaldimming::DigitalDimming::CalculateDimmingLuts(double const&, unsigned int const&, unsigned int const&, unsigned int const&, std::__1::vector<std::__1::pair<unsigned int, unsigned int>, std::__1::allocator<std::__1::pair<unsigned int, unsigned int>>> const&)+0x268>
+    bb68: 90ffffc1     	adrp	x1, 0x3000
+    bb6c: 91395821     	add	x1, x1, #0xe56
+    bb70: 90ffffc2     	adrp	x2, 0x3000
+    bb74: 91340c42     	add	x2, x2, #0xd03
+    bb78: b0ffffc3     	adrp	x3, 0x4000
+    bb7c: 91195063     	add	x3, x3, #0x654
+    bb80: b0ffffc4     	adrp	x4, 0x4000
+    bb84: 91221884     	add	x4, x4, #0x886
+    bb88: 528000c0     	mov	w0, #0x6                // =6
+    bb8c: 52804c85     	mov	w5, #0x264              // =612
+    bb90: 2a1f03e6     	mov	w6, wzr
+    bb94: 940011c5     	bl	0x102a8 <__android_log_print@plt>
+    bb98: 128002a0     	mov	w0, #-0x16              // =-22
+    bb9c: 14000003     	b	0xbba8 <digitaldimming::DigitalDimming::CalculateDimmingLuts(double const&, unsigned int const&, unsigned int const&, unsigned int const&, std::__1::vector<std::__1::pair<unsigned int, unsigned int>, std::__1::allocator<std::__1::pair<unsigned int, unsigned int>>> const&)+0x280>
+    bba0: 2a1f03e0     	mov	w0, wzr
+    bba4: f94003f9     	ldr	x25, [sp]
+    bba8: f9401728     	ldr	x8, [x25, #0x28]
+    bbac: f85e83a9     	ldur	x9, [x29, #-0x18]
+    bbb0: eb09011f     	cmp	x8, x9
+    bbb4: 54000181     	b.ne	0xbbe4 <digitaldimming::DigitalDimming::CalculateDimmingLuts(double const&, unsigned int const&, unsigned int const&, unsigned int const&, std::__1::vector<std::__1::pair<unsigned int, unsigned int>, std::__1::allocator<std::__1::pair<unsigned int, unsigned int>>> const&)+0x2bc>
+    bbb8: a9494ff4     	ldp	x20, x19, [sp, #0x90]
+    bbbc: fd401be8     	ldr	d8, [sp, #0x30]
+    bbc0: a94857f6     	ldp	x22, x21, [sp, #0x80]
+    bbc4: a9475ff8     	ldp	x24, x23, [sp, #0x70]
+    bbc8: a94667fa     	ldp	x26, x25, [sp, #0x60]
+    bbcc: a9456ffc     	ldp	x28, x27, [sp, #0x50]
+    bbd0: a9447bfd     	ldp	x29, x30, [sp, #0x40]
+    bbd4: 910283ff     	add	sp, sp, #0xa0
+    bbd8: d50323bf     	autiasp
+    bbdc: d65f03c0     	ret
+    bbe0: 94001218     	bl	0x10440 <__ubsan_handle_add_overflow_minimal_abort@plt>
+    bbe4: 94001319     	bl	0x10848 <__stack_chk_fail@plt>
+
+# SetPccAttn
+
+extracted/XT2611-1/W3WWL36.65-11-18/filesystems/vendor_a/lib64/libdigital-dimming.so:	file format elf64-littleaarch64
+
+Disassembly of section .text:
+
+000000000000beb4 <digitaldimming::DigitalDimming::SetPccAttn(double const&)>:
+    beb4: d503233f     	paciasp
+    beb8: d10343ff     	sub	sp, sp, #0xd0
+    bebc: a9097bfd     	stp	x29, x30, [sp, #0x90]
+    bec0: f90053f7     	str	x23, [sp, #0xa0]
+    bec4: a90b57f6     	stp	x22, x21, [sp, #0xb0]
+    bec8: a90c4ff4     	stp	x20, x19, [sp, #0xc0]
+    becc: 910243fd     	add	x29, sp, #0x90
+    bed0: d53bd055     	mrs	x21, TPIDR_EL0
+    bed4: f94016a8     	ldr	x8, [x21, #0x28]
+    bed8: f81f83a8     	stur	x8, [x29, #-0x8]
+    bedc: 52800308     	mov	w8, #0x18               // =24
+    bee0: fd400020     	ldr	d0, [x1]
+    bee4: fd412801     	ldr	d1, [x0, #0x250]
+    bee8: b9000be8     	str	w8, [sp, #0x8]
+    beec: 1e612000     	fcmp	d0, d1
+    bef0: 54000241     	b.ne	0xbf38 <digitaldimming::DigitalDimming::SetPccAttn(double const&)+0x84>
+    bef4: b0000068     	adrp	x8, 0x18000 <digitaldimming::DigitalDimming::kClientName>
+    bef8: b940e908     	ldr	w8, [x8, #0xe8]
+    befc: 7100091f     	cmp	w8, #0x2
+    bf00: 540005c3     	b.lo	0xbfb8 <digitaldimming::DigitalDimming::SetPccAttn(double const&)+0x104>
+    bf04: 90ffffc1     	adrp	x1, 0x3000
+    bf08: 91395821     	add	x1, x1, #0xe56
+    bf0c: b0ffffc2     	adrp	x2, 0x4000
+    bf10: 91264042     	add	x2, x2, #0x990
+    bf14: b0ffffc3     	adrp	x3, 0x4000
+    bf18: 91195063     	add	x3, x3, #0x654
+    bf1c: b0ffffc4     	adrp	x4, 0x4000
+    bf20: 910d9c84     	add	x4, x4, #0x367
+    bf24: 52800080     	mov	w0, #0x4                // =4
+    bf28: 52805125     	mov	w5, #0x289              // =649
+    bf2c: 940010df     	bl	0x102a8 <__android_log_print@plt>
+    bf30: 2a1f03e0     	mov	w0, wzr
+    bf34: 1400006e     	b	0xc0ec <digitaldimming::DigitalDimming::SetPccAttn(double const&)+0x238>
+    bf38: 528100e8     	mov	w8, #0x807              // =2055
+    bf3c: f940f013     	ldr	x19, [x0, #0x1e0]
+    bf40: aa0003f6     	mov	x22, x0
+    bf44: a90107e8     	stp	x8, x1, [sp, #0x10]
+    bf48: 52800108     	mov	w8, #0x8                // =8
+    bf4c: d283a4e0     	mov	x0, #0x1d27             // =7463
+    bf50: b9000fe8     	str	w8, [sp, #0xc]
+    bf54: f2ab85e0     	movk	x0, #0x5c2f, lsl #16
+    bf58: aa0103f7     	mov	x23, x1
+    bf5c: f9400274     	ldr	x20, [x19]
+    bf60: f2c39280     	movk	x0, #0x1c94, lsl #32
+    bf64: f2e4dfe0     	movk	x0, #0x26ff, lsl #48
+    bf68: aa1403e1     	mov	x1, x20
+    bf6c: 94001147     	bl	0x10488 <__cfi_slowpath@plt>
+    bf70: f9401288     	ldr	x8, [x20, #0x20]
+    bf74: 910023e1     	add	x1, sp, #0x8
+    bf78: aa1303e0     	mov	x0, x19
+    bf7c: d63f0100     	blr	x8
+    bf80: 34000200     	cbz	w0, 0xbfc0 <digitaldimming::DigitalDimming::SetPccAttn(double const&)+0x10c>
+    bf84: 90ffffc1     	adrp	x1, 0x3000
+    bf88: 91395821     	add	x1, x1, #0xe56
+    bf8c: b0ffffc2     	adrp	x2, 0x4000
+    bf90: 911d4442     	add	x2, x2, #0x751
+    bf94: b0ffffc3     	adrp	x3, 0x4000
+    bf98: 91195063     	add	x3, x3, #0x654
+    bf9c: b0ffffc4     	adrp	x4, 0x4000
+    bfa0: 910d9c84     	add	x4, x4, #0x367
+    bfa4: 2a0003f3     	mov	w19, w0
+    bfa8: 528000c0     	mov	w0, #0x6                // =6
+    bfac: 52805245     	mov	w5, #0x292              // =658
+    bfb0: 940010be     	bl	0x102a8 <__android_log_print@plt>
+    bfb4: 1400004d     	b	0xc0e8 <digitaldimming::DigitalDimming::SetPccAttn(double const&)+0x234>
+    bfb8: 2a1f03e0     	mov	w0, wzr
+    bfbc: 1400004c     	b	0xc0ec <digitaldimming::DigitalDimming::SetPccAttn(double const&)+0x238>
+    bfc0: 6f00e400     	movi	v0.2d, #0000000000000000
+    bfc4: fd4002e1     	ldr	d1, [x23]
+    bfc8: 910083e8     	add	x8, sp, #0x20
+    bfcc: 52800020     	mov	w0, #0x1                // =1
+    bfd0: aa1603f3     	mov	x19, x22
+    bfd4: 52800034     	mov	w20, #0x1               // =1
+    bfd8: fd012ac1     	str	d1, [x22, #0x250]
+    bfdc: 91008116     	add	x22, x8, #0x20
+    bfe0: ad0103e0     	stp	q0, q0, [sp, #0x20]
+    bfe4: ad0203e0     	stp	q0, q0, [sp, #0x40]
+    bfe8: ad0303e0     	stp	q0, q0, [sp, #0x60]
+    bfec: 94001103     	bl	0x103f8 <_Znwm@plt>
+    bff0: b0000048     	adrp	x8, 0x14000
+    bff4: 910dc108     	add	x8, x8, #0x370
+    bff8: f940ea73     	ldr	x19, [x19, #0x1d0]
+    bffc: b90023f4     	str	w20, [sp, #0x20]
+    c000: b90033f4     	str	w20, [sp, #0x30]
+    c004: f90017e0     	str	x0, [sp, #0x28]
+    c008: f90033f6     	str	x22, [sp, #0x60]
+    c00c: a90403e8     	stp	x8, x0, [sp, #0x40]
+    c010: 3900001f     	strb	wzr, [x0]
+    c014: d29bdc20     	mov	x0, #0xdee1             // =57057
+    c018: f9400274     	ldr	x20, [x19]
+    c01c: f2ab9cc0     	movk	x0, #0x5ce6, lsl #16
+    c020: f2cae4e0     	movk	x0, #0x5727, lsl #32
+    c024: aa1403e1     	mov	x1, x20
+    c028: f2e61740     	movk	x0, #0x30ba, lsl #48
+    c02c: 94001117     	bl	0x10488 <__cfi_slowpath@plt>
+    c030: f9401288     	ldr	x8, [x20, #0x20]
+    c034: 910083e2     	add	x2, sp, #0x20
+    c038: aa1303e0     	mov	x0, x19
+    c03c: 52800041     	mov	w1, #0x2                // =2
+    c040: d63f0100     	blr	x8
+    c044: 340001e0     	cbz	w0, 0xc080 <digitaldimming::DigitalDimming::SetPccAttn(double const&)+0x1cc>
+    c048: 2a0003f3     	mov	w19, w0
+    c04c: f0ffffa1     	adrp	x1, 0x3000
+    c050: 91395821     	add	x1, x1, #0xe56
+    c054: 90ffffc2     	adrp	x2, 0x4000
+    c058: 91270042     	add	x2, x2, #0x9c0
+    c05c: 90ffffc3     	adrp	x3, 0x4000
+    c060: 91195063     	add	x3, x3, #0x654
+    c064: 90ffffc4     	adrp	x4, 0x4000
+    c068: 910d9c84     	add	x4, x4, #0x367
+    c06c: 528000c0     	mov	w0, #0x6                // =6
+    c070: 52805425     	mov	w5, #0x2a1              // =673
+    c074: 2a1303e6     	mov	w6, w19
+    c078: 9400108c     	bl	0x102a8 <__android_log_print@plt>
+    c07c: 2a1303e0     	mov	w0, w19
+    c080: f94017e8     	ldr	x8, [sp, #0x28]
+    c084: b4000128     	cbz	x8, 0xc0a8 <digitaldimming::DigitalDimming::SetPccAttn(double const&)+0x1f4>
+    c088: f94033e8     	ldr	x8, [sp, #0x60]
+    c08c: b4000308     	cbz	x8, 0xc0ec <digitaldimming::DigitalDimming::SetPccAttn(double const&)+0x238>
+    c090: f9400109     	ldr	x9, [x8]
+    c094: 2a0003f3     	mov	w19, w0
+    c098: aa0803e0     	mov	x0, x8
+    c09c: f9401929     	ldr	x9, [x9, #0x30]
+    c0a0: d63f0120     	blr	x9
+    c0a4: 2a1303e0     	mov	w0, w19
+    c0a8: f94033e8     	ldr	x8, [sp, #0x60]
+    c0ac: b90023ff     	str	wzr, [sp, #0x20]
+    c0b0: f90017ff     	str	xzr, [sp, #0x28]
+    c0b4: eb16011f     	cmp	x8, x22
+    c0b8: b90033ff     	str	wzr, [sp, #0x30]
+    c0bc: 540000a0     	b.eq	0xc0d0 <digitaldimming::DigitalDimming::SetPccAttn(double const&)+0x21c>
+    c0c0: b4000168     	cbz	x8, 0xc0ec <digitaldimming::DigitalDimming::SetPccAttn(double const&)+0x238>
+    c0c4: 2a0003f3     	mov	w19, w0
+    c0c8: 52800509     	mov	w9, #0x28               // =40
+    c0cc: 14000003     	b	0xc0d8 <digitaldimming::DigitalDimming::SetPccAttn(double const&)+0x224>
+    c0d0: 2a0003f3     	mov	w19, w0
+    c0d4: 52800409     	mov	w9, #0x20               // =32
+    c0d8: f940010a     	ldr	x10, [x8]
+    c0dc: aa0803e0     	mov	x0, x8
+    c0e0: f8696949     	ldr	x9, [x10, x9]
+    c0e4: d63f0120     	blr	x9
+    c0e8: 2a1303e0     	mov	w0, w19
+    c0ec: f94016a8     	ldr	x8, [x21, #0x28]
+    c0f0: f85f83a9     	ldur	x9, [x29, #-0x8]
+    c0f4: eb09011f     	cmp	x8, x9
+    c0f8: 54000101     	b.ne	0xc118 <digitaldimming::DigitalDimming::SetPccAttn(double const&)+0x264>
+    c0fc: a94c4ff4     	ldp	x20, x19, [sp, #0xc0]
+    c100: f94053f7     	ldr	x23, [sp, #0xa0]
+    c104: a94b57f6     	ldp	x22, x21, [sp, #0xb0]
+    c108: a9497bfd     	ldp	x29, x30, [sp, #0x90]
+    c10c: 910343ff     	add	sp, sp, #0xd0
+    c110: d50323bf     	autiasp
+    c114: d65f03c0     	ret
+    c118: 940011cc     	bl	0x10848 <__stack_chk_fail@plt>
+
+# CFI jump-table entries
+
+extracted/XT2611-1/W3WWL36.65-11-18/filesystems/vendor_a/lib64/libdigital-dimming.so:	file format elf64-littleaarch64
+
+Disassembly of section .text:
+
+0000000000010220 <digitaldimming::Dimming(double const&, double const&, double const&, double const&, double*, double*)>:
+   10220: d503245f     	bti	c
+   10224: 17ffe6d4     	b	0x9d74 <__ubsan_handle_cfi_check_fail_minimal_abort+0x638>
+
+0000000000010228 <GetDigitalDimmingInterface>:
+   10228: d503245f     	bti	c
+   1022c: 17ffe86f     	b	0xa3e8 <__cfi_check+0x3e8>

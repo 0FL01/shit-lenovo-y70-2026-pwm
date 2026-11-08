@@ -1,0 +1,92 @@
+{
+  "scope": "Offline CN48 reference; not target bootloader or physical panel readback",
+  "source_image_sha256": "524ad319a92059a5eb0e98f7913d4a1c6c5d4f3ace1f02e76f32724ab83780c3",
+  "container_entries": 36,
+  "manifest_flash_members": 32,
+  "uefi_fv_bytes": 4194304,
+  "abl_fv_bytes": 589824,
+  "panels": [
+    {
+      "name": "Panel_mot_boe_ili97680A_678_1264x2780_dsc_cmd_vantage_v1.xml.raw",
+      "bytes": 3991,
+      "packets": 55,
+      "cn48_equals_global64": true,
+      "cn48_equals_cn11": true
+    },
+    {
+      "name": "Panel_mot_boe_ili97680A_678_1264x2780_dsc_cmd_vantage_v2.xml.raw",
+      "bytes": 4252,
+      "packets": 70,
+      "cn48_equals_global64": true,
+      "cn48_equals_cn11": true
+    },
+    {
+      "name": "Panel_mot_boe_ili97680A_678_1264x2780_dsc_cmd_vantage_v3.xml.raw",
+      "bytes": 7498,
+      "packets": 259,
+      "cn48_equals_global64": true,
+      "cn48_equals_cn11": true
+    },
+    {
+      "name": "Panel_mot_boe_ili97680A_678_1264x2780_dsc_cmd_vantage_v4.xml.raw",
+      "bytes": 6790,
+      "packets": 217,
+      "cn48_equals_global64": true,
+      "cn48_equals_cn11": true
+    },
+    {
+      "name": "Panel_mot_boe_ili97701A_682_1440x3168_dsc_cmd_v0.xml.raw",
+      "bytes": 4106,
+      "packets": 53,
+      "cn48_equals_global64": true,
+      "cn48_equals_cn11": true
+    },
+    {
+      "name": "Panel_mot_boe_ili97701A_682_1440x3168_dsc_cmd_v1.xml.raw",
+      "bytes": 3559,
+      "packets": 24,
+      "cn48_equals_global64": true,
+      "cn48_equals_cn11": true
+    },
+    {
+      "name": "Panel_mot_boe_ili97701A_682_1440x3168_dsc_cmd_v2.xml.raw",
+      "bytes": 4850,
+      "packets": 95,
+      "cn48_equals_global64": true,
+      "cn48_equals_cn11": false
+    },
+    {
+      "name": "Panel_mot_boe_ili97701A_682_1440x3168_dsc_cmd_v3.xml.raw",
+      "bytes": 5930,
+      "packets": 136,
+      "cn48_equals_global64": true,
+      "cn48_equals_cn11": false
+    },
+    {
+      "name": "Panel_mot_boe_ili97701A_682_1440x3168_dsc_cmd_v4.xml.raw",
+      "bytes": 4850,
+      "packets": 95,
+      "cn48_equals_global64": true,
+      "cn48_equals_cn11": false
+    }
+  ],
+  "display_modules": [
+    {
+      "name": "DisplayDxe.efi",
+      "bytes": 442368,
+      "different_bytes_in_codeview_only": 11
+    },
+    {
+      "name": "BacklightDxe.efi",
+      "bytes": 45056,
+      "different_bytes_in_codeview_only": 11
+    }
+  ],
+  "boot_module": {
+    "bytes": 1601536,
+    "cn48_equals_global64": false,
+    "cn48_sha256": "12d9e017cc51f6fe48ea2099b6891e42b4e2fdec8837e03f3a36fc2e5ed24663"
+  },
+  "device_io": false,
+  "physical_pwm_hz": null
+}

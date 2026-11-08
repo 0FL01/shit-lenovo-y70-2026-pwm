@@ -1,0 +1,17 @@
+usage: ghidra_decompile.py [-h] {functions,decompile,xrefs,symbols} ...
+
+Офлайн ARM64 ELF RE через PyGhidra 3.1 / Ghidra 12.1.4, без GUI.
+
+Запуск: ~/tools/ghidra-12.1.4-pyvenv/bin/python 06-tools/ghidra_decompile.py
+  decompile BINARY --function NAME --output DIR --timebox 600
+functions/symbols: необязательный --filter; decompile/xrefs: --function либо
+--address (hex Ghidra address). functions/symbols показывают результат импорта;
+decompile/xrefs запускают auto-analysis. Каждый запуск — новый внешний проект.
+ET_REL: block+offset, не live kernel VA; ET_DYN: import VA, не ASLR/live VA.
+Декомпилят — гипотеза для независимой проверки, не семантика DDIC.
+
+positional arguments:
+  {functions,decompile,xrefs,symbols}
+
+options:
+  -h, --help            show this help message and exit

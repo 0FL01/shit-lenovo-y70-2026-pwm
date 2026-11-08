@@ -1,0 +1,375 @@
+{
+  "scope": "Captured outgoing write messages/native function returns, not optical carrier measurement",
+  "markers": [
+    {
+      "timestamp": 5419.201026,
+      "phase": "brightness78_dc0_0"
+    },
+    {
+      "timestamp": 5423.272519,
+      "phase": "brightness78_dc1_1"
+    },
+    {
+      "timestamp": 5426.873931,
+      "phase": "brightness78_dc0_2"
+    },
+    {
+      "timestamp": 5430.561407,
+      "phase": "brightness40_dc0_3"
+    },
+    {
+      "timestamp": 5434.202201,
+      "phase": "brightness40_dc1_4"
+    },
+    {
+      "timestamp": 5437.855265,
+      "phase": "brightness40_dc0_5"
+    }
+  ],
+  "captured_mipi_writes": 579,
+  "controllers": {
+    "dsi-ctrl-1": 579
+  },
+  "exact_dc_set_matches": [
+    {
+      "dc": "on",
+      "phase": "brightness78_dc0_0",
+      "timestamp": 5419.285647,
+      "tx_start_index": 95,
+      "packets": 75,
+      "bytes": 875,
+      "payload_and_dtype_match_live_dt": true
+    },
+    {
+      "dc": "off",
+      "phase": "brightness78_dc0_0",
+      "timestamp": 5421.938239,
+      "tx_start_index": 177,
+      "packets": 75,
+      "bytes": 875,
+      "payload_and_dtype_match_live_dt": true
+    },
+    {
+      "dc": "on",
+      "phase": "brightness78_dc1_1",
+      "timestamp": 5425.504141,
+      "tx_start_index": 252,
+      "packets": 75,
+      "bytes": 875,
+      "payload_and_dtype_match_live_dt": true
+    },
+    {
+      "dc": "off",
+      "phase": "brightness78_dc0_2",
+      "timestamp": 5429.130082,
+      "tx_start_index": 327,
+      "packets": 75,
+      "bytes": 875,
+      "payload_and_dtype_match_live_dt": true
+    },
+    {
+      "dc": "on",
+      "phase": "brightness40_dc1_4",
+      "timestamp": 5436.421004,
+      "tx_start_index": 429,
+      "packets": 75,
+      "bytes": 875,
+      "payload_and_dtype_match_live_dt": true
+    },
+    {
+      "dc": "off",
+      "phase": "brightness40_dc0_5",
+      "timestamp": 5440.105465,
+      "tx_start_index": 504,
+      "packets": 75,
+      "bytes": 875,
+      "payload_and_dtype_match_live_dt": true
+    }
+  ],
+  "native_returns": {
+    "ctrl_return": {
+      "count": 581,
+      "rc_histogram": {
+        "0": 579,
+        "1": 2
+      },
+      "negative": 0
+    },
+    "param_return": {
+      "count": 9,
+      "rc_histogram": {
+        "0": 9
+      },
+      "negative": 0
+    }
+  },
+  "own_probe_profile_lines": [
+    "  ctrl_return                                              581               0",
+    "  param_return                                               9               0"
+  ],
+  "trace_buffer_header": [
+    "# entries-in-buffer/entries-written: 590/590   #P:8"
+  ],
+  "trace_reports_lost_events": false,
+  "brightness_payloads": [
+    {
+      "timestamp": 5419.141918,
+      "phase": "setup",
+      "page": 0,
+      "payload": "51 00 00",
+      "dbv_big_endian": 0
+    },
+    {
+      "timestamp": 5419.287387,
+      "phase": "brightness78_dc0_0",
+      "page": 0,
+      "payload": "51 00 00",
+      "dbv_big_endian": 0
+    },
+    {
+      "timestamp": 5419.307642,
+      "phase": "brightness78_dc0_0",
+      "page": 0,
+      "payload": "51 12 f5",
+      "dbv_big_endian": 4853
+    },
+    {
+      "timestamp": 5419.316454,
+      "phase": "brightness78_dc0_0",
+      "page": 0,
+      "payload": "51 13 6a",
+      "dbv_big_endian": 4970
+    },
+    {
+      "timestamp": 5419.322649,
+      "phase": "brightness78_dc0_0",
+      "page": 0,
+      "payload": "51 13 c7",
+      "dbv_big_endian": 5063
+    },
+    {
+      "timestamp": 5419.330545,
+      "phase": "brightness78_dc0_0",
+      "page": 0,
+      "payload": "51 14 24",
+      "dbv_big_endian": 5156
+    },
+    {
+      "timestamp": 5419.338937,
+      "phase": "brightness78_dc0_0",
+      "page": 0,
+      "payload": "51 14 4d",
+      "dbv_big_endian": 5197
+    },
+    {
+      "timestamp": 5430.514028,
+      "phase": "brightness78_dc0_2",
+      "page": 0,
+      "payload": "51 14 3b",
+      "dbv_big_endian": 5179
+    },
+    {
+      "timestamp": 5430.521998,
+      "phase": "brightness78_dc0_2",
+      "page": 0,
+      "payload": "51 13 de",
+      "dbv_big_endian": 5086
+    },
+    {
+      "timestamp": 5430.532584,
+      "phase": "brightness78_dc0_2",
+      "page": 0,
+      "payload": "51 13 82",
+      "dbv_big_endian": 4994
+    },
+    {
+      "timestamp": 5430.539565,
+      "phase": "brightness78_dc0_2",
+      "page": 0,
+      "payload": "51 13 26",
+      "dbv_big_endian": 4902
+    },
+    {
+      "timestamp": 5430.547115,
+      "phase": "brightness78_dc0_2",
+      "page": 0,
+      "payload": "51 12 c9",
+      "dbv_big_endian": 4809
+    },
+    {
+      "timestamp": 5430.555176,
+      "phase": "brightness78_dc0_2",
+      "page": 0,
+      "payload": "51 12 6d",
+      "dbv_big_endian": 4717
+    },
+    {
+      "timestamp": 5430.563555,
+      "phase": "brightness40_dc0_3",
+      "page": 0,
+      "payload": "51 12 11",
+      "dbv_big_endian": 4625
+    },
+    {
+      "timestamp": 5430.572039,
+      "phase": "brightness40_dc0_3",
+      "page": 0,
+      "payload": "51 11 b4",
+      "dbv_big_endian": 4532
+    },
+    {
+      "timestamp": 5430.580203,
+      "phase": "brightness40_dc0_3",
+      "page": 0,
+      "payload": "51 11 58",
+      "dbv_big_endian": 4440
+    },
+    {
+      "timestamp": 5430.588696,
+      "phase": "brightness40_dc0_3",
+      "page": 0,
+      "payload": "51 10 fb",
+      "dbv_big_endian": 4347
+    },
+    {
+      "timestamp": 5430.598407,
+      "phase": "brightness40_dc0_3",
+      "page": 0,
+      "payload": "51 10 9f",
+      "dbv_big_endian": 4255
+    },
+    {
+      "timestamp": 5430.608038,
+      "phase": "brightness40_dc0_3",
+      "page": 0,
+      "payload": "51 10 43",
+      "dbv_big_endian": 4163
+    },
+    {
+      "timestamp": 5430.616109,
+      "phase": "brightness40_dc0_3",
+      "page": 0,
+      "payload": "51 0f e6",
+      "dbv_big_endian": 4070
+    },
+    {
+      "timestamp": 5430.623787,
+      "phase": "brightness40_dc0_3",
+      "page": 0,
+      "payload": "51 0f 8a",
+      "dbv_big_endian": 3978
+    },
+    {
+      "timestamp": 5430.632766,
+      "phase": "brightness40_dc0_3",
+      "page": 0,
+      "payload": "51 0f 2d",
+      "dbv_big_endian": 3885
+    },
+    {
+      "timestamp": 5430.640211,
+      "phase": "brightness40_dc0_3",
+      "page": 0,
+      "payload": "51 0e d1",
+      "dbv_big_endian": 3793
+    },
+    {
+      "timestamp": 5430.648551,
+      "phase": "brightness40_dc0_3",
+      "page": 0,
+      "payload": "51 0e 75",
+      "dbv_big_endian": 3701
+    },
+    {
+      "timestamp": 5430.656881,
+      "phase": "brightness40_dc0_3",
+      "page": 0,
+      "payload": "51 0e 18",
+      "dbv_big_endian": 3608
+    },
+    {
+      "timestamp": 5430.665141,
+      "phase": "brightness40_dc0_3",
+      "page": 0,
+      "payload": "51 0d bc",
+      "dbv_big_endian": 3516
+    },
+    {
+      "timestamp": 5430.673501,
+      "phase": "brightness40_dc0_3",
+      "page": 0,
+      "payload": "51 0d 5f",
+      "dbv_big_endian": 3423
+    },
+    {
+      "timestamp": 5430.681854,
+      "phase": "brightness40_dc0_3",
+      "page": 0,
+      "payload": "51 0d 03",
+      "dbv_big_endian": 3331
+    },
+    {
+      "timestamp": 5430.690368,
+      "phase": "brightness40_dc0_3",
+      "page": 0,
+      "payload": "51 0c a7",
+      "dbv_big_endian": 3239
+    },
+    {
+      "timestamp": 5430.698686,
+      "phase": "brightness40_dc0_3",
+      "page": 0,
+      "payload": "51 0c 4a",
+      "dbv_big_endian": 3146
+    },
+    {
+      "timestamp": 5430.707554,
+      "phase": "brightness40_dc0_3",
+      "page": 0,
+      "payload": "51 0b ee",
+      "dbv_big_endian": 3054
+    },
+    {
+      "timestamp": 5430.715391,
+      "phase": "brightness40_dc0_3",
+      "page": 0,
+      "payload": "51 0b 91",
+      "dbv_big_endian": 2961
+    },
+    {
+      "timestamp": 5430.723714,
+      "phase": "brightness40_dc0_3",
+      "page": 0,
+      "payload": "51 0b 35",
+      "dbv_big_endian": 2869
+    },
+    {
+      "timestamp": 5430.732056,
+      "phase": "brightness40_dc0_3",
+      "page": 0,
+      "payload": "51 0b 17",
+      "dbv_big_endian": 2839
+    }
+  ],
+  "optical_hz": "unknown",
+  "cleanup_verified": true,
+  "settled_dbv": {
+    "android78": {
+      "sysfs": 5197,
+      "wire_payload": "51 14 4d"
+    },
+    "android40": {
+      "sysfs": 2839,
+      "wire_payload": "51 0b 17"
+    }
+  },
+  "software_display_mode": {
+    "peak_refresh_rate": 120.00001,
+    "vsync_rate": 120.00001,
+    "render_frame_rates": [
+      120.00001
+    ]
+  },
+  "known_transfer_failure_logs": [],
+  "phase_marker_caveat": "Markers label requested next phase, not immediate hardware state. Initial dc-on set inside first dc0 phase occurs before the UI OFF tap while waking with the preparation setting still ON."
+}

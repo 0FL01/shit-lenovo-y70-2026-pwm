@@ -1,0 +1,374 @@
+{
+  "version": 1,
+  "collection": {
+    "started_at_utc": "2026-10-28T17:43:46Z",
+    "last_batch_at_utc": "2026-10-28T17:49:02Z",
+    "status": "confirmed-on-target",
+    "transport": "One authorized ADB device; transport identifier omitted",
+    "adb_host_version": "1.0.41 / 37.0.0-android-tools",
+    "access": "uid=2000(shell), context=u:r:shell:s0; SELinux Enforcing",
+    "device_mutations": [],
+    "method": "Read-only adb shell queries; adb exec-out cat for selected vendor configuration files. No adb root, su, reboot, fastboot, settings writes, raw block-partition reads or explicit DSI transactions.",
+    "privacy": "Serial, IMEI, Android ID, MAC, SSID, tokens, panelCellId and physical display unique IDs are not retained. Full getprop/settings/dumpsys responses were filtered in host memory; only the selected observations below are retained.",
+    "collector_note": "06-tools/collect_readonly.sh was inspected, not executed. Equivalent bounded queries were used so unrestricted dumps and unreviewed identifiers would not be written into the workspace.",
+    "empty_property_semantics": "An empty getprop result means unset or unavailable to shell, not a false value."
+  },
+  "identity": {
+    "status": "confirmed-on-target",
+    "command": "adb shell getprop <key> (each key below)",
+    "properties": {
+      "ro.product.model": "motorola edge 70 max",
+      "ro.product.device": "avr",
+      "ro.product.vendor.device": "avr",
+      "ro.product.manufacturer": "motorola",
+      "ro.product.board": "avr",
+      "ro.product.name": "avr_g",
+      "ro.product.vendor.model": "avr",
+      "ro.product.vendor.name": "avr_g",
+      "ro.product.odm.model": "avr",
+      "ro.product.system.model": "motorola edge 70 max",
+      "ro.product.bootimage.model": "avr",
+      "ro.boot.hardware.revision": "pvt",
+      "ro.boot.hardware": "qcom",
+      "ro.boot.hwrev": "",
+      "ro.boot.product.hardware.sku": "dne",
+      "ro.boot.hardware.sku": "XT2611-1",
+      "ro.carrier": "teleu",
+      "ro.soc.manufacturer": "QTI",
+      "ro.soc.model": "SM8845",
+      "ro.board.platform": "canoe"
+    },
+    "interpretation": "The target reports boot hardware SKU XT2611-1 and revision pvt while Android identifies as global motorola edge 70 max / avr_g. These are software observations, not an independent physical board inspection."
+  },
+  "build": {
+    "status": "confirmed-on-target",
+    "command": "adb shell getprop <key> (each key below)",
+    "properties": {
+      "ro.build.display.id": "W3WWS36.65-64-4-1",
+      "ro.build.fingerprint": "motorola/avr_g/avr:16/W3WWS36.65-64-4-1/c9a7f-8fbf58:user/release-keys",
+      "ro.vendor.build.fingerprint": "motorola/avr_g/avr:16/WWWS36V.65-64-ST9.5/c9a7f:user/release-keys",
+      "ro.bootimage.build.fingerprint": "motorola/avr_g/avr:16/WWWS36V.65-64-ST9.5/c9a7f:user/release-keys",
+      "ro.build.version.release": "16",
+      "ro.build.version.sdk": "36",
+      "ro.build.version.incremental": "c9a7f-8fbf58",
+      "ro.build.version.security_patch": "2026-10-01",
+      "ro.vendor.build.security_patch": "2026-10-01",
+      "ro.build.type": "user",
+      "ro.build.tags": "release-keys",
+      "ro.product.first_api_level": "36"
+    },
+    "pre_ota_2026_10_28": {
+      "display_id": "W3WW36.65-64-4",
+      "fingerprint": "motorola/avr_g/avr:16/W3WW36.65-64-4/74ded8-48cd7:user/release-keys",
+      "vendor_fingerprint": "motorola/avr_g/avr:16/WWW36V.65-64-ST9.5/74ded8:user/release-keys",
+      "incremental": "74ded8-48cd7",
+      "security_patch": "2026-08-01",
+      "kernel": "6.12.58-android16-6-gb0a9599c6c01-ab14987696-4k"
+    },
+    "matching_archive_candidate": {
+      "status": "reported",
+      "filename": "XT2611-3_AVR_RETEU_16_W3WW36.65-64-4_subsidy-DEFAULT_regulatory-DEFAULT_cid50_CFC.xml.zip",
+      "index_url": "https://mirrors.lolinet.com/firmware/lenomola/2026/avr/official/TELEU/",
+      "verification": "Matches the pre-OTA build W3WW36.65-64-4 only; after the 2026-10-28 OTA the unit runs W3WWS36.65-64-4-1. Archive has not been compared with target binaries. Different hardware SKU: offline reference only, not a verified backup or flash candidate."
+    }
+  },
+  "kernel": {
+    "status": "confirmed-on-target",
+    "uname_command": "adb shell uname -a",
+    "uname": "Linux localhost 6.12.58-android16-6-g09eda8c8505a-ab15950084-4k #1 SMP PREEMPT Mon Jul 27 12:15:30 UTC 2026 aarch64 Toybox",
+    "version_command": "adb shell cat /proc/version",
+    "version": "Linux version 6.12.58-android16-6-g09eda8c8505a-ab15950084-4k (kleaf@build-host) (Android (14043575, +pgo, +bolt, +lto, +mlgo, based on r536225) clang version 19.0.1 (https://android.googlesource.com/toolchain/llvm-project b3a530ec6537146650e42be89f1089e9a3588460), LLD 19.0.1) #1 SMP PREEMPT Mon Jul 27 12:15:30 UTC 2026",
+    "pre_ota_2026_10_28": "6.12.58-android16-6-gb0a9599c6c01-ab14987696-4k, built Fri Mar 6 03:47:51 UTC 2026",
+    "source_match_status": "unknown",
+    "source_match_note": "The published CN MMI-W3WWL36.65-11-18 tag is not established as matching this global build. Its issue reporter's g18b507169406-ab14630870 kernel string differs from the target's g09eda8c8505a-ab15950084. Same 6.12.58 alone does not establish KMI or image compatibility."
+  },
+  "boot_policy": {
+    "status": "confirmed-on-target",
+    "command": "adb shell getprop <key> (each key below)",
+    "properties": {
+      "ro.boot.verifiedbootstate": "green",
+      "ro.boot.vbmeta.device_state": "locked",
+      "ro.boot.flash.locked": "1",
+      "ro.boot.slot_suffix": "_a",
+      "ro.boot.bootloader": "MBM-3.0-avr_g-0d80517c428a-dirty-260805-WWW36V.65-64-ST9.5-74ded8",
+      "ro.boot.veritymode": "enforcing",
+      "ro.boot.avb_version": "1.3",
+      "ro.boot.vbmeta.avb_version": "1.3",
+      "ro.adb.secure": "1",
+      "ro.debuggable": "0"
+    },
+    "interpretation": "At the 2026-10-28 read-only snapshot Android reported a LOCKED bootloader and verified green boot, active slot a. The prior later-unlock report was corrected on 2026-11-06: only Android OEM unlocking enabled. Fresh ADB still reports locked/green, now slot b; see artifacts/unlock_pwm_recon_2026-11-06.md. Original snapshot values below are unchanged.",
+    "fastboot_confirmation": "not performed; phone was not rebooted",
+    "temporary_boot_support": null,
+    "rollback_indices": null,
+    "signer_identity": null,
+    "matching_original_boot_image": null
+  },
+  "display": {
+    "status": "confirmed-on-target",
+    "connector": "/sys/class/drm/card0-DSI-1",
+    "connector_resolved_path": "/sys/devices/platform/soc/9800000.qcom,mdss_mdp/drm/card0/card0-DSI-1",
+    "backlight": "/sys/class/backlight/panel0-backlight",
+    "driver_module_resolved_path": "/sys/module/msm_drm",
+    "path_commands": [
+      "adb shell ls -la /sys/class/drm /sys/class/backlight",
+      "adb shell readlink -f /sys/class/drm/card0-DSI-1",
+      "adb shell readlink -f /sys/devices/platform/soc/9800000.qcom,mdss_mdp/driver/module"
+    ],
+    "surfaceflinger": {
+      "command": "adb shell dumpsys SurfaceFlinger",
+      "active_mode_excerpt": "activeMode={id=0, hwcId=0, resolution=1440x3168, vsyncRate=120.00 Hz, dpi=508.00x512.53, group=0x3, vrrConfig=N/A, supportedHdrTypes=SYSTEM}",
+      "sdm_mode": "Command",
+      "sdm_max_brightness": 16180,
+      "sdm_left_split": 720,
+      "sdm_right_split": 720,
+      "identification_command": "adb shell dumpsys SurfaceFlinger --display-id",
+      "identification_selected_fields": "HWC display 0; port=147; pnpId=QCM; displayName empty",
+      "identification_note": "Generic Qualcomm identification, not proof of panel supplier, IC or revision. Physical display unique ID omitted."
+    },
+    "display_manager": {
+      "command": "adb shell dumpsys display",
+      "width": 1440,
+      "height": 3168,
+      "supported_refresh_rates_hz": [
+        120.00001,
+        144.00002,
+        90.0,
+        60.000004,
+        30.000002,
+        24.000002
+      ],
+      "active_framework_mode_id": 1,
+      "active_surfaceflinger_mode_id": 0,
+      "state_during_dump": "OFF",
+      "brightness_reason_during_dump": "screen_off",
+      "screen_brightness_during_dump": 0.0,
+      "note": "Modes are software-reported timings. In particular, cached active 120 Hz while screen OFF is not a measurement of physical refresh or PWM. The collector did not wake the screen."
+    },
+    "settings": {
+      "command": "adb shell settings list <system|secure|global>; retain brightness/refresh and flicker/dimming/pwm/DC/low-light candidate keys only",
+      "system": {
+        "peak_refresh_rate": "120.0",
+        "screen_brightness": "76",
+        "screen_brightness_mode": "1"
+      },
+      "flicker_related_matches": [],
+      "flicker_key_search": "Case-insensitive flicker, dimm, pwm, low_light/lowlight, anti, and dc as underscore-delimited component across system, secure, global key names",
+      "flicker_prevention_runtime_state": null,
+      "owner_reported_flicker_prevention": "ON",
+      "note": "Brightness mode 1 denotes automatic brightness. Stored brightness is not optical luminance. Absence of matching Settings keys neither locates the UI switch nor proves that it is inactive. No off/on experiment was performed."
+    },
+    "properties_command": "adb shell getprop <key> (each key below)",
+    "properties": {
+      "ro.boot.vendor.qspa.display": "enabled",
+      "ro.boot.vendor.qspa.display1": "enabled",
+      "ro.vendor.display.paneltype": "2",
+      "ro.vendor.display.sensortype": "2",
+      "init.svc.panel-aidl-service": "running",
+      "init.svc.qti_display_boot": "stopped",
+      "vendor.display.foss.config": "1",
+      "vendor.display.foss.config_path": "/vendor/etc/display/FOSSConfig.xml",
+      "vendor.display.hbm_brightness_level_dvb": "12150",
+      "vendor.display.enable_brightness_drm_prop": "1",
+      "vendor.display.disable_stc_dimming": "1",
+      "vendor.display.disable_sdr_dimming": "0",
+      "vendor.display.boost_RR_during_brightness_dimming": "1",
+      "debug.sf.brightness_diming_boost_refreshrate": "60",
+      "ro.sf.lcd_density": "520",
+      "vendor.display.lcd_density": "560"
+    },
+    "property_note": "Numeric paneltype/sensortype values and dimming-related property names are retained as observations only; their semantics and relationship to the Flicker prevention control are unproven.",
+    "panel_identity": {
+      "exact_panel_status": "unknown",
+      "exact_panel": null,
+      "revision": null,
+      "candidate_status": "hypothesis",
+      "candidate": "mipi_mot_cmd_boe_1440p_dsc_682 / BOE ILI97701A family",
+      "evidence": "Installed QDCM JSON contains top-level key mipi_mot_cmd_boe_1440p_dsc_682; matching C3D filenames exist; software-reported resolution is 1440x3168. Corresponding published AVR DTS references ILI97701A variants, but live panel selection cannot be read.",
+      "optical_pwm_hz": null
+    }
+  },
+  "display_stack": {
+    "status": "confirmed-on-target",
+    "service_list_command": "adb shell service list (display/composer services retained only)",
+    "services": [
+      "SurfaceFlinger",
+      "SurfaceFlingerAIDL",
+      "android.hardware.graphics.composer3.IComposer/default",
+      "com.motorola.hardware.display.panel.IDisplayPanel/default",
+      "vendor.qti.hardware.display.aiqe.IDisplayAiqe/default",
+      "vendor.qti.hardware.display.color.IDisplayColor/default",
+      "vendor.qti.hardware.display.config.IDisplayConfig/default",
+      "vendor.qti.hardware.display.postproc.IDisplayPostproc/default"
+    ],
+    "manifest_versions": {
+      "com.motorola.hardware.display.panel": 2,
+      "android.hardware.graphics.composer3": 4,
+      "vendor.qti.hardware.display.aiqe": 3,
+      "vendor.qti.hardware.display.config": 13
+    },
+    "panel_init_service": "panel-aidl-service /vendor/bin/hw/com.motorola.hardware.display.panel-service; class hal; user system; group system",
+    "composer_init_service": "vendor.qti.hardware.display.composer /vendor/bin/hw/vendor.qti.hardware.display.composer-service; class hal animation; user system; group graphics drmrpc",
+    "loaded_module_command": "adb shell cat /proc/modules (relevant line retained)",
+    "loaded_module_excerpt": "msm_drm 3338240 23 - Live 0x0000000000000000 (O)",
+    "vendor_module_directory_command": "adb shell readlink -f /vendor/lib/modules",
+    "vendor_module_directory": "/vendor_dlkm/lib/modules",
+    "module_file_candidate": "/vendor_dlkm/lib/modules/msm_drm.ko",
+    "module_file_candidate_note": "Name encountered during directory enumeration; stat/content/hash access denied. Loaded module is confirmed independently by /proc/modules and driver/module symlink. File-to-loaded-module hash equivalence and vermagic remain unknown.",
+    "flicker_control_callgraph_status": "unknown"
+  },
+  "partitions": {
+    "status": "confirmed-on-target",
+    "listing_command": "adb shell ls /dev/block/by-name (relevant names retained; no partition contents read)",
+    "relevant_names": [
+      "boot_a",
+      "boot_b",
+      "init_boot_a",
+      "init_boot_b",
+      "vendor_boot_a",
+      "vendor_boot_b",
+      "dtbo_a",
+      "dtbo_b",
+      "vbmeta_a",
+      "vbmeta_b",
+      "vbmeta_system_a",
+      "vbmeta_system_b",
+      "recovery_a",
+      "recovery_b",
+      "super",
+      "pvmfw_a",
+      "pvmfw_b"
+    ],
+    "dynamic_partitions": "enabled",
+    "virtual_ab": "enabled",
+    "feature_commands": [
+      "adb shell getprop ro.boot.dynamic_partitions",
+      "adb shell getprop ro.virtual_ab.enabled"
+    ],
+    "mounts_command": "adb shell cat /proc/mounts (vendor, vendor_dlkm, system_dlkm, odm retained)",
+    "mounts": [
+      "/dev/block/dm-11 /vendor erofs ro,seclabel,relatime,user_xattr,acl,cache_strategy=readaround 0 0",
+      "/dev/block/dm-12 /vendor_dlkm erofs ro,seclabel,relatime,user_xattr,acl,cache_strategy=readaround 0 0",
+      "/dev/block/dm-13 /system_dlkm erofs ro,seclabel,relatime,user_xattr,acl,cache_strategy=readaround 0 0",
+      "/dev/block/dm-14 /odm erofs ro,seclabel,relatime,user_xattr,acl,cache_strategy=readaround 0 0"
+    ]
+  },
+  "target_files": {
+    "status": "confirmed-on-target",
+    "provenance": "Bytes read or hashed from this target's installed vendor filesystem during this collection, not from a downloaded ROM. Contents were not executed. Whole-file hashes, not hashes of permission error messages.",
+    "commands": [
+      "adb exec-out cat <selected init RC or VINTF XML path>; SHA256 calculated in host memory after inspecting content",
+      "adb shell sha256sum <selected display config or library path>",
+      "adb shell stat -c '%s %n' <selected display config or library path>"
+    ],
+    "files": [
+      {
+        "path": "/vendor/etc/init/com.motorola.hardware.display.panel-service.rc",
+        "size_bytes": 133,
+        "sha256": "150d1fdf308e20dab83cabf01c993088cf5e5e3e926b87eacb3e439a296e52f7"
+      },
+      {
+        "path": "/vendor/etc/vintf/manifest/com.motorola.hardware.display.panel-service.xml",
+        "size_bytes": 351,
+        "sha256": "31f16817c400cef42832c01edf3143a886d401ee2cb8cec365229cccace47afe"
+      },
+      {
+        "path": "/vendor/etc/init/vendor.qti.hardware.display.composer-service.rc",
+        "size_bytes": 324,
+        "sha256": "3c9608c7ba15731bf8170407470ed5cdf66d6ed91087cfcb1c70ad8bc08ac87f"
+      },
+      {
+        "path": "/vendor/etc/vintf/manifest/vendor.qti.hardware.display.composer-service3_v4.xml",
+        "size_bytes": 940,
+        "sha256": "5ac10bb33a56d43719144d5b09463d06dc13e70e0cfffc4230f5cd91f94d1328"
+      },
+      {
+        "path": "/vendor/etc/init/init.qti.display_boot.rc",
+        "size_bytes": 1741,
+        "sha256": "21de1b2cbdb30bfb976d53f2e7c2fb165ba105731a8a7152068f0a608490cefa"
+      },
+      {
+        "path": "/vendor/etc/display/qdcm_calib_data_mipi_mot_cmd_boe_1440p_dsc_682.json",
+        "size_bytes": 1058416,
+        "sha256": "bda2618a08c53244d90a913c167d40ba386e954f02737ef6423bf79e735ca1db"
+      },
+      {
+        "path": "/vendor/etc/display/panel_mipi_mot_cmd_boe_1440p_dsc_682_C3D_cali_p3.txt",
+        "size_bytes": 143565,
+        "sha256": "737704d9faba20c5baeeb1667013c817ebd5626e941da9c66d04e63d413ab2e8"
+      },
+      {
+        "path": "/vendor/etc/display/panel_mipi_mot_cmd_boe_1440p_dsc_682_C3D_cali_pcc.txt",
+        "size_bytes": 164,
+        "sha256": "f1e501d93ce19112c6df168df7f242df7872696993c164f9f77e54a2f2022f45"
+      },
+      {
+        "path": "/vendor/etc/display/panel_mipi_mot_cmd_boe_1440p_dsc_682_C3D_cali_srgb.txt",
+        "size_bytes": 144726,
+        "sha256": "9be21b8918e5a5f61f55c8b3f87999850dd3d1832b97f0e830881a8fb6ddeea6"
+      },
+      {
+        "path": "/vendor/etc/display/FOSSConfig.xml",
+        "size_bytes": 5053,
+        "sha256": "1b146eb17349457a2403204cdaf26d1ad7a00a5b100523b585ed3280839ccb8a"
+      },
+      {
+        "path": "/vendor/lib64/libqservice.so",
+        "size_bytes": 85416,
+        "sha256": "5cdf39ff082c02a89fbe8e7501868fb3f8d951bedcd6177c622afcf9068b1428"
+      }
+    ],
+    "qdcm_json_top_level_keys": [
+      "COPYRIGHT",
+      "Common",
+      "Version",
+      "mipi_mot_cmd_boe_1440p_dsc_682"
+    ]
+  },
+  "access_limits": {
+    "status": "confirmed-on-target",
+    "metadata_listing_command": "adb shell ls -la /sys/class/drm/card0-DSI-1/",
+    "panel_attributes_listed_but_unreadable": [
+      "panelName",
+      "panelSupplier",
+      "panelId",
+      "panelVer",
+      "panelDC"
+    ],
+    "panel_read_command": "adb shell cat /sys/class/drm/card0-DSI-1/<attribute>",
+    "panel_read_result": "Permission denied for each of the five attributes",
+    "denied_paths": [
+      "/sys/module/msm_drm/parameters/dsi_display0",
+      "/sys/module/msm_drm/parameters/dsi_display1",
+      "/sys/class/backlight/panel0-backlight/",
+      "/proc/device-tree/chosen/",
+      "/proc/device-tree/soc/",
+      "/proc/device-tree/model",
+      "/proc/device-tree/compatible",
+      "/proc/device-tree/qcom,msm-id",
+      "/proc/device-tree/qcom,board-id",
+      "/proc/cmdline",
+      "/proc/bootconfig",
+      "/vendor_dlkm/lib/modules/msm_drm.ko",
+      "/vendor/bin/init.qti.display_boot.sh",
+      "/vendor/bin/hw/com.motorola.hardware.display.panel-service",
+      "/vendor/bin/hw/vendor.qti.hardware.display.composer-service",
+      "/vendor/lib64/libsdmcore.so",
+      "/vendor/lib64/libsdmextension.so"
+    ],
+    "kernel_log_command": "adb shell dmesg",
+    "kernel_log_result": "dmesg: klogctl: Permission denied",
+    "panel_service_dump_command": "adb shell dumpsys com.motorola.hardware.display.panel.IDisplayPanel/default",
+    "panel_service_dump_result": "FAILED_TRANSACTION",
+    "qti_config_dump_command": "adb shell dumpsys vendor.qti.hardware.display.config.IDisplayConfig/default",
+    "qti_config_dump_result": "Empty output; no panel identity or DC state established",
+    "exit_code_caveat": "Some adb exec-out cat and dumpsys calls returned exit 0 while reporting Permission denied or FAILED_TRANSACTION. Such responses are failures, not valid file contents or hashes.",
+    "intentionally_not_read": [
+      "panelCellId",
+      "panelRegDA",
+      "panelPcdCheck",
+      "panelPcdValue"
+    ],
+    "safety": "No permission changes, SELinux changes, privilege escalation, debug-node writes, service calls by guessed transaction number or explicit DSI commands were attempted."
+  }
+}

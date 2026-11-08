@@ -1,0 +1,11 @@
+{
+  "source_member": "vendor_boot.img",
+  "ramdisk": "vendor_ramdisk00",
+  "uncompressed_cpio_bytes": 31759104,
+  "cpio_entries": 342,
+  "module_member": "lib/modules/msm_drm.ko",
+  "module_bytes": 6071656,
+  "module_sha256": "d3519a51bf9a74e02448c455349f8e69fccca1aa316a7be4951ada76c6b8b52d",
+  "byte_equal_target": false,
+  "device_io": false
+}

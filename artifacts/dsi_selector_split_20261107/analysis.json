@@ -1,0 +1,244 @@
+{
+  "capture": "artifacts/dsi_selector_split_20261107/run.json",
+  "video": "artifacts/optical/pacman_dsi_selector_split_20261107.mp4",
+  "video_bytes": 103796146,
+  "decoded_frames": 2679,
+  "roi_xywh": [
+    540,
+    190,
+    60,
+    500
+  ],
+  "stages": [
+    {
+      "label": "baseline",
+      "window_s": [
+        13.5765075,
+        16.076507499999998
+      ],
+      "frames": 75,
+      "dominant_period_px": 94.14225941422593,
+      "spectral_search_boundary": false,
+      "q93_rms_Y_codes": 4.427155110924245,
+      "mean_Y_minus16": 17.442286666666668,
+      "normalized_q": 0.25381735752484924,
+      "pixel_Y_min": 15,
+      "pixel_Y_max": 44,
+      "fraction_Y_ge235": 0.0,
+      "readback": {
+        "23:A9": [
+          14
+        ],
+        "24:9D": [
+          14
+        ],
+        "00:52": [
+          14,
+          16
+        ]
+      }
+    },
+    {
+      "label": "a9_only",
+      "window_s": [
+        29.955022,
+        32.455022
+      ],
+      "frames": 75,
+      "dominant_period_px": null,
+      "spectral_search_boundary": true,
+      "q93_rms_Y_codes": 1.0228040998391996,
+      "mean_Y_minus16": 18.462147111111108,
+      "normalized_q": 0.05540006228331067,
+      "pixel_Y_min": 14,
+      "pixel_Y_max": 45,
+      "fraction_Y_ge235": 0.0,
+      "readback": {
+        "23:A9": [
+          142
+        ],
+        "24:9D": [
+          14
+        ],
+        "00:52": [
+          14,
+          16
+        ]
+      },
+      "normalized_q_ratio_to_adjacent_stock": 0.2241832864389273,
+      "mean_signal_ratio_to_adjacent_stock": 1.0592530297781613
+    },
+    {
+      "label": "return_a9_only",
+      "window_s": [
+        46.509876500000004,
+        49.009876500000004
+      ],
+      "frames": 75,
+      "dominant_period_px": 93.74999999999999,
+      "spectral_search_boundary": false,
+      "q93_rms_Y_codes": 4.187307908244633,
+      "mean_Y_minus16": 17.416517777777777,
+      "normalized_q": 0.24042164809703442,
+      "pixel_Y_min": 14,
+      "pixel_Y_max": 45,
+      "fraction_Y_ge235": 0.0,
+      "readback": {
+        "23:A9": [
+          14
+        ],
+        "24:9D": [
+          14
+        ],
+        "00:52": [
+          14,
+          16
+        ]
+      }
+    },
+    {
+      "label": "9d_only",
+      "window_s": [
+        63.221453499999996,
+        65.7214535
+      ],
+      "frames": 75,
+      "dominant_period_px": 94.14225941422593,
+      "spectral_search_boundary": false,
+      "q93_rms_Y_codes": 4.3140056069798085,
+      "mean_Y_minus16": 17.40297422222222,
+      "normalized_q": 0.24788898448583374,
+      "pixel_Y_min": 14,
+      "pixel_Y_max": 45,
+      "fraction_Y_ge235": 0.0,
+      "readback": {
+        "23:A9": [
+          14
+        ],
+        "24:9D": [
+          142
+        ],
+        "00:52": [
+          14,
+          16
+        ]
+      },
+      "normalized_q_ratio_to_adjacent_stock": 1.0210592164486039,
+      "mean_signal_ratio_to_adjacent_stock": 0.996145993610593
+    },
+    {
+      "label": "return_9d_only",
+      "window_s": [
+        80.121748,
+        82.621748
+      ],
+      "frames": 75,
+      "dominant_period_px": 93.9457202505219,
+      "spectral_search_boundary": false,
+      "q93_rms_Y_codes": 4.2956975535020065,
+      "mean_Y_minus16": 17.524091999999996,
+      "normalized_q": 0.24513096333333603,
+      "pixel_Y_min": 15,
+      "pixel_Y_max": 45,
+      "fraction_Y_ge235": 0.0,
+      "readback": {
+        "23:A9": [
+          14
+        ],
+        "24:9D": [
+          14
+        ],
+        "00:52": [
+          14,
+          16
+        ]
+      }
+    }
+  ],
+  "method": "Original limited-range Y; temporal mean removal per stage, per-frame quadratic detrend, Hann spatial Fourier. q93 is an image component, not Hz/depth. Comparison images alone use equal gamma2.",
+  "window_alignment": "Coarse native record-tap origin, central2.5s windows inside7s holds; contact-sheet inspection required. No sensor-to-video timestamp accuracy claim.",
+  "native": {
+    "table_packets_matched": 375,
+    "post_table_DBV_writes": 5,
+    "callback_returns": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "controller_return_count": 444,
+    "controller_negative_returns": 0,
+    "probe_misses": 0,
+    "short_read_count": 15,
+    "page_selectors_verified": 36,
+    "esd_restored": true,
+    "no_additional_writes_during_holds": true
+  },
+  "pwm_hz": "unknown",
+  "greater_equal_2000_hz_verified": false,
+  "target_restored": true,
+  "camera_original_restoration_pending": true,
+  "comparison_image": "artifacts/optical/pacman_dsi_selector_split_comparison_20261107.png",
+  "limits": [
+    "Image amplitude is not calibrated modulation depth/luminance.",
+    "Same DBV does not guarantee same optical brightness across programs.",
+    "No independently measured panel temperature or numerical carrier frequency."
+  ]
+}

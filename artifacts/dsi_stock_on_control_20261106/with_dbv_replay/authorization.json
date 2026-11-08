@@ -1,0 +1,7 @@
+{
+  "recorded_at_utc": "2026-11-06T20:36:24.509447+00:00",
+  "scope_basis": "Existing autonomous stock DC/camera testing; exact unchanged native tables plus standard same-value brightness setter, no additional hybrid candidate.",
+  "proposal": "artifacts/dsi_stock_on_control_20261106/with_dbv_replay/proposal.md",
+  "operation": "StockOFF+DBV3600 -> stockON+DBV3600 -> stockOFF+DBV3600;7s each, native guards/optical recording/stock-policy return. Normal reboot if uncertain.",
+  "custom_bytes": 0
+}

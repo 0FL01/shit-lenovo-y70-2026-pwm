@@ -1,0 +1,53 @@
+{
+  "scope": "Offline current-target mot_tcmd stored ELF; narrow CRC/legacyDSI bodies, not all factory code",
+  "ranges": [
+    {
+      "name": "sigrsp-crc",
+      "start": "0xa49b8",
+      "end_exclusive": "0xa4cf4",
+      "raw_arm64_words_verified": 207,
+      "path": "/home/stfu/.cache/opencode-tmp/opencode/ddic-ec-semantics-20261107/sigrsp-crc.txt"
+    },
+    {
+      "name": "legacy-display-read-e5",
+      "start": "0x7f810",
+      "end_exclusive": "0x7f95c",
+      "raw_arm64_words_verified": 83,
+      "path": "/home/stfu/.cache/opencode-tmp/opencode/ddic-ec-semantics-20261107/legacy-display-read-e5.txt"
+    },
+    {
+      "name": "legacy-display-setup",
+      "start": "0x7efcc",
+      "end_exclusive": "0x7f030",
+      "raw_arm64_words_verified": 25,
+      "path": "/home/stfu/.cache/opencode-tmp/opencode/ddic-ec-semantics-20261107/legacy-display-setup.txt"
+    }
+  ],
+  "strings": {
+    "0x22eb9": "Checking SigRsp Version",
+    "0x1e207": "Checking SigRsp CRC",
+    "0x1bdaa": "Checking SigRsp CRC - Success",
+    "0xbe8a": "CID OVERRIDE: SigRsp Serial Number Type & Length",
+    "0xadac": "Check DB Signature",
+    "0x1eef3": "/vendor/bin/disp_util -lp -gh 0xe5 2",
+    "0x23c33": "0xE5 = 0x0 0xDE",
+    "0x2851f": "Successful validated hub to display communication",
+    "0x2a6de": "Sensor hub to Display handover is done",
+    "0x12574": "/vendor/bin/disp_util -lp -sh 0xf0 0x5a 0x5a",
+    "0x1ee4d": "/vendor/bin/disp_util -lp -sh 0xfc 0x5a 0x5a",
+    "0x2030f": "/vendor/bin/disp_util -lp -sh 0xe5 0x00 0x00"
+  },
+  "crc_table_va": "0x2c76c",
+  "crc_table_first8": [
+    "0x0",
+    "0x77073096",
+    "0xee0e612c",
+    "0x990951ba",
+    "0x76dc419",
+    "0x706af48f",
+    "0xe963a535",
+    "0x9e6495a3"
+  ],
+  "07:EC_semantics": "unknown",
+  "device_io": false
+}

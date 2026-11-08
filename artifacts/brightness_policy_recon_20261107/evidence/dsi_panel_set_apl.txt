@@ -1,0 +1,90 @@
+
+/mnt/kston/legion-Y70-madness/artifacts/kernel/gki_r59/target_vendor/msm_drm.ko:     file format elf64-littleaarch64
+
+
+Disassembly of section .text:
+
+00000000001b5a3c <dsi_panel_set_apl>:
+  1b5a3c:	d503233f 	paciasp
+  1b5a40:	a9bd7bfd 	stp	x29, x30, [sp, #-48]!
+  1b5a44:	a90157f6 	stp	x22, x21, [sp, #16]
+  1b5a48:	a9024ff4 	stp	x20, x19, [sp, #32]
+  1b5a4c:	910003fd 	mov	x29, sp
+  1b5a50:	b4000200 	cbz	x0, 1b5a90 <dsi_panel_set_apl+0x54>
+  1b5a54:	53107c28 	lsr	w8, w1, #16
+  1b5a58:	350001c8 	cbnz	w8, 1b5a90 <dsi_panel_set_apl+0x54>
+  1b5a5c:	3965b408 	ldrb	w8, [x0, #2413]
+  1b5a60:	36000188 	tbz	w8, #0, 1b5a90 <dsi_panel_set_apl+0x54>
+  1b5a64:	b9481409 	ldr	w9, [x0, #2068]
+  1b5a68:	39612008 	ldrb	w8, [x0, #2120]
+  1b5a6c:	6b01013f 	cmp	w9, w1
+  1b5a70:	54000262 	b.cs	1b5abc <dsi_panel_set_apl+0x80>  // b.hs, b.nlast
+  1b5a74:	370001a8 	tbnz	w8, #0, 1b5aa8 <dsi_panel_set_apl+0x6c>
+  1b5a78:	b9485008 	ldr	w8, [x0, #2128]
+  1b5a7c:	35000168 	cbnz	w8, 1b5aa8 <dsi_panel_set_apl+0x6c>
+  1b5a80:	2a0103f3 	mov	w19, w1
+  1b5a84:	52800034 	mov	w20, #0x1                   	// #1
+  1b5a88:	52810308 	mov	w8, #0x818                 	// #2072
+  1b5a8c:	14000010 	b	1b5acc <dsi_panel_set_apl+0x90>
+  1b5a90:	90000003 	adrp	x3, 0 <msm_hdcp_register_cb-0x4>
+			1b5a90: R_AARCH64_ADR_PREL_PG_HI21	.rodata+0x79243
+		; rodata string: '[msm-dsi-debug]: invalid params\n'
+  1b5a94:	91000063 	add	x3, x3, #0x0
+			1b5a94: R_AARCH64_ADD_ABS_LO12_NC	.rodata+0x79243
+		; rodata string: '[msm-dsi-debug]: invalid params\n'
+  1b5a98:	aa1f03e0 	mov	x0, xzr
+  1b5a9c:	aa1f03e1 	mov	x1, xzr
+  1b5aa0:	2a1f03e2 	mov	w2, wzr
+  1b5aa4:	94000000 	bl	0 <__drm_dev_dbg>
+			1b5aa4: R_AARCH64_CALL26	__drm_dev_dbg
+  1b5aa8:	a9424ff4 	ldp	x20, x19, [sp, #32]
+  1b5aac:	a94157f6 	ldp	x22, x21, [sp, #16]
+  1b5ab0:	a8c37bfd 	ldp	x29, x30, [sp], #48
+  1b5ab4:	d50323bf 	autiasp
+  1b5ab8:	d65f03c0 	ret
+  1b5abc:	34ffff68 	cbz	w8, 1b5aa8 <dsi_panel_set_apl+0x6c>
+  1b5ac0:	2a0103f3 	mov	w19, w1
+  1b5ac4:	2a1f03f4 	mov	w20, wzr
+  1b5ac8:	52810608 	mov	w8, #0x830                 	// #2096
+  1b5acc:	8b080001 	add	x1, x0, x8
+  1b5ad0:	aa0003f6 	mov	x22, x0
+  1b5ad4:	94003e63 	bl	1c5460 <dsi_panel_tx_send_mot_cmd>
+  1b5ad8:	b94816c3 	ldr	w3, [x22, #2068]
+  1b5adc:	2a0003f5 	mov	w21, w0
+  1b5ae0:	90000001 	adrp	x1, 0 <msm_hdcp_register_cb-0x4>
+			1b5ae0: R_AARCH64_ADR_PREL_PG_HI21	.rodata+0x51366
+  1b5ae4:	91000021 	add	x1, x1, #0x0
+			1b5ae4: R_AARCH64_ADD_ABS_LO12_NC	.rodata+0x51366
+  1b5ae8:	90000002 	adrp	x2, 0 <msm_hdcp_register_cb-0x4>
+			1b5ae8: R_AARCH64_ADR_PREL_PG_HI21	.rodata+0x71ca1
+		; rodata string: '[msm-dsi-info]: apl config apl_config.apl_threshold = %d apl_config.apl_state =%d,bl_lvl = %d\n'
+  1b5aec:	91000042 	add	x2, x2, #0x0
+			1b5aec: R_AARCH64_ADD_ABS_LO12_NC	.rodata+0x71ca1
+		; rodata string: '[msm-dsi-info]: apl config apl_config.apl_threshold = %d apl_config.apl_state =%d,bl_lvl = %d\n'
+  1b5af0:	aa1f03e0 	mov	x0, xzr
+  1b5af4:	2a1403e4 	mov	w4, w20
+  1b5af8:	2a1303e5 	mov	w5, w19
+  1b5afc:	392122d4 	strb	w20, [x22, #2120]
+  1b5b00:	94000000 	bl	0 <drm_dev_printk>
+			1b5b00: R_AARCH64_CALL26	drm_dev_printk
+  1b5b04:	34fffd35 	cbz	w21, 1b5aa8 <dsi_panel_set_apl+0x6c>
+  1b5b08:	f94002c3 	ldr	x3, [x22]
+  1b5b0c:	90000001 	adrp	x1, 0 <msm_hdcp_register_cb-0x4>
+			1b5b0c: R_AARCH64_ADR_PREL_PG_HI21	.rodata+0x51366
+  1b5b10:	91000021 	add	x1, x1, #0x0
+			1b5b10: R_AARCH64_ADD_ABS_LO12_NC	.rodata+0x51366
+  1b5b14:	90000002 	adrp	x2, 0 <msm_hdcp_register_cb-0x4>
+			1b5b14: R_AARCH64_ADR_PREL_PG_HI21	.rodata+0x62a3b
+		; rodata string: '[msm-dsi-info]: [%s] failed to send DSI_CMD_SET_APL cmd, rc=%d\n'
+  1b5b18:	91000042 	add	x2, x2, #0x0
+			1b5b18: R_AARCH64_ADD_ABS_LO12_NC	.rodata+0x62a3b
+		; rodata string: '[msm-dsi-info]: [%s] failed to send DSI_CMD_SET_APL cmd, rc=%d\n'
+  1b5b1c:	aa1f03e0 	mov	x0, xzr
+  1b5b20:	2a1503e4 	mov	w4, w21
+  1b5b24:	94000000 	bl	0 <drm_dev_printk>
+			1b5b24: R_AARCH64_CALL26	drm_dev_printk
+  1b5b28:	17ffffe0 	b	1b5aa8 <dsi_panel_set_apl+0x6c>
+
+Disassembly of section .init.text:
+
+Disassembly of section .exit.text:

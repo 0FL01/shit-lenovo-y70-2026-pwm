@@ -1,0 +1,632 @@
+{
+  "scope": "Existing target writes and raw archived read prefixes only; no device I/O",
+  "native_payloads": {
+    "off": {
+      "53:95": "00 a0",
+      "53:A2": "10 10 10 10 48 10 10 10 4b 4b 10 10 10 10 48 10 10 10 4b 4b 10 10 10 10 48 10 10 10 4b 4b",
+      "63:F1": "10 10 10 10 10 00 00 00 00 00 00 00 00 00 00 00",
+      "63:F2": "00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+      "63:F3": "00 00 00 00 00 20 20 20 20 20 00 00 00 00 00 00",
+      "63:F4": "00 00 00 00 00 f0 f0 f0 f0 f0 00 00 00 00 00 00",
+      "51:A1": "44 44 79 7b 22 22",
+      "51:A2": "7e 7e 85 85 22 22",
+      "52:81": "46 47 48 4b 00 00",
+      "52:82": "4e 4e 50 50 00 00"
+    },
+    "on": {
+      "53:95": "44 50",
+      "53:A2": "10 10 10 10 48 10 10 74 7b b4 10 10 10 10 48 10 10 74 7b b4 10 10 10 10 48 10 10 74 7b b4",
+      "63:F1": "10 10 10 10 10 00 00 00 00 00 00 00 00 00 00 00",
+      "63:F2": "00 00 00 00 00 20 20 20 20 20 00 00 00 00 00 00",
+      "63:F3": "00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+      "63:F4": "00 00 00 00 00 f0 f0 f0 f0 f0 00 00 00 00 00 00",
+      "51:A1": "44 44 79 79 22 22",
+      "51:A2": "78 78 78 78 22 22",
+      "52:81": "46 47 49 48 00 00",
+      "52:82": "4a 4a 4b 4b 00 00"
+    }
+  },
+  "archived_evidence": [
+    {
+      "state": "s1_dbv3584_120",
+      "passes": [
+        {
+          "pass": 1,
+          "scoped_prefix_matches": [
+            {
+              "key": "53:95",
+              "raw_line": 7319,
+              "prefix_bytes": 2
+            },
+            {
+              "key": "53:A2",
+              "raw_line": 7332,
+              "prefix_bytes": 30
+            },
+            {
+              "key": "63:F1",
+              "raw_line": 9459,
+              "prefix_bytes": 16
+            },
+            {
+              "key": "63:F2",
+              "raw_line": 9460,
+              "prefix_bytes": 16
+            },
+            {
+              "key": "63:F3",
+              "raw_line": 9461,
+              "prefix_bytes": 16
+            },
+            {
+              "key": "63:F4",
+              "raw_line": 9462,
+              "prefix_bytes": 16
+            },
+            {
+              "key": "51:A1",
+              "raw_line": 6307,
+              "prefix_bytes": 6
+            },
+            {
+              "key": "51:A2",
+              "raw_line": 6308,
+              "prefix_bytes": 6
+            },
+            {
+              "key": "52:81",
+              "raw_line": 6787,
+              "prefix_bytes": 6
+            },
+            {
+              "key": "52:82",
+              "raw_line": 6788,
+              "prefix_bytes": 6
+            }
+          ],
+          "five_quartets_of_eight_opcode_windows_equal": true
+        },
+        {
+          "pass": 2,
+          "scoped_prefix_matches": [
+            {
+              "key": "53:95",
+              "raw_line": 7575,
+              "prefix_bytes": 2
+            },
+            {
+              "key": "53:A2",
+              "raw_line": 7588,
+              "prefix_bytes": 30
+            },
+            {
+              "key": "63:F1",
+              "raw_line": 9715,
+              "prefix_bytes": 16
+            },
+            {
+              "key": "63:F2",
+              "raw_line": 9716,
+              "prefix_bytes": 16
+            },
+            {
+              "key": "63:F3",
+              "raw_line": 9717,
+              "prefix_bytes": 16
+            },
+            {
+              "key": "63:F4",
+              "raw_line": 9718,
+              "prefix_bytes": 16
+            },
+            {
+              "key": "51:A1",
+              "raw_line": 6563,
+              "prefix_bytes": 6
+            },
+            {
+              "key": "51:A2",
+              "raw_line": 6564,
+              "prefix_bytes": 6
+            },
+            {
+              "key": "52:81",
+              "raw_line": 7043,
+              "prefix_bytes": 6
+            },
+            {
+              "key": "52:82",
+              "raw_line": 7044,
+              "prefix_bytes": 6
+            }
+          ],
+          "five_quartets_of_eight_opcode_windows_equal": true
+        }
+      ]
+    },
+    {
+      "state": "s2_dbv3646_120",
+      "passes": [
+        {
+          "pass": 1,
+          "scoped_prefix_matches": [
+            {
+              "key": "53:95",
+              "raw_line": 7319,
+              "prefix_bytes": 2
+            },
+            {
+              "key": "53:A2",
+              "raw_line": 7332,
+              "prefix_bytes": 30
+            },
+            {
+              "key": "63:F1",
+              "raw_line": 9459,
+              "prefix_bytes": 16
+            },
+            {
+              "key": "63:F2",
+              "raw_line": 9460,
+              "prefix_bytes": 16
+            },
+            {
+              "key": "63:F3",
+              "raw_line": 9461,
+              "prefix_bytes": 16
+            },
+            {
+              "key": "63:F4",
+              "raw_line": 9462,
+              "prefix_bytes": 16
+            },
+            {
+              "key": "51:A1",
+              "raw_line": 6307,
+              "prefix_bytes": 6
+            },
+            {
+              "key": "51:A2",
+              "raw_line": 6308,
+              "prefix_bytes": 6
+            },
+            {
+              "key": "52:81",
+              "raw_line": 6787,
+              "prefix_bytes": 6
+            },
+            {
+              "key": "52:82",
+              "raw_line": 6788,
+              "prefix_bytes": 6
+            }
+          ],
+          "five_quartets_of_eight_opcode_windows_equal": true
+        },
+        {
+          "pass": 2,
+          "scoped_prefix_matches": [
+            {
+              "key": "53:95",
+              "raw_line": 7575,
+              "prefix_bytes": 2
+            },
+            {
+              "key": "53:A2",
+              "raw_line": 7588,
+              "prefix_bytes": 30
+            },
+            {
+              "key": "63:F1",
+              "raw_line": 9715,
+              "prefix_bytes": 16
+            },
+            {
+              "key": "63:F2",
+              "raw_line": 9716,
+              "prefix_bytes": 16
+            },
+            {
+              "key": "63:F3",
+              "raw_line": 9717,
+              "prefix_bytes": 16
+            },
+            {
+              "key": "63:F4",
+              "raw_line": 9718,
+              "prefix_bytes": 16
+            },
+            {
+              "key": "51:A1",
+              "raw_line": 6563,
+              "prefix_bytes": 6
+            },
+            {
+              "key": "51:A2",
+              "raw_line": 6564,
+              "prefix_bytes": 6
+            },
+            {
+              "key": "52:81",
+              "raw_line": 7043,
+              "prefix_bytes": 6
+            },
+            {
+              "key": "52:82",
+              "raw_line": 7044,
+              "prefix_bytes": 6
+            }
+          ],
+          "five_quartets_of_eight_opcode_windows_equal": true
+        }
+      ]
+    },
+    {
+      "state": "s3_dbv3584_144",
+      "passes": [
+        {
+          "pass": 1,
+          "scoped_prefix_matches": [
+            {
+              "key": "53:95",
+              "raw_line": 7319,
+              "prefix_bytes": 2
+            },
+            {
+              "key": "53:A2",
+              "raw_line": 7332,
+              "prefix_bytes": 30
+            },
+            {
+              "key": "63:F1",
+              "raw_line": 9459,
+              "prefix_bytes": 16
+            },
+            {
+              "key": "63:F2",
+              "raw_line": 9460,
+              "prefix_bytes": 16
+            },
+            {
+              "key": "63:F3",
+              "raw_line": 9461,
+              "prefix_bytes": 16
+            },
+            {
+              "key": "63:F4",
+              "raw_line": 9462,
+              "prefix_bytes": 16
+            },
+            {
+              "key": "51:A1",
+              "raw_line": 6307,
+              "prefix_bytes": 6
+            },
+            {
+              "key": "51:A2",
+              "raw_line": 6308,
+              "prefix_bytes": 6
+            },
+            {
+              "key": "52:81",
+              "raw_line": 6787,
+              "prefix_bytes": 6
+            },
+            {
+              "key": "52:82",
+              "raw_line": 6788,
+              "prefix_bytes": 6
+            }
+          ],
+          "five_quartets_of_eight_opcode_windows_equal": true
+        },
+        {
+          "pass": 2,
+          "scoped_prefix_matches": [
+            {
+              "key": "53:95",
+              "raw_line": 7575,
+              "prefix_bytes": 2
+            },
+            {
+              "key": "53:A2",
+              "raw_line": 7588,
+              "prefix_bytes": 30
+            },
+            {
+              "key": "63:F1",
+              "raw_line": 9715,
+              "prefix_bytes": 16
+            },
+            {
+              "key": "63:F2",
+              "raw_line": 9716,
+              "prefix_bytes": 16
+            },
+            {
+              "key": "63:F3",
+              "raw_line": 9717,
+              "prefix_bytes": 16
+            },
+            {
+              "key": "63:F4",
+              "raw_line": 9718,
+              "prefix_bytes": 16
+            },
+            {
+              "key": "51:A1",
+              "raw_line": 6563,
+              "prefix_bytes": 6
+            },
+            {
+              "key": "51:A2",
+              "raw_line": 6564,
+              "prefix_bytes": 6
+            },
+            {
+              "key": "52:81",
+              "raw_line": 7043,
+              "prefix_bytes": 6
+            },
+            {
+              "key": "52:82",
+              "raw_line": 7044,
+              "prefix_bytes": 6
+            }
+          ],
+          "five_quartets_of_eight_opcode_windows_equal": true
+        }
+      ]
+    },
+    {
+      "state": "s4_dbv3584_60",
+      "passes": [
+        {
+          "pass": 1,
+          "scoped_prefix_matches": [
+            {
+              "key": "53:95",
+              "raw_line": 7319,
+              "prefix_bytes": 2
+            },
+            {
+              "key": "53:A2",
+              "raw_line": 7332,
+              "prefix_bytes": 30
+            },
+            {
+              "key": "63:F1",
+              "raw_line": 9459,
+              "prefix_bytes": 16
+            },
+            {
+              "key": "63:F2",
+              "raw_line": 9460,
+              "prefix_bytes": 16
+            },
+            {
+              "key": "63:F3",
+              "raw_line": 9461,
+              "prefix_bytes": 16
+            },
+            {
+              "key": "63:F4",
+              "raw_line": 9462,
+              "prefix_bytes": 16
+            },
+            {
+              "key": "51:A1",
+              "raw_line": 6307,
+              "prefix_bytes": 6
+            },
+            {
+              "key": "51:A2",
+              "raw_line": 6308,
+              "prefix_bytes": 6
+            },
+            {
+              "key": "52:81",
+              "raw_line": 6787,
+              "prefix_bytes": 6
+            },
+            {
+              "key": "52:82",
+              "raw_line": 6788,
+              "prefix_bytes": 6
+            }
+          ],
+          "five_quartets_of_eight_opcode_windows_equal": true
+        },
+        {
+          "pass": 2,
+          "scoped_prefix_matches": [
+            {
+              "key": "53:95",
+              "raw_line": 7575,
+              "prefix_bytes": 2
+            },
+            {
+              "key": "53:A2",
+              "raw_line": 7588,
+              "prefix_bytes": 30
+            },
+            {
+              "key": "63:F1",
+              "raw_line": 9715,
+              "prefix_bytes": 16
+            },
+            {
+              "key": "63:F2",
+              "raw_line": 9716,
+              "prefix_bytes": 16
+            },
+            {
+              "key": "63:F3",
+              "raw_line": 9717,
+              "prefix_bytes": 16
+            },
+            {
+              "key": "63:F4",
+              "raw_line": 9718,
+              "prefix_bytes": 16
+            },
+            {
+              "key": "51:A1",
+              "raw_line": 6563,
+              "prefix_bytes": 6
+            },
+            {
+              "key": "51:A2",
+              "raw_line": 6564,
+              "prefix_bytes": 6
+            },
+            {
+              "key": "52:81",
+              "raw_line": 7043,
+              "prefix_bytes": 6
+            },
+            {
+              "key": "52:82",
+              "raw_line": 7044,
+              "prefix_bytes": 6
+            }
+          ],
+          "five_quartets_of_eight_opcode_windows_equal": true
+        }
+      ]
+    }
+  ],
+  "repeated_windows": [
+    {
+      "page": "51",
+      "starts": [
+        "80",
+        "88",
+        "90",
+        "98"
+      ]
+    },
+    {
+      "page": "51",
+      "starts": [
+        "A0",
+        "A8",
+        "B0",
+        "B8"
+      ]
+    },
+    {
+      "page": "51",
+      "starts": [
+        "C0",
+        "C8",
+        "D0",
+        "D8"
+      ]
+    },
+    {
+      "page": "52",
+      "starts": [
+        "80",
+        "88",
+        "90",
+        "98"
+      ]
+    },
+    {
+      "page": "52",
+      "starts": [
+        "A0",
+        "A8",
+        "B0",
+        "B8"
+      ]
+    }
+  ],
+  "conditional_models": [
+    {
+      "key": "51:A1",
+      "conditional_4x12bit_values": {
+        "off": [
+          580,
+          580,
+          633,
+          635
+        ],
+        "on": [
+          580,
+          580,
+          633,
+          633
+        ]
+      },
+      "nibble_order_identifiable": false,
+      "gamma_or_timing_semantics": "unknown"
+    },
+    {
+      "key": "51:A2",
+      "conditional_4x12bit_values": {
+        "off": [
+          638,
+          638,
+          645,
+          645
+        ],
+        "on": [
+          632,
+          632,
+          632,
+          632
+        ]
+      },
+      "nibble_order_identifiable": false,
+      "gamma_or_timing_semantics": "unknown"
+    },
+    {
+      "key": "52:81",
+      "conditional_4x12bit_values": {
+        "off": [
+          70,
+          71,
+          72,
+          75
+        ],
+        "on": [
+          70,
+          71,
+          73,
+          72
+        ]
+      },
+      "nibble_order_identifiable": false,
+      "gamma_or_timing_semantics": "unknown"
+    },
+    {
+      "key": "52:82",
+      "conditional_4x12bit_values": {
+        "off": [
+          78,
+          78,
+          80,
+          80
+        ],
+        "on": [
+          74,
+          74,
+          75,
+          75
+        ]
+      },
+      "nibble_order_identifiable": false,
+      "gamma_or_timing_semantics": "unknown"
+    }
+  ],
+  "limits": [
+    "Requested forty bytes do not establish valid response length",
+    "Repeated windows do not distinguish aliases from duplicated banks",
+    "No address auto-increment or write alias is inferred",
+    "Neither gamma packing nor a sequencer instruction set is established"
+  ],
+  "physical_pwm_hz": null,
+  "new_dsi_sent": false
+}

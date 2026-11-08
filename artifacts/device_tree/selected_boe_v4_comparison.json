@@ -1,0 +1,302 @@
+{
+  "scope": "Actual live selected v4 subtree vs archives; overlay fixup mirror excluded by real panel-name property. Not optical/register-Hz proof.",
+  "references": [
+    {
+      "reference": "cn",
+      "shared_properties": 415,
+      "shared_command_arrays": 53,
+      "equal_command_arrays": 41,
+      "changed_command_arrays": [
+        {
+          "property": "qcom,mdss-dsi-display-timings/timing@0/qcom,mdss-dsi-on-command",
+          "live_bytes": 1176,
+          "reference_bytes": 1145,
+          "different_byte_count": null
+        },
+        {
+          "property": "qcom,mdss-dsi-display-timings/timing@0/qcom,mdss-dsi-timing-switch-command",
+          "live_bytes": 140,
+          "reference_bytes": 109,
+          "different_byte_count": null
+        },
+        {
+          "property": "qcom,mdss-dsi-display-timings/timing@3/qcom,mdss-dsi-on-command",
+          "live_bytes": 1176,
+          "reference_bytes": 1145,
+          "different_byte_count": null
+        },
+        {
+          "property": "qcom,mdss-dsi-display-timings/timing@3/qcom,mdss-dsi-timing-switch-command",
+          "live_bytes": 140,
+          "reference_bytes": 109,
+          "different_byte_count": null
+        },
+        {
+          "property": "qcom,mdss-dsi-display-timings/timing@4/qcom,mdss-dsi-on-command",
+          "live_bytes": 1176,
+          "reference_bytes": 1145,
+          "different_byte_count": null
+        },
+        {
+          "property": "qcom,mdss-dsi-display-timings/timing@4/qcom,mdss-dsi-timing-switch-command",
+          "live_bytes": 300,
+          "reference_bytes": 109,
+          "different_byte_count": null
+        },
+        {
+          "property": "qcom,mdss-dsi-display-timings/timing@5/qcom,mdss-dsi-on-command",
+          "live_bytes": 1176,
+          "reference_bytes": 1145,
+          "different_byte_count": null
+        },
+        {
+          "property": "qcom,mdss-dsi-display-timings/timing@5/qcom,mdss-dsi-timing-switch-command",
+          "live_bytes": 300,
+          "reference_bytes": 109,
+          "different_byte_count": null
+        },
+        {
+          "property": "qcom,mdss-dsi-display-timings/timing@6/qcom,mdss-dsi-on-command",
+          "live_bytes": 1176,
+          "reference_bytes": 1145,
+          "different_byte_count": null
+        },
+        {
+          "property": "qcom,mdss-dsi-display-timings/timing@6/qcom,mdss-dsi-timing-switch-command",
+          "live_bytes": 140,
+          "reference_bytes": 109,
+          "different_byte_count": null
+        },
+        {
+          "property": "qcom,mdss-dsi-display-timings/timing@7/qcom,mdss-dsi-on-command",
+          "live_bytes": 1176,
+          "reference_bytes": 1145,
+          "different_byte_count": null
+        },
+        {
+          "property": "qcom,mdss-dsi-display-timings/timing@7/qcom,mdss-dsi-timing-switch-command",
+          "live_bytes": 140,
+          "reference_bytes": 109,
+          "different_byte_count": null
+        }
+      ],
+      "live_only_property_names": [],
+      "reference_only_property_names": []
+    },
+    {
+      "reference": "eu",
+      "shared_properties": 415,
+      "shared_command_arrays": 53,
+      "equal_command_arrays": 53,
+      "changed_command_arrays": [],
+      "live_only_property_names": [],
+      "reference_only_property_names": []
+    }
+  ],
+  "stock_dc_on_off_packet_differences": [
+    {
+      "packet_index": 6,
+      "page": 35,
+      "on": "a9 8e",
+      "off": "a9 0e"
+    },
+    {
+      "packet_index": 9,
+      "page": 36,
+      "on": "9d 8e",
+      "off": "9d 0e"
+    },
+    {
+      "packet_index": 12,
+      "page": 35,
+      "on": "80 90",
+      "off": "80 50"
+    },
+    {
+      "packet_index": 16,
+      "page": 83,
+      "on": "95 44 50",
+      "off": "95 00 a0"
+    },
+    {
+      "packet_index": 17,
+      "page": 83,
+      "on": "a2 10 10 10 10 48 10 10 74 7b b4 10 10 10 10 48 10 10 74 7b b4 10 10 10 10 48 10 10 74 7b b4",
+      "off": "a2 10 10 10 10 48 10 10 10 4b 4b 10 10 10 10 48 10 10 10 4b 4b 10 10 10 10 48 10 10 10 4b 4b"
+    },
+    {
+      "packet_index": 27,
+      "page": 99,
+      "on": "f2 00 00 00 00 00 20 20 20 20 20 00 00 00 00 00 00",
+      "off": "f2 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00"
+    },
+    {
+      "packet_index": 28,
+      "page": 99,
+      "on": "f3 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+      "off": "f3 00 00 00 00 00 20 20 20 20 20 00 00 00 00 00 00"
+    },
+    {
+      "packet_index": 42,
+      "page": 81,
+      "on": "a1 44 44 79 79 22 22",
+      "off": "a1 44 44 79 7b 22 22"
+    },
+    {
+      "packet_index": 43,
+      "page": 81,
+      "on": "a2 78 78 78 78 22 22",
+      "off": "a2 7e 7e 85 85 22 22"
+    },
+    {
+      "packet_index": 45,
+      "page": 82,
+      "on": "81 46 47 49 48 00 00",
+      "off": "81 46 47 48 4b 00 00"
+    },
+    {
+      "packet_index": 46,
+      "page": 82,
+      "on": "82 4a 4a 4b 4b 00 00",
+      "off": "82 4e 4e 50 50 00 00"
+    },
+    {
+      "packet_index": 49,
+      "page": 90,
+      "on": "86 0a 1e 01",
+      "off": "86 0a 1e 04"
+    },
+    {
+      "packet_index": 50,
+      "page": 90,
+      "on": "8a 32 38 18",
+      "off": "8a 12 2e 0f"
+    },
+    {
+      "packet_index": 51,
+      "page": 90,
+      "on": "8f 6e 6c 32",
+      "off": "8f 27 3e 23"
+    },
+    {
+      "packet_index": 52,
+      "page": 90,
+      "on": "90 14 43 01",
+      "off": "90 0a 09 01"
+    },
+    {
+      "packet_index": 53,
+      "page": 90,
+      "on": "91 13 40 00",
+      "off": "91 09 06 00"
+    },
+    {
+      "packet_index": 54,
+      "page": 90,
+      "on": "92 11 3f 00",
+      "off": "92 07 05 00"
+    },
+    {
+      "packet_index": 55,
+      "page": 90,
+      "on": "93 0e 3c 00",
+      "off": "93 04 02 00"
+    },
+    {
+      "packet_index": 56,
+      "page": 90,
+      "on": "94 06 1a 00",
+      "off": "94 00 00 00"
+    },
+    {
+      "packet_index": 57,
+      "page": 90,
+      "on": "95 46 46 37",
+      "off": "95 26 24 16"
+    },
+    {
+      "packet_index": 58,
+      "page": 90,
+      "on": "9b 01 00 00",
+      "off": "9b 00 00 00"
+    },
+    {
+      "packet_index": 59,
+      "page": 90,
+      "on": "9c 48 42 3c",
+      "off": "9c 34 3e 3c"
+    },
+    {
+      "packet_index": 60,
+      "page": 90,
+      "on": "ae 15 2d 07",
+      "off": "ae 10 2d 07"
+    },
+    {
+      "packet_index": 61,
+      "page": 90,
+      "on": "b3 36 3d 22",
+      "off": "b3 1c 21 22"
+    },
+    {
+      "packet_index": 62,
+      "page": 90,
+      "on": "b9 36 3d 30",
+      "off": "b9 24 1c 20"
+    },
+    {
+      "packet_index": 63,
+      "page": 90,
+      "on": "bf 00 f8 fe",
+      "off": "bf 09 00 00"
+    },
+    {
+      "packet_index": 64,
+      "page": 90,
+      "on": "c0 44 46 3e",
+      "off": "c0 3a 39 3e"
+    },
+    {
+      "packet_index": 65,
+      "page": 90,
+      "on": "d7 24 34 22",
+      "off": "d7 1a 20 1d"
+    },
+    {
+      "packet_index": 66,
+      "page": 90,
+      "on": "dd 34 43 38",
+      "off": "dd 2a 27 33"
+    },
+    {
+      "packet_index": 67,
+      "page": 90,
+      "on": "e4 3c 43 3d",
+      "off": "e4 32 30 3d"
+    },
+    {
+      "packet_index": 69,
+      "page": 91,
+      "on": "dd 40 44 47",
+      "off": "dd 39 3a 42"
+    },
+    {
+      "packet_index": 71,
+      "page": 92,
+      "on": "c8 14 19 06",
+      "off": "c8 08 04 06"
+    },
+    {
+      "packet_index": 72,
+      "page": 92,
+      "on": "c9 14 19 06",
+      "off": "c9 08 04 06"
+    },
+    {
+      "packet_index": 73,
+      "page": 92,
+      "on": "ca 00 14 00",
+      "off": "ca 00 00 00"
+    }
+  ]
+}

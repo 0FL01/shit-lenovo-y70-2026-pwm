@@ -1,0 +1,4 @@
+CN ELF Android packed .rela.dyn (APS2) decoded by SLEB group flags. These are relocations, not raw zero-filled vtable words.
+libsdmcore.so dynsym[533] _ZN3sdm14DisplayBuiltIn13SetMotoDrmCmdEji, value 0x8e534; APS2 relocation R_AARCH64_ABS64 at 0xe0b70. vtable base 0xe0768; primary address point 0xe0778; slot offset = 0x3f8 (1016). libsdmclient CommitOrPrepare calls offset 1016 at 0xa1250.
+libsdmdal.so dynsym[408] _ZN3sdm11HWDeviceDRM13SetMotoDrmCmdEji value 0x3c7a0; APS2 relocations R_AARCH64_ABS64 at 0x64398,0x64678,0x64918,0x64bb8. vtable HWDeviceDRM base 0x64960; primary address point 0x64970; slot 0x248 (584). libsdmcore DisplayBuiltIn::SetMotoDrmCmd calls slot 584 at 0x8e57c.
+CN client PLT VA 0xcce90 -> GOT 0xd4ab8 -> JUMP_SLOT __cfi_slowpath, not GNU disassembler displayed symbol. CN core PLT 0xdb3b0 -> GOT 0xe3ce8 -> __cfi_slowpath. CN dal 0x61de8 -> GOT 0x657a8 -> drmIoctl, not displayed PLT symbol.

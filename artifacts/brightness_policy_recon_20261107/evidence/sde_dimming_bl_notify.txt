@@ -1,0 +1,104 @@
+
+/mnt/kston/legion-Y70-madness/artifacts/kernel/gki_r59/target_vendor/msm_drm.ko:     file format elf64-littleaarch64
+
+
+Disassembly of section .text:
+
+00000000000e5cfc <sde_dimming_bl_notify>:
+   e5cfc:	d503233f 	paciasp
+   e5d00:	d101c3ff 	sub	sp, sp, #0x70
+   e5d04:	a9047bfd 	stp	x29, x30, [sp, #64]
+   e5d08:	f9002bf5 	str	x21, [sp, #80]
+   e5d0c:	a9064ff4 	stp	x20, x19, [sp, #96]
+   e5d10:	910103fd 	add	x29, sp, #0x40
+   e5d14:	d5384108 	mrs	x8, sp_el0
+   e5d18:	f9438908 	ldr	x8, [x8, #1808]
+   e5d1c:	f81f83a8 	stur	x8, [x29, #-8]
+   e5d20:	b4000721 	cbz	x1, e5e04 <sde_dimming_bl_notify+0x108>
+   e5d24:	90000013 	adrp	x19, 0 <__drm_debug>
+			e5d24: R_AARCH64_ADR_PREL_PG_HI21	__drm_debug
+   e5d28:	f81f03bf 	stur	xzr, [x29, #-16]
+   e5d2c:	39400268 	ldrb	w8, [x19]
+			e5d2c: R_AARCH64_LDST8_ABS_LO12_NC	__drm_debug
+   e5d30:	a900ffff 	stp	xzr, xzr, [sp, #8]
+   e5d34:	a901ffff 	stp	xzr, xzr, [sp, #24]
+   e5d38:	f90017ff 	str	xzr, [sp, #40]
+   e5d3c:	361001a8 	tbz	w8, #2, e5d70 <sde_dimming_bl_notify+0x74>
+   e5d40:	b9404424 	ldr	w4, [x1, #68]
+   e5d44:	39412025 	ldrb	w5, [x1, #72]
+   e5d48:	90000003 	adrp	x3, 0 <msm_hdcp_register_cb-0x4>
+			e5d48: R_AARCH64_ADR_PREL_PG_HI21	.rodata+0x9de8
+		; rodata string: 'bl_config.dimming_status 0x%x user_disable_notify %d\n'
+   e5d4c:	91000063 	add	x3, x3, #0x0
+			e5d4c: R_AARCH64_ADD_ABS_LO12_NC	.rodata+0x9de8
+		; rodata string: 'bl_config.dimming_status 0x%x user_disable_notify %d\n'
+   e5d50:	aa0003f4 	mov	x20, x0
+   e5d54:	aa1f03e0 	mov	x0, xzr
+   e5d58:	aa0103f5 	mov	x21, x1
+   e5d5c:	aa1f03e1 	mov	x1, xzr
+   e5d60:	2a1f03e2 	mov	w2, wzr
+   e5d64:	94000000 	bl	0 <__drm_dev_dbg>
+			e5d64: R_AARCH64_CALL26	__drm_dev_dbg
+   e5d68:	aa1503e1 	mov	x1, x21
+   e5d6c:	aa1403e0 	mov	x0, x20
+   e5d70:	528244a8 	mov	w8, #0x1225                	// #4645
+   e5d74:	38686808 	ldrb	w8, [x0, x8]
+   e5d78:	7100051f 	cmp	w8, #0x1
+   e5d7c:	54000441 	b.ne	e5e04 <sde_dimming_bl_notify+0x108>  // b.any
+   e5d80:	39412028 	ldrb	w8, [x1, #72]
+   e5d84:	37000408 	tbnz	w8, #0, e5e04 <sde_dimming_bl_notify+0x108>
+   e5d88:	29441424 	ldp	w4, w5, [x1, #32]
+   e5d8c:	b9401029 	ldr	w9, [x1, #16]
+   e5d90:	f8414028 	ldur	x8, [x1, #20]
+   e5d94:	d28001aa 	mov	x10, #0xd                   	// #13
+   e5d98:	b9402826 	ldr	w6, [x1, #40]
+   e5d9c:	f2b0000a 	movk	x10, #0x8000, lsl #16
+   e5da0:	290213e9 	stp	w9, w4, [sp, #16]
+   e5da4:	b25e3fe9 	mov	x9, #0x3fffc00000000       	// #1125882726973440
+   e5da8:	f2c0050a 	movk	x10, #0x28, lsl #32
+   e5dac:	f90007e8 	str	x8, [sp, #8]
+   e5db0:	f2808009 	movk	x9, #0x400
+   e5db4:	29482027 	ldp	w7, w8, [x1, #64]
+   e5db8:	f90017e9 	str	x9, [sp, #40]
+   e5dbc:	39400269 	ldrb	w9, [x19]
+			e5dbc: R_AARCH64_LDST8_ABS_LO12_NC	__drm_debug
+   e5dc0:	29031be5 	stp	w5, w6, [sp, #24]
+   e5dc4:	29041fe8 	stp	w8, w7, [sp, #32]
+   e5dc8:	f81f03aa 	stur	x10, [x29, #-16]
+   e5dcc:	36100149 	tbz	w9, #2, e5df4 <sde_dimming_bl_notify+0xf8>
+   e5dd0:	90000003 	adrp	x3, 0 <msm_hdcp_register_cb-0x4>
+			e5dd0: R_AARCH64_ADR_PREL_PG_HI21	.rodata+0x2b206
+		; rodata string: 'dimming BL event bl_level %d bl_scale %d, bl_scale_sv = %d min_bl %d status 0x%x\n'
+   e5dd4:	91000063 	add	x3, x3, #0x0
+			e5dd4: R_AARCH64_ADD_ABS_LO12_NC	.rodata+0x2b206
+		; rodata string: 'dimming BL event bl_level %d bl_scale %d, bl_scale_sv = %d min_bl %d status 0x%x\n'
+   e5dd8:	aa0003f3 	mov	x19, x0
+   e5ddc:	aa1f03e0 	mov	x0, xzr
+   e5de0:	aa1f03e1 	mov	x1, xzr
+   e5de4:	2a1f03e2 	mov	w2, wzr
+   e5de8:	b90003e8 	str	w8, [sp]
+   e5dec:	94000000 	bl	0 <__drm_dev_dbg>
+			e5dec: R_AARCH64_CALL26	__drm_dev_dbg
+   e5df0:	aa1303e0 	mov	x0, x19
+   e5df4:	f8440401 	ldr	x1, [x0], #64
+   e5df8:	d10043a2 	sub	x2, x29, #0x10
+   e5dfc:	910023e3 	add	x3, sp, #0x8
+   e5e00:	94000000 	bl	1d3cb8 <msm_mode_object_event_notify>
+			e5e00: R_AARCH64_CALL26	msm_mode_object_event_notify
+   e5e04:	d5384108 	mrs	x8, sp_el0
+   e5e08:	f9438908 	ldr	x8, [x8, #1808]
+   e5e0c:	f85f83a9 	ldur	x9, [x29, #-8]
+   e5e10:	eb09011f 	cmp	x8, x9
+   e5e14:	540000e1 	b.ne	e5e30 <sde_dimming_bl_notify+0x134>  // b.any
+   e5e18:	a9464ff4 	ldp	x20, x19, [sp, #96]
+   e5e1c:	f9402bf5 	ldr	x21, [sp, #80]
+   e5e20:	a9447bfd 	ldp	x29, x30, [sp, #64]
+   e5e24:	9101c3ff 	add	sp, sp, #0x70
+   e5e28:	d50323bf 	autiasp
+   e5e2c:	d65f03c0 	ret
+   e5e30:	94000000 	bl	0 <__stack_chk_fail>
+			e5e30: R_AARCH64_CALL26	__stack_chk_fail
+
+Disassembly of section .init.text:
+
+Disassembly of section .exit.text:

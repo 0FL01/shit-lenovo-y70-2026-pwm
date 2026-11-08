@@ -1,0 +1,1122 @@
+{
+  "at_utc": "2026-11-06T13:41:15.310391+00:00",
+  "owner_scope": "Approved one stock UI DC OFF-ON-OFF at brightness78/40, requested120Hz, temporary MIPI/return tracing and cleanup; no image/new DSI sequences",
+  "private_ui_cache": "/home/stfu/.cache/opencode-tmp/opencode/stock-dc-trial-20261106",
+  "visible_display_settings": [
+    {
+      "text": "",
+      "content-desc": "Display",
+      "resource-id": "com.android.settings:id/collapsing_toolbar",
+      "class": "android.widget.FrameLayout",
+      "clickable": "false",
+      "checkable": "false",
+      "checked": "false",
+      "bounds": "[0,150][1440,787]"
+    },
+    {
+      "text": "",
+      "content-desc": "Navigate up",
+      "resource-id": "",
+      "class": "android.widget.ImageButton",
+      "clickable": "true",
+      "checkable": "false",
+      "checked": "false",
+      "bounds": "[0,186][182,358]"
+    },
+    {
+      "text": "",
+      "content-desc": "Search settings",
+      "resource-id": "",
+      "class": "android.widget.Button",
+      "clickable": "true",
+      "checkable": "false",
+      "checked": "false",
+      "bounds": "[1128,195][1284,351]"
+    },
+    {
+      "text": "",
+      "content-desc": "Help & feedback",
+      "resource-id": "",
+      "class": "android.widget.Button",
+      "clickable": "true",
+      "checkable": "false",
+      "checked": "false",
+      "bounds": "[1284,195][1440,351]"
+    },
+    {
+      "text": "Brightness",
+      "content-desc": "",
+      "resource-id": "android:id/title",
+      "class": "android.widget.TextView",
+      "clickable": "false",
+      "checkable": "false",
+      "checked": "false",
+      "bounds": "[104,813][375,876]"
+    },
+    {
+      "text": "Brightness level",
+      "content-desc": "",
+      "resource-id": "android:id/title",
+      "class": "android.widget.TextView",
+      "clickable": "false",
+      "checkable": "false",
+      "checked": "false",
+      "bounds": "[104,954][605,1042]"
+    },
+    {
+      "text": "40%",
+      "content-desc": "",
+      "resource-id": "android:id/summary",
+      "class": "android.widget.TextView",
+      "clickable": "false",
+      "checkable": "false",
+      "checked": "false",
+      "bounds": "[104,1042][205,1104]"
+    },
+    {
+      "text": "Adaptive brightness",
+      "content-desc": "",
+      "resource-id": "android:id/title",
+      "class": "android.widget.TextView",
+      "clickable": "false",
+      "checkable": "false",
+      "checked": "false",
+      "bounds": "[104,1208][744,1296]"
+    },
+    {
+      "text": "",
+      "content-desc": "Adaptive brightness",
+      "resource-id": "com.android.settings:id/switchWidget",
+      "class": "android.widget.Switch",
+      "clickable": "true",
+      "checkable": "true",
+      "checked": "true",
+      "bounds": "[1167,1174][1336,1330]"
+    },
+    {
+      "text": "Appearance",
+      "content-desc": "",
+      "resource-id": "android:id/title",
+      "class": "android.widget.TextView",
+      "clickable": "false",
+      "checkable": "false",
+      "checked": "false",
+      "bounds": "[104,1374][406,1437]"
+    },
+    {
+      "text": "Dark theme",
+      "content-desc": "",
+      "resource-id": "android:id/title",
+      "class": "android.widget.TextView",
+      "clickable": "false",
+      "checkable": "false",
+      "checked": "false",
+      "bounds": "[104,1515][477,1603]"
+    },
+    {
+      "text": "Will never turn off automatically",
+      "content-desc": "",
+      "resource-id": "android:id/summary",
+      "class": "android.widget.TextView",
+      "clickable": "false",
+      "checkable": "false",
+      "checked": "false",
+      "bounds": "[104,1603][784,1665]"
+    },
+    {
+      "text": "",
+      "content-desc": "Dark theme",
+      "resource-id": "com.android.settings:id/switchWidget",
+      "class": "android.widget.Switch",
+      "clickable": "true",
+      "checkable": "true",
+      "checked": "true",
+      "bounds": "[1167,1512][1336,1668]"
+    },
+    {
+      "text": "Colors",
+      "content-desc": "",
+      "resource-id": "android:id/title",
+      "class": "android.widget.TextView",
+      "clickable": "false",
+      "checkable": "false",
+      "checked": "false",
+      "bounds": "[104,1769][299,1857]"
+    },
+    {
+      "text": "Vivid",
+      "content-desc": "",
+      "resource-id": "android:id/summary",
+      "class": "android.widget.TextView",
+      "clickable": "false",
+      "checkable": "false",
+      "checked": "false",
+      "bounds": "[104,1857][208,1919]"
+    },
+    {
+      "text": "Dynamic Video Enhancement",
+      "content-desc": "",
+      "resource-id": "android:id/title",
+      "class": "android.widget.TextView",
+      "clickable": "false",
+      "checkable": "false",
+      "checked": "false",
+      "bounds": "[104,2023][995,2190]"
+    },
+    {
+      "text": "",
+      "content-desc": "Dynamic Video Enhancement",
+      "resource-id": "com.android.settings:id/switchWidget",
+      "class": "android.widget.Switch",
+      "clickable": "true",
+      "checkable": "true",
+      "checked": "false",
+      "bounds": "[1167,2028][1336,2184]"
+    },
+    {
+      "text": "Display size and text",
+      "content-desc": "",
+      "resource-id": "android:id/title",
+      "class": "android.widget.TextView",
+      "clickable": "false",
+      "checkable": "false",
+      "checked": "false",
+      "bounds": "[104,2294][747,2382]"
+    },
+    {
+      "text": "Display refresh rate",
+      "content-desc": "",
+      "resource-id": "android:id/title",
+      "class": "android.widget.TextView",
+      "clickable": "false",
+      "checkable": "false",
+      "checked": "false",
+      "bounds": "[104,2486][715,2574]"
+    },
+    {
+      "text": "Smart & balanced",
+      "content-desc": "",
+      "resource-id": "android:id/summary",
+      "class": "android.widget.TextView",
+      "clickable": "false",
+      "checkable": "false",
+      "checked": "false",
+      "bounds": "[104,2574][476,2636]"
+    },
+    {
+      "text": "Full screen",
+      "content-desc": "",
+      "resource-id": "android:id/title",
+      "class": "android.widget.TextView",
+      "clickable": "false",
+      "checkable": "false",
+      "checked": "false",
+      "bounds": "[104,2740][449,2828]"
+    },
+    {
+      "text": "Allow apps to show content around the camera cutout",
+      "content-desc": "",
+      "resource-id": "android:id/summary",
+      "class": "android.widget.TextView",
+      "clickable": "false",
+      "checkable": "false",
+      "checked": "false",
+      "bounds": "[104,2828][1260,2890]"
+    },
+    {
+      "text": "Auto-rotate screen",
+      "content-desc": "",
+      "resource-id": "android:id/title",
+      "class": "android.widget.TextView",
+      "clickable": "false",
+      "checkable": "false",
+      "checked": "false",
+      "bounds": "[104,2994][700,3082]"
+    },
+    {
+      "text": "",
+      "content-desc": "Auto-rotate screen",
+      "resource-id": "com.android.settings:id/switchWidget",
+      "class": "android.widget.Switch",
+      "clickable": "true",
+      "checkable": "true",
+      "checked": "false",
+      "bounds": "[1167,2960][1336,3090]"
+    }
+  ],
+  "execution_events": [
+    {
+      "at_utc": "2026-11-06T13:49:24.502974+00:00",
+      "command": "printf '%s|%s|%s|' \"$(getprop ro.boot.hardware.sku)\" \"$(getprop ro.build.display.id)\" \"$(getprop ro.boot.slot_suffix)\"; uname -r; getenforce",
+      "exit_code": 0,
+      "stdout": "XT2611-1|W3WWS36.65-64-4-1|_b|6.12.58-android16-6-g09eda8c8505a-dirty-ab15950084-4k\nEnforcing",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T13:49:24.562360+00:00",
+      "command": "su -c id",
+      "exit_code": 0,
+      "stdout": "uid=0(root) gid=0(root) groups=0(root) context=u:r:ksu:s0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T13:49:24.623516+00:00",
+      "command": "su -c 'cat /sys/class/drm/card0-DSI-1/mipi_cmd_log_en'",
+      "exit_code": 0,
+      "stdout": "ctrl->ctrl->mipi_cmd_log_en: 0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T13:49:24.680985+00:00",
+      "command": "settings get system screen_brightness_mode",
+      "exit_code": 0,
+      "stdout": "1",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T13:49:24.736534+00:00",
+      "command": "settings get system peak_refresh_rate",
+      "exit_code": 0,
+      "stdout": "null",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T13:49:24.792833+00:00",
+      "command": "settings get system min_refresh_rate",
+      "exit_code": 0,
+      "stdout": "null",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T13:49:24.847593+00:00",
+      "command": "su -c 'test ! -e /sys/kernel/tracing/instances/pwm_dc'",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T13:49:24.904130+00:00",
+      "command": "su -c 'cat /sys/kernel/tracing/kprobe_events'",
+      "exit_code": 0,
+      "stdout": "<private file: preexisting-probes.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T13:49:24.971282+00:00",
+      "command": "su -c 'mkdir /sys/kernel/tracing/instances/pwm_dc'",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T13:49:25.031688+00:00",
+      "command": "su -c 'printf '\"'\"'0\\n'\"'\"' > /sys/kernel/tracing/instances/pwm_dc/tracing_on'",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T13:49:25.092116+00:00",
+      "command": "su -c 'printf '\"'\"'mono\\n'\"'\"' > /sys/kernel/tracing/instances/pwm_dc/trace_clock'",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T13:49:25.178616+00:00",
+      "command": "su -c 'printf '\"'\"'%s\\n'\"'\"' '\"'\"'r:pwm_dc/ctrl_return msm_drm:dsi_ctrl_cmd_transfer rc=$retval:s32'\"'\"' >> /sys/kernel/tracing/kprobe_events'",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T13:49:25.245530+00:00",
+      "command": "su -c 'printf '\"'\"'1\\n'\"'\"' > /sys/kernel/tracing/instances/pwm_dc/events/pwm_dc/ctrl_return/enable'",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T13:49:25.329107+00:00",
+      "command": "su -c 'printf '\"'\"'%s\\n'\"'\"' '\"'\"'r:pwm_dc/param_return msm_drm:dsi_panel_send_param_cmd rc=$retval:s32'\"'\"' >> /sys/kernel/tracing/kprobe_events'",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T13:49:25.397729+00:00",
+      "command": "su -c 'printf '\"'\"'1\\n'\"'\"' > /sys/kernel/tracing/instances/pwm_dc/events/pwm_dc/param_return/enable'",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T13:49:25.459885+00:00",
+      "command": "su -c 'printf '\"'\"'1\\n'\"'\"' > /sys/kernel/tracing/instances/pwm_dc/tracing_on'",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T13:49:25.522740+00:00",
+      "command": "su -c 'printf '\"'\"'1\\n'\"'\"' > /sys/class/drm/card0-DSI-1/mipi_cmd_log_en'",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T13:49:25.584044+00:00",
+      "command": "su -c 'cat /sys/class/drm/card0-DSI-1/mipi_cmd_log_en'",
+      "exit_code": 0,
+      "stdout": "ctrl->ctrl->mipi_cmd_log_en: 1",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T13:49:25.692776+00:00",
+      "command": "settings put system screen_brightness_mode 0; settings put system min_refresh_rate 120.0; settings put system peak_refresh_rate 120.0",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T13:49:25.743126+00:00",
+      "command": "settings get system screen_brightness_mode",
+      "exit_code": 0,
+      "stdout": "0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T13:49:25.792858+00:00",
+      "command": "settings get system min_refresh_rate",
+      "exit_code": 0,
+      "stdout": "120.0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T13:49:25.849021+00:00",
+      "command": "settings get system peak_refresh_rate",
+      "exit_code": 0,
+      "stdout": "120.0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T13:49:25.947940+00:00",
+      "command": "input keyevent 224; settings put system screen_brightness 78",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T13:49:25.986049+00:00",
+      "command": "settings get system screen_brightness",
+      "exit_code": 0,
+      "stdout": "78",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T13:49:26.025746+00:00",
+      "command": "su -c 'printf '\"'\"'%s\\n'\"'\"' '\"'\"'<6>PWM_DC_PHASE brightness78_dc0_0'\"'\"' > /dev/kmsg'",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T13:49:28.649792+00:00",
+      "command": "input keyevent 224; wm dismiss-keyguard; uiautomator dump /data/local/tmp/pwm-dc-settings.xml",
+      "exit_code": 0,
+      "stdout": "UI hierchary dumped to: /data/local/tmp/pwm-dc-settings.xml",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T13:49:28.689249+00:00",
+      "command": "cat /data/local/tmp/pwm-dc-settings.xml",
+      "exit_code": 0,
+      "stdout": "<private file: current-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T13:49:28.746395+00:00",
+      "command": "input tap 720 1157",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T13:49:29.747522+00:00",
+      "command": "content call --uri content://com.motorola.android.providers.settings/global --method GET_global --arg display_dc_mode_enabled",
+      "exit_code": 0,
+      "stdout": "Result: Bundle[{value=0}]",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T13:49:29.792103+00:00",
+      "command": "su -c 'cat /sys/class/drm/card0-DSI-1/panelDC'",
+      "exit_code": 0,
+      "stdout": "0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T13:49:29.842278+00:00",
+      "command": "su -c 'cat /sys/class/backlight/panel0-backlight/brightness'",
+      "exit_code": 0,
+      "stdout": "5197",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T13:49:29.891009+00:00",
+      "command": "su -c 'cat /sys/class/backlight/panel0-backlight/bl_power'",
+      "exit_code": 0,
+      "stdout": "0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T13:49:29.920015+00:00",
+      "command": "getenforce",
+      "exit_code": 0,
+      "stdout": "Enforcing",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T13:49:30.040052+00:00",
+      "command": "su -c 'cat /sys/kernel/tracing/instances/pwm_dc/trace'",
+      "exit_code": 0,
+      "stdout": "<private file: returns-latest.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T13:49:30.098009+00:00",
+      "command": "su -c 'printf '\"'\"'%s\\n'\"'\"' '\"'\"'<6>PWM_DC_PHASE brightness78_dc1_1'\"'\"' > /dev/kmsg'",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T13:49:32.227379+00:00",
+      "command": "input keyevent 224; wm dismiss-keyguard; uiautomator dump /data/local/tmp/pwm-dc-settings.xml",
+      "exit_code": 0,
+      "stdout": "UI hierchary dumped to: /data/local/tmp/pwm-dc-settings.xml",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T13:49:32.265020+00:00",
+      "command": "cat /data/local/tmp/pwm-dc-settings.xml",
+      "exit_code": 0,
+      "stdout": "<private file: current-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T13:49:32.321800+00:00",
+      "command": "input tap 720 1157",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T13:49:33.323919+00:00",
+      "command": "content call --uri content://com.motorola.android.providers.settings/global --method GET_global --arg display_dc_mode_enabled",
+      "exit_code": 0,
+      "stdout": "Result: Bundle[{value=1}]",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T13:49:33.376188+00:00",
+      "command": "su -c 'cat /sys/class/drm/card0-DSI-1/panelDC'",
+      "exit_code": 0,
+      "stdout": "1",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T13:49:33.425820+00:00",
+      "command": "su -c 'cat /sys/class/backlight/panel0-backlight/brightness'",
+      "exit_code": 0,
+      "stdout": "5197",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T13:49:33.476328+00:00",
+      "command": "su -c 'cat /sys/class/backlight/panel0-backlight/bl_power'",
+      "exit_code": 0,
+      "stdout": "0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T13:49:33.507357+00:00",
+      "command": "getenforce",
+      "exit_code": 0,
+      "stdout": "Enforcing",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T13:49:33.645704+00:00",
+      "command": "su -c 'cat /sys/kernel/tracing/instances/pwm_dc/trace'",
+      "exit_code": 0,
+      "stdout": "<private file: returns-latest.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T13:49:33.698815+00:00",
+      "command": "su -c 'printf '\"'\"'%s\\n'\"'\"' '\"'\"'<6>PWM_DC_PHASE brightness78_dc0_2'\"'\"' > /dev/kmsg'",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T13:49:35.849361+00:00",
+      "command": "input keyevent 224; wm dismiss-keyguard; uiautomator dump /data/local/tmp/pwm-dc-settings.xml",
+      "exit_code": 0,
+      "stdout": "UI hierchary dumped to: /data/local/tmp/pwm-dc-settings.xml",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T13:49:35.888365+00:00",
+      "command": "cat /data/local/tmp/pwm-dc-settings.xml",
+      "exit_code": 0,
+      "stdout": "<private file: current-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T13:49:35.944667+00:00",
+      "command": "input tap 720 1157",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T13:49:36.947375+00:00",
+      "command": "content call --uri content://com.motorola.android.providers.settings/global --method GET_global --arg display_dc_mode_enabled",
+      "exit_code": 0,
+      "stdout": "Result: Bundle[{value=0}]",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T13:49:36.988924+00:00",
+      "command": "su -c 'cat /sys/class/drm/card0-DSI-1/panelDC'",
+      "exit_code": 0,
+      "stdout": "0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T13:49:37.029629+00:00",
+      "command": "su -c 'cat /sys/class/backlight/panel0-backlight/brightness'",
+      "exit_code": 0,
+      "stdout": "5197",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T13:49:37.076465+00:00",
+      "command": "su -c 'cat /sys/class/backlight/panel0-backlight/bl_power'",
+      "exit_code": 0,
+      "stdout": "0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T13:49:37.110066+00:00",
+      "command": "getenforce",
+      "exit_code": 0,
+      "stdout": "Enforcing",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T13:49:37.261918+00:00",
+      "command": "su -c 'cat /sys/kernel/tracing/instances/pwm_dc/trace'",
+      "exit_code": 0,
+      "stdout": "<private file: returns-latest.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T13:49:37.329320+00:00",
+      "command": "input keyevent 224; settings put system screen_brightness 40",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T13:49:37.354416+00:00",
+      "command": "settings get system screen_brightness",
+      "exit_code": 0,
+      "stdout": "40",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T13:49:37.385816+00:00",
+      "command": "su -c 'printf '\"'\"'%s\\n'\"'\"' '\"'\"'<6>PWM_DC_PHASE brightness40_dc0_3'\"'\"' > /dev/kmsg'",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T13:49:39.505673+00:00",
+      "command": "input keyevent 224; wm dismiss-keyguard; uiautomator dump /data/local/tmp/pwm-dc-settings.xml",
+      "exit_code": 0,
+      "stdout": "UI hierchary dumped to: /data/local/tmp/pwm-dc-settings.xml",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T13:49:39.544407+00:00",
+      "command": "cat /data/local/tmp/pwm-dc-settings.xml",
+      "exit_code": 0,
+      "stdout": "<private file: current-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T13:49:40.596291+00:00",
+      "command": "content call --uri content://com.motorola.android.providers.settings/global --method GET_global --arg display_dc_mode_enabled",
+      "exit_code": 0,
+      "stdout": "Result: Bundle[{value=0}]",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T13:49:40.648820+00:00",
+      "command": "su -c 'cat /sys/class/drm/card0-DSI-1/panelDC'",
+      "exit_code": 0,
+      "stdout": "0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T13:49:40.700439+00:00",
+      "command": "su -c 'cat /sys/class/backlight/panel0-backlight/brightness'",
+      "exit_code": 0,
+      "stdout": "2839",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T13:49:40.751030+00:00",
+      "command": "su -c 'cat /sys/class/backlight/panel0-backlight/bl_power'",
+      "exit_code": 0,
+      "stdout": "0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T13:49:40.787904+00:00",
+      "command": "getenforce",
+      "exit_code": 0,
+      "stdout": "Enforcing",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T13:49:40.968643+00:00",
+      "command": "su -c 'cat /sys/kernel/tracing/instances/pwm_dc/trace'",
+      "exit_code": 0,
+      "stdout": "<private file: returns-latest.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T13:49:41.027664+00:00",
+      "command": "su -c 'printf '\"'\"'%s\\n'\"'\"' '\"'\"'<6>PWM_DC_PHASE brightness40_dc1_4'\"'\"' > /dev/kmsg'",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T13:49:43.148434+00:00",
+      "command": "input keyevent 224; wm dismiss-keyguard; uiautomator dump /data/local/tmp/pwm-dc-settings.xml",
+      "exit_code": 0,
+      "stdout": "UI hierchary dumped to: /data/local/tmp/pwm-dc-settings.xml",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T13:49:43.185630+00:00",
+      "command": "cat /data/local/tmp/pwm-dc-settings.xml",
+      "exit_code": 0,
+      "stdout": "<private file: current-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T13:49:43.241914+00:00",
+      "command": "input tap 720 1157",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T13:49:44.247804+00:00",
+      "command": "content call --uri content://com.motorola.android.providers.settings/global --method GET_global --arg display_dc_mode_enabled",
+      "exit_code": 0,
+      "stdout": "Result: Bundle[{value=1}]",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T13:49:44.304118+00:00",
+      "command": "su -c 'cat /sys/class/drm/card0-DSI-1/panelDC'",
+      "exit_code": 0,
+      "stdout": "1",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T13:49:44.356212+00:00",
+      "command": "su -c 'cat /sys/class/backlight/panel0-backlight/brightness'",
+      "exit_code": 0,
+      "stdout": "2839",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T13:49:44.412489+00:00",
+      "command": "su -c 'cat /sys/class/backlight/panel0-backlight/bl_power'",
+      "exit_code": 0,
+      "stdout": "0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T13:49:44.445183+00:00",
+      "command": "getenforce",
+      "exit_code": 0,
+      "stdout": "Enforcing",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T13:49:44.619424+00:00",
+      "command": "su -c 'cat /sys/kernel/tracing/instances/pwm_dc/trace'",
+      "exit_code": 0,
+      "stdout": "<private file: returns-latest.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T13:49:44.680886+00:00",
+      "command": "su -c 'printf '\"'\"'%s\\n'\"'\"' '\"'\"'<6>PWM_DC_PHASE brightness40_dc0_5'\"'\"' > /dev/kmsg'",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T13:49:46.825080+00:00",
+      "command": "input keyevent 224; wm dismiss-keyguard; uiautomator dump /data/local/tmp/pwm-dc-settings.xml",
+      "exit_code": 0,
+      "stdout": "UI hierchary dumped to: /data/local/tmp/pwm-dc-settings.xml",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T13:49:46.864192+00:00",
+      "command": "cat /data/local/tmp/pwm-dc-settings.xml",
+      "exit_code": 0,
+      "stdout": "<private file: current-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T13:49:46.920605+00:00",
+      "command": "input tap 720 1157",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T13:49:47.917582+00:00",
+      "command": "content call --uri content://com.motorola.android.providers.settings/global --method GET_global --arg display_dc_mode_enabled",
+      "exit_code": 0,
+      "stdout": "Result: Bundle[{value=0}]",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T13:49:47.953521+00:00",
+      "command": "su -c 'cat /sys/class/drm/card0-DSI-1/panelDC'",
+      "exit_code": 0,
+      "stdout": "0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T13:49:48.007749+00:00",
+      "command": "su -c 'cat /sys/class/backlight/panel0-backlight/brightness'",
+      "exit_code": 0,
+      "stdout": "2839",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T13:49:48.059689+00:00",
+      "command": "su -c 'cat /sys/class/backlight/panel0-backlight/bl_power'",
+      "exit_code": 0,
+      "stdout": "0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T13:49:48.091757+00:00",
+      "command": "getenforce",
+      "exit_code": 0,
+      "stdout": "Enforcing",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T13:49:48.283691+00:00",
+      "command": "su -c 'cat /sys/kernel/tracing/instances/pwm_dc/trace'",
+      "exit_code": 0,
+      "stdout": "<private file: returns-latest.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T13:49:48.337227+00:00",
+      "command": "su -c 'printf '\"'\"'0\\n'\"'\"' > /sys/kernel/tracing/instances/pwm_dc/tracing_on'",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T13:49:48.552444+00:00",
+      "command": "su -c 'cat /sys/kernel/tracing/instances/pwm_dc/trace'",
+      "exit_code": 0,
+      "stdout": "<private file: return-trace.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T13:49:48.595721+00:00",
+      "command": "su -c 'cat /sys/kernel/tracing/kprobe_profile'",
+      "exit_code": 0,
+      "stdout": "<private file: probe-profile.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T13:49:48.653751+00:00",
+      "command": "su -c dmesg",
+      "exit_code": 0,
+      "stdout": "<private file: kernel-log.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T13:49:48.701429+00:00",
+      "command": "dumpsys display",
+      "exit_code": 0,
+      "stdout": "<private file: display-state.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T13:49:50.815061+00:00",
+      "command": "input keyevent 224; wm dismiss-keyguard; uiautomator dump /data/local/tmp/pwm-dc-settings.xml",
+      "exit_code": 0,
+      "stdout": "UI hierchary dumped to: /data/local/tmp/pwm-dc-settings.xml",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T13:49:50.854389+00:00",
+      "command": "cat /data/local/tmp/pwm-dc-settings.xml",
+      "exit_code": 0,
+      "stdout": "<private file: current-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T13:49:51.910629+00:00",
+      "command": "content call --uri content://com.motorola.android.providers.settings/global --method GET_global --arg display_dc_mode_enabled",
+      "exit_code": 0,
+      "stdout": "Result: Bundle[{value=0}]",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T13:49:51.972693+00:00",
+      "command": "su -c 'cat /sys/class/drm/card0-DSI-1/panelDC'",
+      "exit_code": 0,
+      "stdout": "0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T13:49:52.029412+00:00",
+      "command": "su -c 'cat /sys/class/backlight/panel0-backlight/brightness'",
+      "exit_code": 0,
+      "stdout": "2839",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T13:49:52.081519+00:00",
+      "command": "su -c 'cat /sys/class/backlight/panel0-backlight/bl_power'",
+      "exit_code": 0,
+      "stdout": "0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T13:49:52.117252+00:00",
+      "command": "getenforce",
+      "exit_code": 0,
+      "stdout": "Enforcing",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T13:49:52.176529+00:00",
+      "command": "su -c 'printf '\"'\"'0\\n'\"'\"' > /sys/class/drm/card0-DSI-1/mipi_cmd_log_en'",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T13:49:52.231762+00:00",
+      "command": "su -c 'printf '\"'\"'0\\n'\"'\"' > /sys/kernel/tracing/instances/pwm_dc/tracing_on'",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T13:49:52.288368+00:00",
+      "command": "su -c 'printf '\"'\"'0\\n'\"'\"' > /sys/kernel/tracing/instances/pwm_dc/events/pwm_dc/ctrl_return/enable'",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T13:49:52.344895+00:00",
+      "command": "su -c 'printf '\"'\"'0\\n'\"'\"' > /sys/kernel/tracing/instances/pwm_dc/events/pwm_dc/param_return/enable'",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T13:49:52.402044+00:00",
+      "command": "su -c 'rmdir /sys/kernel/tracing/instances/pwm_dc'",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T13:49:52.456672+00:00",
+      "command": "su -c 'printf '\"'\"'%s\\n'\"'\"' -:pwm_dc/param_return >> /sys/kernel/tracing/kprobe_events'",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T13:49:52.515252+00:00",
+      "command": "su -c 'printf '\"'\"'%s\\n'\"'\"' -:pwm_dc/ctrl_return >> /sys/kernel/tracing/kprobe_events'",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T13:49:52.619748+00:00",
+      "command": "settings put system screen_brightness 78; settings put system screen_brightness_mode 1; settings delete system min_refresh_rate; settings delete system peak_refresh_rate",
+      "exit_code": 0,
+      "stdout": "Deleted 1 rows\nDeleted 1 rows",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T13:49:52.657794+00:00",
+      "command": "su -c 'cat /sys/class/drm/card0-DSI-1/mipi_cmd_log_en'",
+      "exit_code": 0,
+      "stdout": "ctrl->ctrl->mipi_cmd_log_en: 0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T13:49:52.688788+00:00",
+      "command": "settings get system screen_brightness_mode",
+      "exit_code": 0,
+      "stdout": "1",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T13:49:52.715936+00:00",
+      "command": "settings get system peak_refresh_rate",
+      "exit_code": 0,
+      "stdout": "null",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T13:49:52.742010+00:00",
+      "command": "settings get system min_refresh_rate",
+      "exit_code": 0,
+      "stdout": "null",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T13:49:52.765653+00:00",
+      "command": "su -c 'test ! -e /sys/kernel/tracing/instances/pwm_dc && echo yes'",
+      "exit_code": 0,
+      "stdout": "yes",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T13:49:52.793187+00:00",
+      "command": "su -c 'cat /sys/kernel/tracing/kprobe_events'",
+      "exit_code": 0,
+      "stdout": "<private file: remaining-probes.txt>",
+      "stderr": ""
+    }
+  ],
+  "execution_started_at_utc": "2026-11-06T13:49:24.904347+00:00",
+  "original_effective_dc": 0,
+  "preparation_note": "Opening the inline stock row toggled it ON before tracing; execution returns OFF. This untraced preparation is not counted as captured evidence.",
+  "phases": [
+    {
+      "name": "brightness78_dc0_0",
+      "requested_brightness": 78,
+      "requested_dc": 0,
+      "observed": {
+        "requested_dc": "Result: Bundle[{value=0}]",
+        "panel_dc": "0",
+        "brightness": "5197",
+        "bl_power": "0",
+        "selinux": "Enforcing"
+      }
+    },
+    {
+      "name": "brightness78_dc1_1",
+      "requested_brightness": 78,
+      "requested_dc": 1,
+      "observed": {
+        "requested_dc": "Result: Bundle[{value=1}]",
+        "panel_dc": "1",
+        "brightness": "5197",
+        "bl_power": "0",
+        "selinux": "Enforcing"
+      }
+    },
+    {
+      "name": "brightness78_dc0_2",
+      "requested_brightness": 78,
+      "requested_dc": 0,
+      "observed": {
+        "requested_dc": "Result: Bundle[{value=0}]",
+        "panel_dc": "0",
+        "brightness": "5197",
+        "bl_power": "0",
+        "selinux": "Enforcing"
+      }
+    },
+    {
+      "name": "brightness40_dc0_3",
+      "requested_brightness": 40,
+      "requested_dc": 0,
+      "observed": {
+        "requested_dc": "Result: Bundle[{value=0}]",
+        "panel_dc": "0",
+        "brightness": "2839",
+        "bl_power": "0",
+        "selinux": "Enforcing"
+      }
+    },
+    {
+      "name": "brightness40_dc1_4",
+      "requested_brightness": 40,
+      "requested_dc": 1,
+      "observed": {
+        "requested_dc": "Result: Bundle[{value=1}]",
+        "panel_dc": "1",
+        "brightness": "2839",
+        "bl_power": "0",
+        "selinux": "Enforcing"
+      }
+    },
+    {
+      "name": "brightness40_dc0_5",
+      "requested_brightness": 40,
+      "requested_dc": 0,
+      "observed": {
+        "requested_dc": "Result: Bundle[{value=0}]",
+        "panel_dc": "0",
+        "brightness": "2839",
+        "bl_power": "0",
+        "selinux": "Enforcing"
+      }
+    }
+  ],
+  "six_stock_phases_completed": true,
+  "cleanup_dc": {
+    "requested_dc": "Result: Bundle[{value=0}]",
+    "panel_dc": "0",
+    "brightness": "2839",
+    "bl_power": "0",
+    "selinux": "Enforcing"
+  },
+  "cleanup_checks": {
+    "logger": "ctrl->ctrl->mipi_cmd_log_en: 0",
+    "auto": "1",
+    "peak": "null",
+    "min": "null",
+    "own_instance_absent": "yes",
+    "remaining_own_probes": false
+  },
+  "cleanup_errors": [],
+  "cleanup_verified": true,
+  "finished_at_utc": "2026-11-06T13:49:52.793652+00:00"
+}

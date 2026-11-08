@@ -1,0 +1,42 @@
+{
+  "status": "offline_only_not_approved_not_sent",
+  "stock_off": "artifacts/device_tree/selected_boe_v4/qcom,mdss-dsi-dc-off-command",
+  "stock_on": "artifacts/device_tree/selected_boe_v4/qcom,mdss-dsi-dc-on-command",
+  "variants": [
+    {
+      "name": "a9_only",
+      "file": "artifacts/dsi_selector_split_20261107/a9_only.bin",
+      "byte_offset": 68,
+      "packet_index": 6,
+      "page": "0x23",
+      "opcode": "0xa9",
+      "from": "0e",
+      "to": "8e",
+      "bytes": 875,
+      "packets": 75,
+      "modified_bytes": 1
+    },
+    {
+      "name": "9d_only",
+      "file": "artifacts/dsi_selector_split_20261107/9d_only.bin",
+      "byte_offset": 97,
+      "packet_index": 9,
+      "page": "0x24",
+      "opcode": "0x9d",
+      "from": "0e",
+      "to": "8e",
+      "bytes": 875,
+      "packets": 75,
+      "modified_bytes": 1
+    }
+  ],
+  "sequence": [
+    "stock",
+    "a9_only",
+    "stock",
+    "9d_only",
+    "stock"
+  ],
+  "dsi_commands_sent": false,
+  "same_native_headers_and_order": true
+}

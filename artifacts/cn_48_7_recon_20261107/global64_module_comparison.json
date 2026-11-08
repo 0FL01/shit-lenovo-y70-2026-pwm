@@ -1,0 +1,12 @@
+{
+  "scope": "offline byte comparison between two referenceimages, notcurrenttarget/flashcompatibility",
+  "cn_build": "W3WWL36.65-48-7",
+  "global_reference_build": "W3WW36.65-64-4",
+  "global_reference_vendor_boot": "artifacts/firmware/w3ww_base_36.65-64-4/vendor_boot.img",
+  "module_member": "lib/modules/msm_drm.ko",
+  "global_module_bytes": 6071656,
+  "global_module_sha256": "d3519a51bf9a74e02448c455349f8e69fccca1aa316a7be4951ada76c6b8b52d",
+  "cn48_module_sha256": "d3519a51bf9a74e02448c455349f8e69fccca1aa316a7be4951ada76c6b8b52d",
+  "byte_equal": true,
+  "current_target_equal": false
+}

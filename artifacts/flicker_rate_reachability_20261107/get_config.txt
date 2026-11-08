@@ -1,0 +1,136 @@
+# Diagnostic linear sweep: code/data boundaries NOT inferred.
+b231969c: 	call 0xb2019e48
+b23196a0: 	allocframe(#168)
+b23196a4: 	r17:16 = combine(r0,r2)
+b23196a8: 	p0 = cmp.eq(r2,#8)
+b23196ac: 	r19:18 = combine(r3,r4)
+b23196b0: 	r26 = memw(r29+#176)
+b23196b4: 	r21:20 = combine(r5,r1)
+b23196b8: 	if (p0) jump:nt 0xb23196f8
+b23196bc: 	memw(r26+#0) = #0
+b23196c0: 	memb(r5+#0) = #0
+b23196c4: 	if (p0.new) r3 = #234
+b23196c8: 	p0 = cmp.eq(r16,#2); if (!p0.new) jump:nt 0xb23198b4
+b23196cc: 	r2 = #114
+b23196d0: 	immext(#192)
+b23196d4: 	r5:4 = combine(##226,#72)
+b23196d8: 	memb(r29+#36) = r2.new
+b23196dc: 	immext(#128)
+b23196e0: 	r7:6 = combine(#20,##149)
+b23196e4: 	r9:8 = combine(#34,#98)
+b23196e8: 	r2 = add(r29,#36)
+b23196ec: 	immext(#128)
+b23196f0: 	r13:12 = combine(#48,##172)
+b23196f4: 	jump 0xb2319720
+b23196f8: 	r2 = #114
+b23196fc: 	r5:4 = combine(#37,#40)
+b2319700: 	r3 = #227
+b2319704: 	memb(r29+#52) = r2.new
+b2319708: 	r7:6 = combine(#26,#37)
+b231970c: 	immext(#128)
+b2319710: 	r9:8 = combine(##146,#95)
+b2319714: 	r2 = add(r29,#52)
+b2319718: 	immext(#128)
+b231971c: 	r13:12 = combine(#49,##164)
+b2319720: 	r22 = add(r29,#20)
+b2319724: 	r3 = #16
+b2319728: 	memb(r2+#12) = r3
+b231972c: 	memb(r2+#1) = #17
+b2319730: 	r1:0 = combine(#16,r22)
+b2319734: 	memb(r2+#2) = #-102
+b2319738: 	memb(r2+#3) = r13
+b231973c: 	memb(r2+#4) = r12
+b2319740: 	memb(r2+#5) = #46
+b2319744: 	memb(r2+#6) = #70
+b2319748: 	memb(r2+#7) = #42
+b231974c: 	memb(r2+#8) = r9
+b2319750: 	memb(r2+#9) = #106
+b2319754: 	memb(r2+#10) = r8
+b2319758: 	memb(r2+#11) = r7
+b231975c: 	memb(r2+#13) = r5	memb(r2+#14) = r6
+b2319760: 	call 0xb20d9834
+b2319764: 	memb(r2+#15) = r4
+b2319768: 	r1:0 = combine(r22,r20)
+b231976c: 	memw(r18+#0) = #0	memw(r19+#0) = #0
+b2319770: 	r2 = memw(r20+#0)
+b2319774: 	r2 = #1	r3 = memw(r2+#8)
+b2319778: 	callr r3
+b231977c: 	immext(#2992036160)
+b2319780: 	if (!p0.new) r23 = ##-1302931084
+b2319784: 	p0 = cmp.eq(r0,#0); if (p0.new) jump:nt 0xb231988c
+b2319788: 	immext(#2992036288)
+b231978c: 	r22 = ##2992036304	r1 = r0
+b2319790: 	immext(#1232348160)
+b2319794: 	r24 = ##1232348160
+b2319798: 	immext(#2992036352)
+b231979c: 	r25 = ##-1302930896
+b23197a0: 	r3 = #512
+b23197a4: 	memw(r29+#68) = #0
+b23197a8: 	r2 = memw(r1+#0)
+b23197ac: 	r3 = and(r2,#-256)
+b23197b0: 	if (!cmp.eq(r3.new,r3)) jump:t 0xb2319874
+b23197b4: 	r2 = and(r2,#255)
+b23197b8: 	if (cmp.gt(r2.new,#2)) jump:t 0xb23197d8
+b23197bc: 	p0 = cmp.eq(r2,#1); if (p0.new) jump:nt 0xb23197e0
+b23197c0: 	p0 = cmp.eq(r2,#2); if (!p0.new) jump:nt 0xb2319874
+b23197c4: 	r3:2 = combine(r22,#0)
+b23197c8: 	r4 = #1
+b23197cc: 	r1:0 = combine(r17,#0)	memw(r29+#0) = r16
+b23197d0: 	call 0xb20defc0
+b23197d4: 	jump 0xb2319854
+b23197d8: 	p0 = cmp.eq(r2,#3); if (p0.new) jump:nt 0xb2319860
+b23197dc: 	p0 = cmp.eq(r2,#6); if (!p0.new) jump:nt 0xb2319874
+b23197e0: 	call 0xb231a054
+b23197e4: 	r3 = add(r29,#68)
+b23197e8: 	r2 = add(r29,#72)	r0 = r17
+b23197ec: 	p0 = r0
+b23197f0: 	if (!p0.new) jump:t 0xb2319874
+b23197f4: 	r1:0 = combine(r17,#0)
+b23197f8: 	r4 = memw(r19+#0)	r3 = memw(r29+#68)
+b23197fc: 	memw(r29+#0) = r16
+b2319800: 	r3 = convert_sf2w(r3):chop
+b2319804: 	r4 = convert_sf2w(r4):chop
+b2319808: 	memw(r29+#8) = r3.new
+b231980c: 	call 0xb20defc0
+b2319810: 	r4 = #3
+b2319814: 	r3:2 = combine(r23,#0)	memw(r29+#4) = r4
+b2319818: 	r2 = memub(r29+#72)
+b231981c: 	r3 = memw(r19+#0)
+b2319820: 	p0 = tstbit(r2,#0)
+b2319824: 	r0 = memw(r29+#68)
+b2319828: 	r2 = sfmax(r3,r0)
+b231982c: 	if (!p0) jump:nt 0xb2319848
+b2319830: 	memw(r19+#0) = r2.new
+b2319834: 	r2 = memw(r29+#76)
+b2319838: 	if (cmp.eq(r2.new,#0)) jump:nt 0xb2319848
+b231983c: 	call 0xb201ab70
+b2319840: 	r1 = convert_uw2sf(r2)
+b2319844: 	r0 = r24
+b2319848: 	r2 = memw(r18+#0)
+b231984c: 	r2 = sfmax(r2,r0)
+b2319850: 	memw(r18+#0) = r2.new
+b2319854: 	memb(r21+#0) = #1
+b2319858: 	jump 0xb2319874
+b231985c: 	memw(r26+#0) += #1
+b2319860: 	r3:2 = combine(r25,#0)
+b2319864: 	r4 = #1
+b2319868: 	r1:0 = combine(r17,#0)	memw(r29+#0) = r16
+b231986c: 	call 0xb20defc0
+b2319870: 	memb(r21+#0) = #1
+b2319874: 	r0 = r20
+b2319878: 	r1 = add(r29,#20)	r2 = memw(r20+#0)
+b231987c: 	r2 = #0	r3 = memw(r2+#8)
+b2319880: 	callr r3
+b2319884: 	r1 = r0
+b2319888: 	p0 = cmp.eq(r0,#0); if (!p0.new) jump:t 0xb23197a0
+b231988c: 	r1:0 = combine(r17,#0)
+b2319890: 	r4 = memw(r19+#0)	r2 = memw(r18+#0)
+b2319894: 	memw(r29+#0) = r16
+b2319898: 	r2 = convert_sf2w(r2):chop
+b231989c: 	r4 = convert_sf2w(r4):chop
+b23198a0: 	memw(r29+#8) = r2.new
+b23198a4: 	immext(#2992036480)
+b23198a8: 	r3:2 = combine(##-1302930776,#0)
+b23198ac: 	r4 = #3	memw(r29+#4) = r4
+b23198b0: 	call 0xb20defc0
+b23198b4: 	jump 0xb2019f38

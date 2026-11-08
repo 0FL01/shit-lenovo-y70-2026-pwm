@@ -1,0 +1,393 @@
+
+/mnt/kston/legion-Y70-madness/artifacts/kernel/gki_r59/target_vendor/msm_drm.ko:     file format elf64-littleaarch64
+
+
+Disassembly of section .text:
+
+00000000001b5588 <dsi_panel_set_backlight>:
+  1b5588:	d503233f 	paciasp
+  1b558c:	d10183ff 	sub	sp, sp, #0x60
+  1b5590:	a9027bfd 	stp	x29, x30, [sp, #32]
+  1b5594:	f9001bf7 	str	x23, [sp, #48]
+  1b5598:	a90457f6 	stp	x22, x21, [sp, #64]
+  1b559c:	a9054ff4 	stp	x20, x19, [sp, #80]
+  1b55a0:	910083fd 	add	x29, sp, #0x20
+  1b55a4:	d5384108 	mrs	x8, sp_el0
+  1b55a8:	f9438908 	ldr	x8, [x8, #1808]
+  1b55ac:	f81f83a8 	stur	x8, [x29, #-8]
+  1b55b0:	3953e808 	ldrb	w8, [x0, #1274]
+  1b55b4:	36000068 	tbz	w8, #0, 1b55c0 <dsi_panel_set_backlight+0x38>
+  1b55b8:	2a1f03f5 	mov	w21, wzr
+  1b55bc:	140000e8 	b	1b595c <dsi_panel_set_backlight+0x3d4>
+  1b55c0:	395cc008 	ldrb	w8, [x0, #1840]
+  1b55c4:	aa0003f3 	mov	x19, x0
+  1b55c8:	2a0103f4 	mov	w20, w1
+  1b55cc:	7100051f 	cmp	w8, #0x1
+  1b55d0:	54000141 	b.ne	1b55f8 <dsi_panel_set_backlight+0x70>  // b.any
+  1b55d4:	b945ca64 	ldr	w4, [x19, #1480]
+  1b55d8:	90000003 	adrp	x3, 0 <msm_hdcp_register_cb-0x4>
+			1b55d8: R_AARCH64_ADR_PREL_PG_HI21	.rodata+0x6e2f8
+		; rodata string: '[msm-dsi-debug]: backlight type:%d dbv lvl:%d\n'
+  1b55dc:	91000063 	add	x3, x3, #0x0
+			1b55dc: R_AARCH64_ADD_ABS_LO12_NC	.rodata+0x6e2f8
+		; rodata string: '[msm-dsi-debug]: backlight type:%d dbv lvl:%d\n'
+  1b55e0:	aa1f03e0 	mov	x0, xzr
+  1b55e4:	aa1f03e1 	mov	x1, xzr
+  1b55e8:	2a1f03e2 	mov	w2, wzr
+  1b55ec:	2a1403e5 	mov	w5, w20
+  1b55f0:	b9073a74 	str	w20, [x19, #1848]
+  1b55f4:	94000000 	bl	0 <__drm_dev_dbg>
+			1b55f4: R_AARCH64_CALL26	__drm_dev_dbg
+  1b55f8:	90000008 	adrp	x8, 0 <msm_hdcp_register_cb-0x4>
+			1b55f8: R_AARCH64_ADR_PREL_PG_HI21	.data+0xa2ae
+  1b55fc:	39400108 	ldrb	w8, [x8]
+			1b55fc: R_AARCH64_LDST8_ABS_LO12_NC	.data+0xa2ae
+  1b5600:	7100051f 	cmp	w8, #0x1
+  1b5604:	54000181 	b.ne	1b5634 <dsi_panel_set_backlight+0xac>  // b.any
+  1b5608:	31000a9f 	cmn	w20, #0x2
+  1b560c:	540000a1 	b.ne	1b5620 <dsi_panel_set_backlight+0x98>  // b.any
+  1b5610:	b94bee68 	ldr	w8, [x19, #3052]
+  1b5614:	34fffd28 	cbz	w8, 1b55b8 <dsi_panel_set_backlight+0x30>
+  1b5618:	5280bb08 	mov	w8, #0x5d8                 	// #1496
+  1b561c:	14000005 	b	1b5630 <dsi_panel_set_backlight+0xa8>
+  1b5620:	11000e88 	add	w8, w20, #0x3
+  1b5624:	7100051f 	cmp	w8, #0x1
+  1b5628:	540009a8 	b.hi	1b575c <dsi_panel_set_backlight+0x1d4>  // b.pmore
+  1b562c:	52817e08 	mov	w8, #0xbf0                 	// #3056
+  1b5630:	b8686a74 	ldr	w20, [x19, x8]
+  1b5634:	b945ca64 	ldr	w4, [x19, #1480]
+  1b5638:	90000003 	adrp	x3, 0 <msm_hdcp_register_cb-0x4>
+			1b5638: R_AARCH64_ADR_PREL_PG_HI21	.rodata+0x30953
+		; rodata string: '[msm-dsi-debug]: backlight type:%d lvl:%d\n'
+  1b563c:	91000063 	add	x3, x3, #0x0
+			1b563c: R_AARCH64_ADD_ABS_LO12_NC	.rodata+0x30953
+		; rodata string: '[msm-dsi-debug]: backlight type:%d lvl:%d\n'
+  1b5640:	aa1f03e0 	mov	x0, xzr
+  1b5644:	aa1f03e1 	mov	x1, xzr
+  1b5648:	2a1f03e2 	mov	w2, wzr
+  1b564c:	2a1403e5 	mov	w5, w20
+  1b5650:	94000000 	bl	0 <__drm_dev_dbg>
+			1b5650: R_AARCH64_CALL26	__drm_dev_dbg
+  1b5654:	b945ca63 	ldr	w3, [x19, #1480]
+  1b5658:	7100087f 	cmp	w3, #0x2
+  1b565c:	5400068c 	b.gt	1b572c <dsi_panel_set_backlight+0x1a4>
+  1b5660:	34000983 	cbz	w3, 1b5790 <dsi_panel_set_backlight+0x208>
+  1b5664:	7100047f 	cmp	w3, #0x1
+  1b5668:	54000f00 	b.eq	1b5848 <dsi_panel_set_backlight+0x2c0>  // b.none
+  1b566c:	7100087f 	cmp	w3, #0x2
+  1b5670:	54000661 	b.ne	1b573c <dsi_panel_set_backlight+0x1b4>  // b.any
+  1b5674:	39604268 	ldrb	w8, [x19, #2064]
+  1b5678:	7100051f 	cmp	w8, #0x1
+  1b567c:	54000081 	b.ne	1b568c <dsi_panel_set_backlight+0x104>  // b.any
+  1b5680:	aa1303e0 	mov	x0, x19
+  1b5684:	2a1403e1 	mov	w1, w20
+  1b5688:	940000ed 	bl	1b5a3c <dsi_panel_set_apl>
+  1b568c:	39616268 	ldrb	w8, [x19, #2136]
+  1b5690:	7100051f 	cmp	w8, #0x1
+  1b5694:	54000081 	b.ne	1b56a4 <dsi_panel_set_backlight+0x11c>  // b.any
+  1b5698:	aa1303e0 	mov	x0, x19
+  1b569c:	2a1403e1 	mov	w1, w20
+  1b56a0:	94000123 	bl	1b5b2c <dsi_panel_set_odc>
+  1b56a4:	b4000dd3 	cbz	x19, 1b585c <dsi_panel_set_backlight+0x2d4>
+  1b56a8:	7140429f 	cmp	w20, #0x10, lsl #12
+  1b56ac:	54000d82 	b.cs	1b585c <dsi_panel_set_backlight+0x2d4>  // b.hs, b.nlast
+  1b56b0:	3958e268 	ldrb	w8, [x19, #1592]
+  1b56b4:	7100051f 	cmp	w8, #0x1
+  1b56b8:	54001b80 	b.eq	1b5a28 <dsi_panel_set_backlight+0x4a0>  // b.none
+  1b56bc:	aa1f03f6 	mov	x22, xzr
+  1b56c0:	b9463e68 	ldr	w8, [x19, #1596]
+  1b56c4:	53181e89 	ubfiz	w9, w20, #8, #8
+  1b56c8:	7100029f 	cmp	w20, #0x0
+  1b56cc:	3957e26a 	ldrb	w10, [x19, #1528]
+  1b56d0:	b945f661 	ldr	w1, [x19, #1524]
+  1b56d4:	b9063e74 	str	w20, [x19, #1596]
+  1b56d8:	7a401900 	ccmp	w8, #0x0, #0x0, ne	// ne = any
+  1b56dc:	2a542128 	orr	w8, w9, w20, lsr #8
+  1b56e0:	1a9f17f7 	cset	w23, eq	// eq = none
+  1b56e4:	7100015f 	cmp	w10, #0x0
+  1b56e8:	1a941114 	csel	w20, w8, w20, ne	// ne = any
+  1b56ec:	34000dc1 	cbz	w1, 1b58a4 <dsi_panel_set_backlight+0x31c>
+  1b56f0:	53087e88 	lsr	w8, w20, #8
+  1b56f4:	91006260 	add	x0, x19, #0x18
+  1b56f8:	910003e2 	mov	x2, sp
+  1b56fc:	52800103 	mov	w3, #0x8                   	// #8
+  1b5700:	390007f4 	strb	w20, [sp, #1]
+  1b5704:	390003e8 	strb	w8, [sp]
+  1b5708:	39000be8 	strb	w8, [sp, #2]
+  1b570c:	39000ff4 	strb	w20, [sp, #3]
+  1b5710:	390013e8 	strb	w8, [sp, #4]
+  1b5714:	390017f4 	strb	w20, [sp, #5]
+  1b5718:	39001be8 	strb	w8, [sp, #6]
+  1b571c:	39001ff4 	strb	w20, [sp, #7]
+  1b5720:	94000000 	bl	0 <mipi_dsi_dcs_write>
+			1b5720: R_AARCH64_CALL26	mipi_dsi_dcs_write
+  1b5724:	aa0003f5 	mov	x21, x0
+  1b5728:	14000073 	b	1b58f4 <dsi_panel_set_backlight+0x36c>
+  1b572c:	51000c68 	sub	w8, w3, #0x3
+  1b5730:	2a1f03f5 	mov	w21, wzr
+  1b5734:	71000d1f 	cmp	w8, #0x3
+  1b5738:	54001123 	b.cc	1b595c <dsi_panel_set_backlight+0x3d4>  // b.lo, b.ul, b.last
+  1b573c:	90000001 	adrp	x1, 0 <msm_hdcp_register_cb-0x4>
+			1b573c: R_AARCH64_ADR_PREL_PG_HI21	.rodata+0x3d84f
+  1b5740:	91000021 	add	x1, x1, #0x0
+			1b5740: R_AARCH64_ADD_ABS_LO12_NC	.rodata+0x3d84f
+  1b5744:	90000002 	adrp	x2, 0 <msm_hdcp_register_cb-0x4>
+			1b5744: R_AARCH64_ADR_PREL_PG_HI21	.rodata+0x71b09
+		; rodata string: '*ERROR* [msm-dsi-error]: Backlight type(%d) not supported\n'
+  1b5748:	91000042 	add	x2, x2, #0x0
+			1b5748: R_AARCH64_ADD_ABS_LO12_NC	.rodata+0x71b09
+		; rodata string: '*ERROR* [msm-dsi-error]: Backlight type(%d) not supported\n'
+  1b574c:	aa1f03e0 	mov	x0, xzr
+  1b5750:	94000000 	bl	0 <drm_dev_printk>
+			1b5750: R_AARCH64_CALL26	drm_dev_printk
+  1b5754:	12804175 	mov	w21, #0xfffffdf4            	// #-524
+  1b5758:	14000081 	b	1b595c <dsi_panel_set_backlight+0x3d4>
+  1b575c:	90000008 	adrp	x8, 0 <msm_hdcp_register_cb-0x4>
+			1b575c: R_AARCH64_ADR_PREL_PG_HI21	.data+0xa2ac
+  1b5760:	b90bf274 	str	w20, [x19, #3056]
+  1b5764:	79400108 	ldrh	w8, [x8]
+			1b5764: R_AARCH64_LDST16_ABS_LO12_NC	.data+0xa2ac
+  1b5768:	34fff668 	cbz	w8, 1b5634 <dsi_panel_set_backlight+0xac>
+  1b576c:	90000001 	adrp	x1, 0 <msm_hdcp_register_cb-0x4>
+			1b576c: R_AARCH64_ADR_PREL_PG_HI21	.rodata+0x51366
+  1b5770:	91000021 	add	x1, x1, #0x0
+			1b5770: R_AARCH64_ADD_ABS_LO12_NC	.rodata+0x51366
+  1b5774:	90000002 	adrp	x2, 0 <msm_hdcp_register_cb-0x4>
+			1b5774: R_AARCH64_ADR_PREL_PG_HI21	.rodata+0x79203
+		; rodata string: '[msm-dsi-info]: HBM is on.. ignore setting backlight. bl_vl=%d\n'
+  1b5778:	91000042 	add	x2, x2, #0x0
+			1b5778: R_AARCH64_ADD_ABS_LO12_NC	.rodata+0x79203
+		; rodata string: '[msm-dsi-info]: HBM is on.. ignore setting backlight. bl_vl=%d\n'
+  1b577c:	aa1f03e0 	mov	x0, xzr
+  1b5780:	2a1403e3 	mov	w3, w20
+  1b5784:	94000000 	bl	0 <drm_dev_printk>
+			1b5784: R_AARCH64_CALL26	drm_dev_printk
+  1b5788:	2a1f03f5 	mov	w21, wzr
+  1b578c:	14000074 	b	1b595c <dsi_panel_set_backlight+0x3d4>
+  1b5790:	b4000713 	cbz	x19, 1b5870 <dsi_panel_set_backlight+0x2e8>
+  1b5794:	f9430e60 	ldr	x0, [x19, #1560]
+  1b5798:	b4000780 	cbz	x0, 1b5888 <dsi_panel_set_backlight+0x300>
+  1b579c:	b9462668 	ldr	w8, [x19, #1572]
+  1b57a0:	52807d09 	mov	w9, #0x3e8                 	// #1000
+  1b57a4:	b945da6a 	ldr	w10, [x19, #1496]
+  1b57a8:	1b097d08 	mul	w8, w8, w9
+  1b57ac:	1b147d09 	mul	w9, w8, w20
+  1b57b0:	1aca0929 	udiv	w9, w9, w10
+  1b57b4:	2a08012a 	orr	w10, w9, w8
+  1b57b8:	37f80c0a 	tbnz	w10, #31, 1b5938 <dsi_panel_set_backlight+0x3b0>
+  1b57bc:	a9432c0a 	ldp	x10, x11, [x0, #48]
+  1b57c0:	f940200c 	ldr	x12, [x0, #64]
+  1b57c4:	f9000bec 	str	x12, [sp, #16]
+  1b57c8:	eb09017f 	cmp	x11, x9
+  1b57cc:	a9002fea 	stp	x10, x11, [sp]
+  1b57d0:	54000061 	b.ne	1b57dc <dsi_panel_set_backlight+0x254>  // b.any
+  1b57d4:	eb08015f 	cmp	x10, x8
+  1b57d8:	540000c0 	b.eq	1b57f0 <dsi_panel_set_backlight+0x268>  // b.none
+  1b57dc:	910003e1 	mov	x1, sp
+  1b57e0:	a90027e8 	stp	x8, x9, [sp]
+  1b57e4:	94000000 	bl	0 <pwm_apply_might_sleep>
+			1b57e4: R_AARCH64_CALL26	pwm_apply_might_sleep
+  1b57e8:	2a0003f5 	mov	w21, w0
+  1b57ec:	35000a80 	cbnz	w0, 1b593c <dsi_panel_set_backlight+0x3b4>
+  1b57f0:	39588268 	ldrb	w8, [x19, #1568]
+  1b57f4:	34000cf4 	cbz	w20, 1b5990 <dsi_panel_set_backlight+0x408>
+  1b57f8:	3707ee08 	tbnz	w8, #0, 1b55b8 <dsi_panel_set_backlight+0x30>
+  1b57fc:	f9430e60 	ldr	x0, [x19, #1560]
+  1b5800:	b4000fc0 	cbz	x0, 1b59f8 <dsi_panel_set_backlight+0x470>
+  1b5804:	a943a00a 	ldp	x10, x8, [x0, #56]
+  1b5808:	f9401809 	ldr	x9, [x0, #48]
+  1b580c:	f90003e9 	str	x9, [sp]
+  1b5810:	a900a3ea 	stp	x10, x8, [sp, #8]
+  1b5814:	d3609d08 	ubfx	x8, x8, #32, #8
+  1b5818:	7100051f 	cmp	w8, #0x1
+  1b581c:	540000e0 	b.eq	1b5838 <dsi_panel_set_backlight+0x2b0>  // b.none
+  1b5820:	52800028 	mov	w8, #0x1                   	// #1
+  1b5824:	910003e1 	mov	x1, sp
+  1b5828:	390053e8 	strb	w8, [sp, #20]
+  1b582c:	94000000 	bl	0 <pwm_apply_might_sleep>
+			1b582c: R_AARCH64_CALL26	pwm_apply_might_sleep
+  1b5830:	2a0003f5 	mov	w21, w0
+  1b5834:	35000e40 	cbnz	w0, 1b59fc <dsi_panel_set_backlight+0x474>
+  1b5838:	52800028 	mov	w8, #0x1                   	// #1
+  1b583c:	2a1f03f5 	mov	w21, wzr
+  1b5840:	39188268 	strb	w8, [x19, #1568]
+  1b5844:	14000046 	b	1b595c <dsi_panel_set_backlight+0x3d4>
+  1b5848:	f9431a60 	ldr	x0, [x19, #1584]
+  1b584c:	2a1403e1 	mov	w1, w20
+  1b5850:	94000000 	bl	0 <backlight_device_set_brightness>
+			1b5850: R_AARCH64_CALL26	backlight_device_set_brightness
+  1b5854:	2a0003f5 	mov	w21, w0
+  1b5858:	14000041 	b	1b595c <dsi_panel_set_backlight+0x3d4>
+  1b585c:	90000001 	adrp	x1, 0 <msm_hdcp_register_cb-0x4>
+			1b585c: R_AARCH64_ADR_PREL_PG_HI21	.rodata+0x3d84f
+  1b5860:	91000021 	add	x1, x1, #0x0
+			1b5860: R_AARCH64_ADD_ABS_LO12_NC	.rodata+0x3d84f
+  1b5864:	90000002 	adrp	x2, 0 <msm_hdcp_register_cb-0x4>
+			1b5864: R_AARCH64_ADR_PREL_PG_HI21	.rodata+0x718d7
+		; rodata string: '*ERROR* [msm-dsi-error]: invalid params\n'
+  1b5868:	91000042 	add	x2, x2, #0x0
+			1b5868: R_AARCH64_ADD_ABS_LO12_NC	.rodata+0x718d7
+		; rodata string: '*ERROR* [msm-dsi-error]: invalid params\n'
+  1b586c:	14000005 	b	1b5880 <dsi_panel_set_backlight+0x2f8>
+  1b5870:	90000001 	adrp	x1, 0 <msm_hdcp_register_cb-0x4>
+			1b5870: R_AARCH64_ADR_PREL_PG_HI21	.rodata+0x3d84f
+  1b5874:	91000021 	add	x1, x1, #0x0
+			1b5874: R_AARCH64_ADD_ABS_LO12_NC	.rodata+0x3d84f
+  1b5878:	90000002 	adrp	x2, 0 <msm_hdcp_register_cb-0x4>
+			1b5878: R_AARCH64_ADR_PREL_PG_HI21	.rodata+0x309e4
+		; rodata string: '*ERROR* [msm-dsi-error]: Invalid Params\n'
+  1b587c:	91000042 	add	x2, x2, #0x0
+			1b587c: R_AARCH64_ADD_ABS_LO12_NC	.rodata+0x309e4
+		; rodata string: '*ERROR* [msm-dsi-error]: Invalid Params\n'
+  1b5880:	aa1f03e0 	mov	x0, xzr
+  1b5884:	14000005 	b	1b5898 <dsi_panel_set_backlight+0x310>
+  1b5888:	90000001 	adrp	x1, 0 <msm_hdcp_register_cb-0x4>
+			1b5888: R_AARCH64_ADR_PREL_PG_HI21	.rodata+0x3d84f
+  1b588c:	91000021 	add	x1, x1, #0x0
+			1b588c: R_AARCH64_ADD_ABS_LO12_NC	.rodata+0x3d84f
+  1b5890:	90000002 	adrp	x2, 0 <msm_hdcp_register_cb-0x4>
+			1b5890: R_AARCH64_ADR_PREL_PG_HI21	.rodata+0x21adf
+		; rodata string: '*ERROR* [msm-dsi-error]: pwm device not found\n'
+  1b5894:	91000042 	add	x2, x2, #0x0
+			1b5894: R_AARCH64_ADD_ABS_LO12_NC	.rodata+0x21adf
+		; rodata string: '*ERROR* [msm-dsi-error]: pwm device not found\n'
+  1b5898:	94000000 	bl	0 <drm_dev_printk>
+			1b5898: R_AARCH64_CALL26	drm_dev_printk
+  1b589c:	128002b5 	mov	w21, #0xffffffea            	// #-22
+  1b58a0:	1400002f 	b	1b595c <dsi_panel_set_backlight+0x3d4>
+  1b58a4:	39574268 	ldrb	w8, [x19, #1488]
+  1b58a8:	5ac00a89 	rev	w9, w20
+  1b58ac:	91006260 	add	x0, x19, #0x18
+  1b58b0:	53107d29 	lsr	w9, w9, #16
+  1b58b4:	7100011f 	cmp	w8, #0x0
+  1b58b8:	1a941134 	csel	w20, w9, w20, ne	// ne = any
+  1b58bc:	2a1403e1 	mov	w1, w20
+  1b58c0:	94000000 	bl	0 <mipi_dsi_dcs_set_display_brightness>
+			1b58c0: R_AARCH64_CALL26	mipi_dsi_dcs_set_display_brightness
+  1b58c4:	b9464662 	ldr	w2, [x19, #1604]
+  1b58c8:	5290a3e8 	mov	w8, #0x851f                	// #34079
+  1b58cc:	b9463e61 	ldr	w1, [x19, #1596]
+  1b58d0:	72aa3d68 	movk	w8, #0x51eb, lsl #16
+  1b58d4:	2a0003f5 	mov	w21, w0
+  1b58d8:	9ba87c49 	umull	x9, w2, w8
+  1b58dc:	9ba87c28 	umull	x8, w1, w8
+  1b58e0:	d365fd29 	lsr	x9, x9, #37
+  1b58e4:	d365fd08 	lsr	x8, x8, #37
+  1b58e8:	6b08013f 	cmp	w9, w8
+  1b58ec:	54000941 	b.ne	1b5a14 <dsi_panel_set_backlight+0x48c>  // b.any
+  1b58f0:	b9064661 	str	w1, [x19, #1604]
+  1b58f4:	39590268 	ldrb	w8, [x19, #1600]
+  1b58f8:	0a170108 	and	w8, w8, w23
+  1b58fc:	7100051f 	cmp	w8, #0x1
+  1b5900:	54000680 	b.eq	1b59d0 <dsi_panel_set_backlight+0x448>  // b.none
+  1b5904:	36f80115 	tbz	w21, #31, 1b5924 <dsi_panel_set_backlight+0x39c>
+  1b5908:	90000001 	adrp	x1, 0 <msm_hdcp_register_cb-0x4>
+			1b5908: R_AARCH64_ADR_PREL_PG_HI21	.rodata+0x3d84f
+  1b590c:	91000021 	add	x1, x1, #0x0
+			1b590c: R_AARCH64_ADD_ABS_LO12_NC	.rodata+0x3d84f
+  1b5910:	90000002 	adrp	x2, 0 <msm_hdcp_register_cb-0x4>
+			1b5910: R_AARCH64_ADR_PREL_PG_HI21	.rodata+0xf758
+		; rodata string: '*ERROR* [msm-dsi-error]: failed to update dcs backlight:%d\n'
+  1b5914:	91000042 	add	x2, x2, #0x0
+			1b5914: R_AARCH64_ADD_ABS_LO12_NC	.rodata+0xf758
+		; rodata string: '*ERROR* [msm-dsi-error]: failed to update dcs backlight:%d\n'
+  1b5918:	aa1f03e0 	mov	x0, xzr
+  1b591c:	2a1403e3 	mov	w3, w20
+  1b5920:	94000000 	bl	0 <drm_dev_printk>
+			1b5920: R_AARCH64_CALL26	drm_dev_printk
+  1b5924:	3958e268 	ldrb	w8, [x19, #1592]
+  1b5928:	7100051f 	cmp	w8, #0x1
+  1b592c:	54000181 	b.ne	1b595c <dsi_panel_set_backlight+0x3d4>  // b.any
+  1b5930:	f901ee76 	str	x22, [x19, #984]
+  1b5934:	1400000a 	b	1b595c <dsi_panel_set_backlight+0x3d4>
+  1b5938:	128002b5 	mov	w21, #0xffffffea            	// #-22
+  1b593c:	f9400263 	ldr	x3, [x19]
+  1b5940:	90000001 	adrp	x1, 0 <msm_hdcp_register_cb-0x4>
+			1b5940: R_AARCH64_ADR_PREL_PG_HI21	.rodata+0x3d84f
+  1b5944:	91000021 	add	x1, x1, #0x0
+			1b5944: R_AARCH64_ADD_ABS_LO12_NC	.rodata+0x3d84f
+  1b5948:	90000002 	adrp	x2, 0 <msm_hdcp_register_cb-0x4>
+			1b5948: R_AARCH64_ADR_PREL_PG_HI21	.rodata+0x30b50
+		; rodata string: '*ERROR* [msm-dsi-error]: [%s] failed to change pwm config, rc=%d\n'
+  1b594c:	91000042 	add	x2, x2, #0x0
+			1b594c: R_AARCH64_ADD_ABS_LO12_NC	.rodata+0x30b50
+		; rodata string: '*ERROR* [msm-dsi-error]: [%s] failed to change pwm config, rc=%d\n'
+  1b5950:	aa1f03e0 	mov	x0, xzr
+  1b5954:	2a1503e4 	mov	w4, w21
+  1b5958:	94000000 	bl	0 <drm_dev_printk>
+			1b5958: R_AARCH64_CALL26	drm_dev_printk
+  1b595c:	d5384108 	mrs	x8, sp_el0
+  1b5960:	f9438908 	ldr	x8, [x8, #1808]
+  1b5964:	f85f83a9 	ldur	x9, [x29, #-8]
+  1b5968:	eb09011f 	cmp	x8, x9
+  1b596c:	54000661 	b.ne	1b5a38 <dsi_panel_set_backlight+0x4b0>  // b.any
+  1b5970:	2a1503e0 	mov	w0, w21
+  1b5974:	a9454ff4 	ldp	x20, x19, [sp, #80]
+  1b5978:	f9401bf7 	ldr	x23, [sp, #48]
+  1b597c:	a94457f6 	ldp	x22, x21, [sp, #64]
+  1b5980:	a9427bfd 	ldp	x29, x30, [sp, #32]
+  1b5984:	910183ff 	add	sp, sp, #0x60
+  1b5988:	d50323bf 	autiasp
+  1b598c:	d65f03c0 	ret
+  1b5990:	34ffe148 	cbz	w8, 1b55b8 <dsi_panel_set_backlight+0x30>
+  1b5994:	f9430e60 	ldr	x0, [x19, #1560]
+  1b5998:	b4000160 	cbz	x0, 1b59c4 <dsi_panel_set_backlight+0x43c>
+  1b599c:	a943a00a 	ldp	x10, x8, [x0, #56]
+  1b59a0:	f9401809 	ldr	x9, [x0, #48]
+  1b59a4:	f90003e9 	str	x9, [sp]
+  1b59a8:	a900a3ea 	stp	x10, x8, [sp, #8]
+  1b59ac:	d3609d08 	ubfx	x8, x8, #32, #8
+  1b59b0:	7100051f 	cmp	w8, #0x1
+  1b59b4:	54000081 	b.ne	1b59c4 <dsi_panel_set_backlight+0x43c>  // b.any
+  1b59b8:	910003e1 	mov	x1, sp
+  1b59bc:	390053ff 	strb	wzr, [sp, #20]
+  1b59c0:	94000000 	bl	0 <pwm_apply_might_sleep>
+			1b59c0: R_AARCH64_CALL26	pwm_apply_might_sleep
+  1b59c4:	2a1f03f5 	mov	w21, wzr
+  1b59c8:	3918827f 	strb	wzr, [x19, #1568]
+  1b59cc:	17ffffe4 	b	1b595c <dsi_panel_set_backlight+0x3d4>
+  1b59d0:	b9463e61 	ldr	w1, [x19, #1596]
+  1b59d4:	90000000 	adrp	x0, 0 <msm_hdcp_register_cb-0x4>
+			1b59d4: R_AARCH64_ADR_PREL_PG_HI21	.rodata+0x2cd11
+  1b59d8:	91000000 	add	x0, x0, #0x0
+			1b59d8: R_AARCH64_ADD_ABS_LO12_NC	.rodata+0x2cd11
+  1b59dc:	94000000 	bl	0 <_printk>
+			1b59dc: R_AARCH64_CALL26	_printk
+  1b59e0:	91006260 	add	x0, x19, #0x18
+  1b59e4:	2a1403e1 	mov	w1, w20
+  1b59e8:	94000000 	bl	0 <mipi_dsi_dcs_set_display_brightness>
+			1b59e8: R_AARCH64_CALL26	mipi_dsi_dcs_set_display_brightness
+  1b59ec:	2a0003f5 	mov	w21, w0
+  1b59f0:	36fff9b5 	tbz	w21, #31, 1b5924 <dsi_panel_set_backlight+0x39c>
+  1b59f4:	17ffffc5 	b	1b5908 <dsi_panel_set_backlight+0x380>
+  1b59f8:	128002b5 	mov	w21, #0xffffffea            	// #-22
+  1b59fc:	f9400263 	ldr	x3, [x19]
+  1b5a00:	90000001 	adrp	x1, 0 <msm_hdcp_register_cb-0x4>
+			1b5a00: R_AARCH64_ADR_PREL_PG_HI21	.rodata+0x3d84f
+  1b5a04:	91000021 	add	x1, x1, #0x0
+			1b5a04: R_AARCH64_ADD_ABS_LO12_NC	.rodata+0x3d84f
+  1b5a08:	90000002 	adrp	x2, 0 <msm_hdcp_register_cb-0x4>
+			1b5a08: R_AARCH64_ADR_PREL_PG_HI21	.rodata+0x527e0
+		; rodata string: '*ERROR* [msm-dsi-error]: [%s] failed to enable pwm, rc=%d\n'
+  1b5a0c:	91000042 	add	x2, x2, #0x0
+			1b5a0c: R_AARCH64_ADD_ABS_LO12_NC	.rodata+0x527e0
+		; rodata string: '*ERROR* [msm-dsi-error]: [%s] failed to enable pwm, rc=%d\n'
+  1b5a10:	17ffffd0 	b	1b5950 <dsi_panel_set_backlight+0x3c8>
+  1b5a14:	90000000 	adrp	x0, 0 <msm_hdcp_register_cb-0x4>
+			1b5a14: R_AARCH64_ADR_PREL_PG_HI21	.rodata+0x75532
+  1b5a18:	91000000 	add	x0, x0, #0x0
+			1b5a18: R_AARCH64_ADD_ABS_LO12_NC	.rodata+0x75532
+  1b5a1c:	94000000 	bl	0 <_printk>
+			1b5a1c: R_AARCH64_CALL26	_printk
+  1b5a20:	b9463e61 	ldr	w1, [x19, #1596]
+  1b5a24:	17ffffb3 	b	1b58f0 <dsi_panel_set_backlight+0x368>
+  1b5a28:	f941ee76 	ldr	x22, [x19, #984]
+  1b5a2c:	b27502c8 	orr	x8, x22, #0x800
+  1b5a30:	f901ee68 	str	x8, [x19, #984]
+  1b5a34:	17ffff23 	b	1b56c0 <dsi_panel_set_backlight+0x138>
+  1b5a38:	94000000 	bl	0 <__stack_chk_fail>
+			1b5a38: R_AARCH64_CALL26	__stack_chk_fail
+
+Disassembly of section .init.text:
+
+Disassembly of section .exit.text:

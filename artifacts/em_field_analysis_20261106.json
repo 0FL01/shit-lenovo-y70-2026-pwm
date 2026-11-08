@@ -1,0 +1,3835 @@
+{
+  "scope": "offline ordered selected-panel command analysis; not a generated panel profile and never sent to device",
+  "inputs": [
+    "artifacts/device_tree/selected_boe_v4",
+    "artifacts/cn_panel_commands.json",
+    "artifacts/current_display_path/als/als_comp_config.xml"
+  ],
+  "actual_dsi_packet_array_count": 52,
+  "excluded_scalar": "qcom,mdss-dsi-te-dcs-command is scalar1, not a packet array (earlier name-based53 count includes this)",
+  "als_threshold": 3601,
+  "numeric_correlation": "Adjacent data0e11 -> big-endian3601, on8e11 ->36369; low15bits3601. Pair semantic/bit15meaning is a hypothesis, not a register-map fact.",
+  "target_sets": [
+    {
+      "property": "qcom,mdss-dsi-dc-off-command",
+      "packet_count": 75,
+      "transfer_state": "dsi_hs_mode",
+      "pairs": [
+        {
+          "packet_indices": [
+            6,
+            7
+          ],
+          "page": 35,
+          "opcodes": [
+            169,
+            170
+          ],
+          "data_hex": "0e 11",
+          "concatenated_be_u16": 3601,
+          "low15_bits": 3601,
+          "packets": [
+            {
+              "offset_in_property": 60,
+              "page": 35,
+              "header_hex": "39 00 00 40 00 00 02",
+              "payload_hex": "a9 0e"
+            },
+            {
+              "offset_in_property": 69,
+              "page": 35,
+              "header_hex": "39 00 00 40 00 00 02",
+              "payload_hex": "aa 11"
+            }
+          ]
+        },
+        {
+          "packet_indices": [
+            9,
+            10
+          ],
+          "page": 36,
+          "opcodes": [
+            157,
+            158
+          ],
+          "data_hex": "0e 11",
+          "concatenated_be_u16": 3601,
+          "low15_bits": 3601,
+          "packets": [
+            {
+              "offset_in_property": 89,
+              "page": 36,
+              "header_hex": "39 00 00 40 00 00 02",
+              "payload_hex": "9d 0e"
+            },
+            {
+              "offset_in_property": 98,
+              "page": 36,
+              "header_hex": "39 00 00 40 00 00 02",
+              "payload_hex": "9e 11"
+            }
+          ]
+        }
+      ],
+      "candidate_page_packets_in_order": [
+        {
+          "packet_index": 5,
+          "offset_in_property": 49,
+          "page": 35,
+          "header_hex": "39 00 00 40 00 00 04",
+          "payload_hex": "ff 5a a5 23"
+        },
+        {
+          "packet_index": 6,
+          "offset_in_property": 60,
+          "page": 35,
+          "header_hex": "39 00 00 40 00 00 02",
+          "payload_hex": "a9 0e"
+        },
+        {
+          "packet_index": 7,
+          "offset_in_property": 69,
+          "page": 35,
+          "header_hex": "39 00 00 40 00 00 02",
+          "payload_hex": "aa 11"
+        },
+        {
+          "packet_index": 8,
+          "offset_in_property": 78,
+          "page": 36,
+          "header_hex": "39 00 00 40 00 00 04",
+          "payload_hex": "ff 5a a5 24"
+        },
+        {
+          "packet_index": 9,
+          "offset_in_property": 89,
+          "page": 36,
+          "header_hex": "39 00 00 40 00 00 02",
+          "payload_hex": "9d 0e"
+        },
+        {
+          "packet_index": 10,
+          "offset_in_property": 98,
+          "page": 36,
+          "header_hex": "39 00 00 40 00 00 02",
+          "payload_hex": "9e 11"
+        },
+        {
+          "packet_index": 11,
+          "offset_in_property": 107,
+          "page": 35,
+          "header_hex": "39 00 00 40 00 00 04",
+          "payload_hex": "ff 5a a5 23"
+        },
+        {
+          "packet_index": 12,
+          "offset_in_property": 118,
+          "page": 35,
+          "header_hex": "39 00 00 40 00 00 02",
+          "payload_hex": "80 50"
+        },
+        {
+          "packet_index": 13,
+          "offset_in_property": 127,
+          "page": 35,
+          "header_hex": "39 00 00 40 00 00 02",
+          "payload_hex": "a6 fc"
+        },
+        {
+          "packet_index": 14,
+          "offset_in_property": 136,
+          "page": 35,
+          "header_hex": "39 00 00 40 00 00 02",
+          "payload_hex": "a7 00"
+        },
+        {
+          "packet_index": 15,
+          "offset_in_property": 145,
+          "page": 83,
+          "header_hex": "39 00 00 40 00 00 04",
+          "payload_hex": "ff 5a a5 53"
+        },
+        {
+          "packet_index": 16,
+          "offset_in_property": 156,
+          "page": 83,
+          "header_hex": "39 00 00 40 00 00 03",
+          "payload_hex": "95 00 a0"
+        },
+        {
+          "packet_index": 17,
+          "offset_in_property": 166,
+          "page": 83,
+          "header_hex": "39 00 00 40 00 00 1f",
+          "payload_hex": "a2 10 10 10 10 48 10 10 10 4b 4b 10 10 10 10 48 10 10 10 4b 4b 10 10 10 10 48 10 10 10 4b 4b"
+        },
+        {
+          "packet_index": 21,
+          "offset_in_property": 233,
+          "page": 83,
+          "header_hex": "39 00 00 40 00 00 04",
+          "payload_hex": "ff 5a a5 53"
+        },
+        {
+          "packet_index": 22,
+          "offset_in_property": 244,
+          "page": 83,
+          "header_hex": "39 00 00 40 00 00 02",
+          "payload_hex": "f0 01"
+        },
+        {
+          "packet_index": 25,
+          "offset_in_property": 273,
+          "page": 99,
+          "header_hex": "39 00 00 40 00 00 04",
+          "payload_hex": "ff 5a a5 63"
+        },
+        {
+          "packet_index": 26,
+          "offset_in_property": 284,
+          "page": 99,
+          "header_hex": "39 00 00 40 00 00 11",
+          "payload_hex": "f1 10 10 10 10 10 00 00 00 00 00 00 00 00 00 00 00"
+        },
+        {
+          "packet_index": 27,
+          "offset_in_property": 308,
+          "page": 99,
+          "header_hex": "39 00 00 40 00 00 11",
+          "payload_hex": "f2 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00"
+        },
+        {
+          "packet_index": 28,
+          "offset_in_property": 332,
+          "page": 99,
+          "header_hex": "39 00 00 40 00 00 11",
+          "payload_hex": "f3 00 00 00 00 00 20 20 20 20 20 00 00 00 00 00 00"
+        },
+        {
+          "packet_index": 29,
+          "offset_in_property": 356,
+          "page": 99,
+          "header_hex": "39 00 00 40 00 00 11",
+          "payload_hex": "f4 00 00 00 00 00 f0 f0 f0 f0 f0 00 00 00 00 00 00"
+        },
+        {
+          "packet_index": 30,
+          "offset_in_property": 380,
+          "page": 83,
+          "header_hex": "39 00 00 40 00 00 04",
+          "payload_hex": "ff 5a a5 53"
+        },
+        {
+          "packet_index": 31,
+          "offset_in_property": 391,
+          "page": 83,
+          "header_hex": "39 00 00 40 00 00 02",
+          "payload_hex": "f0 00"
+        }
+      ]
+    },
+    {
+      "property": "qcom,mdss-dsi-dc-on-command",
+      "packet_count": 75,
+      "transfer_state": "dsi_hs_mode",
+      "pairs": [
+        {
+          "packet_indices": [
+            6,
+            7
+          ],
+          "page": 35,
+          "opcodes": [
+            169,
+            170
+          ],
+          "data_hex": "8e 11",
+          "concatenated_be_u16": 36369,
+          "low15_bits": 3601,
+          "packets": [
+            {
+              "offset_in_property": 60,
+              "page": 35,
+              "header_hex": "39 00 00 40 00 00 02",
+              "payload_hex": "a9 8e"
+            },
+            {
+              "offset_in_property": 69,
+              "page": 35,
+              "header_hex": "39 00 00 40 00 00 02",
+              "payload_hex": "aa 11"
+            }
+          ]
+        },
+        {
+          "packet_indices": [
+            9,
+            10
+          ],
+          "page": 36,
+          "opcodes": [
+            157,
+            158
+          ],
+          "data_hex": "8e 11",
+          "concatenated_be_u16": 36369,
+          "low15_bits": 3601,
+          "packets": [
+            {
+              "offset_in_property": 89,
+              "page": 36,
+              "header_hex": "39 00 00 40 00 00 02",
+              "payload_hex": "9d 8e"
+            },
+            {
+              "offset_in_property": 98,
+              "page": 36,
+              "header_hex": "39 00 00 40 00 00 02",
+              "payload_hex": "9e 11"
+            }
+          ]
+        }
+      ],
+      "candidate_page_packets_in_order": [
+        {
+          "packet_index": 5,
+          "offset_in_property": 49,
+          "page": 35,
+          "header_hex": "39 00 00 40 00 00 04",
+          "payload_hex": "ff 5a a5 23"
+        },
+        {
+          "packet_index": 6,
+          "offset_in_property": 60,
+          "page": 35,
+          "header_hex": "39 00 00 40 00 00 02",
+          "payload_hex": "a9 8e"
+        },
+        {
+          "packet_index": 7,
+          "offset_in_property": 69,
+          "page": 35,
+          "header_hex": "39 00 00 40 00 00 02",
+          "payload_hex": "aa 11"
+        },
+        {
+          "packet_index": 8,
+          "offset_in_property": 78,
+          "page": 36,
+          "header_hex": "39 00 00 40 00 00 04",
+          "payload_hex": "ff 5a a5 24"
+        },
+        {
+          "packet_index": 9,
+          "offset_in_property": 89,
+          "page": 36,
+          "header_hex": "39 00 00 40 00 00 02",
+          "payload_hex": "9d 8e"
+        },
+        {
+          "packet_index": 10,
+          "offset_in_property": 98,
+          "page": 36,
+          "header_hex": "39 00 00 40 00 00 02",
+          "payload_hex": "9e 11"
+        },
+        {
+          "packet_index": 11,
+          "offset_in_property": 107,
+          "page": 35,
+          "header_hex": "39 00 00 40 00 00 04",
+          "payload_hex": "ff 5a a5 23"
+        },
+        {
+          "packet_index": 12,
+          "offset_in_property": 118,
+          "page": 35,
+          "header_hex": "39 00 00 40 00 00 02",
+          "payload_hex": "80 90"
+        },
+        {
+          "packet_index": 13,
+          "offset_in_property": 127,
+          "page": 35,
+          "header_hex": "39 00 00 40 00 00 02",
+          "payload_hex": "a6 fc"
+        },
+        {
+          "packet_index": 14,
+          "offset_in_property": 136,
+          "page": 35,
+          "header_hex": "39 00 00 40 00 00 02",
+          "payload_hex": "a7 00"
+        },
+        {
+          "packet_index": 15,
+          "offset_in_property": 145,
+          "page": 83,
+          "header_hex": "39 00 00 40 00 00 04",
+          "payload_hex": "ff 5a a5 53"
+        },
+        {
+          "packet_index": 16,
+          "offset_in_property": 156,
+          "page": 83,
+          "header_hex": "39 00 00 40 00 00 03",
+          "payload_hex": "95 44 50"
+        },
+        {
+          "packet_index": 17,
+          "offset_in_property": 166,
+          "page": 83,
+          "header_hex": "39 00 00 40 00 00 1f",
+          "payload_hex": "a2 10 10 10 10 48 10 10 74 7b b4 10 10 10 10 48 10 10 74 7b b4 10 10 10 10 48 10 10 74 7b b4"
+        },
+        {
+          "packet_index": 21,
+          "offset_in_property": 233,
+          "page": 83,
+          "header_hex": "39 00 00 40 00 00 04",
+          "payload_hex": "ff 5a a5 53"
+        },
+        {
+          "packet_index": 22,
+          "offset_in_property": 244,
+          "page": 83,
+          "header_hex": "39 00 00 40 00 00 02",
+          "payload_hex": "f0 01"
+        },
+        {
+          "packet_index": 25,
+          "offset_in_property": 273,
+          "page": 99,
+          "header_hex": "39 00 00 40 00 00 04",
+          "payload_hex": "ff 5a a5 63"
+        },
+        {
+          "packet_index": 26,
+          "offset_in_property": 284,
+          "page": 99,
+          "header_hex": "39 00 00 40 00 00 11",
+          "payload_hex": "f1 10 10 10 10 10 00 00 00 00 00 00 00 00 00 00 00"
+        },
+        {
+          "packet_index": 27,
+          "offset_in_property": 308,
+          "page": 99,
+          "header_hex": "39 00 00 40 00 00 11",
+          "payload_hex": "f2 00 00 00 00 00 20 20 20 20 20 00 00 00 00 00 00"
+        },
+        {
+          "packet_index": 28,
+          "offset_in_property": 332,
+          "page": 99,
+          "header_hex": "39 00 00 40 00 00 11",
+          "payload_hex": "f3 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00"
+        },
+        {
+          "packet_index": 29,
+          "offset_in_property": 356,
+          "page": 99,
+          "header_hex": "39 00 00 40 00 00 11",
+          "payload_hex": "f4 00 00 00 00 00 f0 f0 f0 f0 f0 00 00 00 00 00 00"
+        },
+        {
+          "packet_index": 30,
+          "offset_in_property": 380,
+          "page": 83,
+          "header_hex": "39 00 00 40 00 00 04",
+          "payload_hex": "ff 5a a5 53"
+        },
+        {
+          "packet_index": 31,
+          "offset_in_property": 391,
+          "page": 83,
+          "header_hex": "39 00 00 40 00 00 02",
+          "payload_hex": "f0 00"
+        }
+      ]
+    },
+    {
+      "property": "qcom,mdss-dsi-display-timings/timing@0/qcom,mdss-dsi-off-command",
+      "packet_count": 3,
+      "transfer_state": "dsi_lp_mode",
+      "pairs": [],
+      "candidate_page_packets_in_order": []
+    },
+    {
+      "property": "qcom,mdss-dsi-display-timings/timing@0/qcom,mdss-dsi-on-command",
+      "packet_count": 95,
+      "transfer_state": "dsi_lp_mode",
+      "pairs": [
+        {
+          "packet_indices": [
+            48,
+            49
+          ],
+          "page": 36,
+          "opcodes": [
+            128,
+            129
+          ],
+          "data_hex": "0e 11",
+          "concatenated_be_u16": 3601,
+          "low15_bits": 3601,
+          "packets": [
+            {
+              "offset_in_property": 709,
+              "page": 36,
+              "header_hex": "39 00 00 40 00 00 02",
+              "payload_hex": "80 0e"
+            },
+            {
+              "offset_in_property": 718,
+              "page": 36,
+              "header_hex": "39 00 00 40 00 00 02",
+              "payload_hex": "81 11"
+            }
+          ]
+        }
+      ],
+      "candidate_page_packets_in_order": [
+        {
+          "packet_index": 22,
+          "offset_in_property": 299,
+          "page": 35,
+          "header_hex": "39 00 00 40 00 00 04",
+          "payload_hex": "ff 5a a5 23"
+        },
+        {
+          "packet_index": 23,
+          "offset_in_property": 310,
+          "page": 35,
+          "header_hex": "39 00 00 40 00 00 02",
+          "payload_hex": "85 15"
+        },
+        {
+          "packet_index": 47,
+          "offset_in_property": 698,
+          "page": 36,
+          "header_hex": "39 00 00 40 00 00 04",
+          "payload_hex": "ff 5a a5 24"
+        },
+        {
+          "packet_index": 48,
+          "offset_in_property": 709,
+          "page": 36,
+          "header_hex": "39 00 00 40 00 00 02",
+          "payload_hex": "80 0e"
+        },
+        {
+          "packet_index": 49,
+          "offset_in_property": 718,
+          "page": 36,
+          "header_hex": "39 00 00 40 00 00 02",
+          "payload_hex": "81 11"
+        },
+        {
+          "packet_index": 50,
+          "offset_in_property": 727,
+          "page": 36,
+          "header_hex": "39 00 00 40 00 00 02",
+          "payload_hex": "84 00"
+        },
+        {
+          "packet_index": 67,
+          "offset_in_property": 890,
+          "page": 36,
+          "header_hex": "39 00 00 40 00 00 04",
+          "payload_hex": "ff 5a a5 24"
+        },
+        {
+          "packet_index": 68,
+          "offset_in_property": 901,
+          "page": 36,
+          "header_hex": "39 00 00 40 00 00 03",
+          "payload_hex": "8b 31 00"
+        },
+        {
+          "packet_index": 69,
+          "offset_in_property": 911,
+          "page": 36,
+          "header_hex": "39 00 00 40 00 00 03",
+          "payload_hex": "8c 31 00"
+        }
+      ]
+    },
+    {
+      "property": "qcom,mdss-dsi-display-timings/timing@0/qcom,mdss-dsi-pcd-check-disable-command",
+      "packet_count": 1,
+      "transfer_state": "dsi_hs_mode",
+      "pairs": [],
+      "candidate_page_packets_in_order": []
+    },
+    {
+      "property": "qcom,mdss-dsi-display-timings/timing@0/qcom,mdss-dsi-pcd-check-enable-command",
+      "packet_count": 1,
+      "transfer_state": "dsi_hs_mode",
+      "pairs": [],
+      "candidate_page_packets_in_order": []
+    },
+    {
+      "property": "qcom,mdss-dsi-display-timings/timing@0/qcom,mdss-dsi-timing-switch-command",
+      "packet_count": 14,
+      "transfer_state": "dsi_lp_mode",
+      "pairs": [],
+      "candidate_page_packets_in_order": [
+        {
+          "packet_index": 10,
+          "offset_in_property": 98,
+          "page": 36,
+          "header_hex": "39 00 00 40 00 00 04",
+          "payload_hex": "ff 5a a5 24"
+        },
+        {
+          "packet_index": 11,
+          "offset_in_property": 109,
+          "page": 36,
+          "header_hex": "39 00 00 40 00 00 03",
+          "payload_hex": "8b 31 00"
+        },
+        {
+          "packet_index": 12,
+          "offset_in_property": 119,
+          "page": 36,
+          "header_hex": "39 00 00 40 00 00 03",
+          "payload_hex": "8c 31 00"
+        }
+      ]
+    },
+    {
+      "property": "qcom,mdss-dsi-display-timings/timing@1/qcom,mdss-dsi-off-command",
+      "packet_count": 3,
+      "transfer_state": "dsi_lp_mode",
+      "pairs": [],
+      "candidate_page_packets_in_order": []
+    },
+    {
+      "property": "qcom,mdss-dsi-display-timings/timing@1/qcom,mdss-dsi-on-command",
+      "packet_count": 91,
+      "transfer_state": "dsi_lp_mode",
+      "pairs": [
+        {
+          "packet_indices": [
+            48,
+            49
+          ],
+          "page": 36,
+          "opcodes": [
+            128,
+            129
+          ],
+          "data_hex": "0e 11",
+          "concatenated_be_u16": 3601,
+          "low15_bits": 3601,
+          "packets": [
+            {
+              "offset_in_property": 709,
+              "page": 36,
+              "header_hex": "39 00 00 40 00 00 02",
+              "payload_hex": "80 0e"
+            },
+            {
+              "offset_in_property": 718,
+              "page": 36,
+              "header_hex": "39 00 00 40 00 00 02",
+              "payload_hex": "81 11"
+            }
+          ]
+        }
+      ],
+      "candidate_page_packets_in_order": [
+        {
+          "packet_index": 22,
+          "offset_in_property": 299,
+          "page": 35,
+          "header_hex": "39 00 00 40 00 00 04",
+          "payload_hex": "ff 5a a5 23"
+        },
+        {
+          "packet_index": 23,
+          "offset_in_property": 310,
+          "page": 35,
+          "header_hex": "39 00 00 40 00 00 02",
+          "payload_hex": "85 15"
+        },
+        {
+          "packet_index": 47,
+          "offset_in_property": 698,
+          "page": 36,
+          "header_hex": "39 00 00 40 00 00 04",
+          "payload_hex": "ff 5a a5 24"
+        },
+        {
+          "packet_index": 48,
+          "offset_in_property": 709,
+          "page": 36,
+          "header_hex": "39 00 00 40 00 00 02",
+          "payload_hex": "80 0e"
+        },
+        {
+          "packet_index": 49,
+          "offset_in_property": 718,
+          "page": 36,
+          "header_hex": "39 00 00 40 00 00 02",
+          "payload_hex": "81 11"
+        },
+        {
+          "packet_index": 50,
+          "offset_in_property": 727,
+          "page": 36,
+          "header_hex": "39 00 00 40 00 00 02",
+          "payload_hex": "84 00"
+        },
+        {
+          "packet_index": 63,
+          "offset_in_property": 850,
+          "page": 36,
+          "header_hex": "39 00 00 40 00 00 04",
+          "payload_hex": "ff 5a a5 24"
+        },
+        {
+          "packet_index": 64,
+          "offset_in_property": 861,
+          "page": 36,
+          "header_hex": "39 00 00 40 00 00 03",
+          "payload_hex": "8b 31 00"
+        },
+        {
+          "packet_index": 65,
+          "offset_in_property": 871,
+          "page": 36,
+          "header_hex": "39 00 00 40 00 00 03",
+          "payload_hex": "8c 31 00"
+        }
+      ]
+    },
+    {
+      "property": "qcom,mdss-dsi-display-timings/timing@1/qcom,mdss-dsi-pcd-check-disable-command",
+      "packet_count": 1,
+      "transfer_state": "dsi_hs_mode",
+      "pairs": [],
+      "candidate_page_packets_in_order": []
+    },
+    {
+      "property": "qcom,mdss-dsi-display-timings/timing@1/qcom,mdss-dsi-pcd-check-enable-command",
+      "packet_count": 1,
+      "transfer_state": "dsi_hs_mode",
+      "pairs": [],
+      "candidate_page_packets_in_order": []
+    },
+    {
+      "property": "qcom,mdss-dsi-display-timings/timing@1/qcom,mdss-dsi-timing-switch-command",
+      "packet_count": 10,
+      "transfer_state": "dsi_lp_mode",
+      "pairs": [],
+      "candidate_page_packets_in_order": [
+        {
+          "packet_index": 6,
+          "offset_in_property": 58,
+          "page": 36,
+          "header_hex": "39 00 00 40 00 00 04",
+          "payload_hex": "ff 5a a5 24"
+        },
+        {
+          "packet_index": 7,
+          "offset_in_property": 69,
+          "page": 36,
+          "header_hex": "39 00 00 40 00 00 03",
+          "payload_hex": "8b 31 00"
+        },
+        {
+          "packet_index": 8,
+          "offset_in_property": 79,
+          "page": 36,
+          "header_hex": "39 00 00 40 00 00 03",
+          "payload_hex": "8c 31 00"
+        }
+      ]
+    },
+    {
+      "property": "qcom,mdss-dsi-display-timings/timing@2/qcom,mdss-dsi-off-command",
+      "packet_count": 3,
+      "transfer_state": "dsi_lp_mode",
+      "pairs": [],
+      "candidate_page_packets_in_order": []
+    },
+    {
+      "property": "qcom,mdss-dsi-display-timings/timing@2/qcom,mdss-dsi-on-command",
+      "packet_count": 91,
+      "transfer_state": "dsi_lp_mode",
+      "pairs": [
+        {
+          "packet_indices": [
+            48,
+            49
+          ],
+          "page": 36,
+          "opcodes": [
+            128,
+            129
+          ],
+          "data_hex": "0e 11",
+          "concatenated_be_u16": 3601,
+          "low15_bits": 3601,
+          "packets": [
+            {
+              "offset_in_property": 709,
+              "page": 36,
+              "header_hex": "39 00 00 40 00 00 02",
+              "payload_hex": "80 0e"
+            },
+            {
+              "offset_in_property": 718,
+              "page": 36,
+              "header_hex": "39 00 00 40 00 00 02",
+              "payload_hex": "81 11"
+            }
+          ]
+        }
+      ],
+      "candidate_page_packets_in_order": [
+        {
+          "packet_index": 22,
+          "offset_in_property": 299,
+          "page": 35,
+          "header_hex": "39 00 00 40 00 00 04",
+          "payload_hex": "ff 5a a5 23"
+        },
+        {
+          "packet_index": 23,
+          "offset_in_property": 310,
+          "page": 35,
+          "header_hex": "39 00 00 40 00 00 02",
+          "payload_hex": "85 15"
+        },
+        {
+          "packet_index": 47,
+          "offset_in_property": 698,
+          "page": 36,
+          "header_hex": "39 00 00 40 00 00 04",
+          "payload_hex": "ff 5a a5 24"
+        },
+        {
+          "packet_index": 48,
+          "offset_in_property": 709,
+          "page": 36,
+          "header_hex": "39 00 00 40 00 00 02",
+          "payload_hex": "80 0e"
+        },
+        {
+          "packet_index": 49,
+          "offset_in_property": 718,
+          "page": 36,
+          "header_hex": "39 00 00 40 00 00 02",
+          "payload_hex": "81 11"
+        },
+        {
+          "packet_index": 50,
+          "offset_in_property": 727,
+          "page": 36,
+          "header_hex": "39 00 00 40 00 00 02",
+          "payload_hex": "84 00"
+        },
+        {
+          "packet_index": 63,
+          "offset_in_property": 850,
+          "page": 36,
+          "header_hex": "39 00 00 40 00 00 04",
+          "payload_hex": "ff 5a a5 24"
+        },
+        {
+          "packet_index": 64,
+          "offset_in_property": 861,
+          "page": 36,
+          "header_hex": "39 00 00 40 00 00 03",
+          "payload_hex": "8b 31 00"
+        },
+        {
+          "packet_index": 65,
+          "offset_in_property": 871,
+          "page": 36,
+          "header_hex": "39 00 00 40 00 00 03",
+          "payload_hex": "8c 31 00"
+        }
+      ]
+    },
+    {
+      "property": "qcom,mdss-dsi-display-timings/timing@2/qcom,mdss-dsi-pcd-check-disable-command",
+      "packet_count": 1,
+      "transfer_state": "dsi_hs_mode",
+      "pairs": [],
+      "candidate_page_packets_in_order": []
+    },
+    {
+      "property": "qcom,mdss-dsi-display-timings/timing@2/qcom,mdss-dsi-pcd-check-enable-command",
+      "packet_count": 1,
+      "transfer_state": "dsi_hs_mode",
+      "pairs": [],
+      "candidate_page_packets_in_order": []
+    },
+    {
+      "property": "qcom,mdss-dsi-display-timings/timing@2/qcom,mdss-dsi-timing-switch-command",
+      "packet_count": 10,
+      "transfer_state": "dsi_lp_mode",
+      "pairs": [],
+      "candidate_page_packets_in_order": [
+        {
+          "packet_index": 6,
+          "offset_in_property": 58,
+          "page": 36,
+          "header_hex": "39 00 00 40 00 00 04",
+          "payload_hex": "ff 5a a5 24"
+        },
+        {
+          "packet_index": 7,
+          "offset_in_property": 69,
+          "page": 36,
+          "header_hex": "39 00 00 40 00 00 03",
+          "payload_hex": "8b 31 00"
+        },
+        {
+          "packet_index": 8,
+          "offset_in_property": 79,
+          "page": 36,
+          "header_hex": "39 00 00 40 00 00 03",
+          "payload_hex": "8c 31 00"
+        }
+      ]
+    },
+    {
+      "property": "qcom,mdss-dsi-display-timings/timing@3/qcom,mdss-dsi-off-command",
+      "packet_count": 3,
+      "transfer_state": "dsi_lp_mode",
+      "pairs": [],
+      "candidate_page_packets_in_order": []
+    },
+    {
+      "property": "qcom,mdss-dsi-display-timings/timing@3/qcom,mdss-dsi-on-command",
+      "packet_count": 95,
+      "transfer_state": "dsi_lp_mode",
+      "pairs": [
+        {
+          "packet_indices": [
+            48,
+            49
+          ],
+          "page": 36,
+          "opcodes": [
+            128,
+            129
+          ],
+          "data_hex": "0e 11",
+          "concatenated_be_u16": 3601,
+          "low15_bits": 3601,
+          "packets": [
+            {
+              "offset_in_property": 709,
+              "page": 36,
+              "header_hex": "39 00 00 40 00 00 02",
+              "payload_hex": "80 0e"
+            },
+            {
+              "offset_in_property": 718,
+              "page": 36,
+              "header_hex": "39 00 00 40 00 00 02",
+              "payload_hex": "81 11"
+            }
+          ]
+        }
+      ],
+      "candidate_page_packets_in_order": [
+        {
+          "packet_index": 22,
+          "offset_in_property": 299,
+          "page": 35,
+          "header_hex": "39 00 00 40 00 00 04",
+          "payload_hex": "ff 5a a5 23"
+        },
+        {
+          "packet_index": 23,
+          "offset_in_property": 310,
+          "page": 35,
+          "header_hex": "39 00 00 40 00 00 02",
+          "payload_hex": "85 15"
+        },
+        {
+          "packet_index": 47,
+          "offset_in_property": 698,
+          "page": 36,
+          "header_hex": "39 00 00 40 00 00 04",
+          "payload_hex": "ff 5a a5 24"
+        },
+        {
+          "packet_index": 48,
+          "offset_in_property": 709,
+          "page": 36,
+          "header_hex": "39 00 00 40 00 00 02",
+          "payload_hex": "80 0e"
+        },
+        {
+          "packet_index": 49,
+          "offset_in_property": 718,
+          "page": 36,
+          "header_hex": "39 00 00 40 00 00 02",
+          "payload_hex": "81 11"
+        },
+        {
+          "packet_index": 50,
+          "offset_in_property": 727,
+          "page": 36,
+          "header_hex": "39 00 00 40 00 00 02",
+          "payload_hex": "84 00"
+        },
+        {
+          "packet_index": 67,
+          "offset_in_property": 890,
+          "page": 36,
+          "header_hex": "39 00 00 40 00 00 04",
+          "payload_hex": "ff 5a a5 24"
+        },
+        {
+          "packet_index": 68,
+          "offset_in_property": 901,
+          "page": 36,
+          "header_hex": "39 00 00 40 00 00 03",
+          "payload_hex": "8b 31 00"
+        },
+        {
+          "packet_index": 69,
+          "offset_in_property": 911,
+          "page": 36,
+          "header_hex": "39 00 00 40 00 00 03",
+          "payload_hex": "8c 31 00"
+        }
+      ]
+    },
+    {
+      "property": "qcom,mdss-dsi-display-timings/timing@3/qcom,mdss-dsi-pcd-check-disable-command",
+      "packet_count": 1,
+      "transfer_state": "dsi_hs_mode",
+      "pairs": [],
+      "candidate_page_packets_in_order": []
+    },
+    {
+      "property": "qcom,mdss-dsi-display-timings/timing@3/qcom,mdss-dsi-pcd-check-enable-command",
+      "packet_count": 1,
+      "transfer_state": "dsi_hs_mode",
+      "pairs": [],
+      "candidate_page_packets_in_order": []
+    },
+    {
+      "property": "qcom,mdss-dsi-display-timings/timing@3/qcom,mdss-dsi-timing-switch-command",
+      "packet_count": 14,
+      "transfer_state": "dsi_lp_mode",
+      "pairs": [],
+      "candidate_page_packets_in_order": [
+        {
+          "packet_index": 10,
+          "offset_in_property": 98,
+          "page": 36,
+          "header_hex": "39 00 00 40 00 00 04",
+          "payload_hex": "ff 5a a5 24"
+        },
+        {
+          "packet_index": 11,
+          "offset_in_property": 109,
+          "page": 36,
+          "header_hex": "39 00 00 40 00 00 03",
+          "payload_hex": "8b 31 00"
+        },
+        {
+          "packet_index": 12,
+          "offset_in_property": 119,
+          "page": 36,
+          "header_hex": "39 00 00 40 00 00 03",
+          "payload_hex": "8c 31 00"
+        }
+      ]
+    },
+    {
+      "property": "qcom,mdss-dsi-display-timings/timing@4/qcom,mdss-dsi-off-command",
+      "packet_count": 3,
+      "transfer_state": "dsi_lp_mode",
+      "pairs": [],
+      "candidate_page_packets_in_order": []
+    },
+    {
+      "property": "qcom,mdss-dsi-display-timings/timing@4/qcom,mdss-dsi-on-command",
+      "packet_count": 95,
+      "transfer_state": "dsi_lp_mode",
+      "pairs": [
+        {
+          "packet_indices": [
+            48,
+            49
+          ],
+          "page": 36,
+          "opcodes": [
+            128,
+            129
+          ],
+          "data_hex": "0e 11",
+          "concatenated_be_u16": 3601,
+          "low15_bits": 3601,
+          "packets": [
+            {
+              "offset_in_property": 709,
+              "page": 36,
+              "header_hex": "39 00 00 40 00 00 02",
+              "payload_hex": "80 0e"
+            },
+            {
+              "offset_in_property": 718,
+              "page": 36,
+              "header_hex": "39 00 00 40 00 00 02",
+              "payload_hex": "81 11"
+            }
+          ]
+        }
+      ],
+      "candidate_page_packets_in_order": [
+        {
+          "packet_index": 22,
+          "offset_in_property": 299,
+          "page": 35,
+          "header_hex": "39 00 00 40 00 00 04",
+          "payload_hex": "ff 5a a5 23"
+        },
+        {
+          "packet_index": 23,
+          "offset_in_property": 310,
+          "page": 35,
+          "header_hex": "39 00 00 40 00 00 02",
+          "payload_hex": "85 15"
+        },
+        {
+          "packet_index": 47,
+          "offset_in_property": 698,
+          "page": 36,
+          "header_hex": "39 00 00 40 00 00 04",
+          "payload_hex": "ff 5a a5 24"
+        },
+        {
+          "packet_index": 48,
+          "offset_in_property": 709,
+          "page": 36,
+          "header_hex": "39 00 00 40 00 00 02",
+          "payload_hex": "80 0e"
+        },
+        {
+          "packet_index": 49,
+          "offset_in_property": 718,
+          "page": 36,
+          "header_hex": "39 00 00 40 00 00 02",
+          "payload_hex": "81 11"
+        },
+        {
+          "packet_index": 50,
+          "offset_in_property": 727,
+          "page": 36,
+          "header_hex": "39 00 00 40 00 00 02",
+          "payload_hex": "84 00"
+        },
+        {
+          "packet_index": 67,
+          "offset_in_property": 890,
+          "page": 36,
+          "header_hex": "39 00 00 40 00 00 04",
+          "payload_hex": "ff 5a a5 24"
+        },
+        {
+          "packet_index": 68,
+          "offset_in_property": 901,
+          "page": 36,
+          "header_hex": "39 00 00 40 00 00 03",
+          "payload_hex": "8b 31 80"
+        },
+        {
+          "packet_index": 69,
+          "offset_in_property": 911,
+          "page": 36,
+          "header_hex": "39 00 00 40 00 00 03",
+          "payload_hex": "8c 31 80"
+        }
+      ]
+    },
+    {
+      "property": "qcom,mdss-dsi-display-timings/timing@4/qcom,mdss-dsi-pcd-check-disable-command",
+      "packet_count": 1,
+      "transfer_state": "dsi_hs_mode",
+      "pairs": [],
+      "candidate_page_packets_in_order": []
+    },
+    {
+      "property": "qcom,mdss-dsi-display-timings/timing@4/qcom,mdss-dsi-pcd-check-enable-command",
+      "packet_count": 1,
+      "transfer_state": "dsi_hs_mode",
+      "pairs": [],
+      "candidate_page_packets_in_order": []
+    },
+    {
+      "property": "qcom,mdss-dsi-display-timings/timing@4/qcom,mdss-dsi-timing-switch-command",
+      "packet_count": 30,
+      "transfer_state": "dsi_lp_mode",
+      "pairs": [],
+      "candidate_page_packets_in_order": [
+        {
+          "packet_index": 15,
+          "offset_in_property": 147,
+          "page": 36,
+          "header_hex": "39 00 00 40 00 00 04",
+          "payload_hex": "ff 5a a5 24"
+        },
+        {
+          "packet_index": 16,
+          "offset_in_property": 158,
+          "page": 36,
+          "header_hex": "39 00 00 40 00 00 03",
+          "payload_hex": "8b 31 80"
+        },
+        {
+          "packet_index": 17,
+          "offset_in_property": 168,
+          "page": 36,
+          "header_hex": "39 00 00 40 00 00 03",
+          "payload_hex": "8c 31 80"
+        }
+      ]
+    },
+    {
+      "property": "qcom,mdss-dsi-display-timings/timing@5/qcom,mdss-dsi-off-command",
+      "packet_count": 3,
+      "transfer_state": "dsi_lp_mode",
+      "pairs": [],
+      "candidate_page_packets_in_order": []
+    },
+    {
+      "property": "qcom,mdss-dsi-display-timings/timing@5/qcom,mdss-dsi-on-command",
+      "packet_count": 95,
+      "transfer_state": "dsi_lp_mode",
+      "pairs": [
+        {
+          "packet_indices": [
+            48,
+            49
+          ],
+          "page": 36,
+          "opcodes": [
+            128,
+            129
+          ],
+          "data_hex": "0e 11",
+          "concatenated_be_u16": 3601,
+          "low15_bits": 3601,
+          "packets": [
+            {
+              "offset_in_property": 709,
+              "page": 36,
+              "header_hex": "39 00 00 40 00 00 02",
+              "payload_hex": "80 0e"
+            },
+            {
+              "offset_in_property": 718,
+              "page": 36,
+              "header_hex": "39 00 00 40 00 00 02",
+              "payload_hex": "81 11"
+            }
+          ]
+        }
+      ],
+      "candidate_page_packets_in_order": [
+        {
+          "packet_index": 22,
+          "offset_in_property": 299,
+          "page": 35,
+          "header_hex": "39 00 00 40 00 00 04",
+          "payload_hex": "ff 5a a5 23"
+        },
+        {
+          "packet_index": 23,
+          "offset_in_property": 310,
+          "page": 35,
+          "header_hex": "39 00 00 40 00 00 02",
+          "payload_hex": "85 15"
+        },
+        {
+          "packet_index": 47,
+          "offset_in_property": 698,
+          "page": 36,
+          "header_hex": "39 00 00 40 00 00 04",
+          "payload_hex": "ff 5a a5 24"
+        },
+        {
+          "packet_index": 48,
+          "offset_in_property": 709,
+          "page": 36,
+          "header_hex": "39 00 00 40 00 00 02",
+          "payload_hex": "80 0e"
+        },
+        {
+          "packet_index": 49,
+          "offset_in_property": 718,
+          "page": 36,
+          "header_hex": "39 00 00 40 00 00 02",
+          "payload_hex": "81 11"
+        },
+        {
+          "packet_index": 50,
+          "offset_in_property": 727,
+          "page": 36,
+          "header_hex": "39 00 00 40 00 00 02",
+          "payload_hex": "84 00"
+        },
+        {
+          "packet_index": 67,
+          "offset_in_property": 890,
+          "page": 36,
+          "header_hex": "39 00 00 40 00 00 04",
+          "payload_hex": "ff 5a a5 24"
+        },
+        {
+          "packet_index": 68,
+          "offset_in_property": 901,
+          "page": 36,
+          "header_hex": "39 00 00 40 00 00 03",
+          "payload_hex": "8b 31 80"
+        },
+        {
+          "packet_index": 69,
+          "offset_in_property": 911,
+          "page": 36,
+          "header_hex": "39 00 00 40 00 00 03",
+          "payload_hex": "8c 31 80"
+        }
+      ]
+    },
+    {
+      "property": "qcom,mdss-dsi-display-timings/timing@5/qcom,mdss-dsi-pcd-check-disable-command",
+      "packet_count": 1,
+      "transfer_state": "dsi_hs_mode",
+      "pairs": [],
+      "candidate_page_packets_in_order": []
+    },
+    {
+      "property": "qcom,mdss-dsi-display-timings/timing@5/qcom,mdss-dsi-pcd-check-enable-command",
+      "packet_count": 1,
+      "transfer_state": "dsi_hs_mode",
+      "pairs": [],
+      "candidate_page_packets_in_order": []
+    },
+    {
+      "property": "qcom,mdss-dsi-display-timings/timing@5/qcom,mdss-dsi-timing-switch-command",
+      "packet_count": 30,
+      "transfer_state": "dsi_lp_mode",
+      "pairs": [],
+      "candidate_page_packets_in_order": [
+        {
+          "packet_index": 15,
+          "offset_in_property": 147,
+          "page": 36,
+          "header_hex": "39 00 00 40 00 00 04",
+          "payload_hex": "ff 5a a5 24"
+        },
+        {
+          "packet_index": 16,
+          "offset_in_property": 158,
+          "page": 36,
+          "header_hex": "39 00 00 40 00 00 03",
+          "payload_hex": "8b 31 80"
+        },
+        {
+          "packet_index": 17,
+          "offset_in_property": 168,
+          "page": 36,
+          "header_hex": "39 00 00 40 00 00 03",
+          "payload_hex": "8c 31 80"
+        }
+      ]
+    },
+    {
+      "property": "qcom,mdss-dsi-display-timings/timing@6/qcom,mdss-dsi-off-command",
+      "packet_count": 3,
+      "transfer_state": "dsi_lp_mode",
+      "pairs": [],
+      "candidate_page_packets_in_order": []
+    },
+    {
+      "property": "qcom,mdss-dsi-display-timings/timing@6/qcom,mdss-dsi-on-command",
+      "packet_count": 95,
+      "transfer_state": "dsi_lp_mode",
+      "pairs": [
+        {
+          "packet_indices": [
+            48,
+            49
+          ],
+          "page": 36,
+          "opcodes": [
+            128,
+            129
+          ],
+          "data_hex": "0e 11",
+          "concatenated_be_u16": 3601,
+          "low15_bits": 3601,
+          "packets": [
+            {
+              "offset_in_property": 709,
+              "page": 36,
+              "header_hex": "39 00 00 40 00 00 02",
+              "payload_hex": "80 0e"
+            },
+            {
+              "offset_in_property": 718,
+              "page": 36,
+              "header_hex": "39 00 00 40 00 00 02",
+              "payload_hex": "81 11"
+            }
+          ]
+        }
+      ],
+      "candidate_page_packets_in_order": [
+        {
+          "packet_index": 22,
+          "offset_in_property": 299,
+          "page": 35,
+          "header_hex": "39 00 00 40 00 00 04",
+          "payload_hex": "ff 5a a5 23"
+        },
+        {
+          "packet_index": 23,
+          "offset_in_property": 310,
+          "page": 35,
+          "header_hex": "39 00 00 40 00 00 02",
+          "payload_hex": "85 15"
+        },
+        {
+          "packet_index": 47,
+          "offset_in_property": 698,
+          "page": 36,
+          "header_hex": "39 00 00 40 00 00 04",
+          "payload_hex": "ff 5a a5 24"
+        },
+        {
+          "packet_index": 48,
+          "offset_in_property": 709,
+          "page": 36,
+          "header_hex": "39 00 00 40 00 00 02",
+          "payload_hex": "80 0e"
+        },
+        {
+          "packet_index": 49,
+          "offset_in_property": 718,
+          "page": 36,
+          "header_hex": "39 00 00 40 00 00 02",
+          "payload_hex": "81 11"
+        },
+        {
+          "packet_index": 50,
+          "offset_in_property": 727,
+          "page": 36,
+          "header_hex": "39 00 00 40 00 00 02",
+          "payload_hex": "84 00"
+        },
+        {
+          "packet_index": 67,
+          "offset_in_property": 890,
+          "page": 36,
+          "header_hex": "39 00 00 40 00 00 04",
+          "payload_hex": "ff 5a a5 24"
+        },
+        {
+          "packet_index": 68,
+          "offset_in_property": 901,
+          "page": 36,
+          "header_hex": "39 00 00 40 00 00 03",
+          "payload_hex": "8b 31 00"
+        },
+        {
+          "packet_index": 69,
+          "offset_in_property": 911,
+          "page": 36,
+          "header_hex": "39 00 00 40 00 00 03",
+          "payload_hex": "8c 31 00"
+        }
+      ]
+    },
+    {
+      "property": "qcom,mdss-dsi-display-timings/timing@6/qcom,mdss-dsi-pcd-check-disable-command",
+      "packet_count": 1,
+      "transfer_state": "dsi_hs_mode",
+      "pairs": [],
+      "candidate_page_packets_in_order": []
+    },
+    {
+      "property": "qcom,mdss-dsi-display-timings/timing@6/qcom,mdss-dsi-pcd-check-enable-command",
+      "packet_count": 1,
+      "transfer_state": "dsi_hs_mode",
+      "pairs": [],
+      "candidate_page_packets_in_order": []
+    },
+    {
+      "property": "qcom,mdss-dsi-display-timings/timing@6/qcom,mdss-dsi-timing-switch-command",
+      "packet_count": 14,
+      "transfer_state": "dsi_lp_mode",
+      "pairs": [],
+      "candidate_page_packets_in_order": [
+        {
+          "packet_index": 10,
+          "offset_in_property": 98,
+          "page": 36,
+          "header_hex": "39 00 00 40 00 00 04",
+          "payload_hex": "ff 5a a5 24"
+        },
+        {
+          "packet_index": 11,
+          "offset_in_property": 109,
+          "page": 36,
+          "header_hex": "39 00 00 40 00 00 03",
+          "payload_hex": "8b 31 00"
+        },
+        {
+          "packet_index": 12,
+          "offset_in_property": 119,
+          "page": 36,
+          "header_hex": "39 00 00 40 00 00 03",
+          "payload_hex": "8c 31 00"
+        }
+      ]
+    },
+    {
+      "property": "qcom,mdss-dsi-display-timings/timing@7/qcom,mdss-dsi-off-command",
+      "packet_count": 3,
+      "transfer_state": "dsi_lp_mode",
+      "pairs": [],
+      "candidate_page_packets_in_order": []
+    },
+    {
+      "property": "qcom,mdss-dsi-display-timings/timing@7/qcom,mdss-dsi-on-command",
+      "packet_count": 95,
+      "transfer_state": "dsi_lp_mode",
+      "pairs": [
+        {
+          "packet_indices": [
+            48,
+            49
+          ],
+          "page": 36,
+          "opcodes": [
+            128,
+            129
+          ],
+          "data_hex": "0e 11",
+          "concatenated_be_u16": 3601,
+          "low15_bits": 3601,
+          "packets": [
+            {
+              "offset_in_property": 709,
+              "page": 36,
+              "header_hex": "39 00 00 40 00 00 02",
+              "payload_hex": "80 0e"
+            },
+            {
+              "offset_in_property": 718,
+              "page": 36,
+              "header_hex": "39 00 00 40 00 00 02",
+              "payload_hex": "81 11"
+            }
+          ]
+        }
+      ],
+      "candidate_page_packets_in_order": [
+        {
+          "packet_index": 22,
+          "offset_in_property": 299,
+          "page": 35,
+          "header_hex": "39 00 00 40 00 00 04",
+          "payload_hex": "ff 5a a5 23"
+        },
+        {
+          "packet_index": 23,
+          "offset_in_property": 310,
+          "page": 35,
+          "header_hex": "39 00 00 40 00 00 02",
+          "payload_hex": "85 15"
+        },
+        {
+          "packet_index": 47,
+          "offset_in_property": 698,
+          "page": 36,
+          "header_hex": "39 00 00 40 00 00 04",
+          "payload_hex": "ff 5a a5 24"
+        },
+        {
+          "packet_index": 48,
+          "offset_in_property": 709,
+          "page": 36,
+          "header_hex": "39 00 00 40 00 00 02",
+          "payload_hex": "80 0e"
+        },
+        {
+          "packet_index": 49,
+          "offset_in_property": 718,
+          "page": 36,
+          "header_hex": "39 00 00 40 00 00 02",
+          "payload_hex": "81 11"
+        },
+        {
+          "packet_index": 50,
+          "offset_in_property": 727,
+          "page": 36,
+          "header_hex": "39 00 00 40 00 00 02",
+          "payload_hex": "84 00"
+        },
+        {
+          "packet_index": 67,
+          "offset_in_property": 890,
+          "page": 36,
+          "header_hex": "39 00 00 40 00 00 04",
+          "payload_hex": "ff 5a a5 24"
+        },
+        {
+          "packet_index": 68,
+          "offset_in_property": 901,
+          "page": 36,
+          "header_hex": "39 00 00 40 00 00 03",
+          "payload_hex": "8b 31 00"
+        },
+        {
+          "packet_index": 69,
+          "offset_in_property": 911,
+          "page": 36,
+          "header_hex": "39 00 00 40 00 00 03",
+          "payload_hex": "8c 31 00"
+        }
+      ]
+    },
+    {
+      "property": "qcom,mdss-dsi-display-timings/timing@7/qcom,mdss-dsi-pcd-check-disable-command",
+      "packet_count": 1,
+      "transfer_state": "dsi_hs_mode",
+      "pairs": [],
+      "candidate_page_packets_in_order": []
+    },
+    {
+      "property": "qcom,mdss-dsi-display-timings/timing@7/qcom,mdss-dsi-pcd-check-enable-command",
+      "packet_count": 1,
+      "transfer_state": "dsi_hs_mode",
+      "pairs": [],
+      "candidate_page_packets_in_order": []
+    },
+    {
+      "property": "qcom,mdss-dsi-display-timings/timing@7/qcom,mdss-dsi-timing-switch-command",
+      "packet_count": 14,
+      "transfer_state": "dsi_lp_mode",
+      "pairs": [],
+      "candidate_page_packets_in_order": [
+        {
+          "packet_index": 10,
+          "offset_in_property": 98,
+          "page": 36,
+          "header_hex": "39 00 00 40 00 00 04",
+          "payload_hex": "ff 5a a5 24"
+        },
+        {
+          "packet_index": 11,
+          "offset_in_property": 109,
+          "page": 36,
+          "header_hex": "39 00 00 40 00 00 03",
+          "payload_hex": "8b 31 00"
+        },
+        {
+          "packet_index": 12,
+          "offset_in_property": 119,
+          "page": 36,
+          "header_hex": "39 00 00 40 00 00 03",
+          "payload_hex": "8c 31 00"
+        }
+      ]
+    },
+    {
+      "property": "qcom,mdss-dsi-hbm-fod-on-command",
+      "packet_count": 2,
+      "transfer_state": "not separately specified here",
+      "pairs": [],
+      "candidate_page_packets_in_order": []
+    },
+    {
+      "property": "qcom,mdss-dsi-hbm-off-command",
+      "packet_count": 4,
+      "transfer_state": "dsi_hs_mode",
+      "pairs": [],
+      "candidate_page_packets_in_order": []
+    },
+    {
+      "property": "qcom,mdss-dsi-hbm-on-command",
+      "packet_count": 5,
+      "transfer_state": "dsi_hs_mode",
+      "pairs": [],
+      "candidate_page_packets_in_order": []
+    },
+    {
+      "property": "qcom,mdss-dsi-panel-apl-off-command",
+      "packet_count": 3,
+      "transfer_state": "not separately specified here",
+      "pairs": [],
+      "candidate_page_packets_in_order": []
+    },
+    {
+      "property": "qcom,mdss-dsi-panel-apl-on-command",
+      "packet_count": 4,
+      "transfer_state": "not separately specified here",
+      "pairs": [],
+      "candidate_page_packets_in_order": []
+    },
+    {
+      "property": "qcom,mdss-dsi-panel-cellid-command",
+      "packet_count": 1,
+      "transfer_state": "not separately specified here",
+      "pairs": [],
+      "candidate_page_packets_in_order": []
+    },
+    {
+      "property": "qcom,mdss-dsi-panel-cellid-send-back-command",
+      "packet_count": 1,
+      "transfer_state": "not separately specified here",
+      "pairs": [],
+      "candidate_page_packets_in_order": []
+    },
+    {
+      "property": "qcom,mdss-dsi-panel-cellid-send-command",
+      "packet_count": 1,
+      "transfer_state": "not separately specified here",
+      "pairs": [],
+      "candidate_page_packets_in_order": []
+    },
+    {
+      "property": "qcom,mdss-dsi-panel-pcd-reg-command",
+      "packet_count": 1,
+      "transfer_state": "not separately specified here",
+      "pairs": [],
+      "candidate_page_packets_in_order": []
+    },
+    {
+      "property": "qcom,mdss-dsi-panel-status-command",
+      "packet_count": 1,
+      "transfer_state": "dsi_lp_mode",
+      "pairs": [],
+      "candidate_page_packets_in_order": []
+    }
+  ],
+  "cross_revision_pairs": [
+    {
+      "panel": "qcom,mdss_dsi_mot_boe_ili97680A_678_1264x2780_dsc_cmd_v1",
+      "states": {
+        "off": [
+          {
+            "packet_indices": [
+              5,
+              6
+            ],
+            "page": 36,
+            "opcodes": [
+              157,
+              158
+            ],
+            "data_hex": "0e 11",
+            "concatenated_be_u16": 3601,
+            "low15_bits": 3601,
+            "packets": [
+              {
+                "offset_in_property": 54,
+                "page": 36,
+                "header_hex": "39 00 00 40 00 00 02",
+                "payload_hex": "9d 0e"
+              },
+              {
+                "offset_in_property": 63,
+                "page": 36,
+                "header_hex": "39 00 00 40 00 00 02",
+                "payload_hex": "9e 11"
+              }
+            ]
+          }
+        ],
+        "on": [
+          {
+            "packet_indices": [
+              5,
+              6
+            ],
+            "page": 36,
+            "opcodes": [
+              157,
+              158
+            ],
+            "data_hex": "8e 11",
+            "concatenated_be_u16": 36369,
+            "low15_bits": 3601,
+            "packets": [
+              {
+                "offset_in_property": 54,
+                "page": 36,
+                "header_hex": "39 00 00 40 00 00 02",
+                "payload_hex": "9d 8e"
+              },
+              {
+                "offset_in_property": 63,
+                "page": 36,
+                "header_hex": "39 00 00 40 00 00 02",
+                "payload_hex": "9e 11"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "panel": "qcom,mdss_dsi_mot_boe_ili97680A_678_1264x2780_dsc_cmd_v2",
+      "states": {
+        "off": [
+          {
+            "packet_indices": [
+              5,
+              6
+            ],
+            "page": 36,
+            "opcodes": [
+              157,
+              158
+            ],
+            "data_hex": "0e 11",
+            "concatenated_be_u16": 3601,
+            "low15_bits": 3601,
+            "packets": [
+              {
+                "offset_in_property": 54,
+                "page": 36,
+                "header_hex": "39 00 00 40 00 00 02",
+                "payload_hex": "9d 0e"
+              },
+              {
+                "offset_in_property": 63,
+                "page": 36,
+                "header_hex": "39 00 00 40 00 00 02",
+                "payload_hex": "9e 11"
+              }
+            ]
+          }
+        ],
+        "on": [
+          {
+            "packet_indices": [
+              5,
+              6
+            ],
+            "page": 36,
+            "opcodes": [
+              157,
+              158
+            ],
+            "data_hex": "8e 11",
+            "concatenated_be_u16": 36369,
+            "low15_bits": 3601,
+            "packets": [
+              {
+                "offset_in_property": 54,
+                "page": 36,
+                "header_hex": "39 00 00 40 00 00 02",
+                "payload_hex": "9d 8e"
+              },
+              {
+                "offset_in_property": 63,
+                "page": 36,
+                "header_hex": "39 00 00 40 00 00 02",
+                "payload_hex": "9e 11"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "panel": "qcom,mdss_dsi_mot_boe_ili97680A_678_1264x2780_dsc_cmd_v3",
+      "states": {
+        "off": [
+          {
+            "packet_indices": [
+              10,
+              11
+            ],
+            "page": 36,
+            "opcodes": [
+              157,
+              158
+            ],
+            "data_hex": "0e 11",
+            "concatenated_be_u16": 3601,
+            "low15_bits": 3601,
+            "packets": [
+              {
+                "offset_in_property": 103,
+                "page": 36,
+                "header_hex": "39 00 00 40 00 00 02",
+                "payload_hex": "9d 0e"
+              },
+              {
+                "offset_in_property": 112,
+                "page": 36,
+                "header_hex": "39 00 00 40 00 00 02",
+                "payload_hex": "9e 11"
+              }
+            ]
+          }
+        ],
+        "on": [
+          {
+            "packet_indices": [
+              10,
+              11
+            ],
+            "page": 36,
+            "opcodes": [
+              157,
+              158
+            ],
+            "data_hex": "8e 11",
+            "concatenated_be_u16": 36369,
+            "low15_bits": 3601,
+            "packets": [
+              {
+                "offset_in_property": 103,
+                "page": 36,
+                "header_hex": "39 00 00 40 00 00 02",
+                "payload_hex": "9d 8e"
+              },
+              {
+                "offset_in_property": 112,
+                "page": 36,
+                "header_hex": "39 00 00 40 00 00 02",
+                "payload_hex": "9e 11"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "panel": "qcom,mdss_dsi_mot_boe_ili97680A_678_1264x2780_dsc_cmd_v4",
+      "states": {
+        "off": [
+          {
+            "packet_indices": [
+              10,
+              11
+            ],
+            "page": 36,
+            "opcodes": [
+              157,
+              158
+            ],
+            "data_hex": "0e 11",
+            "concatenated_be_u16": 3601,
+            "low15_bits": 3601,
+            "packets": [
+              {
+                "offset_in_property": 103,
+                "page": 36,
+                "header_hex": "39 00 00 40 00 00 02",
+                "payload_hex": "9d 0e"
+              },
+              {
+                "offset_in_property": 112,
+                "page": 36,
+                "header_hex": "39 00 00 40 00 00 02",
+                "payload_hex": "9e 11"
+              }
+            ]
+          }
+        ],
+        "on": [
+          {
+            "packet_indices": [
+              10,
+              11
+            ],
+            "page": 36,
+            "opcodes": [
+              157,
+              158
+            ],
+            "data_hex": "8e 11",
+            "concatenated_be_u16": 36369,
+            "low15_bits": 3601,
+            "packets": [
+              {
+                "offset_in_property": 103,
+                "page": 36,
+                "header_hex": "39 00 00 40 00 00 02",
+                "payload_hex": "9d 8e"
+              },
+              {
+                "offset_in_property": 112,
+                "page": 36,
+                "header_hex": "39 00 00 40 00 00 02",
+                "payload_hex": "9e 11"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "panel": "qcom,mdss_dsi_mot_boe_ili97701A_682_1440x3168_dsc_cmd_v0",
+      "states": {
+        "off": [
+          {
+            "packet_indices": [
+              10,
+              11
+            ],
+            "page": 36,
+            "opcodes": [
+              157,
+              158
+            ],
+            "data_hex": "0e 11",
+            "concatenated_be_u16": 3601,
+            "low15_bits": 3601,
+            "packets": [
+              {
+                "offset_in_property": 103,
+                "page": 36,
+                "header_hex": "39 00 00 40 00 00 02",
+                "payload_hex": "9d 0e"
+              },
+              {
+                "offset_in_property": 112,
+                "page": 36,
+                "header_hex": "39 00 00 40 00 00 02",
+                "payload_hex": "9e 11"
+              }
+            ]
+          }
+        ],
+        "on": [
+          {
+            "packet_indices": [
+              10,
+              11
+            ],
+            "page": 36,
+            "opcodes": [
+              157,
+              158
+            ],
+            "data_hex": "8e 11",
+            "concatenated_be_u16": 36369,
+            "low15_bits": 3601,
+            "packets": [
+              {
+                "offset_in_property": 103,
+                "page": 36,
+                "header_hex": "39 00 00 40 00 00 02",
+                "payload_hex": "9d 8e"
+              },
+              {
+                "offset_in_property": 112,
+                "page": 36,
+                "header_hex": "39 00 00 40 00 00 02",
+                "payload_hex": "9e 11"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "panel": "qcom,mdss_dsi_mot_boe_ili97701A_682_1440x3168_dsc_cmd_v1",
+      "states": {
+        "off": [
+          {
+            "packet_indices": [
+              10,
+              11
+            ],
+            "page": 36,
+            "opcodes": [
+              157,
+              158
+            ],
+            "data_hex": "0e 11",
+            "concatenated_be_u16": 3601,
+            "low15_bits": 3601,
+            "packets": [
+              {
+                "offset_in_property": 103,
+                "page": 36,
+                "header_hex": "39 00 00 40 00 00 02",
+                "payload_hex": "9d 0e"
+              },
+              {
+                "offset_in_property": 112,
+                "page": 36,
+                "header_hex": "39 00 00 40 00 00 02",
+                "payload_hex": "9e 11"
+              }
+            ]
+          }
+        ],
+        "on": [
+          {
+            "packet_indices": [
+              10,
+              11
+            ],
+            "page": 36,
+            "opcodes": [
+              157,
+              158
+            ],
+            "data_hex": "8e 11",
+            "concatenated_be_u16": 36369,
+            "low15_bits": 3601,
+            "packets": [
+              {
+                "offset_in_property": 103,
+                "page": 36,
+                "header_hex": "39 00 00 40 00 00 02",
+                "payload_hex": "9d 8e"
+              },
+              {
+                "offset_in_property": 112,
+                "page": 36,
+                "header_hex": "39 00 00 40 00 00 02",
+                "payload_hex": "9e 11"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "panel": "qcom,mdss_dsi_mot_boe_ili97701A_682_1440x3168_dsc_cmd_v2",
+      "states": {
+        "off": [
+          {
+            "packet_indices": [
+              6,
+              7
+            ],
+            "page": 35,
+            "opcodes": [
+              169,
+              170
+            ],
+            "data_hex": "0e 11",
+            "concatenated_be_u16": 3601,
+            "low15_bits": 3601,
+            "packets": [
+              {
+                "offset_in_property": 60,
+                "page": 35,
+                "header_hex": "39 00 00 40 00 00 02",
+                "payload_hex": "a9 0e"
+              },
+              {
+                "offset_in_property": 69,
+                "page": 35,
+                "header_hex": "39 00 00 40 00 00 02",
+                "payload_hex": "aa 11"
+              }
+            ]
+          },
+          {
+            "packet_indices": [
+              9,
+              10
+            ],
+            "page": 36,
+            "opcodes": [
+              157,
+              158
+            ],
+            "data_hex": "0e 11",
+            "concatenated_be_u16": 3601,
+            "low15_bits": 3601,
+            "packets": [
+              {
+                "offset_in_property": 89,
+                "page": 36,
+                "header_hex": "39 00 00 40 00 00 02",
+                "payload_hex": "9d 0e"
+              },
+              {
+                "offset_in_property": 98,
+                "page": 36,
+                "header_hex": "39 00 00 40 00 00 02",
+                "payload_hex": "9e 11"
+              }
+            ]
+          }
+        ],
+        "on": [
+          {
+            "packet_indices": [
+              6,
+              7
+            ],
+            "page": 35,
+            "opcodes": [
+              169,
+              170
+            ],
+            "data_hex": "8e 11",
+            "concatenated_be_u16": 36369,
+            "low15_bits": 3601,
+            "packets": [
+              {
+                "offset_in_property": 60,
+                "page": 35,
+                "header_hex": "39 00 00 40 00 00 02",
+                "payload_hex": "a9 8e"
+              },
+              {
+                "offset_in_property": 69,
+                "page": 35,
+                "header_hex": "39 00 00 40 00 00 02",
+                "payload_hex": "aa 11"
+              }
+            ]
+          },
+          {
+            "packet_indices": [
+              9,
+              10
+            ],
+            "page": 36,
+            "opcodes": [
+              157,
+              158
+            ],
+            "data_hex": "8e 11",
+            "concatenated_be_u16": 36369,
+            "low15_bits": 3601,
+            "packets": [
+              {
+                "offset_in_property": 89,
+                "page": 36,
+                "header_hex": "39 00 00 40 00 00 02",
+                "payload_hex": "9d 8e"
+              },
+              {
+                "offset_in_property": 98,
+                "page": 36,
+                "header_hex": "39 00 00 40 00 00 02",
+                "payload_hex": "9e 11"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "panel": "qcom,mdss_dsi_mot_boe_ili97701A_682_1440x3168_dsc_cmd_v3",
+      "states": {
+        "off": [
+          {
+            "packet_indices": [
+              6,
+              7
+            ],
+            "page": 35,
+            "opcodes": [
+              169,
+              170
+            ],
+            "data_hex": "0e 11",
+            "concatenated_be_u16": 3601,
+            "low15_bits": 3601,
+            "packets": [
+              {
+                "offset_in_property": 60,
+                "page": 35,
+                "header_hex": "39 00 00 40 00 00 02",
+                "payload_hex": "a9 0e"
+              },
+              {
+                "offset_in_property": 69,
+                "page": 35,
+                "header_hex": "39 00 00 40 00 00 02",
+                "payload_hex": "aa 11"
+              }
+            ]
+          },
+          {
+            "packet_indices": [
+              9,
+              10
+            ],
+            "page": 36,
+            "opcodes": [
+              157,
+              158
+            ],
+            "data_hex": "0e 11",
+            "concatenated_be_u16": 3601,
+            "low15_bits": 3601,
+            "packets": [
+              {
+                "offset_in_property": 89,
+                "page": 36,
+                "header_hex": "39 00 00 40 00 00 02",
+                "payload_hex": "9d 0e"
+              },
+              {
+                "offset_in_property": 98,
+                "page": 36,
+                "header_hex": "39 00 00 40 00 00 02",
+                "payload_hex": "9e 11"
+              }
+            ]
+          }
+        ],
+        "on": [
+          {
+            "packet_indices": [
+              6,
+              7
+            ],
+            "page": 35,
+            "opcodes": [
+              169,
+              170
+            ],
+            "data_hex": "8e 11",
+            "concatenated_be_u16": 36369,
+            "low15_bits": 3601,
+            "packets": [
+              {
+                "offset_in_property": 60,
+                "page": 35,
+                "header_hex": "39 00 00 40 00 00 02",
+                "payload_hex": "a9 8e"
+              },
+              {
+                "offset_in_property": 69,
+                "page": 35,
+                "header_hex": "39 00 00 40 00 00 02",
+                "payload_hex": "aa 11"
+              }
+            ]
+          },
+          {
+            "packet_indices": [
+              9,
+              10
+            ],
+            "page": 36,
+            "opcodes": [
+              157,
+              158
+            ],
+            "data_hex": "8e 11",
+            "concatenated_be_u16": 36369,
+            "low15_bits": 3601,
+            "packets": [
+              {
+                "offset_in_property": 89,
+                "page": 36,
+                "header_hex": "39 00 00 40 00 00 02",
+                "payload_hex": "9d 8e"
+              },
+              {
+                "offset_in_property": 98,
+                "page": 36,
+                "header_hex": "39 00 00 40 00 00 02",
+                "payload_hex": "9e 11"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "panel": "qcom,mdss_dsi_mot_boe_ili97701A_682_1440x3168_dsc_cmd_v4",
+      "states": {
+        "off": [
+          {
+            "packet_indices": [
+              6,
+              7
+            ],
+            "page": 35,
+            "opcodes": [
+              169,
+              170
+            ],
+            "data_hex": "0e 11",
+            "concatenated_be_u16": 3601,
+            "low15_bits": 3601,
+            "packets": [
+              {
+                "offset_in_property": 60,
+                "page": 35,
+                "header_hex": "39 00 00 40 00 00 02",
+                "payload_hex": "a9 0e"
+              },
+              {
+                "offset_in_property": 69,
+                "page": 35,
+                "header_hex": "39 00 00 40 00 00 02",
+                "payload_hex": "aa 11"
+              }
+            ]
+          },
+          {
+            "packet_indices": [
+              9,
+              10
+            ],
+            "page": 36,
+            "opcodes": [
+              157,
+              158
+            ],
+            "data_hex": "0e 11",
+            "concatenated_be_u16": 3601,
+            "low15_bits": 3601,
+            "packets": [
+              {
+                "offset_in_property": 89,
+                "page": 36,
+                "header_hex": "39 00 00 40 00 00 02",
+                "payload_hex": "9d 0e"
+              },
+              {
+                "offset_in_property": 98,
+                "page": 36,
+                "header_hex": "39 00 00 40 00 00 02",
+                "payload_hex": "9e 11"
+              }
+            ]
+          }
+        ],
+        "on": [
+          {
+            "packet_indices": [
+              6,
+              7
+            ],
+            "page": 35,
+            "opcodes": [
+              169,
+              170
+            ],
+            "data_hex": "8e 11",
+            "concatenated_be_u16": 36369,
+            "low15_bits": 3601,
+            "packets": [
+              {
+                "offset_in_property": 60,
+                "page": 35,
+                "header_hex": "39 00 00 40 00 00 02",
+                "payload_hex": "a9 8e"
+              },
+              {
+                "offset_in_property": 69,
+                "page": 35,
+                "header_hex": "39 00 00 40 00 00 02",
+                "payload_hex": "aa 11"
+              }
+            ]
+          },
+          {
+            "packet_indices": [
+              9,
+              10
+            ],
+            "page": 36,
+            "opcodes": [
+              157,
+              158
+            ],
+            "data_hex": "8e 11",
+            "concatenated_be_u16": 36369,
+            "low15_bits": 3601,
+            "packets": [
+              {
+                "offset_in_property": 89,
+                "page": 36,
+                "header_hex": "39 00 00 40 00 00 02",
+                "payload_hex": "9d 8e"
+              },
+              {
+                "offset_in_property": 98,
+                "page": 36,
+                "header_hex": "39 00 00 40 00 00 02",
+                "payload_hex": "9e 11"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "dc_changed_packet_count": 34,
+  "non_dc_writes_to_dc_changed_page_opcode": [],
+  "non_dc_rewrite_limits": "This compares static explicit command opcodes, not possible register auto-increment, implicit DDIC state transitions or additional runtime-generated commands.",
+  "pwm_hz": "unknown",
+  "additional_non_vantage_donor_sources": [
+    {
+      "source_url": "https://github.com/MotorolaMobilityLLC/kernel-display-devicetree/blob/f088523dfba85c95c15f43726fcf972c0c7a957a/display/dsi-panel-mot-boe-ili97680A-678-1264x2780-dsc-cmd-common_v0.dtsi",
+      "git_blob_verified": true,
+      "source": "/home/stfu/.cache/opencode-tmp/opencode/pwm-primary-followup-20261106/display/dsi-panel-mot-boe-ili97680A-678-1264x2780-dsc-cmd-common_v0.dtsi",
+      "packet_count": {
+        "off": 5,
+        "on": 5
+      },
+      "aligned_delta_count": 1,
+      "deltas": [
+        {
+          "packet_index": 2,
+          "off": {
+            "offset_in_property": 21,
+            "page": 31,
+            "header_hex": "39 00 00 40 00 00 03",
+            "payload_hex": "83 3d 80"
+          },
+          "on": {
+            "offset_in_property": 21,
+            "page": 31,
+            "header_hex": "39 00 00 40 00 00 03",
+            "payload_hex": "83 3d 7f"
+          }
+        }
+      ],
+      "decoded_stock_packets": {
+        "off": [
+          {
+            "offset_in_property": 0,
+            "page": 31,
+            "header_hex": "39 00 00 40 00 00 04",
+            "payload_hex": "ff 5a a5 1f"
+          },
+          {
+            "offset_in_property": 11,
+            "page": 31,
+            "header_hex": "39 00 00 40 00 00 03",
+            "payload_hex": "82 00 80"
+          },
+          {
+            "offset_in_property": 21,
+            "page": 31,
+            "header_hex": "39 00 00 40 00 00 03",
+            "payload_hex": "83 3d 80"
+          },
+          {
+            "offset_in_property": 31,
+            "page": 31,
+            "header_hex": "39 00 00 40 00 00 03",
+            "payload_hex": "85 5f 7f"
+          },
+          {
+            "offset_in_property": 41,
+            "page": 0,
+            "header_hex": "39 00 00 00 00 00 04",
+            "payload_hex": "ff 5a a5 00"
+          }
+        ],
+        "on": [
+          {
+            "offset_in_property": 0,
+            "page": 31,
+            "header_hex": "39 00 00 40 00 00 04",
+            "payload_hex": "ff 5a a5 1f"
+          },
+          {
+            "offset_in_property": 11,
+            "page": 31,
+            "header_hex": "39 00 00 40 00 00 03",
+            "payload_hex": "82 00 80"
+          },
+          {
+            "offset_in_property": 21,
+            "page": 31,
+            "header_hex": "39 00 00 40 00 00 03",
+            "payload_hex": "83 3d 7f"
+          },
+          {
+            "offset_in_property": 31,
+            "page": 31,
+            "header_hex": "39 00 00 40 00 00 03",
+            "payload_hex": "85 5f 7f"
+          },
+          {
+            "offset_in_property": 41,
+            "page": 0,
+            "header_hex": "39 00 00 00 00 00 04",
+            "payload_hex": "ff 5a a5 00"
+          }
+        ]
+      }
+    },
+    {
+      "source_url": "https://github.com/MotorolaMobilityLLC/kernel-display-devicetree/blob/f088523dfba85c95c15f43726fcf972c0c7a957a/display/dsi-panel-mot-boe-ili97680A-678-1264x2780-dsc-cmd-common_v1.dtsi",
+      "git_blob_verified": true,
+      "source": "/home/stfu/.cache/opencode-tmp/opencode/pwm-primary-followup-20261106/display/dsi-panel-mot-boe-ili97680A-678-1264x2780-dsc-cmd-common_v1.dtsi",
+      "packet_count": {
+        "off": 52,
+        "on": 50
+      },
+      "aligned_delta_count": "non-aligned/none",
+      "deltas": [],
+      "decoded_stock_packets": {
+        "off": [
+          {
+            "offset_in_property": 0,
+            "page": 79,
+            "header_hex": "39 00 00 40 00 00 04",
+            "payload_hex": "ff 5a a5 4f"
+          },
+          {
+            "offset_in_property": 11,
+            "page": 79,
+            "header_hex": "39 00 00 40 00 00 02",
+            "payload_hex": "88 78"
+          },
+          {
+            "offset_in_property": 20,
+            "page": 36,
+            "header_hex": "39 00 00 40 00 00 04",
+            "payload_hex": "ff 5a a5 24"
+          },
+          {
+            "offset_in_property": 31,
+            "page": 36,
+            "header_hex": "39 00 00 40 00 00 05",
+            "payload_hex": "91 01 27 34 56"
+          },
+          {
+            "offset_in_property": 43,
+            "page": 36,
+            "header_hex": "39 00 00 40 00 00 04",
+            "payload_hex": "ff 5a a5 24"
+          },
+          {
+            "offset_in_property": 54,
+            "page": 36,
+            "header_hex": "39 00 00 40 00 00 02",
+            "payload_hex": "9d 0e"
+          },
+          {
+            "offset_in_property": 63,
+            "page": 36,
+            "header_hex": "39 00 00 40 00 00 02",
+            "payload_hex": "9e 11"
+          },
+          {
+            "offset_in_property": 72,
+            "page": 78,
+            "header_hex": "39 00 00 40 00 00 04",
+            "payload_hex": "ff 5a a5 4e"
+          },
+          {
+            "offset_in_property": 83,
+            "page": 78,
+            "header_hex": "39 00 00 40 00 00 02",
+            "payload_hex": "8f 0e"
+          },
+          {
+            "offset_in_property": 92,
+            "page": 78,
+            "header_hex": "39 00 00 40 00 00 02",
+            "payload_hex": "90 11"
+          },
+          {
+            "offset_in_property": 101,
+            "page": 35,
+            "header_hex": "39 00 00 40 00 00 04",
+            "payload_hex": "ff 5a a5 23"
+          },
+          {
+            "offset_in_property": 112,
+            "page": 35,
+            "header_hex": "39 00 00 40 00 00 02",
+            "payload_hex": "80 50"
+          },
+          {
+            "offset_in_property": 121,
+            "page": 83,
+            "header_hex": "39 00 00 40 00 00 04",
+            "payload_hex": "ff 5a a5 53"
+          },
+          {
+            "offset_in_property": 132,
+            "page": 83,
+            "header_hex": "39 00 00 40 00 00 02",
+            "payload_hex": "86 3d"
+          },
+          {
+            "offset_in_property": 141,
+            "page": 83,
+            "header_hex": "39 00 00 40 00 00 03",
+            "payload_hex": "85 cc e1"
+          },
+          {
+            "offset_in_property": 151,
+            "page": 81,
+            "header_hex": "39 00 00 40 00 00 04",
+            "payload_hex": "ff 5a a5 51"
+          },
+          {
+            "offset_in_property": 162,
+            "page": 81,
+            "header_hex": "39 00 00 40 00 00 06",
+            "payload_hex": "a0 98 98 98 98 22"
+          },
+          {
+            "offset_in_property": 175,
+            "page": 81,
+            "header_hex": "39 00 00 40 00 00 02",
+            "payload_hex": "fe 22"
+          },
+          {
+            "offset_in_property": 184,
+            "page": 81,
+            "header_hex": "39 00 00 40 00 00 06",
+            "payload_hex": "a1 98 98 c0 98 22"
+          },
+          {
+            "offset_in_property": 197,
+            "page": 81,
+            "header_hex": "39 00 00 40 00 00 02",
+            "payload_hex": "fe 22"
+          },
+          {
+            "offset_in_property": 206,
+            "page": 81,
+            "header_hex": "39 00 00 40 00 00 06",
+            "payload_hex": "a2 98 98 98 98 22"
+          },
+          {
+            "offset_in_property": 219,
+            "page": 81,
+            "header_hex": "39 00 00 40 00 00 02",
+            "payload_hex": "fe 22"
+          },
+          {
+            "offset_in_property": 228,
+            "page": 81,
+            "header_hex": "39 00 00 40 00 00 06",
+            "payload_hex": "a3 98 98 98 98 22"
+          },
+          {
+            "offset_in_property": 241,
+            "page": 81,
+            "header_hex": "39 00 00 40 00 00 02",
+            "payload_hex": "fe 22"
+          },
+          {
+            "offset_in_property": 250,
+            "page": 81,
+            "header_hex": "39 00 00 40 00 00 06",
+            "payload_hex": "a4 98 98 98 98 22"
+          },
+          {
+            "offset_in_property": 263,
+            "page": 81,
+            "header_hex": "39 00 00 40 00 00 02",
+            "payload_hex": "fe 22"
+          },
+          {
+            "offset_in_property": 272,
+            "page": 81,
+            "header_hex": "39 00 00 40 00 00 06",
+            "payload_hex": "a5 98 98 98 98 22"
+          },
+          {
+            "offset_in_property": 285,
+            "page": 81,
+            "header_hex": "39 00 00 40 00 00 02",
+            "payload_hex": "fe 22"
+          },
+          {
+            "offset_in_property": 294,
+            "page": 81,
+            "header_hex": "39 00 00 40 00 00 06",
+            "payload_hex": "a6 98 98 98 98 22"
+          },
+          {
+            "offset_in_property": 307,
+            "page": 81,
+            "header_hex": "39 00 00 40 00 00 02",
+            "payload_hex": "fe 22"
+          },
+          {
+            "offset_in_property": 316,
+            "page": 81,
+            "header_hex": "39 00 00 40 00 00 06",
+            "payload_hex": "a7 98 98 00 00 22"
+          },
+          {
+            "offset_in_property": 329,
+            "page": 81,
+            "header_hex": "39 00 00 40 00 00 02",
+            "payload_hex": "fe 00"
+          },
+          {
+            "offset_in_property": 338,
+            "page": 82,
+            "header_hex": "39 00 00 40 00 00 04",
+            "payload_hex": "ff 5a a5 52"
+          },
+          {
+            "offset_in_property": 349,
+            "page": 82,
+            "header_hex": "39 00 00 40 00 00 06",
+            "payload_hex": "80 bc bc bc bc 11"
+          },
+          {
+            "offset_in_property": 362,
+            "page": 82,
+            "header_hex": "39 00 00 40 00 00 02",
+            "payload_hex": "fe 11"
+          },
+          {
+            "offset_in_property": 371,
+            "page": 82,
+            "header_hex": "39 00 00 40 00 00 06",
+            "payload_hex": "81 76 ae 7c 7c 01"
+          },
+          {
+            "offset_in_property": 384,
+            "page": 82,
+            "header_hex": "39 00 00 40 00 00 02",
+            "payload_hex": "fe 00"
+          },
+          {
+            "offset_in_property": 393,
+            "page": 82,
+            "header_hex": "39 00 00 40 00 00 06",
+            "payload_hex": "82 7c 7c 7c 7c 00"
+          },
+          {
+            "offset_in_property": 406,
+            "page": 82,
+            "header_hex": "39 00 00 40 00 00 02",
+            "payload_hex": "fe 00"
+          },
+          {
+            "offset_in_property": 415,
+            "page": 82,
+            "header_hex": "39 00 00 40 00 00 06",
+            "payload_hex": "83 7c 7c 7c 7c 00"
+          },
+          {
+            "offset_in_property": 428,
+            "page": 82,
+            "header_hex": "39 00 00 40 00 00 02",
+            "payload_hex": "fe 00"
+          },
+          {
+            "offset_in_property": 437,
+            "page": 82,
+            "header_hex": "39 00 00 40 00 00 06",
+            "payload_hex": "84 7c 7c 7c 7c 00"
+          },
+          {
+            "offset_in_property": 450,
+            "page": 82,
+            "header_hex": "39 00 00 40 00 00 02",
+            "payload_hex": "fe 00"
+          },
+          {
+            "offset_in_property": 459,
+            "page": 82,
+            "header_hex": "39 00 00 40 00 00 06",
+            "payload_hex": "85 7c 7c 7c 7c 00"
+          },
+          {
+            "offset_in_property": 472,
+            "page": 82,
+            "header_hex": "39 00 00 40 00 00 02",
+            "payload_hex": "fe 00"
+          },
+          {
+            "offset_in_property": 481,
+            "page": 82,
+            "header_hex": "39 00 00 40 00 00 06",
+            "payload_hex": "86 7c 7c 7c 7c 00"
+          },
+          {
+            "offset_in_property": 494,
+            "page": 82,
+            "header_hex": "39 00 00 40 00 00 02",
+            "payload_hex": "fe 00"
+          },
+          {
+            "offset_in_property": 503,
+            "page": 82,
+            "header_hex": "39 00 00 40 00 00 06",
+            "payload_hex": "87 7c 7c 00 00 00"
+          },
+          {
+            "offset_in_property": 516,
+            "page": 82,
+            "header_hex": "39 00 00 40 00 00 02",
+            "payload_hex": "fe 00"
+          },
+          {
+            "offset_in_property": 525,
+            "page": 79,
+            "header_hex": "39 00 00 40 00 00 04",
+            "payload_hex": "ff 5a a5 4f"
+          },
+          {
+            "offset_in_property": 536,
+            "page": 79,
+            "header_hex": "39 00 00 40 00 00 02",
+            "payload_hex": "8b 78"
+          },
+          {
+            "offset_in_property": 545,
+            "page": 0,
+            "header_hex": "39 00 00 00 00 00 04",
+            "payload_hex": "ff 5a a5 00"
+          }
+        ],
+        "on": [
+          {
+            "offset_in_property": 0,
+            "page": 79,
+            "header_hex": "39 00 00 40 00 00 04",
+            "payload_hex": "ff 5a a5 4f"
+          },
+          {
+            "offset_in_property": 11,
+            "page": 79,
+            "header_hex": "39 00 00 40 00 00 02",
+            "payload_hex": "88 78"
+          },
+          {
+            "offset_in_property": 20,
+            "page": 36,
+            "header_hex": "39 00 00 40 00 00 04",
+            "payload_hex": "ff 5a a5 24"
+          },
+          {
+            "offset_in_property": 31,
+            "page": 36,
+            "header_hex": "39 00 00 40 00 00 05",
+            "payload_hex": "91 11 77 44 66"
+          },
+          {
+            "offset_in_property": 43,
+            "page": 36,
+            "header_hex": "39 00 00 40 00 00 04",
+            "payload_hex": "ff 5a a5 24"
+          },
+          {
+            "offset_in_property": 54,
+            "page": 36,
+            "header_hex": "39 00 00 40 00 00 02",
+            "payload_hex": "9d 8e"
+          },
+          {
+            "offset_in_property": 63,
+            "page": 36,
+            "header_hex": "39 00 00 40 00 00 02",
+            "payload_hex": "9e 11"
+          },
+          {
+            "offset_in_property": 72,
+            "page": 78,
+            "header_hex": "39 00 00 40 00 00 04",
+            "payload_hex": "ff 5a a5 4e"
+          },
+          {
+            "offset_in_property": 83,
+            "page": 78,
+            "header_hex": "39 00 00 40 00 00 02",
+            "payload_hex": "8f 8e"
+          },
+          {
+            "offset_in_property": 92,
+            "page": 78,
+            "header_hex": "39 00 00 40 00 00 02",
+            "payload_hex": "90 11"
+          },
+          {
+            "offset_in_property": 101,
+            "page": 35,
+            "header_hex": "39 00 00 40 00 00 04",
+            "payload_hex": "ff 5a a5 23"
+          },
+          {
+            "offset_in_property": 112,
+            "page": 35,
+            "header_hex": "39 00 00 40 00 00 02",
+            "payload_hex": "80 90"
+          },
+          {
+            "offset_in_property": 121,
+            "page": 83,
+            "header_hex": "39 00 00 40 00 00 04",
+            "payload_hex": "ff 5a a5 53"
+          },
+          {
+            "offset_in_property": 132,
+            "page": 83,
+            "header_hex": "39 00 00 40 00 00 02",
+            "payload_hex": "86 3d"
+          },
+          {
+            "offset_in_property": 141,
+            "page": 83,
+            "header_hex": "39 00 00 40 00 00 03",
+            "payload_hex": "85 cc e3"
+          },
+          {
+            "offset_in_property": 151,
+            "page": 81,
+            "header_hex": "39 00 00 40 00 00 04",
+            "payload_hex": "ff 5a a5 51"
+          },
+          {
+            "offset_in_property": 162,
+            "page": 81,
+            "header_hex": "39 00 00 40 00 00 06",
+            "payload_hex": "a0 98 98 98 98 22"
+          },
+          {
+            "offset_in_property": 175,
+            "page": 81,
+            "header_hex": "39 00 00 40 00 00 02",
+            "payload_hex": "fe 22"
+          },
+          {
+            "offset_in_property": 184,
+            "page": 81,
+            "header_hex": "39 00 00 40 00 00 06",
+            "payload_hex": "a1 98 98 d0 a6 22"
+          },
+          {
+            "offset_in_property": 197,
+            "page": 81,
+            "header_hex": "39 00 00 40 00 00 02",
+            "payload_hex": "fe 22"
+          },
+          {
+            "offset_in_property": 206,
+            "page": 81,
+            "header_hex": "39 00 00 40 00 00 06",
+            "payload_hex": "a2 a6 a6 a6 a6 22"
+          },
+          {
+            "offset_in_property": 219,
+            "page": 81,
+            "header_hex": "39 00 00 40 00 00 02",
+            "payload_hex": "fe 22"
+          },
+          {
+            "offset_in_property": 228,
+            "page": 81,
+            "header_hex": "39 00 00 40 00 00 06",
+            "payload_hex": "a3 aa 98 98 98 22"
+          },
+          {
+            "offset_in_property": 241,
+            "page": 81,
+            "header_hex": "39 00 00 40 00 00 02",
+            "payload_hex": "fe 22"
+          },
+          {
+            "offset_in_property": 250,
+            "page": 81,
+            "header_hex": "39 00 00 40 00 00 06",
+            "payload_hex": "a4 98 98 98 98 22"
+          },
+          {
+            "offset_in_property": 263,
+            "page": 81,
+            "header_hex": "39 00 00 40 00 00 02",
+            "payload_hex": "fe 22"
+          },
+          {
+            "offset_in_property": 272,
+            "page": 81,
+            "header_hex": "39 00 00 40 00 00 06",
+            "payload_hex": "a5 98 98 98 98 22"
+          },
+          {
+            "offset_in_property": 285,
+            "page": 81,
+            "header_hex": "39 00 00 40 00 00 02",
+            "payload_hex": "fe 22"
+          },
+          {
+            "offset_in_property": 294,
+            "page": 81,
+            "header_hex": "39 00 00 40 00 00 06",
+            "payload_hex": "a6 98 98 98 98 22"
+          },
+          {
+            "offset_in_property": 307,
+            "page": 81,
+            "header_hex": "39 00 00 40 00 00 02",
+            "payload_hex": "fe 22"
+          },
+          {
+            "offset_in_property": 316,
+            "page": 81,
+            "header_hex": "39 00 00 40 00 00 06",
+            "payload_hex": "a7 98 98 00 00 22"
+          },
+          {
+            "offset_in_property": 329,
+            "page": 81,
+            "header_hex": "39 00 00 40 00 00 02",
+            "payload_hex": "fe 00"
+          },
+          {
+            "offset_in_property": 338,
+            "page": 82,
+            "header_hex": "39 00 00 40 00 00 04",
+            "payload_hex": "ff 5a a5 52"
+          },
+          {
+            "offset_in_property": 349,
+            "page": 82,
+            "header_hex": "39 00 00 40 00 00 06",
+            "payload_hex": "80 bc bc bc bc 11"
+          },
+          {
+            "offset_in_property": 362,
+            "page": 82,
+            "header_hex": "39 00 00 40 00 00 02",
+            "payload_hex": "fe 11"
+          },
+          {
+            "offset_in_property": 371,
+            "page": 82,
+            "header_hex": "39 00 00 40 00 00 06",
+            "payload_hex": "81 76 ae 81 81 01"
+          },
+          {
+            "offset_in_property": 384,
+            "page": 82,
+            "header_hex": "39 00 00 40 00 00 02",
+            "payload_hex": "fe 00"
+          },
+          {
+            "offset_in_property": 393,
+            "page": 82,
+            "header_hex": "39 00 00 40 00 00 06",
+            "payload_hex": "82 81 81 81 81 00"
+          },
+          {
+            "offset_in_property": 406,
+            "page": 82,
+            "header_hex": "39 00 00 40 00 00 02",
+            "payload_hex": "fe 00"
+          },
+          {
+            "offset_in_property": 415,
+            "page": 82,
+            "header_hex": "39 00 00 40 00 00 06",
+            "payload_hex": "83 82 7c 7c 7c 00"
+          },
+          {
+            "offset_in_property": 428,
+            "page": 82,
+            "header_hex": "39 00 00 40 00 00 02",
+            "payload_hex": "fe 00"
+          },
+          {
+            "offset_in_property": 437,
+            "page": 82,
+            "header_hex": "39 00 00 40 00 00 06",
+            "payload_hex": "84 7c 7c 7c 7c 00"
+          },
+          {
+            "offset_in_property": 450,
+            "page": 82,
+            "header_hex": "39 00 00 40 00 00 02",
+            "payload_hex": "fe 00"
+          },
+          {
+            "offset_in_property": 459,
+            "page": 82,
+            "header_hex": "39 00 00 40 00 00 06",
+            "payload_hex": "85 7c 7c 7c 7c 00"
+          },
+          {
+            "offset_in_property": 472,
+            "page": 82,
+            "header_hex": "39 00 00 40 00 00 02",
+            "payload_hex": "fe 00"
+          },
+          {
+            "offset_in_property": 481,
+            "page": 82,
+            "header_hex": "39 00 00 40 00 00 06",
+            "payload_hex": "86 7c 7c 7c 7c 00"
+          },
+          {
+            "offset_in_property": 494,
+            "page": 82,
+            "header_hex": "39 00 00 40 00 00 02",
+            "payload_hex": "fe 00"
+          },
+          {
+            "offset_in_property": 503,
+            "page": 79,
+            "header_hex": "39 00 00 40 00 00 04",
+            "payload_hex": "ff 5a a5 4f"
+          },
+          {
+            "offset_in_property": 514,
+            "page": 79,
+            "header_hex": "39 00 00 40 00 00 02",
+            "payload_hex": "8b 78"
+          },
+          {
+            "offset_in_property": 523,
+            "page": 0,
+            "header_hex": "39 00 00 00 00 00 04",
+            "payload_hex": "ff 5a a5 00"
+          }
+        ]
+      }
+    },
+    {
+      "source_url": "https://github.com/MotorolaMobilityLLC/kernel-display-devicetree/blob/f088523dfba85c95c15f43726fcf972c0c7a957a/display/dsi-panel-mot-boe-ili97680A-678-1264x2780-dsc-cmd-common_v2.dtsi",
+      "git_blob_verified": true,
+      "source": "/home/stfu/.cache/opencode-tmp/opencode/pwm-primary-followup-20261106/display/dsi-panel-mot-boe-ili97680A-678-1264x2780-dsc-cmd-common_v2.dtsi",
+      "packet_count": {
+        "off": 52,
+        "on": 50
+      },
+      "aligned_delta_count": "non-aligned/none",
+      "deltas": [],
+      "decoded_stock_packets": {
+        "off": [
+          {
+            "offset_in_property": 0,
+            "page": 79,
+            "header_hex": "39 00 00 40 00 00 04",
+            "payload_hex": "ff 5a a5 4f"
+          },
+          {
+            "offset_in_property": 11,
+            "page": 79,
+            "header_hex": "39 00 00 40 00 00 02",
+            "payload_hex": "88 78"
+          },
+          {
+            "offset_in_property": 20,
+            "page": 36,
+            "header_hex": "39 00 00 40 00 00 04",
+            "payload_hex": "ff 5a a5 24"
+          },
+          {
+            "offset_in_property": 31,
+            "page": 36,
+            "header_hex": "39 00 00 40 00 00 05",
+            "payload_hex": "91 01 27 34 56"
+          },
+          {
+            "offset_in_property": 43,
+            "page": 36,
+            "header_hex": "39 00 00 40 00 00 04",
+            "payload_hex": "ff 5a a5 24"
+          },
+          {
+            "offset_in_property": 54,
+            "page": 36,
+            "header_hex": "39 00 00 40 00 00 02",
+            "payload_hex": "9d 0e"
+          },
+          {
+            "offset_in_property": 63,
+            "page": 36,
+            "header_hex": "39 00 00 40 00 00 02",
+            "payload_hex": "9e 11"
+          },
+          {
+            "offset_in_property": 72,
+            "page": 78,
+            "header_hex": "39 00 00 40 00 00 04",
+            "payload_hex": "ff 5a a5 4e"
+          },
+          {
+            "offset_in_property": 83,
+            "page": 78,
+            "header_hex": "39 00 00 40 00 00 02",
+            "payload_hex": "8f 0e"
+          },
+          {
+            "offset_in_property": 92,
+            "page": 78,
+            "header_hex": "39 00 00 40 00 00 02",
+            "payload_hex": "90 11"
+          },
+          {
+            "offset_in_property": 101,
+            "page": 35,
+            "header_hex": "39 00 00 40 00 00 04",
+            "payload_hex": "ff 5a a5 23"
+          },
+          {
+            "offset_in_property": 112,
+            "page": 35,
+            "header_hex": "39 00 00 40 00 00 02",
+            "payload_hex": "80 50"
+          },
+          {
+            "offset_in_property": 121,
+            "page": 83,
+            "header_hex": "39 00 00 40 00 00 04",
+            "payload_hex": "ff 5a a5 53"
+          },
+          {
+            "offset_in_property": 132,
+            "page": 83,
+            "header_hex": "39 00 00 40 00 00 02",
+            "payload_hex": "86 3d"
+          },
+          {
+            "offset_in_property": 141,
+            "page": 83,
+            "header_hex": "39 00 00 40 00 00 03",
+            "payload_hex": "85 cc e1"
+          },
+          {
+            "offset_in_property": 151,
+            "page": 81,
+            "header_hex": "39 00 00 40 00 00 04",
+            "payload_hex": "ff 5a a5 51"
+          },
+          {
+            "offset_in_property": 162,
+            "page": 81,
+            "header_hex": "39 00 00 40 00 00 06",
+            "payload_hex": "a0 98 98 98 98 22"
+          },
+          {
+            "offset_in_property": 175,
+            "page": 81,
+            "header_hex": "39 00 00 40 00 00 02",
+            "payload_hex": "fe 22"
+          },
+          {
+            "offset_in_property": 184,
+            "page": 81,
+            "header_hex": "39 00 00 40 00 00 06",
+            "payload_hex": "a1 98 98 c0 98 22"
+          },
+          {
+            "offset_in_property": 197,
+            "page": 81,
+            "header_hex": "39 00 00 40 00 00 02",
+            "payload_hex": "fe 22"
+          },
+          {
+            "offset_in_property": 206,
+            "page": 81,
+            "header_hex": "39 00 00 40 00 00 06",
+            "payload_hex": "a2 98 98 98 98 22"
+          },
+          {
+            "offset_in_property": 219,
+            "page": 81,
+            "header_hex": "39 00 00 40 00 00 02",
+            "payload_hex": "fe 22"
+          },
+          {
+            "offset_in_property": 228,
+            "page": 81,
+            "header_hex": "39 00 00 40 00 00 06",
+            "payload_hex": "a3 98 98 98 98 22"
+          },
+          {
+            "offset_in_property": 241,
+            "page": 81,
+            "header_hex": "39 00 00 40 00 00 02",
+            "payload_hex": "fe 22"
+          },
+          {
+            "offset_in_property": 250,
+            "page": 81,
+            "header_hex": "39 00 00 40 00 00 06",
+            "payload_hex": "a4 98 98 98 98 22"
+          },
+          {
+            "offset_in_property": 263,
+            "page": 81,
+            "header_hex": "39 00 00 40 00 00 02",
+            "payload_hex": "fe 22"
+          },
+          {
+            "offset_in_property": 272,
+            "page": 81,
+            "header_hex": "39 00 00 40 00 00 06",
+            "payload_hex": "a5 98 98 98 98 22"
+          },
+          {
+            "offset_in_property": 285,
+            "page": 81,
+            "header_hex": "39 00 00 40 00 00 02",
+            "payload_hex": "fe 22"
+          },
+          {
+            "offset_in_property": 294,
+            "page": 81,
+            "header_hex": "39 00 00 40 00 00 06",
+            "payload_hex": "a6 98 98 98 98 22"
+          },
+          {
+            "offset_in_property": 307,
+            "page": 81,
+            "header_hex": "39 00 00 40 00 00 02",
+            "payload_hex": "fe 22"
+          },
+          {
+            "offset_in_property": 316,
+            "page": 81,
+            "header_hex": "39 00 00 40 00 00 06",
+            "payload_hex": "a7 98 98 00 00 22"
+          },
+          {
+            "offset_in_property": 329,
+            "page": 81,
+            "header_hex": "39 00 00 40 00 00 02",
+            "payload_hex": "fe 00"
+          },
+          {
+            "offset_in_property": 338,
+            "page": 82,
+            "header_hex": "39 00 00 40 00 00 04",
+            "payload_hex": "ff 5a a5 52"
+          },
+          {
+            "offset_in_property": 349,
+            "page": 82,
+            "header_hex": "39 00 00 40 00 00 06",
+            "payload_hex": "80 bc bc bc bc 11"
+          },
+          {
+            "offset_in_property": 362,
+            "page": 82,
+            "header_hex": "39 00 00 40 00 00 02",
+            "payload_hex": "fe 11"
+          },
+          {
+            "offset_in_property": 371,
+            "page": 82,
+            "header_hex": "39 00 00 40 00 00 06",
+            "payload_hex": "81 76 ae 7c 7c 01"
+          },
+          {
+            "offset_in_property": 384,
+            "page": 82,
+            "header_hex": "39 00 00 40 00 00 02",
+            "payload_hex": "fe 00"
+          },
+          {
+            "offset_in_property": 393,
+            "page": 82,
+            "header_hex": "39 00 00 40 00 00 06",
+            "payload_hex": "82 7c 7c 7c 7c 00"
+          },
+          {
+            "offset_in_property": 406,
+            "page": 82,
+            "header_hex": "39 00 00 40 00 00 02",
+            "payload_hex": "fe 00"
+          },
+          {
+            "offset_in_property": 415,
+            "page": 82,
+            "header_hex": "39 00 00 40 00 00 06",
+            "payload_hex": "83 7c 7c 7c 7c 00"
+          },
+          {
+            "offset_in_property": 428,
+            "page": 82,
+            "header_hex": "39 00 00 40 00 00 02",
+            "payload_hex": "fe 00"
+          },
+          {
+            "offset_in_property": 437,
+            "page": 82,
+            "header_hex": "39 00 00 40 00 00 06",
+            "payload_hex": "84 7c 7c 7c 7c 00"
+          },
+          {
+            "offset_in_property": 450,
+            "page": 82,
+            "header_hex": "39 00 00 40 00 00 02",
+            "payload_hex": "fe 00"
+          },
+          {
+            "offset_in_property": 459,
+            "page": 82,
+            "header_hex": "39 00 00 40 00 00 06",
+            "payload_hex": "85 7c 7c 7c 7c 00"
+          },
+          {
+            "offset_in_property": 472,
+            "page": 82,
+            "header_hex": "39 00 00 40 00 00 02",
+            "payload_hex": "fe 00"
+          },
+          {
+            "offset_in_property": 481,
+            "page": 82,
+            "header_hex": "39 00 00 40 00 00 06",
+            "payload_hex": "86 7c 7c 7c 7c 00"
+          },
+          {
+            "offset_in_property": 494,
+            "page": 82,
+            "header_hex": "39 00 00 40 00 00 02",
+            "payload_hex": "fe 00"
+          },
+          {
+            "offset_in_property": 503,
+            "page": 82,
+            "header_hex": "39 00 00 40 00 00 06",
+            "payload_hex": "87 7c 7c 00 00 00"
+          },
+          {
+            "offset_in_property": 516,
+            "page": 82,
+            "header_hex": "39 00 00 40 00 00 02",
+            "payload_hex": "fe 00"
+          },
+          {
+            "offset_in_property": 525,
+            "page": 79,
+            "header_hex": "39 00 00 40 00 00 04",
+            "payload_hex": "ff 5a a5 4f"
+          },
+          {
+            "offset_in_property": 536,
+            "page": 79,
+            "header_hex": "39 00 00 40 00 00 02",
+            "payload_hex": "8b 78"
+          },
+          {
+            "offset_in_property": 545,
+            "page": 0,
+            "header_hex": "39 00 00 00 00 00 04",
+            "payload_hex": "ff 5a a5 00"
+          }
+        ],
+        "on": [
+          {
+            "offset_in_property": 0,
+            "page": 79,
+            "header_hex": "39 00 00 40 00 00 04",
+            "payload_hex": "ff 5a a5 4f"
+          },
+          {
+            "offset_in_property": 11,
+            "page": 79,
+            "header_hex": "39 00 00 40 00 00 02",
+            "payload_hex": "88 78"
+          },
+          {
+            "offset_in_property": 20,
+            "page": 36,
+            "header_hex": "39 00 00 40 00 00 04",
+            "payload_hex": "ff 5a a5 24"
+          },
+          {
+            "offset_in_property": 31,
+            "page": 36,
+            "header_hex": "39 00 00 40 00 00 05",
+            "payload_hex": "91 11 77 44 66"
+          },
+          {
+            "offset_in_property": 43,
+            "page": 36,
+            "header_hex": "39 00 00 40 00 00 04",
+            "payload_hex": "ff 5a a5 24"
+          },
+          {
+            "offset_in_property": 54,
+            "page": 36,
+            "header_hex": "39 00 00 40 00 00 02",
+            "payload_hex": "9d 8e"
+          },
+          {
+            "offset_in_property": 63,
+            "page": 36,
+            "header_hex": "39 00 00 40 00 00 02",
+            "payload_hex": "9e 11"
+          },
+          {
+            "offset_in_property": 72,
+            "page": 78,
+            "header_hex": "39 00 00 40 00 00 04",
+            "payload_hex": "ff 5a a5 4e"
+          },
+          {
+            "offset_in_property": 83,
+            "page": 78,
+            "header_hex": "39 00 00 40 00 00 02",
+            "payload_hex": "8f 8e"
+          },
+          {
+            "offset_in_property": 92,
+            "page": 78,
+            "header_hex": "39 00 00 40 00 00 02",
+            "payload_hex": "90 11"
+          },
+          {
+            "offset_in_property": 101,
+            "page": 35,
+            "header_hex": "39 00 00 40 00 00 04",
+            "payload_hex": "ff 5a a5 23"
+          },
+          {
+            "offset_in_property": 112,
+            "page": 35,
+            "header_hex": "39 00 00 40 00 00 02",
+            "payload_hex": "80 90"
+          },
+          {
+            "offset_in_property": 121,
+            "page": 83,
+            "header_hex": "39 00 00 40 00 00 04",
+            "payload_hex": "ff 5a a5 53"
+          },
+          {
+            "offset_in_property": 132,
+            "page": 83,
+            "header_hex": "39 00 00 40 00 00 02",
+            "payload_hex": "86 3d"
+          },
+          {
+            "offset_in_property": 141,
+            "page": 83,
+            "header_hex": "39 00 00 40 00 00 03",
+            "payload_hex": "85 cc e3"
+          },
+          {
+            "offset_in_property": 151,
+            "page": 81,
+            "header_hex": "39 00 00 40 00 00 04",
+            "payload_hex": "ff 5a a5 51"
+          },
+          {
+            "offset_in_property": 162,
+            "page": 81,
+            "header_hex": "39 00 00 40 00 00 06",
+            "payload_hex": "a0 98 98 98 98 22"
+          },
+          {
+            "offset_in_property": 175,
+            "page": 81,
+            "header_hex": "39 00 00 40 00 00 02",
+            "payload_hex": "fe 22"
+          },
+          {
+            "offset_in_property": 184,
+            "page": 81,
+            "header_hex": "39 00 00 40 00 00 06",
+            "payload_hex": "a1 98 98 d0 a6 22"
+          },
+          {
+            "offset_in_property": 197,
+            "page": 81,
+            "header_hex": "39 00 00 40 00 00 02",
+            "payload_hex": "fe 22"
+          },
+          {
+            "offset_in_property": 206,
+            "page": 81,
+            "header_hex": "39 00 00 40 00 00 06",
+            "payload_hex": "a2 a6 a6 a6 a6 22"
+          },
+          {
+            "offset_in_property": 219,
+            "page": 81,
+            "header_hex": "39 00 00 40 00 00 02",
+            "payload_hex": "fe 22"
+          },
+          {
+            "offset_in_property": 228,
+            "page": 81,
+            "header_hex": "39 00 00 40 00 00 06",
+            "payload_hex": "a3 aa 98 98 98 22"
+          },
+          {
+            "offset_in_property": 241,
+            "page": 81,
+            "header_hex": "39 00 00 40 00 00 02",
+            "payload_hex": "fe 22"
+          },
+          {
+            "offset_in_property": 250,
+            "page": 81,
+            "header_hex": "39 00 00 40 00 00 06",
+            "payload_hex": "a4 98 98 98 98 22"
+          },
+          {
+            "offset_in_property": 263,
+            "page": 81,
+            "header_hex": "39 00 00 40 00 00 02",
+            "payload_hex": "fe 22"
+          },
+          {
+            "offset_in_property": 272,
+            "page": 81,
+            "header_hex": "39 00 00 40 00 00 06",
+            "payload_hex": "a5 98 98 98 98 22"
+          },
+          {
+            "offset_in_property": 285,
+            "page": 81,
+            "header_hex": "39 00 00 40 00 00 02",
+            "payload_hex": "fe 22"
+          },
+          {
+            "offset_in_property": 294,
+            "page": 81,
+            "header_hex": "39 00 00 40 00 00 06",
+            "payload_hex": "a6 98 98 98 98 22"
+          },
+          {
+            "offset_in_property": 307,
+            "page": 81,
+            "header_hex": "39 00 00 40 00 00 02",
+            "payload_hex": "fe 22"
+          },
+          {
+            "offset_in_property": 316,
+            "page": 81,
+            "header_hex": "39 00 00 40 00 00 06",
+            "payload_hex": "a7 98 98 00 00 22"
+          },
+          {
+            "offset_in_property": 329,
+            "page": 81,
+            "header_hex": "39 00 00 40 00 00 02",
+            "payload_hex": "fe 00"
+          },
+          {
+            "offset_in_property": 338,
+            "page": 82,
+            "header_hex": "39 00 00 40 00 00 04",
+            "payload_hex": "ff 5a a5 52"
+          },
+          {
+            "offset_in_property": 349,
+            "page": 82,
+            "header_hex": "39 00 00 40 00 00 06",
+            "payload_hex": "80 bc bc bc bc 11"
+          },
+          {
+            "offset_in_property": 362,
+            "page": 82,
+            "header_hex": "39 00 00 40 00 00 02",
+            "payload_hex": "fe 11"
+          },
+          {
+            "offset_in_property": 371,
+            "page": 82,
+            "header_hex": "39 00 00 40 00 00 06",
+            "payload_hex": "81 76 ae 81 81 01"
+          },
+          {
+            "offset_in_property": 384,
+            "page": 82,
+            "header_hex": "39 00 00 40 00 00 02",
+            "payload_hex": "fe 00"
+          },
+          {
+            "offset_in_property": 393,
+            "page": 82,
+            "header_hex": "39 00 00 40 00 00 06",
+            "payload_hex": "82 81 81 81 81 00"
+          },
+          {
+            "offset_in_property": 406,
+            "page": 82,
+            "header_hex": "39 00 00 40 00 00 02",
+            "payload_hex": "fe 00"
+          },
+          {
+            "offset_in_property": 415,
+            "page": 82,
+            "header_hex": "39 00 00 40 00 00 06",
+            "payload_hex": "83 82 7c 7c 7c 00"
+          },
+          {
+            "offset_in_property": 428,
+            "page": 82,
+            "header_hex": "39 00 00 40 00 00 02",
+            "payload_hex": "fe 00"
+          },
+          {
+            "offset_in_property": 437,
+            "page": 82,
+            "header_hex": "39 00 00 40 00 00 06",
+            "payload_hex": "84 7c 7c 7c 7c 00"
+          },
+          {
+            "offset_in_property": 450,
+            "page": 82,
+            "header_hex": "39 00 00 40 00 00 02",
+            "payload_hex": "fe 00"
+          },
+          {
+            "offset_in_property": 459,
+            "page": 82,
+            "header_hex": "39 00 00 40 00 00 06",
+            "payload_hex": "85 7c 7c 7c 7c 00"
+          },
+          {
+            "offset_in_property": 472,
+            "page": 82,
+            "header_hex": "39 00 00 40 00 00 02",
+            "payload_hex": "fe 00"
+          },
+          {
+            "offset_in_property": 481,
+            "page": 82,
+            "header_hex": "39 00 00 40 00 00 06",
+            "payload_hex": "86 7c 7c 7c 7c 00"
+          },
+          {
+            "offset_in_property": 494,
+            "page": 82,
+            "header_hex": "39 00 00 40 00 00 02",
+            "payload_hex": "fe 00"
+          },
+          {
+            "offset_in_property": 503,
+            "page": 79,
+            "header_hex": "39 00 00 40 00 00 04",
+            "payload_hex": "ff 5a a5 4f"
+          },
+          {
+            "offset_in_property": 514,
+            "page": 79,
+            "header_hex": "39 00 00 40 00 00 02",
+            "payload_hex": "8b 78"
+          },
+          {
+            "offset_in_property": 523,
+            "page": 0,
+            "header_hex": "39 00 00 00 00 00 04",
+            "payload_hex": "ff 5a a5 00"
+          }
+        ]
+      }
+    }
+  ],
+  "identifiability_limit": "Selected target contains only two composite DC profiles with34 jointly changed packets. No independent count/frequency-labelled variant was identified; those observations alone cannot uniquely assign individual register semantics."
+}

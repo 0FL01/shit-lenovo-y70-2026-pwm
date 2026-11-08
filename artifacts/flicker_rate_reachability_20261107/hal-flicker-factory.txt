@@ -1,0 +1,443 @@
+
+extracted/XT2611-1/W3WWL36.65-11-18/filesystems/vendor_a/lib64/sensors.qsh.so:	file format elf64-littleaarch64
+
+Disassembly of section .text:
+
+0000000000063904 <additionalinfo_sensor::send_additional_info(long)>:
+   63abc: d503233f     	paciasp
+   63ac0: d10303ff     	sub	sp, sp, #0xc0
+   63ac4: a9067bfd     	stp	x29, x30, [sp, #0x60]
+   63ac8: a9076ffc     	stp	x28, x27, [sp, #0x70]
+   63acc: a90867fa     	stp	x26, x25, [sp, #0x80]
+   63ad0: a9095ff8     	stp	x24, x23, [sp, #0x90]
+   63ad4: a90a57f6     	stp	x22, x21, [sp, #0xa0]
+   63ad8: a90b4ff4     	stp	x20, x19, [sp, #0xb0]
+   63adc: 910183fd     	add	x29, sp, #0x60
+   63ae0: aa0803f3     	mov	x19, x8
+   63ae4: d53bd048     	mrs	x8, TPIDR_EL0
+   63ae8: 900001b4     	adrp	x20, 0x97000 <vtable for qsh_sensor+0x290>
+   63aec: f90007e8     	str	x8, [sp, #0x8]
+   63af0: f9401508     	ldr	x8, [x8, #0x28]
+   63af4: f81f83a8     	stur	x8, [x29, #-0x8]
+   63af8: f900067f     	str	xzr, [x19, #0x8]
+   63afc: f9445294     	ldr	x20, [x20, #0x8a0]
+   63b00: f900027f     	str	xzr, [x19]
+   63b04: f9000a7f     	str	xzr, [x19, #0x10]
+   63b08: 08dffe88     	ldarb	w8, [x20]
+   63b0c: 36002c28     	tbz	w8, #0x0, 0x64090 <additionalinfo_sensor::send_additional_info(long)+0x78c>
+   63b10: 900001a0     	adrp	x0, 0x97000 <vtable for qsh_sensor+0x290>
+   63b14: d10083a8     	sub	x8, x29, #0x20
+   63b18: f9444c00     	ldr	x0, [x0, #0x898]
+   63b1c: 9400b4f5     	bl	0x90ef0 <_ZN14sensor_factory21get_supported_hub_idsEv@plt>
+   63b20: a97e23b5     	ldp	x21, x8, [x29, #-0x20]
+   63b24: eb0802bf     	cmp	x21, x8
+   63b28: f9000fe8     	str	x8, [sp, #0x18]
+   63b2c: 54002780     	b.eq	0x6401c <additionalinfo_sensor::send_additional_info(long)+0x718>
+   63b30: 900001b6     	adrp	x22, 0x97000 <vtable for qsh_sensor+0x290>
+   63b34: 9100a3e8     	add	x8, sp, #0x28
+   63b38: f9444ed6     	ldr	x22, [x22, #0x898]
+   63b3c: b2400108     	orr	x8, x8, #0x1
+   63b40: f9000be8     	str	x8, [sp, #0x10]
+   63b44: 14000005     	b	0x63b58 <additionalinfo_sensor::send_additional_info(long)+0x254>
+   63b48: f9400fe8     	ldr	x8, [sp, #0x18]
+   63b4c: 910012b5     	add	x21, x21, #0x4
+   63b50: eb0802bf     	cmp	x21, x8
+   63b54: 54002620     	b.eq	0x64018 <additionalinfo_sensor::send_additional_info(long)+0x714>
+   63b58: b94002b8     	ldr	w24, [x21]
+   63b5c: 08dffe88     	ldarb	w8, [x20]
+   63b60: 36002408     	tbz	w8, #0x0, 0x63fe0 <additionalinfo_sensor::send_additional_info(long)+0x6dc>
+   63b64: b00001c8     	adrp	x8, 0x9c000 <sensor_discovery::_laterboot>
+   63b68: d503201f     	nop
+   63b6c: 101828e9     	adr	x9, 0x94088 <typeinfo for std::out_of_range+0x18>
+   63b70: 394b5508     	ldrb	w8, [x8, #0x2d5]
+   63b74: f868793a     	ldr	x26, [x9, x8, lsl #3]
+   63b78: aa1a03e0     	mov	x0, x26
+   63b7c: 9400b405     	bl	0x90b90 <strlen@plt>
+   63b80: b100201f     	cmn	x0, #0x8
+   63b84: 54002762     	b.hs	0x64070 <additionalinfo_sensor::send_additional_info(long)+0x76c>
+   63b88: aa0003f9     	mov	x25, x0
+   63b8c: f1005c1f     	cmp	x0, #0x17
+   63b90: 54000142     	b.hs	0x63bb8 <additionalinfo_sensor::send_additional_info(long)+0x2b4>
+   63b94: 531f7b28     	lsl	w8, w25, #1
+   63b98: f9400bfb     	ldr	x27, [sp, #0x10]
+   63b9c: 5280031c     	mov	w28, #0x18              // =24
+   63ba0: 52800037     	mov	w23, #0x1               // =1
+   63ba4: 52800029     	mov	w9, #0x1                // =1
+   63ba8: 3900a3e8     	strb	w8, [sp, #0x28]
+   63bac: 52800308     	mov	w8, #0x18               // =24
+   63bb0: b50001b9     	cbnz	x25, 0x63be4 <additionalinfo_sensor::send_additional_info(long)+0x2e0>
+   63bb4: 14000012     	b	0x63bfc <additionalinfo_sensor::send_additional_info(long)+0x2f8>
+   63bb8: b2400b28     	orr	x8, x25, #0x7
+   63bbc: 52800349     	mov	w9, #0x1a               // =26
+   63bc0: f1005d1f     	cmp	x8, #0x17
+   63bc4: 9a88053c     	csinc	x28, x9, x8, eq
+   63bc8: aa1c03e0     	mov	x0, x28
+   63bcc: 9400b3eb     	bl	0x90b78 <_Znwm@plt>
+   63bd0: b2400388     	orr	x8, x28, #0x1
+   63bd4: aa0003fb     	mov	x27, x0
+   63bd8: aa1f03f7     	mov	x23, xzr
+   63bdc: a90303f9     	stp	x25, x0, [sp, #0x30]
+   63be0: f90017e8     	str	x8, [sp, #0x28]
+   63be4: aa1b03e0     	mov	x0, x27
+   63be8: aa1a03e1     	mov	x1, x26
+   63bec: aa1903e2     	mov	x2, x25
+   63bf0: 9400bd42     	bl	0x930f8 <memmove@plt>
+   63bf4: aa1c03e8     	mov	x8, x28
+   63bf8: aa1703e9     	mov	x9, x23
+   63bfc: ab190129     	adds	x9, x9, x25
+   63c00: 54002464     	b.mi	0x6408c <additionalinfo_sensor::send_additional_info(long)+0x788>
+   63c04: eb09011f     	cmp	x8, x9
+   63c08: 54002429     	b.ls	0x6408c <additionalinfo_sensor::send_additional_info(long)+0x788>
+   63c0c: 38396b7f     	strb	wzr, [x27, x25]
+   63c10: 9100a3e1     	add	x1, sp, #0x28
+   63c14: aa1603e0     	mov	x0, x22
+   63c18: 2a1803e2     	mov	w2, w24
+   63c1c: 9400b4c7     	bl	0x90f38 <_ZN14sensor_factory9get_suidsERKNSt3__112basic_stringIcNS0_11char_traitsIcEENS0_9allocatorIcEEEEi@plt>
+   63c20: b0000197     	adrp	x23, 0x94000
+   63c24: 913e02f7     	add	x23, x23, #0xf80
+   63c28: 3940a3e8     	ldrb	w8, [sp, #0x28]
+   63c2c: aa0003fa     	mov	x26, x0
+   63c30: 360000a8     	tbz	w8, #0x0, 0x63c44 <additionalinfo_sensor::send_additional_info(long)+0x340>
+   63c34: f94017e8     	ldr	x8, [sp, #0x28]
+   63c38: f9401fe0     	ldr	x0, [sp, #0x38]
+   63c3c: 927ff901     	and	x1, x8, #0xfffffffffffffffe
+   63c40: 9400b3aa     	bl	0x90ae8 <_ZdlPvm@plt>
+   63c44: a9407359     	ldp	x25, x28, [x26]
+   63c48: eb1c033f     	cmp	x25, x28
+   63c4c: 540000a1     	b.ne	0x63c60 <additionalinfo_sensor::send_additional_info(long)+0x35c>
+   63c50: 17ffffbe     	b	0x63b48 <additionalinfo_sensor::send_additional_info(long)+0x244>
+   63c54: 91004339     	add	x25, x25, #0x10
+   63c58: eb1c033f     	cmp	x25, x28
+   63c5c: 54fff760     	b.eq	0x63b48 <additionalinfo_sensor::send_additional_info(long)+0x244>
+   63c60: 08dffe88     	ldarb	w8, [x20]
+   63c64: 36000c68     	tbz	w8, #0x0, 0x63df0 <additionalinfo_sensor::send_additional_info(long)+0x4ec>
+   63c68: aa1603e0     	mov	x0, x22
+   63c6c: aa1903e1     	mov	x1, x25
+   63c70: 97ffa86c     	bl	0x4de20 <qsh_sensor::set_sensor_typename(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&)+0x684>
+   63c74: 9400b481     	bl	0x90e78 <_ZNK17sensor_attributes15get_stream_typeEv@plt>
+   63c78: f100041f     	cmp	x0, #0x1
+   63c7c: 54fffec1     	b.ne	0x63c54 <additionalinfo_sensor::send_additional_info(long)+0x350>
+   63c80: 52805400     	mov	w0, #0x2a0              // =672
+   63c84: 9400b3bd     	bl	0x90b78 <_Znwm@plt>
+   63c88: a9400b21     	ldp	x1, x2, [x25]
+   63c8c: aa0003fa     	mov	x26, x0
+   63c90: 52800023     	mov	w3, #0x1                // =1
+   63c94: 2a1803e4     	mov	w4, w24
+   63c98: 9400b9be     	bl	0x92390 <_ZN17alternate_flickerC1EN3com4quic10sensinghub4suidE18sensor_wakeup_typei@plt>
+   63c9c: a940a668     	ldp	x8, x9, [x19, #0x8]
+   63ca0: a9026bff     	stp	xzr, x26, [sp, #0x20]
+   63ca4: eb09011f     	cmp	x8, x9
+   63ca8: 54000082     	b.hs	0x63cb8 <additionalinfo_sensor::send_additional_info(long)+0x3b4>
+   63cac: f90017ff     	str	xzr, [sp, #0x28]
+   63cb0: f800851a     	str	x26, [x8], #0x8
+   63cb4: 14000005     	b	0x63cc8 <additionalinfo_sensor::send_additional_info(long)+0x3c4>
+   63cb8: 9100a3e1     	add	x1, sp, #0x28
+   63cbc: aa1303e0     	mov	x0, x19
+   63cc0: 97ff6da3     	bl	0x3f34c <sensor_factory::get_all_available_sensors() const+0x370>
+   63cc4: aa0003e8     	mov	x8, x0
+   63cc8: f94017e0     	ldr	x0, [sp, #0x28]
+   63ccc: f9000668     	str	x8, [x19, #0x8]
+   63cd0: f90017ff     	str	xzr, [sp, #0x28]
+   63cd4: b40001e0     	cbz	x0, 0x63d10 <additionalinfo_sensor::send_additional_info(long)+0x40c>
+   63cd8: f940001a     	ldr	x26, [x0]
+   63cdc: d503201f     	nop
+   63ce0: 10188a88     	adr	x8, 0x94e30 <vtable for accelerometer>
+   63ce4: cb080348     	sub	x8, x26, x8
+   63ce8: d1004108     	sub	x8, x8, #0x10
+   63cec: 93c81508     	ror	x8, x8, #0x5
+   63cf0: f104611f     	cmp	x8, #0x118
+   63cf4: 540009a8     	b.hi	0x63e28 <additionalinfo_sensor::send_additional_info(long)+0x524>
+   63cf8: d503201f     	nop
+   63cfc: 10dc48a9     	adr	x9, 0x1c610 <typeinfo name for std::bad_alloc+0xd>
+   63d00: 38686928     	ldrb	w8, [x9, x8]
+   63d04: 36000928     	tbz	w8, #0x0, 0x63e28 <additionalinfo_sensor::send_additional_info(long)+0x524>
+   63d08: f9400748     	ldr	x8, [x26, #0x8]
+   63d0c: d63f0100     	blr	x8
+   63d10: f94013e0     	ldr	x0, [sp, #0x20]
+   63d14: f90013ff     	str	xzr, [sp, #0x20]
+   63d18: b40000c0     	cbz	x0, 0x63d30 <additionalinfo_sensor::send_additional_info(long)+0x42c>
+   63d1c: f940001a     	ldr	x26, [x0]
+   63d20: eb17035f     	cmp	x26, x23
+   63d24: 54000ae1     	b.ne	0x63e80 <additionalinfo_sensor::send_additional_info(long)+0x57c>
+   63d28: f9400748     	ldr	x8, [x26, #0x8]
+   63d2c: d63f0100     	blr	x8
+   63d30: 52805400     	mov	w0, #0x2a0              // =672
+   63d34: 9400b391     	bl	0x90b78 <_Znwm@plt>
+   63d38: a9400b21     	ldp	x1, x2, [x25]
+   63d3c: aa0003fa     	mov	x26, x0
+   63d40: 2a1f03e3     	mov	w3, wzr
+   63d44: 2a1803e4     	mov	w4, w24
+   63d48: 9400b992     	bl	0x92390 <_ZN17alternate_flickerC1EN3com4quic10sensinghub4suidE18sensor_wakeup_typei@plt>
+   63d4c: a940a668     	ldp	x8, x9, [x19, #0x8]
+   63d50: a9026bff     	stp	xzr, x26, [sp, #0x20]
+   63d54: eb09011f     	cmp	x8, x9
+   63d58: 54000082     	b.hs	0x63d68 <additionalinfo_sensor::send_additional_info(long)+0x464>
+   63d5c: f90017ff     	str	xzr, [sp, #0x28]
+   63d60: f800851a     	str	x26, [x8], #0x8
+   63d64: 14000005     	b	0x63d78 <additionalinfo_sensor::send_additional_info(long)+0x474>
+   63d68: 9100a3e1     	add	x1, sp, #0x28
+   63d6c: aa1303e0     	mov	x0, x19
+   63d70: 97ff6d77     	bl	0x3f34c <sensor_factory::get_all_available_sensors() const+0x370>
+   63d74: aa0003e8     	mov	x8, x0
+   63d78: f94017e0     	ldr	x0, [sp, #0x28]
+   63d7c: f9000668     	str	x8, [x19, #0x8]
+   63d80: f90017ff     	str	xzr, [sp, #0x28]
+   63d84: b40001e0     	cbz	x0, 0x63dc0 <additionalinfo_sensor::send_additional_info(long)+0x4bc>
+   63d88: f940001a     	ldr	x26, [x0]
+   63d8c: d503201f     	nop
+   63d90: 10188508     	adr	x8, 0x94e30 <vtable for accelerometer>
+   63d94: cb080348     	sub	x8, x26, x8
+   63d98: d1004108     	sub	x8, x8, #0x10
+   63d9c: 93c81508     	ror	x8, x8, #0x5
+   63da0: f104611f     	cmp	x8, #0x118
+   63da4: 54000588     	b.hi	0x63e54 <additionalinfo_sensor::send_additional_info(long)+0x550>
+   63da8: d503201f     	nop
+   63dac: 10dc4329     	adr	x9, 0x1c610 <typeinfo name for std::bad_alloc+0xd>
+   63db0: 38686928     	ldrb	w8, [x9, x8]
+   63db4: 36000508     	tbz	w8, #0x0, 0x63e54 <additionalinfo_sensor::send_additional_info(long)+0x550>
+   63db8: f9400748     	ldr	x8, [x26, #0x8]
+   63dbc: d63f0100     	blr	x8
+   63dc0: f94013e0     	ldr	x0, [sp, #0x20]
+   63dc4: f90013ff     	str	xzr, [sp, #0x20]
+   63dc8: b4fff460     	cbz	x0, 0x63c54 <additionalinfo_sensor::send_additional_info(long)+0x350>
+   63dcc: f940001a     	ldr	x26, [x0]
+   63dd0: eb17035f     	cmp	x26, x23
+   63dd4: 540006c1     	b.ne	0x63eac <additionalinfo_sensor::send_additional_info(long)+0x5a8>
+   63dd8: f9400748     	ldr	x8, [x26, #0x8]
+   63ddc: d63f0100     	blr	x8
+   63de0: 91004339     	add	x25, x25, #0x10
+   63de4: eb1c033f     	cmp	x25, x28
+   63de8: 54fff3c1     	b.ne	0x63c60 <additionalinfo_sensor::send_additional_info(long)+0x35c>
+   63dec: 17ffff57     	b	0x63b48 <additionalinfo_sensor::send_additional_info(long)+0x244>
+   63df0: aa1403e0     	mov	x0, x20
+   63df4: 9400b487     	bl	0x91010 <__cxa_guard_acquire@plt>
+   63df8: 34fff380     	cbz	w0, 0x63c68 <additionalinfo_sensor::send_additional_info(long)+0x364>
+   63dfc: aa1603e0     	mov	x0, x22
+   63e00: 9400b460     	bl	0x90f80 <_ZN14sensor_factoryC1Ev@plt>
+   63e04: d503201f     	nop
+   63e08: 10f239c0     	adr	x0, 0x48540 <sensors_hal::handle_offset_timer()+0x340>
+   63e0c: aa1603e1     	mov	x1, x22
+   63e10: d503201f     	nop
+   63e14: 10180f62     	adr	x2, 0x94000
+   63e18: 9400b22c     	bl	0x906c8 <__cxa_atexit@plt>
+   63e1c: aa1403e0     	mov	x0, x20
+   63e20: 9400b482     	bl	0x91028 <__cxa_guard_release@plt>
+   63e24: 17ffff91     	b	0x63c68 <additionalinfo_sensor::send_additional_info(long)+0x364>
+   63e28: aa0003f7     	mov	x23, x0
+   63e2c: d288f3a0     	mov	x0, #0x479d             // =18333
+   63e30: aa1a03e1     	mov	x1, x26
+   63e34: f2a1b040     	movk	x0, #0xd82, lsl #16
+   63e38: f2d340e0     	movk	x0, #0x9a07, lsl #32
+   63e3c: f2e2e0e0     	movk	x0, #0x1707, lsl #48
+   63e40: 9400b28e     	bl	0x90878 <__cfi_slowpath@plt>
+   63e44: aa1703e0     	mov	x0, x23
+   63e48: b0000197     	adrp	x23, 0x94000
+   63e4c: 913e02f7     	add	x23, x23, #0xf80
+   63e50: 17ffffae     	b	0x63d08 <additionalinfo_sensor::send_additional_info(long)+0x404>
+   63e54: aa0003f7     	mov	x23, x0
+   63e58: d288f3a0     	mov	x0, #0x479d             // =18333
+   63e5c: aa1a03e1     	mov	x1, x26
+   63e60: f2a1b040     	movk	x0, #0xd82, lsl #16
+   63e64: f2d340e0     	movk	x0, #0x9a07, lsl #32
+   63e68: f2e2e0e0     	movk	x0, #0x1707, lsl #48
+   63e6c: 9400b283     	bl	0x90878 <__cfi_slowpath@plt>
+   63e70: aa1703e0     	mov	x0, x23
+   63e74: b0000197     	adrp	x23, 0x94000
+   63e78: 913e02f7     	add	x23, x23, #0xf80
+   63e7c: 17ffffcf     	b	0x63db8 <additionalinfo_sensor::send_additional_info(long)+0x4b4>
+   63e80: aa0003f7     	mov	x23, x0
+   63e84: d293b220     	mov	x0, #0x9d91             // =40337
+   63e88: aa1a03e1     	mov	x1, x26
+   63e8c: f2b6b360     	movk	x0, #0xb59b, lsl #16
+   63e90: f2c0e2a0     	movk	x0, #0x715, lsl #32
+   63e94: f2e5be20     	movk	x0, #0x2df1, lsl #48
+   63e98: 9400b278     	bl	0x90878 <__cfi_slowpath@plt>
+   63e9c: aa1703e0     	mov	x0, x23
+   63ea0: b0000197     	adrp	x23, 0x94000
+   63ea4: 913e02f7     	add	x23, x23, #0xf80
+   63ea8: 17ffffa0     	b	0x63d28 <additionalinfo_sensor::send_additional_info(long)+0x424>
+   63eac: aa0003f7     	mov	x23, x0
+   63eb0: d293b220     	mov	x0, #0x9d91             // =40337
+   63eb4: aa1a03e1     	mov	x1, x26
+   63eb8: f2b6b360     	movk	x0, #0xb59b, lsl #16
+   63ebc: f2c0e2a0     	movk	x0, #0x715, lsl #32
+   63ec0: f2e5be20     	movk	x0, #0x2df1, lsl #48
+   63ec4: 9400b26d     	bl	0x90878 <__cfi_slowpath@plt>
+   63ec8: aa1703e0     	mov	x0, x23
+   63ecc: b0000197     	adrp	x23, 0x94000
+   63ed0: 913e02f7     	add	x23, x23, #0xf80
+   63ed4: 17ffffc1     	b	0x63dd8 <additionalinfo_sensor::send_additional_info(long)+0x4d4>
+   63ed8: aa0003fa     	mov	x26, x0
+   63edc: 9100a3e0     	add	x0, sp, #0x28
+   63ee0: aa0103fb     	mov	x27, x1
+   63ee4: 97fff51d     	bl	0x61358 <calibration::deactivate()+0x1dd8>
+   63ee8: 910083e0     	add	x0, sp, #0x20
+   63eec: 940000a9     	bl	0x64190 <additionalinfo_sensor::send_additional_info(long)+0x88c>
+   63ef0: 14000018     	b	0x63f50 <additionalinfo_sensor::send_additional_info(long)+0x64c>
+   63ef4: aa0003fa     	mov	x26, x0
+   63ef8: 9100a3e0     	add	x0, sp, #0x28
+   63efc: aa0103fb     	mov	x27, x1
+   63f00: 97fff516     	bl	0x61358 <calibration::deactivate()+0x1dd8>
+   63f04: 910083e0     	add	x0, sp, #0x20
+   63f08: 940000a2     	bl	0x64190 <additionalinfo_sensor::send_additional_info(long)+0x88c>
+   63f0c: 14000024     	b	0x63f9c <additionalinfo_sensor::send_additional_info(long)+0x698>
+   63f10: aa0103fb     	mov	x27, x1
+   63f14: aa0003e1     	mov	x1, x0
+   63f18: aa1a03e0     	mov	x0, x26
+   63f1c: aa0103fa     	mov	x26, x1
+   63f20: 52805401     	mov	w1, #0x2a0              // =672
+   63f24: 9400b2f1     	bl	0x90ae8 <_ZdlPvm@plt>
+   63f28: 1400000a     	b	0x63f50 <additionalinfo_sensor::send_additional_info(long)+0x64c>
+   63f2c: aa0103fb     	mov	x27, x1
+   63f30: aa0003e1     	mov	x1, x0
+   63f34: aa1a03e0     	mov	x0, x26
+   63f38: aa0103fa     	mov	x26, x1
+   63f3c: 52805401     	mov	w1, #0x2a0              // =672
+   63f40: 9400b2ea     	bl	0x90ae8 <_ZdlPvm@plt>
+   63f44: 14000016     	b	0x63f9c <additionalinfo_sensor::send_additional_info(long)+0x698>
+   63f48: aa0103fb     	mov	x27, x1
+   63f4c: aa0003fa     	mov	x26, x0
+   63f50: 7100077f     	cmp	w27, #0x1
+   63f54: 54001061     	b.ne	0x64160 <additionalinfo_sensor::send_additional_info(long)+0x85c>
+   63f58: aa1a03e0     	mov	x0, x26
+   63f5c: 9400b277     	bl	0x90938 <__cxa_begin_catch@plt>
+   63f60: f9400008     	ldr	x8, [x0]
+   63f64: f9400908     	ldr	x8, [x8, #0x10]
+   63f68: d63f0100     	blr	x8
+   63f6c: aa0003e4     	mov	x4, x0
+   63f70: 52800020     	mov	w0, #0x1                // =1
+   63f74: f0fffd81     	adrp	x1, 0x16000
+   63f78: 91087021     	add	x1, x1, #0x21c
+   63f7c: f0fffd82     	adrp	x2, 0x16000
+   63f80: 91353c42     	add	x2, x2, #0xd4f
+   63f84: 52800be3     	mov	w3, #0x5f               // =95
+   63f88: 9400b236     	bl	0x90860 <_Z15sns_log_messageiPKcz@plt>
+   63f8c: 9400b397     	bl	0x90de8 <__cxa_end_catch@plt>
+   63f90: 17ffff31     	b	0x63c54 <additionalinfo_sensor::send_additional_info(long)+0x350>
+   63f94: aa0103fb     	mov	x27, x1
+   63f98: aa0003fa     	mov	x26, x0
+   63f9c: 7100077f     	cmp	w27, #0x1
+   63fa0: 54000e01     	b.ne	0x64160 <additionalinfo_sensor::send_additional_info(long)+0x85c>
+   63fa4: aa1a03e0     	mov	x0, x26
+   63fa8: 9400b264     	bl	0x90938 <__cxa_begin_catch@plt>
+   63fac: f9400008     	ldr	x8, [x0]
+   63fb0: f9400908     	ldr	x8, [x8, #0x10]
+   63fb4: d63f0100     	blr	x8
+   63fb8: aa0003e4     	mov	x4, x0
+   63fbc: 52800020     	mov	w0, #0x1                // =1
+   63fc0: b0fffdc1     	adrp	x1, 0x1c000
+   63fc4: 91000821     	add	x1, x1, #0x2
+   63fc8: f0fffd82     	adrp	x2, 0x16000
+   63fcc: 91353c42     	add	x2, x2, #0xd4f
+   63fd0: 52800b43     	mov	w3, #0x5a               // =90
+   63fd4: 9400b223     	bl	0x90860 <_Z15sns_log_messageiPKcz@plt>
+   63fd8: 9400b384     	bl	0x90de8 <__cxa_end_catch@plt>
+   63fdc: 17ffff55     	b	0x63d30 <additionalinfo_sensor::send_additional_info(long)+0x42c>
+   63fe0: aa1403e0     	mov	x0, x20
+   63fe4: 9400b40b     	bl	0x91010 <__cxa_guard_acquire@plt>
+   63fe8: 34ffdbe0     	cbz	w0, 0x63b64 <additionalinfo_sensor::send_additional_info(long)+0x260>
+   63fec: aa1603e0     	mov	x0, x22
+   63ff0: 9400b3e4     	bl	0x90f80 <_ZN14sensor_factoryC1Ev@plt>
+   63ff4: d503201f     	nop
+   63ff8: 10f22a40     	adr	x0, 0x48540 <sensors_hal::handle_offset_timer()+0x340>
+   63ffc: aa1603e1     	mov	x1, x22
+   64000: d503201f     	nop
+   64004: 1017ffe2     	adr	x2, 0x94000
+   64008: 9400b1b0     	bl	0x906c8 <__cxa_atexit@plt>
+   6400c: aa1403e0     	mov	x0, x20
+   64010: 9400b406     	bl	0x91028 <__cxa_guard_release@plt>
+   64014: 17fffed4     	b	0x63b64 <additionalinfo_sensor::send_additional_info(long)+0x260>
+   64018: f85e03b5     	ldur	x21, [x29, #-0x20]
+   6401c: b40000f5     	cbz	x21, 0x64038 <additionalinfo_sensor::send_additional_info(long)+0x734>
+   64020: f85f03a8     	ldur	x8, [x29, #-0x10]
+   64024: f81e83b5     	stur	x21, [x29, #-0x18]
+   64028: eb150101     	subs	x1, x8, x21
+   6402c: 54000564     	b.mi	0x640d8 <additionalinfo_sensor::send_additional_info(long)+0x7d4>
+   64030: aa1503e0     	mov	x0, x21
+   64034: 9400b2ad     	bl	0x90ae8 <_ZdlPvm@plt>
+   64038: f94007e8     	ldr	x8, [sp, #0x8]
+   6403c: f9401508     	ldr	x8, [x8, #0x28]
+   64040: f85f83a9     	ldur	x9, [x29, #-0x8]
+   64044: eb09011f     	cmp	x8, x9
+   64048: 54000a21     	b.ne	0x6418c <additionalinfo_sensor::send_additional_info(long)+0x888>
+   6404c: a94b4ff4     	ldp	x20, x19, [sp, #0xb0]
+   64050: a94a57f6     	ldp	x22, x21, [sp, #0xa0]
+   64054: a9495ff8     	ldp	x24, x23, [sp, #0x90]
+   64058: a94867fa     	ldp	x26, x25, [sp, #0x80]
+   6405c: a9476ffc     	ldp	x28, x27, [sp, #0x70]
+   64060: a9467bfd     	ldp	x29, x30, [sp, #0x60]
+   64064: 910303ff     	add	sp, sp, #0xc0
+   64068: d50323bf     	autiasp
+   6406c: d65f03c0     	ret
+   64070: f94007e8     	ldr	x8, [sp, #0x8]
+   64074: f9401508     	ldr	x8, [x8, #0x28]
+   64078: f85f83a9     	ldur	x9, [x29, #-0x8]
+   6407c: eb09011f     	cmp	x8, x9
+   64080: 54000861     	b.ne	0x6418c <additionalinfo_sensor::send_additional_info(long)+0x888>
+   64084: 9100a3e0     	add	x0, sp, #0x28
+   64088: 97ff383f     	bl	0x32184 <direct_channel::get_channel_req_str()+0x854>
+   6408c: d4200020     	brk	#0x1
+   64090: f0000180     	adrp	x0, 0x97000 <vtable for qsh_sensor+0x290>
+   64094: f9445000     	ldr	x0, [x0, #0x8a0]
+   64098: 9400b3de     	bl	0x91010 <__cxa_guard_acquire@plt>
+   6409c: 34ffd3a0     	cbz	w0, 0x63b10 <additionalinfo_sensor::send_additional_info(long)+0x20c>
+   640a0: f0000180     	adrp	x0, 0x97000 <vtable for qsh_sensor+0x290>
+   640a4: f9444c00     	ldr	x0, [x0, #0x898]
+   640a8: 9400b3b6     	bl	0x90f80 <_ZN14sensor_factoryC1Ev@plt>
+   640ac: f0000181     	adrp	x1, 0x97000 <vtable for qsh_sensor+0x290>
+   640b0: d503201f     	nop
+   640b4: 10f22460     	adr	x0, 0x48540 <sensors_hal::handle_offset_timer()+0x340>
+   640b8: f9444c21     	ldr	x1, [x1, #0x898]
+   640bc: d503201f     	nop
+   640c0: 1017fa02     	adr	x2, 0x94000
+   640c4: 9400b181     	bl	0x906c8 <__cxa_atexit@plt>
+   640c8: f0000180     	adrp	x0, 0x97000 <vtable for qsh_sensor+0x290>
+   640cc: f9445000     	ldr	x0, [x0, #0x8a0]
+   640d0: 9400b3d6     	bl	0x91028 <__cxa_guard_release@plt>
+   640d4: 17fffe8f     	b	0x63b10 <additionalinfo_sensor::send_additional_info(long)+0x20c>
+   640d8: 97ff305d     	bl	0x3024c <.text+0x24c>
+   640dc: aa0003fa     	mov	x26, x0
+   640e0: f0000180     	adrp	x0, 0x97000 <vtable for qsh_sensor+0x290>
+   640e4: f9445000     	ldr	x0, [x0, #0x8a0]
+   640e8: 9400b5e6     	bl	0x91880 <__cxa_guard_abort@plt>
+   640ec: 1400001f     	b	0x64168 <additionalinfo_sensor::send_additional_info(long)+0x864>
+   640f0: 1400000a     	b	0x64118 <additionalinfo_sensor::send_additional_info(long)+0x814>
+   640f4: 1400001a     	b	0x6415c <additionalinfo_sensor::send_additional_info(long)+0x858>
+   640f8: aa0003fa     	mov	x26, x0
+   640fc: 9400b33b     	bl	0x90de8 <__cxa_end_catch@plt>
+   64100: 14000018     	b	0x64160 <additionalinfo_sensor::send_additional_info(long)+0x85c>
+   64104: 14000016     	b	0x6415c <additionalinfo_sensor::send_additional_info(long)+0x858>
+   64108: aa0003fa     	mov	x26, x0
+   6410c: 9400b337     	bl	0x90de8 <__cxa_end_catch@plt>
+   64110: 14000014     	b	0x64160 <additionalinfo_sensor::send_additional_info(long)+0x85c>
+   64114: 97ff38c4     	bl	0x32424 <direct_channel::~direct_channel()+0x17c>
+   64118: aa0003fa     	mov	x26, x0
+   6411c: f0000180     	adrp	x0, 0x97000 <vtable for qsh_sensor+0x290>
+   64120: f9445000     	ldr	x0, [x0, #0x8a0]
+   64124: 9400b5d7     	bl	0x91880 <__cxa_guard_abort@plt>
+   64128: 1400000e     	b	0x64160 <additionalinfo_sensor::send_additional_info(long)+0x85c>
+   6412c: aa0003fa     	mov	x26, x0
+   64130: 1400000e     	b	0x64168 <additionalinfo_sensor::send_additional_info(long)+0x864>
+   64134: 1400000a     	b	0x6415c <additionalinfo_sensor::send_additional_info(long)+0x858>
+   64138: 14000009     	b	0x6415c <additionalinfo_sensor::send_additional_info(long)+0x858>
+   6413c: 3940a3e8     	ldrb	w8, [sp, #0x28]
+   64140: aa0003fa     	mov	x26, x0
+   64144: 360000e8     	tbz	w8, #0x0, 0x64160 <additionalinfo_sensor::send_additional_info(long)+0x85c>
+   64148: f94017e8     	ldr	x8, [sp, #0x28]
+   6414c: f9401fe0     	ldr	x0, [sp, #0x38]
+   64150: 927ff901     	and	x1, x8, #0xfffffffffffffffe
+   64154: 9400b265     	bl	0x90ae8 <_ZdlPvm@plt>
+   64158: 14000002     	b	0x64160 <additionalinfo_sensor::send_additional_info(long)+0x85c>
+   6415c: aa0003fa     	mov	x26, x0
+   64160: d10083a0     	sub	x0, x29, #0x20
+   64164: 97ff5872     	bl	0x3a32c <sensor_attributes::get_floats(int) const+0x66c>
+   64168: aa1303e0     	mov	x0, x19
+   6416c: 97ff6cc0     	bl	0x3f46c <sensor_factory::get_all_available_sensors() const+0x490>
+   64170: f94007e8     	ldr	x8, [sp, #0x8]
+   64174: f9401508     	ldr	x8, [x8, #0x28]
+   64178: f85f83a9     	ldur	x9, [x29, #-0x8]
+   6417c: eb09011f     	cmp	x8, x9
+   64180: 54000061     	b.ne	0x6418c <additionalinfo_sensor::send_additional_info(long)+0x888>
+   64184: aa1a03e0     	mov	x0, x26
+   64188: 9400bbd6     	bl	0x930e0 <_Unwind_Resume@plt>
+   6418c: 9400bbc9     	bl	0x930b0 <__stack_chk_fail@plt>

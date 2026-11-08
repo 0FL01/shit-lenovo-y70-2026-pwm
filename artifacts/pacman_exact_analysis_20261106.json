@@ -1,0 +1,134 @@
+{
+  "capture": "artifacts/pacman_exact_capture_20261106.json",
+  "video": "artifacts/optical/pacman_exact_dbv_20261106.mp4",
+  "frame_count": 1017,
+  "native_packets": [
+    {
+      "phase": 1,
+      "dbv": 3600,
+      "payload": "51 0E 10"
+    },
+    {
+      "phase": 2,
+      "dbv": 3601,
+      "payload": "51 0E 11"
+    },
+    {
+      "phase": 3,
+      "dbv": 3602,
+      "payload": "51 0E 12"
+    },
+    {
+      "phase": 4,
+      "dbv": 3601,
+      "payload": "51 0E 11"
+    },
+    {
+      "phase": 5,
+      "dbv": 3600,
+      "payload": "51 0E 10"
+    }
+  ],
+  "roi_xywh": [
+    540,
+    130,
+    60,
+    540
+  ],
+  "windows": [
+    {
+      "phase": 1,
+      "dbv": 3600,
+      "window_s": [
+        5,
+        7
+      ],
+      "frames": 60,
+      "correlation96_median": 0.8091824413866597,
+      "best_lag_px": 93,
+      "best_lag_is_search_boundary": false,
+      "fine_band_pattern": true
+    },
+    {
+      "phase": 2,
+      "dbv": 3601,
+      "window_s": [
+        10.5,
+        12.5
+      ],
+      "frames": 60,
+      "correlation96_median": -0.0030834198123845477,
+      "best_lag_px": 70,
+      "best_lag_is_search_boundary": true,
+      "fine_band_pattern": false
+    },
+    {
+      "phase": 3,
+      "dbv": 3602,
+      "window_s": [
+        16,
+        18
+      ],
+      "frames": 60,
+      "correlation96_median": 0.006877002219933255,
+      "best_lag_px": 70,
+      "best_lag_is_search_boundary": true,
+      "fine_band_pattern": false
+    },
+    {
+      "phase": 4,
+      "dbv": 3601,
+      "window_s": [
+        21.5,
+        23.5
+      ],
+      "frames": 60,
+      "correlation96_median": -0.02461869179319026,
+      "best_lag_px": 70,
+      "best_lag_is_search_boundary": true,
+      "fine_band_pattern": false
+    },
+    {
+      "phase": 5,
+      "dbv": 3600,
+      "window_s": [
+        27,
+        29
+      ],
+      "frames": 60,
+      "correlation96_median": 0.770229106855737,
+      "best_lag_px": 93,
+      "best_lag_is_search_boundary": false,
+      "fine_band_pattern": true
+    }
+  ],
+  "optical_transitions": [
+    {
+      "time_s": 7.707733,
+      "dense_after": false
+    },
+    {
+      "time_s": 23.8744,
+      "dense_after": true
+    }
+  ],
+  "post_dispatch_phase_marker_alignment_spread_seconds": 0.008486032485961914,
+  "threshold_observed": {
+    "dc": 0,
+    "software_refresh_hz": 120,
+    "dbv3600": "dense fine bands plus stronger band",
+    "dbv3601": "sparse broad band",
+    "dbv3602": "sparse broad band",
+    "return_to3600": "fine bands return",
+    "tested_boundary": "between consecutive DBV3600 and3601"
+  },
+  "pwm_hz": "unknown",
+  "greater_equal_2000_hz_verified": false,
+  "register_pair_causal_owner": "unknown; threshold matches0x0E11 but registers were not independently varied",
+  "limitations": [
+    "Camera image correlation is not luminance or modulation-depth calibration",
+    "No new PWM profile; only standard brightness changed",
+    "Same fixed100us/ISO6400/AEoff, lens position and scene within this recording",
+    "Own panel scan, camera row timing and harmonic ambiguity prevent Hz assignment from band spacing alone"
+  ]
+}

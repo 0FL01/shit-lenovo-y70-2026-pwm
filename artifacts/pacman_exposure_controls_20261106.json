@@ -1,0 +1,119 @@
+{
+  "camera_model": "PacmanPro",
+  "seekbar_bounds": [
+    723,
+    745,
+    1642,
+    824
+  ],
+  "samples": [
+    {
+      "slider_offset_from_left_px": 35,
+      "metadata": {
+        "android.sensor.exposureTime": [
+          "100000",
+          "100000"
+        ],
+        "android.sensor.sensitivity": [
+          "6400",
+          "6400"
+        ],
+        "android.control.aeMode": [
+          "OFF",
+          "OFF"
+        ]
+      }
+    },
+    {
+      "slider_offset_from_left_px": 90,
+      "metadata": {
+        "android.sensor.exposureTime": [
+          "166666",
+          "166666"
+        ],
+        "android.sensor.sensitivity": [
+          "6400",
+          "6400"
+        ],
+        "android.control.aeMode": [
+          "OFF",
+          "OFF"
+        ]
+      }
+    },
+    {
+      "slider_offset_from_left_px": 130,
+      "metadata": {
+        "android.sensor.exposureTime": [
+          "333333",
+          "333333"
+        ],
+        "android.sensor.sensitivity": [
+          "6400",
+          "6400"
+        ],
+        "android.control.aeMode": [
+          "OFF",
+          "OFF"
+        ]
+      }
+    },
+    {
+      "slider_offset_from_left_px": 110,
+      "metadata": {
+        "android.sensor.exposureTime": [
+          "250000",
+          "250000"
+        ],
+        "android.sensor.sensitivity": [
+          "6400",
+          "6400"
+        ],
+        "android.control.aeMode": [
+          "OFF",
+          "OFF"
+        ]
+      }
+    },
+    {
+      "slider_offset_from_left_px": 150,
+      "metadata": {
+        "android.sensor.exposureTime": [
+          "1000000",
+          "1000000"
+        ],
+        "android.sensor.sensitivity": [
+          "6400",
+          "6400"
+        ],
+        "android.control.aeMode": [
+          "OFF",
+          "OFF"
+        ]
+      }
+    },
+    {
+      "slider_offset_from_left_px": 140,
+      "metadata": {
+        "android.sensor.exposureTime": [
+          "500000",
+          "500000"
+        ],
+        "android.sensor.sensitivity": [
+          "6400",
+          "6400"
+        ],
+        "android.control.aeMode": [
+          "OFF",
+          "OFF"
+        ]
+      }
+    }
+  ],
+  "scope": "Camera UI exposure calibration only; no target actions",
+  "verified_selected_offsets": {
+    "100000": 35,
+    "250000": 110,
+    "500000": 140
+  }
+}

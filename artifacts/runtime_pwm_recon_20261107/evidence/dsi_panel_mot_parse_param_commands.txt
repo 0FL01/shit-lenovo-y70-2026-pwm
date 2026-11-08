@@ -1,0 +1,425 @@
+
+/mnt/kston/legion-Y70-madness/artifacts/kernel/gki_r59/target_vendor/msm_drm.ko:     file format elf64-littleaarch64
+
+
+Disassembly of section .text:
+
+00000000001cafb8 <dsi_panel_mot_parse_param_commands>:
+  1cafb8:	d503233f 	paciasp
+  1cafbc:	d10283ff 	sub	sp, sp, #0xa0
+  1cafc0:	a9047bfd 	stp	x29, x30, [sp, #64]
+  1cafc4:	a9056ffc 	stp	x28, x27, [sp, #80]
+  1cafc8:	a90667fa 	stp	x26, x25, [sp, #96]
+  1cafcc:	a9075ff8 	stp	x24, x23, [sp, #112]
+  1cafd0:	a90857f6 	stp	x22, x21, [sp, #128]
+  1cafd4:	a9094ff4 	stp	x20, x19, [sp, #144]
+  1cafd8:	910103fd 	add	x29, sp, #0x40
+  1cafdc:	d5384108 	mrs	x8, sp_el0
+  1cafe0:	f9438908 	ldr	x8, [x8, #1808]
+  1cafe4:	f81f83a8 	stur	x8, [x29, #-8]
+  1cafe8:	f9409048 	ldr	x8, [x2, #288]
+  1cafec:	b81f43bf 	stur	wzr, [x29, #-12]
+  1caff0:	b4000268 	cbz	x8, 1cb03c <dsi_panel_mot_parse_param_commands+0x84>
+  1caff4:	f945fd09 	ldr	x9, [x8, #3064]
+  1caff8:	b101213b 	adds	x27, x9, #0x48
+  1caffc:	54000200 	b.eq	1cb03c <dsi_panel_mot_parse_param_commands+0x84>  // b.none
+  1cb000:	7940b128 	ldrh	w8, [x9, #88]
+  1cb004:	b40001c8 	cbz	x8, 1cb03c <dsi_panel_mot_parse_param_commands+0x84>
+  1cb008:	f9402929 	ldr	x9, [x9, #80]
+  1cb00c:	aa1f03f3 	mov	x19, xzr
+  1cb010:	91002129 	add	x9, x9, #0x8
+  1cb014:	14000004 	b	1cb024 <dsi_panel_mot_parse_param_commands+0x6c>
+  1cb018:	f1000508 	subs	x8, x8, #0x1
+  1cb01c:	91004129 	add	x9, x9, #0x10
+  1cb020:	540000c0 	b.eq	1cb038 <dsi_panel_mot_parse_param_commands+0x80>  // b.none
+  1cb024:	b85fc12a 	ldur	w10, [x9, #-4]
+  1cb028:	6b03015f 	cmp	w10, w3
+  1cb02c:	54ffff61 	b.ne	1cb018 <dsi_panel_mot_parse_param_commands+0x60>  // b.any
+  1cb030:	f9400133 	ldr	x19, [x9]
+  1cb034:	17fffff9 	b	1cb018 <dsi_panel_mot_parse_param_commands+0x60>
+  1cb038:	b50001f3 	cbnz	x19, 1cb074 <dsi_panel_mot_parse_param_commands+0xbc>
+  1cb03c:	d5384108 	mrs	x8, sp_el0
+  1cb040:	f9438908 	ldr	x8, [x8, #1808]
+  1cb044:	f85f83a9 	ldur	x9, [x29, #-8]
+  1cb048:	eb09011f 	cmp	x8, x9
+  1cb04c:	54000921 	b.ne	1cb170 <dsi_panel_mot_parse_param_commands+0x1b8>  // b.any
+  1cb050:	a9494ff4 	ldp	x20, x19, [sp, #144]
+  1cb054:	a94857f6 	ldp	x22, x21, [sp, #128]
+  1cb058:	a9475ff8 	ldp	x24, x23, [sp, #112]
+  1cb05c:	a94667fa 	ldp	x26, x25, [sp, #96]
+  1cb060:	a9456ffc 	ldp	x28, x27, [sp, #80]
+  1cb064:	a9447bfd 	ldp	x29, x30, [sp, #64]
+  1cb068:	910283ff 	add	sp, sp, #0xa0
+  1cb06c:	d50323bf 	autiasp
+  1cb070:	d65f03c0 	ret
+  1cb074:	aa0103f4 	mov	x20, x1
+  1cb078:	b900003f 	str	wzr, [x1]
+  1cb07c:	528007a1 	mov	w1, #0x3d                  	// #61
+  1cb080:	aa0403f8 	mov	x24, x4
+  1cb084:	b81f03a3 	stur	w3, [x29, #-16]
+  1cb088:	94000000 	bl	0 <strchr>
+			1cb088: R_AARCH64_CALL26	strchr
+  1cb08c:	b5000080 	cbnz	x0, 1cb09c <dsi_panel_mot_parse_param_commands+0xe4>
+  1cb090:	90000000 	adrp	x0, 0 <msm_hdcp_register_cb-0x4>
+			1cb090: R_AARCH64_ADR_PREL_PG_HI21	.rodata+0x5ad7a
+  1cb094:	91000000 	add	x0, x0, #0x0
+			1cb094: R_AARCH64_ADD_ABS_LO12_NC	.rodata+0x5ad7a
+  1cb098:	14000032 	b	1cb160 <dsi_panel_mot_parse_param_commands+0x1a8>
+  1cb09c:	52800b61 	mov	w1, #0x5b                  	// #91
+  1cb0a0:	94000000 	bl	0 <strchr>
+			1cb0a0: R_AARCH64_CALL26	strchr
+  1cb0a4:	b5000080 	cbnz	x0, 1cb0b4 <dsi_panel_mot_parse_param_commands+0xfc>
+  1cb0a8:	90000000 	adrp	x0, 0 <msm_hdcp_register_cb-0x4>
+			1cb0a8: R_AARCH64_ADR_PREL_PG_HI21	.rodata+0x2d164
+  1cb0ac:	91000000 	add	x0, x0, #0x0
+			1cb0ac: R_AARCH64_ADD_ABS_LO12_NC	.rodata+0x2d164
+  1cb0b0:	1400002c 	b	1cb160 <dsi_panel_mot_parse_param_commands+0x1a8>
+  1cb0b4:	91000417 	add	x23, x0, #0x1
+  1cb0b8:	aa0003f5 	mov	x21, x0
+  1cb0bc:	52800ba1 	mov	w1, #0x5d                  	// #93
+  1cb0c0:	aa1703e0 	mov	x0, x23
+  1cb0c4:	94000000 	bl	0 <strchr>
+			1cb0c4: R_AARCH64_CALL26	strchr
+  1cb0c8:	b5000080 	cbnz	x0, 1cb0d8 <dsi_panel_mot_parse_param_commands+0x120>
+  1cb0cc:	90000000 	adrp	x0, 0 <msm_hdcp_register_cb-0x4>
+			1cb0cc: R_AARCH64_ADR_PREL_PG_HI21	.rodata+0x2938f
+  1cb0d0:	91000000 	add	x0, x0, #0x0
+			1cb0d0: R_AARCH64_ADD_ABS_LO12_NC	.rodata+0x2938f
+  1cb0d4:	14000023 	b	1cb160 <dsi_panel_mot_parse_param_commands+0x1a8>
+  1cb0d8:	52800141 	mov	w1, #0xa                   	// #10
+  1cb0dc:	aa0003f6 	mov	x22, x0
+  1cb0e0:	94000000 	bl	0 <strchr>
+			1cb0e0: R_AARCH64_CALL26	strchr
+  1cb0e4:	f100001f 	cmp	x0, #0x0
+  1cb0e8:	90000001 	adrp	x1, 0 <msm_hdcp_register_cb-0x4>
+			1cb0e8: R_AARCH64_ADR_PREL_PG_HI21	.rodata+0x3ff02
+		; rodata string: 'dsi_panel_mot_parse_param_commands'
+  1cb0ec:	91000021 	add	x1, x1, #0x0
+			1cb0ec: R_AARCH64_ADD_ABS_LO12_NC	.rodata+0x3ff02
+		; rodata string: 'dsi_panel_mot_parse_param_commands'
+  1cb0f0:	9a8002d6 	csel	x22, x22, x0, eq	// eq = none
+  1cb0f4:	90000000 	adrp	x0, 0 <msm_hdcp_register_cb-0x4>
+			1cb0f4: R_AARCH64_ADR_PREL_PG_HI21	.rodata+0x796f2
+  1cb0f8:	91000000 	add	x0, x0, #0x0
+			1cb0f8: R_AARCH64_ADD_ABS_LO12_NC	.rodata+0x796f2
+  1cb0fc:	4b1802c8 	sub	w8, w22, w24
+  1cb100:	aa1603e6 	mov	x6, x22
+  1cb104:	11000508 	add	w8, w8, #0x1
+  1cb108:	b9000288 	str	w8, [x20]
+  1cb10c:	38401ea3 	ldrb	w3, [x21, #1]!
+  1cb110:	394006a4 	ldrb	w4, [x21, #1]
+  1cb114:	39400aa5 	ldrb	w5, [x21, #2]
+  1cb118:	394002c7 	ldrb	w7, [x22]
+  1cb11c:	394006c8 	ldrb	w8, [x22, #1]
+  1cb120:	39400ac9 	ldrb	w9, [x22, #2]
+  1cb124:	aa1503e2 	mov	x2, x21
+  1cb128:	b90003e8 	str	w8, [sp]
+  1cb12c:	b9000be9 	str	w9, [sp, #8]
+  1cb130:	94000000 	bl	0 <_printk>
+			1cb130: R_AARCH64_CALL26	_printk
+  1cb134:	aa3703e8 	mvn	x8, x23
+  1cb138:	8b0802d4 	add	x20, x22, x8
+  1cb13c:	d503201f 	nop
+  1cb140:	11001696 	add	w22, w20, #0x5
+  1cb144:	52819801 	mov	w1, #0xcc0                 	// #3264
+  1cb148:	aa1603e0 	mov	x0, x22
+  1cb14c:	94000000 	bl	0 <__kmalloc_noprof>
+			1cb14c: R_AARCH64_CALL26	__kmalloc_noprof
+  1cb150:	aa0003f5 	mov	x21, x0
+  1cb154:	b5000295 	cbnz	x21, 1cb1a4 <dsi_panel_mot_parse_param_commands+0x1ec>
+  1cb158:	90000000 	adrp	x0, 0 <msm_hdcp_register_cb-0x4>
+			1cb158: R_AARCH64_ADR_PREL_PG_HI21	.rodata+0x258d7
+  1cb15c:	91000000 	add	x0, x0, #0x0
+			1cb15c: R_AARCH64_ADD_ABS_LO12_NC	.rodata+0x258d7
+  1cb160:	90000001 	adrp	x1, 0 <msm_hdcp_register_cb-0x4>
+			1cb160: R_AARCH64_ADR_PREL_PG_HI21	.rodata+0x3ff02
+		; rodata string: 'dsi_panel_mot_parse_param_commands'
+  1cb164:	91000021 	add	x1, x1, #0x0
+			1cb164: R_AARCH64_ADD_ABS_LO12_NC	.rodata+0x3ff02
+		; rodata string: 'dsi_panel_mot_parse_param_commands'
+  1cb168:	94000000 	bl	0 <_printk>
+			1cb168: R_AARCH64_CALL26	_printk
+  1cb16c:	17ffffb4 	b	1cb03c <dsi_panel_mot_parse_param_commands+0x84>
+  1cb170:	94000000 	bl	0 <__stack_chk_fail>
+			1cb170: R_AARCH64_CALL26	__stack_chk_fail
+  1cb174:	11001696 	add	w22, w20, #0x5
+  1cb178:	d5384118 	mrs	x24, sp_el0
+  1cb17c:	f9402b19 	ldr	x25, [x24, #80]
+  1cb180:	90000008 	adrp	x8, 0 <msm_hdcp_register_cb-0x4>
+			1cb180: R_AARCH64_ADR_PREL_PG_HI21	.codetag.alloc_tags+0x3638
+  1cb184:	91000108 	add	x8, x8, #0x0
+			1cb184: R_AARCH64_ADD_ABS_LO12_NC	.codetag.alloc_tags+0x3638
+  1cb188:	aa1603e0 	mov	x0, x22
+  1cb18c:	52819801 	mov	w1, #0xcc0                 	// #3264
+  1cb190:	f9002b08 	str	x8, [x24, #80]
+  1cb194:	94000000 	bl	0 <__kmalloc_noprof>
+			1cb194: R_AARCH64_CALL26	__kmalloc_noprof
+  1cb198:	aa0003f5 	mov	x21, x0
+  1cb19c:	f9002b19 	str	x25, [x24, #80]
+  1cb1a0:	b4fffdd5 	cbz	x21, 1cb158 <dsi_panel_mot_parse_param_commands+0x1a0>
+  1cb1a4:	11001682 	add	w2, w20, #0x5
+  1cb1a8:	eb0202df 	cmp	x22, x2
+  1cb1ac:	54001863 	b.cc	1cb4b8 <dsi_panel_mot_parse_param_commands+0x500>  // b.lo, b.ul, b.last
+  1cb1b0:	aa1503e0 	mov	x0, x21
+  1cb1b4:	2a1f03e1 	mov	w1, wzr
+  1cb1b8:	94000000 	bl	0 <memset>
+			1cb1b8: R_AARCH64_CALL26	memset
+  1cb1bc:	92407e98 	and	x24, x20, #0xffffffff
+  1cb1c0:	eb1802df 	cmp	x22, x24
+  1cb1c4:	54001803 	b.cc	1cb4c4 <dsi_panel_mot_parse_param_commands+0x50c>  // b.lo, b.ul, b.last
+  1cb1c8:	aa1503e0 	mov	x0, x21
+  1cb1cc:	aa1703e1 	mov	x1, x23
+  1cb1d0:	aa1803e2 	mov	x2, x24
+  1cb1d4:	94000000 	bl	0 <memcpy>
+			1cb1d4: R_AARCH64_CALL26	memcpy
+  1cb1d8:	b40016f6 	cbz	x22, 1cb4b4 <dsi_panel_mot_parse_param_commands+0x4fc>
+  1cb1dc:	f10006df 	cmp	x22, #0x1
+  1cb1e0:	540016a0 	b.eq	1cb4b4 <dsi_panel_mot_parse_param_commands+0x4fc>  // b.none
+  1cb1e4:	f1000adf 	cmp	x22, #0x2
+  1cb1e8:	54001660 	b.eq	1cb4b4 <dsi_panel_mot_parse_param_commands+0x4fc>  // b.none
+  1cb1ec:	eb1802df 	cmp	x22, x24
+  1cb1f0:	54001629 	b.ls	1cb4b4 <dsi_panel_mot_parse_param_commands+0x4fc>  // b.plast
+  1cb1f4:	91000708 	add	x8, x24, #0x1
+  1cb1f8:	eb0802df 	cmp	x22, x8
+  1cb1fc:	540015c0 	b.eq	1cb4b4 <dsi_panel_mot_parse_param_commands+0x4fc>  // b.none
+  1cb200:	91000b08 	add	x8, x24, #0x2
+  1cb204:	eb0802df 	cmp	x22, x8
+  1cb208:	54001569 	b.ls	1cb4b4 <dsi_panel_mot_parse_param_commands+0x4fc>  // b.plast
+  1cb20c:	8b1802b7 	add	x23, x21, x24
+  1cb210:	394002a3 	ldrb	w3, [x21]
+  1cb214:	394006a4 	ldrb	w4, [x21, #1]
+  1cb218:	39400aa5 	ldrb	w5, [x21, #2]
+  1cb21c:	394002e7 	ldrb	w7, [x23]
+  1cb220:	90000000 	adrp	x0, 0 <msm_hdcp_register_cb-0x4>
+			1cb220: R_AARCH64_ADR_PREL_PG_HI21	.rodata+0x4b17d
+  1cb224:	91000000 	add	x0, x0, #0x0
+			1cb224: R_AARCH64_ADD_ABS_LO12_NC	.rodata+0x4b17d
+  1cb228:	394006e8 	ldrb	w8, [x23, #1]
+  1cb22c:	39400ae9 	ldrb	w9, [x23, #2]
+  1cb230:	90000001 	adrp	x1, 0 <msm_hdcp_register_cb-0x4>
+			1cb230: R_AARCH64_ADR_PREL_PG_HI21	.rodata+0x3ff02
+		; rodata string: 'dsi_panel_mot_parse_param_commands'
+  1cb234:	91000021 	add	x1, x1, #0x0
+			1cb234: R_AARCH64_ADD_ABS_LO12_NC	.rodata+0x3ff02
+		; rodata string: 'dsi_panel_mot_parse_param_commands'
+  1cb238:	aa1503e2 	mov	x2, x21
+  1cb23c:	aa1703e6 	mov	x6, x23
+  1cb240:	b90013f4 	str	w20, [sp, #16]
+  1cb244:	b9000be9 	str	w9, [sp, #8]
+  1cb248:	b90003e8 	str	w8, [sp]
+  1cb24c:	94000000 	bl	0 <_printk>
+			1cb24c: R_AARCH64_CALL26	_printk
+  1cb250:	eb1702bf 	cmp	x21, x23
+  1cb254:	54000fa2 	b.cs	1cb448 <dsi_panel_mot_parse_param_commands+0x490>  // b.hs, b.nlast
+  1cb258:	2a1f03f8 	mov	w24, wzr
+  1cb25c:	9000001c 	adrp	x28, 0 <msm_hdcp_register_cb-0x4>
+			1cb25c: R_AARCH64_ADR_PREL_PG_HI21	.rodata+0x3ff02
+		; rodata string: 'dsi_panel_mot_parse_param_commands'
+  1cb260:	9100039c 	add	x28, x28, #0x0
+			1cb260: R_AARCH64_ADD_ABS_LO12_NC	.rodata+0x3ff02
+		; rodata string: 'dsi_panel_mot_parse_param_commands'
+  1cb264:	90000014 	adrp	x20, 0 <msm_hdcp_register_cb-0x4>
+			1cb264: R_AARCH64_ADR_PREL_PG_HI21	.bss+0x8858
+  1cb268:	90000019 	adrp	x25, 0 <msm_hdcp_register_cb-0x4>
+			1cb268: R_AARCH64_ADR_PREL_PG_HI21	.rodata+0x310de
+		; rodata string: ' \t'
+  1cb26c:	91000339 	add	x25, x25, #0x0
+			1cb26c: R_AARCH64_ADD_ABS_LO12_NC	.rodata+0x310de
+		; rodata string: ' \t'
+  1cb270:	aa1503fa 	mov	x26, x21
+  1cb274:	f90013f7 	str	x23, [sp, #32]
+  1cb278:	f81e83b5 	stur	x21, [x29, #-24]
+  1cb27c:	f9000ff6 	str	x22, [sp, #24]
+  1cb280:	1400000e 	b	1cb2b8 <dsi_panel_mot_parse_param_commands+0x300>
+  1cb284:	90000000 	adrp	x0, 0 <msm_hdcp_register_cb-0x4>
+			1cb284: R_AARCH64_ADR_PREL_PG_HI21	.rodata+0x5adad
+  1cb288:	91000000 	add	x0, x0, #0x0
+			1cb288: R_AARCH64_ADD_ABS_LO12_NC	.rodata+0x5adad
+  1cb28c:	aa1703e1 	mov	x1, x23
+  1cb290:	aa1a03e2 	mov	x2, x26
+  1cb294:	aa1a03e3 	mov	x3, x26
+  1cb298:	94000000 	bl	0 <_printk>
+			1cb298: R_AARCH64_CALL26	_printk
+  1cb29c:	aa1703fc 	mov	x28, x23
+  1cb2a0:	f85e83b5 	ldur	x21, [x29, #-24]
+  1cb2a4:	aa1603f7 	mov	x23, x22
+  1cb2a8:	91000afa 	add	x26, x23, #0x2
+  1cb2ac:	f94013f7 	ldr	x23, [sp, #32]
+  1cb2b0:	eb17035f 	cmp	x26, x23
+  1cb2b4:	54000cc2 	b.cs	1cb44c <dsi_panel_mot_parse_param_commands+0x494>  // b.hs, b.nlast
+  1cb2b8:	aa1a03e0 	mov	x0, x26
+  1cb2bc:	52800141 	mov	w1, #0xa                   	// #10
+  1cb2c0:	aa1c03f5 	mov	x21, x28
+  1cb2c4:	94000000 	bl	0 <strchr>
+			1cb2c4: R_AARCH64_CALL26	strchr
+  1cb2c8:	d1000408 	sub	x8, x0, #0x1
+  1cb2cc:	f100001f 	cmp	x0, #0x0
+  1cb2d0:	aa1a03e0 	mov	x0, x26
+  1cb2d4:	9a8802f6 	csel	x22, x23, x8, eq	// eq = none
+  1cb2d8:	52800ba1 	mov	w1, #0x5d                  	// #93
+  1cb2dc:	790002df 	strh	wzr, [x22]
+  1cb2e0:	94000000 	bl	0 <strchr>
+			1cb2e0: R_AARCH64_CALL26	strchr
+  1cb2e4:	b5000180 	cbnz	x0, 1cb314 <dsi_panel_mot_parse_param_commands+0x35c>
+  1cb2e8:	aa1a03e0 	mov	x0, x26
+  1cb2ec:	90000001 	adrp	x1, 0 <msm_hdcp_register_cb-0x4>
+			1cb2ec: R_AARCH64_ADR_PREL_PG_HI21	.rodata+0x720d4
+		; rodata string: '//'
+  1cb2f0:	91000021 	add	x1, x1, #0x0
+			1cb2f0: R_AARCH64_ADD_ABS_LO12_NC	.rodata+0x720d4
+		; rodata string: '//'
+  1cb2f4:	94000000 	bl	0 <strstr>
+			1cb2f4: R_AARCH64_CALL26	strstr
+  1cb2f8:	b50000e0 	cbnz	x0, 1cb314 <dsi_panel_mot_parse_param_commands+0x35c>
+  1cb2fc:	aa1a03e0 	mov	x0, x26
+  1cb300:	90000001 	adrp	x1, 0 <msm_hdcp_register_cb-0x4>
+			1cb300: R_AARCH64_ADR_PREL_PG_HI21	.rodata+0x796b5
+		; rodata string: '/*'
+  1cb304:	91000021 	add	x1, x1, #0x0
+			1cb304: R_AARCH64_ADD_ABS_LO12_NC	.rodata+0x796b5
+		; rodata string: '/*'
+  1cb308:	94000000 	bl	0 <strstr>
+			1cb308: R_AARCH64_CALL26	strstr
+  1cb30c:	aa1603fc 	mov	x28, x22
+  1cb310:	b4000060 	cbz	x0, 1cb31c <dsi_panel_mot_parse_param_commands+0x364>
+  1cb314:	aa0003fc 	mov	x28, x0
+  1cb318:	3900001f 	strb	wzr, [x0]
+  1cb31c:	aa1a03e0 	mov	x0, x26
+  1cb320:	97fffd09 	bl	1ca744 <dsi_panel_line_remove_front_space>
+  1cb324:	aa0003fa 	mov	x26, x0
+  1cb328:	39400003 	ldrb	w3, [x0]
+  1cb32c:	90000000 	adrp	x0, 0 <msm_hdcp_register_cb-0x4>
+			1cb32c: R_AARCH64_ADR_PREL_PG_HI21	.rodata+0x4b216
+  1cb330:	91000000 	add	x0, x0, #0x0
+			1cb330: R_AARCH64_ADD_ABS_LO12_NC	.rodata+0x4b216
+  1cb334:	aa1503e1 	mov	x1, x21
+  1cb338:	aa1a03e2 	mov	x2, x26
+  1cb33c:	aa1a03e4 	mov	x4, x26
+  1cb340:	aa1503f7 	mov	x23, x21
+  1cb344:	94000000 	bl	0 <_printk>
+			1cb344: R_AARCH64_CALL26	_printk
+  1cb348:	eb1c035f 	cmp	x26, x28
+  1cb34c:	54fff9c0 	b.eq	1cb284 <dsi_panel_mot_parse_param_commands+0x2cc>  // b.none
+  1cb350:	b50000ba 	cbnz	x26, 1cb364 <dsi_panel_mot_parse_param_commands+0x3ac>
+  1cb354:	f940029a 	ldr	x26, [x20]
+			1cb354: R_AARCH64_LDST64_ABS_LO12_NC	.bss+0x8858
+  1cb358:	b500007a 	cbnz	x26, 1cb364 <dsi_panel_mot_parse_param_commands+0x3ac>
+  1cb35c:	aa1503fc 	mov	x28, x21
+  1cb360:	17ffffd0 	b	1cb2a0 <dsi_panel_mot_parse_param_commands+0x2e8>
+  1cb364:	aa1a03e0 	mov	x0, x26
+  1cb368:	aa1903e1 	mov	x1, x25
+  1cb36c:	94000000 	bl	0 <strspn>
+			1cb36c: R_AARCH64_CALL26	strspn
+  1cb370:	8b00035a 	add	x26, x26, x0
+  1cb374:	aa1503fc 	mov	x28, x21
+  1cb378:	aa1603f7 	mov	x23, x22
+  1cb37c:	39400348 	ldrb	w8, [x26]
+  1cb380:	35000088 	cbnz	w8, 1cb390 <dsi_panel_mot_parse_param_commands+0x3d8>
+  1cb384:	f85e83b5 	ldur	x21, [x29, #-24]
+  1cb388:	f900029f 	str	xzr, [x20]
+			1cb388: R_AARCH64_LDST64_ABS_LO12_NC	.bss+0x8858
+  1cb38c:	17ffffc7 	b	1cb2a8 <dsi_panel_mot_parse_param_commands+0x2f0>
+  1cb390:	aa1a03e0 	mov	x0, x26
+  1cb394:	aa1903e1 	mov	x1, x25
+  1cb398:	94000000 	bl	0 <strcspn>
+			1cb398: R_AARCH64_CALL26	strcspn
+  1cb39c:	8b000348 	add	x8, x26, x0
+  1cb3a0:	f85e83b5 	ldur	x21, [x29, #-24]
+  1cb3a4:	f9400ff6 	ldr	x22, [sp, #24]
+  1cb3a8:	39400109 	ldrb	w9, [x8]
+  1cb3ac:	35000069 	cbnz	w9, 1cb3b8 <dsi_panel_mot_parse_param_commands+0x400>
+  1cb3b0:	f900029f 	str	xzr, [x20]
+			1cb3b0: R_AARCH64_LDST64_ABS_LO12_NC	.bss+0x8858
+  1cb3b4:	14000004 	b	1cb3c4 <dsi_panel_mot_parse_param_commands+0x40c>
+  1cb3b8:	91000509 	add	x9, x8, #0x1
+  1cb3bc:	f9000289 	str	x9, [x20]
+			1cb3bc: R_AARCH64_LDST64_ABS_LO12_NC	.bss+0x8858
+  1cb3c0:	3900011f 	strb	wzr, [x8]
+  1cb3c4:	b500009a 	cbnz	x26, 1cb3d4 <dsi_panel_mot_parse_param_commands+0x41c>
+  1cb3c8:	17ffffb8 	b	1cb2a8 <dsi_panel_mot_parse_param_commands+0x2f0>
+  1cb3cc:	f900029f 	str	xzr, [x20]
+			1cb3cc: R_AARCH64_LDST64_ABS_LO12_NC	.bss+0x8858
+  1cb3d0:	b4fff6da 	cbz	x26, 1cb2a8 <dsi_panel_mot_parse_param_commands+0x2f0>
+  1cb3d4:	aa1a03e0 	mov	x0, x26
+  1cb3d8:	94000150 	bl	1cb918 <isNumStr>
+  1cb3dc:	36000100 	tbz	w0, #0, 1cb3fc <dsi_panel_mot_parse_param_commands+0x444>
+  1cb3e0:	aa1a03e0 	mov	x0, x26
+  1cb3e4:	94000172 	bl	1cb9ac <atoh>
+  1cb3e8:	2a1803e8 	mov	w8, w24
+  1cb3ec:	eb0802df 	cmp	x22, x8
+  1cb3f0:	54000629 	b.ls	1cb4b4 <dsi_panel_mot_parse_param_commands+0x4fc>  // b.plast
+  1cb3f4:	11000718 	add	w24, w24, #0x1
+  1cb3f8:	38286aa0 	strb	w0, [x21, x8]
+  1cb3fc:	f940029a 	ldr	x26, [x20]
+			1cb3fc: R_AARCH64_LDST64_ABS_LO12_NC	.bss+0x8858
+  1cb400:	b4fff55a 	cbz	x26, 1cb2a8 <dsi_panel_mot_parse_param_commands+0x2f0>
+  1cb404:	aa1a03e0 	mov	x0, x26
+  1cb408:	aa1903e1 	mov	x1, x25
+  1cb40c:	94000000 	bl	0 <strspn>
+			1cb40c: R_AARCH64_CALL26	strspn
+  1cb410:	8b00035a 	add	x26, x26, x0
+  1cb414:	39400348 	ldrb	w8, [x26]
+  1cb418:	34fffb88 	cbz	w8, 1cb388 <dsi_panel_mot_parse_param_commands+0x3d0>
+  1cb41c:	aa1a03e0 	mov	x0, x26
+  1cb420:	aa1903e1 	mov	x1, x25
+  1cb424:	94000000 	bl	0 <strcspn>
+			1cb424: R_AARCH64_CALL26	strcspn
+  1cb428:	8b000348 	add	x8, x26, x0
+  1cb42c:	39400109 	ldrb	w9, [x8]
+  1cb430:	34fffce9 	cbz	w9, 1cb3cc <dsi_panel_mot_parse_param_commands+0x414>
+  1cb434:	91000509 	add	x9, x8, #0x1
+  1cb438:	f9000289 	str	x9, [x20]
+			1cb438: R_AARCH64_LDST64_ABS_LO12_NC	.bss+0x8858
+  1cb43c:	3900011f 	strb	wzr, [x8]
+  1cb440:	b5fffcba 	cbnz	x26, 1cb3d4 <dsi_panel_mot_parse_param_commands+0x41c>
+  1cb444:	17ffff99 	b	1cb2a8 <dsi_panel_mot_parse_param_commands+0x2f0>
+  1cb448:	2a1f03f8 	mov	w24, wzr
+  1cb44c:	d10033a2 	sub	x2, x29, #0xc
+  1cb450:	aa1503e0 	mov	x0, x21
+  1cb454:	2a1803e1 	mov	w1, w24
+  1cb458:	94000171 	bl	1cba1c <dsi_panel_get_cmd_pkt_count_mot>
+  1cb45c:	297e5ba4 	ldp	w4, w22, [x29, #-16]
+  1cb460:	f9400363 	ldr	x3, [x27]
+  1cb464:	90000000 	adrp	x0, 0 <msm_hdcp_register_cb-0x4>
+			1cb464: R_AARCH64_ADR_PREL_PG_HI21	.rodata+0x5ade5
+  1cb468:	91000000 	add	x0, x0, #0x0
+			1cb468: R_AARCH64_ADD_ABS_LO12_NC	.rodata+0x5ade5
+  1cb46c:	90000001 	adrp	x1, 0 <msm_hdcp_register_cb-0x4>
+			1cb46c: R_AARCH64_ADR_PREL_PG_HI21	.rodata+0x3ff02
+		; rodata string: 'dsi_panel_mot_parse_param_commands'
+  1cb470:	91000021 	add	x1, x1, #0x0
+			1cb470: R_AARCH64_ADD_ABS_LO12_NC	.rodata+0x3ff02
+		; rodata string: 'dsi_panel_mot_parse_param_commands'
+  1cb474:	2a1603e2 	mov	w2, w22
+  1cb478:	94000000 	bl	0 <_printk>
+			1cb478: R_AARCH64_CALL26	_printk
+  1cb47c:	aa1303e0 	mov	x0, x19
+  1cb480:	94000214 	bl	1cbcd0 <dsi_panel_destroy_cmd_packets_mot>
+  1cb484:	f9400a60 	ldr	x0, [x19, #16]
+  1cb488:	94000000 	bl	0 <kfree>
+			1cb488: R_AARCH64_CALL26	kfree
+  1cb48c:	aa1303e0 	mov	x0, x19
+  1cb490:	2a1603e1 	mov	w1, w22
+  1cb494:	94000226 	bl	1cbd2c <dsi_panel_alloc_cmd_packets_mot>
+  1cb498:	b85f43a1 	ldur	w1, [x29, #-12]
+  1cb49c:	f9400a62 	ldr	x2, [x19, #16]
+  1cb4a0:	aa1503e0 	mov	x0, x21
+  1cb4a4:	94000242 	bl	1cbdac <dsi_panel_create_cmd_packets_mot>
+  1cb4a8:	aa1503e0 	mov	x0, x21
+  1cb4ac:	94000000 	bl	0 <kfree>
+			1cb4ac: R_AARCH64_CALL26	kfree
+  1cb4b0:	17fffee3 	b	1cb03c <dsi_panel_mot_parse_param_commands+0x84>
+  1cb4b4:	d4200020 	brk	#0x1
+  1cb4b8:	528001e0 	mov	w0, #0xf                   	// #15
+  1cb4bc:	aa1603e1 	mov	x1, x22
+  1cb4c0:	94000000 	bl	0 <__fortify_panic>
+			1cb4c0: R_AARCH64_CALL26	__fortify_panic
+  1cb4c4:	52800220 	mov	w0, #0x11                  	// #17
+  1cb4c8:	aa1603e1 	mov	x1, x22
+  1cb4cc:	aa1803e2 	mov	x2, x24
+  1cb4d0:	94000000 	bl	0 <__fortify_panic>
+			1cb4d0: R_AARCH64_CALL26	__fortify_panic
+
+Disassembly of section .init.text:
+
+Disassembly of section .exit.text:

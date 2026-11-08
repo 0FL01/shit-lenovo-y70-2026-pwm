@@ -1,0 +1,23 @@
+{
+  "status": "aborted-camera-interface-control",
+  "completed_optical_holds": 2,
+  "target_or_panel_failure": false,
+  "unsupported_requested_exposure_ns": 700000,
+  "recording_seekbar_gap": [
+    {
+      "x": 864,
+      "exposure_ns": 500000
+    },
+    {
+      "x": 865,
+      "exposure_ns": 1000000
+    }
+  ],
+  "controller_returns": 19,
+  "negative_returns": 0,
+  "probe_misses": 0,
+  "camera_and_target_restored": true,
+  "video_preserved": "artifacts/optical/pacman_exposure_notch_20261107.mp4",
+  "new_method": "supported1000/1428.571/2000us bracket; original5% tolerance unchanged; separate one-shot output",
+  "pwm_hz": "unknown"
+}

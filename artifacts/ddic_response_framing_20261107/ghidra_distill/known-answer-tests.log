@@ -1,0 +1,36 @@
+test_a_module (__main__.KnownAnswerTests.test_a_module) ... 
+$ /home/stfu/tools/ghidra-12.1.4-pyvenv/bin/python /mnt/kston/legion-Y70-madness/06-tools/ghidra_decompile.py decompile /mnt/kston/legion-Y70-madness/artifacts/kernel/gki_r59/target_vendor/msm_drm.ko --output /home/stfu/.cache/opencode-tmp/opencode/ghidra-toolkit-20261107/known-answer-1tirg5gb/module_backlight --timebox 480 --function dsi_display_set_backlight --lines 10:16
+
+$ /home/stfu/tools/ghidra-12.1.4-pyvenv/bin/python /mnt/kston/legion-Y70-madness/06-tools/ghidra_decompile.py brief /mnt/kston/legion-Y70-madness/artifacts/kernel/gki_r59/target_vendor/msm_drm.ko --output /home/stfu/.cache/opencode-tmp/opencode/ghidra-toolkit-20261107/known-answer-1tirg5gb/module_brief --timebox 480 --function dsi_display_set_backlight
+ok
+test_b_als_and_debugdata (__main__.KnownAnswerTests.test_b_als_and_debugdata) ... 
+$ /home/stfu/tools/ghidra-12.1.4-pyvenv/bin/python /mnt/kston/legion-Y70-madness/06-tools/ghidra_decompile.py symbols /mnt/kston/legion-Y70-madness/artifacts/current_display_path/als/motorola.hardware.sensorext-service --output /home/stfu/.cache/opencode-tmp/opencode/ghidra-toolkit-20261107/known-answer-1tirg5gb/als_symbols --timebox 120
+
+$ readelf --wide --dyn-syms /mnt/kston/legion-Y70-madness/artifacts/current_display_path/als/motorola.hardware.sensorext-service
+
+$ /home/stfu/tools/ghidra-12.1.4-pyvenv/bin/python /mnt/kston/legion-Y70-madness/06-tools/ghidra_decompile.py functions /mnt/kston/legion-Y70-madness/artifacts/current_display_path/als/motorola.hardware.sensorext-service --output /home/stfu/.cache/opencode-tmp/opencode/ghidra-toolkit-20261107/known-answer-1tirg5gb/als_functions --timebox 120 --filter AlsCompensation
+
+$ /home/stfu/tools/ghidra-12.1.4-pyvenv/bin/python /mnt/kston/legion-Y70-madness/06-tools/ghidra_decompile.py decompile /mnt/kston/legion-Y70-madness/artifacts/current_display_path/als/motorola.hardware.sensorext-service --output /home/stfu/.cache/opencode-tmp/opencode/ghidra-toolkit-20261107/known-answer-1tirg5gb/als_threshold --timebox 120 --function _ZN15AlsCompensation9calculateEfj
+
+$ /home/stfu/tools/ghidra-12.1.4-pyvenv/bin/python /mnt/kston/legion-Y70-madness/06-tools/ghidra_decompile.py decompile /mnt/kston/legion-Y70-madness/artifacts/current_display_path/als/motorola.hardware.sensorext-service --output /home/stfu/.cache/opencode-tmp/opencode/ghidra-toolkit-20261107/known-answer-1tirg5gb/als_threshold_repeat --timebox 120 --function _ZN15AlsCompensation9calculateEfj
+
+$ /home/stfu/tools/ghidra-12.1.4-pyvenv/bin/python /mnt/kston/legion-Y70-madness/06-tools/ghidra_decompile.py xrefs /mnt/kston/legion-Y70-madness/artifacts/current_display_path/als/motorola.hardware.sensorext-service --output /home/stfu/.cache/opencode-tmp/opencode/ghidra-toolkit-20261107/known-answer-1tirg5gb/als_xrefs --timebox 120 --address 001147a8
+
+$ /home/stfu/tools/ghidra-12.1.4-pyvenv/bin/python /mnt/kston/legion-Y70-madness/06-tools/ghidra_decompile.py brief /mnt/kston/legion-Y70-madness/artifacts/current_display_path/als/motorola.hardware.sensorext-service --output /home/stfu/.cache/opencode-tmp/opencode/ghidra-toolkit-20261107/known-answer-1tirg5gb/als_brief --timebox 120 --function _ZN15AlsCompensation9calculateEfj
+
+$ /home/stfu/tools/ghidra-12.1.4-pyvenv/bin/python /mnt/kston/legion-Y70-madness/06-tools/ghidra_decompile.py brief /mnt/kston/legion-Y70-madness/artifacts/current_display_path/als/motorola.hardware.sensorext-service --output /home/stfu/.cache/opencode-tmp/opencode/ghidra-toolkit-20261107/known-answer-1tirg5gb/als_brief_repeat --timebox 120 --address 001147a8
+ok
+test_brief_selector (__main__.UnitTests.test_brief_selector) ... ok
+test_elf_validation (__main__.UnitTests.test_elf_validation) ... ok
+test_excerpt_inclusive_and_bounds (__main__.UnitTests.test_excerpt_inclusive_and_bounds) ... ok
+test_lines_export_and_out_of_file_refusal (__main__.UnitTests.test_lines_export_and_out_of_file_refusal) ... ok
+test_lines_parser (__main__.UnitTests.test_lines_parser) ... ok
+test_project_default_and_escape_rejected (__main__.UnitTests.test_project_default_and_escape_rejected) ... ok
+test_provenance_hash_and_stable_json (__main__.UnitTests.test_provenance_hash_and_stable_json) ... ok
+test_selector_and_timebox_validation (__main__.UnitTests.test_selector_and_timebox_validation) ... ok
+test_timebox_reaps_worker (__main__.UnitTests.test_timebox_reaps_worker) ... ok
+
+----------------------------------------------------------------------
+Ran 11 tests in 161.978s
+
+OK

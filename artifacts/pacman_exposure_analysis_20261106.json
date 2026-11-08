@@ -1,0 +1,1075 @@
+{
+  "source_video": "/mnt/kston/legion-Y70-madness/artifacts/optical/pacman_exposure_20261106.mp4",
+  "decoded_frames": 1151,
+  "roi_xyxy": [
+    550,
+    190,
+    595,
+    690
+  ],
+  "color_metadata": {
+    "range": "tv",
+    "space": "smpte170m",
+    "transfer": "bt709",
+    "primaries": "bt470bg"
+  },
+  "time_origin": "first decoded PTS; source first PTS = 0.076900 s",
+  "first_new_exposure_frames": [
+    440,
+    680,
+    916
+  ],
+  "first_new_exposure_times_s": [
+    14.666356,
+    22.666078000000002,
+    30.533111
+  ],
+  "method": "original limited-range Y plane; pixelwise transform before averaging; 45-column ROI; Hann-weighted least squares of quadratic baseline plus sin/cos at q,2q,3q,4q; Fourier amplitudes normalized by weighted ROI mean. Inverse transfer variants are sensitivity checks, not calibration.",
+  "spectral_peak_checks": [
+    {
+      "window_s": [
+        8.5,
+        13.5
+      ],
+      "q_peak_cycles_per_row": 0.010694475697569757,
+      "period_rows": 93.50622024670577,
+      "search_boundary": false
+    },
+    {
+      "window_s": [
+        15.6,
+        21.6
+      ],
+      "q_peak_cycles_per_row": 0.010687162466246625,
+      "period_rows": 93.57020660613239,
+      "search_boundary": false
+    },
+    {
+      "window_s": [
+        23.6,
+        29.6
+      ],
+      "q_peak_cycles_per_row": 0.010690819081908191,
+      "period_rows": 93.53820248368764,
+      "search_boundary": false
+    },
+    {
+      "window_s": [
+        31.6,
+        37.5
+      ],
+      "q_peak_cycles_per_row": 0.010718853135313532,
+      "period_rows": 93.29356297507938,
+      "search_boundary": false
+    }
+  ],
+  "pixel_stats": [
+    {
+      "phase": 1,
+      "window_s": [
+        8.5,
+        13.5
+      ],
+      "roi_native_Y_quantiles_p001_p01_p05_p50_p95_p99_p999": [
+        17,
+        17,
+        19,
+        35,
+        36,
+        37,
+        38
+      ],
+      "minimum_Y": 15,
+      "maximum_Y": 41,
+      "fraction_Y_le16": 0.000306990434142752,
+      "fraction_Y_le18": 0.027596762325239145,
+      "fraction_Y_ge235": 0.0
+    },
+    {
+      "phase": 2,
+      "window_s": [
+        15.6,
+        21.6
+      ],
+      "roi_native_Y_quantiles_p001_p01_p05_p50_p95_p99_p999": [
+        18,
+        22,
+        34,
+        60,
+        63,
+        64,
+        65
+      ],
+      "minimum_Y": 17,
+      "maximum_Y": 68,
+      "fraction_Y_le16": 0.0,
+      "fraction_Y_le18": 0.001137530864197531,
+      "fraction_Y_ge235": 0.0
+    },
+    {
+      "phase": 3,
+      "window_s": [
+        23.6,
+        29.6
+      ],
+      "roi_native_Y_quantiles_p001_p01_p05_p50_p95_p99_p999": [
+        48,
+        50,
+        63,
+        88,
+        94,
+        95,
+        96
+      ],
+      "minimum_Y": 44,
+      "maximum_Y": 101,
+      "fraction_Y_le16": 0.0,
+      "fraction_Y_le18": 0.0,
+      "fraction_Y_ge235": 0.0
+    },
+    {
+      "phase": 4,
+      "window_s": [
+        31.6,
+        37.5
+      ],
+      "roi_native_Y_quantiles_p001_p01_p05_p50_p95_p99_p999": [
+        17,
+        17,
+        19,
+        35,
+        36,
+        37,
+        38
+      ],
+      "minimum_Y": 15,
+      "maximum_Y": 41,
+      "fraction_Y_le16": 0.0003613308223477715,
+      "fraction_Y_le18": 0.028050470809792845,
+      "fraction_Y_ge235": 0.0
+    }
+  ],
+  "timing": {
+    "model": "timestamp_ns = offset + cadence_ns*frame_delta + exposure_coefficient*(exposure_ns-100000)",
+    "coefficients": [
+      76.2373692758189,
+      33332904.590763234,
+      -0.9991030022501945
+    ],
+    "residual_ns": [
+      -76.2373692758189,
+      -192.39643383026123,
+      592.0205554962158,
+      -428.7292709350586,
+      170.57870483398438,
+      -231.80806732177734,
+      141.36691665649414,
+      25.207855224609375
+    ],
+    "sensor_fps_from_fit": 30.000385873276297,
+    "snapshots": [
+      {
+        "phase": 1,
+        "which": "start",
+        "frame": 113402,
+        "timestamp_ns": 5888629714682000,
+        "exposure_ns": 100000
+      },
+      {
+        "phase": 1,
+        "which": "end",
+        "frame": 113558,
+        "timestamp_ns": 5888634914615000,
+        "exposure_ns": 100000
+      },
+      {
+        "phase": 2,
+        "which": "start",
+        "frame": 113641,
+        "timestamp_ns": 5888637681097000,
+        "exposure_ns": 250000
+      },
+      {
+        "phase": 2,
+        "which": "end",
+        "frame": 113798,
+        "timestamp_ns": 5888642914362000,
+        "exposure_ns": 250000
+      },
+      {
+        "phase": 3,
+        "which": "start",
+        "frame": 113880,
+        "timestamp_ns": 5888645647411000,
+        "exposure_ns": 500000
+      },
+      {
+        "phase": 3,
+        "which": "end",
+        "frame": 114033,
+        "timestamp_ns": 5888650747345000,
+        "exposure_ns": 500000
+      },
+      {
+        "phase": 4,
+        "which": "start",
+        "frame": 114117,
+        "timestamp_ns": 5888653547709000,
+        "exposure_ns": 100000
+      },
+      {
+        "phase": 4,
+        "which": "end",
+        "frame": 114273,
+        "timestamp_ns": 5888658747642000,
+        "exposure_ns": 100000
+      }
+    ],
+    "interpretation": "Exposure-end/readout-anchored frame cadence is supported by exposure_coefficient near -1; video PTS are not assumed to share a constant exposure-start offset."
+  },
+  "candidate_predictions": [
+    {
+      "hypothetical_component_hz": 720,
+      "signed_normalized_amplitude_ratios": [
+        1.0,
+        0.9556783821675888,
+        0.8069059458626823,
+        1.0
+      ],
+      "magnitude_ratios": [
+        1.0,
+        0.9556783821675888,
+        0.8069059458626823,
+        1.0
+      ],
+      "phase_offset_cycles_at_readout_cadence": [
+        0.0,
+        -0.05399999999999999,
+        -0.14400000000000002,
+        0.0
+      ],
+      "phase_jump_cycles_at_three_steps": [
+        -0.05399999999999999,
+        -0.09000000000000002,
+        0.14400000000000002
+      ],
+      "harmonics_1_to_4_signed_ratios": [
+        [
+          1.0,
+          0.9556783821675888,
+          0.8069059458626823,
+          1.0
+        ],
+        [
+          1.0,
+          0.8279976349501815,
+          0.3525442464266439,
+          1.0
+        ],
+        [
+          1.0,
+          0.6322309099646845,
+          -0.07923954430517648,
+          1.0
+        ],
+        [
+          1.0,
+          0.39197485873321936,
+          -0.2498541783349077,
+          1.0
+        ]
+      ]
+    },
+    {
+      "hypothetical_component_hz": 2160,
+      "signed_normalized_amplitude_ratios": [
+        1.0,
+        0.6322309099646845,
+        -0.07923954430517648,
+        1.0
+      ],
+      "magnitude_ratios": [
+        1.0,
+        0.6322309099646845,
+        0.07923954430517648,
+        1.0
+      ],
+      "phase_offset_cycles_at_readout_cadence": [
+        0.0,
+        -0.16200000000000003,
+        0.06800000000000006,
+        0.0
+      ],
+      "phase_jump_cycles_at_three_steps": [
+        -0.16200000000000003,
+        0.2300000000000001,
+        -0.06800000000000006
+      ],
+      "harmonics_1_to_4_signed_ratios": [
+        [
+          1.0,
+          0.6322309099646845,
+          -0.07923954430517648,
+          1.0
+        ],
+        [
+          1.0,
+          -0.10178982867335956,
+          0.09859191402718437,
+          1.0
+        ],
+        [
+          1.0,
+          -0.4160811798451203,
+          -0.15316969821099807,
+          1.0
+        ],
+        [
+          1.0,
+          0.46504060200354647,
+          0.40751818602732737,
+          1.0
+        ]
+      ]
+    }
+  ],
+  "limitations": [
+    "FAST tonemap unknown; encoded luma and inverse declared transfer are not calibrated emitted luminance.",
+    "Residual broad-band contribution can enter harmonics of the fine train. Harmonic labels refer to image q, not proven physical fundamental.",
+    "Phase jumps use local extrapolation vs contiguous video index and timing model from eight sensor snapshots, without exact per-frame sensor/video pairing.",
+    "Apparent fine-band persistence cannot establish absence of a lower-frequency envelope."
+  ],
+  "capture": "artifacts/pacman_exposure_capture_20261106.json",
+  "main_fit": {
+    "transform": "limited_range_normalized",
+    "strip_x": [
+      550,
+      595
+    ],
+    "roi_y": [
+      190,
+      690
+    ],
+    "fixed_q_cycles_per_row": 0.0106951871657754,
+    "phases": [
+      {
+        "index": 1,
+        "exposure_ns": 100000,
+        "video_window_s": [
+          8.5,
+          13.5
+        ],
+        "frames": 151,
+        "mean_signal_median": 0.0766523272976025,
+        "harmonic_contrast_medians": [
+          0.2587175176791525,
+          0.21326125895609113,
+          0.17002395547931318,
+          0.12528617140786572
+        ],
+        "fundamental_contrast_p10_p90": [
+          0.22150336856615377,
+          0.29482544961029106
+        ],
+        "fundamental_amplitude_median": 0.019681731899541765
+      },
+      {
+        "index": 2,
+        "exposure_ns": 250000,
+        "video_window_s": [
+          15.6,
+          21.6
+        ],
+        "frames": 180,
+        "mean_signal_median": 0.17643539130631358,
+        "harmonic_contrast_medians": [
+          0.27101195934582856,
+          0.19489067127982607,
+          0.11312028741792711,
+          0.05138400121446267
+        ],
+        "fundamental_contrast_p10_p90": [
+          0.23008032305663456,
+          0.3002645392639054
+        ],
+        "fundamental_amplitude_median": 0.0480057528910654
+      },
+      {
+        "index": 3,
+        "exposure_ns": 500000,
+        "video_window_s": [
+          23.6,
+          29.6
+        ],
+        "frames": 180,
+        "mean_signal_median": 0.30585589324584705,
+        "harmonic_contrast_medians": [
+          0.20346804900770316,
+          0.07520225597379615,
+          0.010780938223215245,
+          0.026247724698376038
+        ],
+        "fundamental_contrast_p10_p90": [
+          0.1841235614258979,
+          0.23450682194235425
+        ],
+        "fundamental_amplitude_median": 0.06234104174599413
+      },
+      {
+        "index": 4,
+        "exposure_ns": 100000,
+        "video_window_s": [
+          31.6,
+          37.5
+        ],
+        "frames": 177,
+        "mean_signal_median": 0.07660307754197881,
+        "harmonic_contrast_medians": [
+          0.24911830911751195,
+          0.21078720774779303,
+          0.16888333451543863,
+          0.12553567424150877
+        ],
+        "fundamental_contrast_p10_p90": [
+          0.22376066508412612,
+          0.29586274828752485
+        ],
+        "fundamental_amplitude_median": 0.01903568135299185
+      }
+    ],
+    "harmonic_contrast_ratios_to_phase1": [
+      [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      [
+        1.0475207159413262,
+        0.9138587675689965,
+        0.6653197021503858,
+        0.41013306286759654
+      ],
+      [
+        0.7864486751145828,
+        0.35262971034640533,
+        0.06340834850490797,
+        0.2095021693409984
+      ],
+      [
+        0.9628969516724222,
+        0.9883989655673584,
+        0.9932914102565192,
+        1.0019914634699052
+      ]
+    ],
+    "phase_jumps": [
+      {
+        "first_new_frame": 440,
+        "video_relative_time_s": 14.666356,
+        "fits": [
+          {
+            "half_window_frames": 15,
+            "jump_cycles": -0.06444916047900406,
+            "left_slope_cycles_per_frame": 0.03768143497894736,
+            "right_slope_cycles_per_frame": 0.03866660979530426,
+            "left_rms_cycles": 0.002007550825820184,
+            "right_rms_cycles": 0.0017219818925040958
+          },
+          {
+            "half_window_frames": 30,
+            "jump_cycles": -0.07773829490357897,
+            "left_slope_cycles_per_frame": 0.038482453848896175,
+            "right_slope_cycles_per_frame": 0.03950046614734527,
+            "left_rms_cycles": 0.0030506575731717132,
+            "right_rms_cycles": 0.0033764393233548066
+          },
+          {
+            "half_window_frames": 45,
+            "jump_cycles": -0.10640233047173098,
+            "left_slope_cycles_per_frame": 0.03968119620909792,
+            "right_slope_cycles_per_frame": 0.040332405857656566,
+            "left_rms_cycles": 0.011505566262952703,
+            "right_rms_cycles": 0.008625540627094651
+          },
+          {
+            "half_window_frames": 60,
+            "jump_cycles": -0.12028526950043528,
+            "left_slope_cycles_per_frame": 0.04041710282027267,
+            "right_slope_cycles_per_frame": 0.040335294014321364,
+            "left_rms_cycles": 0.01512920769466749,
+            "right_rms_cycles": 0.009479404514588412
+          }
+        ]
+      },
+      {
+        "first_new_frame": 680,
+        "video_relative_time_s": 22.666078000000002,
+        "fits": [
+          {
+            "half_window_frames": 15,
+            "jump_cycles": -0.07459272990150367,
+            "left_slope_cycles_per_frame": 0.042756698996657086,
+            "right_slope_cycles_per_frame": 0.04023503074777005,
+            "left_rms_cycles": 0.006730686247265283,
+            "right_rms_cycles": 0.004659833315678455
+          },
+          {
+            "half_window_frames": 30,
+            "jump_cycles": -0.0659986701495292,
+            "left_slope_cycles_per_frame": 0.04139995253125194,
+            "right_slope_cycles_per_frame": 0.04045454831027076,
+            "left_rms_cycles": 0.005995197891368364,
+            "right_rms_cycles": 0.004417083368429946
+          },
+          {
+            "half_window_frames": 45,
+            "jump_cycles": -0.07634371642356541,
+            "left_slope_cycles_per_frame": 0.04193152337228453,
+            "right_slope_cycles_per_frame": 0.040693060081690345,
+            "left_rms_cycles": 0.007041879298339174,
+            "right_rms_cycles": 0.0047636248040078474
+          },
+          {
+            "half_window_frames": 60,
+            "jump_cycles": -0.07662213562874953,
+            "left_slope_cycles_per_frame": 0.041444336623917576,
+            "right_slope_cycles_per_frame": 0.041238014109673295,
+            "left_rms_cycles": 0.010110738659928328,
+            "right_rms_cycles": 0.008865238237035862
+          }
+        ]
+      },
+      {
+        "first_new_frame": 916,
+        "video_relative_time_s": 30.533111,
+        "fits": [
+          {
+            "half_window_frames": 15,
+            "jump_cycles": 0.16166246491856384,
+            "left_slope_cycles_per_frame": 0.03804740115730924,
+            "right_slope_cycles_per_frame": 0.04475130281064782,
+            "left_rms_cycles": 0.0025309510361678942,
+            "right_rms_cycles": 0.0013672347761039248
+          },
+          {
+            "half_window_frames": 30,
+            "jump_cycles": 0.16484442884610218,
+            "left_slope_cycles_per_frame": 0.03944869155448961,
+            "right_slope_cycles_per_frame": 0.04282899816882946,
+            "left_rms_cycles": 0.004859848757290177,
+            "right_rms_cycles": 0.0067438452712476156
+          },
+          {
+            "half_window_frames": 45,
+            "jump_cycles": 0.15767055083162518,
+            "left_slope_cycles_per_frame": 0.040129733641102394,
+            "right_slope_cycles_per_frame": 0.042590170753464864,
+            "left_rms_cycles": 0.008189828256589036,
+            "right_rms_cycles": 0.006186829103281058
+          },
+          {
+            "half_window_frames": 60,
+            "jump_cycles": 0.1314309791218875,
+            "left_slope_cycles_per_frame": 0.04101960789868191,
+            "right_slope_cycles_per_frame": 0.043111709597210245,
+            "left_rms_cycles": 0.014334451743927513,
+            "right_rms_cycles": 0.009111044132756084
+          }
+        ]
+      }
+    ]
+  },
+  "sensitivity_fits": [
+    {
+      "transform": "inverse_bt709_sensitivity_only",
+      "strip_x": [
+        550,
+        595
+      ],
+      "roi_y": [
+        190,
+        690
+      ],
+      "fixed_q_cycles_per_row": 0.0106951871657754,
+      "phases": [
+        {
+          "index": 1,
+          "exposure_ns": 100000,
+          "video_window_s": [
+            8.5,
+            13.5
+          ],
+          "frames": 151,
+          "mean_signal_median": 0.017011833111055533,
+          "harmonic_contrast_medians": [
+            0.2585593313842775,
+            0.2130417477488961,
+            0.17007317430274804,
+            0.1255758749848121
+          ],
+          "fundamental_contrast_p10_p90": [
+            0.22125430749771274,
+            0.29456082869899275
+          ],
+          "fundamental_amplitude_median": 0.0043608765781898255
+        },
+        {
+          "index": 2,
+          "exposure_ns": 250000,
+          "video_window_s": [
+            15.6,
+            21.6
+          ],
+          "frames": 180,
+          "mean_signal_median": 0.04808686733860385,
+          "harmonic_contrast_medians": [
+            0.3262810618416717,
+            0.22635037944322817,
+            0.12464770294360364,
+            0.04877896264101893
+          ],
+          "fundamental_contrast_p10_p90": [
+            0.28636774883697863,
+            0.3557802389452969
+          ],
+          "fundamental_amplitude_median": 0.01575929446792429
+        },
+        {
+          "index": 3,
+          "exposure_ns": 500000,
+          "video_window_s": [
+            23.6,
+            29.6
+          ],
+          "frames": 180,
+          "mean_signal_median": 0.11098297877736041,
+          "harmonic_contrast_medians": [
+            0.3211926432345624,
+            0.1111442024836975,
+            0.024304990331921888,
+            0.04233524501091415
+          ],
+          "fundamental_contrast_p10_p90": [
+            0.29491681214479415,
+            0.3586515007339824
+          ],
+          "fundamental_amplitude_median": 0.03562988200190152
+        },
+        {
+          "index": 4,
+          "exposure_ns": 100000,
+          "video_window_s": [
+            31.6,
+            37.5
+          ],
+          "frames": 177,
+          "mean_signal_median": 0.01700177688145513,
+          "harmonic_contrast_medians": [
+            0.2491789420761856,
+            0.21066003542742148,
+            0.16888234622991424,
+            0.12574639608492919
+          ],
+          "fundamental_contrast_p10_p90": [
+            0.22356932918164074,
+            0.2955587493529825
+          ],
+          "fundamental_amplitude_median": 0.004227782358071024
+        }
+      ],
+      "harmonic_contrast_ratios_to_phase1": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          1.2619194986884632,
+          1.0624695949735563,
+          0.732906311972032,
+          0.38844214819859746
+        ],
+        [
+          1.2422396109819671,
+          0.5217015146472549,
+          0.14290901802453845,
+          0.33712880771115017
+        ],
+        [
+          0.9637205539716123,
+          0.9888204431918113,
+          0.9929981428422451,
+          1.001357912896388
+        ]
+      ],
+      "phase_jumps": [
+        {
+          "first_new_frame": 440,
+          "video_relative_time_s": 14.666356,
+          "fits": [
+            {
+              "half_window_frames": 15,
+              "jump_cycles": -0.06519515850765956,
+              "left_slope_cycles_per_frame": 0.037700155012488475,
+              "right_slope_cycles_per_frame": 0.03862534952948968,
+              "left_rms_cycles": 0.0020420550559176677,
+              "right_rms_cycles": 0.0018762499250443143
+            },
+            {
+              "half_window_frames": 30,
+              "jump_cycles": -0.0784697526922109,
+              "left_slope_cycles_per_frame": 0.038484410556697275,
+              "right_slope_cycles_per_frame": 0.03948955486313674,
+              "left_rms_cycles": 0.0030368198121509017,
+              "right_rms_cycles": 0.003431685820905247
+            },
+            {
+              "half_window_frames": 45,
+              "jump_cycles": -0.10695328408524674,
+              "left_slope_cycles_per_frame": 0.039683167207171084,
+              "right_slope_cycles_per_frame": 0.040302826549615825,
+              "left_rms_cycles": 0.011510723229943697,
+              "right_rms_cycles": 0.008650307508028924
+            },
+            {
+              "half_window_frames": 60,
+              "jump_cycles": -0.12077922186090717,
+              "left_slope_cycles_per_frame": 0.04041571406171718,
+              "right_slope_cycles_per_frame": 0.040306971823333884,
+              "left_rms_cycles": 0.015103033234998262,
+              "right_rms_cycles": 0.009600034933101432
+            }
+          ]
+        },
+        {
+          "first_new_frame": 680,
+          "video_relative_time_s": 22.666078000000002,
+          "fits": [
+            {
+              "half_window_frames": 15,
+              "jump_cycles": -0.07348730315780827,
+              "left_slope_cycles_per_frame": 0.04287828704919051,
+              "right_slope_cycles_per_frame": 0.040164522515047055,
+              "left_rms_cycles": 0.006962560559361103,
+              "right_rms_cycles": 0.004621154208597886
+            },
+            {
+              "half_window_frames": 30,
+              "jump_cycles": -0.06458635904549936,
+              "left_slope_cycles_per_frame": 0.041430015798113715,
+              "right_slope_cycles_per_frame": 0.04044222930254703,
+              "left_rms_cycles": 0.0062725514205775375,
+              "right_rms_cycles": 0.00449503165036791
+            },
+            {
+              "half_window_frames": 45,
+              "jump_cycles": -0.07488498254618392,
+              "left_slope_cycles_per_frame": 0.0419543526919478,
+              "right_slope_cycles_per_frame": 0.04068678962376884,
+              "left_rms_cycles": 0.007158376870337827,
+              "right_rms_cycles": 0.00489405037729715
+            },
+            {
+              "half_window_frames": 60,
+              "jump_cycles": -0.07522159731849598,
+              "left_slope_cycles_per_frame": 0.0414580450794244,
+              "right_slope_cycles_per_frame": 0.04124377050852764,
+              "left_rms_cycles": 0.010200486289982068,
+              "right_rms_cycles": 0.00906036962444271
+            }
+          ]
+        },
+        {
+          "first_new_frame": 916,
+          "video_relative_time_s": 30.533111,
+          "fits": [
+            {
+              "half_window_frames": 15,
+              "jump_cycles": 0.16164377035228483,
+              "left_slope_cycles_per_frame": 0.037990857607578914,
+              "right_slope_cycles_per_frame": 0.044753806899983706,
+              "left_rms_cycles": 0.0024969555042067067,
+              "right_rms_cycles": 0.0013344301642033076
+            },
+            {
+              "half_window_frames": 30,
+              "jump_cycles": 0.16426634097523873,
+              "left_slope_cycles_per_frame": 0.03945416499977368,
+              "right_slope_cycles_per_frame": 0.042825792364681065,
+              "left_rms_cycles": 0.005069632728747995,
+              "right_rms_cycles": 0.006750635248503623
+            },
+            {
+              "half_window_frames": 45,
+              "jump_cycles": 0.15701541461515944,
+              "left_slope_cycles_per_frame": 0.04014130325506556,
+              "right_slope_cycles_per_frame": 0.04258731043845563,
+              "left_rms_cycles": 0.008286765082453148,
+              "right_rms_cycles": 0.006190140200169141
+            },
+            {
+              "half_window_frames": 60,
+              "jump_cycles": 0.13070719305773082,
+              "left_slope_cycles_per_frame": 0.04103485914559363,
+              "right_slope_cycles_per_frame": 0.043108794967529174,
+              "left_rms_cycles": 0.014424575612318956,
+              "right_rms_cycles": 0.009116292718656854
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "transform": "power_2p2_sensitivity_only",
+      "strip_x": [
+        550,
+        595
+      ],
+      "roi_y": [
+        190,
+        690
+      ],
+      "fixed_q_cycles_per_row": 0.0106951871657754,
+      "phases": [
+        {
+          "index": 1,
+          "exposure_ns": 100000,
+          "video_window_s": [
+            8.5,
+            13.5
+          ],
+          "frames": 151,
+          "mean_signal_median": 0.003916604852682665,
+          "harmonic_contrast_medians": [
+            0.35122173051726857,
+            0.28135856529531145,
+            0.2142441327118025,
+            0.14775736464460812
+          ],
+          "fundamental_contrast_p10_p90": [
+            0.3096806659264033,
+            0.3945271407455878
+          ],
+          "fundamental_amplitude_median": 0.0013602448522134103
+        },
+        {
+          "index": 2,
+          "exposure_ns": 250000,
+          "video_window_s": [
+            15.6,
+            21.6
+          ],
+          "frames": 180,
+          "mean_signal_median": 0.02418408903594544,
+          "harmonic_contrast_medians": [
+            0.441755495860334,
+            0.29785891881064236,
+            0.15682947696915803,
+            0.0546815250852867
+          ],
+          "fundamental_contrast_p10_p90": [
+            0.3946516460331854,
+            0.47502606455726537
+          ],
+          "fundamental_amplitude_median": 0.010681214446583378
+        },
+        {
+          "index": 3,
+          "exposure_ns": 500000,
+          "video_window_s": [
+            23.6,
+            29.6
+          ],
+          "frames": 180,
+          "mean_signal_median": 0.0764303941434933,
+          "harmonic_contrast_medians": [
+            0.4089297671713906,
+            0.13871422592671007,
+            0.03424171936384503,
+            0.05457854653157821
+          ],
+          "fundamental_contrast_p10_p90": [
+            0.3768608905662948,
+            0.4561122814149539
+          ],
+          "fundamental_amplitude_median": 0.03122130260594102
+        },
+        {
+          "index": 4,
+          "exposure_ns": 100000,
+          "video_window_s": [
+            31.6,
+            37.5
+          ],
+          "frames": 177,
+          "mean_signal_median": 0.003922047245965834,
+          "harmonic_contrast_medians": [
+            0.3456747831429321,
+            0.2811240630099675,
+            0.2139461885683093,
+            0.14915743057759612
+          ],
+          "fundamental_contrast_p10_p90": [
+            0.3128053917475227,
+            0.3964292325155081
+          ],
+          "fundamental_amplitude_median": 0.0013370300876991868
+        }
+      ],
+      "harmonic_contrast_ratios_to_phase1": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          1.2577681204683153,
+          1.0586452859468212,
+          0.7320129376897444,
+          0.37007647785820275
+        ],
+        [
+          1.1643065665929366,
+          0.4930158276188139,
+          0.15982570411814448,
+          0.3693795342306808
+        ],
+        [
+          0.9842067079216109,
+          0.9991665358220113,
+          0.9986093241400734,
+          1.009475439253776
+        ]
+      ],
+      "phase_jumps": [
+        {
+          "first_new_frame": 440,
+          "video_relative_time_s": 14.666356,
+          "fits": [
+            {
+              "half_window_frames": 15,
+              "jump_cycles": -0.06139364099240652,
+              "left_slope_cycles_per_frame": 0.037805088996873515,
+              "right_slope_cycles_per_frame": 0.038593560112146964,
+              "left_rms_cycles": 0.002728281163878595,
+              "right_rms_cycles": 0.0019782593454711174
+            },
+            {
+              "half_window_frames": 30,
+              "jump_cycles": -0.0734929786103713,
+              "left_slope_cycles_per_frame": 0.03847812431206496,
+              "right_slope_cycles_per_frame": 0.03947706502590657,
+              "left_rms_cycles": 0.0033105889168123497,
+              "right_rms_cycles": 0.003480329362157748
+            },
+            {
+              "half_window_frames": 45,
+              "jump_cycles": -0.10235199253660099,
+              "left_slope_cycles_per_frame": 0.03970925561556326,
+              "right_slope_cycles_per_frame": 0.040276207164363025,
+              "left_rms_cycles": 0.01202708414083462,
+              "right_rms_cycles": 0.008675231786099493
+            },
+            {
+              "half_window_frames": 60,
+              "jump_cycles": -0.11605964386385992,
+              "left_slope_cycles_per_frame": 0.040433523865890414,
+              "right_slope_cycles_per_frame": 0.04028298643836896,
+              "left_rms_cycles": 0.015347193611047348,
+              "right_rms_cycles": 0.00969603565160896
+            }
+          ]
+        },
+        {
+          "first_new_frame": 680,
+          "video_relative_time_s": 22.666078000000002,
+          "fits": [
+            {
+              "half_window_frames": 15,
+              "jump_cycles": -0.07308583171099059,
+              "left_slope_cycles_per_frame": 0.04296104467809095,
+              "right_slope_cycles_per_frame": 0.04014349700134251,
+              "left_rms_cycles": 0.007106789443220341,
+              "right_rms_cycles": 0.0046122149587943355
+            },
+            {
+              "half_window_frames": 30,
+              "jump_cycles": -0.06384606600122567,
+              "left_slope_cycles_per_frame": 0.041456514489950316,
+              "right_slope_cycles_per_frame": 0.04043865939781833,
+              "left_rms_cycles": 0.006449006571972309,
+              "right_rms_cycles": 0.0045221697381826196
+            },
+            {
+              "half_window_frames": 45,
+              "jump_cycles": -0.07408602387679153,
+              "left_slope_cycles_per_frame": 0.04197641668601149,
+              "right_slope_cycles_per_frame": 0.040684953344405285,
+              "left_rms_cycles": 0.007237541191116356,
+              "right_rms_cycles": 0.004935930866361959
+            },
+            {
+              "half_window_frames": 60,
+              "jump_cycles": -0.07435708500449678,
+              "left_slope_cycles_per_frame": 0.04147265625430708,
+              "right_slope_cycles_per_frame": 0.04124554057115592,
+              "left_rms_cycles": 0.010274400111894757,
+              "right_rms_cycles": 0.00912030992354883
+            }
+          ]
+        },
+        {
+          "first_new_frame": 916,
+          "video_relative_time_s": 30.533111,
+          "fits": [
+            {
+              "half_window_frames": 15,
+              "jump_cycles": 0.1517089806802403,
+              "left_slope_cycles_per_frame": 0.037972813289126175,
+              "right_slope_cycles_per_frame": 0.04458009838330957,
+              "left_rms_cycles": 0.0024875367922366346,
+              "right_rms_cycles": 0.0014468248193626205
+            },
+            {
+              "half_window_frames": 30,
+              "jump_cycles": 0.1529430867303816,
+              "left_slope_cycles_per_frame": 0.03945606005116133,
+              "right_slope_cycles_per_frame": 0.04275950575102694,
+              "left_rms_cycles": 0.005138656430321222,
+              "right_rms_cycles": 0.006196264297944412
+            },
+            {
+              "half_window_frames": 45,
+              "jump_cycles": 0.1444156937958212,
+              "left_slope_cycles_per_frame": 0.0401450328582207,
+              "right_slope_cycles_per_frame": 0.042622630983016635,
+              "left_rms_cycles": 0.008318673569027315,
+              "right_rms_cycles": 0.005684692004802563
+            },
+            {
+              "half_window_frames": 60,
+              "jump_cycles": 0.11655213688078447,
+              "left_slope_cycles_per_frame": 0.0410396058237029,
+              "right_slope_cycles_per_frame": 0.043228708850746984,
+              "left_rms_cycles": 0.014451975082156007,
+              "right_rms_cycles": 0.009919432443187968
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "assessment": {
+    "status": "hypothesis",
+    "statement": "Observed fine component is substantially more consistent with approximately720Hz than2160Hz under the tested integration model; not a calibrated fundamental frequency.",
+    "pwm_hz": "unknown",
+    "greater_equal_2000_hz_verified": false
+  },
+  "private_analysis_sources": [
+    "/home/stfu/.cache/opencode-tmp/opencode/pacman-exposure-20261106/math-exposure-analyze.py",
+    "/home/stfu/.cache/opencode-tmp/opencode/pacman-exposure-20261106/math-exposure-fit.py"
+  ]
+}

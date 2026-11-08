@@ -1,0 +1,69 @@
+{
+  "scope": "Historical stock→A9-only→stock→9D-only→stock; offline optical archive only",
+  "input": "/home/stfu/.cache/opencode-tmp/opencode/dsi-selector-split-20261107/analysis-profiles-spatial-v2.npz",
+  "q_reference_period_output_rows": 93.43,
+  "method": "degree-2 Legendre detrend; Hann; normalized 2/sum(window); fixed spatial q=1/93.43 as original q93 RMS; nominal frame-index/30 phase slope",
+  "stages": [
+    {
+      "stage": "baseline",
+      "first_frame_index": 408,
+      "frames": 75,
+      "spatial_q93_rms_Y_codes_existing": 4.43606104407866,
+      "mean_q93_fourier_amplitude_Y_codes": 4.419652800424423,
+      "min_q93_fourier_amplitude_Y_codes": 3.874821171337133,
+      "frame_index_phase_slope_cycles_per_nominal_second": 1.3538178194037187,
+      "unit_phase_coherence_at_fitted_slope": 0.9971057422404459,
+      "max_abs_encoded_pts_jitter_vs_30fps_us": 0.3333333347399492
+    },
+    {
+      "stage": "a9_only",
+      "first_frame_index": 899,
+      "frames": 75,
+      "spatial_q93_rms_Y_codes_existing": 1.0356213838905028,
+      "mean_q93_fourier_amplitude_Y_codes": 0.6968926868365075,
+      "min_q93_fourier_amplitude_Y_codes": 0.05240735897329722,
+      "frame_index_phase_slope_cycles_per_nominal_second": 1.0211676177050957,
+      "unit_phase_coherence_at_fitted_slope": 0.40783313230672685,
+      "max_abs_encoded_pts_jitter_vs_30fps_us": 0.6666666703125657
+    },
+    {
+      "stage": "return_a9_only",
+      "first_frame_index": 1396,
+      "frames": 75,
+      "spatial_q93_rms_Y_codes_existing": 4.200691677565806,
+      "mean_q93_fourier_amplitude_Y_codes": 4.190812935383876,
+      "min_q93_fourier_amplitude_Y_codes": 3.8773562175657457,
+      "frame_index_phase_slope_cycles_per_nominal_second": 1.3594653099534584,
+      "unit_phase_coherence_at_fitted_slope": 0.9936941501801372,
+      "max_abs_encoded_pts_jitter_vs_30fps_us": 0.6666666716448333
+    },
+    {
+      "stage": "9d_only",
+      "first_frame_index": 1897,
+      "frames": 75,
+      "spatial_q93_rms_Y_codes_existing": 4.33313333386095,
+      "mean_q93_fourier_amplitude_Y_codes": 4.3167259669257225,
+      "min_q93_fourier_amplitude_Y_codes": 3.8682623808436447,
+      "frame_index_phase_slope_cycles_per_nominal_second": 1.46428638323968,
+      "unit_phase_coherence_at_fitted_slope": 0.9968774874911569,
+      "max_abs_encoded_pts_jitter_vs_30fps_us": 0.6666666730881232
+    },
+    {
+      "stage": "return_9d_only",
+      "first_frame_index": 2404,
+      "frames": 75,
+      "spatial_q93_rms_Y_codes_existing": 4.316908012803704,
+      "mean_q93_fourier_amplitude_Y_codes": 4.299008533356937,
+      "min_q93_fourier_amplitude_Y_codes": 3.8673026357686364,
+      "frame_index_phase_slope_cycles_per_nominal_second": 1.4641290994760197,
+      "unit_phase_coherence_at_fitted_slope": 0.9948973040387414,
+      "max_abs_encoded_pts_jitter_vs_30fps_us": 0.666666677417993
+    }
+  ],
+  "limits": [
+    "Suppressed A9-only fine amplitude makes its phase-fit unstable",
+    "Nominal 30fps phase slope aliases at 30Hz and cannot establish fundamental PWM",
+    "The 9D-only phase slope persists after return to stock; temporal drift is a confounder"
+  ],
+  "physical_pwm_hz": null
+}

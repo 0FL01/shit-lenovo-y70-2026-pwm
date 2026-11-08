@@ -1,0 +1,47 @@
+{
+  "capture": "artifacts/pacman_dc_manual_capture_20261106.json",
+  "video": "artifacts/optical/pacman_dc_manual_20261106.mp4",
+  "decoded_frames": 1089,
+  "roi_xywh": [
+    540,
+    190,
+    60,
+    500
+  ],
+  "windows_s_relative_to_first_pts": [
+    [
+      8,
+      12
+    ],
+    [
+      18.5,
+      22.5
+    ],
+    [
+      29,
+      33
+    ]
+  ],
+  "baseline_fine_pattern_period_pixels": 93.42915811088295,
+  "moving_fine_component_rms_in_Y_codes": [
+    4.332298612827826,
+    1.2523563610495083,
+    4.546619249188663
+  ],
+  "component_ratios_to_first_OFF": [
+    1.0,
+    0.2890743397376425,
+    1.049470421019973
+  ],
+  "method": "Original limited-range Y; per-state temporal mean removes static text; quadratic background and Hann-weighted sinusoid fit. Baseline q selected using OFF windows only. Values are image codes, not physical luminance/depth/Hz.",
+  "visual_observation": "OFF shows repeated fine bands plus broad band; ON suppresses the repeated fine train but retains a moving broad band; OFF restores fine train. Same target DBV3600/software120 and camera100us/ISO6400/AE-AF OFF.",
+  "pwm_hz": "unknown",
+  "greater_equal_2000_hz_verified": false,
+  "low_frequency_component_eliminated": false,
+  "limitations": [
+    "Camera temporal/spatial aliasing and uncalibrated FAST tone mapping remain.",
+    "Residual q signal in ON may include the spatial harmonics of its broad band; do not call it a new high-frequency carrier.",
+    "The test does not prove every optical frequency or owner usability."
+  ],
+  "target_restored": true
+}

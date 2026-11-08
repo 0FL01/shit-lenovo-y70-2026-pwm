@@ -1,0 +1,61 @@
+{
+  "status": "proposal_only_not_approved_not_sent",
+  "target_profile": "boe_ili97701A_682_1440x3168_dsc_cmd_v4",
+  "stock_source": "artifacts/device_tree/selected_boe_v4/qcom,mdss-dsi-dc-off-command",
+  "candidate": "artifacts/dsi_mode_trial_20261106/dc_off_mode90.bin",
+  "bytes": 875,
+  "packet_count": 75,
+  "change": {
+    "packet_index_zero_based": 12,
+    "page_hex": "23",
+    "opcode_hex": "80",
+    "byte_offset_zero_based": 126,
+    "stock_hex": "50",
+    "candidate_hex": "90",
+    "value_provenance": "Same live target DC-ON packet12; isolated combination is unverified"
+  },
+  "all_other_bytes_unchanged": true,
+  "hs_state_unchanged": true,
+  "batch_flags_original": [
+    {
+      "count": 74,
+      "hex": "40"
+    },
+    {
+      "count": 1,
+      "hex": "00"
+    }
+  ],
+  "native_debugfs_write_byte_ranges_end_exclusive": [
+    [
+      0,
+      253
+    ],
+    [
+      253,
+      500
+    ],
+    [
+      500,
+      754
+    ],
+    [
+      754,
+      864
+    ],
+    [
+      864,
+      875
+    ]
+  ],
+  "native_write_lengths": [
+    253,
+    247,
+    254,
+    110,
+    11
+  ],
+  "final_nonbatched_packet_separate": true,
+  "dsi_commands_sent": false,
+  "purpose": "Isolate mode-selector causality at fixed brightness, not an asserted >=2000Hz solution"
+}

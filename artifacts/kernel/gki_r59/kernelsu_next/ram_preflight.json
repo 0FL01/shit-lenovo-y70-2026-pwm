@@ -1,0 +1,16 @@
+{
+  "observed_at_utc": "2026-11-06T11:32:35.899650+00:00",
+  "status": "confirmed-on-target; read-only, no device state changes",
+  "properties": {
+    "ro.boot.hardware.sku": "XT2611-1",
+    "ro.build.display.id": "W3WWS36.65-64-4-1",
+    "ro.boot.slot_suffix": "_b",
+    "ro.boot.flash.locked": "0",
+    "ro.boot.verifiedbootstate": "orange",
+    "sys.boot_completed": "1"
+  },
+  "kernel": "6.12.58-android16-6-g09eda8c8505a-ab15950084-4k",
+  "selinux": "Enforcing",
+  "ram_support_verified": false,
+  "physical_bootloader_entry_verified": false
+}

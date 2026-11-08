@@ -1,0 +1,16 @@
+Computing main repo mapping: 
+Loading: 
+Loading: 1 packages loaded
+Loading: 1 packages loaded
+    currently loading: common
+Analyzing: target //common:kernel_aarch64 (2 packages loaded)
+Analyzing: target //common:kernel_aarch64 (2 packages loaded, 0 targets configured)
+Analyzing: target //common:kernel_aarch64 (2 packages loaded, 0 targets configured)
+
+Analyzing: target //common:kernel_aarch64 (51 packages loaded, 98513 targets configured)
+
+ERROR: <builtin>: BazelWorkspaceStatusAction stable-status.txt failed: Failed to determine workspace status: Process exited with status 1
+ERROR: Project external/dtc in repo manifest does not exist on disk.
+INFO: Elapsed time: 6.361s, Critical Path: 1.52s
+INFO: 1 process: 1 internal.
+ERROR: Build did NOT complete successfully

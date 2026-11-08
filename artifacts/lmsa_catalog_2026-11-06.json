@@ -1,0 +1,114 @@
+{
+  "observed_at_utc": "2026-11-06T09:52:07.788292+00:00",
+  "owner_consent": "Read-only authenticated LMSA catalogue/search/download only. No Rescue/flash or transmission of IMEI/serial.",
+  "client_repo": "https://github.com/JoshRob297/moto-firmware-downloader",
+  "client_commit": "b5ea93abf5bc02ee56f5f7a9601320b9d80e3396",
+  "source_path": "/home/stfu/.cache/opencode-tmp/opencode/lmsa-catalog-20261106/mfd",
+  "node": "v22.22.3 already installed",
+  "client_execution": "Pinned MFD login --token-file; isolated HOME and private logs, no token in argv/stdout.",
+  "catalogue_login": "authenticated; model catalogue/parameter lookup succeeded",
+  "device_identifiers_submitted": false,
+  "device_actions": true,
+  "source_audit": "Pinned MFD v1.3.4: Lenovo TLS endpoints/state, model-only catalogue body, token-file validation, browser-only child_process calls inspected. No installer/Rescue/device calls executed.",
+  "login_link_created_at_utc": "2026-11-06T10:03:16.598Z",
+  "login_http_status": 200,
+  "login_response_code": "0000",
+  "authentication_issuer": "passport-glb.lenovo.com",
+  "login_url_private_path": "/home/stfu/.cache/opencode-tmp/opencode/lmsa-catalog-20261106/authorization-url.txt",
+  "token_input_private_path": "/home/stfu/.cache/opencode-tmp/opencode/lmsa-catalog-20261106/authorization-token.txt",
+  "token_validation_started_at_utc": "2026-11-06T10:15:55.833857+00:00",
+  "token_validation_finished_at_utc": "2026-11-06T10:15:57.253826+00:00",
+  "token_input_kind": "successful callback JSON content URI; structurally extracted Authorization, then native CLI validation",
+  "token_validation_exit_code": 0,
+  "authenticated_session_saved": true,
+  "model_only_queries": [
+    {
+      "at_utc": "2026-11-06T10:17:05.741146+00:00",
+      "model": "XT2611-1",
+      "method": "search --json / getRomMatchParams",
+      "exit_code": 0,
+      "private_response": "/home/stfu/.cache/opencode-tmp/opencode/lmsa-catalog-20261106/XT2611-1-match-params.json",
+      "device_identifier_fields_sent": false
+    }
+  ],
+  "manual_catalogue_protocol_source": {
+    "repo": "https://github.com/enigma550/LenovoMotoFirmwareDownloader",
+    "commit": "061a16cb0121870d09c48db9eaf95ffba9fae5d2",
+    "paths": [
+      "core/features/catalog/model-catalog.ts",
+      "core/features/firmware/catalog-manual-match.ts",
+      "core/features/firmware/read-support-lookup.ts"
+    ]
+  },
+  "catalogue_total_models": 1117,
+  "selected_model_entries": [
+    {
+      "modelName": "XT2611-1",
+      "marketName": "Legion Phone Y70 New Generation",
+      "platform": "Qcom",
+      "readSupport": true
+    },
+    {
+      "modelName": "XT2611-3",
+      "marketName": "motorola edge 70 max",
+      "platform": "Qcom",
+      "readSupport": true
+    }
+  ],
+  "legacy_manual_probe": "XT2611-1 getResource returned code=null/content=null; not treated as a valid match.",
+  "software_match_properties": "artifacts/lmsa_match_properties_2026-11-06.json",
+  "fsg_version_value": "unknown/empty; baseband version not substituted",
+  "automatic_match_at_utc": "2026-11-06T10:31:56.904Z",
+  "automatic_match_results": [
+    {
+      "modelName": "XT2611-1",
+      "marketName": "Legion Phone Y70 New Generation",
+      "http_status": 200,
+      "code": "0001",
+      "content_type": "object",
+      "content_count": null,
+      "variants": [],
+      "description": "Parameters lack"
+    },
+    {
+      "modelName": "XT2611-3",
+      "marketName": "motorola edge 70 max",
+      "http_status": 200,
+      "code": "0001",
+      "content_type": "object",
+      "content_count": null,
+      "variants": [],
+      "description": "Parameters lack"
+    }
+  ],
+  "device_readonly_software_property_query": true,
+  "device_state_changes": true,
+  "checkpoint_at_utc": "2026-11-06T11:09:27.862004+00:00",
+  "device_action_scope": "Allowlisted software properties, scoped bootloader getvars, FSG directory metadata/list attempt; no modem/NV file contents",
+  "firmware_package_found": false,
+  "firmware_availability": "unknown; automatic matching rejected incomplete parameters, not a no-firmware result",
+  "known_missing_required_parameter": "fsgVersion.qcom; tested Android/bootloader metadata paths did not provide a verified value",
+  "next_operation": "Owner decision required for IMEI-based lookup to official Lenovo endpoint, or provision of verified current originals; no identifier transmission authorized yet",
+  "image_operations_authorized": false,
+  "global_manual_fallback": {
+    "at_utc": "2026-11-06T11:02:19.231Z",
+    "modelName": "XT2611-3",
+    "http_status": 200,
+    "code": null,
+    "content_type": "null",
+    "content_count": null
+  },
+  "bootloader_metadata_owner_confirmation": "Explicit yes to the scoped metadata-only roundtrip; performed, no image permission",
+  "bootloader_metadata_evidence": "artifacts/fsg_bootloader_read_2026-11-06.json",
+  "device_state_change_scope": "Approved bootloader metadata roundtrip only; stock Android boot completed, original build/slot verified. No image/erase/AVB/slot/DSI operation.",
+  "raw_partition_image_writes": false,
+  "fsg_bootloader_result": {
+    "version_baseband_raw": "Done",
+    "fsg_id": null,
+    "fsg_value_established": false,
+    "stock_android_return_verified": true
+  },
+  "fsg_mount_properties": "Only dev.mnt.*.vendor.fsg storage-device properties; not firmware labels",
+  "fsg_directory_result": "/vendor/fsg stat readable (0755), directory listing Permission denied; no contents read, exact denial mechanism unconfirmed",
+  "imei_lookup_authorized": false
+}

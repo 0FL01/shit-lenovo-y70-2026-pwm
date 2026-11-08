@@ -1,0 +1,96 @@
+{
+  "address_model": "import address + memory block offset; NOT live VA",
+  "analysis": false,
+  "binary": "/mnt/kston/legion-Y70-madness/artifacts/current_display_path/als/motorola.hardware.sensorext-service",
+  "command": "functions",
+  "elf_type": "ET_DYN",
+  "filter": "AlsCompensation",
+  "functions": [
+    {
+      "entry": {
+        "block": ".text",
+        "ghidra": "001095a8",
+        "offset": "0x15a8"
+      },
+      "name": "_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEP15AlsCompensationEENS_19__map_value_compareIS7_SA_NS_4lessIS7_EELb1EEENS5_ISA_EEE7destroyEPNS_11__tree_nodeISA_PvEE"
+    },
+    {
+      "entry": {
+        "block": ".text",
+        "ghidra": "00109610",
+        "offset": "0x1610"
+      },
+      "name": "_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEP15AlsCompensationEENS_19__map_value_compareIS7_SA_NS_4lessIS7_EELb1EEENS5_ISA_EEE4findIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_"
+    },
+    {
+      "entry": {
+        "block": ".text",
+        "ghidra": "0010971c",
+        "offset": "0x171c"
+      },
+      "name": "_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEP15AlsCompensationEENS_19__map_value_compareIS7_SA_NS_4lessIS7_EELb1EEENS5_ISA_EEE12__find_equalIS7_EERPNS_16__tree_node_baseIPvEERPNS_15__tree_end_nodeISL_EERKT_"
+    },
+    {
+      "entry": {
+        "block": ".text",
+        "ghidra": "001099c4",
+        "offset": "0x19c4"
+      },
+      "name": "_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEP15AlsCompensationEENS_19__map_value_compareIS7_SA_NS_4lessIS7_EELb1EEENS5_ISA_EEE14__erase_uniqueIS7_EEmRKT_"
+    },
+    {
+      "entry": {
+        "block": ".text",
+        "ghidra": "00112f28",
+        "offset": "0xaf28"
+      },
+      "name": "_ZN15AlsCompensationC1ENSt3__112basic_stringIcNS0_11char_traitsIcEENS0_9allocatorIcEEEES6_"
+    },
+    {
+      "entry": {
+        "block": ".text",
+        "ghidra": "00113250",
+        "offset": "0xb250"
+      },
+      "name": "_ZN15AlsCompensation4initEv"
+    },
+    {
+      "entry": {
+        "block": ".text",
+        "ghidra": "00114270",
+        "offset": "0xc270"
+      },
+      "name": "_ZN15AlsCompensation12updateConfigEifffff"
+    },
+    {
+      "entry": {
+        "block": ".text",
+        "ghidra": "001143fc",
+        "offset": "0xc3fc"
+      },
+      "name": "_ZN15AlsCompensationD1Ev"
+    },
+    {
+      "entry": {
+        "block": ".text",
+        "ghidra": "001147a8",
+        "offset": "0xc7a8"
+      },
+      "name": "_ZN15AlsCompensation9calculateEfj"
+    },
+    {
+      "entry": {
+        "block": ".text",
+        "ghidra": "00116e98",
+        "offset": "0xee98"
+      },
+      "name": "_GLOBAL__sub_I_AlsCompensation.cpp"
+    }
+  ],
+  "ghidra_version": "12.1.4",
+  "image_base": "00100000",
+  "language": "AARCH64:LE:64:v8A",
+  "selector": null,
+  "sha256": "b1a3bbb2dcb2fc975403c40df5a8404f62d3c95ac7239f5cdc2b0c05a7643f71",
+  "status": "ok"
+}

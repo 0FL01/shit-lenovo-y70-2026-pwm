@@ -1,0 +1,106 @@
+{
+  "model": "XT2611-1",
+  "region": "RETCN",
+  "build": "W3WWL36.65-48-7",
+  "url": "https://mirrors.lolinet.com/firmware/lenowow/2026/Legion_Y70_2026/XT2611-1/XT2611-1_AVR_RETCN_16_W3WWL36.65-48-7_subsidy-DEFAULT_regulatory-DEFAULT_CFC.xml.zip",
+  "archive_bytes": 15019660678,
+  "etag": "\"6a8b97ec-37f3dd586\"",
+  "scope": "Selected-member offline comparison, not trusted flash/recovery image",
+  "authenticity_signature_chain": "unknown",
+  "members": [
+    {
+      "name": "dtbo.img",
+      "bytes": 75497472,
+      "compressed_bytes": 143039,
+      "zip_crc32": "c7393c4c",
+      "zip_crc_verified": true,
+      "path": "/home/stfu/.cache/opencode-tmp/opencode/cn-48-7-dtbo-20261107/members/dtbo.img",
+      "sha256_for_binary_comparison": "5ef9e58f075e6735cca1ab7fd698283f6db95c426e001554780ecd83e50d3bf5"
+    },
+    {
+      "name": "signing-info.txt",
+      "bytes": 3177,
+      "compressed_bytes": 1107,
+      "zip_crc32": "a92086ef",
+      "zip_crc_verified": true,
+      "path": "/home/stfu/.cache/opencode-tmp/opencode/cn-48-7-dtbo-20261107/members/signing-info.txt"
+    },
+    {
+      "name": "AVR_CN_W3WWL36.65-48-7_subsidy-DEFAULT_regulatory-DEFAULT_CFC.info.txt",
+      "bytes": 882,
+      "compressed_bytes": 510,
+      "zip_crc32": "c39b86cf",
+      "zip_crc_verified": true,
+      "path": "/home/stfu/.cache/opencode-tmp/opencode/cn-48-7-dtbo-20261107/members/AVR_CN_W3WWL36.65-48-7_subsidy-DEFAULT_regulatory-DEFAULT_CFC.info.txt"
+    }
+  ],
+  "central_directory_entries": 58,
+  "range_requests": [
+    {
+      "start": 15019660656,
+      "end": 15019660677,
+      "bytes": 22
+    },
+    {
+      "start": 15019660636,
+      "end": 15019660655,
+      "bytes": 20
+    },
+    {
+      "start": 15019660580,
+      "end": 15019660635,
+      "bytes": 56
+    },
+    {
+      "start": 15019654902,
+      "end": 15019660579,
+      "bytes": 5678
+    },
+    {
+      "start": 234692458,
+      "end": 234692487,
+      "bytes": 30
+    },
+    {
+      "start": 234692488,
+      "end": 234692495,
+      "bytes": 8
+    },
+    {
+      "start": 234692524,
+      "end": 234835562,
+      "bytes": 143039
+    },
+    {
+      "start": 15019652944,
+      "end": 15019652973,
+      "bytes": 30
+    },
+    {
+      "start": 15019652974,
+      "end": 15019652989,
+      "bytes": 16
+    },
+    {
+      "start": 15019653018,
+      "end": 15019654124,
+      "bytes": 1107
+    },
+    {
+      "start": 15019654264,
+      "end": 15019654293,
+      "bytes": 30
+    },
+    {
+      "start": 15019654294,
+      "end": 15019654363,
+      "bytes": 70
+    },
+    {
+      "start": 15019654392,
+      "end": 15019654901,
+      "bytes": 510
+    }
+  ],
+  "downloaded_bytes": 150616
+}

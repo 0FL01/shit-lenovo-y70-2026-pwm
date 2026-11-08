@@ -1,0 +1,232 @@
+{
+  "capture": "artifacts/dsi_block_trials_20261106/with_redraw/run.json",
+  "video": "artifacts/optical/pacman_dsi_blocks_redraw_20261106.mp4",
+  "video_bytes": 178509912,
+  "decoded_frames": 4617,
+  "roi_xywh": [
+    540,
+    190,
+    60,
+    500
+  ],
+  "stages": [
+    {
+      "label": "baseline",
+      "window_s": [
+        13.2281445,
+        15.7281445
+      ],
+      "frames": 75,
+      "dominant_period_px": 92.78350515463917,
+      "spectral_search_boundary": false,
+      "q93_rms_Y_codes": 4.110314865351892,
+      "mean_Y_minus16": 17.486916444444446,
+      "normalized_q": 0.23505086665280714,
+      "pixel_Y_min": 15,
+      "pixel_Y_max": 46,
+      "fraction_Y_ge235": 0.0
+    },
+    {
+      "label": "mode90",
+      "window_s": [
+        29.1538485,
+        31.6538485
+      ],
+      "frames": 75,
+      "dominant_period_px": 94.33962264150944,
+      "spectral_search_boundary": false,
+      "q93_rms_Y_codes": 4.384668416965605,
+      "mean_Y_minus16": 17.551424000000004,
+      "normalized_q": 0.24981838607315301,
+      "pixel_Y_min": 15,
+      "pixel_Y_max": 48,
+      "fraction_Y_ge235": 0.0,
+      "normalized_q_ratio_to_adjacent_stock": 0.9807786232638657,
+      "mean_signal_ratio_to_adjacent_stock": 1.0054573285304442
+    },
+    {
+      "label": "return_mode90",
+      "window_s": [
+        45.3339785,
+        47.8339785
+      ],
+      "frames": 75,
+      "dominant_period_px": 94.14225941422593,
+      "spectral_search_boundary": false,
+      "q93_rms_Y_codes": 4.781144350345688,
+      "mean_Y_minus16": 17.42540355555556,
+      "normalized_q": 0.27437782632135166,
+      "pixel_Y_min": 15,
+      "pixel_Y_max": 47,
+      "fraction_Y_ge235": 0.0
+    },
+    {
+      "label": "thresholds",
+      "window_s": [
+        61.55834,
+        64.05834
+      ],
+      "frames": 75,
+      "dominant_period_px": null,
+      "spectral_search_boundary": true,
+      "q93_rms_Y_codes": 1.8359876988285073,
+      "mean_Y_minus16": 18.421222666666672,
+      "normalized_q": 0.09966698367697056,
+      "pixel_Y_min": 14,
+      "pixel_Y_max": 47,
+      "fraction_Y_ge235": 0.0,
+      "normalized_q_ratio_to_adjacent_stock": 0.39241346932259313,
+      "mean_signal_ratio_to_adjacent_stock": 1.0541013494221243
+    },
+    {
+      "label": "return_thresholds",
+      "window_s": [
+        77.926628,
+        80.426628
+      ],
+      "frames": 75,
+      "dominant_period_px": 93.3609958506224,
+      "spectral_search_boundary": false,
+      "q93_rms_Y_codes": 4.09395032662183,
+      "mean_Y_minus16": 17.52611733333333,
+      "normalized_q": 0.23359140240579412,
+      "pixel_Y_min": 15,
+      "pixel_Y_max": 45,
+      "fraction_Y_ge235": 0.0
+    },
+    {
+      "label": "page53",
+      "window_s": [
+        94.486883,
+        96.986883
+      ],
+      "frames": 75,
+      "dominant_period_px": 94.33962264150944,
+      "spectral_search_boundary": false,
+      "q93_rms_Y_codes": 4.659650805612,
+      "mean_Y_minus16": 17.44216844444444,
+      "normalized_q": 0.26714859568370697,
+      "pixel_Y_min": 15,
+      "pixel_Y_max": 46,
+      "fraction_Y_ge235": 0.0,
+      "normalized_q_ratio_to_adjacent_stock": 1.0722213286334479,
+      "mean_signal_ratio_to_adjacent_stock": 1.0009508105571367
+    },
+    {
+      "label": "return_page53",
+      "window_s": [
+        110.99489,
+        113.49489
+      ],
+      "frames": 75,
+      "dominant_period_px": 92.59259259259258,
+      "spectral_search_boundary": false,
+      "q93_rms_Y_codes": 4.586248659901541,
+      "mean_Y_minus16": 17.325082666666667,
+      "normalized_q": 0.2647172742630227,
+      "pixel_Y_min": 15,
+      "pixel_Y_max": 47,
+      "fraction_Y_ge235": 0.0
+    },
+    {
+      "label": "page63",
+      "window_s": [
+        127.713729,
+        130.213729
+      ],
+      "frames": 75,
+      "dominant_period_px": 94.33962264150944,
+      "spectral_search_boundary": false,
+      "q93_rms_Y_codes": 4.4209141121630156,
+      "mean_Y_minus16": 17.525168888888892,
+      "normalized_q": 0.25226085638272583,
+      "pixel_Y_min": 15,
+      "pixel_Y_max": 47,
+      "fraction_Y_ge235": 0.0,
+      "normalized_q_ratio_to_adjacent_stock": 1.0015183276734363,
+      "mean_signal_ratio_to_adjacent_stock": 1.006400049228105
+    },
+    {
+      "label": "return_page63",
+      "window_s": [
+        144.5702005,
+        147.0702005
+      ],
+      "frames": 75,
+      "dominant_period_px": 92.59259259259258,
+      "spectral_search_boundary": false,
+      "q93_rms_Y_codes": 4.183756086712252,
+      "mean_Y_minus16": 17.502357777777775,
+      "normalized_q": 0.2390395705442751,
+      "pixel_Y_min": 15,
+      "pixel_Y_max": 46,
+      "fraction_Y_ge235": 0.0
+    }
+  ],
+  "method": "Original limited-range Y; temporal mean removal per stage, per-frame quadratic detrend, Hann spatial Fourier. q93 is an image component, not Hz/depth. Comparison images alone use equal gamma2.",
+  "window_alignment": "Coarse native record-tap origin, central2.5s windows inside7s holds; contact-sheet inspection required. No sensor-to-video timestamp accuracy claim.",
+  "native": {
+    "table_packets_matched": 675,
+    "post_table_DBV_writes": 9,
+    "callback_returns": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "controller_return_count": 803,
+    "controller_negative_returns": 0,
+    "probe_misses": 0
+  },
+  "pwm_hz": "unknown",
+  "greater_equal_2000_hz_verified": false,
+  "target_restored": true,
+  "camera_original_restoration_pending": true,
+  "comparison_image": "artifacts/optical/pacman_dsi_blocks_redraw_comparison.png",
+  "limits": [
+    "Image amplitude is not calibrated modulation depth/luminance.",
+    "Same DBV does not guarantee same optical brightness across programs.",
+    "No independently measured panel temperature or numerical carrier frequency."
+  ]
+}

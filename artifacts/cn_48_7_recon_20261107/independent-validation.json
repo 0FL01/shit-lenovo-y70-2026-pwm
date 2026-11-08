@@ -1,0 +1,113 @@
+{
+  "dtc_version": "Version: DTC 1.7.0-Android-build",
+  "binary_roundtrip_returncode": 0,
+  "all14631_property_values_binary_roundtrip_equal": true,
+  "node_count": 1943,
+  "property_count": 14631,
+  "dtc_warning_lines": 577,
+  "warning_scope": "Overlay checked withoutbase; noflashcompatibilityclaim.",
+  "initial_text_roundtrip_failure": {
+    "reason": "Text NUL beforeASCIIoctaldigit is parsed asoctalescape; sixnonpanelproperties altered. Notusedasinputorevidenceforcommands.",
+    "properties": [
+      {
+        "node": "",
+        "property": "channel-id-map",
+        "before_bytes": 1969,
+        "after_bytes": 1967
+      },
+      {
+        "node": "/fragment@30/__overlay__/mmi,charger",
+        "property": "main-ids-map",
+        "before_bytes": 35,
+        "after_bytes": 34
+      },
+      {
+        "node": "/fragment@30/__overlay__/mmi,charger",
+        "property": "profile-ids-map",
+        "before_bytes": 35,
+        "after_bytes": 34
+      },
+      {
+        "node": "/fragment@229/__overlay__/wcd939x-codec",
+        "property": "qcom,cdc-vdd-mic-bias-voltage",
+        "before_bytes": 8,
+        "after_bytes": 6
+      },
+      {
+        "node": "/fragment@229/__overlay__/wcd9378-codec",
+        "property": "qcom,cdc-vdd-mic-bias-voltage",
+        "before_bytes": 8,
+        "after_bytes": 6
+      },
+      {
+        "node": "/fragment@229/__overlay__/wcd937x-codec",
+        "property": "qcom,cdc-vdd-mic-bias-voltage",
+        "before_bytes": 8,
+        "after_bytes": 6
+      }
+    ]
+  },
+  "old_cn11_to_new_cn48_changed_v4_command_arrays": [
+    {
+      "property": "qcom,mdss-dsi-display-timings/timing@0/qcom,mdss-dsi-on-command",
+      "old_bytes": 1145,
+      "new_bytes": 1176
+    },
+    {
+      "property": "qcom,mdss-dsi-display-timings/timing@0/qcom,mdss-dsi-timing-switch-command",
+      "old_bytes": 109,
+      "new_bytes": 140
+    },
+    {
+      "property": "qcom,mdss-dsi-display-timings/timing@3/qcom,mdss-dsi-on-command",
+      "old_bytes": 1145,
+      "new_bytes": 1176
+    },
+    {
+      "property": "qcom,mdss-dsi-display-timings/timing@3/qcom,mdss-dsi-timing-switch-command",
+      "old_bytes": 109,
+      "new_bytes": 140
+    },
+    {
+      "property": "qcom,mdss-dsi-display-timings/timing@4/qcom,mdss-dsi-on-command",
+      "old_bytes": 1145,
+      "new_bytes": 1176
+    },
+    {
+      "property": "qcom,mdss-dsi-display-timings/timing@4/qcom,mdss-dsi-timing-switch-command",
+      "old_bytes": 109,
+      "new_bytes": 300
+    },
+    {
+      "property": "qcom,mdss-dsi-display-timings/timing@5/qcom,mdss-dsi-on-command",
+      "old_bytes": 1145,
+      "new_bytes": 1176
+    },
+    {
+      "property": "qcom,mdss-dsi-display-timings/timing@5/qcom,mdss-dsi-timing-switch-command",
+      "old_bytes": 109,
+      "new_bytes": 300
+    },
+    {
+      "property": "qcom,mdss-dsi-display-timings/timing@6/qcom,mdss-dsi-on-command",
+      "old_bytes": 1145,
+      "new_bytes": 1176
+    },
+    {
+      "property": "qcom,mdss-dsi-display-timings/timing@6/qcom,mdss-dsi-timing-switch-command",
+      "old_bytes": 109,
+      "new_bytes": 140
+    },
+    {
+      "property": "qcom,mdss-dsi-display-timings/timing@7/qcom,mdss-dsi-on-command",
+      "old_bytes": 1145,
+      "new_bytes": 1176
+    },
+    {
+      "property": "qcom,mdss-dsi-display-timings/timing@7/qcom,mdss-dsi-timing-switch-command",
+      "old_bytes": 109,
+      "new_bytes": 140
+    }
+  ],
+  "new_dsi_sent": false
+}

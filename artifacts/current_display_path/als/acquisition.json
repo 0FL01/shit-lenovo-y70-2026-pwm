@@ -1,0 +1,24 @@
+{
+  "at_utc": "2026-11-06T15:31:07.677925+00:00",
+  "scope": "read-only ALS-config and direct-consumer acquisition; no toggles/sensor registration",
+  "files": [
+    {
+      "target_path": "/vendor/etc/sensors/als_comp_config.xml",
+      "saved": "artifacts/current_display_path/als/als_comp_config.xml",
+      "bytes": 3607,
+      "equal_cn_reference": true
+    },
+    {
+      "target_path": "/vendor/bin/hw/motorola.hardware.sensorext-service",
+      "saved": "artifacts/current_display_path/als/motorola.hardware.sensorext-service",
+      "bytes": 136600,
+      "equal_cn_reference": false
+    },
+    {
+      "target_path": "/vendor/lib64/panel_als_comp_filter_avr.so",
+      "saved": "artifacts/current_display_path/als/panel_als_comp_filter_avr.so",
+      "bytes": 35280,
+      "equal_cn_reference": true
+    }
+  ]
+}

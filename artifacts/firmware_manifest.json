@@ -1,0 +1,765 @@
+{
+  "version": 1,
+  "uefi_display_recon_20261107": {
+    "status": "reported; offline reference images only, not current-target bootloader identity",
+    "builds": ["XT2611-1 RETCN W3WWL36.65-11-18", "XT2611-3 RETEU W3WW36.65-64-4"],
+    "member": "bootloader.img, from the already downloaded service ZIPs",
+    "extraction_path": "/home/stfu/.cache/opencode-tmp/opencode/uefi-panel-recon-20261107",
+    "integrity": "Both ZIP CRCs verified; container record boundaries/padding/recipe refs checked; both extracted LZMA UEFI volumes pass 7z t",
+    "finding": "GLOBAL v4 init:95 packet type/order/payload/numeric delays equal current selected timing@0; DisplayDxe/BacklightDxe differ only in CodeView workspace paths between references",
+    "target_compatibility": "unknown; no boot/flash proposed or performed",
+    "evidence": "artifacts/uefi_panel_recon_20261107/result.md"
+  },
+  "analysis_date_utc": "2026-10-28",
+  "cn48_selected_dtbo_20261107": {
+    "status": "reported; selected ZIP members CRC-verified, signature chain unknown",
+    "model": "XT2611-1",
+    "region": "RETCN",
+    "build": "W3WWL36.65-48-7",
+    "url": "https://mirrors.lolinet.com/firmware/lenowow/2026/Legion_Y70_2026/XT2611-1/XT2611-1_AVR_RETCN_16_W3WWL36.65-48-7_subsidy-DEFAULT_regulatory-DEFAULT_CFC.xml.zip",
+    "archive_bytes": 15019660678,
+    "full_archive_downloaded": false,
+    "extraction_path": "/home/stfu/.cache/opencode-tmp/opencode/cn-48-7-dtbo-20261107/members",
+    "dtbo_sha256_for_binary_comparison": "5ef9e58f075e6735cca1ab7fd698283f6db95c426e001554780ecd83e50d3bf5",
+    "additional_member": "vendor_boot.img; CRC-verified range acquisition for offline msm_drm extraction only",
+    "vendor_boot_sha256_for_module_provenance": "c18bd22aa1b72666afea69acd3da8967afc7ab231e2ab41494bbe28a8214e68c",
+    "msm_drm_sha256": "d3519a51bf9a74e02448c455349f8e69fccca1aa316a7be4951ada76c6b8b52d",
+    "msm_drm_comparison": "byte-equal GLOBAL reference W3WW36.65-64-4 module, not equal current W3WWS36.65-64-4-1 module",
+    "selected_v4_comparison": "412 shared properties equal; all53 -command properties equal (52 packet arrays plus1 TE u32), versus saved current GLOBAL selected DT",
+    "target_compatibility": "unknown; not proposed for boot or flash",
+    "evidence": "artifacts/cn_48_7_recon_20261107/result.md"
+  },
+  "new_release_lead_20261107": {
+    "status": "reported",
+    "build": "AI71WWH.15-43",
+    "android_version_reported": 17,
+    "ui_package_size_reported": "2.59 GB",
+    "source_topic": "https://4pda.to/forum/lofiversion/index.php?t1121132.html",
+    "offer_post": "https://4pda.to/forum/index.php?showtopic=1121132&view=findpost&p=145858450",
+    "package_url": null,
+    "package_downloaded": false,
+    "extraction_path": null,
+    "target_compatibility": "unknown; not proposed for installation",
+    "target_modified_or_ota_check_started": false,
+    "evidence": "artifacts/community_pwm_followup_20261107.md"
+  },
+  "status": "reported",
+  "model": "XT2611-1",
+  "region": "RETCN",
+  "build": "W3WWL36.65-11-18",
+  "url": "https://mirrors.lolinet.com/firmware/lenowow/2026/Legion_Y70_2026/XT2611-1/XT2611-1_AVR_RETCN_16_W3WWL36.65-11-18_subsidy-DEFAULT_regulatory-DEFAULT_CFC.xml.zip",
+  "url_provenance": "Mirror URL previously supplied to owner; owner downloaded the local ZIP. Download transport was not captured by this task; authenticity/signature chain not established.",
+  "archive": {
+    "path": "downloads/XT2611-1_AVR_RETCN_16_W3WWL36.65-11-18_subsidy-DEFAULT_regulatory-DEFAULT_CFC.xml.zip",
+    "size_bytes": 14918250042,
+    "file_mtime_utc": "2026-10-28T18:10:24.237463+00:00",
+    "format": "ZIP64 Motorola XML service package with 36 Android sparsechunks",
+    "entry_count": 57,
+    "uncompressed_bytes": 17919480675,
+    "entries": [
+      {
+        "path": "init_boot.img",
+        "size_bytes": 8388608
+      },
+      {
+        "path": "pvmfw.img",
+        "size_bytes": 1048576
+      },
+      {
+        "path": "recovery.img",
+        "size_bytes": 134217728
+      },
+      {
+        "path": "vendor_boot.img",
+        "size_bytes": 100663296
+      },
+      {
+        "path": "vbmeta_system.img",
+        "size_bytes": 4096
+      },
+      {
+        "path": "gpt.bin",
+        "size_bytes": 211712
+      },
+      {
+        "path": "boot.img",
+        "size_bytes": 100663296
+      },
+      {
+        "path": "dspso.bin",
+        "size_bytes": 77594624
+      },
+      {
+        "path": "BTFM.bin",
+        "size_bytes": 2117708
+      },
+      {
+        "path": "vbmeta.img",
+        "size_bytes": 8192
+      },
+      {
+        "path": "radio.img",
+        "size_bytes": 221746944
+      },
+      {
+        "path": "dtbo.img",
+        "size_bytes": 75497472
+      },
+      {
+        "path": "logo.bin",
+        "size_bytes": 24535040
+      },
+      {
+        "path": "bootloader.img",
+        "size_bytes": 83563776
+      },
+      {
+        "path": "super.img_sparsechunk.0",
+        "size_bytes": 492536024
+      },
+      {
+        "path": "super.img_sparsechunk.1",
+        "size_bytes": 469762184
+      },
+      {
+        "path": "super.img_sparsechunk.2",
+        "size_bytes": 469762184
+      },
+      {
+        "path": "super.img_sparsechunk.3",
+        "size_bytes": 469762184
+      },
+      {
+        "path": "super.img_sparsechunk.4",
+        "size_bytes": 469762184
+      },
+      {
+        "path": "super.img_sparsechunk.5",
+        "size_bytes": 469762184
+      },
+      {
+        "path": "super.img_sparsechunk.6",
+        "size_bytes": 469762184
+      },
+      {
+        "path": "super.img_sparsechunk.7",
+        "size_bytes": 469762184
+      },
+      {
+        "path": "super.img_sparsechunk.8",
+        "size_bytes": 469762184
+      },
+      {
+        "path": "super.img_sparsechunk.9",
+        "size_bytes": 469762184
+      },
+      {
+        "path": "super.img_sparsechunk.10",
+        "size_bytes": 469762184
+      },
+      {
+        "path": "super.img_sparsechunk.11",
+        "size_bytes": 469762184
+      },
+      {
+        "path": "super.img_sparsechunk.12",
+        "size_bytes": 469762184
+      },
+      {
+        "path": "super.img_sparsechunk.13",
+        "size_bytes": 469762184
+      },
+      {
+        "path": "super.img_sparsechunk.14",
+        "size_bytes": 469762184
+      },
+      {
+        "path": "super.img_sparsechunk.15",
+        "size_bytes": 469762184
+      },
+      {
+        "path": "super.img_sparsechunk.16",
+        "size_bytes": 469762184
+      },
+      {
+        "path": "super.img_sparsechunk.17",
+        "size_bytes": 469762184
+      },
+      {
+        "path": "super.img_sparsechunk.18",
+        "size_bytes": 469762184
+      },
+      {
+        "path": "super.img_sparsechunk.19",
+        "size_bytes": 469762184
+      },
+      {
+        "path": "super.img_sparsechunk.20",
+        "size_bytes": 469762184
+      },
+      {
+        "path": "super.img_sparsechunk.21",
+        "size_bytes": 469762184
+      },
+      {
+        "path": "super.img_sparsechunk.22",
+        "size_bytes": 469762184
+      },
+      {
+        "path": "super.img_sparsechunk.23",
+        "size_bytes": 469762184
+      },
+      {
+        "path": "super.img_sparsechunk.24",
+        "size_bytes": 469762184
+      },
+      {
+        "path": "super.img_sparsechunk.25",
+        "size_bytes": 469762184
+      },
+      {
+        "path": "super.img_sparsechunk.26",
+        "size_bytes": 469762184
+      },
+      {
+        "path": "super.img_sparsechunk.27",
+        "size_bytes": 469762184
+      },
+      {
+        "path": "super.img_sparsechunk.28",
+        "size_bytes": 493240508
+      },
+      {
+        "path": "super.img_sparsechunk.29",
+        "size_bytes": 499605668
+      },
+      {
+        "path": "super.img_sparsechunk.30",
+        "size_bytes": 479719612
+      },
+      {
+        "path": "super.img_sparsechunk.31",
+        "size_bytes": 503832816
+      },
+      {
+        "path": "super.img_sparsechunk.32",
+        "size_bytes": 469762184
+      },
+      {
+        "path": "super.img_sparsechunk.33",
+        "size_bytes": 478351548
+      },
+      {
+        "path": "super.img_sparsechunk.34",
+        "size_bytes": 497791140
+      },
+      {
+        "path": "super.img_sparsechunk.35",
+        "size_bytes": 490782936
+      },
+      {
+        "path": "flashfile.xml",
+        "size_bytes": 7215
+      },
+      {
+        "path": "servicefile.xml",
+        "size_bytes": 6869
+      },
+      {
+        "path": "slcf_rev_d_default_v1.0.nvm",
+        "size_bytes": 0
+      },
+      {
+        "path": "regulatory_info_default.png",
+        "size_bytes": 0
+      },
+      {
+        "path": "signing-info.txt",
+        "size_bytes": 3177
+      },
+      {
+        "path": "cmf_color_range_full_list.txt",
+        "size_bytes": 54
+      },
+      {
+        "path": "AVR_CN_W3WWL36.65-11-18_subsidy-DEFAULT_regulatory-DEFAULT_CFC.info.txt",
+        "size_bytes": 888
+      }
+    ]
+  },
+  "package_metadata": {
+    "system_fingerprint_reported": "Lenovo/avr_cn/avr:16/W3WWL36.65-11-18/12710e-0d97a:user/release-keys",
+    "vendor_fingerprint_extracted": "motorola/avr_cn/avr:16/WWW36V.65-11-ST9.1/12710e:user/release-keys",
+    "build_date_reported": "Tue Jun 2 05:19:57 CDT 2026",
+    "bootloader_version_reported": "MBM-3.0-avr_cn-694faeff5cdc-260602-WWW36V.65-11-ST9.1-12710e",
+    "hab_cid_reported": 11,
+    "hab_customer_region_reported": "ChnIndJpnUnlk",
+    "vbmeta_header_observations": "vbmeta and vbmeta_system: avbtool 1.3.0; algorithm type 2; rollback index 0; flags 0. Metadata only, not signature verification or device rollback policy."
+  },
+  "extraction": {
+    "root": "extracted/XT2611-1/W3WWL36.65-11-18",
+    "images_directory": "extracted/XT2611-1/W3WWL36.65-11-18/images",
+    "selected_zip_members_extracted": 46,
+    "selected_zip_members_uncompressed_bytes": 17374444513,
+    "zip_integrity_result": "7-Zip extraction passed CRC for 46 selected members; whole-archive test not run",
+    "super_reconstruction": "Native simg2img on all 36 chunks in numeric order; no raw concatenation",
+    "super_raw_path": "extracted/XT2611-1/W3WWL36.65-11-18/super.raw.img",
+    "super_raw_logical_bytes": 27917287424,
+    "liblp_metadata": {
+      "version": "10.2",
+      "slot_count": 3,
+      "header_flags": "virtual_ab_device"
+    },
+    "partitions_directory": "extracted/XT2611-1/W3WWL36.65-11-18/partitions",
+    "filesystems_directory": "extracted/XT2611-1/W3WWL36.65-11-18/filesystems",
+    "partitions": [
+      {
+        "name": "vendor_a",
+        "size_bytes": 1367171072,
+        "filesystem": "EROFS",
+        "extraction": "filesystems/vendor_a",
+        "result": "fsck.erofs extraction succeeded"
+      },
+      {
+        "name": "vendor_dlkm_a",
+        "size_bytes": 28635136,
+        "filesystem": "EROFS",
+        "extraction": "filesystems/vendor_dlkm_a",
+        "result": "fsck.erofs extraction succeeded"
+      },
+      {
+        "name": "odm_a",
+        "size_bytes": 291803136,
+        "filesystem": "EROFS",
+        "extraction": "filesystems/odm_a",
+        "result": "fsck.erofs extraction succeeded"
+      },
+      {
+        "name": "system_ext_a",
+        "size_bytes": 883879936,
+        "filesystem": "EROFS",
+        "extraction": "filesystems/system_ext_a",
+        "result": "fsck.erofs extraction succeeded"
+      },
+      {
+        "name": "system_a",
+        "size_bytes": 1319137280,
+        "filesystem": "EROFS",
+        "extraction": "filesystems/system_a",
+        "result": "Added during GLOBAL/framework comparison; fsck.erofs extraction succeeded"
+      }
+    ],
+    "vendor_boot_selected_files": [
+      "first_stage_ramdisk/fstab.qcom",
+      "lib/modules/msm_drm.ko",
+      "lib/modules/modules.dep",
+      "lib/modules/modules.load",
+      "lib/modules/modules.load.recovery"
+    ],
+    "vendor_boot_selected_root": "extracted/XT2611-1/W3WWL36.65-11-18/vendor_boot_ramdisk",
+    "lineage": "All extracted paths under this root derive only from this XT2611-1/RETCN/build ZIP. Partition roots name the source logical partition; vendor_boot_ramdisk derives from vendor_boot.img legacy-LZ4 CPIO. No GLOBAL partitions mixed in.",
+    "not_extracted": "product/system_b/system_dlkm filesystems and unrelated bootloader/modem firmware; no guest binaries or flashing XML executed"
+  },
+  "display": {
+    "cn_kernel_release": "6.12.58-android16-6-g18b507169406-ab14630870-4k",
+    "cn_msm_drm_size_bytes": 6075488,
+    "cn_msm_drm_elf_build_id": "13232a6fe74b761626ed9c14ee2f59b68ca46504",
+    "cn_msm_drm_vermagic": "6.12.58-android16-6-maybe-dirty-4k SMP preempt mod_unload modversions aarch64",
+    "cn_module_duplicate_result": "vendor_boot and vendor_dlkm copies compared byte-for-byte: equal",
+    "cn_displaypanel_elf_build_id": "37539c0f74fbff02b72d6eacd0397747",
+    "dtbo_data_report": "artifacts/cn_panel_commands.json",
+    "source_tag": "MMI-W3WWL36.65-11-18",
+    "dts_commit": "f088523dfba85c95c15f43726fcf972c0c7a957a",
+    "driver_repository": "https://github.com/MotorolaMobilityLLC/kernel-msm-5.4-techpack-display",
+    "driver_commit": "fa008c43c070ff20faa33853649f5dfd4c427e99",
+    "driver_annotated_tag_object": "f0357a11a2c3ca0c749ea2717a49d6989c9243dd",
+    "source_match_scope": "All ten ILI97701A v0-v4 DC ON/OFF arrays equal CN DTBO bytes; not a full DTBO/module build match and not installed GLOBAL equivalence",
+    "target_comparison": "CN matches 10/11 saved pre-OTA T01 vendor fingerprints; GLOBAL reference matches 11/11. FOSS delta and current-OTA limitation: artifacts/display_diffs.md",
+    "live_panel_revision": "unknown",
+    "optical_pwm_hz": "unknown"
+  },
+  "tools": {
+    "python": "3.13.5",
+    "7zip": "26.04",
+    "simg2img_lpunpack_lpdump_package": "android-tools-37.0.0-4.fc44.x86_64",
+    "readelf_package": "binutils-2.46.1-1.fc44.x86_64",
+    "aarch64_objdump_package": "binutils-aarch64-linux-gnu-2.46.1-1.fc44.x86_64",
+    "modinfo_package": "kmod-34.2-4.fc44.x86_64",
+    "lz4": "1.9.4",
+    "avbtool_info_image": "1.4.0",
+    "android_dexdump_aapt": "/home/stfu/.cache/android-sdk/build-tools/37.0.0/",
+    "capstone_static_analysis": "5.0.7 (subagent; installed tool, no system installation)",
+    "erofs_used": {
+      "version": "1.7.1",
+      "path": "extracted/tools/erofs-1.7.1/usr/bin/fsck.erofs",
+      "package": "downloads/tools/erofs-utils-1.7.1-1.el9.x86_64.rpm",
+      "url": "https://dl.fedoraproject.org/pub/epel/9/Everything/x86_64/Packages/e/erofs-utils-1.7.1-1.el9.x86_64.rpm",
+      "installation": "Selected host tools unpacked locally with rpm2cpio/bsdtar; no system package installation or root"
+    },
+    "erofs_unusable_attempt": {
+      "package": "downloads/tools/erofs-utils-1.9.1-1.fc44.x86_64.rpm",
+      "url": "https://kojipkgs.fedoraproject.org/packages/erofs-utils/1.9.1/1.fc44/x86_64/erofs-utils-1.9.1-1.fc44.x86_64.rpm",
+      "result": "Missing host libqpl.so.1; not used for filesystem extraction"
+    }
+  },
+  "global_reference": {
+    "status": "reported",
+    "model": "XT2611-3",
+    "region": "RETEU",
+    "channel": "TELEU",
+    "build": "W3WW36.65-64-4",
+    "url": "https://mirrors.lolinet.com/firmware/lenomola/2026/avr/official/TELEU/XT2611-3_AVR_RETEU_16_W3WW36.65-64-4_subsidy-DEFAULT_regulatory-DEFAULT_cid50_CFC.xml.zip",
+    "url_provenance": "Mirror URL supplied to owner; owner downloaded local ZIP. Download transport and cryptographic authenticity not established.",
+    "archive": {
+      "path": "downloads/XT2611-3_AVR_RETEU_16_W3WW36.65-64-4_subsidy-DEFAULT_regulatory-DEFAULT_cid50_CFC.xml.zip",
+      "size_bytes": 13483677726,
+      "file_mtime_utc": "2026-10-28T19:22:46.589224+00:00",
+      "format": "ZIP64 Motorola XML service package with 34 Android sparsechunks",
+      "entry_count": 56,
+      "uncompressed_bytes": 16662381049,
+      "entries": [
+        {
+          "path": "init_boot.img",
+          "size_bytes": 8388608
+        },
+        {
+          "path": "pvmfw.img",
+          "size_bytes": 1048576
+        },
+        {
+          "path": "recovery.img",
+          "size_bytes": 134217728
+        },
+        {
+          "path": "vendor_boot.img",
+          "size_bytes": 100663296
+        },
+        {
+          "path": "vbmeta_system.img",
+          "size_bytes": 4096
+        },
+        {
+          "path": "gpt.bin",
+          "size_bytes": 211712
+        },
+        {
+          "path": "boot.img",
+          "size_bytes": 100663296
+        },
+        {
+          "path": "dspso.bin",
+          "size_bytes": 77594624
+        },
+        {
+          "path": "BTFM.bin",
+          "size_bytes": 2117708
+        },
+        {
+          "path": "vbmeta.img",
+          "size_bytes": 8192
+        },
+        {
+          "path": "radio.img",
+          "size_bytes": 220669696
+        },
+        {
+          "path": "dtbo.img",
+          "size_bytes": 75497472
+        },
+        {
+          "path": "logo.bin",
+          "size_bytes": 24535040
+        },
+        {
+          "path": "bootloader.img",
+          "size_bytes": 83563776
+        },
+        {
+          "path": "super.img_sparsechunk.0",
+          "size_bytes": 492527832
+        },
+        {
+          "path": "super.img_sparsechunk.1",
+          "size_bytes": 469762184
+        },
+        {
+          "path": "super.img_sparsechunk.2",
+          "size_bytes": 469762184
+        },
+        {
+          "path": "super.img_sparsechunk.3",
+          "size_bytes": 469762184
+        },
+        {
+          "path": "super.img_sparsechunk.4",
+          "size_bytes": 469762184
+        },
+        {
+          "path": "super.img_sparsechunk.5",
+          "size_bytes": 469762184
+        },
+        {
+          "path": "super.img_sparsechunk.6",
+          "size_bytes": 469762184
+        },
+        {
+          "path": "super.img_sparsechunk.7",
+          "size_bytes": 469762184
+        },
+        {
+          "path": "super.img_sparsechunk.8",
+          "size_bytes": 469762184
+        },
+        {
+          "path": "super.img_sparsechunk.9",
+          "size_bytes": 469762184
+        },
+        {
+          "path": "super.img_sparsechunk.10",
+          "size_bytes": 469762184
+        },
+        {
+          "path": "super.img_sparsechunk.11",
+          "size_bytes": 469762184
+        },
+        {
+          "path": "super.img_sparsechunk.12",
+          "size_bytes": 469762184
+        },
+        {
+          "path": "super.img_sparsechunk.13",
+          "size_bytes": 469762184
+        },
+        {
+          "path": "super.img_sparsechunk.14",
+          "size_bytes": 469762184
+        },
+        {
+          "path": "super.img_sparsechunk.15",
+          "size_bytes": 469762184
+        },
+        {
+          "path": "super.img_sparsechunk.16",
+          "size_bytes": 469762184
+        },
+        {
+          "path": "super.img_sparsechunk.17",
+          "size_bytes": 469762184
+        },
+        {
+          "path": "super.img_sparsechunk.18",
+          "size_bytes": 469762184
+        },
+        {
+          "path": "super.img_sparsechunk.19",
+          "size_bytes": 469762184
+        },
+        {
+          "path": "super.img_sparsechunk.20",
+          "size_bytes": 469762184
+        },
+        {
+          "path": "super.img_sparsechunk.21",
+          "size_bytes": 469762184
+        },
+        {
+          "path": "super.img_sparsechunk.22",
+          "size_bytes": 469762184
+        },
+        {
+          "path": "super.img_sparsechunk.23",
+          "size_bytes": 469762184
+        },
+        {
+          "path": "super.img_sparsechunk.24",
+          "size_bytes": 469762184
+        },
+        {
+          "path": "super.img_sparsechunk.25",
+          "size_bytes": 469762184
+        },
+        {
+          "path": "super.img_sparsechunk.26",
+          "size_bytes": 520683708
+        },
+        {
+          "path": "super.img_sparsechunk.27",
+          "size_bytes": 516985064
+        },
+        {
+          "path": "super.img_sparsechunk.28",
+          "size_bytes": 483172580
+        },
+        {
+          "path": "super.img_sparsechunk.29",
+          "size_bytes": 469762184
+        },
+        {
+          "path": "super.img_sparsechunk.30",
+          "size_bytes": 502390972
+        },
+        {
+          "path": "super.img_sparsechunk.31",
+          "size_bytes": 480260260
+        },
+        {
+          "path": "super.img_sparsechunk.32",
+          "size_bytes": 469762184
+        },
+        {
+          "path": "super.img_sparsechunk.33",
+          "size_bytes": 153579676
+        },
+        {
+          "path": "flashfile.xml",
+          "size_bytes": 7096
+        },
+        {
+          "path": "servicefile.xml",
+          "size_bytes": 6750
+        },
+        {
+          "path": "slcf_rev_d_default_v1.0.nvm",
+          "size_bytes": 0
+        },
+        {
+          "path": "regulatory_info_default.png",
+          "size_bytes": 0
+        },
+        {
+          "path": "cid_template.dat",
+          "size_bytes": 44
+        },
+        {
+          "path": "signing-info.txt",
+          "size_bytes": 3331
+        },
+        {
+          "path": "cmf_color_range_full_list.txt",
+          "size_bytes": 54
+        },
+        {
+          "path": "AVR_G_W3WW36.65-64-4_subsidy-DEFAULT_regulatory-DEFAULT_cid50_CFC.info.txt",
+          "size_bytes": 894
+        }
+      ]
+    },
+    "package_metadata": {
+      "system_fingerprint_reported": "motorola/avr_g/avr:16/W3WW36.65-64-4/74ded8-48cd7:user/release-keys",
+      "build_date_reported": "Wed Aug 5 08:52:43 CDT 2026",
+      "bootloader_version_reported": "MBM-3.0-avr_g-0d80517c428a-dirty-260805-WWW36V.65-64-ST9.5-74ded8",
+      "kernel_release_extracted": "6.12.58-android16-6-gb0a9599c6c01-ab14987696-4k",
+      "hab_cid_reported": 50,
+      "hab_security_version_reported": 2,
+      "avb_header_observations": "Top/system SHA256_RSA4096, rollback index 2, flags 0; embedded public key bytes equal CN. Metadata comparison, not signature verification or target rollback measurement."
+    },
+    "extraction": {
+      "root": "extracted/XT2611-3/W3WW36.65-64-4",
+      "images_directory": "extracted/XT2611-3/W3WW36.65-64-4/images",
+      "selected_zip_members_extracted": 44,
+      "selected_zip_members_uncompressed_bytes": 16118422091,
+      "zip_integrity_result": "7-Zip extraction passed CRC for 44 selected members; whole-archive test not run",
+      "super_reconstruction": "Native simg2img on all 34 chunks in numeric order; no raw concatenation",
+      "super_raw_path": "extracted/XT2611-3/W3WW36.65-64-4/super.raw.img",
+      "super_raw_logical_bytes": 21474836480,
+      "liblp_metadata": {
+        "version": "10.2",
+        "slot_count": 3,
+        "header_flags": "virtual_ab_device"
+      },
+      "partitions_directory": "extracted/XT2611-3/W3WW36.65-64-4/partitions",
+      "filesystems_directory": "extracted/XT2611-3/W3WW36.65-64-4/filesystems",
+      "partitions": [
+        {
+          "name": "vendor_a",
+          "size_bytes": 1415241728,
+          "filesystem": "EROFS",
+          "extraction": "filesystems/vendor_a",
+          "result": "fsck.erofs extraction succeeded"
+        },
+        {
+          "name": "vendor_dlkm_a",
+          "size_bytes": 28635136,
+          "filesystem": "EROFS",
+          "extraction": "filesystems/vendor_dlkm_a",
+          "result": "fsck.erofs extraction succeeded"
+        },
+        {
+          "name": "odm_a",
+          "size_bytes": 291794944,
+          "filesystem": "EROFS",
+          "extraction": "filesystems/odm_a",
+          "result": "fsck.erofs extraction succeeded"
+        },
+        {
+          "name": "system_ext_a",
+          "size_bytes": 638705664,
+          "filesystem": "EROFS",
+          "extraction": "filesystems/system_ext_a",
+          "result": "fsck.erofs extraction succeeded"
+        },
+        {
+          "name": "system_a",
+          "size_bytes": 720678912,
+          "filesystem": "EROFS",
+          "extraction": "filesystems/system_a",
+          "result": "fsck.erofs extraction succeeded"
+        }
+      ],
+      "vendor_boot_selected_files": [
+        "first_stage_ramdisk/fstab.qcom",
+        "lib/modules/msm_drm.ko",
+        "lib/modules/modules.dep",
+        "lib/modules/modules.load",
+        "lib/modules/modules.load.recovery"
+      ],
+      "vendor_boot_selected_root": "extracted/XT2611-3/W3WW36.65-64-4/vendor_boot_ramdisk",
+      "vendor_boot_ramdisk_decompressed_bytes": 31759104,
+      "lineage": "Only this XT2611-3/RETEU/build ZIP; no CN/owner files mixed into this root",
+      "not_extracted": "product/system_b/system_dlkm filesystems and unrelated bootloader/modem firmware; no guest binaries or flashing XML executed"
+    },
+    "reports": [
+      "artifacts/eu_panel_commands.md",
+      "artifacts/eu_panel_commands.json",
+      "artifacts/regional_dtbo_diff.json",
+      "artifacts/native_display_diff.json",
+      "artifacts/driver_callgraph.md"
+    ],
+    "target_match_limit": "Fingerprint/kernel and 11 saved vendor fingerprints match pre-OTA T01 inventory only. Current W3WWS36.65-64-4-1 and g09eda8c8505a are not this reference. Not a trusted full owner backup or cross-SKU boot compatibility proof.",
+    "rescue_kit_extract": {
+      "path": "artifacts/firmware/w3ww_base_36.65-64-4",
+      "extracted_utc": "2026-10-29",
+      "images_sha256": {
+        "boot.img": "37a577e1a337ab01089f1a64197ba9b0ed8da424b18f407a0a6d222d8ca1072b",
+        "init_boot.img": "5ce5c4613088a19ccc3177637fa607cc23ce9d792d6bf2ba1230647949a28dad",
+        "vendor_boot.img": "f8673a9baf1ce54dca78cc38941f2e4b4b1bf197904f55ef74ef7447ae0a4f6a",
+        "dtbo.img": "2bf033dae7c28c206b1e149f03dbb58d11ffe29eb95704addb28cb66785032fe",
+        "vbmeta.img": "d77cf503112b760b44c505abce7231a12fb4cb6eefd498f4f45b746452e4c6e0",
+        "recovery.img": "1950e61d00d6476c40fd690c308e2328fc00983ae8ac9cb453c75287eda20c37",
+        "bootloader.img": "60f07267a4269c5f6a0bf66d1448c648a342207bd7934a61a2d898324e01c2a7"
+      },
+      "note": "Base -64-4 images for static reference/rescue only. Kernel (ab14987696) is NOT the installed -4-1 kernel (ab15950084), see claims C41; not a KernelSU kpatch base and not validated for flashing onto this device."
+    }
+  },
+  "gki_reference": {
+    "status": "reported; verified offline component reference, not Motorola recovery firmware",
+    "model": "Google GKI arm64 generic; applicability to complete XT2611-1 boot packaging unknown",
+    "region": "generic",
+    "build": "android16-6.12-2025-12_r59 / kernel build 15950084",
+    "kernel_commit": "09eda8c8505ac19be9c4e063afa1d351c1ca9fe2",
+    "url": "https://dl.google.com/android/gki/gki-certified-boot-android16-6.12-2025-12_r59.zip",
+    "archive": "downloads/gki-certified-boot-android16-6.12-2025-12_r59.zip",
+    "archive_bytes": 16829063,
+    "member": "boot-6.12.img",
+    "extraction_path": "artifacts/kernel/gki_r59/google_certified_boot.img",
+    "acquisition": "artifacts/kernel/gki_r59/acquisition.json",
+    "pinned_build_manifest": "artifacts/kernel/gki_r59/manifest_15950084.xml",
+    "baseline_validation": "artifacts/kernel/gki_r59/baseline_validation.json",
+    "certificate_diagnosis": "artifacts/kernel/gki_r59/baseline_certificate_diagnosis.json",
+    "root_component_validation": "artifacts/kernel/gki_r59/kernelsu_next_validation.json",
+    "target_stock_boot_original_verified": false,
+    "verified_for_target_boot_or_flash": false,
+    "limit": "Target config and official export CRC reference matched offline. Actual Motorola boot image, live module signing/ABI and recovery path remain unverified. Local root Image is not a boot partition original or approved boot package."
+  },
+  "safety": "Archive extraction/GKI reference and root-component checks offline. Separate owner-approved OEM unlock and readback/reboot are recorded in the execution journal. No firmware image boot/flash/erase, AVB/slot or DSI changes were performed. No compatibility or permission to boot/flash these reference/build artifacts is implied."
+}

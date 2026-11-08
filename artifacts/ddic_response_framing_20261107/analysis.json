@@ -1,0 +1,931 @@
+{
+  "scope": "Archived data and conditional ideal FIFO model; not live packet-length qualification",
+  "raw_records": 38912,
+  "distinct_40byte_strings": 684,
+  "crc_prefix_lengths_tested": [
+    1,
+    38
+  ],
+  "crc_hits": [
+    {
+      "raw": "9a a6 a9 d4 71 18 a7 bd a6 87 92 0c 7f 18 11 7d 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+      "prefix_lengths": [
+        2
+      ],
+      "occurrences": [
+        {
+          "state": "s1_dbv3584_120",
+          "pass": 1,
+          "key": "63:DD",
+          "raw_line": 9439
+        },
+        {
+          "state": "s1_dbv3584_120",
+          "pass": 2,
+          "key": "63:DD",
+          "raw_line": 9695
+        },
+        {
+          "state": "s2_dbv3646_120",
+          "pass": 1,
+          "key": "63:DD",
+          "raw_line": 9439
+        },
+        {
+          "state": "s2_dbv3646_120",
+          "pass": 2,
+          "key": "63:DD",
+          "raw_line": 9695
+        },
+        {
+          "state": "s3_dbv3584_144",
+          "pass": 1,
+          "key": "63:DD",
+          "raw_line": 9439
+        },
+        {
+          "state": "s3_dbv3584_144",
+          "pass": 2,
+          "key": "63:DD",
+          "raw_line": 9695
+        },
+        {
+          "state": "s4_dbv3584_60",
+          "pass": 1,
+          "key": "63:DD",
+          "raw_line": 9439
+        },
+        {
+          "state": "s4_dbv3584_60",
+          "pass": 2,
+          "key": "63:DD",
+          "raw_line": 9695
+        }
+      ]
+    }
+  ],
+  "distinct_strings_by_conditional_lengths": {
+    "39,40": 5,
+    "40": 679
+  },
+  "markers": [
+    {
+      "state": "s1_dbv3584_120",
+      "pass": 1,
+      "key": "07:EC",
+      "raw_line": 1262,
+      "raw": "2f 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+      "crc_prefix_matches": [],
+      "conditional_compatible_payload_lengths": [
+        40
+      ]
+    },
+    {
+      "state": "s1_dbv3584_120",
+      "pass": 1,
+      "key": "23:C1",
+      "raw_line": 3779,
+      "raw": "00 00 65 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+      "crc_prefix_matches": [],
+      "conditional_compatible_payload_lengths": [
+        40
+      ]
+    },
+    {
+      "state": "s1_dbv3584_120",
+      "pass": 2,
+      "key": "07:EC",
+      "raw_line": 1518,
+      "raw": "2f 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+      "crc_prefix_matches": [],
+      "conditional_compatible_payload_lengths": [
+        40
+      ]
+    },
+    {
+      "state": "s1_dbv3584_120",
+      "pass": 2,
+      "key": "23:C1",
+      "raw_line": 4035,
+      "raw": "00 00 65 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+      "crc_prefix_matches": [],
+      "conditional_compatible_payload_lengths": [
+        40
+      ]
+    },
+    {
+      "state": "s2_dbv3646_120",
+      "pass": 1,
+      "key": "07:EC",
+      "raw_line": 1262,
+      "raw": "10 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+      "crc_prefix_matches": [],
+      "conditional_compatible_payload_lengths": [
+        40
+      ]
+    },
+    {
+      "state": "s2_dbv3646_120",
+      "pass": 1,
+      "key": "23:C1",
+      "raw_line": 3779,
+      "raw": "00 00 10 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+      "crc_prefix_matches": [],
+      "conditional_compatible_payload_lengths": [
+        40
+      ]
+    },
+    {
+      "state": "s2_dbv3646_120",
+      "pass": 2,
+      "key": "07:EC",
+      "raw_line": 1518,
+      "raw": "10 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+      "crc_prefix_matches": [],
+      "conditional_compatible_payload_lengths": [
+        40
+      ]
+    },
+    {
+      "state": "s2_dbv3646_120",
+      "pass": 2,
+      "key": "23:C1",
+      "raw_line": 4035,
+      "raw": "00 00 10 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+      "crc_prefix_matches": [],
+      "conditional_compatible_payload_lengths": [
+        40
+      ]
+    },
+    {
+      "state": "s3_dbv3584_144",
+      "pass": 1,
+      "key": "07:EC",
+      "raw_line": 1262,
+      "raw": "2f 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+      "crc_prefix_matches": [],
+      "conditional_compatible_payload_lengths": [
+        40
+      ]
+    },
+    {
+      "state": "s3_dbv3584_144",
+      "pass": 1,
+      "key": "23:C1",
+      "raw_line": 3779,
+      "raw": "00 00 55 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+      "crc_prefix_matches": [],
+      "conditional_compatible_payload_lengths": [
+        40
+      ]
+    },
+    {
+      "state": "s3_dbv3584_144",
+      "pass": 2,
+      "key": "07:EC",
+      "raw_line": 1518,
+      "raw": "2f 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+      "crc_prefix_matches": [],
+      "conditional_compatible_payload_lengths": [
+        40
+      ]
+    },
+    {
+      "state": "s3_dbv3584_144",
+      "pass": 2,
+      "key": "23:C1",
+      "raw_line": 4035,
+      "raw": "00 00 55 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+      "crc_prefix_matches": [],
+      "conditional_compatible_payload_lengths": [
+        40
+      ]
+    },
+    {
+      "state": "s4_dbv3584_60",
+      "pass": 1,
+      "key": "07:EC",
+      "raw_line": 1262,
+      "raw": "2f 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+      "crc_prefix_matches": [],
+      "conditional_compatible_payload_lengths": [
+        40
+      ]
+    },
+    {
+      "state": "s4_dbv3584_60",
+      "pass": 1,
+      "key": "23:C1",
+      "raw_line": 3779,
+      "raw": "00 00 65 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+      "crc_prefix_matches": [],
+      "conditional_compatible_payload_lengths": [
+        40
+      ]
+    },
+    {
+      "state": "s4_dbv3584_60",
+      "pass": 2,
+      "key": "07:EC",
+      "raw_line": 1518,
+      "raw": "2f 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+      "crc_prefix_matches": [],
+      "conditional_compatible_payload_lengths": [
+        40
+      ]
+    },
+    {
+      "state": "s4_dbv3584_60",
+      "pass": 2,
+      "key": "23:C1",
+      "raw_line": 4035,
+      "raw": "00 00 65 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+      "crc_prefix_matches": [],
+      "conditional_compatible_payload_lengths": [
+        40
+      ]
+    }
+  ],
+  "native_prefix_controls": [
+    {
+      "state": "s1_dbv3584_120",
+      "pass": 1,
+      "key": "51:A1",
+      "raw_line": 6307,
+      "native_prefix_bytes": 6,
+      "crc_immediately_after_native_prefix": false
+    },
+    {
+      "state": "s1_dbv3584_120",
+      "pass": 1,
+      "key": "51:A2",
+      "raw_line": 6308,
+      "native_prefix_bytes": 6,
+      "crc_immediately_after_native_prefix": false
+    },
+    {
+      "state": "s1_dbv3584_120",
+      "pass": 2,
+      "key": "51:A1",
+      "raw_line": 6563,
+      "native_prefix_bytes": 6,
+      "crc_immediately_after_native_prefix": false
+    },
+    {
+      "state": "s1_dbv3584_120",
+      "pass": 2,
+      "key": "51:A2",
+      "raw_line": 6564,
+      "native_prefix_bytes": 6,
+      "crc_immediately_after_native_prefix": false
+    },
+    {
+      "state": "s1_dbv3584_120",
+      "pass": 1,
+      "key": "52:81",
+      "raw_line": 6787,
+      "native_prefix_bytes": 6,
+      "crc_immediately_after_native_prefix": false
+    },
+    {
+      "state": "s1_dbv3584_120",
+      "pass": 1,
+      "key": "52:82",
+      "raw_line": 6788,
+      "native_prefix_bytes": 6,
+      "crc_immediately_after_native_prefix": false
+    },
+    {
+      "state": "s1_dbv3584_120",
+      "pass": 2,
+      "key": "52:81",
+      "raw_line": 7043,
+      "native_prefix_bytes": 6,
+      "crc_immediately_after_native_prefix": false
+    },
+    {
+      "state": "s1_dbv3584_120",
+      "pass": 2,
+      "key": "52:82",
+      "raw_line": 7044,
+      "native_prefix_bytes": 6,
+      "crc_immediately_after_native_prefix": false
+    },
+    {
+      "state": "s1_dbv3584_120",
+      "pass": 1,
+      "key": "53:95",
+      "raw_line": 7319,
+      "native_prefix_bytes": 2,
+      "crc_immediately_after_native_prefix": false
+    },
+    {
+      "state": "s1_dbv3584_120",
+      "pass": 1,
+      "key": "53:A2",
+      "raw_line": 7332,
+      "native_prefix_bytes": 30,
+      "crc_immediately_after_native_prefix": false
+    },
+    {
+      "state": "s1_dbv3584_120",
+      "pass": 2,
+      "key": "53:95",
+      "raw_line": 7575,
+      "native_prefix_bytes": 2,
+      "crc_immediately_after_native_prefix": false
+    },
+    {
+      "state": "s1_dbv3584_120",
+      "pass": 2,
+      "key": "53:A2",
+      "raw_line": 7588,
+      "native_prefix_bytes": 30,
+      "crc_immediately_after_native_prefix": false
+    },
+    {
+      "state": "s1_dbv3584_120",
+      "pass": 1,
+      "key": "63:F1",
+      "raw_line": 9459,
+      "native_prefix_bytes": 16,
+      "crc_immediately_after_native_prefix": false
+    },
+    {
+      "state": "s1_dbv3584_120",
+      "pass": 1,
+      "key": "63:F2",
+      "raw_line": 9460,
+      "native_prefix_bytes": 16,
+      "crc_immediately_after_native_prefix": false
+    },
+    {
+      "state": "s1_dbv3584_120",
+      "pass": 1,
+      "key": "63:F3",
+      "raw_line": 9461,
+      "native_prefix_bytes": 16,
+      "crc_immediately_after_native_prefix": false
+    },
+    {
+      "state": "s1_dbv3584_120",
+      "pass": 1,
+      "key": "63:F4",
+      "raw_line": 9462,
+      "native_prefix_bytes": 16,
+      "crc_immediately_after_native_prefix": false
+    },
+    {
+      "state": "s1_dbv3584_120",
+      "pass": 2,
+      "key": "63:F1",
+      "raw_line": 9715,
+      "native_prefix_bytes": 16,
+      "crc_immediately_after_native_prefix": false
+    },
+    {
+      "state": "s1_dbv3584_120",
+      "pass": 2,
+      "key": "63:F2",
+      "raw_line": 9716,
+      "native_prefix_bytes": 16,
+      "crc_immediately_after_native_prefix": false
+    },
+    {
+      "state": "s1_dbv3584_120",
+      "pass": 2,
+      "key": "63:F3",
+      "raw_line": 9717,
+      "native_prefix_bytes": 16,
+      "crc_immediately_after_native_prefix": false
+    },
+    {
+      "state": "s1_dbv3584_120",
+      "pass": 2,
+      "key": "63:F4",
+      "raw_line": 9718,
+      "native_prefix_bytes": 16,
+      "crc_immediately_after_native_prefix": false
+    },
+    {
+      "state": "s2_dbv3646_120",
+      "pass": 1,
+      "key": "51:A1",
+      "raw_line": 6307,
+      "native_prefix_bytes": 6,
+      "crc_immediately_after_native_prefix": false
+    },
+    {
+      "state": "s2_dbv3646_120",
+      "pass": 1,
+      "key": "51:A2",
+      "raw_line": 6308,
+      "native_prefix_bytes": 6,
+      "crc_immediately_after_native_prefix": false
+    },
+    {
+      "state": "s2_dbv3646_120",
+      "pass": 2,
+      "key": "51:A1",
+      "raw_line": 6563,
+      "native_prefix_bytes": 6,
+      "crc_immediately_after_native_prefix": false
+    },
+    {
+      "state": "s2_dbv3646_120",
+      "pass": 2,
+      "key": "51:A2",
+      "raw_line": 6564,
+      "native_prefix_bytes": 6,
+      "crc_immediately_after_native_prefix": false
+    },
+    {
+      "state": "s2_dbv3646_120",
+      "pass": 1,
+      "key": "52:81",
+      "raw_line": 6787,
+      "native_prefix_bytes": 6,
+      "crc_immediately_after_native_prefix": false
+    },
+    {
+      "state": "s2_dbv3646_120",
+      "pass": 1,
+      "key": "52:82",
+      "raw_line": 6788,
+      "native_prefix_bytes": 6,
+      "crc_immediately_after_native_prefix": false
+    },
+    {
+      "state": "s2_dbv3646_120",
+      "pass": 2,
+      "key": "52:81",
+      "raw_line": 7043,
+      "native_prefix_bytes": 6,
+      "crc_immediately_after_native_prefix": false
+    },
+    {
+      "state": "s2_dbv3646_120",
+      "pass": 2,
+      "key": "52:82",
+      "raw_line": 7044,
+      "native_prefix_bytes": 6,
+      "crc_immediately_after_native_prefix": false
+    },
+    {
+      "state": "s2_dbv3646_120",
+      "pass": 1,
+      "key": "53:95",
+      "raw_line": 7319,
+      "native_prefix_bytes": 2,
+      "crc_immediately_after_native_prefix": false
+    },
+    {
+      "state": "s2_dbv3646_120",
+      "pass": 1,
+      "key": "53:A2",
+      "raw_line": 7332,
+      "native_prefix_bytes": 30,
+      "crc_immediately_after_native_prefix": false
+    },
+    {
+      "state": "s2_dbv3646_120",
+      "pass": 2,
+      "key": "53:95",
+      "raw_line": 7575,
+      "native_prefix_bytes": 2,
+      "crc_immediately_after_native_prefix": false
+    },
+    {
+      "state": "s2_dbv3646_120",
+      "pass": 2,
+      "key": "53:A2",
+      "raw_line": 7588,
+      "native_prefix_bytes": 30,
+      "crc_immediately_after_native_prefix": false
+    },
+    {
+      "state": "s2_dbv3646_120",
+      "pass": 1,
+      "key": "63:F1",
+      "raw_line": 9459,
+      "native_prefix_bytes": 16,
+      "crc_immediately_after_native_prefix": false
+    },
+    {
+      "state": "s2_dbv3646_120",
+      "pass": 1,
+      "key": "63:F2",
+      "raw_line": 9460,
+      "native_prefix_bytes": 16,
+      "crc_immediately_after_native_prefix": false
+    },
+    {
+      "state": "s2_dbv3646_120",
+      "pass": 1,
+      "key": "63:F3",
+      "raw_line": 9461,
+      "native_prefix_bytes": 16,
+      "crc_immediately_after_native_prefix": false
+    },
+    {
+      "state": "s2_dbv3646_120",
+      "pass": 1,
+      "key": "63:F4",
+      "raw_line": 9462,
+      "native_prefix_bytes": 16,
+      "crc_immediately_after_native_prefix": false
+    },
+    {
+      "state": "s2_dbv3646_120",
+      "pass": 2,
+      "key": "63:F1",
+      "raw_line": 9715,
+      "native_prefix_bytes": 16,
+      "crc_immediately_after_native_prefix": false
+    },
+    {
+      "state": "s2_dbv3646_120",
+      "pass": 2,
+      "key": "63:F2",
+      "raw_line": 9716,
+      "native_prefix_bytes": 16,
+      "crc_immediately_after_native_prefix": false
+    },
+    {
+      "state": "s2_dbv3646_120",
+      "pass": 2,
+      "key": "63:F3",
+      "raw_line": 9717,
+      "native_prefix_bytes": 16,
+      "crc_immediately_after_native_prefix": false
+    },
+    {
+      "state": "s2_dbv3646_120",
+      "pass": 2,
+      "key": "63:F4",
+      "raw_line": 9718,
+      "native_prefix_bytes": 16,
+      "crc_immediately_after_native_prefix": false
+    },
+    {
+      "state": "s3_dbv3584_144",
+      "pass": 1,
+      "key": "51:A1",
+      "raw_line": 6307,
+      "native_prefix_bytes": 6,
+      "crc_immediately_after_native_prefix": false
+    },
+    {
+      "state": "s3_dbv3584_144",
+      "pass": 1,
+      "key": "51:A2",
+      "raw_line": 6308,
+      "native_prefix_bytes": 6,
+      "crc_immediately_after_native_prefix": false
+    },
+    {
+      "state": "s3_dbv3584_144",
+      "pass": 2,
+      "key": "51:A1",
+      "raw_line": 6563,
+      "native_prefix_bytes": 6,
+      "crc_immediately_after_native_prefix": false
+    },
+    {
+      "state": "s3_dbv3584_144",
+      "pass": 2,
+      "key": "51:A2",
+      "raw_line": 6564,
+      "native_prefix_bytes": 6,
+      "crc_immediately_after_native_prefix": false
+    },
+    {
+      "state": "s3_dbv3584_144",
+      "pass": 1,
+      "key": "52:81",
+      "raw_line": 6787,
+      "native_prefix_bytes": 6,
+      "crc_immediately_after_native_prefix": false
+    },
+    {
+      "state": "s3_dbv3584_144",
+      "pass": 1,
+      "key": "52:82",
+      "raw_line": 6788,
+      "native_prefix_bytes": 6,
+      "crc_immediately_after_native_prefix": false
+    },
+    {
+      "state": "s3_dbv3584_144",
+      "pass": 2,
+      "key": "52:81",
+      "raw_line": 7043,
+      "native_prefix_bytes": 6,
+      "crc_immediately_after_native_prefix": false
+    },
+    {
+      "state": "s3_dbv3584_144",
+      "pass": 2,
+      "key": "52:82",
+      "raw_line": 7044,
+      "native_prefix_bytes": 6,
+      "crc_immediately_after_native_prefix": false
+    },
+    {
+      "state": "s3_dbv3584_144",
+      "pass": 1,
+      "key": "53:95",
+      "raw_line": 7319,
+      "native_prefix_bytes": 2,
+      "crc_immediately_after_native_prefix": false
+    },
+    {
+      "state": "s3_dbv3584_144",
+      "pass": 1,
+      "key": "53:A2",
+      "raw_line": 7332,
+      "native_prefix_bytes": 30,
+      "crc_immediately_after_native_prefix": false
+    },
+    {
+      "state": "s3_dbv3584_144",
+      "pass": 2,
+      "key": "53:95",
+      "raw_line": 7575,
+      "native_prefix_bytes": 2,
+      "crc_immediately_after_native_prefix": false
+    },
+    {
+      "state": "s3_dbv3584_144",
+      "pass": 2,
+      "key": "53:A2",
+      "raw_line": 7588,
+      "native_prefix_bytes": 30,
+      "crc_immediately_after_native_prefix": false
+    },
+    {
+      "state": "s3_dbv3584_144",
+      "pass": 1,
+      "key": "63:F1",
+      "raw_line": 9459,
+      "native_prefix_bytes": 16,
+      "crc_immediately_after_native_prefix": false
+    },
+    {
+      "state": "s3_dbv3584_144",
+      "pass": 1,
+      "key": "63:F2",
+      "raw_line": 9460,
+      "native_prefix_bytes": 16,
+      "crc_immediately_after_native_prefix": false
+    },
+    {
+      "state": "s3_dbv3584_144",
+      "pass": 1,
+      "key": "63:F3",
+      "raw_line": 9461,
+      "native_prefix_bytes": 16,
+      "crc_immediately_after_native_prefix": false
+    },
+    {
+      "state": "s3_dbv3584_144",
+      "pass": 1,
+      "key": "63:F4",
+      "raw_line": 9462,
+      "native_prefix_bytes": 16,
+      "crc_immediately_after_native_prefix": false
+    },
+    {
+      "state": "s3_dbv3584_144",
+      "pass": 2,
+      "key": "63:F1",
+      "raw_line": 9715,
+      "native_prefix_bytes": 16,
+      "crc_immediately_after_native_prefix": false
+    },
+    {
+      "state": "s3_dbv3584_144",
+      "pass": 2,
+      "key": "63:F2",
+      "raw_line": 9716,
+      "native_prefix_bytes": 16,
+      "crc_immediately_after_native_prefix": false
+    },
+    {
+      "state": "s3_dbv3584_144",
+      "pass": 2,
+      "key": "63:F3",
+      "raw_line": 9717,
+      "native_prefix_bytes": 16,
+      "crc_immediately_after_native_prefix": false
+    },
+    {
+      "state": "s3_dbv3584_144",
+      "pass": 2,
+      "key": "63:F4",
+      "raw_line": 9718,
+      "native_prefix_bytes": 16,
+      "crc_immediately_after_native_prefix": false
+    },
+    {
+      "state": "s4_dbv3584_60",
+      "pass": 1,
+      "key": "51:A1",
+      "raw_line": 6307,
+      "native_prefix_bytes": 6,
+      "crc_immediately_after_native_prefix": false
+    },
+    {
+      "state": "s4_dbv3584_60",
+      "pass": 1,
+      "key": "51:A2",
+      "raw_line": 6308,
+      "native_prefix_bytes": 6,
+      "crc_immediately_after_native_prefix": false
+    },
+    {
+      "state": "s4_dbv3584_60",
+      "pass": 2,
+      "key": "51:A1",
+      "raw_line": 6563,
+      "native_prefix_bytes": 6,
+      "crc_immediately_after_native_prefix": false
+    },
+    {
+      "state": "s4_dbv3584_60",
+      "pass": 2,
+      "key": "51:A2",
+      "raw_line": 6564,
+      "native_prefix_bytes": 6,
+      "crc_immediately_after_native_prefix": false
+    },
+    {
+      "state": "s4_dbv3584_60",
+      "pass": 1,
+      "key": "52:81",
+      "raw_line": 6787,
+      "native_prefix_bytes": 6,
+      "crc_immediately_after_native_prefix": false
+    },
+    {
+      "state": "s4_dbv3584_60",
+      "pass": 1,
+      "key": "52:82",
+      "raw_line": 6788,
+      "native_prefix_bytes": 6,
+      "crc_immediately_after_native_prefix": false
+    },
+    {
+      "state": "s4_dbv3584_60",
+      "pass": 2,
+      "key": "52:81",
+      "raw_line": 7043,
+      "native_prefix_bytes": 6,
+      "crc_immediately_after_native_prefix": false
+    },
+    {
+      "state": "s4_dbv3584_60",
+      "pass": 2,
+      "key": "52:82",
+      "raw_line": 7044,
+      "native_prefix_bytes": 6,
+      "crc_immediately_after_native_prefix": false
+    },
+    {
+      "state": "s4_dbv3584_60",
+      "pass": 1,
+      "key": "53:95",
+      "raw_line": 7319,
+      "native_prefix_bytes": 2,
+      "crc_immediately_after_native_prefix": false
+    },
+    {
+      "state": "s4_dbv3584_60",
+      "pass": 1,
+      "key": "53:A2",
+      "raw_line": 7332,
+      "native_prefix_bytes": 30,
+      "crc_immediately_after_native_prefix": false
+    },
+    {
+      "state": "s4_dbv3584_60",
+      "pass": 2,
+      "key": "53:95",
+      "raw_line": 7575,
+      "native_prefix_bytes": 2,
+      "crc_immediately_after_native_prefix": false
+    },
+    {
+      "state": "s4_dbv3584_60",
+      "pass": 2,
+      "key": "53:A2",
+      "raw_line": 7588,
+      "native_prefix_bytes": 30,
+      "crc_immediately_after_native_prefix": false
+    },
+    {
+      "state": "s4_dbv3584_60",
+      "pass": 1,
+      "key": "63:F1",
+      "raw_line": 9459,
+      "native_prefix_bytes": 16,
+      "crc_immediately_after_native_prefix": false
+    },
+    {
+      "state": "s4_dbv3584_60",
+      "pass": 1,
+      "key": "63:F2",
+      "raw_line": 9460,
+      "native_prefix_bytes": 16,
+      "crc_immediately_after_native_prefix": false
+    },
+    {
+      "state": "s4_dbv3584_60",
+      "pass": 1,
+      "key": "63:F3",
+      "raw_line": 9461,
+      "native_prefix_bytes": 16,
+      "crc_immediately_after_native_prefix": false
+    },
+    {
+      "state": "s4_dbv3584_60",
+      "pass": 1,
+      "key": "63:F4",
+      "raw_line": 9462,
+      "native_prefix_bytes": 16,
+      "crc_immediately_after_native_prefix": false
+    },
+    {
+      "state": "s4_dbv3584_60",
+      "pass": 2,
+      "key": "63:F1",
+      "raw_line": 9715,
+      "native_prefix_bytes": 16,
+      "crc_immediately_after_native_prefix": false
+    },
+    {
+      "state": "s4_dbv3584_60",
+      "pass": 2,
+      "key": "63:F2",
+      "raw_line": 9716,
+      "native_prefix_bytes": 16,
+      "crc_immediately_after_native_prefix": false
+    },
+    {
+      "state": "s4_dbv3584_60",
+      "pass": 2,
+      "key": "63:F3",
+      "raw_line": 9717,
+      "native_prefix_bytes": 16,
+      "crc_immediately_after_native_prefix": false
+    },
+    {
+      "state": "s4_dbv3584_60",
+      "pass": 2,
+      "key": "63:F4",
+      "raw_line": 9718,
+      "native_prefix_bytes": 16,
+      "crc_immediately_after_native_prefix": false
+    }
+  ],
+  "model": {
+    "requested": 40,
+    "allocation": 48,
+    "mrps": [
+      10,
+      24,
+      38,
+      40
+    ],
+    "destination_offsets": [
+      0,
+      14,
+      28,
+      42
+    ],
+    "payload_lengths_with_modeled_helper_allocation_overrun": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "assumptions": [
+      "Long DCS responses, accurate normalized HWcount and right-aligned last16FIFObytes",
+      "Fixed payload, truncated to MRPS; zeroed allocation; no ACK/ECC/error simulation",
+      "P40 always reproduces input by construction, NOT evidence that live WC=40"
+    ]
+  },
+  "limits": [
+    "CRC coincidences are not qualified packet boundaries",
+    "No raw headers/WC/HWcounts in these archives",
+    "No checksum absence -> payload-length or DDIC-register semantics inference"
+  ],
+  "device_io": false,
+  "physical_pwm_hz": null
+}

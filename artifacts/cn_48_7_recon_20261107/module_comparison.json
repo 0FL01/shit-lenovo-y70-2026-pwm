@@ -1,0 +1,167 @@
+{
+  "cn": {
+    "path": "/home/stfu/.cache/opencode-tmp/opencode/cn-48-7-dtbo-20261107/msm_drm.ko",
+    "size": 6071656,
+    "sha256": "d3519a51bf9a74e02448c455349f8e69fccca1aa316a7be4951ada76c6b8b52d"
+  },
+  "target": {
+    "path": "/mnt/kston/legion-Y70-madness/artifacts/kernel/gki_r59/target_vendor/msm_drm.ko",
+    "size": 6071656,
+    "sha256": "1bec69faec736e7288f38e4cb83314c37c60d33e6b383213316fd880aa0b1804"
+  },
+  "sections": {
+    ".text": {
+      "len": 1951928,
+      "byte_equal": true
+    },
+    ".rodata": {
+      "len": 579048,
+      "byte_equal": true
+    },
+    ".data": {
+      "len": 43136,
+      "byte_equal": true
+    },
+    ".rela.text": {
+      "len": 2179200,
+      "byte_equal": true
+    },
+    ".rela.rodata": {
+      "len": 33456,
+      "byte_equal": true
+    },
+    ".rela.data": {
+      "len": 26184,
+      "byte_equal": true
+    }
+  },
+  "resolved_relocations": {
+    ".rela.text": {
+      "count": 90800,
+      "semantic_differences": 0,
+      "length_match": true
+    },
+    ".rela.rodata": {
+      "count": 1394,
+      "semantic_differences": 0,
+      "length_match": true
+    },
+    ".rela.data": {
+      "count": 1091,
+      "semantic_differences": 0,
+      "length_match": true
+    }
+  },
+  "functions": [
+    {
+      "function": "dsi_display_set_backlight",
+      "cn_va_hex": "0x1a032c",
+      "target_va_hex": "0x1a032c",
+      "size": 612,
+      "target_size": 612,
+      "code_equal": true,
+      "reloc_count": 31,
+      "relocs_semantic_equal": true
+    },
+    {
+      "function": "dsi_panel_set_backlight",
+      "cn_va_hex": "0x1b5588",
+      "target_va_hex": "0x1b5588",
+      "size": 1204,
+      "target_size": 1204,
+      "code_equal": true,
+      "reloc_count": 61,
+      "relocs_semantic_equal": true
+    },
+    {
+      "function": "dsi_panel_set_apl",
+      "cn_va_hex": "0x1b5a3c",
+      "target_va_hex": "0x1b5a3c",
+      "size": 240,
+      "target_size": 240,
+      "code_equal": true,
+      "reloc_count": 13,
+      "relocs_semantic_equal": true
+    },
+    {
+      "function": "dsi_panel_set_param",
+      "cn_va_hex": "0x1b5cac",
+      "target_va_hex": "0x1b5cac",
+      "size": 1844,
+      "target_size": 1844,
+      "code_equal": true,
+      "reloc_count": 145,
+      "relocs_semantic_equal": true
+    },
+    {
+      "function": "dsi_panel_send_param_cmd",
+      "cn_va_hex": "0x1c456c",
+      "target_va_hex": "0x1c456c",
+      "size": 764,
+      "target_size": 764,
+      "code_equal": true,
+      "reloc_count": 62,
+      "relocs_semantic_equal": true
+    },
+    {
+      "function": "dsi_panel_mot_parse_param_commands",
+      "cn_va_hex": "0x1cafb8",
+      "target_va_hex": "0x1cafb8",
+      "size": 1308,
+      "target_size": 1308,
+      "code_equal": true,
+      "reloc_count": 71,
+      "relocs_semantic_equal": true
+    },
+    {
+      "function": "dsi_panel_bl_register",
+      "cn_va_hex": "0x1c627c",
+      "target_va_hex": "0x1c627c",
+      "size": 328,
+      "target_size": 328,
+      "code_equal": true,
+      "reloc_count": 23,
+      "relocs_semantic_equal": true
+    },
+    {
+      "function": "dsi_panel_parse_bl_config",
+      "cn_va_hex": "0x1baae8",
+      "target_va_hex": "0x1baae8",
+      "size": 1620,
+      "target_size": 1620,
+      "code_equal": true,
+      "reloc_count": 100,
+      "relocs_semantic_equal": true
+    }
+  ],
+  "pwm_apply_might_sleep_relocations": [
+    {
+      "offset": "0x1b57e4",
+      "reloc_type": 283,
+      "symbol": "pwm_apply_might_sleep",
+      "addend": 0
+    },
+    {
+      "offset": "0x1b582c",
+      "reloc_type": 283,
+      "symbol": "pwm_apply_might_sleep",
+      "addend": 0
+    },
+    {
+      "offset": "0x1b59c0",
+      "reloc_type": 283,
+      "symbol": "pwm_apply_might_sleep",
+      "addend": 0
+    }
+  ],
+  "dsi_panel_defined_functions": {
+    "cn_count": 118,
+    "target_count": 118,
+    "cn_only": [],
+    "target_only": []
+  },
+  "symbols_difference": {
+    "count": 46,
+    "all_local_unique_id_names_only": true
+  }
+}

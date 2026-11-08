@@ -1,0 +1,15 @@
+{
+  "observed_at_utc": "2026-11-06T10:29:27.898830+00:00",
+  "status": "confirmed-on-target; read-only allowlisted software properties",
+  "sku": "XT2611-1",
+  "build": "W3WWS36.65-64-4-1",
+  "properties": {
+    "ro.build.fingerprint": "motorola/avr_g/avr:16/W3WWS36.65-64-4-1/c9a7f-8fbf58:user/release-keys",
+    "ro.carrier": "teleu",
+    "ro.boot.fsg-id": "",
+    "gsm.version.baseband": "M8845_DE90_31.179.01.104.17R"
+  },
+  "device_state_changes": false,
+  "unique_identifier_properties_queried": false,
+  "transport_identifiers_published": false
+}

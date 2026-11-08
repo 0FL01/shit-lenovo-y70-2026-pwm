@@ -1,0 +1,661 @@
+{
+  "scope": "Offline reference CN11/GLOBAL64, not target bootloader identity or execution",
+  "panels": [
+    {
+      "name": "Panel_mot_boe_ili97680A_678_1264x2780_dsc_cmd_vantage_v1.xml.raw",
+      "cn_bytes": 3991,
+      "global_bytes": 3991,
+      "byte_equal": true
+    },
+    {
+      "name": "Panel_mot_boe_ili97680A_678_1264x2780_dsc_cmd_vantage_v2.xml.raw",
+      "cn_bytes": 4252,
+      "global_bytes": 4252,
+      "byte_equal": true
+    },
+    {
+      "name": "Panel_mot_boe_ili97680A_678_1264x2780_dsc_cmd_vantage_v3.xml.raw",
+      "cn_bytes": 7498,
+      "global_bytes": 7498,
+      "byte_equal": true
+    },
+    {
+      "name": "Panel_mot_boe_ili97680A_678_1264x2780_dsc_cmd_vantage_v4.xml.raw",
+      "cn_bytes": 6790,
+      "global_bytes": 6790,
+      "byte_equal": true
+    },
+    {
+      "name": "Panel_mot_boe_ili97701A_682_1440x3168_dsc_cmd_v0.xml.raw",
+      "cn_bytes": 4106,
+      "global_bytes": 4106,
+      "byte_equal": true
+    },
+    {
+      "name": "Panel_mot_boe_ili97701A_682_1440x3168_dsc_cmd_v1.xml.raw",
+      "cn_bytes": 3559,
+      "global_bytes": 3559,
+      "byte_equal": true
+    },
+    {
+      "name": "Panel_mot_boe_ili97701A_682_1440x3168_dsc_cmd_v2.xml.raw",
+      "cn_bytes": 4811,
+      "global_bytes": 4850,
+      "byte_equal": false
+    },
+    {
+      "name": "Panel_mot_boe_ili97701A_682_1440x3168_dsc_cmd_v3.xml.raw",
+      "cn_bytes": 5891,
+      "global_bytes": 5930,
+      "byte_equal": false
+    },
+    {
+      "name": "Panel_mot_boe_ili97701A_682_1440x3168_dsc_cmd_v4.xml.raw",
+      "cn_bytes": 4811,
+      "global_bytes": 4850,
+      "byte_equal": false
+    }
+  ],
+  "v4_global_init": [
+    {
+      "page": 7,
+      "type": 57,
+      "payload": "ff 5a a5 07",
+      "delay_value": 0
+    },
+    {
+      "page": 7,
+      "type": 57,
+      "payload": "8a 01",
+      "delay_value": 0
+    },
+    {
+      "page": 7,
+      "type": 57,
+      "payload": "8b a0 21",
+      "delay_value": 0
+    },
+    {
+      "page": 7,
+      "type": 57,
+      "payload": "81 00 00 00 00 00 11 00 00 ab 30",
+      "delay_value": 0
+    },
+    {
+      "page": 7,
+      "type": 57,
+      "payload": "fe 80 0c 60 05 a0 00 16 02 d0 02",
+      "delay_value": 0
+    },
+    {
+      "page": 7,
+      "type": 57,
+      "payload": "fe d0 02 00 02 68 00 20 02 68 00",
+      "delay_value": 0
+    },
+    {
+      "page": 7,
+      "type": 57,
+      "payload": "fe 0a 00 0c 04 93 03 78 18 00 10",
+      "delay_value": 0
+    },
+    {
+      "page": 7,
+      "type": 57,
+      "payload": "fe f0 07 10 20 00 06 0f 0f 33 0e",
+      "delay_value": 0
+    },
+    {
+      "page": 7,
+      "type": 57,
+      "payload": "fe 1c 2a 38 46 54 62 69 70 77 79",
+      "delay_value": 0
+    },
+    {
+      "page": 7,
+      "type": 57,
+      "payload": "fe 7b 7d 7e 01 02 22 00 2a 40 2a",
+      "delay_value": 0
+    },
+    {
+      "page": 7,
+      "type": 57,
+      "payload": "fe be 3a fc 3a fa 3a f8 3b 38 3b",
+      "delay_value": 0
+    },
+    {
+      "page": 7,
+      "type": 57,
+      "payload": "fe 78 3b b6 4b f6 4c 34 4c 74 5c",
+      "delay_value": 0
+    },
+    {
+      "page": 7,
+      "type": 57,
+      "payload": "fe 74 8c f4 00 00 00 00 00 00",
+      "delay_value": 0
+    },
+    {
+      "page": 7,
+      "type": 57,
+      "payload": "ff 5a a5 07",
+      "delay_value": 0
+    },
+    {
+      "page": 7,
+      "type": 57,
+      "payload": "8a 01",
+      "delay_value": 0
+    },
+    {
+      "page": 7,
+      "type": 57,
+      "payload": "8b a0 21",
+      "delay_value": 0
+    },
+    {
+      "page": 49,
+      "type": 57,
+      "payload": "ff 5a a5 31",
+      "delay_value": 0
+    },
+    {
+      "page": 49,
+      "type": 57,
+      "payload": "d0 80",
+      "delay_value": 0
+    },
+    {
+      "page": 8,
+      "type": 57,
+      "payload": "ff 5a a5 08",
+      "delay_value": 0
+    },
+    {
+      "page": 8,
+      "type": 57,
+      "payload": "c8 62",
+      "delay_value": 0
+    },
+    {
+      "page": 33,
+      "type": 57,
+      "payload": "ff 5a a5 21",
+      "delay_value": 0
+    },
+    {
+      "page": 33,
+      "type": 57,
+      "payload": "a4 38",
+      "delay_value": 0
+    },
+    {
+      "page": 35,
+      "type": 57,
+      "payload": "ff 5a a5 23",
+      "delay_value": 0
+    },
+    {
+      "page": 35,
+      "type": 57,
+      "payload": "85 15",
+      "delay_value": 0
+    },
+    {
+      "page": 0,
+      "type": 57,
+      "payload": "ff 5a a5 00",
+      "delay_value": 0
+    },
+    {
+      "page": 0,
+      "type": 57,
+      "payload": "5e 01",
+      "delay_value": 0
+    },
+    {
+      "page": 0,
+      "type": 57,
+      "payload": "60 00",
+      "delay_value": 0
+    },
+    {
+      "page": 0,
+      "type": 57,
+      "payload": "61 0f",
+      "delay_value": 0
+    },
+    {
+      "page": 0,
+      "type": 57,
+      "payload": "6d 01",
+      "delay_value": 0
+    },
+    {
+      "page": 0,
+      "type": 57,
+      "payload": "35 00",
+      "delay_value": 0
+    },
+    {
+      "page": 0,
+      "type": 57,
+      "payload": "53 20",
+      "delay_value": 0
+    },
+    {
+      "page": 0,
+      "type": 57,
+      "payload": "51 00 00",
+      "delay_value": 0
+    },
+    {
+      "page": 0,
+      "type": 57,
+      "payload": "ff 5a a5 00",
+      "delay_value": 0
+    },
+    {
+      "page": 3,
+      "type": 57,
+      "payload": "ff 5a a5 03",
+      "delay_value": 0
+    },
+    {
+      "page": 3,
+      "type": 57,
+      "payload": "bd 91",
+      "delay_value": 0
+    },
+    {
+      "page": 0,
+      "type": 57,
+      "payload": "ff 5a a5 00",
+      "delay_value": 0
+    },
+    {
+      "page": 30,
+      "type": 57,
+      "payload": "ff 5a a5 1e",
+      "delay_value": 0
+    },
+    {
+      "page": 30,
+      "type": 57,
+      "payload": "c0 10",
+      "delay_value": 0
+    },
+    {
+      "page": 30,
+      "type": 57,
+      "payload": "c1 70 9c c9",
+      "delay_value": 0
+    },
+    {
+      "page": 30,
+      "type": 57,
+      "payload": "c2 ff ff ff 78 e5 7a f0",
+      "delay_value": 0
+    },
+    {
+      "page": 30,
+      "type": 57,
+      "payload": "c5 44 00 00 44 00 00 44 00 00 44 00 00 44 00 00 42 02 eb 21 23 90 10 08 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+      "delay_value": 0
+    },
+    {
+      "page": 30,
+      "type": 57,
+      "payload": "c7 55 ff ff 55 ff ff 54 10 ff 43 80 80 44 00 00 33 90 6b 32 0c ae 20 50 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+      "delay_value": 0
+    },
+    {
+      "page": 30,
+      "type": 57,
+      "payload": "c8 44 00 00 44 00 00 14 00",
+      "delay_value": 0
+    },
+    {
+      "page": 30,
+      "type": 57,
+      "payload": "c9 00",
+      "delay_value": 0
+    },
+    {
+      "page": 30,
+      "type": 57,
+      "payload": "ca ec ec ed ed ee ef f8 ff fc fc f2 fb ff ff ff ff ff ff ff ff ff ff ff ff ff",
+      "delay_value": 0
+    },
+    {
+      "page": 30,
+      "type": 57,
+      "payload": "cb f0 f0 f0 f1 f1 f2 fa ff ff fe eb f0 f2 ff fe fb ff f9 ff ff ff ff ff ff ff",
+      "delay_value": 0
+    },
+    {
+      "page": 30,
+      "type": 57,
+      "payload": "cc ec ec ec ed ee ef f9 ff ff fe e9 ed ef f1 f4 f5 f4 f4 ff ff ff ff ff ff ff",
+      "delay_value": 0
+    },
+    {
+      "page": 36,
+      "type": 57,
+      "payload": "ff 5a a5 24",
+      "delay_value": 0
+    },
+    {
+      "page": 36,
+      "type": 57,
+      "payload": "80 0e",
+      "delay_value": 0
+    },
+    {
+      "page": 36,
+      "type": 57,
+      "payload": "81 11",
+      "delay_value": 0
+    },
+    {
+      "page": 36,
+      "type": 57,
+      "payload": "84 00",
+      "delay_value": 0
+    },
+    {
+      "page": 0,
+      "type": 57,
+      "payload": "ff 5a a5 00",
+      "delay_value": 0
+    },
+    {
+      "page": 0,
+      "type": 57,
+      "payload": "95 ff",
+      "delay_value": 0
+    },
+    {
+      "page": 0,
+      "type": 57,
+      "payload": "96 0b",
+      "delay_value": 0
+    },
+    {
+      "page": 0,
+      "type": 57,
+      "payload": "97 40",
+      "delay_value": 0
+    },
+    {
+      "page": 0,
+      "type": 57,
+      "payload": "98 02",
+      "delay_value": 0
+    },
+    {
+      "page": 0,
+      "type": 57,
+      "payload": "99 d0",
+      "delay_value": 0
+    },
+    {
+      "page": 0,
+      "type": 57,
+      "payload": "ff 5a a5 00",
+      "delay_value": 0
+    },
+    {
+      "page": 0,
+      "type": 57,
+      "payload": "60 00",
+      "delay_value": 0
+    },
+    {
+      "page": 0,
+      "type": 57,
+      "payload": "53 20",
+      "delay_value": 0
+    },
+    {
+      "page": 45,
+      "type": 57,
+      "payload": "ff 5a a5 2d",
+      "delay_value": 0
+    },
+    {
+      "page": 45,
+      "type": 57,
+      "payload": "83 00 00",
+      "delay_value": 0
+    },
+    {
+      "page": 45,
+      "type": 57,
+      "payload": "f2 00",
+      "delay_value": 0
+    },
+    {
+      "page": 45,
+      "type": 57,
+      "payload": "cd 01",
+      "delay_value": 0
+    },
+    {
+      "page": 45,
+      "type": 57,
+      "payload": "98 03 00",
+      "delay_value": 0
+    },
+    {
+      "page": 45,
+      "type": 57,
+      "payload": "99 05 00",
+      "delay_value": 0
+    },
+    {
+      "page": 45,
+      "type": 57,
+      "payload": "a0 00 00",
+      "delay_value": 0
+    },
+    {
+      "page": 36,
+      "type": 57,
+      "payload": "ff 5a a5 24",
+      "delay_value": 0
+    },
+    {
+      "page": 36,
+      "type": 57,
+      "payload": "8b 31 00",
+      "delay_value": 0
+    },
+    {
+      "page": 36,
+      "type": 57,
+      "payload": "8c 31 00",
+      "delay_value": 0
+    },
+    {
+      "page": 8,
+      "type": 57,
+      "payload": "ff 5a a5 08",
+      "delay_value": 0
+    },
+    {
+      "page": 8,
+      "type": 57,
+      "payload": "d2 01",
+      "delay_value": 0
+    },
+    {
+      "page": 8,
+      "type": 57,
+      "payload": "d3 00",
+      "delay_value": 0
+    },
+    {
+      "page": 8,
+      "type": 57,
+      "payload": "d4 00",
+      "delay_value": 0
+    },
+    {
+      "page": 8,
+      "type": 57,
+      "payload": "ed ff ff ff ff ff ff ff ff",
+      "delay_value": 0
+    },
+    {
+      "page": 8,
+      "type": 57,
+      "payload": "ee ff ff ff ff ff ff ff ff",
+      "delay_value": 0
+    },
+    {
+      "page": 0,
+      "type": 57,
+      "payload": "ff 5a a5 00",
+      "delay_value": 0
+    },
+    {
+      "page": 45,
+      "type": 57,
+      "payload": "ff 5a a5 2d",
+      "delay_value": 0
+    },
+    {
+      "page": 45,
+      "type": 57,
+      "payload": "97 03",
+      "delay_value": 0
+    },
+    {
+      "page": 45,
+      "type": 57,
+      "payload": "b1 03",
+      "delay_value": 0
+    },
+    {
+      "page": 45,
+      "type": 57,
+      "payload": "98 03 00",
+      "delay_value": 0
+    },
+    {
+      "page": 45,
+      "type": 57,
+      "payload": "99 05 00",
+      "delay_value": 0
+    },
+    {
+      "page": 45,
+      "type": 57,
+      "payload": "9a 0b 00",
+      "delay_value": 0
+    },
+    {
+      "page": 45,
+      "type": 57,
+      "payload": "9b 17 00",
+      "delay_value": 0
+    },
+    {
+      "page": 45,
+      "type": 57,
+      "payload": "a0 00 00",
+      "delay_value": 0
+    },
+    {
+      "page": 45,
+      "type": 57,
+      "payload": "a1 01 02",
+      "delay_value": 0
+    },
+    {
+      "page": 8,
+      "type": 57,
+      "payload": "ff 5a a5 08",
+      "delay_value": 0
+    },
+    {
+      "page": 8,
+      "type": 57,
+      "payload": "f5 00",
+      "delay_value": 0
+    },
+    {
+      "page": 8,
+      "type": 57,
+      "payload": "f6 00",
+      "delay_value": 0
+    },
+    {
+      "page": 8,
+      "type": 57,
+      "payload": "f7 00",
+      "delay_value": 0
+    },
+    {
+      "page": 45,
+      "type": 57,
+      "payload": "ff 5a a5 2d",
+      "delay_value": 0
+    },
+    {
+      "page": 45,
+      "type": 57,
+      "payload": "ce 55",
+      "delay_value": 0
+    },
+    {
+      "page": 0,
+      "type": 57,
+      "payload": "ff 5a a5 00",
+      "delay_value": 0
+    },
+    {
+      "page": 0,
+      "type": 5,
+      "payload": "11",
+      "delay_value": 120
+    },
+    {
+      "page": 0,
+      "type": 5,
+      "payload": "29",
+      "delay_value": 20
+    }
+  ],
+  "target_timing0_packet_type_order_payload_and_numeric_delays_equal": true,
+  "delay_limit": "XML FF-byte values compared with DT wait fields; no runtime timing proof",
+  "display_binaries": [
+    {
+      "name": "DisplayDxe.efi",
+      "bytes": 442368,
+      "differing_bytes": 11,
+      "codeview_path_span": [
+        "0x6a114",
+        "0x6a1ff"
+      ],
+      "cn_workspace": "f82eeb47aa7a",
+      "global_workspace": "378d0c4ff757",
+      "everything_except_codeview_workspace_equal": true
+    },
+    {
+      "name": "BacklightDxe.efi",
+      "bytes": 45056,
+      "differing_bytes": 11,
+      "codeview_path_span": [
+        "0x92bc",
+        "0x93b1"
+      ],
+      "cn_workspace": "f82eeb47aa7a",
+      "global_workspace": "378d0c4ff757",
+      "everything_except_codeview_workspace_equal": true
+    }
+  ],
+  "physical_pwm_hz": null,
+  "device_io": false
+}

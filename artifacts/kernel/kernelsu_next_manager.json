@@ -1,0 +1,21 @@
+{
+  "observed_at_utc": "2026-11-06T09:29:17.678998+00:00",
+  "release": "v3.4.2",
+  "version_code": 33355,
+  "url": "https://github.com/KernelSU-Next/KernelSU-Next/releases/download/v3.4.2/KernelSU_Next_v3.4.2_33355-release.apk",
+  "path": "downloads/KernelSU_Next_v3.4.2_33355-release.apk",
+  "bytes": 16682167,
+  "sha256": "774a5511f7034a4930e881114e202319cbdc34c5aaaa5c7c6b6d2902364e4c58",
+  "github_release_asset_digest_verified": true,
+  "variant": "normal release, NOT spoofed",
+  "jar_signing_entries": [],
+  "installed_on_device": false,
+  "manager_certificate_check": "APK v2 signer certificate pin matches pinned KSU Kbuild defaults",
+  "certificate_bytes": 998,
+  "certificate_sha256": "79e590113c4c4c0c222978e413a5faa801666957b1212a328e46c00c69821bf7",
+  "certificate_path": "artifacts/kernel/kernelsu_next_manager_cert.der",
+  "kernel_expected_certificate_size": 998,
+  "kernel_expected_certificate_sha256": "79e590113c4c4c0c222978e413a5faa801666957b1212a328e46c00c69821bf7",
+  "manager_certificate_pin_matches_kernel": true,
+  "verification_limit": "Full APK signature verification not run on host: apksigner absent and no JAR/v1 signature. Native PackageManager signature verification remains mandatory on installation, with no bypass."
+}

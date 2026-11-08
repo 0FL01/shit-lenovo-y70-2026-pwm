@@ -1,0 +1,307 @@
+# Diagnostic linear sweep: code/data boundaries NOT inferred.
+b2318980: 	call 0xb2019e48
+b2318984: 	allocframe(#72)
+b2318988: 	r17:16 = combine(r1,r0)
+b231898c: 	r1 = #1
+b2318990: 	r20 = memw(r0+#4)	r18 = memw(r1+#8)
+b2318994: 	r2 = memw(r20+#2736)
+b2318998: 	r0 = memw(r20+#284)
+b231899c: 	r2 = memw(r2+#4)
+b23189a0: 	r2 = memw(r2+#24)
+b23189a4: 	callr r2
+b23189a8: 	r3 = #512
+b23189ac: 	r17 = #0	r2 = memw(r17+#0)
+b23189b0: 	r3 = and(r2,#-256)
+b23189b4: 	immext(#1088)
+b23189b8: 	if (!cmp.eq(r3.new,r3)) jump:t 0xb2318e10
+b23189bc: 	r21 = add(r20,#2600)
+b23189c0: 	r2 = and(r2,#255)
+b23189c4: 	if (cmp.gt(r2.new,#2)) jump:t 0xb2318c00
+b23189c8: 	immext(#1024)
+b23189cc: 	p0 = cmp.eq(r2,#0); if (p0.new) jump:nt 0xb2318dcc
+b23189d0: 	if (p0.new) r4 = #2
+b23189d4: 	immext(#1088)
+b23189d8: 	p0 = cmp.eq(r2,#1); if (!p0.new) jump:nt 0xb2318e10
+b23189dc: 	immext(#2992033536)
+b23189e0: 	r3:2 = combine(##-1302933704,#0)
+b23189e4: 	r1:0 = combine(r16,#0)
+b23189e8: 	r17 = memuh(r21+#176)
+b23189ec: 	r22 = memuh(r21+#178)
+b23189f0: 	memw(r29+#4) = r22.new
+b23189f4: 	call 0xb20df84c
+b23189f8: 	memw(r29+#0) = r17
+b23189fc: 	immext(#2992033664)
+b2318a00: 	r3:2 = combine(##-1302933584,#-1)
+b2318a04: 	r23 = r17	r1:0 = combine(r16,#0)
+b2318a08: 	r23 &= xor(r22,r2)
+b2318a0c: 	r22 &= xor(r17,r2)
+b2318a10: 	r4 = #2	r2 = #0
+b2318a14: 	call 0xb20df84c
+b2318a18: 	memw(r29+#4) = r22	memw(r29+#0) = r23
+b2318a1c: 	r24 = add(r20,#2776)
+b2318a20: 	r25 = add(r20,#2751)
+b2318a24: 	r2 = memub(r20+#30)
+b2318a28: 	p0 = cmp.eq(r2,#0); if (!p0.new) jump:nt 0xb2318a34
+b2318a2c: 	r2 = and(r23,#2)
+b2318a30: 	if (!cmp.eq(r2.new,#0)) jump:t 0xb2318a54
+b2318a34: 	p0 = bitsclr(r23,#8)
+b2318a38: 	if (p0.new) jump:nt 0xb2318a58
+b2318a3c: 	immext(#192)
+b2318a40: 	if (!p0.new) r2 = memub(r20+##219)
+b2318a44: 	r3 = #255
+b2318a48: 	p0 = !bitsclr(r2,r3)
+b2318a4c: 	jump 0xb2318a58
+b2318a50: 	if (!p0.new) memb(r25+#0) = #1
+b2318a54: 	memb(r25+#0) = #1
+b2318a58: 	r26 = add(r20,#2778)
+b2318a5c: 	r2 = memh(r24+#0)
+b2318a60: 	if (cmp.eq(r2.new,#0)) jump:nt 0xb2318a84
+b2318a64: 	r2 = memh(r26+#0)
+b2318a68: 	if (!cmp.eq(r2.new,#0)) jump:t 0xb2318a84
+b2318a6c: 	call 0xb231db7c
+b2318a70: 	r2 = #3
+b2318a74: 	r0 = memw(r20+#2736)
+b2318a78: 	r1 = memw(r20+#284)
+b2318a7c: 	if (!p0.new) r4 = #1
+b2318a80: 	p0 = cmp.eq(r0,#0); if (!p0.new) jump:t 0xb2318d98
+b2318a84: 	r2 = or(r23,r22)
+b2318a88: 	p0 = bitsclr(r2,#10)
+b2318a8c: 	if (p0.new) jump:nt 0xb2318b40
+b2318a90: 	immext(#2624)
+b2318a94: 	if (!p0.new) r3 = memw(r20+##2644)
+b2318a98: 	r1:0 = combine(r16,#0)
+b2318a9c: 	r4 = memw(r20+#2648)
+b2318aa0: 	r2 = memw(r20+#2668)
+b2318aa4: 	r5 = memw(r20+#2672)
+b2318aa8: 	r4 = convert_sf2uw(r4):chop
+b2318aac: 	r3 = convert_sf2uw(r3):chop
+b2318ab0: 	memw(r29+#12) = r4.new
+b2318ab4: 	immext(#2992033920)
+b2318ab8: 	r3:2 = combine(##-1302933360,#0)
+b2318abc: 	memw(r29+#4) = r3	memw(r29+#0) = r2
+b2318ac0: 	call 0xb20df84c
+b2318ac4: 	r4 = #4	memw(r29+#8) = r5
+b2318ac8: 	r4 = #1
+b2318acc: 	r0 = memw(r20+#2648)
+b2318ad0: 	memw(r20+#40) = r0.new
+b2318ad4: 	r2 = memw(r20+#2644)
+b2318ad8: 	memw(r20+#32) = r2.new
+b2318adc: 	r0 = memuh(r24+#0)
+b2318ae0: 	r1 = memw(r20+#2652)
+b2318ae4: 	r2 = and(r0,#3)
+b2318ae8: 	r3 = memw(r20+#2656)
+b2318aec: 	memw(r20+#36) = r1
+b2318af0: 	r2 = !cmp.eq(r2,#0)
+b2318af4: 	r1 = memw(r20+#2660)
+b2318af8: 	r0 = memw(r20+#2664)
+b2318afc: 	memw(r20+#44) = r3
+b2318b00: 	memw(r20+#120) = r1
+b2318b04: 	immext(#2992033984)
+b2318b08: 	r3:2 = combine(##-1302933256,#0)
+b2318b0c: 	memw(r20+#116) = r0
+b2318b10: 	memw(r29+#0) = r2
+b2318b14: 	call 0xb20df84c
+b2318b18: 	r1:0 = combine(r16,#0)
+b2318b1c: 	r1:0 = combine(r16,#0)
+b2318b20: 	r4 = #1
+b2318b24: 	r2 = memuh(r24+#0)
+b2318b28: 	r2 = and(r2,#12)
+b2318b2c: 	r2 = !cmp.eq(r2,#0)
+b2318b30: 	memw(r29+#0) = r2.new
+b2318b34: 	call 0xb20df84c
+b2318b38: 	immext(#2992034112)
+b2318b3c: 	r3:2 = combine(##-1302933148,#0)
+b2318b40: 	call 0xb231eb28
+b2318b44: 	r0 = r16
+b2318b48: 	p0 = bitsclr(r23,#5)
+b2318b4c: 	if (p0.new) jump:nt 0xb2318b78
+b2318b50: 	immext(#2992034240)
+b2318b54: 	r3:2 = combine(##-1302933048,#0)
+b2318b58: 	r4 = #1	r1:0 = combine(r16,#0)
+b2318b5c: 	call 0xb20df84c
+b2318b60: 	call 0xb231d700
+b2318b64: 	r2 = #1
+b2318b68: 	r0 = memw(r20+#2736)
+b2318b6c: 	r1 = memw(r20+#284)
+b2318b70: 	call 0xb231d778
+b2318b74: 	r0 = r16
+b2318b78: 	r3 = memuh(r24+#0)
+b2318b7c: 	p0 = bitsclr(r3,#10)
+b2318b80: 	if (p0.new) jump:nt 0xb2318cd8
+b2318b84: 	immext(#128)
+b2318b88: 	if (!p0.new) r2 = memub(r21+##149)
+b2318b8c: 	p0 = cmp.eq(r2,#0); if (p0.new) jump:nt 0xb2318bd0
+b2318b90: 	r2 = memw(r18+#0)
+b2318b94: 	r4 = memw(r20+#2780)
+b2318b98: 	p0 = sfcmp.uo(r2,r4)
+b2318b9c: 	p1 = sfcmp.gt(r2,r4)
+b2318ba0: 	p0 = and(p1,!p0)
+b2318ba4: 	if (p0.new) jump:t 0xb2318bd0
+b2318ba8: 	p0 = sfcmp.uo(r4,r2)
+b2318bac: 	p1 = sfcmp.gt(r4,r2)
+b2318bb0: 	p0 = and(p1,!p0)
+b2318bb4: 	if (p0.new) r5 = #255
+b2318bb8: 	if (!p0.new) jump:nt 0xb2318cd8
+b2318bbc: 	if (p0.new) r4 = memub(r25+#0)
+b2318bc0: 	p0 = !bitsclr(r4,r5)
+b2318bc4: 	if (p0.new) jump:nt 0xb2318cd8
+b2318bc8: 	p0 = cmp.eq(r3,#8); if (p0.new) jump:nt 0xb2318bd0
+b2318bcc: 	p0 = cmp.eq(r3,#2); if (!p0.new) jump:nt 0xb2318cd8
+b2318bd0: 	r3 = #0
+b2318bd4: 	memw(r20+#2780) = r2
+b2318bd8: 	p0 = sfcmp.uo(r2,r3)
+b2318bdc: 	p1 = sfcmp.eq(r2,r3)
+b2318be0: 	p0 = and(p1,!p0)
+b2318be4: 	if (p0.new) r0 = add(r16,#0)
+b2318be8: 	if (!p0.new) jump:nt 0xb2318c8c
+b2318bec: 	call 0xb231eee0
+b2318bf0: 	p0 = cmp.eq(r0,#0); if (p0.new) jump:nt 0xb2318c48
+b2318bf4: 	immext(#66666624)
+b2318bf8: 	r0 = ##66666666
+b2318bfc: 	jump 0xb2318c70
+b2318c00: 	if (p0.new) r1 = add(r16,#0)
+b2318c04: 	p0 = cmp.eq(r2,#3); if (p0.new) jump:nt 0xb2318dac
+b2318c08: 	p0 = cmpb.eq(r2,#63)
+b2318c0c: 	if (!p0.new) jump:nt 0xb2318e10
+b2318c10: 	immext(#2688)
+b2318c14: 	if (p0.new) r0 = memw(r20+##2740)
+b2318c18: 	r1 = r16	r2 = memw(r0+#4)
+b2318c1c: 	r2 = memw(r2+#8)
+b2318c20: 	callr r2
+b2318c24: 	immext(#2992034752)
+b2318c28: 	r3:2 = combine(##-1302932544,#0)
+b2318c2c: 	r4 = #1	r1:0 = combine(r16,#0)
+b2318c30: 	call 0xb20df84c
+b2318c34: 	r17 = #0
+b2318c38: 	call 0xb231c930
+b2318c3c: 	r0 = r16
+b2318c40: 	jump 0xb2318e10
+b2318c44: 	memb(r21+#0) = r17
+b2318c48: 	r1:0 = combine(r16,#0)
+b2318c4c: 	r4 = #1
+b2318c50: 	r2 = memw(r20+#68)
+b2318c54: 	memw(r29+#0) = r2.new
+b2318c58: 	call 0xb20df84c
+b2318c5c: 	immext(#2992034304)
+b2318c60: 	r3:2 = combine(##-1302932944,#0)
+b2318c64: 	r2 = memw(r20+#68)
+b2318c68: 	immext(#1000000)
+b2318c6c: 	r0 = +mpyi(r2,##1000000)
+b2318c70: 	call 0xb20d8b98
+b2318c74: 	r1 = #0
+b2318c78: 	r19:18 = combine(r1,r0)
+b2318c7c: 	immext(#2992034432)
+b2318c80: 	r3:2 = combine(##-1302932832,#0)
+b2318c84: 	r1:0 = combine(r16,#0)
+b2318c88: 	jump 0xb2318cc0
+b2318c8c: 	r3:2 = convert_sf2df(r2)
+b2318c90: 	immext(#1104006464)
+b2318c94: 	r1 = ##1104006501	r0 = #0
+b2318c98: 	call 0xb201a840
+b2318c9c: 	call 0xb20d8b98
+b2318ca0: 	r1:0 = convert_df2ud(r1:0):chop
+b2318ca4: 	r19:18 = combine(r1,r0)
+b2318ca8: 	immext(#2992034560)
+b2318cac: 	r3:2 = combine(##-1302932728,#0)
+b2318cb0: 	r1:0 = combine(r16,#0)
+b2318cb4: 	r4 = memw(r20+#2780)
+b2318cb8: 	r4 = convert_sf2uw(r4):chop
+b2318cbc: 	memw(r29+#0) = r4.new
+b2318cc0: 	call 0xb20df84c
+b2318cc4: 	r4 = #1
+b2318cc8: 	call 0xb231d7ec
+b2318ccc: 	r0 = r16
+b2318cd0: 	r3:2 = combine(r19,r18)
+b2318cd4: 	memb(r25+#0) = #1
+b2318cd8: 	p0 = bitsclr(r23,#3)
+b2318cdc: 	if (!p0.new) r0 = add(r16,#0)
+b2318ce0: 	if (p0.new) jump:nt 0xb2318cec
+b2318ce4: 	call 0xb231dfc0
+b2318ce8: 	jump 0xb2318cf4
+b2318cec: 	p0 = bitsclr(r22,#3)
+b2318cf0: 	if (p0.new) jump:nt 0xb2318d04
+b2318cf4: 	r2 = and(r23,#3)
+b2318cf8: 	r0 = r16
+b2318cfc: 	call 0xb231f468
+b2318d00: 	r1 = !cmp.eq(r2,#0)
+b2318d04: 	p0 = bitsclr(r23,#12)
+b2318d08: 	if (!p0.new) r0 = add(r16,#0)
+b2318d0c: 	if (p0.new) jump:nt 0xb2318d18
+b2318d10: 	call 0xb231fcb4
+b2318d14: 	jump 0xb2318d28
+b2318d18: 	p0 = bitsclr(r22,#12)
+b2318d1c: 	if (!p0.new) r0 = add(r16,#0)
+b2318d20: 	if (p0.new) jump:nt 0xb2318d38
+b2318d24: 	call 0xb231fe5c
+b2318d28: 	r2 = and(r23,#12)
+b2318d2c: 	r0 = r16
+b2318d30: 	call 0xb231f288
+b2318d34: 	r1 = !cmp.eq(r2,#0)
+b2318d38: 	r17 = #0
+b2318d3c: 	r2 = memub(r25+#0)
+b2318d40: 	r0 = memuh(r24+#0)
+b2318d44: 	p0 = tstbit(r2,#0); if (!p0.new) jump:t 0xb2318e10
+b2318d48: 	memh(r26+#0) = r0
+b2318d4c: 	immext(#2992034624)
+b2318d50: 	r3:2 = combine(##-1302932628,#0)
+b2318d54: 	r4 = #1	r1:0 = combine(r16,#0)
+b2318d58: 	call 0xb20df84c
+b2318d5c: 	call 0xb20d8b60
+b2318d60: 	call 0xb231d8e4
+b2318d64: 	r3:2 = combine(r1,r0)
+b2318d68: 	r0 = r16
+b2318d6c: 	r2 = memub(r21+#152)
+b2318d70: 	p0 = tstbit(r2,#0); if (!p0.new) jump:t 0xb2318d7c
+b2318d74: 	call 0xb231da44
+b2318d78: 	r1:0 = combine(#3,r16)
+b2318d7c: 	r2 = memub(r21+#153)
+b2318d80: 	p0 = tstbit(r2,#0); if (!p0.new) jump:t 0xb2318e10
+b2318d84: 	call 0xb231da44
+b2318d88: 	r1:0 = combine(#12,r16)
+b2318d8c: 	r16 = add(r20,#2753)
+b2318d90: 	jump 0xb2318e10
+b2318d94: 	memb(r16+#0) = #0
+b2318d98: 	immext(#2992033792)
+b2318d9c: 	r3:2 = combine(##-1302933476,#0)
+b2318da0: 	r17 = r0	r1:0 = combine(r16,#0)
+b2318da4: 	call 0xb20df84c
+b2318da8: 	jump 0xb2318e28
+b2318dac: 	r0 = memw(r20+#2740)
+b2318db0: 	r2 = memw(r0+#4)
+b2318db4: 	r2 = memw(r2+#8)
+b2318db8: 	callr r2
+b2318dbc: 	call 0xb231ccc8
+b2318dc0: 	r17 = #0	r0 = r16
+b2318dc4: 	jump 0xb2318e10
+b2318dc8: 	memb(r21+#146) = r17
+b2318dcc: 	immext(#8000000)
+b2318dd0: 	r0 = ##8000000
+b2318dd4: 	r1 = #0
+b2318dd8: 	memb(r29+#23) = #0
+b2318ddc: 	call 0xb20d8b98
+b2318de0: 	call 0xb20d8bf0
+b2318de4: 	call 0xb231d1d8
+b2318de8: 	r2 = add(r29,#23)
+b2318dec: 	r0 = memw(r20+#2736)
+b2318df0: 	r1 = memw(r20+#284)
+b2318df4: 	call 0xb231d21c
+b2318df8: 	r17 = r0
+b2318dfc: 	r0 = memub(r29+#23)
+b2318e00: 	p0 = r0
+b2318e04: 	if (!p0.new) jump:t 0xb2318e10
+b2318e08: 	call 0xb231da44
+b2318e0c: 	r1:0 = combine(#1,r16)
+b2318e10: 	r1 = #0
+b2318e14: 	r2 = memw(r20+#2736)
+b2318e18: 	r0 = memw(r20+#284)
+b2318e1c: 	r2 = memw(r2+#4)
+b2318e20: 	r2 = memw(r2+#24)
+b2318e24: 	callr r2
+b2318e28: 	immext(#4291825920)
+b2318e2c: 	r0 = r17 ; jump 0xb2019f38
+b2318e30: 	call 0xb2019e7c
+b2318e34: 	allocframe(#72)
+b2318e38: 	r1 = #1
+b2318e3c: 	r16 = r0	r23 = memw(r0+#4)
+b2318e40: 	r2 = memw(r23+#2736)
+b2318e44: 	r0 = memw(r23+#284)

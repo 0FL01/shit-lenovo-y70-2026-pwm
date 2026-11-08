@@ -1,0 +1,188 @@
+{
+  "scope": "Conditional logical model audit, NOT DDIC field decoding",
+  "device_io": false,
+  "observations": [
+    {
+      "label": "stock_3600",
+      "dbv": 3600,
+      "written_a9aa_be": 3601,
+      "fine_train_present": true,
+      "evidence": "artifacts/pacman_exact_analysis_20261106.json"
+    },
+    {
+      "label": "stock_3601",
+      "dbv": 3601,
+      "written_a9aa_be": 3601,
+      "fine_train_present": false,
+      "evidence": "artifacts/pacman_exact_analysis_20261106.json"
+    },
+    {
+      "label": "a9_only_3600",
+      "dbv": 3600,
+      "written_a9aa_be": 36369,
+      "fine_train_present": false,
+      "evidence": "artifacts/dsi_selector_split_20261107/analysis_spatial_v2.json"
+    },
+    {
+      "label": "9d_only_3600",
+      "dbv": 3600,
+      "written_a9aa_be": 3601,
+      "fine_train_present": true,
+      "evidence": "artifacts/dsi_selector_split_20261107/analysis_spatial_v2.json"
+    },
+    {
+      "label": "s0c1_3600",
+      "dbv": 3600,
+      "written_a9aa_be": 3601,
+      "fine_train_present": true,
+      "evidence": "artifacts/dsi_coupled_on_20261107/analysis_spatial_v2.json"
+    }
+  ],
+  "simple_comparison_models": [
+    {
+      "interpretation": "unsigned_be16",
+      "dbv_relation_to_word": "lt",
+      "contradictions": [
+        "a9_only_3600"
+      ]
+    },
+    {
+      "interpretation": "unsigned_be16",
+      "dbv_relation_to_word": "le",
+      "contradictions": [
+        "stock_3601",
+        "a9_only_3600"
+      ]
+    },
+    {
+      "interpretation": "unsigned_be16",
+      "dbv_relation_to_word": "gt",
+      "contradictions": [
+        "stock_3600",
+        "9d_only_3600",
+        "s0c1_3600"
+      ]
+    },
+    {
+      "interpretation": "unsigned_be16",
+      "dbv_relation_to_word": "ge",
+      "contradictions": [
+        "stock_3600",
+        "stock_3601",
+        "9d_only_3600",
+        "s0c1_3600"
+      ]
+    },
+    {
+      "interpretation": "signed_be16",
+      "dbv_relation_to_word": "lt",
+      "contradictions": []
+    },
+    {
+      "interpretation": "signed_be16",
+      "dbv_relation_to_word": "le",
+      "contradictions": [
+        "stock_3601"
+      ]
+    },
+    {
+      "interpretation": "signed_be16",
+      "dbv_relation_to_word": "gt",
+      "contradictions": [
+        "stock_3600",
+        "a9_only_3600",
+        "9d_only_3600",
+        "s0c1_3600"
+      ]
+    },
+    {
+      "interpretation": "signed_be16",
+      "dbv_relation_to_word": "ge",
+      "contradictions": [
+        "stock_3600",
+        "stock_3601",
+        "a9_only_3600",
+        "9d_only_3600",
+        "s0c1_3600"
+      ]
+    },
+    {
+      "interpretation": "low15_without_control_flag",
+      "dbv_relation_to_word": "lt",
+      "contradictions": [
+        "a9_only_3600"
+      ]
+    },
+    {
+      "interpretation": "low15_without_control_flag",
+      "dbv_relation_to_word": "le",
+      "contradictions": [
+        "stock_3601",
+        "a9_only_3600"
+      ]
+    },
+    {
+      "interpretation": "low15_without_control_flag",
+      "dbv_relation_to_word": "gt",
+      "contradictions": [
+        "stock_3600",
+        "9d_only_3600",
+        "s0c1_3600"
+      ]
+    },
+    {
+      "interpretation": "low15_without_control_flag",
+      "dbv_relation_to_word": "ge",
+      "contradictions": [
+        "stock_3600",
+        "stock_3601",
+        "9d_only_3600",
+        "s0c1_3600"
+      ]
+    },
+    {
+      "interpretation": "unsigned_le16",
+      "dbv_relation_to_word": "lt",
+      "contradictions": [
+        "stock_3601",
+        "a9_only_3600"
+      ]
+    },
+    {
+      "interpretation": "unsigned_le16",
+      "dbv_relation_to_word": "le",
+      "contradictions": [
+        "stock_3601",
+        "a9_only_3600"
+      ]
+    },
+    {
+      "interpretation": "unsigned_le16",
+      "dbv_relation_to_word": "gt",
+      "contradictions": [
+        "stock_3600",
+        "9d_only_3600",
+        "s0c1_3600"
+      ]
+    },
+    {
+      "interpretation": "unsigned_le16",
+      "dbv_relation_to_word": "ge",
+      "contradictions": [
+        "stock_3600",
+        "9d_only_3600",
+        "s0c1_3600"
+      ]
+    }
+  ],
+  "also_fits": "bit15 forces the fine-train branch off; low15 threshold otherwise",
+  "unsigned_counterexample": "At DBV3600, both 3600<3601 and 3600<36369 are true, but A9-only suppresses the fine train.",
+  "assumptions": [
+    "A9/AA is assumed to be one concatenated word; its layout is not documented.",
+    "Labels describe qualitative optical fine-train presence, not exact PWM Hz or zero residual q93 power.",
+    "Models use the written word without undocumented transformations or hidden state."
+  ],
+  "conclusion": "Plain unsigned increasing-threshold and low15-only models fail. Signed comparison and an explicit control-bit model remain observationally indistinguishable here.",
+  "pwm_hz": "unknown",
+  "frequency_multiplier": null
+}

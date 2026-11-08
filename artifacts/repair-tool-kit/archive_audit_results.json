@@ -1,0 +1,461 @@
+{
+  "scope": "Independent offline byte/code audit of the attached archive",
+  "device_io": false,
+  "source_files_modified": false,
+  "dc_program": {
+    "bytes_each": 875,
+    "packets_each": 75,
+    "changed_packets": 34,
+    "packet_differences": [
+      {
+        "packet_index": 6,
+        "page": "23",
+        "opcode": "A9",
+        "off_data": "0e",
+        "on_data": "8e"
+      },
+      {
+        "packet_index": 9,
+        "page": "24",
+        "opcode": "9D",
+        "off_data": "0e",
+        "on_data": "8e"
+      },
+      {
+        "packet_index": 12,
+        "page": "23",
+        "opcode": "80",
+        "off_data": "50",
+        "on_data": "90"
+      },
+      {
+        "packet_index": 16,
+        "page": "53",
+        "opcode": "95",
+        "off_data": "00 a0",
+        "on_data": "44 50"
+      },
+      {
+        "packet_index": 17,
+        "page": "53",
+        "opcode": "A2",
+        "off_data": "10 10 10 10 48 10 10 10 4b 4b 10 10 10 10 48 10 10 10 4b 4b 10 10 10 10 48 10 10 10 4b 4b",
+        "on_data": "10 10 10 10 48 10 10 74 7b b4 10 10 10 10 48 10 10 74 7b b4 10 10 10 10 48 10 10 74 7b b4"
+      },
+      {
+        "packet_index": 27,
+        "page": "63",
+        "opcode": "F2",
+        "off_data": "00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+        "on_data": "00 00 00 00 00 20 20 20 20 20 00 00 00 00 00 00"
+      },
+      {
+        "packet_index": 28,
+        "page": "63",
+        "opcode": "F3",
+        "off_data": "00 00 00 00 00 20 20 20 20 20 00 00 00 00 00 00",
+        "on_data": "00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00"
+      },
+      {
+        "packet_index": 42,
+        "page": "51",
+        "opcode": "A1",
+        "off_data": "44 44 79 7b 22 22",
+        "on_data": "44 44 79 79 22 22"
+      },
+      {
+        "packet_index": 43,
+        "page": "51",
+        "opcode": "A2",
+        "off_data": "7e 7e 85 85 22 22",
+        "on_data": "78 78 78 78 22 22"
+      },
+      {
+        "packet_index": 45,
+        "page": "52",
+        "opcode": "81",
+        "off_data": "46 47 48 4b 00 00",
+        "on_data": "46 47 49 48 00 00"
+      },
+      {
+        "packet_index": 46,
+        "page": "52",
+        "opcode": "82",
+        "off_data": "4e 4e 50 50 00 00",
+        "on_data": "4a 4a 4b 4b 00 00"
+      },
+      {
+        "packet_index": 49,
+        "page": "5A",
+        "opcode": "86",
+        "off_data": "0a 1e 04",
+        "on_data": "0a 1e 01"
+      },
+      {
+        "packet_index": 50,
+        "page": "5A",
+        "opcode": "8A",
+        "off_data": "12 2e 0f",
+        "on_data": "32 38 18"
+      },
+      {
+        "packet_index": 51,
+        "page": "5A",
+        "opcode": "8F",
+        "off_data": "27 3e 23",
+        "on_data": "6e 6c 32"
+      },
+      {
+        "packet_index": 52,
+        "page": "5A",
+        "opcode": "90",
+        "off_data": "0a 09 01",
+        "on_data": "14 43 01"
+      },
+      {
+        "packet_index": 53,
+        "page": "5A",
+        "opcode": "91",
+        "off_data": "09 06 00",
+        "on_data": "13 40 00"
+      },
+      {
+        "packet_index": 54,
+        "page": "5A",
+        "opcode": "92",
+        "off_data": "07 05 00",
+        "on_data": "11 3f 00"
+      },
+      {
+        "packet_index": 55,
+        "page": "5A",
+        "opcode": "93",
+        "off_data": "04 02 00",
+        "on_data": "0e 3c 00"
+      },
+      {
+        "packet_index": 56,
+        "page": "5A",
+        "opcode": "94",
+        "off_data": "00 00 00",
+        "on_data": "06 1a 00"
+      },
+      {
+        "packet_index": 57,
+        "page": "5A",
+        "opcode": "95",
+        "off_data": "26 24 16",
+        "on_data": "46 46 37"
+      },
+      {
+        "packet_index": 58,
+        "page": "5A",
+        "opcode": "9B",
+        "off_data": "00 00 00",
+        "on_data": "01 00 00"
+      },
+      {
+        "packet_index": 59,
+        "page": "5A",
+        "opcode": "9C",
+        "off_data": "34 3e 3c",
+        "on_data": "48 42 3c"
+      },
+      {
+        "packet_index": 60,
+        "page": "5A",
+        "opcode": "AE",
+        "off_data": "10 2d 07",
+        "on_data": "15 2d 07"
+      },
+      {
+        "packet_index": 61,
+        "page": "5A",
+        "opcode": "B3",
+        "off_data": "1c 21 22",
+        "on_data": "36 3d 22"
+      },
+      {
+        "packet_index": 62,
+        "page": "5A",
+        "opcode": "B9",
+        "off_data": "24 1c 20",
+        "on_data": "36 3d 30"
+      },
+      {
+        "packet_index": 63,
+        "page": "5A",
+        "opcode": "BF",
+        "off_data": "09 00 00",
+        "on_data": "00 f8 fe"
+      },
+      {
+        "packet_index": 64,
+        "page": "5A",
+        "opcode": "C0",
+        "off_data": "3a 39 3e",
+        "on_data": "44 46 3e"
+      },
+      {
+        "packet_index": 65,
+        "page": "5A",
+        "opcode": "D7",
+        "off_data": "1a 20 1d",
+        "on_data": "24 34 22"
+      },
+      {
+        "packet_index": 66,
+        "page": "5A",
+        "opcode": "DD",
+        "off_data": "2a 27 33",
+        "on_data": "34 43 38"
+      },
+      {
+        "packet_index": 67,
+        "page": "5A",
+        "opcode": "E4",
+        "off_data": "32 30 3d",
+        "on_data": "3c 43 3d"
+      },
+      {
+        "packet_index": 69,
+        "page": "5B",
+        "opcode": "DD",
+        "off_data": "39 3a 42",
+        "on_data": "40 44 47"
+      },
+      {
+        "packet_index": 71,
+        "page": "5C",
+        "opcode": "C8",
+        "off_data": "08 04 06",
+        "on_data": "14 19 06"
+      },
+      {
+        "packet_index": 72,
+        "page": "5C",
+        "opcode": "C9",
+        "off_data": "08 04 06",
+        "on_data": "14 19 06"
+      },
+      {
+        "packet_index": 73,
+        "page": "5C",
+        "opcode": "CA",
+        "off_data": "00 00 00",
+        "on_data": "00 14 00"
+      }
+    ]
+  },
+  "selector_candidates": [
+    {
+      "name": "a9_only",
+      "offset": 68,
+      "page_opcode": "23:A9",
+      "from": "0e",
+      "to": "8e",
+      "packets": 75,
+      "scope": "offline validation; no Hz semantics established"
+    },
+    {
+      "name": "9d_only",
+      "offset": 97,
+      "page_opcode": "24:9D",
+      "from": "0e",
+      "to": "8e",
+      "packets": 75,
+      "scope": "offline validation; no Hz semantics established"
+    }
+  ],
+  "timing_programs": [
+    {
+      "timing": "timing@0",
+      "nominal_fps_property": 120,
+      "effective_mode_from_labels": 120,
+      "groups": [
+        "qcom,framerate-group-120hz-based",
+        "qcom,framerate-group-no-duplicated"
+      ],
+      "page_2d_payloads": [
+        "83 00 00"
+      ],
+      "packet_count": 14,
+      "formula": "120 / (first_data_byte + 1)",
+      "formula_fps": 120.0,
+      "matches_mode_label": true,
+      "interpretation": "frame-division hypothesis; not a PWM setter"
+    },
+    {
+      "timing": "timing@1",
+      "nominal_fps_property": 144,
+      "effective_mode_from_labels": 144,
+      "groups": [
+        "qcom,framerate-group-no-duplicated"
+      ],
+      "page_2d_payloads": [
+        "84 00"
+      ],
+      "packet_count": 10
+    },
+    {
+      "timing": "timing@2",
+      "nominal_fps_property": 90,
+      "effective_mode_from_labels": 90,
+      "groups": [
+        "qcom,framerate-group-90hz-based",
+        "qcom,framerate-group-no-duplicated"
+      ],
+      "page_2d_payloads": [
+        "85 00"
+      ],
+      "packet_count": 10
+    },
+    {
+      "timing": "timing@3",
+      "nominal_fps_property": 60,
+      "effective_mode_from_labels": 60,
+      "groups": [
+        "qcom,framerate-group-120hz-based",
+        "qcom,framerate-group-no-duplicated"
+      ],
+      "page_2d_payloads": [
+        "83 01 00"
+      ],
+      "packet_count": 14,
+      "formula": "120 / (first_data_byte + 1)",
+      "formula_fps": 60.0,
+      "matches_mode_label": true,
+      "interpretation": "frame-division hypothesis; not a PWM setter"
+    },
+    {
+      "timing": "timing@4",
+      "nominal_fps_property": 30,
+      "effective_mode_from_labels": 30,
+      "groups": [
+        "qcom,framerate-group-120hz-based",
+        "qcom,framerate-group-no-duplicated"
+      ],
+      "page_2d_payloads": [
+        "83 03 00"
+      ],
+      "packet_count": 30,
+      "formula": "120 / (first_data_byte + 1)",
+      "formula_fps": 30.0,
+      "matches_mode_label": true,
+      "interpretation": "frame-division hypothesis; not a PWM setter"
+    },
+    {
+      "timing": "timing@5",
+      "nominal_fps_property": 24,
+      "effective_mode_from_labels": 24,
+      "groups": [
+        "qcom,framerate-group-120hz-based",
+        "qcom,framerate-group-no-duplicated"
+      ],
+      "page_2d_payloads": [
+        "83 04 00"
+      ],
+      "packet_count": 30,
+      "formula": "120 / (first_data_byte + 1)",
+      "formula_fps": 24.0,
+      "matches_mode_label": true,
+      "interpretation": "frame-division hypothesis; not a PWM setter"
+    },
+    {
+      "timing": "timing@6",
+      "nominal_fps_property": 120,
+      "effective_mode_from_labels": 10,
+      "groups": [
+        "qcom,framerate-group-special-idle-10hz"
+      ],
+      "page_2d_payloads": [
+        "83 0b 00"
+      ],
+      "packet_count": 14,
+      "formula": "120 / (first_data_byte + 1)",
+      "formula_fps": 10.0,
+      "matches_mode_label": true,
+      "interpretation": "frame-division hypothesis; not a PWM setter"
+    },
+    {
+      "timing": "timing@7",
+      "nominal_fps_property": 120,
+      "effective_mode_from_labels": 1,
+      "groups": [
+        "qcom,framerate-group-special-idle-1hz"
+      ],
+      "page_2d_payloads": [
+        "83 77 00"
+      ],
+      "packet_count": 14,
+      "formula": "120 / (first_data_byte + 1)",
+      "formula_fps": 1.0,
+      "matches_mode_label": true,
+      "interpretation": "frame-division hypothesis; not a PWM setter"
+    }
+  ],
+  "stock_4f81_history": [
+    {
+      "label": "initial120",
+      "software_refresh": 120.00001,
+      "read_4f81": "10",
+      "archived_autocorrelation_lags_px": [
+        206,
+        204,
+        205
+      ]
+    },
+    {
+      "label": "native30",
+      "software_refresh": 30.000002,
+      "read_4f81": "06",
+      "archived_autocorrelation_lags_px": [
+        205,
+        206,
+        205
+      ]
+    },
+    {
+      "label": "return120",
+      "software_refresh": 120.00001,
+      "read_4f81": "06",
+      "archived_autocorrelation_lags_px": [
+        205,
+        205,
+        206
+      ]
+    },
+    {
+      "label": "dc_cycle120",
+      "software_refresh": 120.00001,
+      "read_4f81": "10",
+      "archived_autocorrelation_lags_px": [
+        205,
+        205,
+        204
+      ]
+    }
+  ],
+  "optical_evidence_status": "Reported analysis only: original optical directory absent",
+  "known_code_hazards": {
+    "temporal_mean_subtraction_removes_stationary_bands": true,
+    "legacy_keyguard_assertion_disabled": true
+  },
+  "missing_referenced_paths": [
+    "artifacts/optical",
+    "sources",
+    "extracted",
+    "05-safety",
+    "artifacts/dsi_selector_split_20261107/proposal.md",
+    "artifacts/kernel/gki_r59/kernelsu_next/persistent/install.json"
+  ],
+  "conclusion": {
+    "target_2000hz_profile_verified": false,
+    "known_frequency_register": null,
+    "next_information_gain": [
+      "Reanalyse original clips using total/coherent/incoherent spatial power",
+      "Use a controlled stock 120-144-120-90-120 sequence to test the base time model",
+      "Select a bounded causal register experiment only after stating its prediction"
+    ]
+  }
+}

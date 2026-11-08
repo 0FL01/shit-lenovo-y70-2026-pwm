@@ -1,0 +1,99 @@
+{
+  "capture": "artifacts/dsi_stock_on_control_20261106/run.json",
+  "video": "artifacts/optical/pacman_dsi_stock_on_20261106.mp4",
+  "video_bytes": 39848686,
+  "decoded_frames": 1023,
+  "native_packet_checks": [
+    {
+      "label": "baseline",
+      "matched_packets": 75,
+      "post_END_writes_through_hold": 0,
+      "DMA_completion_error_log_absent": true
+    },
+    {
+      "label": "native_on",
+      "matched_packets": 75,
+      "post_END_writes_through_hold": 0,
+      "DMA_completion_error_log_absent": true
+    },
+    {
+      "label": "return",
+      "matched_packets": 75,
+      "post_END_writes_through_hold": 0,
+      "DMA_completion_error_log_absent": true
+    }
+  ],
+  "native_callbacks": 15,
+  "native_probe_profile_hits_misses": {
+    "mode_entry": [
+      15,
+      0
+    ],
+    "mode_return": [
+      15,
+      0
+    ],
+    "mode_ctrl_return": [
+      328,
+      0
+    ]
+  },
+  "phase_measurements": [
+    {
+      "label": "baseline",
+      "window_s": [
+        7,
+        10
+      ],
+      "frames": 90,
+      "dominant_period_px": 92.59259259259258,
+      "q93_RMS_Y_codes": 4.220090887733912,
+      "mean_Y_minus16": 17.4455037037037,
+      "normalized_image_amplitude": 0.24190134944845312,
+      "max_Y": 46,
+      "fraction_Y_ge235": 0.0
+    },
+    {
+      "label": "native_on",
+      "window_s": [
+        16.5,
+        19.5
+      ],
+      "frames": 90,
+      "dominant_period_px": 92.78350515463917,
+      "q93_RMS_Y_codes": 4.570011310002283,
+      "mean_Y_minus16": 17.38903333333333,
+      "normalized_image_amplitude": 0.262809968926907,
+      "max_Y": 43,
+      "fraction_Y_ge235": 0.0,
+      "normalized_amplitude_ratio_to_neighbor_stock_average": 1.0273908527517608
+    },
+    {
+      "label": "return",
+      "window_s": [
+        25.5,
+        28.5
+      ],
+      "frames": 90,
+      "dominant_period_px": 94.33962264150944,
+      "q93_RMS_Y_codes": 4.674204905443148,
+      "mean_Y_minus16": 17.330789629629635,
+      "normalized_image_amplitude": 0.2697052474430755,
+      "max_Y": 44,
+      "fraction_Y_ge235": 0.0
+    }
+  ],
+  "method": "Same unmodified limited-range Y ROI540,190,60,500; temporal-mean removal per window, per-frame quadratic background, Hann spectral grid periods20..180px; image quantities only.",
+  "observation": "Full nativeON replay without a subsequent brightness write retains the fine train. The native-UI ON suppression is NOT reproduced in this control.",
+  "raw_transport_positive_control_pass": false,
+  "possible_method_difference": "Earlier nativeUI DC0/1/0 trial rewrote sysfsDBV3600 AFTER each toggle. Raw replay did not send brightness after the table; whether that is a required DDIC latch remains hypothesis. No outgoing write/overwrite was logged during these raw holds.",
+  "implication": "Do not conclude isolated fields are ineffective or necessarily coupled from previous negative raw tests. Resolve method difference before more synthetic profiles.",
+  "pwm_hz": "unknown",
+  "greater_equal_2000_hz_verified": false,
+  "low_frequency_component_eliminated": false,
+  "target_restored": true,
+  "limitations": [
+    "No calibrated fundamentalHz/luminance/depth or panel-temperature evidence.",
+    "Software panelDC remains0 in raw control, unlike UI ON; full framework equivalence is not established."
+  ]
+}

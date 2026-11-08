@@ -1,0 +1,144 @@
+{
+  "created_at_utc": "2026-11-06T21:38:46.031564+00:00",
+  "status": "confirmed-on-target",
+  "capture": "artifacts/dsi_stock_on_control_20261106/with_redraw/run.json",
+  "video": "artifacts/optical/pacman_dsi_stock_on_redraw_20261106.mp4",
+  "video_bytes": 72163920,
+  "decoded_frames": 1859,
+  "roi_xywh": [
+    540,
+    190,
+    60,
+    500
+  ],
+  "method": "Original limited-range Y, passthrough frames/PTS, temporal mean removal per state then per-frame quadratic background, Hann spatial Fourier. Search1/180..1/20cycles/row; an edge maximum is not assigned a period. q93 is an image component, not Hz or calibrated modulation depth. Equal gamma2 only in comparison image.",
+  "analysis_correction": "Initial offline analysis assumed every phase retained an interior fine-component maximum; stopped before publication. Corrected to report boundary maximum without inventing a period; cached profiles reused, no capture repeated.",
+  "stages": [
+    {
+      "label": "baseline",
+      "window_s": [
+        11.5,
+        14.5
+      ],
+      "frames": 91,
+      "dominant_period_px": 93.74999999999999,
+      "spectral_search_boundary": false,
+      "q93_rms_Y_codes": 4.695757048515409,
+      "mean_Y_minus16": 17.436952380952384,
+      "normalized_q": 0.26929918405035713,
+      "max_column_mean_Y": 39.4,
+      "normalized_q_ratio_to_adjacent_stock": 1.001503173569014
+    },
+    {
+      "label": "native_on",
+      "window_s": [
+        21.5,
+        24.5
+      ],
+      "frames": 90,
+      "dominant_period_px": 93.9457202505219,
+      "spectral_search_boundary": false,
+      "q93_rms_Y_codes": 4.711151999012714,
+      "mean_Y_minus16": 17.450117407407404,
+      "normalized_q": 0.26997824077750193,
+      "max_column_mean_Y": 39.516666666666666,
+      "normalized_q_ratio_to_adjacent_stock": 1.0040285338654706
+    },
+    {
+      "label": "native_on_redraw",
+      "window_s": [
+        36.5,
+        39.5
+      ],
+      "frames": 90,
+      "dominant_period_px": null,
+      "spectral_search_boundary": true,
+      "q93_rms_Y_codes": 1.763366769181953,
+      "mean_Y_minus16": 17.024093703703706,
+      "normalized_q": 0.10358065456361537,
+      "max_column_mean_Y": 37.1,
+      "normalized_q_ratio_to_adjacent_stock": 0.3852085725087774
+    },
+    {
+      "label": "return",
+      "window_s": [
+        52.5,
+        55.5
+      ],
+      "frames": 90,
+      "dominant_period_px": 93.9457202505219,
+      "spectral_search_boundary": false,
+      "q93_rms_Y_codes": 4.667028072191827,
+      "mean_Y_minus16": 17.38245111111111,
+      "normalized_q": 0.26849079237211815,
+      "max_column_mean_Y": 39.31666666666667,
+      "normalized_q_ratio_to_adjacent_stock": 0.9984968264309859
+    }
+  ],
+  "native": {
+    "table_packets_matched": 225,
+    "post_table_brightness_writes": 3,
+    "raw_callback_returns": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "controller_return_count": 336,
+    "count_snapshot_note": "Probe profile was read after all holds (335 controller hits/0 misses); final cleanup trace includes one later nonnegative controller return (336 total). These are different-time snapshots.",
+    "controller_negative_returns": 0,
+    "probe_profile": {
+      "mode_entry": [
+        [
+          15,
+          0
+        ]
+      ],
+      "mode_return": [
+        [
+          15,
+          0
+        ]
+      ],
+      "mode_ctrl_return": [
+        [
+          335,
+          0
+        ]
+      ]
+    },
+    "DSI_writes_during_isolated_redraw_and_hold": 0,
+    "DMA_error_observed": false
+  },
+  "assessment": {
+    "raw_ON_before_redraw_retains_fine_train": true,
+    "fine_train_suppression_after_redraw": true,
+    "stock_OFF_and_redraw_restore_fine_train": true,
+    "raw_transport_positive_control_pass": true,
+    "pixel_frame_update_sufficient_for_effect_in_this_trial": true,
+    "internal_CMDQ_latch_mechanism": "hypothesis, not decoded",
+    "pwm_hz": "unknown",
+    "greater_equal_2000_hz_verified": false,
+    "low_frequency_component_eliminated": false
+  },
+  "limits": [
+    "No independent panel temperature measurement or calibrated photometry. Column-mean Y maxima are not pixel-level clipping checks.",
+    "The setting chooser was opened/cancelled without preference changes; no new logged DSI commands accompanied the isolated redraw. This does not identify the exact internal DDIC latch.",
+    "Earlier isolated-block negatives were obtained without this newly validated application step; they do not exclude those fields.",
+    "Original broad band remains; this control is not a useful >=2000Hz profile."
+  ],
+  "target_restored": true,
+  "camera_original_restoration_pending": true,
+  "comparison_image": "artifacts/optical/pacman_dsi_stock_on_redraw_comparison.png"
+}

@@ -1,0 +1,12 @@
+libsdmclient.so CommitOrPrepare CN 0xa1014 target 0xa1258 length 992 different instructions 22
+libsdmclient.so CheckHdrType CN 0xa69d4 target 0xa6bb8 length 128 different instructions 0
+libsdmclient.so SetLayerBuffer CN 0xb7f70 target 0xb8154 length 2548 different instructions 70
+libsdmclient.so SetMetaData CN 0xb8964 target 0xb8b48 length 2668 different instructions 60
+libsdmdal.so SetMotoDrmCmd CN 0x3c7a0 target 0x3c7d0 length 220 different instructions 0
+gate traversal/state CN [0xa11a4,0xa1208) target [0xa13e8,0xa144c) byte equal True
+gate call slot/id/val CN [0xa1250,0xa1264) target [0xa1494,0xa14a8) byte equal True
+buffer bit1 CN [0xb83a4,0xb83e0) target [0xb8588,0xb85c4) byte equal True
+metadata state probe CN [0xb8e2c,0xb8e50) target [0xb9010,0xb9034) byte equal True
+metadata payload probe CN [0xb8ea4,0xb8ec0) target [0xb9088,0xb90a4) byte equal True
+metadata set gate CN [0xb8f30,0xb8f44) target [0xb9114,0xb9128) byte equal True
+metadata clear gate CN [0xb8fb4,0xb8fc8) target [0xb9198,0xb91ac) byte equal True

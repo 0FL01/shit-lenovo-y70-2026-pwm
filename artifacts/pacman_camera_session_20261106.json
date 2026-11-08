@@ -1,0 +1,63 @@
+{
+  "started_at_utc": "2026-11-06T16:18:40.977799+00:00",
+  "camera_device": {
+    "manufacturer": "Nothing",
+    "model": "A142P",
+    "device": "PacmanPro"
+  },
+  "authorization": "Owner authorizes autonomous optical video capture/analysis via Wi-Fi ADB and temporary camera-screen keep-awake",
+  "multiple_transports_same_device_verified": true,
+  "screen_timeout_before_ms": 1800000,
+  "screen_timeout_temporary_ms": 2147483647,
+  "screen_timeout_restored": true,
+  "device_identifiers_recorded": false,
+  "camera_initial_app": "com.nothing.camera",
+  "target_visible_in_preview": true,
+  "screen_timeout_override_verified": true,
+  "opencamera_before": {
+    "api": "Original camera API",
+    "video_preview_description": "1280x720,24FPS,9000Kbps(mp4)",
+    "api_restore_required": false,
+    "focus": "focus_mode_continuous_video"
+  },
+  "opencamera_temporary": {
+    "api": "Camera2",
+    "iso_requested": 6400,
+    "manual_exposure_controls_available": true,
+    "preparation_camera_metadata": {
+      "android.sensor.exposureTime": [
+        "100000 ",
+        "100000 "
+      ],
+      "android.sensor.sensitivity": [
+        "6400 ",
+        "6400 "
+      ],
+      "android.control.aeMode": [
+        "OFF ",
+        "OFF "
+      ],
+      "android.control.afMode": [
+        "CONTINUOUS_VIDEO ",
+        "CONTINUOUS_VIDEO "
+      ],
+      "android.sensor.rollingShutterSkew": [
+        "15596307 "
+      ]
+    },
+    "focus": "focus_mode_locked"
+  },
+  "target_before": {
+    "screen_brightness": "70",
+    "screen_brightness_mode": "1",
+    "min_refresh_rate": "null",
+    "peak_refresh_rate": "null",
+    "screen_off_timeout": "300000",
+    "bl_power": "4"
+  },
+  "target_restore_required": false,
+  "opencamera_auto_exposure_restored": true,
+  "opencamera_continuous_focus_restored": true,
+  "opencamera_original_api_restored": true,
+  "initial_camera_app_resumed": true
+}

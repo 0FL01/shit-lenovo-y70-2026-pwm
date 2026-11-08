@@ -1,0 +1,124 @@
+{
+  "analysed_at_utc": "2026-11-06T15:11:19.086705+00:00",
+  "input_path": "/home/stfu/Torrents/Android/VID_20261106_170959931_rotated_180.mp4",
+  "file_size_bytes": 48394921,
+  "duration_s": 87.810585,
+  "video_codec": "hevc",
+  "width": 1080,
+  "height": 1920,
+  "file_frame_rate_rational": "359/12",
+  "file_frame_rate": 29.916666666666668,
+  "capture_exposure_iso_readout": "unknown",
+  "container_encoder_note": "Lavf63.1.102 in provided rotated file; do not infer source camera exposure or unmodified capture timing",
+  "ui_switch_changes": [
+    {
+      "video_s": 10.0,
+      "dc_on": true,
+      "native_tap_completed_at_utc": "2026-11-06T14:09:54.851258+00:00"
+    },
+    {
+      "video_s": 25.8,
+      "dc_on": false,
+      "native_tap_completed_at_utc": "2026-11-06T14:10:10.364348+00:00"
+    },
+    {
+      "video_s": 41.0,
+      "dc_on": true,
+      "native_tap_completed_at_utc": "2026-11-06T14:10:25.803433+00:00"
+    },
+    {
+      "video_s": 56.6,
+      "dc_on": false,
+      "native_tap_completed_at_utc": "2026-11-06T14:10:41.273557+00:00"
+    }
+  ],
+  "switch_locator_sampling_hz": 5,
+  "switch_time_uncertainty_s": 0.2,
+  "native_to_video_alignment_offset_spread_s": 0.287,
+  "intervals": [
+    {
+      "video_start_s": 0,
+      "video_end_s": 10.0,
+      "android_brightness": 78,
+      "dc": 0,
+      "sysfs_brightness": 5197
+    },
+    {
+      "video_start_s": 10.0,
+      "video_end_s": 25.8,
+      "android_brightness": 78,
+      "dc": 1,
+      "sysfs_brightness": 5197
+    },
+    {
+      "video_start_s": 25.8,
+      "video_end_s": 41.0,
+      "android_brightness": 40,
+      "dc": 0,
+      "sysfs_brightness": 2839
+    },
+    {
+      "video_start_s": 41.0,
+      "video_end_s": 56.6,
+      "android_brightness": 40,
+      "dc": 1,
+      "sysfs_brightness": 2839
+    },
+    {
+      "video_start_s": 56.6,
+      "video_end_s": 87.810585,
+      "android_brightness": "auto after cleanup",
+      "dc": 0,
+      "sysfs_brightness": "not fixed"
+    }
+  ],
+  "frame_inspection": {
+    "overview_seconds": [
+      0,
+      10,
+      20,
+      30,
+      40,
+      50,
+      60,
+      70,
+      80
+    ],
+    "full_resolution_seconds": [
+      2,
+      17,
+      32,
+      47,
+      62,
+      77,
+      85
+    ],
+    "low_off_comparison_seconds": [
+      26,
+      30
+    ],
+    "low_on_comparison_seconds": [
+      44,
+      48
+    ],
+    "visible_theme": "light; previous dark-theme assumption corrected",
+    "usb_dialog": "appears around29s, present at32s; exclude it/scrim when comparing banding",
+    "handheld_motion": true,
+    "fine_coloured_moire_present": true,
+    "observed_low_off": "repeated fine bands visible before USB popup as well; not an independently decoded EM frequency",
+    "observed_low_on": "much less obvious banding in sampled44-48s frames; no PWM-absence/Higher-Hz claim",
+    "constant_screen_content_confirmed": false
+  },
+  "limits": [
+    "camera shutter/ISO/AE lock and rolling-shutter readout unknown",
+    "phone/camera movement and USB dialog change scene",
+    "fine coloured moire must not be counted as emission pulses",
+    "fixed edge-ROI intensity metrics discarded because phone motion crosses screen border",
+    "no calibrated brightness/modulation depth/Hz inferred from compressed image codes",
+    "reference-phone comparison and direct comfort outcome not supplied"
+  ],
+  "private_frame_cache": "/home/stfu/.cache/opencode-tmp/opencode/camera-video-analysis-20261106",
+  "optical_hz": "unknown",
+  "greater_equal_2000_hz_verified": false,
+  "device_actions_during_analysis": false
+}

@@ -1,0 +1,3771 @@
+{
+  "scope": "Stock120/DC0/DBV3600 fixed; camera exposure-notch control at fixedISO1600, no raw replay/custom bytes",
+  "started_at_utc": "2026-11-07T08:17:52.906523+00:00",
+  "phases": [
+    {
+      "index": 1,
+      "dc": 0,
+      "dbv": 3600,
+      "camera_start": {
+        "android.sensor.exposureTime": [
+          "100000",
+          "100000"
+        ],
+        "android.sensor.sensitivity": [
+          "1600",
+          "1600"
+        ],
+        "android.control.aeMode": [
+          "OFF",
+          "OFF"
+        ],
+        "android.control.afMode": [
+          "OFF",
+          "OFF"
+        ],
+        "android.lens.focusDistance": [
+          "9.11752701",
+          "9.11752701"
+        ],
+        "android.sensor.rollingShutterSkew": [
+          "15047630"
+        ],
+        "android.sensor.timestamp": [
+          "5938478228645000"
+        ],
+        "android.request.frameCount": [
+          "65531"
+        ],
+        "android.scaler.cropRegion": [
+          "0 0 4080 3072",
+          "0 0 4080 3072"
+        ],
+        "android.control.zoomRatio": [
+          "1.00000000",
+          "1.00000000"
+        ],
+        "android.control.videoStabilizationMode": [
+          "OFF",
+          "OFF"
+        ],
+        "android.lens.opticalStabilizationMode": [
+          "OFF",
+          "OFF"
+        ]
+      },
+      "hold_start_utc": "2026-11-07T08:18:48.824694+00:00",
+      "requested_exposure_ns": 100000,
+      "exposure_ns": 100000,
+      "iso": 1600,
+      "requested_refresh": 120,
+      "redraw_completed": false,
+      "scene_redrawn_before_series": true,
+      "hold_end_utc": "2026-11-07T08:18:55.881529+00:00",
+      "software_refresh_end": 120.00001,
+      "camera_end": {
+        "android.sensor.exposureTime": [
+          "100000",
+          "100000"
+        ],
+        "android.sensor.sensitivity": [
+          "1600",
+          "1600"
+        ],
+        "android.control.aeMode": [
+          "OFF",
+          "OFF"
+        ],
+        "android.control.afMode": [
+          "OFF",
+          "OFF"
+        ],
+        "android.lens.focusDistance": [
+          "9.11752701",
+          "9.11752701"
+        ],
+        "android.sensor.rollingShutterSkew": [
+          "15047630"
+        ],
+        "android.sensor.timestamp": [
+          "5938485561889000"
+        ],
+        "android.request.frameCount": [
+          "65751"
+        ],
+        "android.scaler.cropRegion": [
+          "0 0 4080 3072",
+          "0 0 4080 3072"
+        ],
+        "android.control.zoomRatio": [
+          "1.00000000",
+          "1.00000000"
+        ],
+        "android.control.videoStabilizationMode": [
+          "OFF",
+          "OFF"
+        ],
+        "android.lens.opticalStabilizationMode": [
+          "OFF",
+          "OFF"
+        ]
+      }
+    },
+    {
+      "index": 2,
+      "dc": 0,
+      "dbv": 3600,
+      "camera_start": {
+        "android.sensor.exposureTime": [
+          "500000",
+          "500000"
+        ],
+        "android.sensor.sensitivity": [
+          "1600",
+          "1600"
+        ],
+        "android.control.aeMode": [
+          "OFF",
+          "OFF"
+        ],
+        "android.control.afMode": [
+          "OFF",
+          "OFF"
+        ],
+        "android.lens.focusDistance": [
+          "9.11752701",
+          "9.11752701"
+        ],
+        "android.sensor.rollingShutterSkew": [
+          "15047630"
+        ],
+        "android.sensor.timestamp": [
+          "5938518927745000"
+        ],
+        "android.request.frameCount": [
+          "66752"
+        ],
+        "android.scaler.cropRegion": [
+          "0 0 4080 3072",
+          "0 0 4080 3072"
+        ],
+        "android.control.zoomRatio": [
+          "1.00000000",
+          "1.00000000"
+        ],
+        "android.control.videoStabilizationMode": [
+          "OFF",
+          "OFF"
+        ],
+        "android.lens.opticalStabilizationMode": [
+          "OFF",
+          "OFF"
+        ]
+      },
+      "hold_start_utc": "2026-11-07T08:19:29.518313+00:00",
+      "requested_exposure_ns": 500000,
+      "exposure_ns": 500000,
+      "iso": 1600,
+      "requested_refresh": 120,
+      "redraw_completed": false,
+      "scene_redrawn_before_series": true,
+      "hold_end_utc": "2026-11-07T08:19:36.600647+00:00",
+      "software_refresh_end": 120.00001,
+      "camera_end": {
+        "android.sensor.exposureTime": [
+          "500000",
+          "500000"
+        ],
+        "android.sensor.sensitivity": [
+          "1600",
+          "1600"
+        ],
+        "android.control.aeMode": [
+          "OFF",
+          "OFF"
+        ],
+        "android.control.afMode": [
+          "OFF",
+          "OFF"
+        ],
+        "android.lens.focusDistance": [
+          "9.11752701",
+          "9.11752701"
+        ],
+        "android.sensor.rollingShutterSkew": [
+          "15047630"
+        ],
+        "android.sensor.timestamp": [
+          "5938526260988000"
+        ],
+        "android.request.frameCount": [
+          "66972"
+        ],
+        "android.scaler.cropRegion": [
+          "0 0 4080 3072",
+          "0 0 4080 3072"
+        ],
+        "android.control.zoomRatio": [
+          "1.00000000",
+          "1.00000000"
+        ],
+        "android.control.videoStabilizationMode": [
+          "OFF",
+          "OFF"
+        ],
+        "android.lens.opticalStabilizationMode": [
+          "OFF",
+          "OFF"
+        ]
+      }
+    },
+    {
+      "index": 3,
+      "dc": 0,
+      "dbv": 3600,
+      "camera_start": {
+        "android.sensor.exposureTime": [
+          "1000000",
+          "1000000"
+        ],
+        "android.sensor.sensitivity": [
+          "1600",
+          "1600"
+        ],
+        "android.control.aeMode": [
+          "OFF",
+          "OFF"
+        ],
+        "android.control.afMode": [
+          "OFF",
+          "OFF"
+        ],
+        "android.lens.focusDistance": [
+          "9.11752701",
+          "9.11752701"
+        ],
+        "android.sensor.rollingShutterSkew": [
+          "15047630"
+        ],
+        "android.sensor.timestamp": [
+          "5938547493558000"
+        ],
+        "android.request.frameCount": [
+          "67609"
+        ],
+        "android.scaler.cropRegion": [
+          "0 0 4080 3072",
+          "0 0 4080 3072"
+        ],
+        "android.control.zoomRatio": [
+          "1.00000000",
+          "1.00000000"
+        ],
+        "android.control.videoStabilizationMode": [
+          "OFF",
+          "OFF"
+        ],
+        "android.lens.opticalStabilizationMode": [
+          "OFF",
+          "OFF"
+        ]
+      },
+      "hold_start_utc": "2026-11-07T08:19:58.105467+00:00",
+      "requested_exposure_ns": 1000000,
+      "exposure_ns": 1000000,
+      "iso": 1600,
+      "requested_refresh": 120,
+      "redraw_completed": false,
+      "scene_redrawn_before_series": true,
+      "hold_end_utc": "2026-11-07T08:20:05.158127+00:00",
+      "software_refresh_end": 120.00001,
+      "camera_end": {
+        "android.sensor.exposureTime": [
+          "1000000",
+          "1000000"
+        ],
+        "android.sensor.sensitivity": [
+          "1600",
+          "1600"
+        ],
+        "android.control.aeMode": [
+          "OFF",
+          "OFF"
+        ],
+        "android.control.afMode": [
+          "OFF",
+          "OFF"
+        ],
+        "android.lens.focusDistance": [
+          "9.11752701",
+          "9.11752701"
+        ],
+        "android.sensor.rollingShutterSkew": [
+          "15047630"
+        ],
+        "android.sensor.timestamp": [
+          "5938554793468000"
+        ],
+        "android.request.frameCount": [
+          "67828"
+        ],
+        "android.scaler.cropRegion": [
+          "0 0 4080 3072",
+          "0 0 4080 3072"
+        ],
+        "android.control.zoomRatio": [
+          "1.00000000",
+          "1.00000000"
+        ],
+        "android.control.videoStabilizationMode": [
+          "OFF",
+          "OFF"
+        ],
+        "android.lens.opticalStabilizationMode": [
+          "OFF",
+          "OFF"
+        ]
+      }
+    },
+    {
+      "index": 4,
+      "dc": 0,
+      "dbv": 3600,
+      "camera_start": {
+        "android.sensor.exposureTime": [
+          "1428571",
+          "1428571"
+        ],
+        "android.sensor.sensitivity": [
+          "1600",
+          "1600"
+        ],
+        "android.control.aeMode": [
+          "OFF",
+          "OFF"
+        ],
+        "android.control.afMode": [
+          "OFF",
+          "OFF"
+        ],
+        "android.lens.focusDistance": [
+          "9.11752701",
+          "9.11752701"
+        ],
+        "android.sensor.rollingShutterSkew": [
+          "15047630"
+        ],
+        "android.sensor.timestamp": [
+          "5938580092726429"
+        ],
+        "android.request.frameCount": [
+          "68587"
+        ],
+        "android.scaler.cropRegion": [
+          "0 0 4080 3072",
+          "0 0 4080 3072"
+        ],
+        "android.control.zoomRatio": [
+          "1.00000000",
+          "1.00000000"
+        ],
+        "android.control.videoStabilizationMode": [
+          "OFF",
+          "OFF"
+        ],
+        "android.lens.opticalStabilizationMode": [
+          "OFF",
+          "OFF"
+        ]
+      },
+      "hold_start_utc": "2026-11-07T08:20:30.713957+00:00",
+      "requested_exposure_ns": 1428571,
+      "exposure_ns": 1428571,
+      "iso": 1600,
+      "requested_refresh": 120,
+      "redraw_completed": false,
+      "scene_redrawn_before_series": true,
+      "hold_end_utc": "2026-11-07T08:20:37.793796+00:00",
+      "software_refresh_end": 120.00001,
+      "camera_end": {
+        "android.sensor.exposureTime": [
+          "1428571",
+          "1428571"
+        ],
+        "android.sensor.sensitivity": [
+          "1600",
+          "1600"
+        ],
+        "android.control.aeMode": [
+          "OFF",
+          "OFF"
+        ],
+        "android.control.afMode": [
+          "OFF",
+          "OFF"
+        ],
+        "android.lens.focusDistance": [
+          "9.11752701",
+          "9.11752701"
+        ],
+        "android.sensor.rollingShutterSkew": [
+          "15047630"
+        ],
+        "android.sensor.timestamp": [
+          "5938587459301429"
+        ],
+        "android.request.frameCount": [
+          "68808"
+        ],
+        "android.scaler.cropRegion": [
+          "0 0 4080 3072",
+          "0 0 4080 3072"
+        ],
+        "android.control.zoomRatio": [
+          "1.00000000",
+          "1.00000000"
+        ],
+        "android.control.videoStabilizationMode": [
+          "OFF",
+          "OFF"
+        ],
+        "android.lens.opticalStabilizationMode": [
+          "OFF",
+          "OFF"
+        ]
+      }
+    },
+    {
+      "index": 5,
+      "dc": 0,
+      "dbv": 3600,
+      "camera_start": {
+        "android.sensor.exposureTime": [
+          "2000000",
+          "2000000"
+        ],
+        "android.sensor.sensitivity": [
+          "1600",
+          "1600"
+        ],
+        "android.control.aeMode": [
+          "OFF",
+          "OFF"
+        ],
+        "android.control.afMode": [
+          "OFF",
+          "OFF"
+        ],
+        "android.lens.focusDistance": [
+          "9.11752701",
+          "9.11752701"
+        ],
+        "android.sensor.rollingShutterSkew": [
+          "15047630"
+        ],
+        "android.sensor.timestamp": [
+          "5938620991649000"
+        ],
+        "android.request.frameCount": [
+          "69814"
+        ],
+        "android.scaler.cropRegion": [
+          "0 0 4080 3072",
+          "0 0 4080 3072"
+        ],
+        "android.control.zoomRatio": [
+          "1.00000000",
+          "1.00000000"
+        ],
+        "android.control.videoStabilizationMode": [
+          "OFF",
+          "OFF"
+        ],
+        "android.lens.opticalStabilizationMode": [
+          "OFF",
+          "OFF"
+        ]
+      },
+      "hold_start_utc": "2026-11-07T08:21:11.603349+00:00",
+      "requested_exposure_ns": 2000000,
+      "exposure_ns": 2000000,
+      "iso": 1600,
+      "requested_refresh": 120,
+      "redraw_completed": false,
+      "scene_redrawn_before_series": true,
+      "hold_end_utc": "2026-11-07T08:21:18.666068+00:00",
+      "software_refresh_end": 120.00001,
+      "camera_end": {
+        "android.sensor.exposureTime": [
+          "2000000",
+          "2000000"
+        ],
+        "android.sensor.sensitivity": [
+          "1600",
+          "1600"
+        ],
+        "android.control.aeMode": [
+          "OFF",
+          "OFF"
+        ],
+        "android.control.afMode": [
+          "OFF",
+          "OFF"
+        ],
+        "android.lens.focusDistance": [
+          "9.11752701",
+          "9.11752701"
+        ],
+        "android.sensor.rollingShutterSkew": [
+          "15047630"
+        ],
+        "android.sensor.timestamp": [
+          "5938628291559000"
+        ],
+        "android.request.frameCount": [
+          "70033"
+        ],
+        "android.scaler.cropRegion": [
+          "0 0 4080 3072",
+          "0 0 4080 3072"
+        ],
+        "android.control.zoomRatio": [
+          "1.00000000",
+          "1.00000000"
+        ],
+        "android.control.videoStabilizationMode": [
+          "OFF",
+          "OFF"
+        ],
+        "android.lens.opticalStabilizationMode": [
+          "OFF",
+          "OFF"
+        ]
+      }
+    },
+    {
+      "index": 6,
+      "dc": 0,
+      "dbv": 3600,
+      "camera_start": {
+        "android.sensor.exposureTime": [
+          "100000",
+          "100000"
+        ],
+        "android.sensor.sensitivity": [
+          "1600",
+          "1600"
+        ],
+        "android.control.aeMode": [
+          "OFF",
+          "OFF"
+        ],
+        "android.control.afMode": [
+          "OFF",
+          "OFF"
+        ],
+        "android.lens.focusDistance": [
+          "9.11752701",
+          "9.11752701"
+        ],
+        "android.sensor.rollingShutterSkew": [
+          "15047630"
+        ],
+        "android.sensor.timestamp": [
+          "5938645393248000"
+        ],
+        "android.request.frameCount": [
+          "70546"
+        ],
+        "android.scaler.cropRegion": [
+          "0 0 4080 3072",
+          "0 0 4080 3072"
+        ],
+        "android.control.zoomRatio": [
+          "1.00000000",
+          "1.00000000"
+        ],
+        "android.control.videoStabilizationMode": [
+          "OFF",
+          "OFF"
+        ],
+        "android.lens.opticalStabilizationMode": [
+          "OFF",
+          "OFF"
+        ]
+      },
+      "hold_start_utc": "2026-11-07T08:21:35.976145+00:00",
+      "requested_exposure_ns": 100000,
+      "exposure_ns": 100000,
+      "iso": 1600,
+      "requested_refresh": 120,
+      "redraw_completed": false,
+      "scene_redrawn_before_series": true,
+      "hold_end_utc": "2026-11-07T08:21:43.057323+00:00",
+      "software_refresh_end": 120.00001,
+      "camera_end": {
+        "android.sensor.exposureTime": [
+          "100000",
+          "100000"
+        ],
+        "android.sensor.sensitivity": [
+          "1600",
+          "1600"
+        ],
+        "android.control.aeMode": [
+          "OFF",
+          "OFF"
+        ],
+        "android.control.afMode": [
+          "OFF",
+          "OFF"
+        ],
+        "android.lens.focusDistance": [
+          "9.11752701",
+          "9.11752701"
+        ],
+        "android.sensor.rollingShutterSkew": [
+          "15047630"
+        ],
+        "android.sensor.timestamp": [
+          "5938652793156000"
+        ],
+        "android.request.frameCount": [
+          "70768"
+        ],
+        "android.scaler.cropRegion": [
+          "0 0 4080 3072",
+          "0 0 4080 3072"
+        ],
+        "android.control.zoomRatio": [
+          "1.00000000",
+          "1.00000000"
+        ],
+        "android.control.videoStabilizationMode": [
+          "OFF",
+          "OFF"
+        ],
+        "android.lens.opticalStabilizationMode": [
+          "OFF",
+          "OFF"
+        ]
+      }
+    }
+  ],
+  "events": [
+    {
+      "at_utc": "2026-11-07T08:17:52.981215+00:00",
+      "device": "target",
+      "command": "getprop ro.boot.hardware.sku; getprop ro.build.display.id; getprop ro.boot.slot_suffix; getenforce",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "XT2611-1\nW3WWS36.65-64-4-1\n_b\nEnforcing",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:17:53.024456+00:00",
+      "device": "target",
+      "command": "id",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "uid=0(root) gid=0(root) groups=0(root) context=u:r:ksu:s0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:17:53.104846+00:00",
+      "device": "camera",
+      "command": "getprop ro.product.device",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "PacmanPro",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:17:53.159300+00:00",
+      "device": "target",
+      "command": "cat /sys/class/drm/card0-DSI-1/panelName",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "boe_ili97701A_682_1440x3168_dsc_cmd_v4",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:17:53.217376+00:00",
+      "device": "target",
+      "command": "sha256sum /vendor/lib/modules/msm_drm.ko",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "1bec69faec736e7288f38e4cb83314c37c60d33e6b383213316fd880aa0b1804  /vendor/lib/modules/msm_drm.ko",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:17:53.264569+00:00",
+      "device": "target",
+      "command": "cat /sys/class/drm/card0-DSI-1/panelDC",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:17:53.315328+00:00",
+      "device": "target",
+      "command": "cat /sys/class/drm/card0-DSI-1/mipi_cmd_log_en",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "ctrl->ctrl->mipi_cmd_log_en: 0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:17:53.358420+00:00",
+      "device": "target",
+      "command": "test ! -d /sys/kernel/tracing/instances/pwm_notch_supported && ! grep -q pwm_notch_supported/ /sys/kernel/tracing/kprobe_events",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:17:55.675280+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm_notch_supported.xml >/dev/null && cat /data/local/tmp/pwm_notch_supported.xml",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:17:55.798009+00:00",
+      "device": "camera",
+      "command": "dumpsys media.camera",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private before-camera.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:17:55.855391+00:00",
+      "device": "target",
+      "command": "settings get system screen_brightness",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "52",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:17:55.905830+00:00",
+      "device": "target",
+      "command": "settings get system screen_brightness_mode",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:17:55.955942+00:00",
+      "device": "target",
+      "command": "settings get system min_refresh_rate",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "120.0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:17:56.005071+00:00",
+      "device": "target",
+      "command": "settings get system peak_refresh_rate",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "120.0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:17:56.051191+00:00",
+      "device": "target",
+      "command": "settings get system screen_off_timeout",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "1800000",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:17:56.108642+00:00",
+      "device": "target",
+      "command": "cat /sys/class/backlight/panel0-backlight/bl_power",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:17:56.161325+00:00",
+      "device": "target",
+      "command": "cat /sys/class/backlight/panel0-backlight/brightness",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "828",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:17:56.210112+00:00",
+      "device": "target",
+      "command": "settings get global stay_on_while_plugged_in",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "7",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:17:56.341674+00:00",
+      "device": "target",
+      "command": "settings put system screen_brightness_mode 0; settings put system screen_brightness 52; settings put system min_refresh_rate 120.0; settings put system peak_refresh_rate 120.0; settings put system screen_off_timeout 600000; input keyevent 224",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:17:56.414855+00:00",
+      "device": "target",
+      "command": "dumpsys window policy | grep -F 'screenState='",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "screenState=SCREEN_STATE_ON",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:17:56.475760+00:00",
+      "device": "target",
+      "command": "dumpsys window policy | grep -F 'interactiveState='",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "interactiveState=INTERACTIVE_STATE_AWAKE",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:17:56.522537+00:00",
+      "device": "target",
+      "command": "wm dismiss-keyguard",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:17:56.580408+00:00",
+      "device": "target",
+      "command": "dumpsys window policy | grep -F 'mIsShowing='",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "mIsShowing=false",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:17:56.627025+00:00",
+      "device": "target",
+      "command": "input keyevent 3",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:17:56.721987+00:00",
+      "device": "target",
+      "command": "am start -W --activity-clear-top -n 'com.android.settings/.Settings$DisplaySettingsActivity'",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "Starting: Intent { flg=0x4000000 cmp=com.android.settings/.Settings$DisplaySettingsActivity }\nStatus: ok\nLaunchState: WARM\nActivity: com.android.settings/.Settings$DisplaySettingsActivity\nTotalTime: 61\nWaitTime: 62\nComplete",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:17:58.736892+00:00",
+      "device": "target",
+      "command": "uiautomator dump /data/local/tmp/pwm_notch_supported.xml >/dev/null && cat /data/local/tmp/pwm_notch_supported.xml",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private target-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:17:59.191219+00:00",
+      "device": "target",
+      "command": "input swipe 720 2780 720 850 400",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:18:01.653109+00:00",
+      "device": "target",
+      "command": "uiautomator dump /data/local/tmp/pwm_notch_supported.xml >/dev/null && cat /data/local/tmp/pwm_notch_supported.xml",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private target-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:18:01.707724+00:00",
+      "device": "target",
+      "command": "cat /sys/class/drm/card0-DSI-1/panelDC",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:18:02.739913+00:00",
+      "device": "target",
+      "command": "content call --uri content://com.motorola.android.providers.settings/global --method GET_global --arg display_dc_mode_enabled",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "Result: Bundle[{value=0}]",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:18:02.797512+00:00",
+      "device": "target",
+      "command": "printf '3600\n' > /sys/class/backlight/panel0-backlight/brightness",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:18:02.849705+00:00",
+      "device": "target",
+      "command": "cat /sys/class/backlight/panel0-backlight/brightness",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "3600",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:18:02.903317+00:00",
+      "device": "target",
+      "command": "dumpsys display",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private display.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:18:04.989718+00:00",
+      "device": "target",
+      "command": "uiautomator dump /data/local/tmp/pwm_notch_supported.xml >/dev/null && cat /data/local/tmp/pwm_notch_supported.xml",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private target-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:18:05.049538+00:00",
+      "device": "target",
+      "command": "input tap 720 1583",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:18:07.075799+00:00",
+      "device": "target",
+      "command": "uiautomator dump /data/local/tmp/pwm_notch_supported.xml >/dev/null && cat /data/local/tmp/pwm_notch_supported.xml",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private target-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:18:07.130374+00:00",
+      "device": "target",
+      "command": "input keyevent 4",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:18:09.201404+00:00",
+      "device": "target",
+      "command": "uiautomator dump /data/local/tmp/pwm_notch_supported.xml >/dev/null && cat /data/local/tmp/pwm_notch_supported.xml",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private target-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:18:09.252550+00:00",
+      "device": "target",
+      "command": "settings get system screen_off_timeout",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "600000",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:18:11.608877+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm_notch_supported.xml >/dev/null && cat /data/local/tmp/pwm_notch_supported.xml",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:18:13.922969+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm_notch_supported.xml >/dev/null && cat /data/local/tmp/pwm_notch_supported.xml",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:18:13.977413+00:00",
+      "device": "camera",
+      "command": "input tap 2175 389",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:18:16.287728+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm_notch_supported.xml >/dev/null && cat /data/local/tmp/pwm_notch_supported.xml",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:18:18.575957+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm_notch_supported.xml >/dev/null && cat /data/local/tmp/pwm_notch_supported.xml",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:18:18.643808+00:00",
+      "device": "camera",
+      "command": "input tap 1069 594",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:18:20.915981+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm_notch_supported.xml >/dev/null && cat /data/local/tmp/pwm_notch_supported.xml",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:18:20.976879+00:00",
+      "device": "camera",
+      "command": "input tap 758 784",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:18:21.881942+00:00",
+      "device": "camera",
+      "command": "dumpsys media.camera",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private shutter-settle.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:18:21.986974+00:00",
+      "device": "camera",
+      "command": "dumpsys media.camera",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private shutter-verified-camera.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:18:24.284897+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm_notch_supported.xml >/dev/null && cat /data/local/tmp/pwm_notch_supported.xml",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:18:26.644419+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm_notch_supported.xml >/dev/null && cat /data/local/tmp/pwm_notch_supported.xml",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:18:26.710767+00:00",
+      "device": "camera",
+      "command": "input tap 2175 389",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:18:26.818807+00:00",
+      "device": "camera",
+      "command": "dumpsys media.camera",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private notch-prepared-camera.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:18:26.887123+00:00",
+      "device": "target",
+      "command": "mkdir /sys/kernel/tracing/instances/pwm_notch_supported",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:18:26.946814+00:00",
+      "device": "target",
+      "command": "printf '%s\n' 'p:pwm_notch_supported/param_entry msm_drm:dsi_panel_send_param_cmd' >> /sys/kernel/tracing/kprobe_events",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:18:27.013558+00:00",
+      "device": "target",
+      "command": "printf '%s\n' 'r:pwm_notch_supported/param_return msm_drm:dsi_panel_send_param_cmd rc=$retval:s32' >> /sys/kernel/tracing/kprobe_events",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:18:27.070033+00:00",
+      "device": "target",
+      "command": "printf '%s\n' 'p:pwm_notch_supported/pcd_entry msm_drm:dsi_panel_read_pcd_reg' >> /sys/kernel/tracing/kprobe_events",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:18:27.135554+00:00",
+      "device": "target",
+      "command": "printf '%s\n' 'r:pwm_notch_supported/ctrl_return msm_drm:dsi_ctrl_cmd_transfer rc=$retval:s32' >> /sys/kernel/tracing/kprobe_events",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:18:27.207611+00:00",
+      "device": "target",
+      "command": "printf mono > /sys/kernel/tracing/instances/pwm_notch_supported/trace_clock; printf 1 > /sys/kernel/tracing/instances/pwm_notch_supported/events/pwm_notch_supported/enable; printf 1 > /sys/kernel/tracing/instances/pwm_notch_supported/tracing_on",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:18:27.262401+00:00",
+      "device": "target",
+      "command": "printf 1 > /sys/class/drm/card0-DSI-1/mipi_cmd_log_en",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:18:27.313440+00:00",
+      "device": "target",
+      "command": "printf '<6>PWM_NOTCH_SUPPORTED_BEGIN\n' > /dev/kmsg",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:18:29.634644+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm_notch_supported.xml >/dev/null && cat /data/local/tmp/pwm_notch_supported.xml",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:18:29.702622+00:00",
+      "device": "camera",
+      "command": "input tap 131 541",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:18:32.278184+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm_notch_supported.xml >/dev/null && cat /data/local/tmp/pwm_notch_supported.xml",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:18:32.355410+00:00",
+      "device": "target",
+      "command": "printf '<6>PWM_NOTCH_SUPPORTED_PHASE_1_0\n' > /dev/kmsg",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:18:34.524810+00:00",
+      "device": "target",
+      "command": "uiautomator dump /data/local/tmp/pwm_notch_supported.xml >/dev/null && cat /data/local/tmp/pwm_notch_supported.xml",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private target-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:18:34.578955+00:00",
+      "device": "target",
+      "command": "cat /sys/class/drm/card0-DSI-1/panelDC",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:18:35.636501+00:00",
+      "device": "target",
+      "command": "content call --uri content://com.motorola.android.providers.settings/global --method GET_global --arg display_dc_mode_enabled",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "Result: Bundle[{value=0}]",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:18:35.693666+00:00",
+      "device": "target",
+      "command": "printf '3600\n' > /sys/class/backlight/panel0-backlight/brightness",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:18:35.742640+00:00",
+      "device": "target",
+      "command": "cat /sys/class/backlight/panel0-backlight/brightness",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "3600",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:18:38.059817+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm_notch_supported.xml >/dev/null && cat /data/local/tmp/pwm_notch_supported.xml",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:18:40.383943+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm_notch_supported.xml >/dev/null && cat /data/local/tmp/pwm_notch_supported.xml",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:18:40.448872+00:00",
+      "device": "camera",
+      "command": "input tap 2175 389",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:18:42.969451+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm_notch_supported.xml >/dev/null && cat /data/local/tmp/pwm_notch_supported.xml",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:18:43.027270+00:00",
+      "device": "camera",
+      "command": "input tap 758 712",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:18:43.979819+00:00",
+      "device": "camera",
+      "command": "dumpsys media.camera",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private shutter-settle.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:18:44.078238+00:00",
+      "device": "camera",
+      "command": "dumpsys media.camera",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private shutter-verified-camera.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:18:46.345056+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm_notch_supported.xml >/dev/null && cat /data/local/tmp/pwm_notch_supported.xml",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:18:48.651823+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm_notch_supported.xml >/dev/null && cat /data/local/tmp/pwm_notch_supported.xml",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:18:48.712317+00:00",
+      "device": "camera",
+      "command": "input tap 2175 389",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:18:48.822429+00:00",
+      "device": "camera",
+      "command": "dumpsys media.camera",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private phase-1-start-camera.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:18:48.880715+00:00",
+      "device": "target",
+      "command": "printf '<6>PWM_NOTCH_SUPPORTED_HOLD_1\n' > /dev/kmsg",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:18:55.933913+00:00",
+      "device": "target",
+      "command": "printf '<6>PWM_NOTCH_SUPPORTED_END_HOLD_1\n' > /dev/kmsg",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:18:55.983193+00:00",
+      "device": "target",
+      "command": "dumpsys display",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private phase-1-end-display.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:18:56.163677+00:00",
+      "device": "camera",
+      "command": "dumpsys media.camera",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private phase-1-end-camera.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:18:56.218418+00:00",
+      "device": "target",
+      "command": "cat /sys/class/backlight/panel0-backlight/brightness",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "3600",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:18:56.266115+00:00",
+      "device": "target",
+      "command": "cat /sys/class/backlight/panel0-backlight/bl_power",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:18:56.317429+00:00",
+      "device": "target",
+      "command": "cat /sys/class/drm/card0-DSI-1/panelDC",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:18:56.375308+00:00",
+      "device": "target",
+      "command": "dmesg",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "<private phase-1-kernel.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:18:56.431944+00:00",
+      "device": "target",
+      "command": "cat /sys/kernel/tracing/instances/pwm_notch_supported/trace",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "<private phase-1-trace.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:18:56.493888+00:00",
+      "device": "target",
+      "command": "printf '<6>PWM_NOTCH_SUPPORTED_PHASE_2_0\n' > /dev/kmsg",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:18:58.599491+00:00",
+      "device": "target",
+      "command": "uiautomator dump /data/local/tmp/pwm_notch_supported.xml >/dev/null && cat /data/local/tmp/pwm_notch_supported.xml",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private target-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:18:58.660116+00:00",
+      "device": "target",
+      "command": "cat /sys/class/drm/card0-DSI-1/panelDC",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:18:59.715666+00:00",
+      "device": "target",
+      "command": "content call --uri content://com.motorola.android.providers.settings/global --method GET_global --arg display_dc_mode_enabled",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "Result: Bundle[{value=0}]",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:18:59.773895+00:00",
+      "device": "target",
+      "command": "printf '3600\n' > /sys/class/backlight/panel0-backlight/brightness",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:18:59.824348+00:00",
+      "device": "target",
+      "command": "cat /sys/class/backlight/panel0-backlight/brightness",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "3600",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:19:02.127387+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm_notch_supported.xml >/dev/null && cat /data/local/tmp/pwm_notch_supported.xml",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:19:04.381813+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm_notch_supported.xml >/dev/null && cat /data/local/tmp/pwm_notch_supported.xml",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:19:04.446440+00:00",
+      "device": "camera",
+      "command": "input tap 2175 389",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:19:06.714756+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm_notch_supported.xml >/dev/null && cat /data/local/tmp/pwm_notch_supported.xml",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:19:06.773793+00:00",
+      "device": "camera",
+      "command": "input tap 758 712",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:19:06.838572+00:00",
+      "device": "camera",
+      "command": "input tap 870 712",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:19:07.746777+00:00",
+      "device": "camera",
+      "command": "dumpsys media.camera",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private shutter-settle.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:19:07.859434+00:00",
+      "device": "camera",
+      "command": "dumpsys media.camera",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private shutter-verified-camera.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:19:10.777466+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm_notch_supported.xml >/dev/null && cat /data/local/tmp/pwm_notch_supported.xml",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:19:10.851417+00:00",
+      "device": "camera",
+      "command": "input tap 758 712",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:19:10.907881+00:00",
+      "device": "camera",
+      "command": "input tap 834 712",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:19:11.827820+00:00",
+      "device": "camera",
+      "command": "dumpsys media.camera",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private shutter-settle.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:19:11.954334+00:00",
+      "device": "camera",
+      "command": "dumpsys media.camera",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private shutter-verified-camera.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:19:14.858511+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm_notch_supported.xml >/dev/null && cat /data/local/tmp/pwm_notch_supported.xml",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:19:14.925055+00:00",
+      "device": "camera",
+      "command": "input tap 758 712",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:19:14.980050+00:00",
+      "device": "camera",
+      "command": "input tap 852 712",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:19:15.931392+00:00",
+      "device": "camera",
+      "command": "dumpsys media.camera",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private shutter-settle.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:19:16.055435+00:00",
+      "device": "camera",
+      "command": "dumpsys media.camera",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private shutter-verified-camera.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:19:18.903339+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm_notch_supported.xml >/dev/null && cat /data/local/tmp/pwm_notch_supported.xml",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:19:18.980830+00:00",
+      "device": "camera",
+      "command": "input tap 758 712",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:19:19.036720+00:00",
+      "device": "camera",
+      "command": "input tap 861 712",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:19:20.017691+00:00",
+      "device": "camera",
+      "command": "dumpsys media.camera",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private shutter-settle.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:19:20.146502+00:00",
+      "device": "camera",
+      "command": "dumpsys media.camera",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private shutter-verified-camera.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:19:22.977350+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm_notch_supported.xml >/dev/null && cat /data/local/tmp/pwm_notch_supported.xml",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:19:23.053316+00:00",
+      "device": "camera",
+      "command": "input tap 758 712",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:19:23.118671+00:00",
+      "device": "camera",
+      "command": "input tap 861 712",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:19:24.129037+00:00",
+      "device": "camera",
+      "command": "dumpsys media.camera",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private shutter-settle.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:19:24.231765+00:00",
+      "device": "camera",
+      "command": "dumpsys media.camera",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private shutter-verified-camera.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:19:27.050705+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm_notch_supported.xml >/dev/null && cat /data/local/tmp/pwm_notch_supported.xml",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:19:29.333822+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm_notch_supported.xml >/dev/null && cat /data/local/tmp/pwm_notch_supported.xml",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:19:29.403618+00:00",
+      "device": "camera",
+      "command": "input tap 2175 389",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:19:29.515912+00:00",
+      "device": "camera",
+      "command": "dumpsys media.camera",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private phase-2-start-camera.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:19:29.599722+00:00",
+      "device": "target",
+      "command": "printf '<6>PWM_NOTCH_SUPPORTED_HOLD_2\n' > /dev/kmsg",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:19:36.675006+00:00",
+      "device": "target",
+      "command": "printf '<6>PWM_NOTCH_SUPPORTED_END_HOLD_2\n' > /dev/kmsg",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:19:36.740356+00:00",
+      "device": "target",
+      "command": "dumpsys display",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private phase-2-end-display.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:19:36.845721+00:00",
+      "device": "camera",
+      "command": "dumpsys media.camera",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private phase-2-end-camera.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:19:36.922406+00:00",
+      "device": "target",
+      "command": "cat /sys/class/backlight/panel0-backlight/brightness",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "3600",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:19:36.979581+00:00",
+      "device": "target",
+      "command": "cat /sys/class/backlight/panel0-backlight/bl_power",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:19:37.044171+00:00",
+      "device": "target",
+      "command": "cat /sys/class/drm/card0-DSI-1/panelDC",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:19:37.127452+00:00",
+      "device": "target",
+      "command": "dmesg",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "<private phase-2-kernel.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:19:37.188123+00:00",
+      "device": "target",
+      "command": "cat /sys/kernel/tracing/instances/pwm_notch_supported/trace",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "<private phase-2-trace.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:19:37.241227+00:00",
+      "device": "target",
+      "command": "printf '<6>PWM_NOTCH_SUPPORTED_PHASE_3_0\n' > /dev/kmsg",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:19:39.418421+00:00",
+      "device": "target",
+      "command": "uiautomator dump /data/local/tmp/pwm_notch_supported.xml >/dev/null && cat /data/local/tmp/pwm_notch_supported.xml",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private target-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:19:39.471195+00:00",
+      "device": "target",
+      "command": "cat /sys/class/drm/card0-DSI-1/panelDC",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:19:40.518777+00:00",
+      "device": "target",
+      "command": "content call --uri content://com.motorola.android.providers.settings/global --method GET_global --arg display_dc_mode_enabled",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "Result: Bundle[{value=0}]",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:19:40.590386+00:00",
+      "device": "target",
+      "command": "printf '3600\n' > /sys/class/backlight/panel0-backlight/brightness",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:19:40.631065+00:00",
+      "device": "target",
+      "command": "cat /sys/class/backlight/panel0-backlight/brightness",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "3600",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:19:42.929417+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm_notch_supported.xml >/dev/null && cat /data/local/tmp/pwm_notch_supported.xml",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:19:45.207709+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm_notch_supported.xml >/dev/null && cat /data/local/tmp/pwm_notch_supported.xml",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:19:45.274196+00:00",
+      "device": "camera",
+      "command": "input tap 2175 389",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:19:47.554485+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm_notch_supported.xml >/dev/null && cat /data/local/tmp/pwm_notch_supported.xml",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:19:47.619781+00:00",
+      "device": "camera",
+      "command": "input tap 758 712",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:19:47.672697+00:00",
+      "device": "camera",
+      "command": "input tap 870 712",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:19:48.691493+00:00",
+      "device": "camera",
+      "command": "dumpsys media.camera",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private shutter-settle.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:19:48.796662+00:00",
+      "device": "camera",
+      "command": "dumpsys media.camera",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private shutter-verified-camera.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:19:51.605788+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm_notch_supported.xml >/dev/null && cat /data/local/tmp/pwm_notch_supported.xml",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:19:51.668277+00:00",
+      "device": "camera",
+      "command": "input tap 758 712",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:19:51.731701+00:00",
+      "device": "camera",
+      "command": "input tap 870 712",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:19:52.663576+00:00",
+      "device": "camera",
+      "command": "dumpsys media.camera",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private shutter-settle.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:19:52.773682+00:00",
+      "device": "camera",
+      "command": "dumpsys media.camera",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private shutter-verified-camera.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:19:55.652659+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm_notch_supported.xml >/dev/null && cat /data/local/tmp/pwm_notch_supported.xml",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:19:57.902738+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm_notch_supported.xml >/dev/null && cat /data/local/tmp/pwm_notch_supported.xml",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:19:57.966863+00:00",
+      "device": "camera",
+      "command": "input tap 2175 389",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:19:58.102957+00:00",
+      "device": "camera",
+      "command": "dumpsys media.camera",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private phase-3-start-camera.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:19:58.156926+00:00",
+      "device": "target",
+      "command": "printf '<6>PWM_NOTCH_SUPPORTED_HOLD_3\n' > /dev/kmsg",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:20:05.217244+00:00",
+      "device": "target",
+      "command": "printf '<6>PWM_NOTCH_SUPPORTED_END_HOLD_3\n' > /dev/kmsg",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:20:05.270580+00:00",
+      "device": "target",
+      "command": "dumpsys display",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private phase-3-end-display.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:20:05.365920+00:00",
+      "device": "camera",
+      "command": "dumpsys media.camera",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private phase-3-end-camera.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:20:05.426640+00:00",
+      "device": "target",
+      "command": "cat /sys/class/backlight/panel0-backlight/brightness",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "3600",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:20:05.477709+00:00",
+      "device": "target",
+      "command": "cat /sys/class/backlight/panel0-backlight/bl_power",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:20:05.528913+00:00",
+      "device": "target",
+      "command": "cat /sys/class/drm/card0-DSI-1/panelDC",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:20:05.590207+00:00",
+      "device": "target",
+      "command": "dmesg",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "<private phase-3-kernel.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:20:05.652965+00:00",
+      "device": "target",
+      "command": "cat /sys/kernel/tracing/instances/pwm_notch_supported/trace",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "<private phase-3-trace.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:20:05.709251+00:00",
+      "device": "target",
+      "command": "printf '<6>PWM_NOTCH_SUPPORTED_PHASE_4_0\n' > /dev/kmsg",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:20:07.799376+00:00",
+      "device": "target",
+      "command": "uiautomator dump /data/local/tmp/pwm_notch_supported.xml >/dev/null && cat /data/local/tmp/pwm_notch_supported.xml",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private target-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:20:07.852803+00:00",
+      "device": "target",
+      "command": "cat /sys/class/drm/card0-DSI-1/panelDC",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:20:08.913761+00:00",
+      "device": "target",
+      "command": "content call --uri content://com.motorola.android.providers.settings/global --method GET_global --arg display_dc_mode_enabled",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "Result: Bundle[{value=0}]",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:20:08.972629+00:00",
+      "device": "target",
+      "command": "printf '3600\n' > /sys/class/backlight/panel0-backlight/brightness",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:20:09.002592+00:00",
+      "device": "target",
+      "command": "cat /sys/class/backlight/panel0-backlight/brightness",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "3600",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:20:11.374642+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm_notch_supported.xml >/dev/null && cat /data/local/tmp/pwm_notch_supported.xml",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:20:13.666452+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm_notch_supported.xml >/dev/null && cat /data/local/tmp/pwm_notch_supported.xml",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:20:13.714966+00:00",
+      "device": "camera",
+      "command": "input tap 2175 389",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:20:15.997510+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm_notch_supported.xml >/dev/null && cat /data/local/tmp/pwm_notch_supported.xml",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:20:16.057823+00:00",
+      "device": "camera",
+      "command": "input tap 758 712",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:20:16.115349+00:00",
+      "device": "camera",
+      "command": "input tap 870 712",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:20:17.055650+00:00",
+      "device": "camera",
+      "command": "dumpsys media.camera",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private shutter-settle.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:20:17.155779+00:00",
+      "device": "camera",
+      "command": "dumpsys media.camera",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private shutter-verified-camera.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:20:20.081756+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm_notch_supported.xml >/dev/null && cat /data/local/tmp/pwm_notch_supported.xml",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:20:20.145681+00:00",
+      "device": "camera",
+      "command": "input tap 758 712",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:20:20.213449+00:00",
+      "device": "camera",
+      "command": "input tap 905 712",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:20:21.149464+00:00",
+      "device": "camera",
+      "command": "dumpsys media.camera",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private shutter-settle.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:20:21.252292+00:00",
+      "device": "camera",
+      "command": "dumpsys media.camera",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private shutter-verified-camera.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:20:24.156568+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm_notch_supported.xml >/dev/null && cat /data/local/tmp/pwm_notch_supported.xml",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:20:24.225251+00:00",
+      "device": "camera",
+      "command": "input tap 758 712",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:20:24.282339+00:00",
+      "device": "camera",
+      "command": "input tap 905 712",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:20:25.245146+00:00",
+      "device": "camera",
+      "command": "dumpsys media.camera",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private shutter-settle.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:20:25.360736+00:00",
+      "device": "camera",
+      "command": "dumpsys media.camera",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private shutter-verified-camera.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:20:28.222022+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm_notch_supported.xml >/dev/null && cat /data/local/tmp/pwm_notch_supported.xml",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:20:30.524048+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm_notch_supported.xml >/dev/null && cat /data/local/tmp/pwm_notch_supported.xml",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:20:30.589794+00:00",
+      "device": "camera",
+      "command": "input tap 2175 389",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:20:30.711503+00:00",
+      "device": "camera",
+      "command": "dumpsys media.camera",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private phase-4-start-camera.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:20:30.792496+00:00",
+      "device": "target",
+      "command": "printf '<6>PWM_NOTCH_SUPPORTED_HOLD_4\n' > /dev/kmsg",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:20:37.872270+00:00",
+      "device": "target",
+      "command": "printf '<6>PWM_NOTCH_SUPPORTED_END_HOLD_4\n' > /dev/kmsg",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:20:37.949180+00:00",
+      "device": "target",
+      "command": "dumpsys display",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private phase-4-end-display.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:20:38.057638+00:00",
+      "device": "camera",
+      "command": "dumpsys media.camera",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private phase-4-end-camera.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:20:38.129343+00:00",
+      "device": "target",
+      "command": "cat /sys/class/backlight/panel0-backlight/brightness",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "3600",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:20:38.194650+00:00",
+      "device": "target",
+      "command": "cat /sys/class/backlight/panel0-backlight/bl_power",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:20:38.258784+00:00",
+      "device": "target",
+      "command": "cat /sys/class/drm/card0-DSI-1/panelDC",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:20:38.348079+00:00",
+      "device": "target",
+      "command": "dmesg",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "<private phase-4-kernel.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:20:38.410212+00:00",
+      "device": "target",
+      "command": "cat /sys/kernel/tracing/instances/pwm_notch_supported/trace",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "<private phase-4-trace.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:20:38.473579+00:00",
+      "device": "target",
+      "command": "printf '<6>PWM_NOTCH_SUPPORTED_PHASE_5_0\n' > /dev/kmsg",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:20:40.646562+00:00",
+      "device": "target",
+      "command": "uiautomator dump /data/local/tmp/pwm_notch_supported.xml >/dev/null && cat /data/local/tmp/pwm_notch_supported.xml",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private target-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:20:40.701121+00:00",
+      "device": "target",
+      "command": "cat /sys/class/drm/card0-DSI-1/panelDC",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:20:41.749927+00:00",
+      "device": "target",
+      "command": "content call --uri content://com.motorola.android.providers.settings/global --method GET_global --arg display_dc_mode_enabled",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "Result: Bundle[{value=0}]",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:20:41.816217+00:00",
+      "device": "target",
+      "command": "printf '3600\n' > /sys/class/backlight/panel0-backlight/brightness",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:20:41.867562+00:00",
+      "device": "target",
+      "command": "cat /sys/class/backlight/panel0-backlight/brightness",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "3600",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:20:44.133373+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm_notch_supported.xml >/dev/null && cat /data/local/tmp/pwm_notch_supported.xml",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:20:46.438021+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm_notch_supported.xml >/dev/null && cat /data/local/tmp/pwm_notch_supported.xml",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:20:46.499968+00:00",
+      "device": "camera",
+      "command": "input tap 2175 389",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:20:48.778261+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm_notch_supported.xml >/dev/null && cat /data/local/tmp/pwm_notch_supported.xml",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:20:48.843022+00:00",
+      "device": "camera",
+      "command": "input tap 758 712",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:20:48.906002+00:00",
+      "device": "camera",
+      "command": "input tap 870 712",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:20:49.935405+00:00",
+      "device": "camera",
+      "command": "dumpsys media.camera",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private shutter-settle.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:20:50.053224+00:00",
+      "device": "camera",
+      "command": "dumpsys media.camera",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private shutter-verified-camera.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:20:52.821378+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm_notch_supported.xml >/dev/null && cat /data/local/tmp/pwm_notch_supported.xml",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:20:52.894329+00:00",
+      "device": "camera",
+      "command": "input tap 758 712",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:20:52.958941+00:00",
+      "device": "camera",
+      "command": "input tap 905 712",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:20:53.939209+00:00",
+      "device": "camera",
+      "command": "dumpsys media.camera",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private shutter-settle.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:20:54.044074+00:00",
+      "device": "camera",
+      "command": "dumpsys media.camera",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private shutter-verified-camera.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:20:56.884975+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm_notch_supported.xml >/dev/null && cat /data/local/tmp/pwm_notch_supported.xml",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:20:56.965901+00:00",
+      "device": "camera",
+      "command": "input tap 758 712",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:20:57.019162+00:00",
+      "device": "camera",
+      "command": "input tap 923 712",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:20:58.027968+00:00",
+      "device": "camera",
+      "command": "dumpsys media.camera",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private shutter-settle.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:20:58.137289+00:00",
+      "device": "camera",
+      "command": "dumpsys media.camera",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private shutter-verified-camera.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:21:00.954201+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm_notch_supported.xml >/dev/null && cat /data/local/tmp/pwm_notch_supported.xml",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:21:01.025375+00:00",
+      "device": "camera",
+      "command": "input tap 758 712",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:21:01.086704+00:00",
+      "device": "camera",
+      "command": "input tap 932 712",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:21:02.110703+00:00",
+      "device": "camera",
+      "command": "dumpsys media.camera",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private shutter-settle.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:21:02.222563+00:00",
+      "device": "camera",
+      "command": "dumpsys media.camera",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private shutter-verified-camera.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:21:05.010758+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm_notch_supported.xml >/dev/null && cat /data/local/tmp/pwm_notch_supported.xml",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:21:05.085700+00:00",
+      "device": "camera",
+      "command": "input tap 758 712",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:21:05.144844+00:00",
+      "device": "camera",
+      "command": "input tap 932 712",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:21:06.073715+00:00",
+      "device": "camera",
+      "command": "dumpsys media.camera",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private shutter-settle.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:21:06.181892+00:00",
+      "device": "camera",
+      "command": "dumpsys media.camera",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private shutter-verified-camera.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:21:09.104606+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm_notch_supported.xml >/dev/null && cat /data/local/tmp/pwm_notch_supported.xml",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:21:11.416042+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm_notch_supported.xml >/dev/null && cat /data/local/tmp/pwm_notch_supported.xml",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:21:11.483924+00:00",
+      "device": "camera",
+      "command": "input tap 2175 389",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:21:11.600834+00:00",
+      "device": "camera",
+      "command": "dumpsys media.camera",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private phase-5-start-camera.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:21:11.664610+00:00",
+      "device": "target",
+      "command": "printf '<6>PWM_NOTCH_SUPPORTED_HOLD_5\n' > /dev/kmsg",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:21:18.717237+00:00",
+      "device": "target",
+      "command": "printf '<6>PWM_NOTCH_SUPPORTED_END_HOLD_5\n' > /dev/kmsg",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:21:18.769985+00:00",
+      "device": "target",
+      "command": "dumpsys display",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private phase-5-end-display.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:21:18.886327+00:00",
+      "device": "camera",
+      "command": "dumpsys media.camera",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private phase-5-end-camera.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:21:18.938322+00:00",
+      "device": "target",
+      "command": "cat /sys/class/backlight/panel0-backlight/brightness",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "3600",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:21:18.991388+00:00",
+      "device": "target",
+      "command": "cat /sys/class/backlight/panel0-backlight/bl_power",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:21:19.041786+00:00",
+      "device": "target",
+      "command": "cat /sys/class/drm/card0-DSI-1/panelDC",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:21:19.103796+00:00",
+      "device": "target",
+      "command": "dmesg",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "<private phase-5-kernel.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:21:19.165709+00:00",
+      "device": "target",
+      "command": "cat /sys/kernel/tracing/instances/pwm_notch_supported/trace",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "<private phase-5-trace.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:21:19.228132+00:00",
+      "device": "target",
+      "command": "printf '<6>PWM_NOTCH_SUPPORTED_PHASE_6_0\n' > /dev/kmsg",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:21:21.339845+00:00",
+      "device": "target",
+      "command": "uiautomator dump /data/local/tmp/pwm_notch_supported.xml >/dev/null && cat /data/local/tmp/pwm_notch_supported.xml",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private target-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:21:21.399864+00:00",
+      "device": "target",
+      "command": "cat /sys/class/drm/card0-DSI-1/panelDC",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:21:22.449489+00:00",
+      "device": "target",
+      "command": "content call --uri content://com.motorola.android.providers.settings/global --method GET_global --arg display_dc_mode_enabled",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "Result: Bundle[{value=0}]",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:21:22.515262+00:00",
+      "device": "target",
+      "command": "printf '3600\n' > /sys/class/backlight/panel0-backlight/brightness",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:21:22.570008+00:00",
+      "device": "target",
+      "command": "cat /sys/class/backlight/panel0-backlight/brightness",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "3600",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:21:24.851350+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm_notch_supported.xml >/dev/null && cat /data/local/tmp/pwm_notch_supported.xml",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:21:27.169384+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm_notch_supported.xml >/dev/null && cat /data/local/tmp/pwm_notch_supported.xml",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:21:27.228005+00:00",
+      "device": "camera",
+      "command": "input tap 2175 389",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:21:29.516997+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm_notch_supported.xml >/dev/null && cat /data/local/tmp/pwm_notch_supported.xml",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:21:29.576735+00:00",
+      "device": "camera",
+      "command": "input tap 758 712",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:21:30.575581+00:00",
+      "device": "camera",
+      "command": "dumpsys media.camera",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private shutter-settle.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:21:30.687274+00:00",
+      "device": "camera",
+      "command": "dumpsys media.camera",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private shutter-verified-camera.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:21:33.527685+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm_notch_supported.xml >/dev/null && cat /data/local/tmp/pwm_notch_supported.xml",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:21:35.801417+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm_notch_supported.xml >/dev/null && cat /data/local/tmp/pwm_notch_supported.xml",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:21:35.862398+00:00",
+      "device": "camera",
+      "command": "input tap 2175 389",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:21:35.973493+00:00",
+      "device": "camera",
+      "command": "dumpsys media.camera",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private phase-6-start-camera.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:21:36.055716+00:00",
+      "device": "target",
+      "command": "printf '<6>PWM_NOTCH_SUPPORTED_HOLD_6\n' > /dev/kmsg",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:21:43.124597+00:00",
+      "device": "target",
+      "command": "printf '<6>PWM_NOTCH_SUPPORTED_END_HOLD_6\n' > /dev/kmsg",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:21:43.180458+00:00",
+      "device": "target",
+      "command": "dumpsys display",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private phase-6-end-display.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:21:43.371731+00:00",
+      "device": "camera",
+      "command": "dumpsys media.camera",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private phase-6-end-camera.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:21:43.427888+00:00",
+      "device": "target",
+      "command": "cat /sys/class/backlight/panel0-backlight/brightness",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "3600",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:21:43.487196+00:00",
+      "device": "target",
+      "command": "cat /sys/class/backlight/panel0-backlight/bl_power",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:21:43.540404+00:00",
+      "device": "target",
+      "command": "cat /sys/class/drm/card0-DSI-1/panelDC",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:21:43.605408+00:00",
+      "device": "target",
+      "command": "dmesg",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "<private phase-6-kernel.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:21:43.678029+00:00",
+      "device": "target",
+      "command": "cat /sys/kernel/tracing/instances/pwm_notch_supported/trace",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "<private phase-6-trace.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:21:46.046802+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm_notch_supported.xml >/dev/null && cat /data/local/tmp/pwm_notch_supported.xml",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:21:48.329710+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm_notch_supported.xml >/dev/null && cat /data/local/tmp/pwm_notch_supported.xml",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:21:48.392122+00:00",
+      "device": "camera",
+      "command": "input tap 131 541",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:21:51.027512+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm_notch_supported.xml >/dev/null && cat /data/local/tmp/pwm_notch_supported.xml",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:21:53.326172+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm_notch_supported.xml >/dev/null && cat /data/local/tmp/pwm_notch_supported.xml",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:21:55.592912+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm_notch_supported.xml >/dev/null && cat /data/local/tmp/pwm_notch_supported.xml",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:21:55.645510+00:00",
+      "device": "camera",
+      "command": "input tap 2175 389",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:21:57.928317+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm_notch_supported.xml >/dev/null && cat /data/local/tmp/pwm_notch_supported.xml",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:22:00.260270+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm_notch_supported.xml >/dev/null && cat /data/local/tmp/pwm_notch_supported.xml",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:22:00.329817+00:00",
+      "device": "camera",
+      "command": "input tap 1394 594",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:22:02.644258+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm_notch_supported.xml >/dev/null && cat /data/local/tmp/pwm_notch_supported.xml",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:22:02.709158+00:00",
+      "device": "camera",
+      "command": "input tap 758 784",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:22:03.662854+00:00",
+      "device": "camera",
+      "command": "dumpsys media.camera",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private shutter-settle.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:22:03.770336+00:00",
+      "device": "camera",
+      "command": "dumpsys media.camera",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private shutter-verified-camera.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:22:06.146539+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm_notch_supported.xml >/dev/null && cat /data/local/tmp/pwm_notch_supported.xml",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:22:08.431947+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm_notch_supported.xml >/dev/null && cat /data/local/tmp/pwm_notch_supported.xml",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:22:08.492734+00:00",
+      "device": "camera",
+      "command": "input tap 2175 389",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:22:08.609609+00:00",
+      "device": "camera",
+      "command": "dumpsys media.camera",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private restored-camera.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:22:08.666665+00:00",
+      "device": "target",
+      "command": "printf 0 > /sys/kernel/tracing/instances/pwm_notch_supported/tracing_on",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:22:08.736137+00:00",
+      "device": "target",
+      "command": "cat /sys/kernel/tracing/instances/pwm_notch_supported/trace",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "<private trace-final.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:22:08.785628+00:00",
+      "device": "target",
+      "command": "cat /sys/kernel/tracing/kprobe_profile",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "<private probe-profile.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:22:08.844563+00:00",
+      "device": "target",
+      "command": "if [ -e /sys/kernel/tracing/instances/pwm_notch_supported/events/pwm_notch_supported/enable ]; then printf 0 > /sys/kernel/tracing/instances/pwm_notch_supported/events/pwm_notch_supported/enable; fi",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:22:08.906702+00:00",
+      "device": "target",
+      "command": "printf '%s\n' -:pwm_notch_supported/ctrl_return >> /sys/kernel/tracing/kprobe_events",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:22:08.961053+00:00",
+      "device": "target",
+      "command": "printf '%s\n' -:pwm_notch_supported/pcd_entry >> /sys/kernel/tracing/kprobe_events",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:22:09.015632+00:00",
+      "device": "target",
+      "command": "printf '%s\n' -:pwm_notch_supported/param_return >> /sys/kernel/tracing/kprobe_events",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:22:09.070059+00:00",
+      "device": "target",
+      "command": "printf '%s\n' -:pwm_notch_supported/param_entry >> /sys/kernel/tracing/kprobe_events",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:22:09.129956+00:00",
+      "device": "target",
+      "command": "rmdir /sys/kernel/tracing/instances/pwm_notch_supported",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:22:09.186215+00:00",
+      "device": "target",
+      "command": "printf 0 > /sys/class/drm/card0-DSI-1/mipi_cmd_log_en",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:22:11.289361+00:00",
+      "device": "target",
+      "command": "uiautomator dump /data/local/tmp/pwm_notch_supported.xml >/dev/null && cat /data/local/tmp/pwm_notch_supported.xml",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private target-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:22:11.345305+00:00",
+      "device": "target",
+      "command": "cat /sys/class/drm/card0-DSI-1/panelDC",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:22:12.403587+00:00",
+      "device": "target",
+      "command": "content call --uri content://com.motorola.android.providers.settings/global --method GET_global --arg display_dc_mode_enabled",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "Result: Bundle[{value=0}]",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:22:12.455491+00:00",
+      "device": "target",
+      "command": "settings put system screen_brightness 52",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:22:12.500269+00:00",
+      "device": "target",
+      "command": "settings put system min_refresh_rate 120.0",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:22:12.551240+00:00",
+      "device": "target",
+      "command": "settings put system peak_refresh_rate 120.0",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:22:12.598585+00:00",
+      "device": "target",
+      "command": "settings put system screen_off_timeout 1800000",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:22:12.644451+00:00",
+      "device": "target",
+      "command": "settings put system screen_brightness_mode 0",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:22:12.702511+00:00",
+      "device": "target",
+      "command": "printf '%s\n' 828 > /sys/class/backlight/panel0-backlight/brightness",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:22:12.753213+00:00",
+      "device": "target",
+      "command": "cat /sys/class/backlight/panel0-backlight/brightness",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "828",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:22:12.806688+00:00",
+      "device": "target",
+      "command": "cat /sys/class/backlight/panel0-backlight/bl_power",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:22:12.852621+00:00",
+      "device": "target",
+      "command": "settings get system screen_brightness",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "52",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:22:12.902035+00:00",
+      "device": "target",
+      "command": "settings get system screen_brightness_mode",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:22:12.950433+00:00",
+      "device": "target",
+      "command": "settings get system min_refresh_rate",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "120.0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:22:12.996717+00:00",
+      "device": "target",
+      "command": "settings get system peak_refresh_rate",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "120.0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:22:13.046005+00:00",
+      "device": "target",
+      "command": "settings get system screen_off_timeout",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "1800000",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:22:13.102697+00:00",
+      "device": "target",
+      "command": "cat /sys/class/drm/card0-DSI-1/panelDC",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:22:13.153478+00:00",
+      "device": "target",
+      "command": "cat /sys/class/drm/card0-DSI-1/mipi_cmd_log_en",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "ctrl->ctrl->mipi_cmd_log_en: 0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:22:13.186524+00:00",
+      "device": "target",
+      "command": "getenforce",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "Enforcing",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:22:13.240803+00:00",
+      "device": "target",
+      "command": "cat /sys/class/backlight/panel0-backlight/brightness",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "828",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:22:13.292132+00:00",
+      "device": "target",
+      "command": "settings get global stay_on_while_plugged_in",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "7",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:22:14.578315+00:00",
+      "device": "camera",
+      "command": "content query --uri content://media/external/video/media --projection _id:_data:_size:duration:date_added --where 'date_added>=1794039505'",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "Row: 0 _id=2278, _data=/storage/emulated/0/DCIM/OpenCamera/VID_20261107_111847.mp4, _size=229412899, duration=198084, date_added=1794039527",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:22:17.783674+00:00",
+      "device": "target",
+      "command": "rm -f /data/local/tmp/pwm_notch_supported.xml",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T08:22:17.813311+00:00",
+      "device": "camera",
+      "command": "rm -f /data/local/tmp/pwm_notch_supported.xml",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ],
+  "pwm_hz": "unknown",
+  "before": {
+    "screen_brightness": "52",
+    "screen_brightness_mode": "0",
+    "min_refresh_rate": "120.0",
+    "peak_refresh_rate": "120.0",
+    "screen_off_timeout": "1800000",
+    "bl_power": "0",
+    "native_dbv": 828,
+    "stay_on": "7"
+  },
+  "media_since_epoch": 1794039505,
+  "shutter_calibration": [
+    {
+      "target_ns": 500000,
+      "x": 870,
+      "actual_ns": 1000000
+    },
+    {
+      "target_ns": 500000,
+      "x": 834,
+      "actual_ns": 250000
+    },
+    {
+      "target_ns": 500000,
+      "x": 852,
+      "actual_ns": 333333
+    },
+    {
+      "target_ns": 500000,
+      "x": 861,
+      "actual_ns": 500000
+    },
+    {
+      "target_ns": 1000000,
+      "x": 870,
+      "actual_ns": 1000000
+    },
+    {
+      "target_ns": 1428571,
+      "x": 870,
+      "actual_ns": 1000000
+    },
+    {
+      "target_ns": 1428571,
+      "x": 905,
+      "actual_ns": 1428571
+    },
+    {
+      "target_ns": 2000000,
+      "x": 870,
+      "actual_ns": 1000000
+    },
+    {
+      "target_ns": 2000000,
+      "x": 905,
+      "actual_ns": 1428571
+    },
+    {
+      "target_ns": 2000000,
+      "x": 923,
+      "actual_ns": 1666666
+    },
+    {
+      "target_ns": 2000000,
+      "x": 932,
+      "actual_ns": 2000000
+    }
+  ],
+  "six_conditions_complete": true,
+  "camera_stopped_verified": true,
+  "camera_restored_metadata": {
+    "android.sensor.exposureTime": [
+      "100000",
+      "100000"
+    ],
+    "android.sensor.sensitivity": [
+      "6400",
+      "6400"
+    ],
+    "android.control.aeMode": [
+      "OFF",
+      "OFF"
+    ],
+    "android.control.afMode": [
+      "OFF",
+      "OFF"
+    ],
+    "android.lens.focusDistance": [
+      "9.11752701",
+      "9.11752701"
+    ],
+    "android.sensor.rollingShutterSkew": [
+      "15596307"
+    ],
+    "android.sensor.timestamp": [
+      "5938678009041000"
+    ],
+    "android.request.frameCount": [
+      "71515"
+    ],
+    "android.scaler.cropRegion": [
+      "0 0 4080 3072",
+      "0 0 4080 3072"
+    ],
+    "android.control.zoomRatio": [
+      "1.00000000",
+      "1.00000000"
+    ],
+    "android.control.videoStabilizationMode": [
+      "OFF",
+      "OFF"
+    ],
+    "android.lens.opticalStabilizationMode": [
+      "OFF",
+      "OFF"
+    ]
+  },
+  "after": {
+    "screen_brightness": "52",
+    "screen_brightness_mode": "0",
+    "min_refresh_rate": "120.0",
+    "peak_refresh_rate": "120.0",
+    "screen_off_timeout": "1800000",
+    "dc": "0",
+    "logger": "ctrl->ctrl->mipi_cmd_log_en: 0",
+    "selinux": "Enforcing",
+    "native_dbv": 828,
+    "stay_on": "7"
+  },
+  "target_restored": true,
+  "video": "artifacts/optical/pacman_exposure_notch_supported_20261107.mp4",
+  "video_bytes": 229412899,
+  "duration_ms": 198084,
+  "cleanup_errors": [],
+  "finished_at_utc": "2026-11-07T08:22:17.814274+00:00"
+}

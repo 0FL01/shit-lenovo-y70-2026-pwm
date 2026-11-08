@@ -1,0 +1,17 @@
+{
+  "scope": "Offline analysis of binary read from target, not execution of target sensor compensation",
+  "threshold_key": "pwmToDcDbv",
+  "threshold_value": 3601,
+  "config_model_input_select": "4",
+  "optional_brightness_map_key": "backLightCorrespondingArray",
+  "optional_brightness_map_in_config": false,
+  "threshold_loaded_at": "0x134f0..0x13524 -> AlsCompensation+0xf0",
+  "comparison": "0x148d0..0x148e8: effective_dc_for_als = (dbv >= 3601) ? 0 : read_panel_dc",
+  "consumers": [
+    "0x1491c..0x1492c PanelLux::getPanelLux receives effective ALS dc",
+    "0xeedc..0xef08 and0xf364..0xf38c select compensation model, not display setting"
+  ],
+  "numeric_pwm_frequency_found": false,
+  "display_setter_found_in_this_threshold_path": false,
+  "qualification": "No whole-service static proof or target hardware pulse-count claim. Optional DBV map absent in acquired config; runtime initialized instance not read."
+}

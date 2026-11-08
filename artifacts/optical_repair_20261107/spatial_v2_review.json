@@ -1,0 +1,158 @@
+{
+  "status": "offline_verified",
+  "source": "artifacts/repair-tool-kit/",
+  "tests_passed": 12,
+  "runs": [
+    {
+      "v2_analysis": "artifacts/dsi_selector_split_20261107/analysis_spatial_v2.json",
+      "decoded_frames": 2679,
+      "native": {
+        "table_packets_matched": 375,
+        "post_table_DBV_writes": 5,
+        "controller_return_count": 444,
+        "controller_negative_returns": 0,
+        "probe_misses": 0,
+        "short_read_count": 15,
+        "page_selectors_verified": 36,
+        "esd_restored": true,
+        "no_additional_writes_during_holds": true
+      },
+      "stages": [
+        {
+          "label": "baseline",
+          "old_incoherent_ratio": null,
+          "v2_total_ratio": null,
+          "q93_total_Y": 4.43606104407866,
+          "q31_total_Y": 3.0147407712632805,
+          "q93_coherent_Y": 0.28095410765744716
+        },
+        {
+          "label": "a9_only",
+          "old_incoherent_ratio": 0.2241832864389273,
+          "v2_total_ratio": 0.22640672181213273,
+          "q93_total_Y": 1.035621383890503,
+          "q31_total_Y": 0.4322933958309784,
+          "q93_coherent_Y": 0.16242975134933
+        },
+        {
+          "label": "return_a9_only",
+          "old_incoherent_ratio": null,
+          "v2_total_ratio": null,
+          "q93_total_Y": 4.200691677565806,
+          "q31_total_Y": 3.0091540410841096,
+          "q93_coherent_Y": 0.3350567885039683
+        },
+        {
+          "label": "9d_only",
+          "old_incoherent_ratio": 1.0210592164486039,
+          "v2_total_ratio": 1.0214237646270794,
+          "q93_total_Y": 4.33313333386095,
+          "q31_total_Y": 3.0168387242209076,
+          "q93_coherent_Y": 0.40669412580425507
+        },
+        {
+          "label": "return_9d_only",
+          "old_incoherent_ratio": null,
+          "v2_total_ratio": null,
+          "q93_total_Y": 4.316908012803704,
+          "q31_total_Y": 3.0124721382367157,
+          "q93_coherent_Y": 0.42740767406037694
+        }
+      ]
+    },
+    {
+      "v2_analysis": "artifacts/dsi_block_trials_20261106/with_redraw/analysis_spatial_v2.json",
+      "decoded_frames": 4617,
+      "native": {
+        "table_packets_matched": 675,
+        "post_table_DBV_writes": 9,
+        "controller_return_count": 803,
+        "controller_negative_returns": 0,
+        "probe_misses": 0
+      },
+      "stages": [
+        {
+          "label": "baseline",
+          "old_incoherent_ratio": null,
+          "v2_total_ratio": null,
+          "q93_total_Y": 4.114054370507793,
+          "q31_total_Y": 2.9827159581059957,
+          "q93_coherent_Y": 0.17537123812509947
+        },
+        {
+          "label": "mode90",
+          "old_incoherent_ratio": 0.9807786232638657,
+          "v2_total_ratio": 0.9811989352346676,
+          "q93_total_Y": 4.388609097420002,
+          "q31_total_Y": 3.0370248734686363,
+          "q93_coherent_Y": 0.1859373099244897
+        },
+        {
+          "label": "return_mode90",
+          "old_incoherent_ratio": null,
+          "v2_total_ratio": null,
+          "q93_total_Y": 4.781590102028815,
+          "q31_total_Y": 2.992931866919585,
+          "q93_coherent_Y": 0.06528862823996076
+        },
+        {
+          "label": "thresholds",
+          "old_incoherent_ratio": 0.39241346932259313,
+          "v2_total_ratio": 0.39341853176731323,
+          "q93_total_Y": 1.8412640718098707,
+          "q31_total_Y": 0.7669498516150959,
+          "q93_coherent_Y": 0.13929304321561004
+        },
+        {
+          "label": "return_thresholds",
+          "old_incoherent_ratio": null,
+          "v2_total_ratio": null,
+          "q93_total_Y": 4.096278125550347,
+          "q31_total_Y": 3.009353889706191,
+          "q93_coherent_Y": 0.13807680839038355
+        },
+        {
+          "label": "page53",
+          "old_incoherent_ratio": 1.0722213286334479,
+          "v2_total_ratio": 1.0713741341478888,
+          "q93_total_Y": 4.66227814381314,
+          "q31_total_Y": 3.004823542554349,
+          "q93_coherent_Y": 0.1564987541073116
+        },
+        {
+          "label": "return_page53",
+          "old_incoherent_ratio": null,
+          "v2_total_ratio": null,
+          "q93_total_Y": 4.59564602949339,
+          "q31_total_Y": 2.934148919581187,
+          "q93_coherent_Y": 0.2937442049635873
+        },
+        {
+          "label": "page63",
+          "old_incoherent_ratio": 1.0015183276734363,
+          "v2_total_ratio": 0.9996705205699005,
+          "q93_total_Y": 4.422042067909307,
+          "q31_total_Y": 3.022156695877446,
+          "q93_coherent_Y": 0.09987223456756335
+        },
+        {
+          "label": "return_page63",
+          "old_incoherent_ratio": null,
+          "v2_total_ratio": null,
+          "q93_total_Y": 4.192813638509142,
+          "q31_total_Y": 2.975202928027613,
+          "q93_coherent_Y": 0.2754472983466332
+        }
+      ]
+    }
+  ],
+  "historical_reports_preserved": true,
+  "camera_or_device_actions_during_reanalysis": false,
+  "pwm_hz": "unknown",
+  "greater_equal_2000_hz_verified": false,
+  "limits": [
+    "Total retains stationary optical stripes AND static scene content; a flat ROI remains necessary.",
+    "q31 is already present in stock along with q93 andq46; a spatial harmonic is not proof of fundamental2160Hz.",
+    "Polynomial spatial detrend can attenuate broad structure; these spectra do not certify no low-frequency envelope."
+  ]
+}

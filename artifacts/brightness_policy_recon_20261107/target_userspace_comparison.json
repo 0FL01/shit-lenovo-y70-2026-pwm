@@ -1,0 +1,58 @@
+{
+  "scope": "read-only identity bridge before offline continuation; no setprop/settings/DSI/flash/reboot",
+  "sku": "XT2611-1",
+  "build": "W3WWS36.65-64-4-1",
+  "selinux": "Enforcing",
+  "files": [
+    {
+      "path": "/vendor/lib64/libsdmclient.so",
+      "bytes": 897744,
+      "target_sha256": "030f103e35692c6b97833582ece2b62afce4452e5ad1338ecc52efd4f3e3b70e",
+      "cn_reference": "extracted/XT2611-1/W3WWL36.65-11-18/filesystems/vendor_a/lib64/libsdmclient.so",
+      "byte_equal_cn": false,
+      "local_copy": "/home/stfu/.cache/opencode-tmp/opencode/brightness-policy-recon-20261107/current/libsdmclient.so"
+    },
+    {
+      "path": "/vendor/lib64/libsdmcore.so",
+      "bytes": 964040,
+      "target_sha256": "955acdaaa5b286a0bedb77d95a30e3f6eefcc593492a498542c50035b17f7649",
+      "cn_reference": "extracted/XT2611-1/W3WWL36.65-11-18/filesystems/vendor_a/lib64/libsdmcore.so",
+      "byte_equal_cn": true,
+      "local_copy": "/home/stfu/.cache/opencode-tmp/opencode/brightness-policy-recon-20261107/current/libsdmcore.so"
+    },
+    {
+      "path": "/vendor/lib64/libsdmdal.so",
+      "bytes": 434168,
+      "target_sha256": "f4f1bcd9117e999086101d705122f89aeb01e645544b34cecc9742a82c51f323",
+      "cn_reference": "extracted/XT2611-1/W3WWL36.65-11-18/filesystems/vendor_a/lib64/libsdmdal.so",
+      "byte_equal_cn": false,
+      "local_copy": "/home/stfu/.cache/opencode-tmp/opencode/brightness-policy-recon-20261107/current/libsdmdal.so"
+    },
+    {
+      "path": "/vendor/lib64/libdigital-dimming.so",
+      "bytes": 100360,
+      "target_sha256": "76226a517d45170d7a204cc7337e627ee4ac59b99095aad8ebce57aca275acf1",
+      "cn_reference": "extracted/XT2611-1/W3WWL36.65-11-18/filesystems/vendor_a/lib64/libdigital-dimming.so",
+      "byte_equal_cn": true,
+      "local_copy": "/home/stfu/.cache/opencode-tmp/opencode/brightness-policy-recon-20261107/current/libdigital-dimming.so"
+    },
+    {
+      "path": "/system/bin/surfaceflinger",
+      "bytes": 8297480,
+      "target_sha256": "5da0b89ba3a4cfaac5684aa4a4c7ea51076f5235c6adfcd202e0d430302baca3",
+      "cn_reference": "extracted/XT2611-1/W3WWL36.65-11-18/filesystems/system_a/system/bin/surfaceflinger",
+      "byte_equal_cn": false,
+      "local_copy": "/home/stfu/.cache/opencode-tmp/opencode/brightness-policy-recon-20261107/current/surfaceflinger"
+    }
+  ],
+  "selected_runtime_properties": {
+    "vendor.display.disable_stc_dimming": "1",
+    "debug.sf.1hz_nit_lower_limit": "0",
+    "debug.sf.10hz_nit_lower_limit": "9999999",
+    "debug.sf.1hz_nit_lower_limit_cli": "",
+    "debug.sf.10hz_nit_lower_limit_cli": "",
+    "debug.sf.prim_perf_90hz_base_brightness_zone": "40:24:120",
+    "debug.sf.prim_perf_120hz_base_brightness_zone": "40:24:120",
+    "debug.sf.limit_special_idle_render": ""
+  }
+}

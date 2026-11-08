@@ -1,0 +1,106 @@
+{
+  "status": "offline_proposals_only_not_authorized_not_sent",
+  "scope": "Three independent full-stock-OFF programs; each substitutes only the listed same-panel native ON payloads. No combinations between groups, no extra values.",
+  "stock_off": "artifacts/device_tree/selected_boe_v4/qcom,mdss-dsi-dc-off-command",
+  "stock_on": "artifacts/device_tree/selected_boe_v4/qcom,mdss-dsi-dc-on-command",
+  "program_bytes": 875,
+  "packet_count": 75,
+  "candidates": [
+    {
+      "label": "thresholds",
+      "candidate": "artifacts/dsi_block_trials_20261106/thresholds.bin",
+      "changed_packets": [
+        {
+          "packet_index": 6,
+          "page": 35,
+          "opcode": 169,
+          "off_payload": "a9 0e",
+          "on_payload": "a9 8e"
+        },
+        {
+          "packet_index": 9,
+          "page": 36,
+          "opcode": 157,
+          "off_payload": "9d 0e",
+          "on_payload": "9d 8e"
+        }
+      ],
+      "changed_byte_offsets": [
+        68,
+        97
+      ],
+      "changed_byte_count": 2,
+      "candidate_sent": false
+    },
+    {
+      "label": "page53",
+      "candidate": "artifacts/dsi_block_trials_20261106/page53.bin",
+      "changed_packets": [
+        {
+          "packet_index": 16,
+          "page": 83,
+          "opcode": 149,
+          "off_payload": "95 00 a0",
+          "on_payload": "95 44 50"
+        },
+        {
+          "packet_index": 17,
+          "page": 83,
+          "opcode": 162,
+          "off_payload": "a2 10 10 10 10 48 10 10 10 4b 4b 10 10 10 10 48 10 10 10 4b 4b 10 10 10 10 48 10 10 10 4b 4b",
+          "on_payload": "a2 10 10 10 10 48 10 10 74 7b b4 10 10 10 10 48 10 10 74 7b b4 10 10 10 10 48 10 10 74 7b b4"
+        }
+      ],
+      "changed_byte_offsets": [
+        164,
+        165,
+        181,
+        182,
+        183,
+        191,
+        192,
+        193,
+        201,
+        202,
+        203
+      ],
+      "changed_byte_count": 11,
+      "candidate_sent": false
+    },
+    {
+      "label": "page63",
+      "candidate": "artifacts/dsi_block_trials_20261106/page63.bin",
+      "changed_packets": [
+        {
+          "packet_index": 27,
+          "page": 99,
+          "opcode": 242,
+          "off_payload": "f2 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+          "on_payload": "f2 00 00 00 00 00 20 20 20 20 20 00 00 00 00 00 00"
+        },
+        {
+          "packet_index": 28,
+          "page": 99,
+          "opcode": 243,
+          "off_payload": "f3 00 00 00 00 00 20 20 20 20 20 00 00 00 00 00 00",
+          "on_payload": "f3 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00"
+        }
+      ],
+      "changed_byte_offsets": [
+        321,
+        322,
+        323,
+        324,
+        325,
+        345,
+        346,
+        347,
+        348,
+        349
+      ],
+      "changed_byte_count": 10,
+      "candidate_sent": false
+    }
+  ],
+  "dsi_commands_sent": false
+}

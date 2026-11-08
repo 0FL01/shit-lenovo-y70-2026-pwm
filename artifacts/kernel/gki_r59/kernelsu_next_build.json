@@ -1,0 +1,12 @@
+{
+  "started_at_utc": "2026-11-06T09:01:30.101361+00:00",
+  "command": [
+    "bash",
+    "06-tools/build_gki_kernelsu_next.sh"
+  ],
+  "scope": "offline built-in KernelSU-Next 33355/v3.4.2 candidate; reference Google public trust retained, signature protection unchanged, no display edits/boot packaging/device writes",
+  "patch": "artifacts/kernelsu_next_patch.diff",
+  "log": "artifacts/kernel/gki_r59/kernelsu_next_build.log",
+  "finished_at_utc": "2026-11-06T09:08:30.061403+00:00",
+  "exit_code": 0
+}

@@ -1,0 +1,192 @@
+version: 1
+project: xt2611-1-real-pwm
+as_of: '2026-11-06'
+mode: staged-autonomous-research
+status_values: [todo, in_progress, blocked, done, rejected]
+tasks:
+  - id: T00
+    title: 'Complete final bootloader unlock before PWM experiments'
+    status: done
+    priority: P0
+    dependencies: []
+    can_run_offline: false
+    progress: 'Done: one owner-approved OEM unlock at 07:37; fastboot flashing_unlocked:SDP at 07:38; after setup, ADB at 07:45 confirms boot_completed=1, flash.locked=0, vbmeta unlocked/orange, same build/kernel/slot and SELinux Enforcing. Evidence: artifacts/post_unlock_observation_2026-11-06.json and execution journal. Do not repeat unlock.'
+    actions:
+      - 'After agreed reboot into bootloader, query identity, securestate, slot, is-userspace and supported unlock-ability read-only.'
+      - 'Establish the exact target-supported OEM procedure and any key/eligibility requirement; no blind oem unlock/flashing unlock fallback.'
+      - 'Present the exact unlock operation, accepted data wipe and stock boot/recovery route; obtain operation-specific confirmation. User-data/on-phone backups are not a prerequisite.'
+      - 'Perform only the confirmed unlock flow, with owner physical confirmation if required; verify final fastboot and Android lock state.'
+    outputs: [artifacts/bootloader_state.md, artifacts/unlock_pwm_recon_2026-11-06.md, artifacts/bootloader_worklog_2026-11-06.md, artifacts/post_unlock_observation_2026-11-06.json]
+    acceptance: 'Final flashing-unlocked state observed, stock Android boots; no AVB, critical-unlock, slot or unrelated partition changes.'
+  - id: T00R
+    title: 'Build and establish mandatory persistent KernelSU-Next root for this kernel'
+    status: done
+    priority: P0
+    dependencies: [T00]
+    can_run_offline: false
+    progress: 'Done12:19 UTC: approved RAM trial passed, unchanged current boot_b96MiB saved and its kernel byte-equals official r59. Separately owner-approved persistent candidate flashed once to boot_b only; authorized UID0 after ordinary reboot, Enforcing, same build/_b and msm_drm Live. Primary proof artifacts/kernel/gki_r59/kernelsu_next/persistent/install.json; rollback in flash_proposal.md. No custom recovery/AVB disable/slot change/PWM edits.'
+    actions:
+      - 'Use owner-selected KernelSU-Next, custom-integrated into the target kernel; audit pinned v3.4.2 commit 4c706b5938665866ebe16944a481a7b91e3396af as the initial upstream candidate, not an approved target build.'
+      - 'Use completed source/config/toolchain/reference CRC baseline; package one validated RAM-only kernel image. Keep display stock and SELinux Enforcing; actual vendor loading is checked in the trial, panel/FSG/IMEI/full ROM are not prerequisites.'
+      - 'Integrate built-in KSU with verified configuration and matching Manager; do not assume prebuilt LKM compatibility or substitute init_boot ramdisk patching for kernel integration.'
+      - 'Present one RAM-only proposal with image hash, physical bootloader return, stock reboot and stop conditions; one owner approval covers temporary boot, Manager/root checks and original-boot readback, never permanent flash.'
+      - 'After temporary root, save/verify the unchanged active boot partition and vendor evidence, then separately propose persistent installation with that original as rollback. If RAM boot unsupported/rejected, return to stock without a flash fallback.'
+      - 'Authorize only intended root consumers, verify su UID 0 and normal boot before and after reboot, then collect panel/DT/module evidence. Report remaining SELinux denials rather than disabling enforcement globally.'
+    outputs: [artifacts/unlock_pwm_recon_2026-11-06.md, artifacts/kernelsu_next_patch.diff, artifacts/kernel/gki_r59/kernelsu_next_validation.json, artifacts/kernel/kernelsu_next_manager.json, 06-tools/build_gki_kernelsu_next.sh, artifacts/flash_proposal.md, artifacts/kernel/gki_r59/kernelsu_next/persistent/install.json]
+    acceptance: 'Target-compatible KernelSU-Next root persists after reboot, approved su reports UID 0, normal display/system boot and SELinux Enforcing retained, matching-original rollback documented. Unlocked stock or temporary-only root does not meet the owner requirement.'
+  - id: T01
+    title: 'Read-only identity and build inventory of physical handset'
+    status: done
+    priority: P0
+    dependencies: []
+    can_run_offline: false
+    actions:
+      - 'Run adb devices then 06-tools/collect_readonly.sh; no root required.'
+      - 'Record fingerprint, uname, product/vendor model, slot properties, displayed build, sysfs panel candidates.'
+      - 'Optional read-only fastboot getvar only with owner-assisted reboot to bootloader.'
+      - 'Sanitize unique IDs before sharing.'
+    outputs: [artifacts/device_inventory.json, artifacts/panel_identity.md]
+    acceptance: 'Every unknown stays unknown; exact version and panel observations recorded with command evidence.'
+  - id: T02
+    title: 'Reproduce and understand Pixel HK3 primary patch'
+    status: todo
+    priority: P0
+    dependencies: []
+    can_run_offline: true
+    actions:
+      - 'Fetch 6f7795d primary commit and parent version; record original paths and SHA.'
+      - 'Explain module param, 0xBD 0x21 DSI path, unlock/update/lock, early exit, HBM and local HBM hooks.'
+      - 'Identify all lifecycle callbacks affected by patch; separate empirical claims from code behavior.'
+      - 'Draft Qualcomm-specific design requirements without copying Samsung commands.'
+    outputs: [artifacts/pixel_diff_analysis.md]
+    acceptance: 'Code-line citations and documented portability limits, including Pixel-only commands.'
+  - id: T03
+    title: 'Official Motorola source checkout and target applicability audit'
+    status: in_progress
+    progress: 'Pinned baseline/KSU builds and all10210 reference CRCs passed. Actual unchanged boot_b acquired: kernel byte-equals official r59. Root candidate now persistently boots with current msm_drm loaded; actual module ELF saved, selected live v4 DT read. Full Motorola module source match remains unproven; selected source symbols/calls inspected. See source_inventory.md and dc_transition_recon_2026-11-06.md.'
+    priority: P0
+    dependencies: []
+    can_run_offline: true
+    actions:
+      - 'Fetch kernel-msm tag MMI-W3WWL36.65-11-18 with full commit identity.'
+      - 'Audit repository modules, display source tree and source completeness.'
+      - 'Inspect other Motorola display/devicetree repos for matched avr tags; do not assume any matches.'
+      - 'Identify toolchain, config, GKI/KMI and build system; assess expected stock kernel match.'
+    outputs: [artifacts/source_inventory.md]
+    acceptance: 'Pinned commit and precise list of source paths, missing components and matching-status.'
+  - id: T04
+    title: 'Acquire and inventory exact China RETCN firmware for XT2611-1'
+    status: done
+    evidence: 'User ZIP inventoried; 36 sparsechunks reconstructed; boot/vendor_boot/DTBO and four EROFS partitions inspected. Lineage in artifacts/firmware_manifest.json; DC/source match in artifacts/cn_panel_commands.md and .json. No device access/writes.'
+    priority: P0
+    dependencies: []
+    can_run_offline: true
+    actions:
+      - 'Fetch exact-model ROM using official-looking index only as a mirror; record source URL, model, region and build.'
+      - 'Inventory zip/XML/sparsechunks; extract DTBO/boot/vendor and module metadata.'
+      - 'Search panel compatible IDs and dimming sequences.'
+    outputs: [artifacts/firmware_manifest.json, artifacts/cn_panel_commands.md]
+    acceptance: 'Every extracted file traces to its source archive, model, region and build; no device flashing.'
+  - id: T05
+    title: 'Acquire and inventory related global RETEU firmware for XT2611-3'
+    status: done
+    evidence: 'GLOBAL W3WW36.65-64-4 inventoried: 44 selected ZIP entries, 34 sparsechunks, five EROFS partitions and selected vendor_boot files. Pre-OTA fingerprint/kernel and 11 saved vendor fingerprints match; not current W3WWS36.65-64-4-1 or a trusted XT2611-1 backup. See artifacts/eu_panel_commands.md and firmware_manifest.json.'
+    priority: P1
+    dependencies: []
+    can_run_offline: true
+    actions:
+      - 'Fetch global ROM for offline comparison; it is not treated as a flash source for XT2611-1.'
+      - 'Extract comparable display/DTBO/HAL partitions and list differences.'
+    outputs: [artifacts/eu_panel_commands.md]
+    acceptance: 'Provenance identifies XT2611-3 and differing variant; no accidental partition crossover.'
+  - id: T06
+    title: 'Identify exact panel IC and revision for owner handset'
+    status: done
+    evidence: 'Root reads12:21–12:26: sysfs boe_ili97701A_682_1440x3168_dsc_cmd_v4/supplierboe/ID0xd2/Ver0; boot selector and selected live DT agree. Exact software path identified; physical silicon revision explicitly unknown, not inferred from v4/PVT. All53 compared command arrays match GLOBAL reference. See artifacts/panel_identity.md and panel_live_20261106.json.'
+    priority: P0
+    dependencies: [T01, T04, T00R]
+    can_run_offline: false
+    actions:
+      - 'Triangulate actual sysfs/devicetree/dmesg IDs with archived firmware compatible matches.'
+      - 'Distinguish panel material BOE Q10 from exact model and controller revision.'
+      - 'Check whether global conversion changed panel select/DTBO mappings.'
+    outputs: [artifacts/panel_identity.md]
+    acceptance: 'Exact panel identifier and revision with at least two independent observations, or explicit unknown.'
+  - id: T07
+    title: 'Regional differential panel command analysis'
+    status: done
+    evidence: 'Scoped display comparison of both archives: 3330 BOE subtree properties, 18 identical DC arrays, 36 differing init/timing properties in ILI97701A v2-v4; exact offsets/raw bytes in regional_dtbo_diff.json. Seven vendor ELFs equal; FOSS and module differences documented. No optical or current-OTA equivalence claim.'
+    priority: P0
+    dependencies: [T04, T05]
+    can_run_offline: true
+    actions:
+      - 'Diff panel DTS/DTSI and original DSI command sequences side by side.'
+      - 'Diff vendor/odm display HAL, init, overlays, DC-like and flicker switch handlers.'
+      - 'Rank changed sequences by confidence and safety relevance.'
+    outputs: [artifacts/display_diffs.md]
+    acceptance: 'Each candidate linked to exact extracted path, build, offset and confidence.'
+  - id: T08
+    title: 'Trace Flicker prevention control path end-to-end'
+    status: done
+    progress: '2026-11-06 13:49 owner-approved stock UI A/B completed: provider/panelDC follow0/1; six exact75-packet DC sets observed, real DBV5197/2839, software120Hz. Native parameter returns9x0, no negative controller return/known failure log/probe misses; cleanup verified. Driver/DSI reachability confirmed, optical Hz/effect still unknown and T09 pending. Detailed reference-only middle-hop code/source limits retained; artifacts/stock_dc_trace_analysis_20261106.json.'
+    priority: P1
+    dependencies: [T01, T03, T07]
+    can_run_offline: false
+    actions:
+      - 'Capture setting state read-only before/after owner toggles the option.'
+      - 'Trace UI setting -> services/properties/HAL -> kernel -> DSI and identify unknown links.'
+      - 'Prioritize ordered DC OFF/ON and v0-v4/97680A comparison, preserving raw transport header, page context, repeats, delays and LP/HS. Use BOE patent only as a mechanism lead, not register encoding or 2160Hz proof.'
+      - 'Report whether enabled switch actually changes driver command path.'
+    outputs: [artifacts/driver_callgraph.md, artifacts/dc_transition_recon_2026-11-06.md]
+    acceptance: 'Documented callgraph, command/state origin and runtime observed effect or blocker.'
+  - id: T09
+    title: 'Establish qualitative visual/camera baseline with available reference phones'
+    status: in_progress
+    progress: 'Four stock conditions/cleanup verified. Supplied87.81s video inspected: switch changes~10.0/25.8/41.0/56.6s align to native taps; low-OFF narrow bands visible before USB popup, low-ON44-48s less banded. Actual light theme corrects prior assumption; handheld motion/moire/USB scrim and unknown exposure/readout prevent Hz/depth inference. Reference comparison and direct comfort remain pending. See artifacts/optical_baseline.md and video_analysis_20261106.json.'
+    priority: P0
+    dependencies: [T01]
+    can_run_offline: false
+    actions:
+      - 'Follow 05-safety/optical_measurement.md: no oscilloscope available; use owner assessment and another smartphone camera without blocking comparative trials on instruments.'
+      - 'Record target before/after clips and compare two owner-reported ~2000 Hz phones with consistent camera settings, content, brightness and refresh conditions.'
+      - 'Record comfort only during brief voluntary observation; stop at discomfort. Label exact Hz, modulation depth and low-frequency envelope as unverified; waveform/FFT only if adequate instrumentation later becomes available.'
+    outputs: [artifacts/optical_baseline.md]
+    acceptance: 'Documented qualitative baseline/comparison and owner report, not an inferred numeric frequency. Lack of oscilloscope does not block T09 completion or later justified trials; camera bands/symptoms do not certify >=2000 Hz.'
+  - id: T10
+    title: 'Decide feasibility and design guarded native PWM override'
+    status: todo
+    priority: P1
+    dependencies: [T03, T06, T07, T08, T09]
+    can_run_offline: false
+    actions:
+      - 'Prove specific panel DSI register/profile and expected optical change.'
+      - 'Define allowed profile list, stock default, exact ID whitelist, safe lifecycle transitions.'
+      - 'Prefer Android control with Apply, temporary-until-reboot default, explicit unchecked Remember after reboot option, and stock reset clearing persistence. Do not build UI/persistence before a verified hardware mechanism exists.'
+      - 'If evidence absent, reject implementation and issue blocker report.'
+    outputs: [artifacts/patch_design.md, artifacts/research_report.md]
+    acceptance: 'DSI writes only from the evidence-verified set; clear evidence-to-code map or justified no-go.'
+  - id: T11
+    title: 'Build minimal patch and reproduce exact source/toolchain binary'
+    status: todo
+    priority: P2
+    dependencies: [T10]
+    can_run_offline: true
+    actions:
+      - 'Preserve known-good behavior with override OFF by default.'
+      - 'Implement applicable source/DT/HAL modification only where evidence supports it.'
+      - 'Build and test with pinned source, Clang and reproducible command; audit ABI and image contents.'
+      - 'If matching stock source unavailable, report blocker instead of inventing boot image.'
+    outputs: [artifacts/pwm_patch.diff, artifacts/build_report.md]
+    acceptance: 'Compiled tested candidate or exact blocker and source diff; hashes for images proposed for boot/flash and recovery where applicable.'
+  - id: T12
+    title: 'Prepare one-off experiment plan (flash_proposal.md) with owner-confirmed execution'
+    status: todo
+    priority: P2
+    dependencies: [T11]
+    can_run_offline: true
+    actions:
+      - 'Specify exact target partition, slot, original matching image and restore path.'
+      - 'Verify the final unlocked state from T00 via read-only fastboot; determine supported temporary boot, AVB and bootchain compatibility.'
+      - 'Provide the owner-confirmation step, stop conditions and optical post-boot checklist.'
+    outputs: [artifacts/flash_proposal.md]
+    acceptance: 'Complete rollback and specific operations described; device writes stay out of scope of this stage.'

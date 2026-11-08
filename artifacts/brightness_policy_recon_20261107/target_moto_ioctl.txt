@@ -1,0 +1,148 @@
+Target ELF RELA: msm_ioctls command descriptor and kms function pointer
+000000000008c290 r msm_ioctls
+00000000000d285c t sde_kms_set_moto_drm_command
+00000000001d6110 t msm_ioctl_set_moto_drm_command
+
+/mnt/kston/legion-Y70-madness/artifacts/kernel/gki_r59/target_vendor/msm_drm.ko:     file format elf64-littleaarch64
+
+Contents of section .rodata:
+ 8cb10 00000000 00000000 9b640840 00000000  .........d.@....
+ 8cb20 00000000 00000000 00000000 00000000  ................
+0000000000081e40  00003cb100000101 R_AARCH64_ABS64        0000000000000000 .text + d285c
+000000000008cb20  00003cb100000101 R_AARCH64_ABS64        0000000000000000 .text + 1d6110
+0000000000015910  00003cb100000105 R_AARCH64_PREL32       0000000000000000 .text + d285c
+0000000000034c38  00003cb100000105 R_AARCH64_PREL32       0000000000000000 .text + 1d6110
+
+Target ioctl handler and panel setter
+
+/mnt/kston/legion-Y70-madness/artifacts/kernel/gki_r59/target_vendor/msm_drm.ko:     file format elf64-littleaarch64
+
+
+Disassembly of section .text:
+
+00000000001d6110 <msm_ioctl_set_moto_drm_command>:
+  1d6110:	d503233f 	paciasp
+  1d6114:	a9be7bfd 	stp	x29, x30, [sp, #-32]!
+  1d6118:	a9014ff4 	stp	x20, x19, [sp, #16]
+  1d611c:	910003fd 	mov	x29, sp
+  1d6120:	b4000461 	cbz	x1, 1d61ac <msm_ioctl_set_moto_drm_command+0x9c>
+  1d6124:	aa0103f3 	mov	x19, x1
+  1d6128:	f9401c08 	ldr	x8, [x0, #56]
+  1d612c:	b9400021 	ldr	w1, [x1]
+  1d6130:	b9400662 	ldr	w2, [x19, #4]
+  1d6134:	90000000 	adrp	x0, 0 <msm_hdcp_register_cb-0x4>
+			1d6134: R_AARCH64_ADR_PREL_PG_HI21	.rodata+0x56dfd
+  1d6138:	91000000 	add	x0, x0, #0x0
+			1d6138: R_AARCH64_ADD_ABS_LO12_NC	.rodata+0x56dfd
+  1d613c:	f9400514 	ldr	x20, [x8, #8]
+  1d6140:	94000000 	bl	0 <_printk>
+			1d6140: R_AARCH64_CALL26	_printk
+  1d6144:	b40002b4 	cbz	x20, 1d6198 <msm_ioctl_set_moto_drm_command+0x88>
+  1d6148:	f9400288 	ldr	x8, [x20]
+  1d614c:	b4000268 	cbz	x8, 1d6198 <msm_ioctl_set_moto_drm_command+0x88>
+  1d6150:	f940ad08 	ldr	x8, [x8, #344]
+  1d6154:	b4000228 	cbz	x8, 1d6198 <msm_ioctl_set_moto_drm_command+0x88>
+  1d6158:	f9400261 	ldr	x1, [x19]
+  1d615c:	aa1403e0 	mov	x0, x20
+  1d6160:	b85fc110 	ldur	w16, [x8, #-4]
+  1d6164:	728d5c51 	movk	w17, #0x6ae2
+  1d6168:	72b4ddf1 	movk	w17, #0xa6ef, lsl #16
+  1d616c:	6b11021f 	cmp	w16, w17
+  1d6170:	54000040 	b.eq	1d6178 <msm_ioctl_set_moto_drm_command+0x68>  // b.none
+  1d6174:	d4304500 	brk	#0x8228
+  1d6178:	d63f0100 	blr	x8
+  1d617c:	34000100 	cbz	w0, 1d619c <msm_ioctl_set_moto_drm_command+0x8c>
+  1d6180:	2a0003f3 	mov	w19, w0
+  1d6184:	90000000 	adrp	x0, 0 <msm_hdcp_register_cb-0x4>
+			1d6184: R_AARCH64_ADR_PREL_PG_HI21	.rodata+0x79853
+  1d6188:	91000000 	add	x0, x0, #0x0
+			1d6188: R_AARCH64_ADD_ABS_LO12_NC	.rodata+0x79853
+  1d618c:	94000000 	bl	0 <__drm_err>
+			1d618c: R_AARCH64_CALL26	__drm_err
+  1d6190:	2a1303e0 	mov	w0, w19
+  1d6194:	14000002 	b	1d619c <msm_ioctl_set_moto_drm_command+0x8c>
+  1d6198:	2a1f03e0 	mov	w0, wzr
+  1d619c:	a9414ff4 	ldp	x20, x19, [sp, #16]
+  1d61a0:	a8c27bfd 	ldp	x29, x30, [sp], #32
+  1d61a4:	d50323bf 	autiasp
+  1d61a8:	d65f03c0 	ret
+  1d61ac:	128002b3 	mov	w19, #0xffffffea            	// #-22
+  1d61b0:	90000000 	adrp	x0, 0 <msm_hdcp_register_cb-0x4>
+			1d61b0: R_AARCH64_ADR_PREL_PG_HI21	.rodata+0x436c1
+  1d61b4:	91000000 	add	x0, x0, #0x0
+			1d61b4: R_AARCH64_ADD_ABS_LO12_NC	.rodata+0x436c1
+  1d61b8:	17fffff5 	b	1d618c <msm_ioctl_set_moto_drm_command+0x7c>
+
+Disassembly of section .init.text:
+
+Disassembly of section .exit.text:
+
+/mnt/kston/legion-Y70-madness/artifacts/kernel/gki_r59/target_vendor/msm_drm.ko:     file format elf64-littleaarch64
+
+
+Disassembly of section .text:
+
+00000000001c3ec4 <dsi_panel_set_moto_drm_command>:
+  1c3ec4:	d503233f 	paciasp
+  1c3ec8:	a9be7bfd 	stp	x29, x30, [sp, #-32]!
+  1c3ecc:	a9014ff4 	stp	x20, x19, [sp, #16]
+  1c3ed0:	910003fd 	mov	x29, sp
+  1c3ed4:	b4000360 	cbz	x0, 1c3f40 <dsi_panel_set_moto_drm_command+0x7c>
+  1c3ed8:	aa0103f4 	mov	x20, x1
+  1c3edc:	b4000321 	cbz	x1, 1c3f40 <dsi_panel_set_moto_drm_command+0x7c>
+  1c3ee0:	29401684 	ldp	w4, w5, [x20]
+  1c3ee4:	aa0003f3 	mov	x19, x0
+  1c3ee8:	90000001 	adrp	x1, 0 <msm_hdcp_register_cb-0x4>
+			1c3ee8: R_AARCH64_ADR_PREL_PG_HI21	.rodata+0x51366
+  1c3eec:	91000021 	add	x1, x1, #0x0
+			1c3eec: R_AARCH64_ADD_ABS_LO12_NC	.rodata+0x51366
+  1c3ef0:	90000002 	adrp	x2, 0 <msm_hdcp_register_cb-0x4>
+			1c3ef0: R_AARCH64_ADR_PREL_PG_HI21	.rodata+0xb76f
+  1c3ef4:	91000042 	add	x2, x2, #0x0
+			1c3ef4: R_AARCH64_ADD_ABS_LO12_NC	.rodata+0xb76f
+  1c3ef8:	90000003 	adrp	x3, 0 <msm_hdcp_register_cb-0x4>
+			1c3ef8: R_AARCH64_ADR_PREL_PG_HI21	.rodata+0x21a80
+  1c3efc:	91000063 	add	x3, x3, #0x0
+			1c3efc: R_AARCH64_ADD_ABS_LO12_NC	.rodata+0x21a80
+  1c3f00:	aa1f03e0 	mov	x0, xzr
+  1c3f04:	94000000 	bl	0 <drm_dev_printk>
+			1c3f04: R_AARCH64_CALL26	drm_dev_printk
+  1c3f08:	b9400288 	ldr	w8, [x20]
+  1c3f0c:	b9484e69 	ldr	w9, [x19, #2124]
+  1c3f10:	6b09011f 	cmp	w8, w9
+  1c3f14:	54000121 	b.ne	1c3f38 <dsi_panel_set_moto_drm_command+0x74>  // b.any
+  1c3f18:	b9400683 	ldr	w3, [x20, #4]
+  1c3f1c:	90000001 	adrp	x1, 0 <msm_hdcp_register_cb-0x4>
+			1c3f1c: R_AARCH64_ADR_PREL_PG_HI21	.rodata+0x51366
+  1c3f20:	91000021 	add	x1, x1, #0x0
+			1c3f20: R_AARCH64_ADD_ABS_LO12_NC	.rodata+0x51366
+  1c3f24:	90000002 	adrp	x2, 0 <msm_hdcp_register_cb-0x4>
+			1c3f24: R_AARCH64_ADR_PREL_PG_HI21	.rodata+0x2cbed
+  1c3f28:	91000042 	add	x2, x2, #0x0
+			1c3f28: R_AARCH64_ADD_ABS_LO12_NC	.rodata+0x2cbed
+  1c3f2c:	aa1f03e0 	mov	x0, xzr
+  1c3f30:	b9085263 	str	w3, [x19, #2128]
+  1c3f34:	94000000 	bl	0 <drm_dev_printk>
+			1c3f34: R_AARCH64_CALL26	drm_dev_printk
+  1c3f38:	2a1f03e0 	mov	w0, wzr
+  1c3f3c:	14000008 	b	1c3f5c <dsi_panel_set_moto_drm_command+0x98>
+  1c3f40:	90000001 	adrp	x1, 0 <msm_hdcp_register_cb-0x4>
+			1c3f40: R_AARCH64_ADR_PREL_PG_HI21	.rodata+0x3d84f
+  1c3f44:	91000021 	add	x1, x1, #0x0
+			1c3f44: R_AARCH64_ADD_ABS_LO12_NC	.rodata+0x3d84f
+  1c3f48:	90000002 	adrp	x2, 0 <msm_hdcp_register_cb-0x4>
+			1c3f48: R_AARCH64_ADR_PREL_PG_HI21	.rodata+0x718d7
+  1c3f4c:	91000042 	add	x2, x2, #0x0
+			1c3f4c: R_AARCH64_ADD_ABS_LO12_NC	.rodata+0x718d7
+  1c3f50:	aa1f03e0 	mov	x0, xzr
+  1c3f54:	94000000 	bl	0 <drm_dev_printk>
+			1c3f54: R_AARCH64_CALL26	drm_dev_printk
+  1c3f58:	128002a0 	mov	w0, #0xffffffea            	// #-22
+  1c3f5c:	a9414ff4 	ldp	x20, x19, [sp, #16]
+  1c3f60:	a8c27bfd 	ldp	x29, x30, [sp], #32
+  1c3f64:	d50323bf 	autiasp
+  1c3f68:	d65f03c0 	ret
+
+Disassembly of section .init.text:
+
+Disassembly of section .exit.text:

@@ -1,0 +1,115 @@
+{
+  "scope": "Offline saved target ELF and previously collected live DT; no device actions",
+  "module": "artifacts/kernel/gki_r59/target_vendor/msm_drm.ko",
+  "module_sha256": "1bec69faec736e7288f38e4cb83314c37c60d33e6b383213316fd880aa0b1804",
+  "module_notes": "\nDisplaying notes found in: .note.Linux\n  Owner                Data size \tDescription\n  Linux                0x00000001\tOPEN\n   description data: 00 \n  Linux                0x00000004\tfunc\n   description data: 00 00 00 00 \n\nDisplaying notes found in: .note.gnu.build-id\n  Owner                Data size \tDescription\n  GNU                  0x00000014\tNT_GNU_BUILD_ID (unique build ID bitstring)\n    Build ID: be0229cf369bc5a905ceb61ca429fa2075235c3a\n\nDisplaying notes found in: .note.gnu.property\n  Owner                Data size \tDescription\n  GNU                  0x00000010\tNT_GNU_PROPERTY_TYPE_0\n      Properties: AArch64 feature: PAC\n",
+  "address_space": "ELF .text section offsets, not runtime virtual addresses",
+  "pwm_external_call_sites": [
+    {
+      "text_offset": "0x1b57e4",
+      "callee": "pwm_apply_might_sleep",
+      "owner": "dsi_panel_set_backlight"
+    },
+    {
+      "text_offset": "0x1b582c",
+      "callee": "pwm_apply_might_sleep",
+      "owner": "dsi_panel_set_backlight"
+    },
+    {
+      "text_offset": "0x1b59c0",
+      "callee": "pwm_apply_might_sleep",
+      "owner": "dsi_panel_set_backlight"
+    },
+    {
+      "text_offset": "0x1c62f4",
+      "callee": "devm_pwm_get",
+      "owner": "dsi_panel_bl_register"
+    }
+  ],
+  "selected_functions": {
+    "dsi_panel_parse_bl_config": [
+      {
+        "text_offset": "0x1baae8",
+        "bytes": 1620
+      }
+    ],
+    "dsi_panel_bl_register": [
+      {
+        "text_offset": "0x1c627c",
+        "bytes": 328
+      }
+    ],
+    "dsi_panel_set_backlight": [
+      {
+        "text_offset": "0x1b5588",
+        "bytes": 1204
+      }
+    ],
+    "dsi_panel_set_apl": [
+      {
+        "text_offset": "0x1b5a3c",
+        "bytes": 240
+      }
+    ],
+    "dsi_panel_set_odc": [
+      {
+        "text_offset": "0x1b5b2c",
+        "bytes": 232
+      }
+    ],
+    "dsi_panel_set_param": [
+      {
+        "text_offset": "0x1b5cac",
+        "bytes": 1844
+      }
+    ],
+    "dsi_panel_send_param_cmd": [
+      {
+        "text_offset": "0x1c456c",
+        "bytes": 764
+      }
+    ],
+    "dsi_panel_mot_parse_param_commands": [
+      {
+        "text_offset": "0x1cafb8",
+        "bytes": 1308
+      }
+    ],
+    "dsi_panel_parse_esync_params": [
+      {
+        "text_offset": "0x1c0e7c",
+        "bytes": 500
+      }
+    ],
+    "_sde_connector_update_dimming_ctrl": [
+      {
+        "text_offset": "0xe6618",
+        "bytes": 220
+      }
+    ],
+    "_sde_connector_update_dimming_bl_lut": [
+      {
+        "text_offset": "0xe64e0",
+        "bytes": 312
+      }
+    ],
+    "_sde_connector_update_dimming_min_bl": [
+      {
+        "text_offset": "0xe66f4",
+        "bytes": 196
+      }
+    ]
+  },
+  "selected_live_properties_hex_or_absent": {
+    "qcom,mdss-dsi-bl-pmic-control-type": "626c5f6374726c5f64637300",
+    "qcom,bl-pmic-pwm-period-usecs": null,
+    "qcom,mdss-dsi-bl-ctrl-dcs-subtype": null,
+    "qcom,mdss-esync": null,
+    "qcom,mdss-dsi-panel-APL-THRESHOLD-BL": "00003e80",
+    "qcom,odc-enabled": null
+  },
+  "live_esync_property_paths": [],
+  "interpretation": "Read the branch conditions in annotated disassembly; symbols alone do not prove OLED PWM control.",
+  "physical_pwm_hz": null,
+  "new_dsi_sent": false
+}

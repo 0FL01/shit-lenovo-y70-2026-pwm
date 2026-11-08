@@ -1,0 +1,129 @@
+{
+  "scope": "Archived observations only; not a validated register map or causal/optical trial",
+  "observations": [
+    {
+      "state": "s1_dbv3584_120",
+      "requested_refresh": 120.0,
+      "dbv_before_after": [
+        "3584",
+        "3584"
+      ],
+      "07:EC": [
+        {
+          "pass": 1,
+          "raw_line": 1262,
+          "first_byte": "2f"
+        },
+        {
+          "pass": 2,
+          "raw_line": 1518,
+          "first_byte": "2f"
+        }
+      ]
+    },
+    {
+      "state": "s2_dbv3646_120",
+      "requested_refresh": 120.0,
+      "dbv_before_after": [
+        "3646",
+        "3646"
+      ],
+      "07:EC": [
+        {
+          "pass": 1,
+          "raw_line": 1262,
+          "first_byte": "10"
+        },
+        {
+          "pass": 2,
+          "raw_line": 1518,
+          "first_byte": "10"
+        }
+      ]
+    },
+    {
+      "state": "s3_dbv3584_144",
+      "requested_refresh": 144.0,
+      "dbv_before_after": [
+        "3584",
+        "3584"
+      ],
+      "07:EC": [
+        {
+          "pass": 1,
+          "raw_line": 1262,
+          "first_byte": "2f"
+        },
+        {
+          "pass": 2,
+          "raw_line": 1518,
+          "first_byte": "2f"
+        }
+      ]
+    },
+    {
+      "state": "s4_dbv3584_60",
+      "requested_refresh": 60.0,
+      "dbv_before_after": [
+        "3584",
+        "3584"
+      ],
+      "07:EC": [
+        {
+          "pass": 1,
+          "raw_line": 1262,
+          "first_byte": "2f"
+        },
+        {
+          "pass": 2,
+          "raw_line": 1518,
+          "first_byte": "2f"
+        }
+      ]
+    }
+  ],
+  "selection_checks": [
+    {
+      "prefix_bytes": 1,
+      "stable_across_passes_all_states": 4853,
+      "selected_addresses": 1,
+      "selected_except_brightness_opcode52": [
+        "07:EC"
+      ]
+    },
+    {
+      "prefix_bytes": 2,
+      "stable_across_passes_all_states": 4852,
+      "selected_addresses": 20,
+      "selected_except_brightness_opcode52": [
+        "07:EC"
+      ]
+    },
+    {
+      "prefix_bytes": 6,
+      "stable_across_passes_all_states": 4852,
+      "selected_addresses": 20,
+      "selected_except_brightness_opcode52": [
+        "07:EC"
+      ]
+    },
+    {
+      "prefix_bytes": 40,
+      "stable_across_passes_all_states": 4852,
+      "selected_addresses": 20,
+      "selected_except_brightness_opcode52": [
+        "07:EC"
+      ]
+    }
+  ],
+  "actual_dt_packet_properties_checked": 52,
+  "07:EC_native_writes": [],
+  "physical_pwm_hz": null,
+  "device_io": false,
+  "limits": [
+    "Single high-DBV state; brightness/history/time confounded",
+    "Requested40 bytes are not a proven valid response length",
+    "Only first byte used as candidate state marker; no write semantics",
+    "No simultaneous optical capture in these four dump runs"
+  ]
+}

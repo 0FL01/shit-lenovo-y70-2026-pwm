@@ -1,0 +1,121 @@
+# Diagnostic linear sweep: code/data boundaries NOT inferred.
+b231f288: 	call 0xb2019e90
+b231f28c: 	allocframe(#72)
+b231f290: 	r17:16 = combine(r1,r0)
+b231f294: 	r20 = memw(r0+#4)
+b231f298: 	r2 = memub(r20+#219)
+b231f29c: 	if (cmp.eq(r2.new,r1)) jump:t 0xb231f450
+b231f2a0: 	r1 = add(r29,#24)
+b231f2a4: 	r4 = add(r29,#16)
+b231f2a8: 	r19 = memw(r20+#2736)
+b231f2ac: 	r18 = memw(r20+#284)
+b231f2b0: 	r5 = add(r29,#15)
+b231f2b4: 	r0 = r18	r3:2 = combine(#0,#1)
+b231f2b8: 	r6 = memw(r19+#4)
+b231f2bc: 	r6 = memw(r6+#28)	memw(r29+#36) = r5
+b231f2c0: 	memw(r29+#32) = #1
+b231f2c4: 	memb(r29+#24) = #0
+b231f2c8: 	callr r6
+b231f2cc: 	memw(r29+#28) = #0
+b231f2d0: 	p0 = cmp.eq(r0,#0); if (!p0.new) jump:nt 0xb231f44c
+b231f2d4: 	r2 = memw(r29+#16)
+b231f2d8: 	if (!cmp.eq(r2.new,#1)) jump:nt 0xb231f44c
+b231f2dc: 	p1 = tstbit(r17,#0)
+b231f2e0: 	r3 = memub(r20+#30)
+b231f2e4: 	r2 = memub(r29+#15)
+b231f2e8: 	p0 = tstbit(r3,#0)
+b231f2ec: 	r2 = p1
+b231f2f0: 	r3 = and(r2,#-15)
+b231f2f4: 	memb(r29+#15) = r3.new
+b231f2f8: 	if (!p1) jump:nt 0xb231f388
+b231f2fc: 	if (!p0) jump:nt 0xb231f314
+b231f300: 	memw(r29+#20) = r2
+b231f304: 	immext(#2992040768)
+b231f308: 	r3:2 = combine(##-1302926520,#0)
+b231f30c: 	r4 = #1	r1:0 = combine(r16,#0)
+b231f310: 	call 0xb20df84c
+b231f314: 	immext(#3017719616)
+b231f318: 	r2 = memw(##3017719624)
+b231f31c: 	if (cmp.eq(r2.new,#2)) jump:t 0xb231f338
+b231f320: 	immext(#2992233984)
+b231f324: 	r3:2 = combine(##-1302733312,r18)
+b231f328: 	r1:0 = combine(r19,r16)
+b231f32c: 	r4 = #2
+b231f330: 	call 0xb231d63c
+b231f334: 	p0 = cmp.eq(r0,#0); if (!p0.new) jump:t 0xb231f44c
+b231f338: 	call 0xb20d9824
+b231f33c: 	r0 = add(r20,#1844)
+b231f340: 	r1 = #112
+b231f344: 	memb(r29+#15) = setbit(#1)
+b231f348: 	call 0xb20d9824
+b231f34c: 	r0 = add(r20,#1960)
+b231f350: 	r1 = #512
+b231f354: 	r1:0 = combine(r18,r19)
+b231f358: 	r3 = add(r29,#15)
+b231f35c: 	r2 = #0	r5 = add(r29,#16)
+b231f360: 	r4 = #1
+b231f364: 	memh(r20+#1956) = r2
+b231f368: 	memw(r29+#0) = #0
+b231f36c: 	call 0xb231d0e0
+b231f370: 	immext(#192)
+b231f374: 	memw(r29+#4) = ##255
+b231f378: 	jump 0xb231f410
+b231f37c: 	memb(r20+#219) = r17
+b231f380: 	immext(#3017719616)
+b231f384: 	memb(##3017719629) = r17
+b231f388: 	if (!p0) jump:nt 0xb231f3a8
+b231f38c: 	immext(#2992040832)
+b231f390: 	r3:2 = combine(##-1302926432,#0)
+b231f394: 	r4 = #1	r1:0 = combine(r16,#0)
+b231f398: 	call 0xb20df84c
+b231f39c: 	r2 = memub(r29+#15)
+b231f3a0: 	r3 = setbit(r2,#1)
+b231f3a4: 	memb(r29+#15) = r3.new
+b231f3a8: 	r3 = setbit(r3,#1)
+b231f3ac: 	r0 = add(r20,#52)
+b231f3b0: 	r1 = #0	r2 = memub(r20+#9)
+b231f3b4: 	call 0xb20d9820
+b231f3b8: 	p0 = tstbit(r2,#0)
+b231f3bc: 	r2 = #8
+b231f3c0: 	if (p0.new) memb(r29+#15) = r3
+b231f3c4: 	r1:0 = combine(r18,r19)
+b231f3c8: 	r3 = add(r29,#15)
+b231f3cc: 	r2 = #0	r5 = add(r29,#16)
+b231f3d0: 	r4 = #1
+b231f3d4: 	memw(r29+#0) = #0
+b231f3d8: 	immext(#192)
+b231f3dc: 	memw(r29+#4) = ##255
+b231f3e0: 	call 0xb231d0e0
+b231f3e4: 	r2 = memub(r20+#30)
+b231f3e8: 	memb(r20+#219) = r17
+b231f3ec: 	p0 = tstbit(r2,#0); if (!p0.new) jump:t 0xb231f410
+b231f3f0: 	immext(#3017719616)
+b231f3f4: 	memb(##3017719629) = r17
+b231f3f8: 	immext(#2992233984)
+b231f3fc: 	r3:2 = combine(##-1302733296,r18)
+b231f400: 	r1:0 = combine(r19,r16)
+b231f404: 	r4 = #1
+b231f408: 	call 0xb231d63c
+b231f40c: 	p0 = cmp.eq(r0,#0); if (!p0.new) jump:t 0xb231f44c
+b231f410: 	r2 = #0
+b231f414: 	immext(#2992040896)
+b231f418: 	r3 = ##2992040944	r1:0 = combine(#0,#0)
+b231f41c: 	r4 = #1
+b231f420: 	r1:0 = combine(r16,#0)
+b231f424: 	memd(r20+#2488) = r1:0
+b231f428: 	memd(r20+#2496) = r1:0
+b231f42c: 	call 0xb20df84c
+b231f430: 	immext(#2432)
+b231f434: 	memb(r20+##2481) = r2
+b231f438: 	memw(r29+#0) = r17
+b231f43c: 	r0 = r16	r2 = memw(r29+#20)
+b231f440: 	p0 = r2
+b231f444: 	call 0xb231ebe0
+b231f448: 	r1 = mux(p0,#1,#0)
+b231f44c: 	jump 0xb2019f80
+b231f450: 	immext(#2992040640)
+b231f454: 	r3:2 = combine(##-1302926596,#0)
+b231f458: 	r4 = #1	r1:0 = combine(r16,#0)
+b231f45c: 	call 0xb20df84c
+b231f460: 	memw(r29+#0) = r17
+b231f464: 	jump 0xb2019f80

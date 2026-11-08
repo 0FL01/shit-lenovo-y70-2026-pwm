@@ -1,0 +1,23 @@
+{
+  "checked_on": "2026-11-07",
+  "status": "offline-validated; new hardware operation awaits exact authorization",
+  "runner_option": "--coupled-9d",
+  "analyzer_option": "--coupled-9d",
+  "unit_tests_passed": 16,
+  "syntax_checks_passed": true,
+  "independent_review_blockers": [],
+  "two_packet_parsers_agree": true,
+  "candidate_sha256": "8604d62cb74646105413c94105a5d66273e865bda2be0e0225f5dc3f69eac62e",
+  "s0c1_authorization_rejected_for_new_profile": true,
+  "missing_authorization_cli_refused": true,
+  "optimized_python_cli_refused": true,
+  "absent_capture_analyzer_refused": true,
+  "historical_s0c1_byte_gates_unchanged": true,
+  "candidate_readback_expected": {"23:A9": "0e", "24:9D": "8e", "00:52": "0e10"},
+  "authorization_created": false,
+  "hardware_run_created": false,
+  "device_io": false,
+  "live_qualification": false,
+  "pwm_hz": "unknown",
+  "greater_equal_2000_hz_verified": false
+}

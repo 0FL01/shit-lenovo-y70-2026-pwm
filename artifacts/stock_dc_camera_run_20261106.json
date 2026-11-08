@@ -1,0 +1,433 @@
+{
+  "owner_authorization": "User selected Готов снимать сейчас for separate stock OFF/ON camera run at brightness78/40/requested120Hz with cleanup",
+  "started_at_utc": "2026-11-06T14:09:21.657003+00:00",
+  "phases": [
+    {
+      "brightness_android": 78,
+      "dc": 0,
+      "sysfs_brightness": 5197,
+      "hold_started_at_utc": "2026-11-06T14:09:40.562736+00:00",
+      "hold_seconds": 12,
+      "hold_ended_at_utc": "2026-11-06T14:09:52.563486+00:00"
+    },
+    {
+      "brightness_android": 78,
+      "dc": 1,
+      "sysfs_brightness": 5197,
+      "hold_started_at_utc": "2026-11-06T14:09:56.067200+00:00",
+      "hold_seconds": 12,
+      "hold_ended_at_utc": "2026-11-06T14:10:08.067550+00:00"
+    },
+    {
+      "brightness_android": 40,
+      "dc": 0,
+      "sysfs_brightness": 2839,
+      "hold_started_at_utc": "2026-11-06T14:10:11.561040+00:00",
+      "hold_seconds": 12,
+      "hold_ended_at_utc": "2026-11-06T14:10:23.561516+00:00"
+    },
+    {
+      "brightness_android": 40,
+      "dc": 1,
+      "sysfs_brightness": 2839,
+      "hold_started_at_utc": "2026-11-06T14:10:27.018624+00:00",
+      "hold_seconds": 12,
+      "hold_ended_at_utc": "2026-11-06T14:10:39.018971+00:00"
+    }
+  ],
+  "events": [
+    {
+      "at_utc": "2026-11-06T14:09:21.739942+00:00",
+      "command": "printf '%s|%s|%s|' \"$(getprop ro.boot.hardware.sku)\" \"$(getprop ro.build.display.id)\" \"$(getprop ro.boot.slot_suffix)\"; uname -r; getenforce",
+      "exit_code": 0,
+      "stdout": "XT2611-1|W3WWS36.65-64-4-1|_b|6.12.58-android16-6-g09eda8c8505a-dirty-ab15950084-4k\nEnforcing",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T14:09:21.791037+00:00",
+      "command": "su -c id",
+      "exit_code": 0,
+      "stdout": "uid=0(root) gid=0(root) groups=0(root) context=u:r:ksu:s0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T14:09:21.847832+00:00",
+      "command": "su -c 'cat /sys/class/drm/card0-DSI-1/mipi_cmd_log_en'",
+      "exit_code": 0,
+      "stdout": "ctrl->ctrl->mipi_cmd_log_en: 0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T14:09:21.898158+00:00",
+      "command": "settings get system screen_brightness_mode",
+      "exit_code": 0,
+      "stdout": "1",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T14:09:21.949414+00:00",
+      "command": "settings get system min_refresh_rate",
+      "exit_code": 0,
+      "stdout": "null",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T14:09:22.002018+00:00",
+      "command": "settings get system peak_refresh_rate",
+      "exit_code": 0,
+      "stdout": "null",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T14:09:37.087645+00:00",
+      "command": "settings put system screen_brightness_mode 0; settings put system min_refresh_rate 120.0; settings put system peak_refresh_rate 120.0",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T14:09:37.157513+00:00",
+      "command": "input keyevent 224; settings put system screen_brightness 78",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T14:09:39.252294+00:00",
+      "command": "input keyevent 224; wm dismiss-keyguard; uiautomator dump /data/local/tmp/pwm-dc-settings.xml",
+      "exit_code": 0,
+      "stdout": "UI hierchary dumped to: /data/local/tmp/pwm-dc-settings.xml",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T14:09:39.291716+00:00",
+      "command": "cat /data/local/tmp/pwm-dc-settings.xml",
+      "exit_code": 0,
+      "stdout": "<private UI XML>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T14:09:40.358718+00:00",
+      "command": "content call --uri content://com.motorola.android.providers.settings/global --method GET_global --arg display_dc_mode_enabled",
+      "exit_code": 0,
+      "stdout": "Result: Bundle[{value=0}]",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T14:09:40.403322+00:00",
+      "command": "su -c 'cat /sys/class/drm/card0-DSI-1/panelDC'",
+      "exit_code": 0,
+      "stdout": "0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T14:09:40.457984+00:00",
+      "command": "su -c 'cat /sys/class/backlight/panel0-backlight/bl_power'",
+      "exit_code": 0,
+      "stdout": "0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T14:09:40.496479+00:00",
+      "command": "getenforce",
+      "exit_code": 0,
+      "stdout": "Enforcing",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T14:09:40.562458+00:00",
+      "command": "su -c 'cat /sys/class/backlight/panel0-backlight/brightness'",
+      "exit_code": 0,
+      "stdout": "5197",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T14:09:52.635202+00:00",
+      "command": "input keyevent 224; settings put system screen_brightness 78",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T14:09:54.760112+00:00",
+      "command": "input keyevent 224; wm dismiss-keyguard; uiautomator dump /data/local/tmp/pwm-dc-settings.xml",
+      "exit_code": 0,
+      "stdout": "UI hierchary dumped to: /data/local/tmp/pwm-dc-settings.xml",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T14:09:54.797969+00:00",
+      "command": "cat /data/local/tmp/pwm-dc-settings.xml",
+      "exit_code": 0,
+      "stdout": "<private UI XML>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T14:09:54.851258+00:00",
+      "command": "input tap 720 2009",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T14:09:55.863709+00:00",
+      "command": "content call --uri content://com.motorola.android.providers.settings/global --method GET_global --arg display_dc_mode_enabled",
+      "exit_code": 0,
+      "stdout": "Result: Bundle[{value=1}]",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T14:09:55.913156+00:00",
+      "command": "su -c 'cat /sys/class/drm/card0-DSI-1/panelDC'",
+      "exit_code": 0,
+      "stdout": "1",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T14:09:55.966642+00:00",
+      "command": "su -c 'cat /sys/class/backlight/panel0-backlight/bl_power'",
+      "exit_code": 0,
+      "stdout": "0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T14:09:56.011419+00:00",
+      "command": "getenforce",
+      "exit_code": 0,
+      "stdout": "Enforcing",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T14:09:56.066835+00:00",
+      "command": "su -c 'cat /sys/class/backlight/panel0-backlight/brightness'",
+      "exit_code": 0,
+      "stdout": "5197",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T14:10:08.160781+00:00",
+      "command": "input keyevent 224; settings put system screen_brightness 40",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T14:10:10.268084+00:00",
+      "command": "input keyevent 224; wm dismiss-keyguard; uiautomator dump /data/local/tmp/pwm-dc-settings.xml",
+      "exit_code": 0,
+      "stdout": "UI hierchary dumped to: /data/local/tmp/pwm-dc-settings.xml",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T14:10:10.307683+00:00",
+      "command": "cat /data/local/tmp/pwm-dc-settings.xml",
+      "exit_code": 0,
+      "stdout": "<private UI XML>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T14:10:10.364348+00:00",
+      "command": "input tap 720 2009",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T14:10:11.375167+00:00",
+      "command": "content call --uri content://com.motorola.android.providers.settings/global --method GET_global --arg display_dc_mode_enabled",
+      "exit_code": 0,
+      "stdout": "Result: Bundle[{value=0}]",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T14:10:11.424036+00:00",
+      "command": "su -c 'cat /sys/class/drm/card0-DSI-1/panelDC'",
+      "exit_code": 0,
+      "stdout": "0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T14:10:11.475348+00:00",
+      "command": "su -c 'cat /sys/class/backlight/panel0-backlight/bl_power'",
+      "exit_code": 0,
+      "stdout": "0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T14:10:11.511589+00:00",
+      "command": "getenforce",
+      "exit_code": 0,
+      "stdout": "Enforcing",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T14:10:11.560832+00:00",
+      "command": "su -c 'cat /sys/class/backlight/panel0-backlight/brightness'",
+      "exit_code": 0,
+      "stdout": "2839",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T14:10:23.622192+00:00",
+      "command": "input keyevent 224; settings put system screen_brightness 40",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T14:10:25.708729+00:00",
+      "command": "input keyevent 224; wm dismiss-keyguard; uiautomator dump /data/local/tmp/pwm-dc-settings.xml",
+      "exit_code": 0,
+      "stdout": "UI hierchary dumped to: /data/local/tmp/pwm-dc-settings.xml",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T14:10:25.746759+00:00",
+      "command": "cat /data/local/tmp/pwm-dc-settings.xml",
+      "exit_code": 0,
+      "stdout": "<private UI XML>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T14:10:25.803433+00:00",
+      "command": "input tap 720 2009",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T14:10:26.802726+00:00",
+      "command": "content call --uri content://com.motorola.android.providers.settings/global --method GET_global --arg display_dc_mode_enabled",
+      "exit_code": 0,
+      "stdout": "Result: Bundle[{value=1}]",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T14:10:26.863844+00:00",
+      "command": "su -c 'cat /sys/class/drm/card0-DSI-1/panelDC'",
+      "exit_code": 0,
+      "stdout": "1",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T14:10:26.919367+00:00",
+      "command": "su -c 'cat /sys/class/backlight/panel0-backlight/bl_power'",
+      "exit_code": 0,
+      "stdout": "0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T14:10:26.963426+00:00",
+      "command": "getenforce",
+      "exit_code": 0,
+      "stdout": "Enforcing",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T14:10:27.018260+00:00",
+      "command": "su -c 'cat /sys/class/backlight/panel0-backlight/brightness'",
+      "exit_code": 0,
+      "stdout": "2839",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T14:10:41.146956+00:00",
+      "command": "input keyevent 224; wm dismiss-keyguard; uiautomator dump /data/local/tmp/pwm-dc-settings.xml",
+      "exit_code": 0,
+      "stdout": "UI hierchary dumped to: /data/local/tmp/pwm-dc-settings.xml",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T14:10:41.201053+00:00",
+      "command": "cat /data/local/tmp/pwm-dc-settings.xml",
+      "exit_code": 0,
+      "stdout": "<private UI XML>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T14:10:41.273557+00:00",
+      "command": "input tap 720 2009",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T14:10:42.274868+00:00",
+      "command": "content call --uri content://com.motorola.android.providers.settings/global --method GET_global --arg display_dc_mode_enabled",
+      "exit_code": 0,
+      "stdout": "Result: Bundle[{value=0}]",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T14:10:42.334428+00:00",
+      "command": "su -c 'cat /sys/class/drm/card0-DSI-1/panelDC'",
+      "exit_code": 0,
+      "stdout": "0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T14:10:42.390162+00:00",
+      "command": "su -c 'cat /sys/class/backlight/panel0-backlight/bl_power'",
+      "exit_code": 0,
+      "stdout": "0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T14:10:42.423612+00:00",
+      "command": "getenforce",
+      "exit_code": 0,
+      "stdout": "Enforcing",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T14:10:42.512982+00:00",
+      "command": "settings put system screen_brightness 78; settings put system screen_brightness_mode 1; settings delete system min_refresh_rate; settings delete system peak_refresh_rate",
+      "exit_code": 0,
+      "stdout": "Deleted 1 rows\nDeleted 1 rows",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T14:10:42.540837+00:00",
+      "command": "settings get system screen_brightness_mode",
+      "exit_code": 0,
+      "stdout": "1",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T14:10:42.569934+00:00",
+      "command": "settings get system min_refresh_rate",
+      "exit_code": 0,
+      "stdout": "null",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T14:10:42.593270+00:00",
+      "command": "settings get system peak_refresh_rate",
+      "exit_code": 0,
+      "stdout": "null",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T14:10:42.622612+00:00",
+      "command": "su -c 'cat /sys/class/drm/card0-DSI-1/mipi_cmd_log_en'",
+      "exit_code": 0,
+      "stdout": "ctrl->ctrl->mipi_cmd_log_en: 0",
+      "stderr": ""
+    }
+  ],
+  "optical_recording_received": true,
+  "optical_hz": "unknown",
+  "lead_in_seconds": 15,
+  "four_optical_conditions_presented": true,
+  "dc_off_restored": true,
+  "cleanup": {
+    "screen_brightness_mode": "1",
+    "min_refresh_rate": "null",
+    "peak_refresh_rate": "null",
+    "logger": "ctrl->ctrl->mipi_cmd_log_en: 0"
+  },
+  "cleanup_verified": true,
+  "finished_at_utc": "2026-11-06T14:10:42.622963+00:00",
+  "optical_recording_path": "/home/stfu/Torrents/Android/VID_20261106_170959931_rotated_180.mp4",
+  "video_analysis": "artifacts/video_analysis_20261106.json"
+}

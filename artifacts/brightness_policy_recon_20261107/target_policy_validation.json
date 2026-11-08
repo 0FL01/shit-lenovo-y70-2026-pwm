@@ -1,0 +1,102 @@
+{
+  "scope": "target ELF word/VA checks,source/copyidentity checks, read-only runtimepolicy dump, translated branch model",
+  "files_checked": 5,
+  "surfaceflinger_differs_cn": true,
+  "target_flag_function_va": "0x2a5574",
+  "target_special_idle_field_offset": "0x4a8",
+  "target_mode_filter_va": "0x25d438",
+  "flags_to_mode_bits": {
+    "1": 3,
+    "2": 4
+  },
+  "branch_model_cases": [
+    {
+      "policy_brightness_field": -1.0,
+      "mode_field_equals1_override": false,
+      "translated_flag": 0
+    },
+    {
+      "policy_brightness_field": -1.0,
+      "mode_field_equals1_override": true,
+      "translated_flag": 1
+    },
+    {
+      "policy_brightness_field": 0.0,
+      "mode_field_equals1_override": false,
+      "translated_flag": 0
+    },
+    {
+      "policy_brightness_field": 0.0,
+      "mode_field_equals1_override": true,
+      "translated_flag": 1
+    },
+    {
+      "policy_brightness_field": 0.0001,
+      "mode_field_equals1_override": false,
+      "translated_flag": 1
+    },
+    {
+      "policy_brightness_field": 0.0001,
+      "mode_field_equals1_override": true,
+      "translated_flag": 1
+    },
+    {
+      "policy_brightness_field": 1.0,
+      "mode_field_equals1_override": false,
+      "translated_flag": 1
+    },
+    {
+      "policy_brightness_field": 1.0,
+      "mode_field_equals1_override": true,
+      "translated_flag": 1
+    },
+    {
+      "policy_brightness_field": 40.0,
+      "mode_field_equals1_override": false,
+      "translated_flag": 1
+    },
+    {
+      "policy_brightness_field": 40.0,
+      "mode_field_equals1_override": true,
+      "translated_flag": 1
+    },
+    {
+      "policy_brightness_field": 100.0,
+      "mode_field_equals1_override": false,
+      "translated_flag": 1
+    },
+    {
+      "policy_brightness_field": 100.0,
+      "mode_field_equals1_override": true,
+      "translated_flag": 1
+    },
+    {
+      "policy_brightness_field": 9999999.0,
+      "mode_field_equals1_override": false,
+      "translated_flag": 1
+    },
+    {
+      "policy_brightness_field": 9999999.0,
+      "mode_field_equals1_override": true,
+      "translated_flag": 1
+    },
+    {
+      "policy_brightness_field": 10000000.0,
+      "mode_field_equals1_override": false,
+      "translated_flag": 1
+    },
+    {
+      "policy_brightness_field": 10000000.0,
+      "mode_field_equals1_override": true,
+      "translated_flag": 1
+    }
+  ],
+  "boundary_limits": [
+    "brightness input is struct field+0x14; no directDBV/nitscalibration asserted",
+    "mode/a4 override andprimary/secondary gates exist",
+    "flag is eligibility/control state, not proof liveDDICcurrently1Hz",
+    "DSIcache crosscheck gives transientidle7 BEFOREfinal90; noholdwrites"
+  ],
+  "absolute_pwm_hz": null,
+  "new_dsi_sent": false
+}

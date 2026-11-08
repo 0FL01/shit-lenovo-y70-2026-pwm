@@ -1,0 +1,32 @@
+{
+  "at_utc": "2026-11-07T18:48:49.161508+00:00",
+  "transport_id": 2,
+  "target_build": "W3WWS36.65-64-4-1",
+  "root_read_only": true,
+  "selinux": "Enforcing",
+  "kernel": "6.12.58-android16-6-g09eda8c8505a-dirty-ab15950084-4k",
+  "directories": [
+    {
+      "directory": "/mnt/vendor/persist/display",
+      "file_count": 3,
+      "observed": true
+    },
+    {
+      "directory": "/data/vendor/display",
+      "file_count": 1,
+      "observed": true
+    },
+    {
+      "directory": "/data/vendor/display_config",
+      "file_count": 0,
+      "observed": false
+    },
+    {
+      "directory": "/mnt/vendor/persist/demura",
+      "file_count": 0,
+      "observed": false
+    }
+  ],
+  "raw_private_path": "/home/stfu/.cache/opencode-tmp/opencode/ddic-ec-semantics-20261107/target-display-file-inventory-private.txt",
+  "no_dsi_or_settings_writes": true
+}

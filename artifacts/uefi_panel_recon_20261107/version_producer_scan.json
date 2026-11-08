@@ -1,0 +1,72 @@
+{
+  "scope": "Bounded literal scan of already saved CN48 FV EFI members, not code execution",
+  "volumes": [
+    {
+      "volume": "uefi.elf.1000.fv",
+      "efi_members_scanned": 116,
+      "total_member_bytes": 8421376,
+      "hits": [
+        {
+          "member": "D14C51ED/EE4E5898/VOLUME/MotSolDxe.efi",
+          "bytes": 28672,
+          "literal_offsets": {
+            "utf16le_version": [
+              "0x417a"
+            ],
+            "utf16le_secondary": [
+              "0x419a"
+            ]
+          }
+        },
+        {
+          "member": "D14C51ED/EE4E5898/VOLUME/BacklightDxe.efi",
+          "bytes": 45056,
+          "literal_offsets": {
+            "utf16le_version": [
+              "0x7c4c"
+            ],
+            "utf16le_secondary": [
+              "0x7c6c"
+            ]
+          }
+        },
+        {
+          "member": "D14C51ED/EE4E5898/VOLUME/DisplayDxe.efi",
+          "bytes": 442368,
+          "literal_offsets": {
+            "utf16le_version": [
+              "0x45862",
+              "0x46588"
+            ],
+            "utf16le_secondary": [
+              "0x4583c",
+              "0x465a8"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "volume": "abl.elf.1000.fv",
+      "efi_members_scanned": 1,
+      "total_member_bytes": 1601536,
+      "hits": [
+        {
+          "member": "9E21FD93/EE4E5898/VOLUME/MotoBootModule.efi",
+          "bytes": 1601536,
+          "literal_offsets": {
+            "utf16le_version": [
+              "0x14f826"
+            ],
+            "utf16le_secondary": [
+              "0x14f846"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "limit": "No literal does not exclude computed names, indirect producers or other boot stages",
+  "device_io": false,
+  "physical_pwm_hz": null
+}

@@ -1,0 +1,2442 @@
+{
+  "started_at_utc": "2026-11-06T17:59:48.192847+00:00",
+  "scope": "Owner-authorized fixed stockDBV3600 DC0/software120Hz, camera720p->4K->720p readout experiment; no new panel commands",
+  "clips": [
+    {
+      "label": "A1",
+      "requested_size": [
+        1280,
+        720
+      ],
+      "media_since_epoch": 1793987993,
+      "button_before_utc": "2026-11-06T17:59:55.251397+00:00",
+      "button_after_utc": "2026-11-06T17:59:57.570555+00:00",
+      "start_metadata": {
+        "android.sensor.exposureTime": [
+          "100000",
+          "100000"
+        ],
+        "android.sensor.sensitivity": [
+          "6400",
+          "6400"
+        ],
+        "android.control.aeMode": [
+          "OFF",
+          "OFF"
+        ],
+        "android.control.afMode": [
+          "OFF",
+          "OFF"
+        ],
+        "android.lens.focusDistance": [
+          "9.11752701",
+          "9.11752701"
+        ],
+        "android.sensor.rollingShutterSkew": [
+          "15047630"
+        ],
+        "android.sensor.frameDuration": [
+          "33350000",
+          "200000000"
+        ],
+        "android.sensor.timestamp": [
+          "5886948466505000"
+        ],
+        "android.request.frameCount": [
+          "63730"
+        ],
+        "android.scaler.cropRegion": [
+          "0 0 4080 3072",
+          "0 0 4080 3072"
+        ],
+        "android.control.zoomRatio": [
+          "1.00000000",
+          "1.00000000"
+        ],
+        "android.control.videoStabilizationMode": [
+          "OFF",
+          "OFF"
+        ],
+        "android.lens.opticalStabilizationMode": [
+          "OFF",
+          "OFF"
+        ]
+      },
+      "hold_start_utc": "2026-11-06T18:00:00.241538+00:00",
+      "hold_end_utc": "2026-11-06T18:00:07.241835+00:00",
+      "end_metadata": {
+        "android.sensor.exposureTime": [
+          "100000",
+          "100000"
+        ],
+        "android.sensor.sensitivity": [
+          "6400",
+          "6400"
+        ],
+        "android.control.aeMode": [
+          "OFF",
+          "OFF"
+        ],
+        "android.control.afMode": [
+          "OFF",
+          "OFF"
+        ],
+        "android.lens.focusDistance": [
+          "9.11752701",
+          "9.11752701"
+        ],
+        "android.sensor.rollingShutterSkew": [
+          "15047630"
+        ],
+        "android.sensor.frameDuration": [
+          "33350000",
+          "200000000"
+        ],
+        "android.sensor.timestamp": [
+          "5886955666412000"
+        ],
+        "android.request.frameCount": [
+          "63946"
+        ],
+        "android.scaler.cropRegion": [
+          "0 0 4080 3072",
+          "0 0 4080 3072"
+        ],
+        "android.control.zoomRatio": [
+          "1.00000000",
+          "1.00000000"
+        ],
+        "android.control.videoStabilizationMode": [
+          "OFF",
+          "OFF"
+        ],
+        "android.lens.opticalStabilizationMode": [
+          "OFF",
+          "OFF"
+        ]
+      },
+      "dbv_at_end": "3600",
+      "stopped_at_utc": "2026-11-06T18:00:12.364407+00:00",
+      "video": "artifacts/optical/pacman_readout_A1_20261106.mp4",
+      "bytes": 13893933,
+      "duration_ms": 11712,
+      "video_metadata": {
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "30/1",
+        "nb_frames": "349",
+        "duration": "11.633333"
+      }
+    },
+    {
+      "label": "B",
+      "requested_size": [
+        3840,
+        2160
+      ],
+      "media_since_epoch": 1793988700,
+      "start_metadata": {
+        "android.sensor.exposureTime": [
+          "100000",
+          "100000"
+        ],
+        "android.sensor.sensitivity": [
+          "6400",
+          "6400"
+        ],
+        "android.control.aeMode": [
+          "OFF",
+          "OFF"
+        ],
+        "android.control.afMode": [
+          "OFF",
+          "OFF"
+        ],
+        "android.lens.focusDistance": [
+          "9.11752701",
+          "9.11752701"
+        ],
+        "android.sensor.rollingShutterSkew": [
+          "15047630"
+        ],
+        "android.sensor.frameDuration": [
+          "33350000",
+          "200000000"
+        ],
+        "android.sensor.timestamp": [
+          "5887655443380000"
+        ],
+        "android.request.frameCount": [
+          "84400"
+        ],
+        "android.scaler.cropRegion": [
+          "0 0 4080 3072",
+          "0 0 4080 3072"
+        ],
+        "android.control.zoomRatio": [
+          "1.00000000",
+          "1.00000000"
+        ],
+        "android.control.videoStabilizationMode": [
+          "OFF",
+          "OFF"
+        ],
+        "android.lens.opticalStabilizationMode": [
+          "OFF",
+          "OFF"
+        ]
+      },
+      "hold_start_utc": "2026-11-06T18:11:47.252948+00:00",
+      "hold_end_utc": "2026-11-06T18:11:54.253581+00:00",
+      "end_metadata": {
+        "android.sensor.exposureTime": [
+          "100000",
+          "100000"
+        ],
+        "android.sensor.sensitivity": [
+          "6400",
+          "6400"
+        ],
+        "android.control.aeMode": [
+          "OFF",
+          "OFF"
+        ],
+        "android.control.afMode": [
+          "OFF",
+          "OFF"
+        ],
+        "android.lens.focusDistance": [
+          "9.11752701",
+          "9.11752701"
+        ],
+        "android.sensor.rollingShutterSkew": [
+          "15047630"
+        ],
+        "android.sensor.frameDuration": [
+          "33350000",
+          "200000000"
+        ],
+        "android.sensor.timestamp": [
+          "5887662609955000"
+        ],
+        "android.request.frameCount": [
+          "84615"
+        ],
+        "android.scaler.cropRegion": [
+          "0 0 4080 3072",
+          "0 0 4080 3072"
+        ],
+        "android.control.zoomRatio": [
+          "1.00000000",
+          "1.00000000"
+        ],
+        "android.control.videoStabilizationMode": [
+          "OFF",
+          "OFF"
+        ],
+        "android.lens.opticalStabilizationMode": [
+          "OFF",
+          "OFF"
+        ]
+      },
+      "dbv_at_end": "3600",
+      "video": "artifacts/optical/pacman_readout_B_20261106.mp4",
+      "bytes": 73749653,
+      "duration_ms": 11755,
+      "video_metadata": {
+        "width": 3840,
+        "height": 2160,
+        "avg_frame_rate": "30/1",
+        "nb_frames": "350",
+        "duration": "11.666667"
+      }
+    },
+    {
+      "label": "A2",
+      "requested_size": [
+        1280,
+        720
+      ],
+      "media_since_epoch": 1793988765,
+      "start_metadata": {
+        "android.sensor.exposureTime": [
+          "100000",
+          "100000"
+        ],
+        "android.sensor.sensitivity": [
+          "6400",
+          "6400"
+        ],
+        "android.control.aeMode": [
+          "OFF",
+          "OFF"
+        ],
+        "android.control.afMode": [
+          "OFF",
+          "OFF"
+        ],
+        "android.lens.focusDistance": [
+          "9.11752701",
+          "9.11752701"
+        ],
+        "android.sensor.rollingShutterSkew": [
+          "15047630"
+        ],
+        "android.sensor.frameDuration": [
+          "33350000",
+          "200000000"
+        ],
+        "android.sensor.timestamp": [
+          "5887720527462000"
+        ],
+        "android.request.frameCount": [
+          "86146"
+        ],
+        "android.scaler.cropRegion": [
+          "0 0 4080 3072",
+          "0 0 4080 3072"
+        ],
+        "android.control.zoomRatio": [
+          "1.00000000",
+          "1.00000000"
+        ],
+        "android.control.videoStabilizationMode": [
+          "OFF",
+          "OFF"
+        ],
+        "android.lens.opticalStabilizationMode": [
+          "OFF",
+          "OFF"
+        ]
+      },
+      "hold_start_utc": "2026-11-06T18:12:52.314454+00:00",
+      "hold_end_utc": "2026-11-06T18:12:59.315110+00:00",
+      "end_metadata": {
+        "android.sensor.exposureTime": [
+          "100000",
+          "100000"
+        ],
+        "android.sensor.sensitivity": [
+          "6400",
+          "6400"
+        ],
+        "android.control.aeMode": [
+          "OFF",
+          "OFF"
+        ],
+        "android.control.afMode": [
+          "OFF",
+          "OFF"
+        ],
+        "android.lens.focusDistance": [
+          "9.11752701",
+          "9.11752701"
+        ],
+        "android.sensor.rollingShutterSkew": [
+          "15047630"
+        ],
+        "android.sensor.frameDuration": [
+          "33350000",
+          "200000000"
+        ],
+        "android.sensor.timestamp": [
+          "5887727660705000"
+        ],
+        "android.request.frameCount": [
+          "86360"
+        ],
+        "android.scaler.cropRegion": [
+          "0 0 4080 3072",
+          "0 0 4080 3072"
+        ],
+        "android.control.zoomRatio": [
+          "1.00000000",
+          "1.00000000"
+        ],
+        "android.control.videoStabilizationMode": [
+          "OFF",
+          "OFF"
+        ],
+        "android.lens.opticalStabilizationMode": [
+          "OFF",
+          "OFF"
+        ]
+      },
+      "dbv_at_end": "3600",
+      "video": "artifacts/optical/pacman_readout_A2_20261106.mp4",
+      "bytes": 13857163,
+      "duration_ms": 11707,
+      "video_metadata": {
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "30/1",
+        "nb_frames": "349",
+        "duration": "11.633333"
+      }
+    }
+  ],
+  "events": [
+    {
+      "at_utc": "2026-11-06T17:59:48.321948+00:00",
+      "device": "target",
+      "command": "getprop ro.boot.hardware.sku; getprop ro.build.display.id; getprop ro.boot.slot_suffix; getenforce",
+      "exit_code": 0,
+      "stdout": "XT2611-1\nW3WWS36.65-64-4-1\n_b\nEnforcing",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T17:59:48.423858+00:00",
+      "device": "camera",
+      "command": "getprop ro.product.device",
+      "exit_code": 0,
+      "stdout": "PacmanPro",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T17:59:48.527292+00:00",
+      "device": "target",
+      "command": "su -c 'cat /sys/class/drm/card0-DSI-1/panelDC'",
+      "exit_code": 0,
+      "stdout": "0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T17:59:48.611434+00:00",
+      "device": "target",
+      "command": "su -c 'cat /sys/class/drm/card0-DSI-1/mipi_cmd_log_en'",
+      "exit_code": 0,
+      "stdout": "ctrl->ctrl->mipi_cmd_log_en: 0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T17:59:48.680668+00:00",
+      "device": "target",
+      "command": "settings get system screen_brightness",
+      "exit_code": 0,
+      "stdout": "62",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T17:59:48.759142+00:00",
+      "device": "target",
+      "command": "settings get system screen_brightness_mode",
+      "exit_code": 0,
+      "stdout": "1",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T17:59:48.822825+00:00",
+      "device": "target",
+      "command": "settings get system min_refresh_rate",
+      "exit_code": 0,
+      "stdout": "null",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T17:59:48.887143+00:00",
+      "device": "target",
+      "command": "settings get system peak_refresh_rate",
+      "exit_code": 0,
+      "stdout": "null",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T17:59:48.950613+00:00",
+      "device": "target",
+      "command": "settings get system screen_off_timeout",
+      "exit_code": 0,
+      "stdout": "300000",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T17:59:49.032639+00:00",
+      "device": "target",
+      "command": "su -c 'cat /sys/class/backlight/panel0-backlight/bl_power'",
+      "exit_code": 0,
+      "stdout": "4",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T17:59:49.361783+00:00",
+      "device": "target",
+      "command": "settings put system screen_brightness_mode 0; settings put system screen_brightness 52; settings put system min_refresh_rate 120.0; settings put system peak_refresh_rate 120.0; settings put system screen_off_timeout 600000; input keyevent 224",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T17:59:49.429993+00:00",
+      "device": "target",
+      "command": "dumpsys window policy | grep -F 'screenState='",
+      "exit_code": 0,
+      "stdout": "screenState=SCREEN_STATE_TURNING_ON",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T17:59:49.621525+00:00",
+      "device": "target",
+      "command": "dumpsys window policy | grep -F 'screenState='",
+      "exit_code": 0,
+      "stdout": "screenState=SCREEN_STATE_ON",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T17:59:49.647387+00:00",
+      "device": "target",
+      "command": "dumpsys window policy | grep -F 'interactiveState='",
+      "exit_code": 0,
+      "stdout": "interactiveState=INTERACTIVE_STATE_AWAKE",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T17:59:49.674792+00:00",
+      "device": "target",
+      "command": "wm dismiss-keyguard",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T17:59:49.704106+00:00",
+      "device": "target",
+      "command": "dumpsys window policy | grep -F 'mIsShowing='",
+      "exit_code": 0,
+      "stdout": "mIsShowing=true",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T17:59:49.891209+00:00",
+      "device": "target",
+      "command": "dumpsys window policy | grep -F 'mIsShowing='",
+      "exit_code": 0,
+      "stdout": "mIsShowing=true",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T17:59:50.093135+00:00",
+      "device": "target",
+      "command": "dumpsys window policy | grep -F 'mIsShowing='",
+      "exit_code": 0,
+      "stdout": "mIsShowing=true",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T17:59:50.290164+00:00",
+      "device": "target",
+      "command": "dumpsys window policy | grep -F 'mIsShowing='",
+      "exit_code": 0,
+      "stdout": "mIsShowing=false",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T17:59:50.372849+00:00",
+      "device": "target",
+      "command": "am start -W --activity-clear-top -n 'com.android.settings/.Settings$DisplaySettingsActivity'",
+      "exit_code": 0,
+      "stdout": "Starting: Intent { flg=0x4000000 cmp=com.android.settings/.Settings$DisplaySettingsActivity }\nStatus: ok\nLaunchState: WARM\nActivity: com.android.settings/.Settings$DisplaySettingsActivity\nTotalTime: 55\nWaitTime: 57\nComplete",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T17:59:50.398805+00:00",
+      "device": "target",
+      "command": "su -c 'cat /sys/class/backlight/panel0-backlight/brightness'",
+      "exit_code": 0,
+      "stdout": "3584",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T17:59:50.428457+00:00",
+      "device": "target",
+      "command": "su -c 'printf '\"'\"'3600\\n'\"'\"' > /sys/class/backlight/panel0-backlight/brightness'",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T17:59:50.452209+00:00",
+      "device": "target",
+      "command": "su -c 'cat /sys/class/backlight/panel0-backlight/brightness'",
+      "exit_code": 0,
+      "stdout": "3600",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T17:59:50.477537+00:00",
+      "device": "target",
+      "command": "dumpsys display",
+      "exit_code": 0,
+      "stdout": "<private target-display.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T17:59:52.772567+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm-readout-camera.xml >/dev/null && cat /data/local/tmp/pwm-readout-camera.xml",
+      "exit_code": 0,
+      "stdout": "<private camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T17:59:52.828173+00:00",
+      "device": "camera",
+      "command": "input tap 2175 697",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T17:59:55.130475+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm-readout-camera.xml >/dev/null && cat /data/local/tmp/pwm-readout-camera.xml",
+      "exit_code": 0,
+      "stdout": "<private camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T17:59:55.201211+00:00",
+      "device": "camera",
+      "command": "input tap 2175 697",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T17:59:55.250895+00:00",
+      "device": "target",
+      "command": "su -c 'cat /sys/class/backlight/panel0-backlight/brightness'",
+      "exit_code": 0,
+      "stdout": "3600",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T17:59:57.502343+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm-readout-camera.xml >/dev/null && cat /data/local/tmp/pwm-readout-camera.xml",
+      "exit_code": 0,
+      "stdout": "<private camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T17:59:57.570226+00:00",
+      "device": "camera",
+      "command": "input tap 131 541",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:00:00.135641+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm-readout-camera.xml >/dev/null && cat /data/local/tmp/pwm-readout-camera.xml",
+      "exit_code": 0,
+      "stdout": "<private camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:00:00.238431+00:00",
+      "device": "camera",
+      "command": "dumpsys media.camera",
+      "exit_code": 0,
+      "stdout": "<private A1-start.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:00:07.425936+00:00",
+      "device": "camera",
+      "command": "dumpsys media.camera",
+      "exit_code": 0,
+      "stdout": "<private A1-end.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:00:07.481719+00:00",
+      "device": "target",
+      "command": "su -c 'cat /sys/class/backlight/panel0-backlight/brightness'",
+      "exit_code": 0,
+      "stdout": "3600",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:00:07.532818+00:00",
+      "device": "target",
+      "command": "su -c 'cat /sys/class/drm/card0-DSI-1/panelDC'",
+      "exit_code": 0,
+      "stdout": "0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:00:07.587581+00:00",
+      "device": "target",
+      "command": "su -c 'cat /sys/class/backlight/panel0-backlight/bl_power'",
+      "exit_code": 0,
+      "stdout": "0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:00:09.812128+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm-readout-camera.xml >/dev/null && cat /data/local/tmp/pwm-readout-camera.xml",
+      "exit_code": 0,
+      "stdout": "<private camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:00:09.883740+00:00",
+      "device": "camera",
+      "command": "input tap 131 541",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:00:12.363876+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm-readout-camera.xml >/dev/null && cat /data/local/tmp/pwm-readout-camera.xml",
+      "exit_code": 0,
+      "stdout": "<private camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:00:13.504404+00:00",
+      "device": "camera",
+      "command": "content query --uri content://media/external/video/media --projection _id:_data:_size:duration:date_added --where 'date_added>=1793987993'",
+      "exit_code": 0,
+      "stdout": "Row: 0 _id=2259, _data=/storage/emulated/0/DCIM/OpenCamera/VID_20261106_210014.mp4, _size=13893933, duration=11712, date_added=1793988014",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:00:16.105936+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm-readout-camera.xml >/dev/null && cat /data/local/tmp/pwm-readout-camera.xml",
+      "exit_code": 0,
+      "stdout": "<private camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:00:16.178929+00:00",
+      "device": "camera",
+      "command": "input tap 2175 697",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:00:18.451118+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm-readout-camera.xml >/dev/null && cat /data/local/tmp/pwm-readout-camera.xml",
+      "exit_code": 0,
+      "stdout": "<private camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:00:18.518443+00:00",
+      "device": "camera",
+      "command": "input tap 2017 496",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:00:21.660605+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm-readout-camera.xml >/dev/null && cat /data/local/tmp/pwm-readout-camera.xml",
+      "exit_code": 0,
+      "stdout": "<private camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:00:21.728320+00:00",
+      "device": "camera",
+      "command": "input tap 2017 496",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:00:24.777534+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm-readout-camera.xml >/dev/null && cat /data/local/tmp/pwm-readout-camera.xml",
+      "exit_code": 0,
+      "stdout": "<private camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:00:24.843736+00:00",
+      "device": "camera",
+      "command": "input tap 2017 496",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:00:27.837412+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm-readout-camera.xml >/dev/null && cat /data/local/tmp/pwm-readout-camera.xml",
+      "exit_code": 0,
+      "stdout": "<private camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:00:27.899712+00:00",
+      "device": "camera",
+      "command": "input tap 2017 496",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:00:31.096067+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm-readout-camera.xml >/dev/null && cat /data/local/tmp/pwm-readout-camera.xml",
+      "exit_code": 0,
+      "stdout": "<private camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:00:31.159413+00:00",
+      "device": "camera",
+      "command": "input tap 2017 496",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:00:34.294046+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm-readout-camera.xml >/dev/null && cat /data/local/tmp/pwm-readout-camera.xml",
+      "exit_code": 0,
+      "stdout": "<private camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:00:34.360315+00:00",
+      "device": "camera",
+      "command": "input tap 2017 496",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:00:37.372825+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm-readout-camera.xml >/dev/null && cat /data/local/tmp/pwm-readout-camera.xml",
+      "exit_code": 0,
+      "stdout": "<private camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:00:37.439678+00:00",
+      "device": "camera",
+      "command": "input tap 2017 496",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:00:40.448073+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm-readout-camera.xml >/dev/null && cat /data/local/tmp/pwm-readout-camera.xml",
+      "exit_code": 0,
+      "stdout": "<private camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:00:40.513186+00:00",
+      "device": "camera",
+      "command": "input tap 2017 496",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:00:43.633890+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm-readout-camera.xml >/dev/null && cat /data/local/tmp/pwm-readout-camera.xml",
+      "exit_code": 0,
+      "stdout": "<private camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:00:43.688946+00:00",
+      "device": "camera",
+      "command": "input tap 2017 496",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:00:46.681030+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm-readout-camera.xml >/dev/null && cat /data/local/tmp/pwm-readout-camera.xml",
+      "exit_code": 0,
+      "stdout": "<private camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:00:46.738827+00:00",
+      "device": "camera",
+      "command": "input tap 2017 496",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:00:49.733100+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm-readout-camera.xml >/dev/null && cat /data/local/tmp/pwm-readout-camera.xml",
+      "exit_code": 0,
+      "stdout": "<private camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:00:49.799468+00:00",
+      "device": "camera",
+      "command": "input tap 2017 496",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:00:52.780706+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm-readout-camera.xml >/dev/null && cat /data/local/tmp/pwm-readout-camera.xml",
+      "exit_code": 0,
+      "stdout": "<private camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:00:52.846065+00:00",
+      "device": "camera",
+      "command": "input tap 2017 496",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:00:55.941999+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm-readout-camera.xml >/dev/null && cat /data/local/tmp/pwm-readout-camera.xml",
+      "exit_code": 0,
+      "stdout": "<private camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:00:58.211318+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm-readout-camera.xml >/dev/null && cat /data/local/tmp/pwm-readout-camera.xml",
+      "exit_code": 0,
+      "stdout": "<private camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:00:58.271580+00:00",
+      "device": "camera",
+      "command": "input tap 1440 496",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:01:01.285724+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm-readout-camera.xml >/dev/null && cat /data/local/tmp/pwm-readout-camera.xml",
+      "exit_code": 0,
+      "stdout": "<private camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:01:01.349184+00:00",
+      "device": "camera",
+      "command": "input tap 1440 496",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:01:04.471057+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm-readout-camera.xml >/dev/null && cat /data/local/tmp/pwm-readout-camera.xml",
+      "exit_code": 0,
+      "stdout": "<private camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:01:04.554890+00:00",
+      "device": "camera",
+      "command": "input tap 1440 496",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:01:07.634345+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm-readout-camera.xml >/dev/null && cat /data/local/tmp/pwm-readout-camera.xml",
+      "exit_code": 0,
+      "stdout": "<private camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:01:07.687220+00:00",
+      "device": "camera",
+      "command": "input tap 1440 496",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:01:10.821038+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm-readout-camera.xml >/dev/null && cat /data/local/tmp/pwm-readout-camera.xml",
+      "exit_code": 0,
+      "stdout": "<private camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:01:10.877240+00:00",
+      "device": "camera",
+      "command": "input tap 1440 496",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:01:13.972398+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm-readout-camera.xml >/dev/null && cat /data/local/tmp/pwm-readout-camera.xml",
+      "exit_code": 0,
+      "stdout": "<private camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:01:14.026798+00:00",
+      "device": "camera",
+      "command": "input tap 1440 496",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:01:17.055102+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm-readout-camera.xml >/dev/null && cat /data/local/tmp/pwm-readout-camera.xml",
+      "exit_code": 0,
+      "stdout": "<private camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:01:17.126841+00:00",
+      "device": "camera",
+      "command": "input tap 1440 496",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:01:20.193893+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm-readout-camera.xml >/dev/null && cat /data/local/tmp/pwm-readout-camera.xml",
+      "exit_code": 0,
+      "stdout": "<private camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:01:20.255742+00:00",
+      "device": "camera",
+      "command": "input tap 1440 496",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:01:23.255115+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm-readout-camera.xml >/dev/null && cat /data/local/tmp/pwm-readout-camera.xml",
+      "exit_code": 0,
+      "stdout": "<private camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:01:23.323492+00:00",
+      "device": "camera",
+      "command": "input tap 1440 496",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:01:26.408184+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm-readout-camera.xml >/dev/null && cat /data/local/tmp/pwm-readout-camera.xml",
+      "exit_code": 0,
+      "stdout": "<private camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:01:26.482629+00:00",
+      "device": "camera",
+      "command": "input tap 1440 496",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:01:29.445308+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm-readout-camera.xml >/dev/null && cat /data/local/tmp/pwm-readout-camera.xml",
+      "exit_code": 0,
+      "stdout": "<private camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:01:29.498487+00:00",
+      "device": "camera",
+      "command": "input tap 1440 496",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:01:32.410381+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm-readout-camera.xml >/dev/null && cat /data/local/tmp/pwm-readout-camera.xml",
+      "exit_code": 0,
+      "stdout": "<private camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:01:32.462751+00:00",
+      "device": "camera",
+      "command": "input tap 1440 496",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:01:35.536297+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm-readout-camera.xml >/dev/null && cat /data/local/tmp/pwm-readout-camera.xml",
+      "exit_code": 0,
+      "stdout": "<private camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:01:35.591154+00:00",
+      "device": "target",
+      "command": "settings put system screen_brightness 62",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:01:35.620486+00:00",
+      "device": "target",
+      "command": "settings delete system min_refresh_rate",
+      "exit_code": 0,
+      "stdout": "Deleted 1 rows",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:01:35.656143+00:00",
+      "device": "target",
+      "command": "settings delete system peak_refresh_rate",
+      "exit_code": 0,
+      "stdout": "Deleted 1 rows",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:01:35.688440+00:00",
+      "device": "target",
+      "command": "settings put system screen_off_timeout 300000",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:01:35.733078+00:00",
+      "device": "target",
+      "command": "settings put system screen_brightness_mode 1",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:01:35.761968+00:00",
+      "device": "target",
+      "command": "input keyevent 223",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:01:35.792292+00:00",
+      "device": "target",
+      "command": "su -c 'cat /sys/class/backlight/panel0-backlight/bl_power'",
+      "exit_code": 0,
+      "stdout": "0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:01:35.992173+00:00",
+      "device": "target",
+      "command": "su -c 'cat /sys/class/backlight/panel0-backlight/bl_power'",
+      "exit_code": 0,
+      "stdout": "0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:01:36.198414+00:00",
+      "device": "target",
+      "command": "su -c 'cat /sys/class/backlight/panel0-backlight/bl_power'",
+      "exit_code": 0,
+      "stdout": "0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:01:36.391930+00:00",
+      "device": "target",
+      "command": "su -c 'cat /sys/class/backlight/panel0-backlight/bl_power'",
+      "exit_code": 0,
+      "stdout": "4",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:01:36.438028+00:00",
+      "device": "target",
+      "command": "settings get system screen_brightness",
+      "exit_code": 0,
+      "stdout": "48",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:01:36.476333+00:00",
+      "device": "target",
+      "command": "settings get system screen_brightness_mode",
+      "exit_code": 0,
+      "stdout": "1",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:01:36.511516+00:00",
+      "device": "target",
+      "command": "settings get system min_refresh_rate",
+      "exit_code": 0,
+      "stdout": "null",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:01:36.541332+00:00",
+      "device": "target",
+      "command": "settings get system peak_refresh_rate",
+      "exit_code": 0,
+      "stdout": "null",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:01:36.579043+00:00",
+      "device": "target",
+      "command": "settings get system screen_off_timeout",
+      "exit_code": 0,
+      "stdout": "300000",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:01:36.617792+00:00",
+      "device": "target",
+      "command": "su -c 'cat /sys/class/drm/card0-DSI-1/panelDC'",
+      "exit_code": 0,
+      "stdout": "0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:01:36.648735+00:00",
+      "device": "target",
+      "command": "getenforce",
+      "exit_code": 0,
+      "stdout": "Enforcing",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:10:55.168860+00:00",
+      "device": "target",
+      "command": "getprop ro.boot.hardware.sku; getprop ro.build.display.id; getenforce",
+      "exit_code": 0,
+      "stdout": "XT2611-1\nW3WWS36.65-64-4-1\nEnforcing",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:10:55.239651+00:00",
+      "device": "camera",
+      "command": "getprop ro.product.device",
+      "exit_code": 0,
+      "stdout": "PacmanPro",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:10:55.309615+00:00",
+      "device": "target",
+      "command": "su -c 'cat /sys/class/drm/card0-DSI-1/panelDC'",
+      "exit_code": 0,
+      "stdout": "0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:10:55.369279+00:00",
+      "device": "target",
+      "command": "settings get system screen_brightness",
+      "exit_code": 0,
+      "stdout": "48",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:10:55.426228+00:00",
+      "device": "target",
+      "command": "settings get system screen_brightness_mode",
+      "exit_code": 0,
+      "stdout": "1",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:10:55.484626+00:00",
+      "device": "target",
+      "command": "settings get system min_refresh_rate",
+      "exit_code": 0,
+      "stdout": "null",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:10:55.541624+00:00",
+      "device": "target",
+      "command": "settings get system peak_refresh_rate",
+      "exit_code": 0,
+      "stdout": "null",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:10:55.598820+00:00",
+      "device": "target",
+      "command": "settings get system screen_off_timeout",
+      "exit_code": 0,
+      "stdout": "300000",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:10:55.659911+00:00",
+      "device": "target",
+      "command": "su -c 'cat /sys/class/backlight/panel0-backlight/bl_power'",
+      "exit_code": 0,
+      "stdout": "4",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:10:55.877115+00:00",
+      "device": "target",
+      "command": "settings put system screen_brightness_mode 0; settings put system screen_brightness 52; settings put system min_refresh_rate 120.0; settings put system peak_refresh_rate 120.0; settings put system screen_off_timeout 600000; input keyevent 224",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:10:55.926513+00:00",
+      "device": "target",
+      "command": "su -c 'dumpsys window policy | grep -F '\"'\"'screenState='\"'\"''",
+      "exit_code": 0,
+      "stdout": "screenState=SCREEN_STATE_TURNING_ON",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:10:56.111198+00:00",
+      "device": "target",
+      "command": "su -c 'dumpsys window policy | grep -F '\"'\"'screenState='\"'\"''",
+      "exit_code": 0,
+      "stdout": "screenState=SCREEN_STATE_ON",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:10:56.144283+00:00",
+      "device": "target",
+      "command": "su -c 'dumpsys window policy | grep -F '\"'\"'interactiveState='\"'\"''",
+      "exit_code": 0,
+      "stdout": "interactiveState=INTERACTIVE_STATE_AWAKE",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:10:56.173573+00:00",
+      "device": "target",
+      "command": "wm dismiss-keyguard",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:10:56.208559+00:00",
+      "device": "target",
+      "command": "su -c 'dumpsys window policy | grep -F '\"'\"'mIsShowing='\"'\"''",
+      "exit_code": 0,
+      "stdout": "mIsShowing=true",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:10:56.403919+00:00",
+      "device": "target",
+      "command": "su -c 'dumpsys window policy | grep -F '\"'\"'mIsShowing='\"'\"''",
+      "exit_code": 0,
+      "stdout": "mIsShowing=true",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:10:56.590287+00:00",
+      "device": "target",
+      "command": "su -c 'dumpsys window policy | grep -F '\"'\"'mIsShowing='\"'\"''",
+      "exit_code": 0,
+      "stdout": "mIsShowing=true",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:10:56.787980+00:00",
+      "device": "target",
+      "command": "su -c 'dumpsys window policy | grep -F '\"'\"'mIsShowing='\"'\"''",
+      "exit_code": 0,
+      "stdout": "mIsShowing=false",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:10:56.877108+00:00",
+      "device": "target",
+      "command": "am start -W --activity-clear-top -n 'com.android.settings/.Settings$DisplaySettingsActivity'",
+      "exit_code": 0,
+      "stdout": "Starting: Intent { flg=0x4000000 cmp=com.android.settings/.Settings$DisplaySettingsActivity }\nStatus: ok\nLaunchState: WARM\nActivity: com.android.settings/.Settings$DisplaySettingsActivity\nTotalTime: 58\nWaitTime: 60\nComplete",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:10:56.902430+00:00",
+      "device": "target",
+      "command": "su -c 'cat /sys/class/backlight/panel0-backlight/brightness'",
+      "exit_code": 0,
+      "stdout": "3584",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:10:56.926627+00:00",
+      "device": "target",
+      "command": "su -c 'printf '\"'\"'3600\\n'\"'\"' > /sys/class/backlight/panel0-backlight/brightness'",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:10:56.953343+00:00",
+      "device": "target",
+      "command": "su -c 'cat /sys/class/backlight/panel0-backlight/brightness'",
+      "exit_code": 0,
+      "stdout": "3600",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:10:56.980304+00:00",
+      "device": "target",
+      "command": "dumpsys display",
+      "exit_code": 0,
+      "stdout": "<private resume-target-display.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:10:59.294744+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm-readout-camera.xml >/dev/null && cat /data/local/tmp/pwm-readout-camera.xml",
+      "exit_code": 0,
+      "stdout": "<private resume-camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:10:59.365464+00:00",
+      "device": "camera",
+      "command": "input tap 2175 697",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:11:01.623964+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm-readout-camera.xml >/dev/null && cat /data/local/tmp/pwm-readout-camera.xml",
+      "exit_code": 0,
+      "stdout": "<private resume-camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:11:01.698739+00:00",
+      "device": "camera",
+      "command": "input tap 2017 496",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:11:04.956524+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm-readout-camera.xml >/dev/null && cat /data/local/tmp/pwm-readout-camera.xml",
+      "exit_code": 0,
+      "stdout": "<private resume-camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:11:05.024769+00:00",
+      "device": "camera",
+      "command": "input tap 2017 496",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:11:08.004041+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm-readout-camera.xml >/dev/null && cat /data/local/tmp/pwm-readout-camera.xml",
+      "exit_code": 0,
+      "stdout": "<private resume-camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:11:08.076852+00:00",
+      "device": "camera",
+      "command": "input tap 2017 496",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:11:11.050269+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm-readout-camera.xml >/dev/null && cat /data/local/tmp/pwm-readout-camera.xml",
+      "exit_code": 0,
+      "stdout": "<private resume-camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:11:11.121571+00:00",
+      "device": "camera",
+      "command": "input tap 2017 496",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:11:14.146350+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm-readout-camera.xml >/dev/null && cat /data/local/tmp/pwm-readout-camera.xml",
+      "exit_code": 0,
+      "stdout": "<private resume-camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:11:14.218671+00:00",
+      "device": "camera",
+      "command": "input tap 2017 496",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:11:17.222186+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm-readout-camera.xml >/dev/null && cat /data/local/tmp/pwm-readout-camera.xml",
+      "exit_code": 0,
+      "stdout": "<private resume-camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:11:17.295213+00:00",
+      "device": "camera",
+      "command": "input tap 2017 496",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:11:20.340345+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm-readout-camera.xml >/dev/null && cat /data/local/tmp/pwm-readout-camera.xml",
+      "exit_code": 0,
+      "stdout": "<private resume-camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:11:20.418328+00:00",
+      "device": "camera",
+      "command": "input tap 2017 496",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:11:23.514032+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm-readout-camera.xml >/dev/null && cat /data/local/tmp/pwm-readout-camera.xml",
+      "exit_code": 0,
+      "stdout": "<private resume-camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:11:23.587854+00:00",
+      "device": "camera",
+      "command": "input tap 2017 496",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:11:26.642359+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm-readout-camera.xml >/dev/null && cat /data/local/tmp/pwm-readout-camera.xml",
+      "exit_code": 0,
+      "stdout": "<private resume-camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:11:26.705381+00:00",
+      "device": "camera",
+      "command": "input tap 2017 496",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:11:29.809449+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm-readout-camera.xml >/dev/null && cat /data/local/tmp/pwm-readout-camera.xml",
+      "exit_code": 0,
+      "stdout": "<private resume-camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:11:29.882914+00:00",
+      "device": "camera",
+      "command": "input tap 2017 496",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:11:32.890557+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm-readout-camera.xml >/dev/null && cat /data/local/tmp/pwm-readout-camera.xml",
+      "exit_code": 0,
+      "stdout": "<private resume-camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:11:32.950643+00:00",
+      "device": "camera",
+      "command": "input tap 2017 496",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:11:35.995996+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm-readout-camera.xml >/dev/null && cat /data/local/tmp/pwm-readout-camera.xml",
+      "exit_code": 0,
+      "stdout": "<private resume-camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:11:36.062740+00:00",
+      "device": "camera",
+      "command": "input tap 2017 496",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:11:39.178451+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm-readout-camera.xml >/dev/null && cat /data/local/tmp/pwm-readout-camera.xml",
+      "exit_code": 0,
+      "stdout": "<private resume-camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:11:39.241191+00:00",
+      "device": "camera",
+      "command": "input tap 2017 496",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:11:42.201104+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm-readout-camera.xml >/dev/null && cat /data/local/tmp/pwm-readout-camera.xml",
+      "exit_code": 0,
+      "stdout": "<private resume-camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:11:42.264166+00:00",
+      "device": "camera",
+      "command": "input tap 2175 697",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:11:42.314987+00:00",
+      "device": "target",
+      "command": "su -c 'cat /sys/class/backlight/panel0-backlight/brightness'",
+      "exit_code": 0,
+      "stdout": "3600",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:11:44.559556+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm-readout-camera.xml >/dev/null && cat /data/local/tmp/pwm-readout-camera.xml",
+      "exit_code": 0,
+      "stdout": "<private resume-camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:11:44.627575+00:00",
+      "device": "camera",
+      "command": "input tap 131 541",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:11:47.126250+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm-readout-camera.xml >/dev/null && cat /data/local/tmp/pwm-readout-camera.xml",
+      "exit_code": 0,
+      "stdout": "<private resume-camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:11:47.249115+00:00",
+      "device": "camera",
+      "command": "dumpsys media.camera",
+      "exit_code": 0,
+      "stdout": "<private B-start.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:11:54.399687+00:00",
+      "device": "camera",
+      "command": "dumpsys media.camera",
+      "exit_code": 0,
+      "stdout": "<private B-end.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:11:54.460889+00:00",
+      "device": "target",
+      "command": "su -c 'cat /sys/class/backlight/panel0-backlight/brightness'",
+      "exit_code": 0,
+      "stdout": "3600",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:11:54.515762+00:00",
+      "device": "target",
+      "command": "su -c 'cat /sys/class/drm/card0-DSI-1/panelDC'",
+      "exit_code": 0,
+      "stdout": "0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:11:56.821149+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm-readout-camera.xml >/dev/null && cat /data/local/tmp/pwm-readout-camera.xml",
+      "exit_code": 0,
+      "stdout": "<private resume-camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:11:56.889446+00:00",
+      "device": "camera",
+      "command": "input tap 131 541",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:11:59.639121+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm-readout-camera.xml >/dev/null && cat /data/local/tmp/pwm-readout-camera.xml",
+      "exit_code": 0,
+      "stdout": "<private resume-camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:12:00.810060+00:00",
+      "device": "camera",
+      "command": "content query --uri content://media/external/video/media --projection _id:_data:_size:duration:date_added --where 'date_added>=1793988700'",
+      "exit_code": 0,
+      "stdout": "Row: 0 _id=2260, _data=/storage/emulated/0/DCIM/OpenCamera/VID_20261106_211201.mp4, _size=73749653, duration=11755, date_added=1793988721",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:12:04.276008+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm-readout-camera.xml >/dev/null && cat /data/local/tmp/pwm-readout-camera.xml",
+      "exit_code": 0,
+      "stdout": "<private resume-camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:12:04.343380+00:00",
+      "device": "camera",
+      "command": "input tap 2175 697",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:12:06.677463+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm-readout-camera.xml >/dev/null && cat /data/local/tmp/pwm-readout-camera.xml",
+      "exit_code": 0,
+      "stdout": "<private resume-camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:12:06.748025+00:00",
+      "device": "camera",
+      "command": "input tap 1440 496",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:12:09.831613+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm-readout-camera.xml >/dev/null && cat /data/local/tmp/pwm-readout-camera.xml",
+      "exit_code": 0,
+      "stdout": "<private resume-camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:12:09.903959+00:00",
+      "device": "camera",
+      "command": "input tap 1440 496",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:12:12.937105+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm-readout-camera.xml >/dev/null && cat /data/local/tmp/pwm-readout-camera.xml",
+      "exit_code": 0,
+      "stdout": "<private resume-camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:12:13.016000+00:00",
+      "device": "camera",
+      "command": "input tap 1440 496",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:12:15.982953+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm-readout-camera.xml >/dev/null && cat /data/local/tmp/pwm-readout-camera.xml",
+      "exit_code": 0,
+      "stdout": "<private resume-camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:12:16.054192+00:00",
+      "device": "camera",
+      "command": "input tap 1440 496",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:12:19.013860+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm-readout-camera.xml >/dev/null && cat /data/local/tmp/pwm-readout-camera.xml",
+      "exit_code": 0,
+      "stdout": "<private resume-camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:12:19.083487+00:00",
+      "device": "camera",
+      "command": "input tap 1440 496",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:12:22.198697+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm-readout-camera.xml >/dev/null && cat /data/local/tmp/pwm-readout-camera.xml",
+      "exit_code": 0,
+      "stdout": "<private resume-camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:12:22.274190+00:00",
+      "device": "camera",
+      "command": "input tap 1440 496",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:12:25.220280+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm-readout-camera.xml >/dev/null && cat /data/local/tmp/pwm-readout-camera.xml",
+      "exit_code": 0,
+      "stdout": "<private resume-camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:12:25.292851+00:00",
+      "device": "camera",
+      "command": "input tap 1440 496",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:12:28.435454+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm-readout-camera.xml >/dev/null && cat /data/local/tmp/pwm-readout-camera.xml",
+      "exit_code": 0,
+      "stdout": "<private resume-camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:12:28.512043+00:00",
+      "device": "camera",
+      "command": "input tap 1440 496",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:12:31.655015+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm-readout-camera.xml >/dev/null && cat /data/local/tmp/pwm-readout-camera.xml",
+      "exit_code": 0,
+      "stdout": "<private resume-camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:12:31.725790+00:00",
+      "device": "camera",
+      "command": "input tap 1440 496",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:12:34.844280+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm-readout-camera.xml >/dev/null && cat /data/local/tmp/pwm-readout-camera.xml",
+      "exit_code": 0,
+      "stdout": "<private resume-camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:12:34.924881+00:00",
+      "device": "camera",
+      "command": "input tap 1440 496",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:12:38.004383+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm-readout-camera.xml >/dev/null && cat /data/local/tmp/pwm-readout-camera.xml",
+      "exit_code": 0,
+      "stdout": "<private resume-camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:12:38.078820+00:00",
+      "device": "camera",
+      "command": "input tap 1440 496",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:12:41.040264+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm-readout-camera.xml >/dev/null && cat /data/local/tmp/pwm-readout-camera.xml",
+      "exit_code": 0,
+      "stdout": "<private resume-camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:12:41.112168+00:00",
+      "device": "camera",
+      "command": "input tap 1440 496",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:12:44.006617+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm-readout-camera.xml >/dev/null && cat /data/local/tmp/pwm-readout-camera.xml",
+      "exit_code": 0,
+      "stdout": "<private resume-camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:12:44.086681+00:00",
+      "device": "camera",
+      "command": "input tap 1440 496",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:12:47.235129+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm-readout-camera.xml >/dev/null && cat /data/local/tmp/pwm-readout-camera.xml",
+      "exit_code": 0,
+      "stdout": "<private resume-camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:12:47.306782+00:00",
+      "device": "camera",
+      "command": "input tap 2175 697",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:12:47.359705+00:00",
+      "device": "target",
+      "command": "su -c 'cat /sys/class/backlight/panel0-backlight/brightness'",
+      "exit_code": 0,
+      "stdout": "3600",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:12:49.586737+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm-readout-camera.xml >/dev/null && cat /data/local/tmp/pwm-readout-camera.xml",
+      "exit_code": 0,
+      "stdout": "<private resume-camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:12:49.649544+00:00",
+      "device": "camera",
+      "command": "input tap 131 541",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:12:52.196976+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm-readout-camera.xml >/dev/null && cat /data/local/tmp/pwm-readout-camera.xml",
+      "exit_code": 0,
+      "stdout": "<private resume-camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:12:52.311276+00:00",
+      "device": "camera",
+      "command": "dumpsys media.camera",
+      "exit_code": 0,
+      "stdout": "<private A2-start.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:12:59.402185+00:00",
+      "device": "camera",
+      "command": "dumpsys media.camera",
+      "exit_code": 0,
+      "stdout": "<private A2-end.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:12:59.458519+00:00",
+      "device": "target",
+      "command": "su -c 'cat /sys/class/backlight/panel0-backlight/brightness'",
+      "exit_code": 0,
+      "stdout": "3600",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:12:59.510850+00:00",
+      "device": "target",
+      "command": "su -c 'cat /sys/class/drm/card0-DSI-1/panelDC'",
+      "exit_code": 0,
+      "stdout": "0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:13:01.849046+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm-readout-camera.xml >/dev/null && cat /data/local/tmp/pwm-readout-camera.xml",
+      "exit_code": 0,
+      "stdout": "<private resume-camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:13:01.912968+00:00",
+      "device": "camera",
+      "command": "input tap 131 541",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:13:04.558150+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm-readout-camera.xml >/dev/null && cat /data/local/tmp/pwm-readout-camera.xml",
+      "exit_code": 0,
+      "stdout": "<private resume-camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:13:05.744408+00:00",
+      "device": "camera",
+      "command": "content query --uri content://media/external/video/media --projection _id:_data:_size:duration:date_added --where 'date_added>=1793988765'",
+      "exit_code": 0,
+      "stdout": "Row: 0 _id=2261, _data=/storage/emulated/0/DCIM/OpenCamera/VID_20261106_211306.mp4, _size=13857163, duration=11707, date_added=1793988786",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:13:08.429630+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm-readout-camera.xml >/dev/null && cat /data/local/tmp/pwm-readout-camera.xml",
+      "exit_code": 0,
+      "stdout": "<private resume-camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:13:08.498868+00:00",
+      "device": "camera",
+      "command": "input tap 2175 697",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:13:10.933597+00:00",
+      "device": "camera",
+      "command": "uiautomator dump /data/local/tmp/pwm-readout-camera.xml >/dev/null && cat /data/local/tmp/pwm-readout-camera.xml",
+      "exit_code": 0,
+      "stdout": "<private resume-camera-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:13:11.004739+00:00",
+      "device": "camera",
+      "command": "input tap 2175 697",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:13:11.065749+00:00",
+      "device": "target",
+      "command": "settings put system screen_brightness 48",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:13:11.095235+00:00",
+      "device": "target",
+      "command": "settings delete system min_refresh_rate",
+      "exit_code": 0,
+      "stdout": "Deleted 1 rows",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:13:11.128684+00:00",
+      "device": "target",
+      "command": "settings delete system peak_refresh_rate",
+      "exit_code": 0,
+      "stdout": "Deleted 1 rows",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:13:11.179924+00:00",
+      "device": "target",
+      "command": "settings put system screen_off_timeout 300000",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:13:11.231108+00:00",
+      "device": "target",
+      "command": "settings put system screen_brightness_mode 1",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:13:11.266122+00:00",
+      "device": "target",
+      "command": "input keyevent 223",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:13:11.297671+00:00",
+      "device": "target",
+      "command": "su -c 'cat /sys/class/backlight/panel0-backlight/bl_power'",
+      "exit_code": 0,
+      "stdout": "0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:13:11.504036+00:00",
+      "device": "target",
+      "command": "su -c 'cat /sys/class/backlight/panel0-backlight/bl_power'",
+      "exit_code": 0,
+      "stdout": "0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:13:11.705191+00:00",
+      "device": "target",
+      "command": "su -c 'cat /sys/class/backlight/panel0-backlight/bl_power'",
+      "exit_code": 0,
+      "stdout": "0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:13:11.900892+00:00",
+      "device": "target",
+      "command": "su -c 'cat /sys/class/backlight/panel0-backlight/bl_power'",
+      "exit_code": 0,
+      "stdout": "4",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:13:11.949894+00:00",
+      "device": "target",
+      "command": "settings get system screen_brightness",
+      "exit_code": 0,
+      "stdout": "61",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:13:11.993041+00:00",
+      "device": "target",
+      "command": "settings get system screen_brightness_mode",
+      "exit_code": 0,
+      "stdout": "1",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:13:12.030788+00:00",
+      "device": "target",
+      "command": "settings get system min_refresh_rate",
+      "exit_code": 0,
+      "stdout": "null",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:13:12.061849+00:00",
+      "device": "target",
+      "command": "settings get system peak_refresh_rate",
+      "exit_code": 0,
+      "stdout": "null",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:13:12.110048+00:00",
+      "device": "target",
+      "command": "settings get system screen_off_timeout",
+      "exit_code": 0,
+      "stdout": "300000",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:13:12.151964+00:00",
+      "device": "target",
+      "command": "su -c 'cat /sys/class/drm/card0-DSI-1/panelDC'",
+      "exit_code": 0,
+      "stdout": "0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T18:13:12.178182+00:00",
+      "device": "target",
+      "command": "getenforce",
+      "exit_code": 0,
+      "stdout": "Enforcing",
+      "stderr": ""
+    }
+  ],
+  "pwm_hz": "unknown",
+  "before": {
+    "screen_brightness": "62",
+    "screen_brightness_mode": "1",
+    "min_refresh_rate": "null",
+    "peak_refresh_rate": "null",
+    "screen_off_timeout": "300000",
+    "bl_power": "4"
+  },
+  "after": {
+    "screen_brightness": "61",
+    "screen_brightness_mode": "1",
+    "min_refresh_rate": "null",
+    "peak_refresh_rate": "null",
+    "screen_off_timeout": "300000",
+    "dc": "0",
+    "selinux": "Enforcing"
+  },
+  "target_restored": true,
+  "camera_resolution_returned_to720p": true,
+  "resolution_recovery_note": "Independent UI verification after bounded selector exit found1280x720HD already selected; closed popup. Original selector error retained. No recording/device-brightness test repeated.",
+  "first_attempt": {
+    "error": "RuntimeError: Resolution selection exceeded bounded menu",
+    "cleanup_errors": [
+      "Resolution return: Resolution selection exceeded bounded menu"
+    ],
+    "finished_at_utc": "2026-11-06T18:01:36.649198+00:00"
+  },
+  "resumed_at_utc": "2026-11-06T18:10:55.095080+00:00",
+  "resume_before": {
+    "screen_brightness": "48",
+    "screen_brightness_mode": "1",
+    "min_refresh_rate": "null",
+    "peak_refresh_rate": "null",
+    "screen_off_timeout": "300000",
+    "bl_power": "4"
+  },
+  "resolution_selection": [
+    [
+      1280,
+      720
+    ],
+    [
+      1440,
+      720
+    ],
+    [
+      1520,
+      720
+    ],
+    [
+      1560,
+      720
+    ],
+    [
+      1600,
+      720
+    ],
+    [
+      1080,
+      1080
+    ],
+    [
+      1280,
+      960
+    ],
+    [
+      1440,
+      1080
+    ],
+    [
+      1920,
+      1080
+    ],
+    [
+      2400,
+      1080
+    ],
+    [
+      1920,
+      1440
+    ],
+    [
+      2560,
+      1440
+    ],
+    [
+      2592,
+      1944
+    ],
+    [
+      3840,
+      2160
+    ],
+    [
+      3840,
+      2160
+    ],
+    [
+      2592,
+      1944
+    ],
+    [
+      2560,
+      1440
+    ],
+    [
+      1920,
+      1440
+    ],
+    [
+      2400,
+      1080
+    ],
+    [
+      1920,
+      1080
+    ],
+    [
+      1440,
+      1080
+    ],
+    [
+      1280,
+      960
+    ],
+    [
+      1080,
+      1080
+    ],
+    [
+      1600,
+      720
+    ],
+    [
+      1560,
+      720
+    ],
+    [
+      1520,
+      720
+    ],
+    [
+      1440,
+      720
+    ],
+    [
+      1280,
+      720
+    ],
+    [
+      1280,
+      720
+    ]
+  ],
+  "series_complete": true,
+  "cleanup_errors": [],
+  "finished_at_utc": "2026-11-06T18:13:12.178936+00:00"
+}

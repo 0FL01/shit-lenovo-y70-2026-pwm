@@ -1,0 +1,88 @@
+
+/mnt/kston/legion-Y70-madness/artifacts/kernel/gki_r59/target_vendor/msm_drm.ko:     file format elf64-littleaarch64
+
+
+Disassembly of section .text:
+
+00000000001b5b2c <dsi_panel_set_odc>:
+  1b5b2c:	d503233f 	paciasp
+  1b5b30:	a9bd7bfd 	stp	x29, x30, [sp, #-48]!
+  1b5b34:	a90157f6 	stp	x22, x21, [sp, #16]
+  1b5b38:	a9024ff4 	stp	x20, x19, [sp, #32]
+  1b5b3c:	910003fd 	mov	x29, sp
+  1b5b40:	b40001c0 	cbz	x0, 1b5b78 <dsi_panel_set_odc+0x4c>
+  1b5b44:	53107c28 	lsr	w8, w1, #16
+  1b5b48:	35000188 	cbnz	w8, 1b5b78 <dsi_panel_set_odc+0x4c>
+  1b5b4c:	3965b408 	ldrb	w8, [x0, #2413]
+  1b5b50:	36000148 	tbz	w8, #0, 1b5b78 <dsi_panel_set_odc+0x4c>
+  1b5b54:	b9485c09 	ldr	w9, [x0, #2140]
+  1b5b58:	39624008 	ldrb	w8, [x0, #2192]
+  1b5b5c:	6b01013f 	cmp	w9, w1
+  1b5b60:	54000222 	b.cs	1b5ba4 <dsi_panel_set_odc+0x78>  // b.hs, b.nlast
+  1b5b64:	34000168 	cbz	w8, 1b5b90 <dsi_panel_set_odc+0x64>
+  1b5b68:	2a0103f3 	mov	w19, w1
+  1b5b6c:	2a1f03f4 	mov	w20, wzr
+  1b5b70:	52810f08 	mov	w8, #0x878                 	// #2168
+  1b5b74:	14000010 	b	1b5bb4 <dsi_panel_set_odc+0x88>
+  1b5b78:	90000003 	adrp	x3, 0 <msm_hdcp_register_cb-0x4>
+			1b5b78: R_AARCH64_ADR_PREL_PG_HI21	.rodata+0x79243
+		; rodata string: '[msm-dsi-debug]: invalid params\n'
+  1b5b7c:	91000063 	add	x3, x3, #0x0
+			1b5b7c: R_AARCH64_ADD_ABS_LO12_NC	.rodata+0x79243
+		; rodata string: '[msm-dsi-debug]: invalid params\n'
+  1b5b80:	aa1f03e0 	mov	x0, xzr
+  1b5b84:	aa1f03e1 	mov	x1, xzr
+  1b5b88:	2a1f03e2 	mov	w2, wzr
+  1b5b8c:	94000000 	bl	0 <__drm_dev_dbg>
+			1b5b8c: R_AARCH64_CALL26	__drm_dev_dbg
+  1b5b90:	a9424ff4 	ldp	x20, x19, [sp, #32]
+  1b5b94:	a94157f6 	ldp	x22, x21, [sp, #16]
+  1b5b98:	a8c37bfd 	ldp	x29, x30, [sp], #48
+  1b5b9c:	d50323bf 	autiasp
+  1b5ba0:	d65f03c0 	ret
+  1b5ba4:	3707ff68 	tbnz	w8, #0, 1b5b90 <dsi_panel_set_odc+0x64>
+  1b5ba8:	2a0103f3 	mov	w19, w1
+  1b5bac:	52800034 	mov	w20, #0x1                   	// #1
+  1b5bb0:	52810c08 	mov	w8, #0x860                 	// #2144
+  1b5bb4:	8b080001 	add	x1, x0, x8
+  1b5bb8:	aa0003f6 	mov	x22, x0
+  1b5bbc:	94003e29 	bl	1c5460 <dsi_panel_tx_send_mot_cmd>
+  1b5bc0:	b9485ec3 	ldr	w3, [x22, #2140]
+  1b5bc4:	2a0003f5 	mov	w21, w0
+  1b5bc8:	90000001 	adrp	x1, 0 <msm_hdcp_register_cb-0x4>
+			1b5bc8: R_AARCH64_ADR_PREL_PG_HI21	.rodata+0x51366
+  1b5bcc:	91000021 	add	x1, x1, #0x0
+			1b5bcc: R_AARCH64_ADD_ABS_LO12_NC	.rodata+0x51366
+  1b5bd0:	90000002 	adrp	x2, 0 <msm_hdcp_register_cb-0x4>
+			1b5bd0: R_AARCH64_ADR_PREL_PG_HI21	.rodata+0x3c09d
+		; rodata string: '[msm-dsi-info]: odc config odc_config.odc_threshold = %d odc_config.odc_state =%d,bl_lvl = %d\n'
+  1b5bd4:	91000042 	add	x2, x2, #0x0
+			1b5bd4: R_AARCH64_ADD_ABS_LO12_NC	.rodata+0x3c09d
+		; rodata string: '[msm-dsi-info]: odc config odc_config.odc_threshold = %d odc_config.odc_state =%d,bl_lvl = %d\n'
+  1b5bd8:	aa1f03e0 	mov	x0, xzr
+  1b5bdc:	2a1403e4 	mov	w4, w20
+  1b5be0:	2a1303e5 	mov	w5, w19
+  1b5be4:	392242d4 	strb	w20, [x22, #2192]
+  1b5be8:	94000000 	bl	0 <drm_dev_printk>
+			1b5be8: R_AARCH64_CALL26	drm_dev_printk
+  1b5bec:	34fffd35 	cbz	w21, 1b5b90 <dsi_panel_set_odc+0x64>
+  1b5bf0:	f94002c3 	ldr	x3, [x22]
+  1b5bf4:	90000001 	adrp	x1, 0 <msm_hdcp_register_cb-0x4>
+			1b5bf4: R_AARCH64_ADR_PREL_PG_HI21	.rodata+0x51366
+  1b5bf8:	91000021 	add	x1, x1, #0x0
+			1b5bf8: R_AARCH64_ADD_ABS_LO12_NC	.rodata+0x51366
+  1b5bfc:	90000002 	adrp	x2, 0 <msm_hdcp_register_cb-0x4>
+			1b5bfc: R_AARCH64_ADR_PREL_PG_HI21	.rodata+0x527a0
+		; rodata string: '[msm-dsi-info]: [%s] failed to send DSI_CMD_SET_ODC cmd, rc=%d\n'
+  1b5c00:	91000042 	add	x2, x2, #0x0
+			1b5c00: R_AARCH64_ADD_ABS_LO12_NC	.rodata+0x527a0
+		; rodata string: '[msm-dsi-info]: [%s] failed to send DSI_CMD_SET_ODC cmd, rc=%d\n'
+  1b5c04:	aa1f03e0 	mov	x0, xzr
+  1b5c08:	2a1503e4 	mov	w4, w21
+  1b5c0c:	94000000 	bl	0 <drm_dev_printk>
+			1b5c0c: R_AARCH64_CALL26	drm_dev_printk
+  1b5c10:	17ffffe0 	b	1b5b90 <dsi_panel_set_odc+0x64>
+
+Disassembly of section .init.text:
+
+Disassembly of section .exit.text:

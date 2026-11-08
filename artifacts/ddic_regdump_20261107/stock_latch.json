@@ -1,0 +1,1270 @@
+{
+  "started_at_utc": "2026-11-07T06:34:01.711+00:00",
+  "scope": "Short known-register reads and unchanged stock UI DC0/1/0 at DBV3584/120Hz",
+  "events": [
+    {
+      "at_utc": "2026-11-07T06:34:01.786+00:00",
+      "device": "target",
+      "command": "getprop ro.boot.hardware.sku; getprop ro.build.display.id; getprop ro.boot.slot_suffix; uname -r; getenforce",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "XT2611-1\nW3WWS36.65-64-4-1\n_b\n6.12.58-android16-6-g09eda8c8505a-dirty-ab15950084-4k\nEnforcing",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T06:34:01.836+00:00",
+      "device": "target",
+      "command": "id",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "uid=0(root) gid=0(root) groups=0(root) context=u:r:ksu:s0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T06:34:01.963+00:00",
+      "device": "camera",
+      "command": "getprop ro.product.device",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "PacmanPro",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T06:34:02.016+00:00",
+      "device": "target",
+      "command": "cat /sys/class/drm/card0-DSI-1/panelName",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "boe_ili97701A_682_1440x3168_dsc_cmd_v4",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T06:34:02.074+00:00",
+      "device": "target",
+      "command": "sha256sum /vendor/lib/modules/msm_drm.ko",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "1bec69faec736e7288f38e4cb83314c37c60d33e6b383213316fd880aa0b1804  /vendor/lib/modules/msm_drm.ko",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T06:34:02.117+00:00",
+      "device": "target",
+      "command": "cat /sys/class/drm/card0-DSI-1/panelDC",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T06:34:02.168+00:00",
+      "device": "target",
+      "command": "cat /sys/class/drm/card0-DSI-1/mipi_cmd_log_en",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "ctrl->ctrl->mipi_cmd_log_en: 0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T06:34:02.222+00:00",
+      "device": "target",
+      "command": "test ! -e /data/local/tmp/pwm-ddic-latch-20261107 && test ! -e /sys/kernel/tracing/instances/pwm_latch && ! grep -q pwm_latch/ /sys/kernel/tracing/kprobe_events",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T06:34:02.269+00:00",
+      "device": "target",
+      "command": "settings get system screen_brightness_mode",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T06:34:02.317+00:00",
+      "device": "target",
+      "command": "settings get system screen_brightness",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "52",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T06:34:02.365+00:00",
+      "device": "target",
+      "command": "settings get system min_refresh_rate",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "120.0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T06:34:02.411+00:00",
+      "device": "target",
+      "command": "settings get system peak_refresh_rate",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "120.0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T06:34:02.460+00:00",
+      "device": "target",
+      "command": "settings get system screen_off_timeout",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "1800000",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T06:34:02.508+00:00",
+      "device": "target",
+      "command": "settings get global stay_on_while_plugged_in",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "7",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T06:34:02.565+00:00",
+      "device": "target",
+      "command": "cat /sys/class/backlight/panel0-backlight/bl_power",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T06:34:02.863+00:00",
+      "device": "camera",
+      "command": "dumpsys media.camera",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private preflight-camera.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T06:34:02.914+00:00",
+      "device": "target",
+      "command": "mkdir -m 700 /data/local/tmp/pwm-ddic-latch-20261107; mkdir -m 700 /data/local/tmp/pwm-ddic-latch-20261107/dbg",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T06:34:03.040+00:00",
+      "device": "target",
+      "command": "settings put system screen_brightness_mode 0; settings put system screen_brightness 52; settings put system min_refresh_rate 120.0; settings put system peak_refresh_rate 120.0; input keyevent 224",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T06:34:03.120+00:00",
+      "device": "target",
+      "command": "dumpsys window policy | grep -F 'interactiveState='",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "interactiveState=INTERACTIVE_STATE_AWAKE",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T06:34:03.173+00:00",
+      "device": "target",
+      "command": "wm dismiss-keyguard",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T06:34:03.236+00:00",
+      "device": "target",
+      "command": "dumpsys window policy | grep -F 'mIsShowing='",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "mIsShowing=false",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T06:34:03.347+00:00",
+      "device": "target",
+      "command": "am start -W --activity-clear-top -n 'com.android.settings/.Settings$DisplaySettingsActivity'",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "Starting: Intent { flg=0x4000000 cmp=com.android.settings/.Settings$DisplaySettingsActivity }\nStatus: ok\nLaunchState: WARM\nActivity: com.android.settings/.Settings$DisplaySettingsActivity\nTotalTime: 59\nWaitTime: 60\nComplete",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T06:34:05.375+00:00",
+      "device": "target",
+      "command": "uiautomator dump /data/local/tmp/pwm-ddic-latch-20261107/ui.xml >/dev/null && cat /data/local/tmp/pwm-ddic-latch-20261107/ui.xml",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private target-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T06:34:05.817+00:00",
+      "device": "target",
+      "command": "input swipe 720 2780 720 850 400",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T06:34:07.972+00:00",
+      "device": "target",
+      "command": "uiautomator dump /data/local/tmp/pwm-ddic-latch-20261107/ui.xml >/dev/null && cat /data/local/tmp/pwm-ddic-latch-20261107/ui.xml",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private target-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T06:34:08.021+00:00",
+      "device": "target",
+      "command": "cat /sys/class/drm/card0-DSI-1/panelDC",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T06:34:09.057+00:00",
+      "device": "target",
+      "command": "content call --uri content://com.motorola.android.providers.settings/global --method GET_global --arg display_dc_mode_enabled",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "Result: Bundle[{value=0}]",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T06:34:09.109+00:00",
+      "device": "target",
+      "command": "cat /sys/class/backlight/panel0-backlight/brightness",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "3584",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T06:34:09.158+00:00",
+      "device": "target",
+      "command": "dumpsys display",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private display.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T06:34:09.214+00:00",
+      "device": "target",
+      "command": "mkdir /sys/kernel/tracing/instances/pwm_latch",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T06:34:09.280+00:00",
+      "device": "target",
+      "command": "printf '%s\\n' 'r:pwm_latch/ctrl msm_drm:dsi_ctrl_cmd_transfer rc=$retval:s32' >> /sys/kernel/tracing/kprobe_events",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T06:34:09.344+00:00",
+      "device": "target",
+      "command": "printf '%s\\n' 'p:pwm_latch/raw msm_drm:dsi_display_cmd_transfer pending=+0x694($arg2):u32' >> /sys/kernel/tracing/kprobe_events",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T06:34:09.424+00:00",
+      "device": "target",
+      "command": "printf '%s\\n' 'r:pwm_latch/raw_ret msm_drm:dsi_display_cmd_transfer rc=$retval:s32' >> /sys/kernel/tracing/kprobe_events",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T06:34:09.497+00:00",
+      "device": "target",
+      "command": "printf mono > /sys/kernel/tracing/instances/pwm_latch/trace_clock; printf 1 > /sys/kernel/tracing/instances/pwm_latch/events/pwm_latch/enable; printf 1 > /sys/kernel/tracing/instances/pwm_latch/tracing_on",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T06:34:09.552+00:00",
+      "device": "target",
+      "command": "printf 1 > /sys/class/drm/card0-DSI-1/mipi_cmd_log_en",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T06:34:09.608+00:00",
+      "device": "target",
+      "command": "printf '<6>PWM_LATCH_BEGIN\\n' > /dev/kmsg",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T06:34:09.664+00:00",
+      "device": "target",
+      "command": "printf '<6>PWM_LATCH_PHASE_1_0\\n' > /dev/kmsg",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T06:34:11.789+00:00",
+      "device": "target",
+      "command": "uiautomator dump /data/local/tmp/pwm-ddic-latch-20261107/ui.xml >/dev/null && cat /data/local/tmp/pwm-ddic-latch-20261107/ui.xml",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private target-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T06:34:11.842+00:00",
+      "device": "target",
+      "command": "cat /sys/class/drm/card0-DSI-1/panelDC",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T06:34:12.903+00:00",
+      "device": "target",
+      "command": "content call --uri content://com.motorola.android.providers.settings/global --method GET_global --arg display_dc_mode_enabled",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "Result: Bundle[{value=0}]",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T06:34:12.960+00:00",
+      "device": "target",
+      "command": "cat /sys/class/backlight/panel0-backlight/brightness",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "3584",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T06:34:14.527+00:00",
+      "device": "camera",
+      "command": "dumpsys media.camera",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private phase-1-camera.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T06:34:14.583+00:00",
+      "device": "target",
+      "command": "printf '<6>PWM_LATCH_READ_1\\n' > /dev/kmsg",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T06:34:15.402+00:00",
+      "device": "target",
+      "command": "timeout -k 3 15 unshare -m /system/bin/sh -c 'set -eu\nmount -o rprivate none /\nmount -t debugfs -o nosuid,nodev,noexec debugfs /data/local/tmp/pwm-ddic-latch-20261107/dbg\nC=/data/local/tmp/pwm-ddic-latch-20261107/dbg/dri/9800000.qcom,mdss_mdp/DSI-1\nE=/data/local/tmp/pwm-ddic-latch-20261107/dbg/qcom,mdss_dsi_mot_boe_ili97701A_682_1440x3168_dsc_cmd_v4/esd_check_mode\nP0='\"'\"'0x39 0 0 0 0 0 4 0xFF 0x5A 0xA5 0'\"'\"'\nrestore() {\n s=$?; trap - EXIT\n printf '\"'\"'%s'\"'\"' \"$P0\" > \"$C/tx_cmd\" || s=31\n printf reg_read > \"$E\" || s=32\n m=$(tr -d '\"'\"'\\000'\"'\"' < \"$E\")\n printf '\"'\"'ESD_RESTORED %s\\n'\"'\"' \"$m\"\n [ \"$m\" = reg_read ] || s=33\n umount /data/local/tmp/pwm-ddic-latch-20261107/dbg || s=34\n exit \"$s\"\n}\ntrap restore EXIT\ntrap '\"'\"'exit 30'\"'\"' HUP INT TERM\n[ \"$(tr -d '\"'\"'\\000'\"'\"' < \"$E\")\" = reg_read ]\nprintf esd_sw_sim_success > \"$E\"\nprintf '\"'\"'%s'\"'\"' '\"'\"'0x39 0 0 0 0 0 4 0xFF 0x5A 0xA5 0x4F'\"'\"' > \"$C/tx_cmd\"\nprintf '\"'\"'%s'\"'\"' '\"'\"'1 0x06 1 0 1 0 0 1 0x80'\"'\"' > \"$C/rx_cmd\"\nprintf '\"'\"'%s'\"'\"' \"$P0\" > \"$C/tx_cmd\"\nprintf '\"'\"'R 4F:80 '\"'\"'\ncat \"$C/rx_cmd\"\nprintf '\"'\"'\\n'\"'\"'\nprintf '\"'\"'%s'\"'\"' '\"'\"'0x39 0 0 0 0 0 4 0xFF 0x5A 0xA5 0x4F'\"'\"' > \"$C/tx_cmd\"\nprintf '\"'\"'%s'\"'\"' '\"'\"'1 0x06 1 0 1 0 0 1 0x81'\"'\"' > \"$C/rx_cmd\"\nprintf '\"'\"'%s'\"'\"' \"$P0\" > \"$C/tx_cmd\"\nprintf '\"'\"'R 4F:81 '\"'\"'\ncat \"$C/rx_cmd\"\nprintf '\"'\"'\\n'\"'\"'\nprintf '\"'\"'%s'\"'\"' '\"'\"'0x39 0 0 0 0 0 4 0xFF 0x5A 0xA5 0x4F'\"'\"' > \"$C/tx_cmd\"\nprintf '\"'\"'%s'\"'\"' '\"'\"'1 0x06 1 0 1 0 0 1 0x88'\"'\"' > \"$C/rx_cmd\"\nprintf '\"'\"'%s'\"'\"' \"$P0\" > \"$C/tx_cmd\"\nprintf '\"'\"'R 4F:88 '\"'\"'\ncat \"$C/rx_cmd\"\nprintf '\"'\"'\\n'\"'\"'\nprintf '\"'\"'%s'\"'\"' '\"'\"'0x39 0 0 0 0 0 4 0xFF 0x5A 0xA5 0x4F'\"'\"' > \"$C/tx_cmd\"\nprintf '\"'\"'%s'\"'\"' '\"'\"'1 0x06 1 0 1 0 0 1 0x8B'\"'\"' > \"$C/rx_cmd\"\nprintf '\"'\"'%s'\"'\"' \"$P0\" > \"$C/tx_cmd\"\nprintf '\"'\"'R 4F:8B '\"'\"'\ncat \"$C/rx_cmd\"\nprintf '\"'\"'\\n'\"'\"'\nprintf '\"'\"'%s'\"'\"' '\"'\"'0x39 0 0 0 0 0 4 0xFF 0x5A 0xA5 0x4F'\"'\"' > \"$C/tx_cmd\"\nprintf '\"'\"'%s'\"'\"' '\"'\"'1 0x06 1 0 1 0 0 1 0xC1'\"'\"' > \"$C/rx_cmd\"\nprintf '\"'\"'%s'\"'\"' \"$P0\" > \"$C/tx_cmd\"\nprintf '\"'\"'R 4F:C1 '\"'\"'\ncat \"$C/rx_cmd\"\nprintf '\"'\"'\\n'\"'\"'\nprintf '\"'\"'%s'\"'\"' '\"'\"'0x39 0 0 0 0 0 4 0xFF 0x5A 0xA5 0x4F'\"'\"' > \"$C/tx_cmd\"\nprintf '\"'\"'%s'\"'\"' '\"'\"'1 0x06 1 0 1 0 0 1 0xC9'\"'\"' > \"$C/rx_cmd\"\nprintf '\"'\"'%s'\"'\"' \"$P0\" > \"$C/tx_cmd\"\nprintf '\"'\"'R 4F:C9 '\"'\"'\ncat \"$C/rx_cmd\"\nprintf '\"'\"'\\n'\"'\"'\nprintf '\"'\"'%s'\"'\"' '\"'\"'0x39 0 0 0 0 0 4 0xFF 0x5A 0xA5 0x4F'\"'\"' > \"$C/tx_cmd\"\nprintf '\"'\"'%s'\"'\"' '\"'\"'1 0x06 1 0 1 0 0 1 0xD1'\"'\"' > \"$C/rx_cmd\"\nprintf '\"'\"'%s'\"'\"' \"$P0\" > \"$C/tx_cmd\"\nprintf '\"'\"'R 4F:D1 '\"'\"'\ncat \"$C/rx_cmd\"\nprintf '\"'\"'\\n'\"'\"'\nprintf '\"'\"'%s'\"'\"' '\"'\"'0x39 0 0 0 0 0 4 0xFF 0x5A 0xA5 0x4F'\"'\"' > \"$C/tx_cmd\"\nprintf '\"'\"'%s'\"'\"' '\"'\"'1 0x06 1 0 1 0 0 1 0xD9'\"'\"' > \"$C/rx_cmd\"\nprintf '\"'\"'%s'\"'\"' \"$P0\" > \"$C/tx_cmd\"\nprintf '\"'\"'R 4F:D9 '\"'\"'\ncat \"$C/rx_cmd\"\nprintf '\"'\"'\\n'\"'\"'\nprintf '\"'\"'%s'\"'\"' '\"'\"'0x39 0 0 0 0 0 4 0xFF 0x5A 0xA5 0x23'\"'\"' > \"$C/tx_cmd\"\nprintf '\"'\"'%s'\"'\"' '\"'\"'1 0x06 1 0 1 0 0 1 0xA9'\"'\"' > \"$C/rx_cmd\"\nprintf '\"'\"'%s'\"'\"' \"$P0\" > \"$C/tx_cmd\"\nprintf '\"'\"'R 23:A9 '\"'\"'\ncat \"$C/rx_cmd\"\nprintf '\"'\"'\\n'\"'\"'\nprintf '\"'\"'%s'\"'\"' '\"'\"'0x39 0 0 0 0 0 4 0xFF 0x5A 0xA5 0x23'\"'\"' > \"$C/tx_cmd\"\nprintf '\"'\"'%s'\"'\"' '\"'\"'1 0x06 1 0 1 0 0 1 0xAA'\"'\"' > \"$C/rx_cmd\"\nprintf '\"'\"'%s'\"'\"' \"$P0\" > \"$C/tx_cmd\"\nprintf '\"'\"'R 23:AA '\"'\"'\ncat \"$C/rx_cmd\"\nprintf '\"'\"'\\n'\"'\"'\nprintf '\"'\"'%s'\"'\"' '\"'\"'0x39 0 0 0 0 0 4 0xFF 0x5A 0xA5 0x24'\"'\"' > \"$C/tx_cmd\"\nprintf '\"'\"'%s'\"'\"' '\"'\"'1 0x06 1 0 1 0 0 1 0x9D'\"'\"' > \"$C/rx_cmd\"\nprintf '\"'\"'%s'\"'\"' \"$P0\" > \"$C/tx_cmd\"\nprintf '\"'\"'R 24:9D '\"'\"'\ncat \"$C/rx_cmd\"\nprintf '\"'\"'\\n'\"'\"'\nprintf '\"'\"'%s'\"'\"' '\"'\"'0x39 0 0 0 0 0 4 0xFF 0x5A 0xA5 0x24'\"'\"' > \"$C/tx_cmd\"\nprintf '\"'\"'%s'\"'\"' '\"'\"'1 0x06 1 0 1 0 0 1 0x9E'\"'\"' > \"$C/rx_cmd\"\nprintf '\"'\"'%s'\"'\"' \"$P0\" > \"$C/tx_cmd\"\nprintf '\"'\"'R 24:9E '\"'\"'\ncat \"$C/rx_cmd\"\nprintf '\"'\"'\\n'\"'\"'\nprintf '\"'\"'%s'\"'\"' '\"'\"'0x39 0 0 0 0 0 4 0xFF 0x5A 0xA5 0x23'\"'\"' > \"$C/tx_cmd\"\nprintf '\"'\"'%s'\"'\"' '\"'\"'1 0x06 1 0 1 0 0 1 0x80'\"'\"' > \"$C/rx_cmd\"\nprintf '\"'\"'%s'\"'\"' \"$P0\" > \"$C/tx_cmd\"\nprintf '\"'\"'R 23:80 '\"'\"'\ncat \"$C/rx_cmd\"\nprintf '\"'\"'\\n'\"'\"'\nprintf '\"'\"'%s'\"'\"' '\"'\"'0x39 0 0 0 0 0 4 0xFF 0x5A 0xA5 0x53'\"'\"' > \"$C/tx_cmd\"\nprintf '\"'\"'%s'\"'\"' '\"'\"'2 0x06 1 0 1 0 0 1 0x95'\"'\"' > \"$C/rx_cmd\"\nprintf '\"'\"'%s'\"'\"' \"$P0\" > \"$C/tx_cmd\"\nprintf '\"'\"'R 53:95 '\"'\"'\ncat \"$C/rx_cmd\"\nprintf '\"'\"'\\n'\"'\"'\nprintf '\"'\"'%s'\"'\"' '\"'\"'0x39 0 0 0 0 0 4 0xFF 0x5A 0xA5 0x00'\"'\"' > \"$C/tx_cmd\"\nprintf '\"'\"'%s'\"'\"' '\"'\"'2 0x06 1 0 1 0 0 1 0x52'\"'\"' > \"$C/rx_cmd\"\nprintf '\"'\"'%s'\"'\"' \"$P0\" > \"$C/tx_cmd\"\nprintf '\"'\"'R 00:52 '\"'\"'\ncat \"$C/rx_cmd\"\nprintf '\"'\"'\\n'\"'\"'\n'",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "<private phase-1-reads.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T06:34:19.796+00:00",
+      "device": "target",
+      "command": "dmesg",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "<private phase-1-kernel.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T06:34:19.883+00:00",
+      "device": "target",
+      "command": "cat /sys/kernel/tracing/instances/pwm_latch/trace",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "<private phase-1-trace.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T06:34:19.936+00:00",
+      "device": "target",
+      "command": "cat /sys/class/backlight/panel0-backlight/brightness",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "3584",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T06:34:19.991+00:00",
+      "device": "target",
+      "command": "cat /sys/class/backlight/panel0-backlight/bl_power",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T06:34:20.051+00:00",
+      "device": "target",
+      "command": "printf '<6>PWM_LATCH_PHASE_2_1\\n' > /dev/kmsg",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T06:34:22.153+00:00",
+      "device": "target",
+      "command": "uiautomator dump /data/local/tmp/pwm-ddic-latch-20261107/ui.xml >/dev/null && cat /data/local/tmp/pwm-ddic-latch-20261107/ui.xml",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private target-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T06:34:22.207+00:00",
+      "device": "target",
+      "command": "input tap 720 1157",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T06:34:22.235+00:00",
+      "device": "target",
+      "command": "cat /sys/class/drm/card0-DSI-1/panelDC",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "1",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T06:34:23.257+00:00",
+      "device": "target",
+      "command": "content call --uri content://com.motorola.android.providers.settings/global --method GET_global --arg display_dc_mode_enabled",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "Result: Bundle[{value=1}]",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T06:34:23.317+00:00",
+      "device": "target",
+      "command": "cat /sys/class/backlight/panel0-backlight/brightness",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "3584",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T06:34:24.911+00:00",
+      "device": "camera",
+      "command": "dumpsys media.camera",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private phase-2-camera.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T06:34:24.974+00:00",
+      "device": "target",
+      "command": "printf '<6>PWM_LATCH_READ_2\\n' > /dev/kmsg",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T06:34:25.750+00:00",
+      "device": "target",
+      "command": "timeout -k 3 15 unshare -m /system/bin/sh -c 'set -eu\nmount -o rprivate none /\nmount -t debugfs -o nosuid,nodev,noexec debugfs /data/local/tmp/pwm-ddic-latch-20261107/dbg\nC=/data/local/tmp/pwm-ddic-latch-20261107/dbg/dri/9800000.qcom,mdss_mdp/DSI-1\nE=/data/local/tmp/pwm-ddic-latch-20261107/dbg/qcom,mdss_dsi_mot_boe_ili97701A_682_1440x3168_dsc_cmd_v4/esd_check_mode\nP0='\"'\"'0x39 0 0 0 0 0 4 0xFF 0x5A 0xA5 0'\"'\"'\nrestore() {\n s=$?; trap - EXIT\n printf '\"'\"'%s'\"'\"' \"$P0\" > \"$C/tx_cmd\" || s=31\n printf reg_read > \"$E\" || s=32\n m=$(tr -d '\"'\"'\\000'\"'\"' < \"$E\")\n printf '\"'\"'ESD_RESTORED %s\\n'\"'\"' \"$m\"\n [ \"$m\" = reg_read ] || s=33\n umount /data/local/tmp/pwm-ddic-latch-20261107/dbg || s=34\n exit \"$s\"\n}\ntrap restore EXIT\ntrap '\"'\"'exit 30'\"'\"' HUP INT TERM\n[ \"$(tr -d '\"'\"'\\000'\"'\"' < \"$E\")\" = reg_read ]\nprintf esd_sw_sim_success > \"$E\"\nprintf '\"'\"'%s'\"'\"' '\"'\"'0x39 0 0 0 0 0 4 0xFF 0x5A 0xA5 0x4F'\"'\"' > \"$C/tx_cmd\"\nprintf '\"'\"'%s'\"'\"' '\"'\"'1 0x06 1 0 1 0 0 1 0x80'\"'\"' > \"$C/rx_cmd\"\nprintf '\"'\"'%s'\"'\"' \"$P0\" > \"$C/tx_cmd\"\nprintf '\"'\"'R 4F:80 '\"'\"'\ncat \"$C/rx_cmd\"\nprintf '\"'\"'\\n'\"'\"'\nprintf '\"'\"'%s'\"'\"' '\"'\"'0x39 0 0 0 0 0 4 0xFF 0x5A 0xA5 0x4F'\"'\"' > \"$C/tx_cmd\"\nprintf '\"'\"'%s'\"'\"' '\"'\"'1 0x06 1 0 1 0 0 1 0x81'\"'\"' > \"$C/rx_cmd\"\nprintf '\"'\"'%s'\"'\"' \"$P0\" > \"$C/tx_cmd\"\nprintf '\"'\"'R 4F:81 '\"'\"'\ncat \"$C/rx_cmd\"\nprintf '\"'\"'\\n'\"'\"'\nprintf '\"'\"'%s'\"'\"' '\"'\"'0x39 0 0 0 0 0 4 0xFF 0x5A 0xA5 0x4F'\"'\"' > \"$C/tx_cmd\"\nprintf '\"'\"'%s'\"'\"' '\"'\"'1 0x06 1 0 1 0 0 1 0x88'\"'\"' > \"$C/rx_cmd\"\nprintf '\"'\"'%s'\"'\"' \"$P0\" > \"$C/tx_cmd\"\nprintf '\"'\"'R 4F:88 '\"'\"'\ncat \"$C/rx_cmd\"\nprintf '\"'\"'\\n'\"'\"'\nprintf '\"'\"'%s'\"'\"' '\"'\"'0x39 0 0 0 0 0 4 0xFF 0x5A 0xA5 0x4F'\"'\"' > \"$C/tx_cmd\"\nprintf '\"'\"'%s'\"'\"' '\"'\"'1 0x06 1 0 1 0 0 1 0x8B'\"'\"' > \"$C/rx_cmd\"\nprintf '\"'\"'%s'\"'\"' \"$P0\" > \"$C/tx_cmd\"\nprintf '\"'\"'R 4F:8B '\"'\"'\ncat \"$C/rx_cmd\"\nprintf '\"'\"'\\n'\"'\"'\nprintf '\"'\"'%s'\"'\"' '\"'\"'0x39 0 0 0 0 0 4 0xFF 0x5A 0xA5 0x4F'\"'\"' > \"$C/tx_cmd\"\nprintf '\"'\"'%s'\"'\"' '\"'\"'1 0x06 1 0 1 0 0 1 0xC1'\"'\"' > \"$C/rx_cmd\"\nprintf '\"'\"'%s'\"'\"' \"$P0\" > \"$C/tx_cmd\"\nprintf '\"'\"'R 4F:C1 '\"'\"'\ncat \"$C/rx_cmd\"\nprintf '\"'\"'\\n'\"'\"'\nprintf '\"'\"'%s'\"'\"' '\"'\"'0x39 0 0 0 0 0 4 0xFF 0x5A 0xA5 0x4F'\"'\"' > \"$C/tx_cmd\"\nprintf '\"'\"'%s'\"'\"' '\"'\"'1 0x06 1 0 1 0 0 1 0xC9'\"'\"' > \"$C/rx_cmd\"\nprintf '\"'\"'%s'\"'\"' \"$P0\" > \"$C/tx_cmd\"\nprintf '\"'\"'R 4F:C9 '\"'\"'\ncat \"$C/rx_cmd\"\nprintf '\"'\"'\\n'\"'\"'\nprintf '\"'\"'%s'\"'\"' '\"'\"'0x39 0 0 0 0 0 4 0xFF 0x5A 0xA5 0x4F'\"'\"' > \"$C/tx_cmd\"\nprintf '\"'\"'%s'\"'\"' '\"'\"'1 0x06 1 0 1 0 0 1 0xD1'\"'\"' > \"$C/rx_cmd\"\nprintf '\"'\"'%s'\"'\"' \"$P0\" > \"$C/tx_cmd\"\nprintf '\"'\"'R 4F:D1 '\"'\"'\ncat \"$C/rx_cmd\"\nprintf '\"'\"'\\n'\"'\"'\nprintf '\"'\"'%s'\"'\"' '\"'\"'0x39 0 0 0 0 0 4 0xFF 0x5A 0xA5 0x4F'\"'\"' > \"$C/tx_cmd\"\nprintf '\"'\"'%s'\"'\"' '\"'\"'1 0x06 1 0 1 0 0 1 0xD9'\"'\"' > \"$C/rx_cmd\"\nprintf '\"'\"'%s'\"'\"' \"$P0\" > \"$C/tx_cmd\"\nprintf '\"'\"'R 4F:D9 '\"'\"'\ncat \"$C/rx_cmd\"\nprintf '\"'\"'\\n'\"'\"'\nprintf '\"'\"'%s'\"'\"' '\"'\"'0x39 0 0 0 0 0 4 0xFF 0x5A 0xA5 0x23'\"'\"' > \"$C/tx_cmd\"\nprintf '\"'\"'%s'\"'\"' '\"'\"'1 0x06 1 0 1 0 0 1 0xA9'\"'\"' > \"$C/rx_cmd\"\nprintf '\"'\"'%s'\"'\"' \"$P0\" > \"$C/tx_cmd\"\nprintf '\"'\"'R 23:A9 '\"'\"'\ncat \"$C/rx_cmd\"\nprintf '\"'\"'\\n'\"'\"'\nprintf '\"'\"'%s'\"'\"' '\"'\"'0x39 0 0 0 0 0 4 0xFF 0x5A 0xA5 0x23'\"'\"' > \"$C/tx_cmd\"\nprintf '\"'\"'%s'\"'\"' '\"'\"'1 0x06 1 0 1 0 0 1 0xAA'\"'\"' > \"$C/rx_cmd\"\nprintf '\"'\"'%s'\"'\"' \"$P0\" > \"$C/tx_cmd\"\nprintf '\"'\"'R 23:AA '\"'\"'\ncat \"$C/rx_cmd\"\nprintf '\"'\"'\\n'\"'\"'\nprintf '\"'\"'%s'\"'\"' '\"'\"'0x39 0 0 0 0 0 4 0xFF 0x5A 0xA5 0x24'\"'\"' > \"$C/tx_cmd\"\nprintf '\"'\"'%s'\"'\"' '\"'\"'1 0x06 1 0 1 0 0 1 0x9D'\"'\"' > \"$C/rx_cmd\"\nprintf '\"'\"'%s'\"'\"' \"$P0\" > \"$C/tx_cmd\"\nprintf '\"'\"'R 24:9D '\"'\"'\ncat \"$C/rx_cmd\"\nprintf '\"'\"'\\n'\"'\"'\nprintf '\"'\"'%s'\"'\"' '\"'\"'0x39 0 0 0 0 0 4 0xFF 0x5A 0xA5 0x24'\"'\"' > \"$C/tx_cmd\"\nprintf '\"'\"'%s'\"'\"' '\"'\"'1 0x06 1 0 1 0 0 1 0x9E'\"'\"' > \"$C/rx_cmd\"\nprintf '\"'\"'%s'\"'\"' \"$P0\" > \"$C/tx_cmd\"\nprintf '\"'\"'R 24:9E '\"'\"'\ncat \"$C/rx_cmd\"\nprintf '\"'\"'\\n'\"'\"'\nprintf '\"'\"'%s'\"'\"' '\"'\"'0x39 0 0 0 0 0 4 0xFF 0x5A 0xA5 0x23'\"'\"' > \"$C/tx_cmd\"\nprintf '\"'\"'%s'\"'\"' '\"'\"'1 0x06 1 0 1 0 0 1 0x80'\"'\"' > \"$C/rx_cmd\"\nprintf '\"'\"'%s'\"'\"' \"$P0\" > \"$C/tx_cmd\"\nprintf '\"'\"'R 23:80 '\"'\"'\ncat \"$C/rx_cmd\"\nprintf '\"'\"'\\n'\"'\"'\nprintf '\"'\"'%s'\"'\"' '\"'\"'0x39 0 0 0 0 0 4 0xFF 0x5A 0xA5 0x53'\"'\"' > \"$C/tx_cmd\"\nprintf '\"'\"'%s'\"'\"' '\"'\"'2 0x06 1 0 1 0 0 1 0x95'\"'\"' > \"$C/rx_cmd\"\nprintf '\"'\"'%s'\"'\"' \"$P0\" > \"$C/tx_cmd\"\nprintf '\"'\"'R 53:95 '\"'\"'\ncat \"$C/rx_cmd\"\nprintf '\"'\"'\\n'\"'\"'\nprintf '\"'\"'%s'\"'\"' '\"'\"'0x39 0 0 0 0 0 4 0xFF 0x5A 0xA5 0x00'\"'\"' > \"$C/tx_cmd\"\nprintf '\"'\"'%s'\"'\"' '\"'\"'2 0x06 1 0 1 0 0 1 0x52'\"'\"' > \"$C/rx_cmd\"\nprintf '\"'\"'%s'\"'\"' \"$P0\" > \"$C/tx_cmd\"\nprintf '\"'\"'R 00:52 '\"'\"'\ncat \"$C/rx_cmd\"\nprintf '\"'\"'\\n'\"'\"'\n'",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "<private phase-2-reads.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T06:34:30.041+00:00",
+      "device": "target",
+      "command": "dmesg",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "<private phase-2-kernel.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T06:34:30.180+00:00",
+      "device": "target",
+      "command": "cat /sys/kernel/tracing/instances/pwm_latch/trace",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "<private phase-2-trace.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T06:34:30.230+00:00",
+      "device": "target",
+      "command": "cat /sys/class/backlight/panel0-backlight/brightness",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "3584",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T06:34:30.283+00:00",
+      "device": "target",
+      "command": "cat /sys/class/backlight/panel0-backlight/bl_power",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T06:34:30.336+00:00",
+      "device": "target",
+      "command": "printf '<6>PWM_LATCH_PHASE_3_0\\n' > /dev/kmsg",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T06:34:32.467+00:00",
+      "device": "target",
+      "command": "uiautomator dump /data/local/tmp/pwm-ddic-latch-20261107/ui.xml >/dev/null && cat /data/local/tmp/pwm-ddic-latch-20261107/ui.xml",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private target-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T06:34:32.520+00:00",
+      "device": "target",
+      "command": "input tap 720 1157",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T06:34:32.553+00:00",
+      "device": "target",
+      "command": "cat /sys/class/drm/card0-DSI-1/panelDC",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T06:34:33.565+00:00",
+      "device": "target",
+      "command": "content call --uri content://com.motorola.android.providers.settings/global --method GET_global --arg display_dc_mode_enabled",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "Result: Bundle[{value=0}]",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T06:34:33.620+00:00",
+      "device": "target",
+      "command": "cat /sys/class/backlight/panel0-backlight/brightness",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "3584",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T06:34:35.220+00:00",
+      "device": "camera",
+      "command": "dumpsys media.camera",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private phase-3-camera.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T06:34:35.289+00:00",
+      "device": "target",
+      "command": "printf '<6>PWM_LATCH_READ_3\\n' > /dev/kmsg",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T06:34:36.040+00:00",
+      "device": "target",
+      "command": "timeout -k 3 15 unshare -m /system/bin/sh -c 'set -eu\nmount -o rprivate none /\nmount -t debugfs -o nosuid,nodev,noexec debugfs /data/local/tmp/pwm-ddic-latch-20261107/dbg\nC=/data/local/tmp/pwm-ddic-latch-20261107/dbg/dri/9800000.qcom,mdss_mdp/DSI-1\nE=/data/local/tmp/pwm-ddic-latch-20261107/dbg/qcom,mdss_dsi_mot_boe_ili97701A_682_1440x3168_dsc_cmd_v4/esd_check_mode\nP0='\"'\"'0x39 0 0 0 0 0 4 0xFF 0x5A 0xA5 0'\"'\"'\nrestore() {\n s=$?; trap - EXIT\n printf '\"'\"'%s'\"'\"' \"$P0\" > \"$C/tx_cmd\" || s=31\n printf reg_read > \"$E\" || s=32\n m=$(tr -d '\"'\"'\\000'\"'\"' < \"$E\")\n printf '\"'\"'ESD_RESTORED %s\\n'\"'\"' \"$m\"\n [ \"$m\" = reg_read ] || s=33\n umount /data/local/tmp/pwm-ddic-latch-20261107/dbg || s=34\n exit \"$s\"\n}\ntrap restore EXIT\ntrap '\"'\"'exit 30'\"'\"' HUP INT TERM\n[ \"$(tr -d '\"'\"'\\000'\"'\"' < \"$E\")\" = reg_read ]\nprintf esd_sw_sim_success > \"$E\"\nprintf '\"'\"'%s'\"'\"' '\"'\"'0x39 0 0 0 0 0 4 0xFF 0x5A 0xA5 0x4F'\"'\"' > \"$C/tx_cmd\"\nprintf '\"'\"'%s'\"'\"' '\"'\"'1 0x06 1 0 1 0 0 1 0x80'\"'\"' > \"$C/rx_cmd\"\nprintf '\"'\"'%s'\"'\"' \"$P0\" > \"$C/tx_cmd\"\nprintf '\"'\"'R 4F:80 '\"'\"'\ncat \"$C/rx_cmd\"\nprintf '\"'\"'\\n'\"'\"'\nprintf '\"'\"'%s'\"'\"' '\"'\"'0x39 0 0 0 0 0 4 0xFF 0x5A 0xA5 0x4F'\"'\"' > \"$C/tx_cmd\"\nprintf '\"'\"'%s'\"'\"' '\"'\"'1 0x06 1 0 1 0 0 1 0x81'\"'\"' > \"$C/rx_cmd\"\nprintf '\"'\"'%s'\"'\"' \"$P0\" > \"$C/tx_cmd\"\nprintf '\"'\"'R 4F:81 '\"'\"'\ncat \"$C/rx_cmd\"\nprintf '\"'\"'\\n'\"'\"'\nprintf '\"'\"'%s'\"'\"' '\"'\"'0x39 0 0 0 0 0 4 0xFF 0x5A 0xA5 0x4F'\"'\"' > \"$C/tx_cmd\"\nprintf '\"'\"'%s'\"'\"' '\"'\"'1 0x06 1 0 1 0 0 1 0x88'\"'\"' > \"$C/rx_cmd\"\nprintf '\"'\"'%s'\"'\"' \"$P0\" > \"$C/tx_cmd\"\nprintf '\"'\"'R 4F:88 '\"'\"'\ncat \"$C/rx_cmd\"\nprintf '\"'\"'\\n'\"'\"'\nprintf '\"'\"'%s'\"'\"' '\"'\"'0x39 0 0 0 0 0 4 0xFF 0x5A 0xA5 0x4F'\"'\"' > \"$C/tx_cmd\"\nprintf '\"'\"'%s'\"'\"' '\"'\"'1 0x06 1 0 1 0 0 1 0x8B'\"'\"' > \"$C/rx_cmd\"\nprintf '\"'\"'%s'\"'\"' \"$P0\" > \"$C/tx_cmd\"\nprintf '\"'\"'R 4F:8B '\"'\"'\ncat \"$C/rx_cmd\"\nprintf '\"'\"'\\n'\"'\"'\nprintf '\"'\"'%s'\"'\"' '\"'\"'0x39 0 0 0 0 0 4 0xFF 0x5A 0xA5 0x4F'\"'\"' > \"$C/tx_cmd\"\nprintf '\"'\"'%s'\"'\"' '\"'\"'1 0x06 1 0 1 0 0 1 0xC1'\"'\"' > \"$C/rx_cmd\"\nprintf '\"'\"'%s'\"'\"' \"$P0\" > \"$C/tx_cmd\"\nprintf '\"'\"'R 4F:C1 '\"'\"'\ncat \"$C/rx_cmd\"\nprintf '\"'\"'\\n'\"'\"'\nprintf '\"'\"'%s'\"'\"' '\"'\"'0x39 0 0 0 0 0 4 0xFF 0x5A 0xA5 0x4F'\"'\"' > \"$C/tx_cmd\"\nprintf '\"'\"'%s'\"'\"' '\"'\"'1 0x06 1 0 1 0 0 1 0xC9'\"'\"' > \"$C/rx_cmd\"\nprintf '\"'\"'%s'\"'\"' \"$P0\" > \"$C/tx_cmd\"\nprintf '\"'\"'R 4F:C9 '\"'\"'\ncat \"$C/rx_cmd\"\nprintf '\"'\"'\\n'\"'\"'\nprintf '\"'\"'%s'\"'\"' '\"'\"'0x39 0 0 0 0 0 4 0xFF 0x5A 0xA5 0x4F'\"'\"' > \"$C/tx_cmd\"\nprintf '\"'\"'%s'\"'\"' '\"'\"'1 0x06 1 0 1 0 0 1 0xD1'\"'\"' > \"$C/rx_cmd\"\nprintf '\"'\"'%s'\"'\"' \"$P0\" > \"$C/tx_cmd\"\nprintf '\"'\"'R 4F:D1 '\"'\"'\ncat \"$C/rx_cmd\"\nprintf '\"'\"'\\n'\"'\"'\nprintf '\"'\"'%s'\"'\"' '\"'\"'0x39 0 0 0 0 0 4 0xFF 0x5A 0xA5 0x4F'\"'\"' > \"$C/tx_cmd\"\nprintf '\"'\"'%s'\"'\"' '\"'\"'1 0x06 1 0 1 0 0 1 0xD9'\"'\"' > \"$C/rx_cmd\"\nprintf '\"'\"'%s'\"'\"' \"$P0\" > \"$C/tx_cmd\"\nprintf '\"'\"'R 4F:D9 '\"'\"'\ncat \"$C/rx_cmd\"\nprintf '\"'\"'\\n'\"'\"'\nprintf '\"'\"'%s'\"'\"' '\"'\"'0x39 0 0 0 0 0 4 0xFF 0x5A 0xA5 0x23'\"'\"' > \"$C/tx_cmd\"\nprintf '\"'\"'%s'\"'\"' '\"'\"'1 0x06 1 0 1 0 0 1 0xA9'\"'\"' > \"$C/rx_cmd\"\nprintf '\"'\"'%s'\"'\"' \"$P0\" > \"$C/tx_cmd\"\nprintf '\"'\"'R 23:A9 '\"'\"'\ncat \"$C/rx_cmd\"\nprintf '\"'\"'\\n'\"'\"'\nprintf '\"'\"'%s'\"'\"' '\"'\"'0x39 0 0 0 0 0 4 0xFF 0x5A 0xA5 0x23'\"'\"' > \"$C/tx_cmd\"\nprintf '\"'\"'%s'\"'\"' '\"'\"'1 0x06 1 0 1 0 0 1 0xAA'\"'\"' > \"$C/rx_cmd\"\nprintf '\"'\"'%s'\"'\"' \"$P0\" > \"$C/tx_cmd\"\nprintf '\"'\"'R 23:AA '\"'\"'\ncat \"$C/rx_cmd\"\nprintf '\"'\"'\\n'\"'\"'\nprintf '\"'\"'%s'\"'\"' '\"'\"'0x39 0 0 0 0 0 4 0xFF 0x5A 0xA5 0x24'\"'\"' > \"$C/tx_cmd\"\nprintf '\"'\"'%s'\"'\"' '\"'\"'1 0x06 1 0 1 0 0 1 0x9D'\"'\"' > \"$C/rx_cmd\"\nprintf '\"'\"'%s'\"'\"' \"$P0\" > \"$C/tx_cmd\"\nprintf '\"'\"'R 24:9D '\"'\"'\ncat \"$C/rx_cmd\"\nprintf '\"'\"'\\n'\"'\"'\nprintf '\"'\"'%s'\"'\"' '\"'\"'0x39 0 0 0 0 0 4 0xFF 0x5A 0xA5 0x24'\"'\"' > \"$C/tx_cmd\"\nprintf '\"'\"'%s'\"'\"' '\"'\"'1 0x06 1 0 1 0 0 1 0x9E'\"'\"' > \"$C/rx_cmd\"\nprintf '\"'\"'%s'\"'\"' \"$P0\" > \"$C/tx_cmd\"\nprintf '\"'\"'R 24:9E '\"'\"'\ncat \"$C/rx_cmd\"\nprintf '\"'\"'\\n'\"'\"'\nprintf '\"'\"'%s'\"'\"' '\"'\"'0x39 0 0 0 0 0 4 0xFF 0x5A 0xA5 0x23'\"'\"' > \"$C/tx_cmd\"\nprintf '\"'\"'%s'\"'\"' '\"'\"'1 0x06 1 0 1 0 0 1 0x80'\"'\"' > \"$C/rx_cmd\"\nprintf '\"'\"'%s'\"'\"' \"$P0\" > \"$C/tx_cmd\"\nprintf '\"'\"'R 23:80 '\"'\"'\ncat \"$C/rx_cmd\"\nprintf '\"'\"'\\n'\"'\"'\nprintf '\"'\"'%s'\"'\"' '\"'\"'0x39 0 0 0 0 0 4 0xFF 0x5A 0xA5 0x53'\"'\"' > \"$C/tx_cmd\"\nprintf '\"'\"'%s'\"'\"' '\"'\"'2 0x06 1 0 1 0 0 1 0x95'\"'\"' > \"$C/rx_cmd\"\nprintf '\"'\"'%s'\"'\"' \"$P0\" > \"$C/tx_cmd\"\nprintf '\"'\"'R 53:95 '\"'\"'\ncat \"$C/rx_cmd\"\nprintf '\"'\"'\\n'\"'\"'\nprintf '\"'\"'%s'\"'\"' '\"'\"'0x39 0 0 0 0 0 4 0xFF 0x5A 0xA5 0x00'\"'\"' > \"$C/tx_cmd\"\nprintf '\"'\"'%s'\"'\"' '\"'\"'2 0x06 1 0 1 0 0 1 0x52'\"'\"' > \"$C/rx_cmd\"\nprintf '\"'\"'%s'\"'\"' \"$P0\" > \"$C/tx_cmd\"\nprintf '\"'\"'R 00:52 '\"'\"'\ncat \"$C/rx_cmd\"\nprintf '\"'\"'\\n'\"'\"'\n'",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "<private phase-3-reads.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T06:34:40.388+00:00",
+      "device": "target",
+      "command": "dmesg",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "<private phase-3-kernel.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T06:34:40.560+00:00",
+      "device": "target",
+      "command": "cat /sys/kernel/tracing/instances/pwm_latch/trace",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "<private phase-3-trace.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T06:34:40.616+00:00",
+      "device": "target",
+      "command": "cat /sys/class/backlight/panel0-backlight/brightness",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "3584",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T06:34:40.671+00:00",
+      "device": "target",
+      "command": "cat /sys/class/backlight/panel0-backlight/bl_power",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T06:34:40.806+00:00",
+      "device": "target",
+      "command": "timeout -k 3 15 unshare -m /system/bin/sh -c 'set -eu\nmount -o rprivate none /\nmount -t debugfs -o nosuid,nodev,noexec debugfs /data/local/tmp/pwm-ddic-latch-20261107/dbg\nC=/data/local/tmp/pwm-ddic-latch-20261107/dbg/dri/9800000.qcom,mdss_mdp/DSI-1\nE=/data/local/tmp/pwm-ddic-latch-20261107/dbg/qcom,mdss_dsi_mot_boe_ili97701A_682_1440x3168_dsc_cmd_v4/esd_check_mode\nP0='\"'\"'0x39 0 0 0 0 0 4 0xFF 0x5A 0xA5 0'\"'\"'\nrestore() {\n s=$?; trap - EXIT\n printf '\"'\"'%s'\"'\"' \"$P0\" > \"$C/tx_cmd\" || s=31\n printf reg_read > \"$E\" || s=32\n m=$(tr -d '\"'\"'\\000'\"'\"' < \"$E\")\n printf '\"'\"'ESD_RESTORED %s\\n'\"'\"' \"$m\"\n [ \"$m\" = reg_read ] || s=33\n umount /data/local/tmp/pwm-ddic-latch-20261107/dbg || s=34\n exit \"$s\"\n}\ntrap restore EXIT\ntrap '\"'\"'exit 30'\"'\"' HUP INT TERM\n'",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "<private esd-final.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T06:34:40.864+00:00",
+      "device": "target",
+      "command": "printf 0 > /sys/kernel/tracing/instances/pwm_latch/tracing_on",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T06:34:41.039+00:00",
+      "device": "target",
+      "command": "cat /sys/kernel/tracing/instances/pwm_latch/trace",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "<private trace-final.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T06:34:41.091+00:00",
+      "device": "target",
+      "command": "cat /sys/kernel/tracing/kprobe_profile",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "<private probe-profile.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T06:34:41.146+00:00",
+      "device": "target",
+      "command": "printf 0 > /sys/kernel/tracing/instances/pwm_latch/events/pwm_latch/enable",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T06:34:41.198+00:00",
+      "device": "target",
+      "command": "printf '%s\\n' -:pwm_latch/raw_ret >> /sys/kernel/tracing/kprobe_events",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T06:34:41.249+00:00",
+      "device": "target",
+      "command": "printf '%s\\n' -:pwm_latch/raw >> /sys/kernel/tracing/kprobe_events",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T06:34:41.312+00:00",
+      "device": "target",
+      "command": "printf '%s\\n' -:pwm_latch/ctrl >> /sys/kernel/tracing/kprobe_events",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T06:34:41.369+00:00",
+      "device": "target",
+      "command": "rmdir /sys/kernel/tracing/instances/pwm_latch",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T06:34:41.417+00:00",
+      "device": "target",
+      "command": "printf 0 > /sys/class/drm/card0-DSI-1/mipi_cmd_log_en",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T06:34:43.527+00:00",
+      "device": "target",
+      "command": "uiautomator dump /data/local/tmp/pwm-ddic-latch-20261107/ui.xml >/dev/null && cat /data/local/tmp/pwm-ddic-latch-20261107/ui.xml",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private target-ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T06:34:43.588+00:00",
+      "device": "target",
+      "command": "cat /sys/class/drm/card0-DSI-1/panelDC",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T06:34:44.645+00:00",
+      "device": "target",
+      "command": "content call --uri content://com.motorola.android.providers.settings/global --method GET_global --arg display_dc_mode_enabled",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "Result: Bundle[{value=0}]",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T06:34:44.692+00:00",
+      "device": "target",
+      "command": "settings put system screen_brightness 52",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T06:34:44.738+00:00",
+      "device": "target",
+      "command": "settings put system min_refresh_rate 120.0",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T06:34:44.787+00:00",
+      "device": "target",
+      "command": "settings put system peak_refresh_rate 120.0",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T06:34:44.836+00:00",
+      "device": "target",
+      "command": "settings put system screen_off_timeout 1800000",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T06:34:44.883+00:00",
+      "device": "target",
+      "command": "settings put system screen_brightness_mode 0",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T06:34:44.954+00:00",
+      "device": "target",
+      "command": "rm -f /data/local/tmp/pwm-ddic-latch-20261107/ui.xml; rmdir /data/local/tmp/pwm-ddic-latch-20261107/dbg /data/local/tmp/pwm-ddic-latch-20261107",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T06:34:45.004+00:00",
+      "device": "target",
+      "command": "settings get system screen_brightness_mode",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T06:34:45.050+00:00",
+      "device": "target",
+      "command": "settings get system screen_brightness",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "52",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T06:34:45.100+00:00",
+      "device": "target",
+      "command": "settings get system min_refresh_rate",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "120.0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T06:34:45.146+00:00",
+      "device": "target",
+      "command": "settings get system peak_refresh_rate",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "120.0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T06:34:45.196+00:00",
+      "device": "target",
+      "command": "settings get system screen_off_timeout",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "1800000",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T06:34:45.248+00:00",
+      "device": "target",
+      "command": "cat /sys/class/drm/card0-DSI-1/panelDC",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T06:34:45.308+00:00",
+      "device": "target",
+      "command": "cat /sys/class/drm/card0-DSI-1/mipi_cmd_log_en",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "ctrl->ctrl->mipi_cmd_log_en: 0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T06:34:45.340+00:00",
+      "device": "target",
+      "command": "getenforce",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "Enforcing",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T06:34:45.391+00:00",
+      "device": "target",
+      "command": "cat /sys/class/backlight/panel0-backlight/bl_power",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T06:34:45.441+00:00",
+      "device": "target",
+      "command": "settings get global stay_on_while_plugged_in",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "7",
+      "stderr": ""
+    }
+  ],
+  "phases": [
+    {
+      "index": 1,
+      "dc": 0,
+      "before_read": "/home/stfu/.cache/opencode-tmp/opencode/ddic-latch-20261107/phase-1-before.png",
+      "camera": {
+        "android.sensor.exposureTime": [
+          "100000",
+          "100000"
+        ],
+        "android.sensor.sensitivity": [
+          "6400",
+          "6400"
+        ],
+        "android.control.aeMode": [
+          "OFF",
+          "OFF"
+        ],
+        "android.control.afMode": [
+          "OFF",
+          "OFF"
+        ],
+        "android.lens.focusDistance": [
+          "9.11752701",
+          "9.11752701"
+        ],
+        "android.control.videoStabilizationMode": [
+          "OFF",
+          "OFF"
+        ],
+        "android.lens.opticalStabilizationMode": [
+          "OFF",
+          "OFF"
+        ],
+        "android.sensor.rollingShutterSkew": [
+          "15596307"
+        ]
+      },
+      "registers": {
+        "4F:80": [
+          1
+        ],
+        "4F:81": [
+          6
+        ],
+        "4F:88": [
+          0
+        ],
+        "4F:8B": [
+          0
+        ],
+        "4F:C1": [
+          6
+        ],
+        "4F:C9": [
+          6
+        ],
+        "4F:D1": [
+          6
+        ],
+        "4F:D9": [
+          16
+        ],
+        "23:A9": [
+          14
+        ],
+        "23:AA": [
+          17
+        ],
+        "24:9D": [
+          14
+        ],
+        "24:9E": [
+          17
+        ],
+        "23:80": [
+          80
+        ],
+        "53:95": [
+          0,
+          160
+        ],
+        "00:52": [
+          14,
+          0
+        ]
+      },
+      "after_read": [
+        "/home/stfu/.cache/opencode-tmp/opencode/ddic-latch-20261107/phase-1-after-0.png",
+        "/home/stfu/.cache/opencode-tmp/opencode/ddic-latch-20261107/phase-1-after-1.png",
+        "/home/stfu/.cache/opencode-tmp/opencode/ddic-latch-20261107/phase-1-after-2.png"
+      ]
+    },
+    {
+      "index": 2,
+      "dc": 1,
+      "before_read": "/home/stfu/.cache/opencode-tmp/opencode/ddic-latch-20261107/phase-2-before.png",
+      "camera": {
+        "android.sensor.exposureTime": [
+          "100000",
+          "100000"
+        ],
+        "android.sensor.sensitivity": [
+          "6400",
+          "6400"
+        ],
+        "android.control.aeMode": [
+          "OFF",
+          "OFF"
+        ],
+        "android.control.afMode": [
+          "OFF",
+          "OFF"
+        ],
+        "android.lens.focusDistance": [
+          "9.11752701",
+          "9.11752701"
+        ],
+        "android.control.videoStabilizationMode": [
+          "OFF",
+          "OFF"
+        ],
+        "android.lens.opticalStabilizationMode": [
+          "OFF",
+          "OFF"
+        ],
+        "android.sensor.rollingShutterSkew": [
+          "15596307"
+        ]
+      },
+      "registers": {
+        "4F:80": [
+          1
+        ],
+        "4F:81": [
+          16
+        ],
+        "4F:88": [
+          0
+        ],
+        "4F:8B": [
+          0
+        ],
+        "4F:C1": [
+          6
+        ],
+        "4F:C9": [
+          6
+        ],
+        "4F:D1": [
+          6
+        ],
+        "4F:D9": [
+          16
+        ],
+        "23:A9": [
+          142
+        ],
+        "23:AA": [
+          17
+        ],
+        "24:9D": [
+          142
+        ],
+        "24:9E": [
+          17
+        ],
+        "23:80": [
+          144
+        ],
+        "53:95": [
+          68,
+          80
+        ],
+        "00:52": [
+          14,
+          0
+        ]
+      },
+      "after_read": [
+        "/home/stfu/.cache/opencode-tmp/opencode/ddic-latch-20261107/phase-2-after-0.png",
+        "/home/stfu/.cache/opencode-tmp/opencode/ddic-latch-20261107/phase-2-after-1.png",
+        "/home/stfu/.cache/opencode-tmp/opencode/ddic-latch-20261107/phase-2-after-2.png"
+      ]
+    },
+    {
+      "index": 3,
+      "dc": 0,
+      "before_read": "/home/stfu/.cache/opencode-tmp/opencode/ddic-latch-20261107/phase-3-before.png",
+      "camera": {
+        "android.sensor.exposureTime": [
+          "100000",
+          "100000"
+        ],
+        "android.sensor.sensitivity": [
+          "6400",
+          "6400"
+        ],
+        "android.control.aeMode": [
+          "OFF",
+          "OFF"
+        ],
+        "android.control.afMode": [
+          "OFF",
+          "OFF"
+        ],
+        "android.lens.focusDistance": [
+          "9.11752701",
+          "9.11752701"
+        ],
+        "android.control.videoStabilizationMode": [
+          "OFF",
+          "OFF"
+        ],
+        "android.lens.opticalStabilizationMode": [
+          "OFF",
+          "OFF"
+        ],
+        "android.sensor.rollingShutterSkew": [
+          "15596307"
+        ]
+      },
+      "registers": {
+        "4F:80": [
+          1
+        ],
+        "4F:81": [
+          16
+        ],
+        "4F:88": [
+          0
+        ],
+        "4F:8B": [
+          0
+        ],
+        "4F:C1": [
+          6
+        ],
+        "4F:C9": [
+          6
+        ],
+        "4F:D1": [
+          6
+        ],
+        "4F:D9": [
+          16
+        ],
+        "23:A9": [
+          14
+        ],
+        "23:AA": [
+          17
+        ],
+        "24:9D": [
+          14
+        ],
+        "24:9E": [
+          17
+        ],
+        "23:80": [
+          80
+        ],
+        "53:95": [
+          0,
+          160
+        ],
+        "00:52": [
+          14,
+          0
+        ]
+      },
+      "after_read": [
+        "/home/stfu/.cache/opencode-tmp/opencode/ddic-latch-20261107/phase-3-after-0.png",
+        "/home/stfu/.cache/opencode-tmp/opencode/ddic-latch-20261107/phase-3-after-1.png",
+        "/home/stfu/.cache/opencode-tmp/opencode/ddic-latch-20261107/phase-3-after-2.png"
+      ]
+    }
+  ],
+  "pwm_hz": "unknown",
+  "before": {
+    "screen_brightness_mode": "0",
+    "screen_brightness": "52",
+    "min_refresh_rate": "120.0",
+    "peak_refresh_rate": "120.0",
+    "screen_off_timeout": "1800000",
+    "stay_on": "7",
+    "power": "0"
+  },
+  "camera_before": {
+    "android.sensor.exposureTime": [
+      "100000",
+      "100000"
+    ],
+    "android.sensor.sensitivity": [
+      "6400",
+      "6400"
+    ],
+    "android.control.aeMode": [
+      "OFF",
+      "OFF"
+    ],
+    "android.control.afMode": [
+      "OFF",
+      "OFF"
+    ],
+    "android.lens.focusDistance": [
+      "9.11752701",
+      "9.11752701"
+    ],
+    "android.control.videoStabilizationMode": [
+      "OFF",
+      "OFF"
+    ],
+    "android.lens.opticalStabilizationMode": [
+      "OFF",
+      "OFF"
+    ],
+    "android.sensor.rollingShutterSkew": [
+      "15596307"
+    ]
+  },
+  "three_states_complete": true,
+  "after": {
+    "screen_brightness_mode": "0",
+    "screen_brightness": "52",
+    "min_refresh_rate": "120.0",
+    "peak_refresh_rate": "120.0",
+    "screen_off_timeout": "1800000",
+    "dc": "0",
+    "logger": "ctrl->ctrl->mipi_cmd_log_en: 0",
+    "selinux": "Enforcing",
+    "power": "0",
+    "stay_on": "7"
+  },
+  "restored": true,
+  "cleanup_errors": [],
+  "finished_at_utc": "2026-11-07T06:34:45.442+00:00"
+}

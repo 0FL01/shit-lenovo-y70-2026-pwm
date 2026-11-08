@@ -1,0 +1,45 @@
+{
+  "observed_at_utc": "2026-11-06T12:26:11.666782+00:00",
+  "status": "confirmed-on-target; selected live panel DT subtree only, no chosen/serial/cell identifiers",
+  "live_node": "/sys/firmware/devicetree/base/soc/qcom,mdss_mdp@9800000/qcom,mdss_dsi_mot_boe_ili97701A_682_1440x3168_dsc_cmd_v4",
+  "extraction": "artifacts/device_tree/selected_boe_v4",
+  "property_count": 425,
+  "control_property_names": [
+    "qcom,mdss-dsi-dc-on-command",
+    "qcom,mdss-dsi-dc-on-command-state",
+    "qcom,mdss-dsi-hbm-fod-on-command",
+    "qcom,mdss-dsi-hbm-on-command-state",
+    "qcom,mdss-dsi-hbm-off-command-state",
+    "qcom,mdss-dsi-hbm-fod",
+    "qcom,mdss-dsi-dc-off-command-state",
+    "qcom,mdss-dsi-panel-peak-brightness",
+    "qcom,mdss-dsi-hbm-on-command",
+    "qcom,mdss-dsi-hbm-off-command",
+    "qcom,mdss-dsi-dc-off-command",
+    "qcom,mdss-brightness-max-level"
+  ],
+  "dc_reference_comparison": [
+    {
+      "reference": "cn",
+      "dc_on": {
+        "live_bytes": 875,
+        "byte_equal_reference": true
+      },
+      "dc_off": {
+        "live_bytes": 875,
+        "byte_equal_reference": true
+      }
+    },
+    {
+      "reference": "eu",
+      "dc_on": {
+        "live_bytes": 875,
+        "byte_equal_reference": true
+      },
+      "dc_off": {
+        "live_bytes": 875,
+        "byte_equal_reference": true
+      }
+    }
+  ]
+}

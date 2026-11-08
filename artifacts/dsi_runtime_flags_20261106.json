@@ -1,0 +1,1267 @@
+{
+  "scope": "Read-only runtime probes around unchanged stock raw ON/OFF and native UI ON/OFF; no custom profile/camera/flash",
+  "started_at_utc": "2026-11-06T21:17:53.554152+00:00",
+  "stages": [
+    {
+      "label": "raw_on",
+      "started_at_utc": "2026-11-06T21:18:02.589747+00:00",
+      "table_packets_matched": 75,
+      "post_table_dbv_matched": true,
+      "finished_at_utc": "2026-11-06T21:18:04.363819+00:00"
+    },
+    {
+      "label": "raw_off",
+      "started_at_utc": "2026-11-06T21:18:04.364095+00:00",
+      "table_packets_matched": 75,
+      "post_table_dbv_matched": true,
+      "finished_at_utc": "2026-11-06T21:18:06.569304+00:00"
+    },
+    {
+      "label": "ui_on",
+      "started_at_utc": "2026-11-06T21:18:06.569698+00:00",
+      "table_packets_matched": 75,
+      "post_table_dbv_matched": true,
+      "finished_at_utc": "2026-11-06T21:18:10.885591+00:00"
+    },
+    {
+      "label": "ui_off",
+      "started_at_utc": "2026-11-06T21:18:10.889297+00:00",
+      "table_packets_matched": 75,
+      "post_table_dbv_matched": true,
+      "finished_at_utc": "2026-11-06T21:18:15.241896+00:00"
+    }
+  ],
+  "events": [
+    {
+      "at_utc": "2026-11-06T21:17:53.641332+00:00",
+      "command": "getprop ro.boot.hardware.sku; getprop ro.build.display.id; getprop ro.boot.slot_suffix; uname -r; getenforce",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "XT2611-1\nW3WWS36.65-64-4-1\n_b\n6.12.58-android16-6-g09eda8c8505a-dirty-ab15950084-4k\nEnforcing",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:17:53.696926+00:00",
+      "command": "id",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "uid=0(root) gid=0(root) groups=0(root) context=u:r:ksu:s0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:17:53.753185+00:00",
+      "command": "cat /sys/class/drm/card0-DSI-1/panelName",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "boe_ili97701A_682_1440x3168_dsc_cmd_v4",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:17:53.813626+00:00",
+      "command": "sha256sum /vendor/lib/modules/msm_drm.ko",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "1bec69faec736e7288f38e4cb83314c37c60d33e6b383213316fd880aa0b1804  /vendor/lib/modules/msm_drm.ko",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:17:53.876688+00:00",
+      "command": "cat /sys/class/drm/card0-DSI-1/panelDC",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:17:53.933241+00:00",
+      "command": "cat /sys/class/drm/card0-DSI-1/mipi_cmd_log_en",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "ctrl->ctrl->mipi_cmd_log_en: 0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:17:53.999907+00:00",
+      "command": "test ! -e /data/local/tmp/pwm-flags-20261106 && test ! -e /sys/kernel/tracing/instances/pwm_cmp && ! grep -q pwm_cmp/ /sys/kernel/tracing/kprobe_events",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:17:54.056881+00:00",
+      "command": "settings get system screen_brightness",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "53",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:17:54.109707+00:00",
+      "command": "settings get system screen_brightness_mode",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "1",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:17:54.164175+00:00",
+      "command": "settings get system min_refresh_rate",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "null",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:17:54.216815+00:00",
+      "command": "settings get system peak_refresh_rate",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "null",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:17:54.270254+00:00",
+      "command": "settings get system screen_off_timeout",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "300000",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:17:54.332812+00:00",
+      "command": "cat /sys/class/backlight/panel0-backlight/bl_power",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "4",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:17:54.394512+00:00",
+      "command": "mkdir -m 700 /data/local/tmp/pwm-flags-20261106; mkdir /data/local/tmp/pwm-flags-20261106/debugfs",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:17:54.506068+00:00",
+      "command": "sha256sum /data/local/tmp/pwm-flags-20261106/chunks/on_0.txt",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "97512c5bb6171d17730f8ea975eba8ada1d2dccd1aa77bc271f2104e8cbe3ec7  /data/local/tmp/pwm-flags-20261106/chunks/on_0.txt",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:17:54.545883+00:00",
+      "command": "sha256sum /data/local/tmp/pwm-flags-20261106/chunks/on_1.txt",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "2c7baf44e58c92e9eacf071531a4e111c034e43f20fb5e11eb3b645606c895d0  /data/local/tmp/pwm-flags-20261106/chunks/on_1.txt",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:17:54.584822+00:00",
+      "command": "sha256sum /data/local/tmp/pwm-flags-20261106/chunks/on_2.txt",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "aaa88db9aac1364f6b2e896be94c0a2e710e100a06964c3750c3141e866aa8d7  /data/local/tmp/pwm-flags-20261106/chunks/on_2.txt",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:17:54.623866+00:00",
+      "command": "sha256sum /data/local/tmp/pwm-flags-20261106/chunks/on_3.txt",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "fea6569f442f72d2010a452d57b437c10573af90a57ea5319e5419828314b490  /data/local/tmp/pwm-flags-20261106/chunks/on_3.txt",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:17:54.663730+00:00",
+      "command": "sha256sum /data/local/tmp/pwm-flags-20261106/chunks/on_4.txt",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "c411c2d68cfc08e994df6946a1653a79005b823ee3b73a6217a4484f38e89d64  /data/local/tmp/pwm-flags-20261106/chunks/on_4.txt",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:17:54.702788+00:00",
+      "command": "sha256sum /data/local/tmp/pwm-flags-20261106/chunks/off_0.txt",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "c6453e5b33c56be927c77c4253c847be89f77edf7fe25a4f6a34dbbe40b84b9e  /data/local/tmp/pwm-flags-20261106/chunks/off_0.txt",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:17:54.743734+00:00",
+      "command": "sha256sum /data/local/tmp/pwm-flags-20261106/chunks/off_1.txt",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "12b18617aa6d95975a0942b1a3d6345e64e07956b3b5f23b1519557bf6a751e2  /data/local/tmp/pwm-flags-20261106/chunks/off_1.txt",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:17:54.783485+00:00",
+      "command": "sha256sum /data/local/tmp/pwm-flags-20261106/chunks/off_2.txt",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "d5c42ad1c9fa610a9da22dca46476bd723e0c264b323599f691d533a23575eb5  /data/local/tmp/pwm-flags-20261106/chunks/off_2.txt",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:17:54.822569+00:00",
+      "command": "sha256sum /data/local/tmp/pwm-flags-20261106/chunks/off_3.txt",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "baf3059dab38b73f5efa87f1201628ca88e7d4fe92fcd593e8a5f920ab477f6f  /data/local/tmp/pwm-flags-20261106/chunks/off_3.txt",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:17:54.865913+00:00",
+      "command": "sha256sum /data/local/tmp/pwm-flags-20261106/chunks/off_4.txt",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "c411c2d68cfc08e994df6946a1653a79005b823ee3b73a6217a4484f38e89d64  /data/local/tmp/pwm-flags-20261106/chunks/off_4.txt",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:17:55.042538+00:00",
+      "command": "settings put system screen_brightness_mode 0; settings put system screen_brightness 52; settings put system min_refresh_rate 120.0; settings put system peak_refresh_rate 120.0; settings put system screen_off_timeout 600000; input keyevent 224",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:17:55.092099+00:00",
+      "command": "dumpsys window policy | grep -F 'screenState='",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "screenState=SCREEN_STATE_TURNING_ON",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:17:55.281382+00:00",
+      "command": "dumpsys window policy | grep -F 'screenState='",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "screenState=SCREEN_STATE_ON",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:17:55.315838+00:00",
+      "command": "dumpsys window policy | grep -F 'interactiveState='",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "interactiveState=INTERACTIVE_STATE_AWAKE",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:17:55.340389+00:00",
+      "command": "wm dismiss-keyguard",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:17:55.373857+00:00",
+      "command": "dumpsys window policy | grep -F 'mIsShowing='",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "mIsShowing=true",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:17:55.569084+00:00",
+      "command": "dumpsys window policy | grep -F 'mIsShowing='",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "mIsShowing=true",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:17:55.763752+00:00",
+      "command": "dumpsys window policy | grep -F 'mIsShowing='",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "mIsShowing=true",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:17:55.967378+00:00",
+      "command": "dumpsys window policy | grep -F 'mIsShowing='",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "mIsShowing=false",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:17:56.053255+00:00",
+      "command": "am start -W --activity-clear-top -n 'com.android.settings/.Settings$DisplaySettingsActivity'",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "Starting: Intent { flg=0x4000000 cmp=com.android.settings/.Settings$DisplaySettingsActivity }\nStatus: ok\nLaunchState: WARM\nActivity: com.android.settings/.Settings$DisplaySettingsActivity\nTotalTime: 55\nWaitTime: 57\nComplete",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:17:58.068682+00:00",
+      "command": "uiautomator dump /data/local/tmp/pwm-flags-20261106/ui.xml >/dev/null && cat /data/local/tmp/pwm-flags-20261106/ui.xml",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:17:58.511411+00:00",
+      "command": "input swipe 720 2780 720 850 400",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:18:00.676021+00:00",
+      "command": "uiautomator dump /data/local/tmp/pwm-flags-20261106/ui.xml >/dev/null && cat /data/local/tmp/pwm-flags-20261106/ui.xml",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:18:00.726626+00:00",
+      "command": "cat /sys/class/drm/card0-DSI-1/panelDC",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:18:01.759250+00:00",
+      "command": "content call --uri content://com.motorola.android.providers.settings/global --method GET_global --arg display_dc_mode_enabled",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "Result: Bundle[{value=0}]",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:18:01.820204+00:00",
+      "command": "printf '3600\\n' > /sys/class/backlight/panel0-backlight/brightness",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:18:01.873132+00:00",
+      "command": "cat /sys/class/backlight/panel0-backlight/brightness",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "3600",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:18:01.922168+00:00",
+      "command": "dumpsys display",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private display.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:18:01.972802+00:00",
+      "command": "mkdir /sys/kernel/tracing/instances/pwm_cmp",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:18:02.029651+00:00",
+      "command": "printf 0 > /sys/kernel/tracing/instances/pwm_cmp/tracing_on; printf mono > /sys/kernel/tracing/instances/pwm_cmp/trace_clock",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:18:02.090970+00:00",
+      "command": "printf '%s\\n' 'p:pwm_cmp/cmp_ctrl msm_drm:dsi_ctrl_cmd_transfer ctrl=$arg1:x64 cmd=$arg2:x64 channel=+0($arg2):u8 type=+1($arg2):x8 msg_flags=+2($arg2):x16 len=+8($arg2):u64 rx_len=+0x18($arg2):u64 last=+0x28($arg2):u8 wait_ms=+0x2c($arg2):u32 route=+0x30($arg2):u32 ctrl_flags=+0x34($arg2):x32 flush=$arg3:u8 cmd_len=+0xae8($arg1):u32 secure=+0xaf8($arg1):u8' >> /sys/kernel/tracing/kprobe_events",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:18:02.145818+00:00",
+      "command": "printf '%s\\n' 'p:pwm_cmp/cmp_flags msm_drm:dsi_display_set_cmd_tx_ctrl_flags display=$arg1:x64 cmd=$arg2:x64 in_ctrl_flags=+0x34($arg2):x32 qwait=+0x678($arg1):u8 esync=+0x420($arg1):u8 enabled=+0x798($arg1):u8 nctrl=+0xb8($arg1):u32 panel_mode=+0x548(+0x120($arg1)):u32' >> /sys/kernel/tracing/kprobe_events",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:18:02.200122+00:00",
+      "command": "printf '%s\\n' 'p:pwm_cmp/cmp_prepare msm_drm:dsi_ctrl_transfer_prepare ctrl=$arg1:x64 flags=$arg2:x32 cmd_len=+0xae8($arg1):u32 post_queued=+0xb28($arg1):u8' >> /sys/kernel/tracing/kprobe_events",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:18:02.257156+00:00",
+      "command": "printf '%s\\n' 'p:pwm_cmp/cmp_unprepare msm_drm:dsi_ctrl_transfer_unprepare ctrl=$arg1:x64 flags=$arg2:x32 cmd_len=+0xae8($arg1):u32' >> /sys/kernel/tracing/kprobe_events",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:18:02.333436+00:00",
+      "command": "printf '%s\\n' 'r:pwm_cmp/cmp_return msm_drm:dsi_ctrl_cmd_transfer rc=$retval:s32' >> /sys/kernel/tracing/kprobe_events",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:18:02.392414+00:00",
+      "command": "printf '%s\\n' 'p:pwm_cmp/cmp_raw msm_drm:dsi_display_cmd_transfer pending=+0x694($arg2):u32 length=$arg4:u32 flags=+3($arg3):u8' >> /sys/kernel/tracing/kprobe_events",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:18:02.470661+00:00",
+      "command": "printf '%s\\n' 'r:pwm_cmp/cmp_raw_return msm_drm:dsi_display_cmd_transfer rc=$retval:s32' >> /sys/kernel/tracing/kprobe_events",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:18:02.536117+00:00",
+      "command": "printf 1 > /sys/kernel/tracing/instances/pwm_cmp/events/pwm_cmp/enable; printf 1 > /sys/kernel/tracing/instances/pwm_cmp/tracing_on",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:18:02.589404+00:00",
+      "command": "printf 1 > /sys/class/drm/card0-DSI-1/mipi_cmd_log_en",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:18:02.653315+00:00",
+      "command": "printf '%s\\n' PWM_FLAGS_BEGIN_raw_on > /sys/kernel/tracing/instances/pwm_cmp/trace_marker; printf '%s\\n' '<6>PWM_FLAGS_BEGIN_raw_on' > /dev/kmsg",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:18:02.738285+00:00",
+      "command": "unshare -m /system/bin/sh -c 'set -e; mount -o rprivate none /; mount -t debugfs -o nosuid,nodev,noexec debugfs /data/local/tmp/pwm-flags-20261106/debugfs; test -f /data/local/tmp/pwm-flags-20261106/debugfs/dri/9800000.qcom,mdss_mdp/DSI-1/tx_cmd; test -w /data/local/tmp/pwm-flags-20261106/debugfs/dri/9800000.qcom,mdss_mdp/DSI-1/tx_cmd; dd if=/data/local/tmp/pwm-flags-20261106/chunks/on_0.txt of=/data/local/tmp/pwm-flags-20261106/debugfs/dri/9800000.qcom,mdss_mdp/DSI-1/tx_cmd bs=4096 count=1 conv=notrunc status=none'",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:18:02.789055+00:00",
+      "command": "cat /sys/kernel/tracing/instances/pwm_cmp/trace",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "<private raw_on-trace.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:18:02.875872+00:00",
+      "command": "unshare -m /system/bin/sh -c 'set -e; mount -o rprivate none /; mount -t debugfs -o nosuid,nodev,noexec debugfs /data/local/tmp/pwm-flags-20261106/debugfs; test -f /data/local/tmp/pwm-flags-20261106/debugfs/dri/9800000.qcom,mdss_mdp/DSI-1/tx_cmd; test -w /data/local/tmp/pwm-flags-20261106/debugfs/dri/9800000.qcom,mdss_mdp/DSI-1/tx_cmd; dd if=/data/local/tmp/pwm-flags-20261106/chunks/on_1.txt of=/data/local/tmp/pwm-flags-20261106/debugfs/dri/9800000.qcom,mdss_mdp/DSI-1/tx_cmd bs=4096 count=1 conv=notrunc status=none'",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:18:02.931726+00:00",
+      "command": "cat /sys/kernel/tracing/instances/pwm_cmp/trace",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "<private raw_on-trace.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:18:03.006526+00:00",
+      "command": "unshare -m /system/bin/sh -c 'set -e; mount -o rprivate none /; mount -t debugfs -o nosuid,nodev,noexec debugfs /data/local/tmp/pwm-flags-20261106/debugfs; test -f /data/local/tmp/pwm-flags-20261106/debugfs/dri/9800000.qcom,mdss_mdp/DSI-1/tx_cmd; test -w /data/local/tmp/pwm-flags-20261106/debugfs/dri/9800000.qcom,mdss_mdp/DSI-1/tx_cmd; dd if=/data/local/tmp/pwm-flags-20261106/chunks/on_2.txt of=/data/local/tmp/pwm-flags-20261106/debugfs/dri/9800000.qcom,mdss_mdp/DSI-1/tx_cmd bs=4096 count=1 conv=notrunc status=none'",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:18:03.059690+00:00",
+      "command": "cat /sys/kernel/tracing/instances/pwm_cmp/trace",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "<private raw_on-trace.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:18:03.141200+00:00",
+      "command": "unshare -m /system/bin/sh -c 'set -e; mount -o rprivate none /; mount -t debugfs -o nosuid,nodev,noexec debugfs /data/local/tmp/pwm-flags-20261106/debugfs; test -f /data/local/tmp/pwm-flags-20261106/debugfs/dri/9800000.qcom,mdss_mdp/DSI-1/tx_cmd; test -w /data/local/tmp/pwm-flags-20261106/debugfs/dri/9800000.qcom,mdss_mdp/DSI-1/tx_cmd; dd if=/data/local/tmp/pwm-flags-20261106/chunks/on_3.txt of=/data/local/tmp/pwm-flags-20261106/debugfs/dri/9800000.qcom,mdss_mdp/DSI-1/tx_cmd bs=4096 count=1 conv=notrunc status=none'",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:18:03.194125+00:00",
+      "command": "cat /sys/kernel/tracing/instances/pwm_cmp/trace",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "<private raw_on-trace.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:18:03.279754+00:00",
+      "command": "unshare -m /system/bin/sh -c 'set -e; mount -o rprivate none /; mount -t debugfs -o nosuid,nodev,noexec debugfs /data/local/tmp/pwm-flags-20261106/debugfs; test -f /data/local/tmp/pwm-flags-20261106/debugfs/dri/9800000.qcom,mdss_mdp/DSI-1/tx_cmd; test -w /data/local/tmp/pwm-flags-20261106/debugfs/dri/9800000.qcom,mdss_mdp/DSI-1/tx_cmd; dd if=/data/local/tmp/pwm-flags-20261106/chunks/on_4.txt of=/data/local/tmp/pwm-flags-20261106/debugfs/dri/9800000.qcom,mdss_mdp/DSI-1/tx_cmd bs=4096 count=1 conv=notrunc status=none'",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:18:03.403473+00:00",
+      "command": "cat /sys/kernel/tracing/instances/pwm_cmp/trace",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "<private raw_on-trace.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:18:03.464230+00:00",
+      "command": "printf '3600\\n' > /sys/class/backlight/panel0-backlight/brightness",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:18:03.513082+00:00",
+      "command": "cat /sys/class/backlight/panel0-backlight/brightness",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "3600",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:18:04.069695+00:00",
+      "command": "cat /sys/class/backlight/panel0-backlight/bl_power",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:18:04.121428+00:00",
+      "command": "cat /sys/class/drm/card0-DSI-1/panelDC",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:18:04.181567+00:00",
+      "command": "printf '%s\\n' PWM_FLAGS_END_raw_on > /sys/kernel/tracing/instances/pwm_cmp/trace_marker; printf '%s\\n' '<6>PWM_FLAGS_END_raw_on' > /dev/kmsg",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:18:04.247012+00:00",
+      "command": "dmesg",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "<private raw_on-kernel.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:18:04.362761+00:00",
+      "command": "cat /sys/kernel/tracing/instances/pwm_cmp/trace",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "<private raw_on-trace.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:18:04.422298+00:00",
+      "command": "printf '%s\\n' PWM_FLAGS_BEGIN_raw_off > /sys/kernel/tracing/instances/pwm_cmp/trace_marker; printf '%s\\n' '<6>PWM_FLAGS_BEGIN_raw_off' > /dev/kmsg",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:18:04.487202+00:00",
+      "command": "unshare -m /system/bin/sh -c 'set -e; mount -o rprivate none /; mount -t debugfs -o nosuid,nodev,noexec debugfs /data/local/tmp/pwm-flags-20261106/debugfs; test -f /data/local/tmp/pwm-flags-20261106/debugfs/dri/9800000.qcom,mdss_mdp/DSI-1/tx_cmd; test -w /data/local/tmp/pwm-flags-20261106/debugfs/dri/9800000.qcom,mdss_mdp/DSI-1/tx_cmd; dd if=/data/local/tmp/pwm-flags-20261106/chunks/off_0.txt of=/data/local/tmp/pwm-flags-20261106/debugfs/dri/9800000.qcom,mdss_mdp/DSI-1/tx_cmd bs=4096 count=1 conv=notrunc status=none'",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:18:04.613920+00:00",
+      "command": "cat /sys/kernel/tracing/instances/pwm_cmp/trace",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "<private raw_off-trace.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:18:04.699311+00:00",
+      "command": "unshare -m /system/bin/sh -c 'set -e; mount -o rprivate none /; mount -t debugfs -o nosuid,nodev,noexec debugfs /data/local/tmp/pwm-flags-20261106/debugfs; test -f /data/local/tmp/pwm-flags-20261106/debugfs/dri/9800000.qcom,mdss_mdp/DSI-1/tx_cmd; test -w /data/local/tmp/pwm-flags-20261106/debugfs/dri/9800000.qcom,mdss_mdp/DSI-1/tx_cmd; dd if=/data/local/tmp/pwm-flags-20261106/chunks/off_1.txt of=/data/local/tmp/pwm-flags-20261106/debugfs/dri/9800000.qcom,mdss_mdp/DSI-1/tx_cmd bs=4096 count=1 conv=notrunc status=none'",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:18:04.828312+00:00",
+      "command": "cat /sys/kernel/tracing/instances/pwm_cmp/trace",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "<private raw_off-trace.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:18:04.910897+00:00",
+      "command": "unshare -m /system/bin/sh -c 'set -e; mount -o rprivate none /; mount -t debugfs -o nosuid,nodev,noexec debugfs /data/local/tmp/pwm-flags-20261106/debugfs; test -f /data/local/tmp/pwm-flags-20261106/debugfs/dri/9800000.qcom,mdss_mdp/DSI-1/tx_cmd; test -w /data/local/tmp/pwm-flags-20261106/debugfs/dri/9800000.qcom,mdss_mdp/DSI-1/tx_cmd; dd if=/data/local/tmp/pwm-flags-20261106/chunks/off_2.txt of=/data/local/tmp/pwm-flags-20261106/debugfs/dri/9800000.qcom,mdss_mdp/DSI-1/tx_cmd bs=4096 count=1 conv=notrunc status=none'",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:18:05.037595+00:00",
+      "command": "cat /sys/kernel/tracing/instances/pwm_cmp/trace",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "<private raw_off-trace.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:18:05.132576+00:00",
+      "command": "unshare -m /system/bin/sh -c 'set -e; mount -o rprivate none /; mount -t debugfs -o nosuid,nodev,noexec debugfs /data/local/tmp/pwm-flags-20261106/debugfs; test -f /data/local/tmp/pwm-flags-20261106/debugfs/dri/9800000.qcom,mdss_mdp/DSI-1/tx_cmd; test -w /data/local/tmp/pwm-flags-20261106/debugfs/dri/9800000.qcom,mdss_mdp/DSI-1/tx_cmd; dd if=/data/local/tmp/pwm-flags-20261106/chunks/off_3.txt of=/data/local/tmp/pwm-flags-20261106/debugfs/dri/9800000.qcom,mdss_mdp/DSI-1/tx_cmd bs=4096 count=1 conv=notrunc status=none'",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:18:05.255928+00:00",
+      "command": "cat /sys/kernel/tracing/instances/pwm_cmp/trace",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "<private raw_off-trace.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:18:05.346255+00:00",
+      "command": "unshare -m /system/bin/sh -c 'set -e; mount -o rprivate none /; mount -t debugfs -o nosuid,nodev,noexec debugfs /data/local/tmp/pwm-flags-20261106/debugfs; test -f /data/local/tmp/pwm-flags-20261106/debugfs/dri/9800000.qcom,mdss_mdp/DSI-1/tx_cmd; test -w /data/local/tmp/pwm-flags-20261106/debugfs/dri/9800000.qcom,mdss_mdp/DSI-1/tx_cmd; dd if=/data/local/tmp/pwm-flags-20261106/chunks/off_4.txt of=/data/local/tmp/pwm-flags-20261106/debugfs/dri/9800000.qcom,mdss_mdp/DSI-1/tx_cmd bs=4096 count=1 conv=notrunc status=none'",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:18:05.529783+00:00",
+      "command": "cat /sys/kernel/tracing/instances/pwm_cmp/trace",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "<private raw_off-trace.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:18:05.595684+00:00",
+      "command": "printf '3600\\n' > /sys/class/backlight/panel0-backlight/brightness",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:18:05.645723+00:00",
+      "command": "cat /sys/class/backlight/panel0-backlight/brightness",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "3600",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:18:06.206862+00:00",
+      "command": "cat /sys/class/backlight/panel0-backlight/bl_power",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:18:06.257129+00:00",
+      "command": "cat /sys/class/drm/card0-DSI-1/panelDC",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:18:06.318352+00:00",
+      "command": "printf '%s\\n' PWM_FLAGS_END_raw_off > /sys/kernel/tracing/instances/pwm_cmp/trace_marker; printf '%s\\n' '<6>PWM_FLAGS_END_raw_off' > /dev/kmsg",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:18:06.381885+00:00",
+      "command": "dmesg",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "<private raw_off-kernel.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:18:06.567383+00:00",
+      "command": "cat /sys/kernel/tracing/instances/pwm_cmp/trace",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "<private raw_off-trace.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:18:06.639062+00:00",
+      "command": "printf '%s\\n' PWM_FLAGS_BEGIN_ui_on > /sys/kernel/tracing/instances/pwm_cmp/trace_marker; printf '%s\\n' '<6>PWM_FLAGS_BEGIN_ui_on' > /dev/kmsg",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:18:08.742722+00:00",
+      "command": "uiautomator dump /data/local/tmp/pwm-flags-20261106/ui.xml >/dev/null && cat /data/local/tmp/pwm-flags-20261106/ui.xml",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:18:08.798637+00:00",
+      "command": "input tap 720 1157",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:18:08.829590+00:00",
+      "command": "cat /sys/class/drm/card0-DSI-1/panelDC",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "1",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:18:09.835459+00:00",
+      "command": "content call --uri content://com.motorola.android.providers.settings/global --method GET_global --arg display_dc_mode_enabled",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "Result: Bundle[{value=1}]",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:18:09.888857+00:00",
+      "command": "printf '3600\\n' > /sys/class/backlight/panel0-backlight/brightness",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:18:09.934128+00:00",
+      "command": "cat /sys/class/backlight/panel0-backlight/brightness",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "3600",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:18:10.474950+00:00",
+      "command": "cat /sys/class/backlight/panel0-backlight/bl_power",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:18:10.523535+00:00",
+      "command": "cat /sys/class/drm/card0-DSI-1/panelDC",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "1",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:18:10.578990+00:00",
+      "command": "printf '%s\\n' PWM_FLAGS_END_ui_on > /sys/kernel/tracing/instances/pwm_cmp/trace_marker; printf '%s\\n' '<6>PWM_FLAGS_END_ui_on' > /dev/kmsg",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:18:10.637042+00:00",
+      "command": "dmesg",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "<private ui_on-kernel.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:18:10.882922+00:00",
+      "command": "cat /sys/kernel/tracing/instances/pwm_cmp/trace",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "<private ui_on-trace.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:18:10.951223+00:00",
+      "command": "printf '%s\\n' PWM_FLAGS_BEGIN_ui_off > /sys/kernel/tracing/instances/pwm_cmp/trace_marker; printf '%s\\n' '<6>PWM_FLAGS_BEGIN_ui_off' > /dev/kmsg",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:18:13.058154+00:00",
+      "command": "uiautomator dump /data/local/tmp/pwm-flags-20261106/ui.xml >/dev/null && cat /data/local/tmp/pwm-flags-20261106/ui.xml",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:18:13.108182+00:00",
+      "command": "input tap 720 1157",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:18:13.136752+00:00",
+      "command": "cat /sys/class/drm/card0-DSI-1/panelDC",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:18:14.138722+00:00",
+      "command": "content call --uri content://com.motorola.android.providers.settings/global --method GET_global --arg display_dc_mode_enabled",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "Result: Bundle[{value=0}]",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:18:14.177648+00:00",
+      "command": "printf '3600\\n' > /sys/class/backlight/panel0-backlight/brightness",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:18:14.232329+00:00",
+      "command": "cat /sys/class/backlight/panel0-backlight/brightness",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "3600",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:18:14.765949+00:00",
+      "command": "cat /sys/class/backlight/panel0-backlight/bl_power",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:18:14.809909+00:00",
+      "command": "cat /sys/class/drm/card0-DSI-1/panelDC",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:18:14.868858+00:00",
+      "command": "printf '%s\\n' PWM_FLAGS_END_ui_off > /sys/kernel/tracing/instances/pwm_cmp/trace_marker; printf '%s\\n' '<6>PWM_FLAGS_END_ui_off' > /dev/kmsg",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:18:14.933534+00:00",
+      "command": "dmesg",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "<private ui_off-kernel.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:18:15.238702+00:00",
+      "command": "cat /sys/kernel/tracing/instances/pwm_cmp/trace",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "<private ui_off-trace.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:18:15.300764+00:00",
+      "command": "cat /sys/kernel/tracing/kprobe_profile",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "<private probe-profile.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:18:15.357240+00:00",
+      "command": "printf 0 > /sys/kernel/tracing/instances/pwm_cmp/tracing_on",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:18:15.657978+00:00",
+      "command": "cat /sys/kernel/tracing/instances/pwm_cmp/trace",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "<private trace-final.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:18:15.719940+00:00",
+      "command": "printf 0 > /sys/kernel/tracing/instances/pwm_cmp/events/pwm_cmp/enable; rmdir /sys/kernel/tracing/instances/pwm_cmp",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:18:15.773322+00:00",
+      "command": "printf '%s\\n' -:pwm_cmp/cmp_raw_return >> /sys/kernel/tracing/kprobe_events",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:18:15.829235+00:00",
+      "command": "printf '%s\\n' -:pwm_cmp/cmp_raw >> /sys/kernel/tracing/kprobe_events",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:18:15.886160+00:00",
+      "command": "printf '%s\\n' -:pwm_cmp/cmp_return >> /sys/kernel/tracing/kprobe_events",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:18:15.941220+00:00",
+      "command": "printf '%s\\n' -:pwm_cmp/cmp_unprepare >> /sys/kernel/tracing/kprobe_events",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:18:15.997814+00:00",
+      "command": "printf '%s\\n' -:pwm_cmp/cmp_prepare >> /sys/kernel/tracing/kprobe_events",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:18:16.051940+00:00",
+      "command": "printf '%s\\n' -:pwm_cmp/cmp_flags >> /sys/kernel/tracing/kprobe_events",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:18:16.102752+00:00",
+      "command": "printf '%s\\n' -:pwm_cmp/cmp_ctrl >> /sys/kernel/tracing/kprobe_events",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:18:16.156370+00:00",
+      "command": "printf 0 > /sys/class/drm/card0-DSI-1/mipi_cmd_log_en",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:18:18.243618+00:00",
+      "command": "uiautomator dump /data/local/tmp/pwm-flags-20261106/ui.xml >/dev/null && cat /data/local/tmp/pwm-flags-20261106/ui.xml",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "<private ui.xml>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:18:18.299425+00:00",
+      "command": "cat /sys/class/drm/card0-DSI-1/panelDC",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:18:19.344937+00:00",
+      "command": "content call --uri content://com.motorola.android.providers.settings/global --method GET_global --arg display_dc_mode_enabled",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "Result: Bundle[{value=0}]",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:18:19.391605+00:00",
+      "command": "settings put system screen_brightness 53",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:18:19.418360+00:00",
+      "command": "settings delete system min_refresh_rate",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "Deleted 1 rows",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:18:19.454840+00:00",
+      "command": "settings delete system peak_refresh_rate",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "Deleted 1 rows",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:18:19.505723+00:00",
+      "command": "settings put system screen_off_timeout 300000",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:18:19.553782+00:00",
+      "command": "settings put system screen_brightness_mode 1",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:18:19.581745+00:00",
+      "command": "input keyevent 223",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:18:19.609924+00:00",
+      "command": "cat /sys/class/backlight/panel0-backlight/bl_power",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:18:19.804492+00:00",
+      "command": "cat /sys/class/backlight/panel0-backlight/bl_power",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:18:20.004268+00:00",
+      "command": "cat /sys/class/backlight/panel0-backlight/bl_power",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:18:20.203837+00:00",
+      "command": "cat /sys/class/backlight/panel0-backlight/bl_power",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "4",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:18:20.249335+00:00",
+      "command": "settings get system screen_brightness",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "32",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:18:20.287496+00:00",
+      "command": "settings get system screen_brightness_mode",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "1",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:18:20.328717+00:00",
+      "command": "settings get system min_refresh_rate",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "null",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:18:20.358294+00:00",
+      "command": "settings get system peak_refresh_rate",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "null",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:18:20.392282+00:00",
+      "command": "settings get system screen_off_timeout",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "300000",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:18:20.427998+00:00",
+      "command": "cat /sys/class/drm/card0-DSI-1/panelDC",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:18:20.458449+00:00",
+      "command": "cat /sys/class/drm/card0-DSI-1/mipi_cmd_log_en",
+      "root": true,
+      "exit_code": 0,
+      "stdout": "ctrl->ctrl->mipi_cmd_log_en: 0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:18:20.481329+00:00",
+      "command": "getenforce",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "Enforcing",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T21:18:20.515452+00:00",
+      "command": "rm -f /data/local/tmp/pwm-flags-20261106/ui.xml /data/local/tmp/pwm-flags-20261106/chunks/on_0.txt /data/local/tmp/pwm-flags-20261106/chunks/on_1.txt /data/local/tmp/pwm-flags-20261106/chunks/on_2.txt /data/local/tmp/pwm-flags-20261106/chunks/on_3.txt /data/local/tmp/pwm-flags-20261106/chunks/on_4.txt /data/local/tmp/pwm-flags-20261106/chunks/off_0.txt /data/local/tmp/pwm-flags-20261106/chunks/off_1.txt /data/local/tmp/pwm-flags-20261106/chunks/off_2.txt /data/local/tmp/pwm-flags-20261106/chunks/off_3.txt /data/local/tmp/pwm-flags-20261106/chunks/off_4.txt; rmdir /data/local/tmp/pwm-flags-20261106/chunks /data/local/tmp/pwm-flags-20261106/debugfs /data/local/tmp/pwm-flags-20261106",
+      "root": false,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ],
+  "pwm_hz": "unknown",
+  "before": {
+    "screen_brightness": "53",
+    "screen_brightness_mode": "1",
+    "min_refresh_rate": "null",
+    "peak_refresh_rate": "null",
+    "screen_off_timeout": "300000",
+    "bl_power": "4"
+  },
+  "raw_return_required": false,
+  "probe_counts": {
+    "cmp_ctrl": {
+      "hits": 306,
+      "misses": 0
+    },
+    "cmp_flags": {
+      "hits": 306,
+      "misses": 0
+    },
+    "cmp_prepare": {
+      "hits": 306,
+      "misses": 0
+    },
+    "cmp_unprepare": {
+      "hits": 306,
+      "misses": 0
+    },
+    "cmp_return": {
+      "hits": 306,
+      "misses": 0
+    },
+    "cmp_raw": {
+      "hits": 10,
+      "misses": 0
+    },
+    "cmp_raw_return": {
+      "hits": 10,
+      "misses": 0
+    }
+  },
+  "comparison_captured": true,
+  "target_restored": true,
+  "after": {
+    "screen_brightness": "32",
+    "screen_brightness_mode": "1",
+    "min_refresh_rate": "null",
+    "peak_refresh_rate": "null",
+    "screen_off_timeout": "300000",
+    "dc": "0",
+    "logger": "ctrl->ctrl->mipi_cmd_log_en: 0",
+    "selinux": "Enforcing"
+  },
+  "temporary_device_files_removed": true,
+  "cleanup_errors": [],
+  "finished_at_utc": "2026-11-06T21:18:20.515954+00:00"
+}

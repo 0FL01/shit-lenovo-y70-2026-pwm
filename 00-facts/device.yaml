@@ -1,0 +1,57 @@
+context_version: 1
+as_of: '2026-11-06'
+identity:
+  manufacturer_hardware: 'Lenovo'
+  marketed_as: 'Legion Y70 New Generation (2026)'
+  model: 'XT2611-1'
+  hardware_revision_user_reported: 'pvt'
+  hardware_revision_confirmed: 'pvt; ro.boot.hardware.revision and fastboot hwrev agree'
+  device_codename_firmware: 'avr'
+  device_codename_firmware_status: 'confirmed-by-firmware-naming-and-Motorola-release'
+  android_rom: 'GLOBAL Motorola Edge 70 Max firmware on China-origin device'
+  android_rom_status: 'confirmed-on-target: W3WWS36.65-64-4-1 after the 2026-10-28 OTA (was W3WW36.65-64-4), motorola/avr_g/avr:16, ro.carrier=teleu'
+  cpu_family: 'Qualcomm Snapdragon 8 Gen 5'
+  soc_model_reported: 'SM8845'
+  android_major_expected: 16
+  gki_source_candidate: 'confirmed-on-target: unchanged boot_b kernel body byte-equal to official Google r59/common 09eda8c8505ac19be9c4e063afa1d351c1ca9fe2/build15950084; baseline config8085 lines and10210 reference CRCs matched. Custom KSU33355 booted persistently with msm_drm loaded. Full current Motorola module source match remains unproven; artifacts/source_inventory.md'
+  selected_panel_profile: 'confirmed-on-target: boe_ili97701A_682_1440x3168_dsc_cmd_v4; panelSupplier boe, panelId0xd2, panelVer0, matching dsi_display0 selector/live DT; artifacts/panel_live_20261106.json'
+  physical_panel_revision: 'unknown: selected v4 is a software profile; independent silicon revision decoding absent'
+owner_observations:
+  symptom: 'reported: owner experiences migraine and dry eyes when using low-PWM-frequency screens and quickly notices a subjective difference'
+  current_pwm_hz_estimate: 720
+  current_pwm_estimate_status: 'hypothesis: owner now considers ~720 Hz likely and reports tests quoting ~170 or ~720 Hz; controlled exposure evidence favors a ~720 Hz fine component. Exact/fundamental Hz and lower-frequency components remain unknown; artifacts/pacman_exposure_analysis_20261106.json. This does not meet the >=2000 Hz requirement.'
+  minimum_usable_pwm_hz: 2000
+  minimum_usable_pwm_status: 'reported: owner tolerates 2000 Hz based on experience with three other phones; individual usability requirement'
+  oscilloscope_available: false
+  validation_methods_status: 'reported: visual/comfort assessment and another smartphone camera; two other phones with owner-reported ~2000 Hz PWM available for comparison'
+  validation_limits: 'Qualitative improvement/usability can be reported; exact Hz, modulation depth and absence of a low-frequency envelope remain unverified. No instrumentation prerequisite for comparative trials; stop at discomfort, do not deliberately provoke symptoms.'
+  flicker_prevention: 'ON'
+  flicker_prevention_effect: 'No noticeable relief (user reports placebo)'
+  bootloader_state: 'confirmed-on-target: owner-approved oem unlock at 07:37 UTC, fastboot flashing_unlocked:SDP at 07:38, stock Android boot_completed=1/flash.locked=0/vbmeta unlocked/orange at 07:45 on 2026-11-06'
+  willing_to_experiment: 'yes, including device-risking custom kernel/display experiments; operation-specific plan and confirmation still required'
+  user_data_backups_required: false
+  full_wipe_accepted: true
+  persistent_root_required: true
+  root_project: 'https://github.com/KernelSU-Next/KernelSU-Next'
+  root_requirement_status: 'reported: owner requires persistent root for daily use after unlock; adapt KernelSU-Next to the target kernel, not only temporary research access'
+  root_state: 'confirmed-on-target: built-in KernelSU-Next v3.4.2/33355 installed only to boot_b; authorized UID0 after ordinary reboot, Enforcing and loaded msm_drm at12:19 UTC; artifacts/kernel/gki_r59/kernelsu_next/persistent/install.json'
+  immediate_priority: 'Finish bootloader unlock, then persistent KernelSU-Next root, then real OLED PWM >=2000 Hz; no user-data preservation prerequisite'
+bootloader:
+  state_status: 'confirmed-on-target'
+  state: 'unlocked: fastboot getvar securestate=flashing_unlocked:SDP at 2026-11-06 07:38:02 UTC after successful owner-approved OEM unlock'
+  verification: 'confirmed-on-target: fastboot flashing_unlocked:SDP and subsequent ADB sys.boot_completed=1, flash.locked=0, vbmeta.device_state=unlocked, verifiedbootstate=orange, same build/kernel/slot; artifacts/post_unlock_observation_2026-11-06.json'
+  oem_unlocking_allowed_status: 'reported enabled by owner; fastboot flashing get_unlock_ability gives no numeric ability and instead instructs oem get_unlock_data + Motorola web portal'
+  unlock_protocol_status: 'confirmed-on-target: owner-provided key accepted by one oem unlock invocation at 07:37 UTC after explicit operation/full-wipe confirmation. No key published, portal submission, alternative unlock, flash, AVB or slot changes.'
+  current_mode: 'confirmed-on-target: Android/authorized ADB with persistent KSU root, r59-dirty kernel, same build/_b, Enforcing at12:19 UTC. No custom recovery, AVB disable or slot change; only boot_b written once after separate owner approval'
+  cid: '0x000B'
+  warranty_void: 'yes (pre-existing)'
+  current_slot: '_b (post-unlock Android confirmed 2026-11-06 07:45 UTC; may change)'
+not_yet_observed:
+  - independently_decoded_physical_panel_revision
+  - complete_source_match_for_current_msm_drm_module
+  - firmware_rollback_index_and_AVB_policy
+  - baseline_waveform_for_this_exact_unit
+observations_from_others_not_this_unit:
+  - 'Notebookcheck Edge 70 Max: optical flicker 167 Hz, amplitude 14%; not necessarily XT2611-1 panel'
+  - 'China Y70 2026 reviews: 720 Hz PWM and DC-like dimming stated; unverified on owner unit'
+priority_question: 'Which concrete panel commands or firmware control actual OLED PWM frequency on the owner unit?'

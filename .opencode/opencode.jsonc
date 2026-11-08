@@ -1,0 +1,14 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+
+  // 4PDA lofi MCP (stdio). Бинарник — глобальный uv-tool; конфиг — только для этого воркспейса.
+  "mcp": {
+    "servers": {
+      "4pda": {
+        "type": "local",
+        "command": ["/home/stfu/.local/bin/4pda-mcp"],
+        "timeout": { "catalog": 30000, "execution": 180000 }
+      }
+    }
+  }
+}

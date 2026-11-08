@@ -1,0 +1,15 @@
+{
+  "read_at_utc": "2026-11-06T11:53:01.971132+00:00",
+  "status": "confirmed-on-target; unchanged active boot_b read during approved RAM-root trial",
+  "path": "artifacts/originals/W3WWS36.65-64-4-1/boot_b.img",
+  "bytes": 100663296,
+  "sha256": "49dcb9dd513ed5b364b9f84c6be4ab7bdc015a50562f5cca4779e46bf9287049",
+  "kernel_bytes": 41306624,
+  "kernel_sha256": "fe3ef36476044dcbdb0f281143793199edbbd75acd1d0fa401f35d99005bda6c",
+  "kernel_byte_equal_google_r59": true,
+  "header_version": 4,
+  "ramdisk_bytes": 0,
+  "os_version_patch_packed": 0,
+  "slot": "b",
+  "partition_image_writes_performed": false
+}

@@ -1,0 +1,114 @@
+{
+  "at_utc": "2026-11-06T13:14:57.565796+00:00",
+  "scope": "read-only trace facilities/stock state preflight; no logging flags/settings changed",
+  "observations": [
+    {
+      "label": "identity/kernel/Enforcing",
+      "exit_code": 0,
+      "stdout": "XT2611-1|W3WWS36.65-64-4-1|_b|6.12.58-android16-6-g09eda8c8505a-dirty-ab15950084-4k\nEnforcing",
+      "stderr": ""
+    },
+    {
+      "label": "authorized research root",
+      "exit_code": 0,
+      "stdout": "uid=0(root) gid=0(root) groups=0(root) context=u:r:ksu:s0",
+      "stderr": ""
+    },
+    {
+      "label": "/sys/class/drm/card0-DSI-1/mipi_cmd_log_en",
+      "exit_code": 0,
+      "stdout": "ctrl->ctrl->mipi_cmd_log_en: 0",
+      "stderr": ""
+    },
+    {
+      "label": "/sys/class/drm/card0-DSI-1/panelDC",
+      "exit_code": 0,
+      "stdout": "0",
+      "stderr": ""
+    },
+    {
+      "label": "/sys/class/backlight/panel0-backlight/brightness",
+      "exit_code": 0,
+      "stdout": "0",
+      "stderr": ""
+    },
+    {
+      "label": "/sys/class/backlight/panel0-backlight/actual_brightness",
+      "exit_code": 0,
+      "stdout": "0",
+      "stderr": ""
+    },
+    {
+      "label": "/sys/class/backlight/panel0-backlight/bl_power",
+      "exit_code": 0,
+      "stdout": "4",
+      "stderr": ""
+    },
+    {
+      "label": "/sys/kernel/tracing/current_tracer",
+      "exit_code": 0,
+      "stdout": "nop",
+      "stderr": ""
+    },
+    {
+      "label": "/sys/kernel/tracing/tracing_on",
+      "exit_code": 0,
+      "stdout": "0",
+      "stderr": ""
+    },
+    {
+      "label": "/sys/kernel/tracing/trace_clock",
+      "exit_code": 0,
+      "stdout": "[local] global counter uptime perf mono mono_raw boot tai",
+      "stderr": ""
+    },
+    {
+      "label": "available display tracepoints",
+      "exit_code": 0,
+      "stdout": "sde:sde_hw_fence_status\nsde:sde_perf_uidle_status_v1\nsde:sde_perf_uidle_status\nsde:sde_perf_uidle_cntr\nsde:sde_perf_calc_crtc\nsde:sde_perf_crtc_update\nsde:sde_evtlog\nsde:tracing_mark_write\nsde:sde_encoder_underrun\nsde:sde_cmd_release_bw\nsde:sde_perf_update_bus\nsde:sde_perf_set_ot\nsde:sde_perf_set_qos_luts\ndrm:drm_vblank_event\ndrm:drm_vblank_event_queued\ndrm:drm_vblank_event_delivered",
+      "stderr": ""
+    },
+    {
+      "label": "available target functions",
+      "exit_code": 2,
+      "stdout": "",
+      "stderr": "grep: /sys/kernel/tracing/available_filter_functions: No such file or directory"
+    },
+    {
+      "label": "stock requested DC",
+      "exit_code": 0,
+      "stdout": "Result: Bundle[{value=null}]",
+      "stderr": ""
+    },
+    {
+      "label": "settings system screen_brightness",
+      "exit_code": 0,
+      "stdout": "78",
+      "stderr": ""
+    },
+    {
+      "label": "settings system screen_brightness_mode",
+      "exit_code": 0,
+      "stdout": "1",
+      "stderr": ""
+    },
+    {
+      "label": "settings system peak_refresh_rate",
+      "exit_code": 0,
+      "stdout": "null",
+      "stderr": ""
+    },
+    {
+      "label": "settings system min_refresh_rate",
+      "exit_code": 0,
+      "stdout": "null",
+      "stderr": ""
+    },
+    {
+      "label": "display CLI read-only help",
+      "exit_code": 255,
+      "stdout": "Display manager commands:\n  help\n    Print this help text.\n\n  show-notification NOTIFICATION_TYPE\n    Show notification for one of the following types: on-hotplug-error, on-link-training-failure, on-cable-dp-incapable\n  cancel-notifications\n    Cancel notifications.\n  set-brightness BRIGHTNESS\n    Sets the current brightness to BRIGHTNESS (a number between 0 and 1).\n  reset-brightness-configuration\n    Reset the brightness to its default configuration.\n  ab-logging-enable\n    Enable auto-brightness logging.\n  ab-logging-disable\n    Disable auto-brightness logging.\n  dwb-logging-enable\n    Enable display white-balance logging.\n  dwb-logging-disable\n    Disable display white-balance logging.\n  dmd-logging-enable\n    Enable display mode director logging.\n  dmd-logging-disable\n    Disable display mode director logging.\n  dwb-set-cct CCT\n    Sets the ambient color temperature override to CCT (use -1 to disable).\n  set-user-preferred-display-mode WIDTH HEIGHT REFRESH-RATE DISPLAY_ID (optional)\n    Sets the user preferred display mode which has fields WIDTH, HEIGHT and REFRESH-RATE. If DISPLAY_ID is passed, the mode change is applied to displaywith id = DISPLAY_ID, else mode change is applied globally.\n  clear-user-preferred-display-mode DISPLAY_ID (optional)\n    Clears the user preferred display mode. If DISPLAY_ID is passed, the mode is cleared for  display with id = DISPLAY_ID, else mode is cleared globally.\n  get-user-preferred-display-mode DISPLAY_ID (optional)\n    Returns the user preferred display mode or null if no mode is set by user.If DISPLAY_ID is passed, the mode for display with id = DISPLAY_ID is returned, else global display mode is returned.\n  get-active-display-mode-at-start DISPLAY_ID\n    Returns the display mode which was found at boot time of display with id = DISPLAY_ID\n  set-match-content-frame-rate-pref PREFERENCE\n    Sets the match content frame rate preference as PREFERENCE \n  get-match-content-frame-rate-pref\n    Returns the match content frame rate preference\n  set-user-disabled-hdr-types TYPES...\n    Sets the user disabled HDR types as TYPES\n  get-user-disabled-hdr-types\n    Returns the user disabled HDR types\n  get-displays [-c|--category CATEGORY] [-i|--ids-only] [-t|--type TYPE]\n    [CATEGORY]\n    Returns the current displays. Can specify string category among\n    DisplayManager.DISPLAY_CATEGORY_*; must use the actual string value.\n    Can choose to print only the ids of the displays. Can filter by\n    display types. For example, '--type external'\n  dock\n    Sets brightness to docked + idle screen brightness mode\n  undock\n    Sets brightness to active (normal) screen brightness mode\n  enable-display DISPLAY_ID\n    Enable the DISPLAY_ID. Only possible if this is a connected display.\n  disable-display DISPLAY_ID\n    Disable the DISPLAY_ID. Only possible if this is a connected display.\n  power-reset DISPLAY_ID\n    Turn the DISPLAY_ID power to a state the display supposed to have.\n  power-off DISPLAY_ID\n    Turn the display DISPLAY_ID power off.\n\n<INTENT> specifications include these flags and arguments:\n    [-a <ACTION>] [-d <DATA_URI>] [-t <MIME_TYPE>] [-i <IDENTIFIER>]\n    [-c <CATEGORY> [-c <CATEGORY>] ...]\n    [-n <COMPONENT_NAME>]\n    [-e|--es <EXTRA_KEY> <EXTRA_STRING_VALUE> ...]\n    [--esn <EXTRA_KEY> ...]\n    [--ez <EXTRA_KEY> <EXTRA_BOOLEAN_VALUE> ...]\n    [--ei <EXTRA_KEY> <EXTRA_INT_VALUE> ...]\n    [--el <EXTRA_KEY> <EXTRA_LONG_VALUE> ...]\n    [--ef <EXTRA_KEY> <EXTRA_FLOAT_VALUE> ...]\n    [--ed <EXTRA_KEY> <EXTRA_DOUBLE_VALUE> ...]\n    [--eu <EXTRA_KEY> <EXTRA_URI_VALUE> ...]\n    [--ecn <EXTRA_KEY> <EXTRA_COMPONENT_NAME_VALUE>]\n    [--eia <EXTRA_KEY> <EXTRA_INT_VALUE>[,<EXTRA_INT_VALUE...]]\n        (multiple extras passed as Integer[])\n    [--eial <EXTRA_KEY> <EXTRA_INT_VALUE>[,<EXTRA_INT_VALUE...]]\n        (multiple extras passed as List<Integer>)\n    [--ela <EXTRA_KEY> <EXTRA_LONG_VALUE>[,<EXTRA_LONG_VALUE...]]\n        (multiple extras passed as Long[])\n    [--elal <EXTRA_KEY> <EXTRA_LONG_VALUE>[,<EXTRA_LONG_VALUE...]]\n        (multiple extras passed as List<Long>)\n    [--efa <EXTRA_KEY> <EXTRA_FLOAT_VALUE>[,<EXTRA_FLOAT_VALUE...]]\n        (multiple extras passed as Float[])\n    [--efal <EXTRA_KEY> <EXTRA_FLOAT_VALUE>[,<EXTRA_FLOAT_VALUE...]]\n        (multiple extras passed as List<Float>)\n    [--eda <EXTRA_KEY> <EXTRA_DOUBLE_VALUE>[,<EXTRA_DOUBLE_VALUE...]]\n        (multiple extras passed as Double[])\n    [--edal <EXTRA_KEY> <EXTRA_DOUBLE_VALUE>[,<EXTRA_DOUBLE_VALUE...]]\n        (multiple extras passed as List<Double>)\n    [--esa <EXTRA_KEY> <EXTRA_STRING_VALUE>[,<EXTRA_STRING_VALUE...]]\n        (multiple extras passed as String[]; to embed a comma into a string,\n         escape it using \"\\,\")\n    [--esal <EXTRA_KEY> <EXTRA_STRING_VALUE>[,<EXTRA_STRING_VALUE...]]\n        (multiple extras passed as List<String>; to embed a comma into a string,\n         escape it using \"\\,\")\n    [-f <FLAG>]\n    [--grant-read-uri-permission] [--grant-write-uri-permission]\n    [--grant-persistable-uri-permission] [--grant-prefix-uri-permission]\n    [--debug-log-resolution] [--exclude-stopped-packages]\n    [--include-stopped-packages]\n    [--activity-brought-to-front] [--activity-clear-top]\n    [--activity-clear-when-task-reset] [--activity-exclude-from-recents]\n    [--activity-launched-from-history] [--activity-multiple-task]\n    [--activity-no-animation] [--activity-no-history]\n    [--activity-no-user-action] [--activity-previous-is-top]\n    [--activity-reorder-to-front] [--activity-reset-task-if-needed]\n    [--activity-single-top] [--activity-clear-task]\n    [--activity-task-on-home] [--activity-match-external]\n    [--receiver-registered-only] [--receiver-replace-pending]\n    [--receiver-foreground] [--receiver-no-abort]\n    [--receiver-include-background]\n    [--selector]\n    [<URI> | <PACKAGE> | <COMPONENT>]",
+      "stderr": ""
+    }
+  ]
+}

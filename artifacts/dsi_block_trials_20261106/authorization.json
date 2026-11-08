@@ -1,0 +1,11 @@
+{
+  "approved_at_utc": "2026-11-06T20:14:10.692198+00:00",
+  "owner_confirmation": "Выполнить всю серию (Recommended)",
+  "proposal": "artifacts/dsi_block_trials_20261106/proposal.md",
+  "candidates": [
+    "thresholds",
+    "page53",
+    "page63"
+  ],
+  "scope": "Stock -> thresholds -> stock -> page53 -> stock -> page63 -> stock. Each candidate once,7s holds,DBV3600/software120,camera100us/ISO6400. No other values/combinations/flash/persistence. Stop on error; ordinary reboot if uncertain."
+}

@@ -1,0 +1,53 @@
+{
+  "scope": "Saved STOCK Pacman camera profiles; no device activity or absolute PWM inference",
+  "source": "/home/stfu/.cache/opencode-tmp/opencode/exposure-notch-20261107-supported/profiles.npz",
+  "method": "degree-2 Legendre detrend; Hann; q=harmonics/93.43 output rows; 75-frame controls; frame-index phase fit and encoded-PTS coherence",
+  "controls": [
+    {
+      "stage": 1,
+      "frames": 75,
+      "exposure_ns": 100000,
+      "frame_index_phase_beat_hz_not_physical_pwm": 1.3362964859887891,
+      "harmonic_phase_slopes_per_second": [
+        1.3362964859887891,
+        2.6666482859946776,
+        3.9920209543181966
+      ],
+      "max_abs_pts_deviation_from_uniform_us": 0.6666666680921196,
+      "coherence_at_30hz_aliases_not_frequency_evidence": {
+        "0": 0.9979999641779739,
+        "30": 0.9979998719333545,
+        "720": 0.9979970253919971,
+        "1440": 0.9979925737446499,
+        "2160": 0.9979866092460496,
+        "2880": 0.9979791319097621
+      }
+    },
+    {
+      "stage": 6,
+      "frames": 75,
+      "exposure_ns": 100000,
+      "frame_index_phase_beat_hz_not_physical_pwm": 1.3031150167147574,
+      "harmonic_phase_slopes_per_second": [
+        1.3031150167147574,
+        2.6170741170598664,
+        3.9339025215457855
+      ],
+      "max_abs_pts_deviation_from_uniform_us": 134.00000000840518,
+      "coherence_at_30hz_aliases_not_frequency_evidence": {
+        "0": 0.998669609464225,
+        "30": 0.9987355833453501,
+        "720": 0.9924831744401071,
+        "1440": 0.9711689960790179,
+        "2160": 0.9379993736123053,
+        "2880": 0.8977732529655176
+      }
+    }
+  ],
+  "limits": [
+    "30 fps samples alias temporal frequencies separated by 30 Hz",
+    "Encoded PTS deviation is not qualified as sensor exposure timestamp jitter",
+    "Spatial harmonics need not equal physical emission harmonics or the fundamental"
+  ],
+  "physical_pwm_hz": null
+}

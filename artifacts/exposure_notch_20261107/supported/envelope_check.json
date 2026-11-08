@@ -1,0 +1,529 @@
+{
+  "source": "/home/stfu/.cache/opencode-tmp/opencode/exposure-notch-20261107-supported/profiles.npz",
+  "original_analysis": "/mnt/kston/legion-Y70-madness/artifacts/exposure_notch_20261107/supported/analysis.json",
+  "scope": "Saved 6x75-frame stock windows; spatial band/detrend sensitivity, NOT optical Hz",
+  "band_ranges_cycles_per_camera_row": {
+    "broad": [
+      0.0023,
+      0.0037
+    ],
+    "fine": [
+      0.0097,
+      0.0119
+    ]
+  },
+  "broad_span_cycles_across_500_rows": [
+    1.15,
+    1.85
+  ],
+  "detrend_degrees": {
+    "0": [
+      {
+        "phase": 1,
+        "exposure_us": 100.0,
+        "bands": {
+          "broad": {
+            "peak_cycles_per_row": 0.00262451171875,
+            "maximum_rms_over_meanY_minus16": 0.08017203553728192,
+            "coherent_fraction_of_peak_power": 0.4023349872194088,
+            "at_selected_band_boundary": false,
+            "ratio_to_bracketing_100us": 0.977035872909352
+          },
+          "fine": {
+            "peak_cycles_per_row": 0.01080322265625,
+            "maximum_rms_over_meanY_minus16": 0.2489633874395087,
+            "coherent_fraction_of_peak_power": 0.008792969064401242,
+            "at_selected_band_boundary": false,
+            "ratio_to_bracketing_100us": 0.9766970307230946
+          }
+        }
+      },
+      {
+        "phase": 2,
+        "exposure_us": 500.0,
+        "bands": {
+          "broad": {
+            "peak_cycles_per_row": 0.0023193359375,
+            "maximum_rms_over_meanY_minus16": 0.04483229535735423,
+            "coherent_fraction_of_peak_power": 0.3886228303435113,
+            "at_selected_band_boundary": true,
+            "ratio_to_bracketing_100us": 0.5463595945325992
+          },
+          "fine": {
+            "peak_cycles_per_row": 0.0107421875,
+            "maximum_rms_over_meanY_minus16": 0.22652536794835898,
+            "coherent_fraction_of_peak_power": 0.012359316955304563,
+            "at_selected_band_boundary": false,
+            "ratio_to_bracketing_100us": 0.8886714489791218
+          }
+        }
+      },
+      {
+        "phase": 3,
+        "exposure_us": 1000.0,
+        "bands": {
+          "broad": {
+            "peak_cycles_per_row": 0.0023193359375,
+            "maximum_rms_over_meanY_minus16": 0.04407510583939906,
+            "coherent_fraction_of_peak_power": 0.28962565683517244,
+            "at_selected_band_boundary": true,
+            "ratio_to_bracketing_100us": 0.5371319216080529
+          },
+          "fine": {
+            "peak_cycles_per_row": 0.0107421875,
+            "maximum_rms_over_meanY_minus16": 0.08665986399878867,
+            "coherent_fraction_of_peak_power": 0.005937885784250321,
+            "at_selected_band_boundary": false,
+            "ratio_to_bracketing_100us": 0.3399714019036209
+          }
+        }
+      },
+      {
+        "phase": 4,
+        "exposure_us": 1428.571,
+        "bands": {
+          "broad": {
+            "peak_cycles_per_row": 0.0023193359375,
+            "maximum_rms_over_meanY_minus16": 0.0378179183882552,
+            "coherent_fraction_of_peak_power": 0.41605457999114953,
+            "at_selected_band_boundary": true,
+            "ratio_to_bracketing_100us": 0.4608771956014659
+          },
+          "fine": {
+            "peak_cycles_per_row": 0.00970458984375,
+            "maximum_rms_over_meanY_minus16": 0.010328561964452655,
+            "coherent_fraction_of_peak_power": 0.2542951565253591,
+            "at_selected_band_boundary": true,
+            "ratio_to_bracketing_100us": 0.04051951536356517
+          }
+        }
+      },
+      {
+        "phase": 5,
+        "exposure_us": 2000.0,
+        "bands": {
+          "broad": {
+            "peak_cycles_per_row": 0.0023193359375,
+            "maximum_rms_over_meanY_minus16": 0.03782363824025691,
+            "coherent_fraction_of_peak_power": 0.5468436734201053,
+            "at_selected_band_boundary": true,
+            "ratio_to_bracketing_100us": 0.4609469019592496
+          },
+          "fine": {
+            "peak_cycles_per_row": 0.0107421875,
+            "maximum_rms_over_meanY_minus16": 0.04392432565985919,
+            "coherent_fraction_of_peak_power": 0.0006366022130590597,
+            "at_selected_band_boundary": false,
+            "ratio_to_bracketing_100us": 0.1723175398990039
+          }
+        }
+      },
+      {
+        "phase": 6,
+        "exposure_us": 100.0,
+        "bands": {
+          "broad": {
+            "peak_cycles_per_row": 0.00311279296875,
+            "maximum_rms_over_meanY_minus16": 0.08394074222296755,
+            "coherent_fraction_of_peak_power": 0.12103694849995736,
+            "at_selected_band_boundary": false,
+            "ratio_to_bracketing_100us": 1.022964127090648
+          },
+          "fine": {
+            "peak_cycles_per_row": 0.0106201171875,
+            "maximum_rms_over_meanY_minus16": 0.2608433993287268,
+            "coherent_fraction_of_peak_power": 0.00460204637902074,
+            "at_selected_band_boundary": false,
+            "ratio_to_bracketing_100us": 1.0233029692769056
+          }
+        }
+      }
+    ],
+    "1": [
+      {
+        "phase": 1,
+        "exposure_us": 100.0,
+        "bands": {
+          "broad": {
+            "peak_cycles_per_row": 0.0029296875,
+            "maximum_rms_over_meanY_minus16": 0.07848658252666275,
+            "coherent_fraction_of_peak_power": 0.37374775050814196,
+            "at_selected_band_boundary": false,
+            "ratio_to_bracketing_100us": 0.9631824483665838
+          },
+          "fine": {
+            "peak_cycles_per_row": 0.01080322265625,
+            "maximum_rms_over_meanY_minus16": 0.24896762884530296,
+            "coherent_fraction_of_peak_power": 0.00879123462587945,
+            "at_selected_band_boundary": false,
+            "ratio_to_bracketing_100us": 0.9766776826293913
+          }
+        }
+      },
+      {
+        "phase": 2,
+        "exposure_us": 500.0,
+        "bands": {
+          "broad": {
+            "peak_cycles_per_row": 0.0023193359375,
+            "maximum_rms_over_meanY_minus16": 0.04522604278505052,
+            "coherent_fraction_of_peak_power": 0.41532202054867284,
+            "at_selected_band_boundary": true,
+            "ratio_to_bracketing_100us": 0.5550111779276249
+          },
+          "fine": {
+            "peak_cycles_per_row": 0.0107421875,
+            "maximum_rms_over_meanY_minus16": 0.22653123374221182,
+            "coherent_fraction_of_peak_power": 0.012357293117254847,
+            "at_selected_band_boundary": false,
+            "ratio_to_bracketing_100us": 0.888661716547872
+          }
+        }
+      },
+      {
+        "phase": 3,
+        "exposure_us": 1000.0,
+        "bands": {
+          "broad": {
+            "peak_cycles_per_row": 0.00238037109375,
+            "maximum_rms_over_meanY_minus16": 0.04150921935585873,
+            "coherent_fraction_of_peak_power": 0.32747921169501387,
+            "at_selected_band_boundary": false,
+            "ratio_to_bracketing_100us": 0.5093985524899066
+          },
+          "fine": {
+            "peak_cycles_per_row": 0.0107421875,
+            "maximum_rms_over_meanY_minus16": 0.08666702067291014,
+            "coherent_fraction_of_peak_power": 0.005921622264462077,
+            "at_selected_band_boundary": false,
+            "ratio_to_bracketing_100us": 0.3399869505276383
+          }
+        }
+      },
+      {
+        "phase": 4,
+        "exposure_us": 1428.571,
+        "bands": {
+          "broad": {
+            "peak_cycles_per_row": 0.0023193359375,
+            "maximum_rms_over_meanY_minus16": 0.03382481384993304,
+            "coherent_fraction_of_peak_power": 0.5057091829644816,
+            "at_selected_band_boundary": true,
+            "ratio_to_bracketing_100us": 0.41509600712268035
+          },
+          "fine": {
+            "peak_cycles_per_row": 0.00970458984375,
+            "maximum_rms_over_meanY_minus16": 0.01036195410844157,
+            "coherent_fraction_of_peak_power": 0.25351742155086193,
+            "at_selected_band_boundary": true,
+            "ratio_to_bracketing_100us": 0.04064901679419976
+          }
+        }
+      },
+      {
+        "phase": 5,
+        "exposure_us": 2000.0,
+        "bands": {
+          "broad": {
+            "peak_cycles_per_row": 0.0023193359375,
+            "maximum_rms_over_meanY_minus16": 0.031906332441431394,
+            "coherent_fraction_of_peak_power": 0.57219243118605,
+            "at_selected_band_boundary": true,
+            "ratio_to_bracketing_100us": 0.3915525228646079
+          },
+          "fine": {
+            "peak_cycles_per_row": 0.0107421875,
+            "maximum_rms_over_meanY_minus16": 0.04392909684540879,
+            "coherent_fraction_of_peak_power": 0.0006299944275672816,
+            "at_selected_band_boundary": false,
+            "ratio_to_bracketing_100us": 0.1723299077312372
+          }
+        }
+      },
+      {
+        "phase": 6,
+        "exposure_us": 100.0,
+        "bands": {
+          "broad": {
+            "peak_cycles_per_row": 0.00341796875,
+            "maximum_rms_over_meanY_minus16": 0.08448686587818409,
+            "coherent_fraction_of_peak_power": 0.11702963258295354,
+            "at_selected_band_boundary": false,
+            "ratio_to_bracketing_100us": 1.0368175516334162
+          },
+          "fine": {
+            "peak_cycles_per_row": 0.0106201171875,
+            "maximum_rms_over_meanY_minus16": 0.260857942626828,
+            "coherent_fraction_of_peak_power": 0.004592817323295438,
+            "at_selected_band_boundary": false,
+            "ratio_to_bracketing_100us": 1.0233223173706087
+          }
+        }
+      }
+    ],
+    "2": [
+      {
+        "phase": 1,
+        "exposure_us": 100.0,
+        "bands": {
+          "broad": {
+            "peak_cycles_per_row": 0.003662109375,
+            "maximum_rms_over_meanY_minus16": 0.06913495026505469,
+            "coherent_fraction_of_peak_power": 0.2272254194491306,
+            "at_selected_band_boundary": true,
+            "ratio_to_bracketing_100us": 0.9439336805515858
+          },
+          "fine": {
+            "peak_cycles_per_row": 0.01080322265625,
+            "maximum_rms_over_meanY_minus16": 0.24915906883689382,
+            "coherent_fraction_of_peak_power": 0.008957762607734137,
+            "at_selected_band_boundary": false,
+            "ratio_to_bracketing_100us": 0.9768061507779427
+          }
+        }
+      },
+      {
+        "phase": 2,
+        "exposure_us": 500.0,
+        "bands": {
+          "broad": {
+            "peak_cycles_per_row": 0.002685546875,
+            "maximum_rms_over_meanY_minus16": 0.04705759409955016,
+            "coherent_fraction_of_peak_power": 0.19504330159890731,
+            "at_selected_band_boundary": false,
+            "ratio_to_bracketing_100us": 0.6425006140308653
+          },
+          "fine": {
+            "peak_cycles_per_row": 0.0107421875,
+            "maximum_rms_over_meanY_minus16": 0.2266774553120859,
+            "coherent_fraction_of_peak_power": 0.01249202505295747,
+            "at_selected_band_boundary": false,
+            "ratio_to_bracketing_100us": 0.8886689680819332
+          }
+        }
+      },
+      {
+        "phase": 3,
+        "exposure_us": 1000.0,
+        "bands": {
+          "broad": {
+            "peak_cycles_per_row": 0.003173828125,
+            "maximum_rms_over_meanY_minus16": 0.04250879488895803,
+            "coherent_fraction_of_peak_power": 0.03800464746997191,
+            "at_selected_band_boundary": false,
+            "ratio_to_bracketing_100us": 0.580393607885889
+          },
+          "fine": {
+            "peak_cycles_per_row": 0.0107421875,
+            "maximum_rms_over_meanY_minus16": 0.08675223255757904,
+            "coherent_fraction_of_peak_power": 0.005668184110280259,
+            "at_selected_band_boundary": false,
+            "ratio_to_bracketing_100us": 0.34010447523158327
+          }
+        }
+      },
+      {
+        "phase": 4,
+        "exposure_us": 1428.571,
+        "bands": {
+          "broad": {
+            "peak_cycles_per_row": 0.0029296875,
+            "maximum_rms_over_meanY_minus16": 0.03312856835319919,
+            "coherent_fraction_of_peak_power": 0.1483702074139544,
+            "at_selected_band_boundary": false,
+            "ratio_to_bracketing_100us": 0.45232073411711976
+          },
+          "fine": {
+            "peak_cycles_per_row": 0.00970458984375,
+            "maximum_rms_over_meanY_minus16": 0.010363741498744788,
+            "coherent_fraction_of_peak_power": 0.25344831694232023,
+            "at_selected_band_boundary": true,
+            "ratio_to_bracketing_100us": 0.040630134348726234
+          }
+        }
+      },
+      {
+        "phase": 5,
+        "exposure_us": 2000.0,
+        "bands": {
+          "broad": {
+            "peak_cycles_per_row": 0.00299072265625,
+            "maximum_rms_over_meanY_minus16": 0.03176658290252558,
+            "coherent_fraction_of_peak_power": 0.37772297228957424,
+            "at_selected_band_boundary": false,
+            "ratio_to_bracketing_100us": 0.433724872915468
+          },
+          "fine": {
+            "peak_cycles_per_row": 0.0107421875,
+            "maximum_rms_over_meanY_minus16": 0.04398764854221301,
+            "coherent_fraction_of_peak_power": 0.0007534465782925116,
+            "at_selected_band_boundary": false,
+            "ratio_to_bracketing_100us": 0.17244969591060594
+          }
+        }
+      },
+      {
+        "phase": 6,
+        "exposure_us": 100.0,
+        "bands": {
+          "broad": {
+            "peak_cycles_per_row": 0.003662109375,
+            "maximum_rms_over_meanY_minus16": 0.07734769293220004,
+            "coherent_fraction_of_peak_power": 0.06534645841221237,
+            "at_selected_band_boundary": true,
+            "ratio_to_bracketing_100us": 1.0560663194484141
+          },
+          "fine": {
+            "peak_cycles_per_row": 0.0106201171875,
+            "maximum_rms_over_meanY_minus16": 0.2609914224114668,
+            "coherent_fraction_of_peak_power": 0.004495556512219272,
+            "at_selected_band_boundary": false,
+            "ratio_to_bracketing_100us": 1.0231938492220574
+          }
+        }
+      }
+    ],
+    "3": [
+      {
+        "phase": 1,
+        "exposure_us": 100.0,
+        "bands": {
+          "broad": {
+            "peak_cycles_per_row": 0.003662109375,
+            "maximum_rms_over_meanY_minus16": 0.06279698644292261,
+            "coherent_fraction_of_peak_power": 0.1407688561527615,
+            "at_selected_band_boundary": true,
+            "ratio_to_bracketing_100us": 0.9422708733624702
+          },
+          "fine": {
+            "peak_cycles_per_row": 0.01080322265625,
+            "maximum_rms_over_meanY_minus16": 0.2491612593637896,
+            "coherent_fraction_of_peak_power": 0.008929387708211672,
+            "at_selected_band_boundary": false,
+            "ratio_to_bracketing_100us": 0.9768455580862916
+          }
+        }
+      },
+      {
+        "phase": 2,
+        "exposure_us": 500.0,
+        "bands": {
+          "broad": {
+            "peak_cycles_per_row": 0.00335693359375,
+            "maximum_rms_over_meanY_minus16": 0.04148410508372467,
+            "coherent_fraction_of_peak_power": 0.03167475668997644,
+            "at_selected_band_boundary": false,
+            "ratio_to_bracketing_100us": 0.622470378629247
+          },
+          "fine": {
+            "peak_cycles_per_row": 0.0107421875,
+            "maximum_rms_over_meanY_minus16": 0.22666962796419277,
+            "coherent_fraction_of_peak_power": 0.012522288736636897,
+            "at_selected_band_boundary": false,
+            "ratio_to_bracketing_100us": 0.8886663191351365
+          }
+        }
+      },
+      {
+        "phase": 3,
+        "exposure_us": 1000.0,
+        "bands": {
+          "broad": {
+            "peak_cycles_per_row": 0.003662109375,
+            "maximum_rms_over_meanY_minus16": 0.03969968511803355,
+            "coherent_fraction_of_peak_power": 0.07764929032976656,
+            "at_selected_band_boundary": true,
+            "ratio_to_bracketing_100us": 0.5956950976044885
+          },
+          "fine": {
+            "peak_cycles_per_row": 0.0107421875,
+            "maximum_rms_over_meanY_minus16": 0.08676480849771287,
+            "coherent_fraction_of_peak_power": 0.005655400040183018,
+            "at_selected_band_boundary": false,
+            "ratio_to_bracketing_100us": 0.3401645103079618
+          }
+        }
+      },
+      {
+        "phase": 4,
+        "exposure_us": 1428.571,
+        "bands": {
+          "broad": {
+            "peak_cycles_per_row": 0.0035400390625,
+            "maximum_rms_over_meanY_minus16": 0.030974841459756153,
+            "coherent_fraction_of_peak_power": 0.04278724020507427,
+            "at_selected_band_boundary": false,
+            "ratio_to_bracketing_100us": 0.4647785278848822
+          },
+          "fine": {
+            "peak_cycles_per_row": 0.00970458984375,
+            "maximum_rms_over_meanY_minus16": 0.01020301510179836,
+            "coherent_fraction_of_peak_power": 0.2508995105038412,
+            "at_selected_band_boundary": true,
+            "ratio_to_bracketing_100us": 0.04000128273042251
+          }
+        }
+      },
+      {
+        "phase": 5,
+        "exposure_us": 2000.0,
+        "bands": {
+          "broad": {
+            "peak_cycles_per_row": 0.003662109375,
+            "maximum_rms_over_meanY_minus16": 0.022356286867531213,
+            "coherent_fraction_of_peak_power": 0.08035672889110695,
+            "at_selected_band_boundary": true,
+            "ratio_to_bracketing_100us": 0.3354568291419136
+          },
+          "fine": {
+            "peak_cycles_per_row": 0.0107421875,
+            "maximum_rms_over_meanY_minus16": 0.043987056044090665,
+            "coherent_fraction_of_peak_power": 0.0007049119689791744,
+            "at_selected_band_boundary": false,
+            "ratio_to_bracketing_100us": 0.17245281397147777
+          }
+        }
+      },
+      {
+        "phase": 6,
+        "exposure_us": 100.0,
+        "bands": {
+          "broad": {
+            "peak_cycles_per_row": 0.003662109375,
+            "maximum_rms_over_meanY_minus16": 0.07049162136224732,
+            "coherent_fraction_of_peak_power": 0.0636468169033722,
+            "at_selected_band_boundary": true,
+            "ratio_to_bracketing_100us": 1.05772912663753
+          },
+          "fine": {
+            "peak_cycles_per_row": 0.0106201171875,
+            "maximum_rms_over_meanY_minus16": 0.26097313660339655,
+            "coherent_fraction_of_peak_power": 0.004497435902753206,
+            "at_selected_band_boundary": false,
+            "ratio_to_bracketing_100us": 1.0231544419137084
+          }
+        }
+      }
+    ]
+  },
+  "notch_phase4_fine_ratios_by_degree0to3": [
+    0.04051951536356517,
+    0.04064901679419976,
+    0.040630134348726234,
+    0.04000128273042251
+  ],
+  "notch_phase4_broad_ratios_by_degree0to3": [
+    0.4608771956014659,
+    0.41509600712268035,
+    0.45232073411711976,
+    0.4647785278848822
+  ],
+  "interpretation_limits": [
+    "<2 broad-band spatial cycles across the cropped 500 rows: susceptible to scene gradient and polynomial detrend",
+    "Coherent band can be static image structure or camera artifacts",
+    "No camera code->luminance calibration; temporal envelope and physical PWM frequency are not identified",
+    "The 1.428571ms exposure is near, not at, the ideal integer-period zero at 1.388889ms for 720/1440/2160Hz"
+  ],
+  "physical_pwm_hz": null,
+  "new_device_io": false
+}

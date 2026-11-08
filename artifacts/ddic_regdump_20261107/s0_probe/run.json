@@ -1,0 +1,461 @@
+{
+  "started_at_utc": "2026-11-07T05:46:32.774+00:00",
+  "label": "s0_probe",
+  "scope": "probe",
+  "brightness_setting": 52,
+  "refresh_request": 120.0,
+  "events": [
+    {
+      "at_utc": "2026-11-07T05:46:32.824+00:00",
+      "command": "getprop ro.boot.hardware.sku; getprop ro.build.display.id; getprop ro.boot.slot_suffix; uname -r; getenforce",
+      "exit_code": 0,
+      "stdout": "XT2611-1\nW3WWS36.65-64-4-1\n_b\n6.12.58-android16-6-g09eda8c8505a-dirty-ab15950084-4k\nEnforcing",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T05:46:32.857+00:00",
+      "command": "su -c 'cat /sys/class/drm/card0-DSI-1/panelName'",
+      "exit_code": 0,
+      "stdout": "boe_ili97701A_682_1440x3168_dsc_cmd_v4",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T05:46:32.886+00:00",
+      "command": "settings get system screen_brightness_mode",
+      "exit_code": 0,
+      "stdout": "1",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T05:46:32.915+00:00",
+      "command": "settings get system screen_brightness",
+      "exit_code": 0,
+      "stdout": "27",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T05:46:32.943+00:00",
+      "command": "settings get system min_refresh_rate",
+      "exit_code": 0,
+      "stdout": "null",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T05:46:32.970+00:00",
+      "command": "settings get system peak_refresh_rate",
+      "exit_code": 0,
+      "stdout": "null",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T05:46:33.000+00:00",
+      "command": "settings get system screen_off_timeout",
+      "exit_code": 0,
+      "stdout": "300000",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T05:46:33.032+00:00",
+      "command": "su -c 'cat /sys/class/drm/card0-DSI-1/panelDC'",
+      "exit_code": 0,
+      "stdout": "0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T05:46:33.155+00:00",
+      "command": "settings put system screen_brightness_mode 0; settings put system screen_brightness 52; settings put system min_refresh_rate 120.0; settings put system peak_refresh_rate 120.0; settings put system screen_off_timeout 1800000; input keyevent 224",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T05:46:33.193+00:00",
+      "command": "dumpsys power | grep mWakefulness=",
+      "exit_code": 0,
+      "stdout": "mWakefulness=Awake",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T05:46:35.726+00:00",
+      "command": "su -c 'cat /sys/class/backlight/panel0-backlight/brightness'",
+      "exit_code": 0,
+      "stdout": "3584",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T05:46:35.754+00:00",
+      "command": "dumpsys display | grep -m1 -o 'mActiveSfDisplayMode=[^}]*'",
+      "exit_code": 0,
+      "stdout": "mActiveSfDisplayMode=DisplayMode{id=0, width=1440, height=3168, xDpi=508.0, yDpi=512.5299, peakRefreshRate=120.00001, vsyncRate=120.00001, appVsyncOffsetNanos=2000000, presentationDeadlineNanos=9333333, supportedHdrTypes=[1, 4, 1, 2, 3], group=3",
+      "stderr": "Failed to write while dumping service display: Broken pipe"
+    },
+    {
+      "at_utc": "2026-11-07T05:46:35.781+00:00",
+      "command": "su -c 'mkdir -m 700 -p /data/local/tmp/ddic-regdump/dbg'",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T05:46:35.830+00:00",
+      "command": "su -c 'mv /data/local/tmp/ddic_regdump.sh /data/local/tmp/ddic-regdump/run.sh && chmod 700 /data/local/tmp/ddic-regdump/run.sh && chown root:root /data/local/tmp/ddic-regdump/run.sh'",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T05:46:35.855+00:00",
+      "command": "su -c 'echo '\"'\"'0x86'\"'\"' > /data/local/tmp/ddic-regdump/regs'",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T05:46:35.947+00:00",
+      "command": "su -c 'unshare -m /system/bin/sh /data/local/tmp/ddic-regdump/run.sh 2 6 /data/local/tmp/ddic-regdump/regs 0x5a'",
+      "exit_code": 0,
+      "stdout": "BEGIN passes=2 len=6 pages=0x5a\nR 1 0x5a 0x86 0x0a 0x1e 0x04 0x00 0x00 0x00 \nR 2 0x5a 0x86 0x0a 0x1e 0x04 0x00 0x00 0x00 \nEND\nESD_RESTORED reg_read",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T05:46:35.970+00:00",
+      "command": "su -c 'echo '\"'\"'0x87'\"'\"' > /data/local/tmp/ddic-regdump/regs'",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T05:46:36.060+00:00",
+      "command": "su -c 'unshare -m /system/bin/sh /data/local/tmp/ddic-regdump/run.sh 2 1 /data/local/tmp/ddic-regdump/regs 0x5a'",
+      "exit_code": 0,
+      "stdout": "BEGIN passes=2 len=1 pages=0x5a\nR 1 0x5a 0x87 0x00 \nR 2 0x5a 0x87 0x00 \nEND\nESD_RESTORED reg_read",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T05:46:36.082+00:00",
+      "command": "su -c 'echo '\"'\"'0x88'\"'\"' > /data/local/tmp/ddic-regdump/regs'",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T05:46:36.172+00:00",
+      "command": "su -c 'unshare -m /system/bin/sh /data/local/tmp/ddic-regdump/run.sh 2 1 /data/local/tmp/ddic-regdump/regs 0x5a'",
+      "exit_code": 0,
+      "stdout": "BEGIN passes=2 len=1 pages=0x5a\nR 1 0x5a 0x88 0x00 \nR 2 0x5a 0x88 0x00 \nEND\nESD_RESTORED reg_read",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T05:46:36.199+00:00",
+      "command": "su -c 'echo '\"'\"'0xf1'\"'\"' > /data/local/tmp/ddic-regdump/regs'",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T05:46:36.292+00:00",
+      "command": "su -c 'unshare -m /system/bin/sh /data/local/tmp/ddic-regdump/run.sh 2 16 /data/local/tmp/ddic-regdump/regs 0x63'",
+      "exit_code": 0,
+      "stdout": "BEGIN passes=2 len=16 pages=0x63\nR 1 0x63 0xf1 0x10 0x10 0x10 0x10 0x10 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 \nR 2 0x63 0xf1 0x10 0x10 0x10 0x10 0x10 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 \nEND\nESD_RESTORED reg_read",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T05:46:36.316+00:00",
+      "command": "su -c 'echo '\"'\"'0xf2'\"'\"' > /data/local/tmp/ddic-regdump/regs'",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T05:46:36.409+00:00",
+      "command": "su -c 'unshare -m /system/bin/sh /data/local/tmp/ddic-regdump/run.sh 2 1 /data/local/tmp/ddic-regdump/regs 0x63'",
+      "exit_code": 0,
+      "stdout": "BEGIN passes=2 len=1 pages=0x63\nR 1 0x63 0xf2 0x00 \nR 2 0x63 0xf2 0x00 \nEND\nESD_RESTORED reg_read",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T05:46:36.432+00:00",
+      "command": "su -c 'echo '\"'\"'0x95'\"'\"' > /data/local/tmp/ddic-regdump/regs'",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T05:46:36.519+00:00",
+      "command": "su -c 'unshare -m /system/bin/sh /data/local/tmp/ddic-regdump/run.sh 2 2 /data/local/tmp/ddic-regdump/regs 0x53'",
+      "exit_code": 0,
+      "stdout": "BEGIN passes=2 len=2 pages=0x53\nR 1 0x53 0x95 0x00 0xa0 \nR 2 0x53 0x95 0x00 0xa0 \nEND\nESD_RESTORED reg_read",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T05:46:36.545+00:00",
+      "command": "su -c 'echo '\"'\"'0x96'\"'\"' > /data/local/tmp/ddic-regdump/regs'",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T05:46:36.634+00:00",
+      "command": "su -c 'unshare -m /system/bin/sh /data/local/tmp/ddic-regdump/run.sh 2 1 /data/local/tmp/ddic-regdump/regs 0x53'",
+      "exit_code": 0,
+      "stdout": "BEGIN passes=2 len=1 pages=0x53\nR 1 0x53 0x96 0x40 \nR 2 0x53 0x96 0x40 \nEND\nESD_RESTORED reg_read",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T05:46:36.658+00:00",
+      "command": "su -c 'echo '\"'\"'0xa2'\"'\"' > /data/local/tmp/ddic-regdump/regs'",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T05:46:36.741+00:00",
+      "command": "su -c 'unshare -m /system/bin/sh /data/local/tmp/ddic-regdump/run.sh 2 30 /data/local/tmp/ddic-regdump/regs 0x53'",
+      "exit_code": 0,
+      "stdout": "BEGIN passes=2 len=30 pages=0x53\nR 1 0x53 0xa2 0x10 0x10 0x10 0x10 0x48 0x10 0x10 0x10 0x4b 0x4b 0x10 0x10 0x10 0x10 0x48 0x10 0x10 0x10 0x4b 0x4b 0x10 0x10 0x10 0x10 0x48 0x10 0x10 0x10 0x4b 0x4b \nR 2 0x53 0xa2 0x10 0x10 0x10 0x10 0x48 0x10 0x10 0x10 0x4b 0x4b 0x10 0x10 0x10 0x10 0x48 0x10 0x10 0x10 0x4b 0x4b 0x10 0x10 0x10 0x10 0x48 0x10 0x10 0x10 0x4b 0x4b \nEND\nESD_RESTORED reg_read",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T05:46:36.763+00:00",
+      "command": "su -c 'echo '\"'\"'0xa3'\"'\"' > /data/local/tmp/ddic-regdump/regs'",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T05:46:36.840+00:00",
+      "command": "su -c 'unshare -m /system/bin/sh /data/local/tmp/ddic-regdump/run.sh 2 1 /data/local/tmp/ddic-regdump/regs 0x53'",
+      "exit_code": 0,
+      "stdout": "BEGIN passes=2 len=1 pages=0x53\nR 1 0x53 0xa3 0x00 \nR 2 0x53 0xa3 0x00 \nEND\nESD_RESTORED reg_read",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T05:46:36.861+00:00",
+      "command": "su -c 'echo '\"'\"'0x8b'\"'\"' > /data/local/tmp/ddic-regdump/regs'",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T05:46:36.939+00:00",
+      "command": "su -c 'unshare -m /system/bin/sh /data/local/tmp/ddic-regdump/run.sh 2 4 /data/local/tmp/ddic-regdump/regs 0x24'",
+      "exit_code": 0,
+      "stdout": "BEGIN passes=2 len=4 pages=0x24\nR 1 0x24 0x8b 0x31 0x00 0x00 0x00 \nR 2 0x24 0x8b 0x31 0x00 0x00 0x00 \nEND\nESD_RESTORED reg_read",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T05:46:36.959+00:00",
+      "command": "su -c 'echo '\"'\"'0x8c'\"'\"' > /data/local/tmp/ddic-regdump/regs'",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T05:46:37.053+00:00",
+      "command": "su -c 'unshare -m /system/bin/sh /data/local/tmp/ddic-regdump/run.sh 2 2 /data/local/tmp/ddic-regdump/regs 0x24'",
+      "exit_code": 0,
+      "stdout": "BEGIN passes=2 len=2 pages=0x24\nR 1 0x24 0x8c 0x31 0x00 \nR 2 0x24 0x8c 0x31 0x00 \nEND\nESD_RESTORED reg_read",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T05:46:37.080+00:00",
+      "command": "su -c 'echo '\"'\"'0xa9'\"'\"' > /data/local/tmp/ddic-regdump/regs'",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T05:46:37.169+00:00",
+      "command": "su -c 'unshare -m /system/bin/sh /data/local/tmp/ddic-regdump/run.sh 2 2 /data/local/tmp/ddic-regdump/regs 0x23'",
+      "exit_code": 0,
+      "stdout": "BEGIN passes=2 len=2 pages=0x23\nR 1 0x23 0xa9 0x0e 0x00 \nR 2 0x23 0xa9 0x0e 0x00 \nEND\nESD_RESTORED reg_read",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T05:46:37.197+00:00",
+      "command": "su -c 'echo '\"'\"'0x98'\"'\"' > /data/local/tmp/ddic-regdump/regs'",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T05:46:37.285+00:00",
+      "command": "su -c 'unshare -m /system/bin/sh /data/local/tmp/ddic-regdump/run.sh 2 4 /data/local/tmp/ddic-regdump/regs 0x2d'",
+      "exit_code": 0,
+      "stdout": "BEGIN passes=2 len=4 pages=0x2d\nR 1 0x2d 0x98 0x03 0x00 0x00 0x00 \nR 2 0x2d 0x98 0x03 0x00 0x00 0x00 \nEND\nESD_RESTORED reg_read",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T05:46:37.311+00:00",
+      "command": "su -c 'echo '\"'\"'0xa1'\"'\"' > /data/local/tmp/ddic-regdump/regs'",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T05:46:37.410+00:00",
+      "command": "su -c 'unshare -m /system/bin/sh /data/local/tmp/ddic-regdump/run.sh 2 6 /data/local/tmp/ddic-regdump/regs 0x51'",
+      "exit_code": 0,
+      "stdout": "BEGIN passes=2 len=6 pages=0x51\nR 1 0x51 0xa1 0x44 0x44 0x79 0x7b 0x22 0x22 \nR 2 0x51 0xa1 0x44 0x44 0x79 0x7b 0x22 0x22 \nEND\nESD_RESTORED reg_read",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T05:46:37.438+00:00",
+      "command": "su -c 'echo '\"'\"'0x81'\"'\"' > /data/local/tmp/ddic-regdump/regs'",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T05:46:37.527+00:00",
+      "command": "su -c 'unshare -m /system/bin/sh /data/local/tmp/ddic-regdump/run.sh 2 6 /data/local/tmp/ddic-regdump/regs 0x52'",
+      "exit_code": 0,
+      "stdout": "BEGIN passes=2 len=6 pages=0x52\nR 1 0x52 0x81 0x46 0x47 0x48 0x4b 0x00 0x00 \nR 2 0x52 0x81 0x46 0x47 0x48 0x4b 0x00 0x00 \nEND\nESD_RESTORED reg_read",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T05:46:37.553+00:00",
+      "command": "su -c 'echo '\"'\"'0x8b'\"'\"' > /data/local/tmp/ddic-regdump/regs'",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T05:46:37.640+00:00",
+      "command": "su -c 'unshare -m /system/bin/sh /data/local/tmp/ddic-regdump/run.sh 2 2 /data/local/tmp/ddic-regdump/regs 0x07'",
+      "exit_code": 0,
+      "stdout": "BEGIN passes=2 len=2 pages=0x07\nR 1 0x07 0x8b 0xa0 0x21 \nR 2 0x07 0x8b 0xa0 0x21 \nEND\nESD_RESTORED reg_read",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T05:46:37.666+00:00",
+      "command": "su -c 'echo '\"'\"'0x51'\"'\"' > /data/local/tmp/ddic-regdump/regs'",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T05:46:37.758+00:00",
+      "command": "su -c 'unshare -m /system/bin/sh /data/local/tmp/ddic-regdump/run.sh 2 2 /data/local/tmp/ddic-regdump/regs 0x00'",
+      "exit_code": 0,
+      "stdout": "BEGIN passes=2 len=2 pages=0x00\nR 1 0x00 0x51 0x00 0x00 \nR 2 0x00 0x51 0x00 0x00 \nEND\nESD_RESTORED reg_read",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T05:46:37.786+00:00",
+      "command": "su -c 'echo '\"'\"'0x0a'\"'\"' > /data/local/tmp/ddic-regdump/regs'",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T05:46:37.884+00:00",
+      "command": "su -c 'unshare -m /system/bin/sh /data/local/tmp/ddic-regdump/run.sh 2 1 /data/local/tmp/ddic-regdump/regs 0x00'",
+      "exit_code": 0,
+      "stdout": "BEGIN passes=2 len=1 pages=0x00\nR 1 0x00 0x0a 0x9c \nR 2 0x00 0x0a 0x9c \nEND\nESD_RESTORED reg_read",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T05:46:37.910+00:00",
+      "command": "su -c 'cat /sys/class/backlight/panel0-backlight/brightness'",
+      "exit_code": 0,
+      "stdout": "3584",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T05:46:37.936+00:00",
+      "command": "dumpsys display | grep -m1 -o 'mActiveSfDisplayMode=[^}]*'",
+      "exit_code": 0,
+      "stdout": "mActiveSfDisplayMode=DisplayMode{id=0, width=1440, height=3168, xDpi=508.0, yDpi=512.5299, peakRefreshRate=120.00001, vsyncRate=120.00001, appVsyncOffsetNanos=2000000, presentationDeadlineNanos=9333333, supportedHdrTypes=[1, 4, 1, 2, 3], group=3",
+      "stderr": "Failed to write while dumping service display: Broken pipe"
+    },
+    {
+      "at_utc": "2026-11-07T05:46:37.968+00:00",
+      "command": "su -c 'rm -f /data/local/tmp/ddic-regdump/run.sh /data/local/tmp/ddic-regdump/regs; rmdir /data/local/tmp/ddic-regdump/dbg /data/local/tmp/ddic-regdump'",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T05:46:37.993+00:00",
+      "command": "settings put system screen_brightness_mode 1",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T05:46:38.019+00:00",
+      "command": "settings put system screen_brightness 27",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T05:46:38.046+00:00",
+      "command": "settings delete system min_refresh_rate",
+      "exit_code": 0,
+      "stdout": "Deleted 1 rows",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T05:46:38.072+00:00",
+      "command": "settings delete system peak_refresh_rate",
+      "exit_code": 0,
+      "stdout": "Deleted 1 rows",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T05:46:38.097+00:00",
+      "command": "settings put system screen_off_timeout 300000",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T05:46:38.124+00:00",
+      "command": "input keyevent 223",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-07T05:46:38.195+00:00",
+      "command": "su -c 'unshare -m /system/bin/sh -c '\"'\"'mount -o rprivate none /; mkdir -p /data/local/tmp/ddic-chk; mount -t debugfs debugfs /data/local/tmp/ddic-chk && cat /data/local/tmp/ddic-chk/qcom,mdss_dsi_mot_boe_ili97701A_682_1440x3168_dsc_cmd_v4/esd_check_mode; umount /data/local/tmp/ddic-chk; rmdir /data/local/tmp/ddic-chk'\"'\"''",
+      "exit_code": 0,
+      "stdout": "reg_read\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+      "stderr": ""
+    }
+  ],
+  "original_settings": {
+    "screen_brightness_mode": "1",
+    "screen_brightness": "27",
+    "min_refresh_rate": "null",
+    "peak_refresh_rate": "null",
+    "screen_off_timeout": "300000"
+  },
+  "panel_dc_before": "0",
+  "dbv_before": "3584",
+  "refresh_before": "mActiveSfDisplayMode=DisplayMode{id=0, width=1440, height=3168, xDpi=508.0, yDpi=512.5299, peakRefreshRate=120.00001, vsyncRate=120.00001, appVsyncOffsetNanos=2000000, presentationDeadlineNanos=9333333, supportedHdrTypes=[1, 4, 1, 2, 3], group=3",
+  "dbv_after": "3584",
+  "refresh_after": "mActiveSfDisplayMode=DisplayMode{id=0, width=1440, height=3168, xDpi=508.0, yDpi=512.5299, peakRefreshRate=120.00001, vsyncRate=120.00001, appVsyncOffsetNanos=2000000, presentationDeadlineNanos=9333333, supportedHdrTypes=[1, 4, 1, 2, 3], group=3",
+  "esd_mode_after": "reg_read\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+  "finished_at_utc": "2026-11-07T05:46:38.196+00:00",
+  "read_count": 36,
+  "error_lines": [],
+  "error_count": 0,
+  "pass_mismatches": [],
+  "ground_truth_checks": [
+    {
+      "reg": "23:A9",
+      "expected": "0E",
+      "read": "0E 00",
+      "match": true
+    },
+    {
+      "reg": "00:0A",
+      "expected": "9C",
+      "read": "9C",
+      "match": true
+    }
+  ]
+}

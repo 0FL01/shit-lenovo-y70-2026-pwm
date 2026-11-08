@@ -1,0 +1,665 @@
+Target selected Dolby/APL path, conditional control flow (not runtime execution)
+
+/home/stfu/.cache/opencode-tmp/opencode/brightness-policy-recon-20261107/current/libsdmclient.so:     file format elf64-littleaarch64
+
+
+Disassembly of section .text:
+
+000000000009c594 <sdm::SDMDisplayBuiltIn::SDMDisplayBuiltIn(sdm::CoreInterface*, sdm::BufferAllocator*, sdm::SDMCompositorCallbacks*, sdm::SDMDisplayEventHandler*, unsigned long, int)@@Base>:
+   9c594:	d503233f 	paciasp
+   9c598:	d100c3ff 	sub	sp, sp, #0x30
+   9c59c:	a9017bfd 	stp	x29, x30, [sp, #16]
+   9c5a0:	a9024ff4 	stp	x20, x19, [sp, #32]
+   9c5a4:	910043fd 	add	x29, sp, #0x10
+   9c5a8:	2a0603e7 	mov	w7, w6
+   9c5ac:	aa0503e6 	mov	x6, x5
+   9c5b0:	2a1f03e5 	mov	w5, wzr
+   9c5b4:	aa0203f4 	mov	x20, x2
+   9c5b8:	aa0003f3 	mov	x19, x0
+   9c5bc:	b90003ff 	str	wzr, [sp]
+   9c5c0:	9400c894 	bl	ce810 <sdm::SDMLayer::HasPrivacyRegions()@plt>
+   9c5c4:	b0fffc28 	adrp	x8, 21000 <std::__1::piecewise_construct@@Base-0xdf64>
+   9c5c8:	900001c9 	adrp	x9, d4000 <vtable for sdm::ConcurrencyMgr@@Base+0x1010>
+   9c5cc:	91170260 	add	x0, x19, #0x5c0
+   9c5d0:	3dc34100 	ldr	q0, [x8, #3328]
+   9c5d4:	f943d529 	ldr	x9, [x9, #1960]
+   9c5d8:	f902d274 	str	x20, [x19, #1440]
+   9c5dc:	52800034 	mov	w20, #0x1                   	// #1
+   9c5e0:	91162261 	add	x1, x19, #0x588
+   9c5e4:	f902d67f 	str	xzr, [x19, #1448]
+   9c5e8:	3d816660 	str	q0, [x19, #1424]
+   9c5ec:	0f000420 	movi	v0.2s, #0x1
+   9c5f0:	91004128 	add	x8, x9, #0x10
+   9c5f4:	91162129 	add	x9, x9, #0x588
+   9c5f8:	f9000268 	str	x8, [x19]
+   9c5fc:	f902c669 	str	x9, [x19, #1416]
+   9c600:	3916d274 	strb	w20, [x19, #1460]
+   9c604:	bd05b260 	str	s0, [x19, #1456]
+   9c608:	f902de7f 	str	xzr, [x19, #1464]
+   9c60c:	94000043 	bl	9c718 <sdm::SDMDisplayBuiltIn::SDMDisplayBuiltIn(sdm::CoreInterface*, sdm::BufferAllocator*, sdm::SDMCompositorCallbacks*, sdm::SDMDisplayEventHandler*, unsigned long, int)@@Base+0x184>
+   9c610:	6f00e400 	movi	v0.2d, #0x0
+   9c614:	911a9269 	add	x9, x19, #0x6a4
+   9c618:	b0fffc2a 	adrp	x10, 21000 <std::__1::piecewise_construct@@Base-0xdf64>
+   9c61c:	f900013f 	str	xzr, [x9]
+   9c620:	911ae269 	add	x9, x19, #0x6b8
+   9c624:	3dc33141 	ldr	q1, [x10, #3264]
+   9c628:	f9035a69 	str	x9, [x19, #1712]
+   9c62c:	12800008 	mov	w8, #0xffffffff            	// #-1
+   9c630:	f9039a7f 	str	xzr, [x19, #1840]
+   9c634:	3d800120 	str	q0, [x9]
+   9c638:	911b2269 	add	x9, x19, #0x6c8
+   9c63c:	3d800121 	str	q1, [x9]
+   9c640:	911b7269 	add	x9, x19, #0x6dc
+   9c644:	3d800120 	str	q0, [x9]
+   9c648:	92800009 	mov	x9, #0xffffffffffffffff    	// #-1
+   9c64c:	f9037a69 	str	x9, [x19, #1776]
+   9c650:	911be269 	add	x9, x19, #0x6f8
+   9c654:	ad000120 	stp	q0, q0, [x9]
+   9c658:	911c8269 	add	x9, x19, #0x720
+   9c65c:	f801513f 	stur	xzr, [x9, #21]
+   9c660:	911d5269 	add	x9, x19, #0x754
+   9c664:	b906a268 	str	w8, [x19, #1696]
+   9c668:	b906da68 	str	w8, [x19, #1752]
+   9c66c:	f9000128 	str	x8, [x9]
+   9c670:	911d9269 	add	x9, x19, #0x764
+   9c674:	b907d268 	str	w8, [x19, #2000]
+   9c678:	52800b48 	mov	w8, #0x5a                  	// #90
+   9c67c:	b907e268 	str	w8, [x19, #2016]
+   9c680:	52800c88 	mov	w8, #0x64                  	// #100
+   9c684:	f903fa68 	str	x8, [x19, #2032]
+   9c688:	52800f08 	mov	w8, #0x78                  	// #120
+   9c68c:	ad000120 	stp	q0, q0, [x9]
+   9c690:	3c81a120 	stur	q0, [x9, #26]
+   9c694:	52a7f009 	mov	w9, #0x3f800000            	// #1065353216
+   9c698:	b9080668 	str	w8, [x19, #2052]
+   9c69c:	52800048 	mov	w8, #0x2                   	// #2
+   9c6a0:	790d5a7f 	strh	wzr, [x19, #1708]
+   9c6a4:	fd034e60 	str	d0, [x19, #1688]
+   9c6a8:	b906ee7f 	str	wzr, [x19, #1772]
+   9c6ac:	b907427f 	str	wzr, [x19, #1856]
+   9c6b0:	391d127f 	strb	wzr, [x19, #1860]
+   9c6b4:	790e327f 	strh	wzr, [x19, #1816]
+   9c6b8:	3d81ca60 	str	q0, [x19, #1824]
+   9c6bc:	391d427f 	strb	wzr, [x19, #1872]
+   9c6c0:	f903a67f 	str	xzr, [x19, #1864]
+   9c6c4:	790ec27f 	strh	wzr, [x19, #1888]
+   9c6c8:	3d81e660 	str	q0, [x19, #1936]
+   9c6cc:	3d81ea60 	str	q0, [x19, #1952]
+   9c6d0:	3d81ee60 	str	q0, [x19, #1968]
+   9c6d4:	f903e27f 	str	xzr, [x19, #1984]
+   9c6d8:	b907ca69 	str	w9, [x19, #1992]
+   9c6dc:	391f527f 	strb	wzr, [x19, #2004]
+   9c6e0:	fd03ee60 	str	d0, [x19, #2008]
+   9c6e4:	f903f67f 	str	xzr, [x19, #2024]
+   9c6e8:	391fe27f 	strb	wzr, [x19, #2040]
+   9c6ec:	b907fe74 	str	w20, [x19, #2044]
+   9c6f0:	39200274 	strb	w20, [x19, #2048]
+   9c6f4:	3920227f 	strb	wzr, [x19, #2056]
+   9c6f8:	b9080e68 	str	w8, [x19, #2060]
+   9c6fc:	7910227f 	strh	wzr, [x19, #2064]
+   9c700:	39204a7f 	strb	wzr, [x19, #2066]
+   9c704:	a9424ff4 	ldp	x20, x19, [sp, #32]
+   9c708:	a9417bfd 	ldp	x29, x30, [sp, #16]
+   9c70c:	9100c3ff 	add	sp, sp, #0x30
+   9c710:	d50323bf 	autiasp
+   9c714:	d65f03c0 	ret
+
+/home/stfu/.cache/opencode-tmp/opencode/brightness-policy-recon-20261107/current/libsdmclient.so:     file format elf64-littleaarch64
+
+
+Disassembly of section .text:
+
+00000000000a1258 <sdm::SDMDisplayBuiltIn::CommitOrPrepare(bool, std::__1::shared_ptr<sdm::Fence>*, unsigned int*, unsigned int*, bool*)@@Base>:
+   a1258:	d503233f 	paciasp
+   a125c:	a9ba7bfd 	stp	x29, x30, [sp, #-96]!
+   a1260:	f9000bfb 	str	x27, [sp, #16]
+   a1264:	a90267fa 	stp	x26, x25, [sp, #32]
+   a1268:	a9035ff8 	stp	x24, x23, [sp, #48]
+   a126c:	a90457f6 	stp	x22, x21, [sp, #64]
+   a1270:	a9054ff4 	stp	x20, x19, [sp, #80]
+   a1274:	910003fd 	mov	x29, sp
+   a1278:	f0000199 	adrp	x25, d4000 <vtable for sdm::ConcurrencyMgr@@Base+0x1010>
+   a127c:	f000017a 	adrp	x26, d0000 <memmove@plt+0x1430>
+   a1280:	911b435a 	add	x26, x26, #0x6d0
+   a1284:	f9433739 	ldr	x25, [x25, #1640]
+   a1288:	aa0503f4 	mov	x20, x5
+   a128c:	aa0403f5 	mov	x21, x4
+   a1290:	aa0303f6 	mov	x22, x3
+   a1294:	aa0203f7 	mov	x23, x2
+   a1298:	2a0103f8 	mov	w24, w1
+   a129c:	f9400328 	ldr	x8, [x25]
+   a12a0:	aa0003f3 	mov	x19, x0
+   a12a4:	f9400109 	ldr	x9, [x8]
+   a12a8:	eb1a013f 	cmp	x9, x26
+   a12ac:	540013c1 	b.ne	a1524 <sdm::SDMDisplayBuiltIn::CommitOrPrepare(bool, std::__1::shared_ptr<sdm::Fence>*, unsigned int*, unsigned int*, bool*)@@Base+0x2cc>  // b.any
+   a12b0:	f9401529 	ldr	x9, [x9, #40]
+   a12b4:	90fffc61 	adrp	x1, 2d000 <std::__1::piecewise_construct@@Base-0x1f64>
+   a12b8:	9137e821 	add	x1, x1, #0xdfa
+   a12bc:	d0fffc02 	adrp	x2, 23000 <std::__1::piecewise_construct@@Base-0xbf64>
+   a12c0:	91055042 	add	x2, x2, #0x154
+   a12c4:	f0fffc03 	adrp	x3, 24000 <std::__1::piecewise_construct@@Base-0xaf64>
+   a12c8:	9117e063 	add	x3, x3, #0x5f8
+   a12cc:	aa0803e0 	mov	x0, x8
+   a12d0:	d63f0120 	blr	x9
+   a12d4:	f9400268 	ldr	x8, [x19]
+   a12d8:	f000017b 	adrp	x27, d0000 <memmove@plt+0x1430>
+   a12dc:	9121c37b 	add	x27, x27, #0x870
+   a12e0:	eb1b011f 	cmp	x8, x27
+   a12e4:	54001361 	b.ne	a1550 <sdm::SDMDisplayBuiltIn::CommitOrPrepare(bool, std::__1::shared_ptr<sdm::Fence>*, unsigned int*, unsigned int*, bool*)@@Base+0x2f8>  // b.any
+   a12e8:	f9412d08 	ldr	x8, [x8, #600]
+   a12ec:	aa1303e0 	mov	x0, x19
+   a12f0:	d63f0100 	blr	x8
+   a12f4:	f9400261 	ldr	x1, [x19]
+   a12f8:	d503201f 	nop
+   a12fc:	1017ab28 	adr	x8, d0860 <vtable for sdm::SDMDisplayBuiltIn@@Base>
+   a1300:	52800029 	mov	w9, #0x1                   	// #1
+   a1304:	3914b27f 	strb	wzr, [x19, #1324]
+   a1308:	cb080028 	sub	x8, x1, x8
+   a130c:	39146269 	strb	w9, [x19, #1304]
+   a1310:	d1004108 	sub	x8, x8, #0x10
+   a1314:	93c81508 	ror	x8, x8, #5
+   a1318:	f1041d1f 	cmp	x8, #0x107
+   a131c:	54000f88 	b.hi	a150c <sdm::SDMDisplayBuiltIn::CommitOrPrepare(bool, std::__1::shared_ptr<sdm::Fence>*, unsigned int*, unsigned int*, bool*)@@Base+0x2b4>  // b.pmore
+   a1320:	d503201f 	nop
+   a1324:	10c6e269 	adr	x9, 2ef70 <std::__1::piecewise_construct@@Base+0xc>
+   a1328:	38686928 	ldrb	w8, [x9, x8]
+   a132c:	36000f08 	tbz	w8, #0, a150c <sdm::SDMDisplayBuiltIn::CommitOrPrepare(bool, std::__1::shared_ptr<sdm::Fence>*, unsigned int*, unsigned int*, bool*)@@Base+0x2b4>
+   a1330:	12000301 	and	w1, w24, #0x1
+   a1334:	aa1303e0 	mov	x0, x19
+   a1338:	aa1703e2 	mov	x2, x23
+   a133c:	aa1603e3 	mov	x3, x22
+   a1340:	aa1503e4 	mov	x4, x21
+   a1344:	aa1403e5 	mov	x5, x20
+   a1348:	9400b5aa 	bl	ce9f0 <sdm::SDMServices::SetColorModeOverride(int, sdm::SDMColorMode)@plt>
+   a134c:	39600268 	ldrb	w8, [x19, #2048]
+   a1350:	2a0003f4 	mov	w20, w0
+   a1354:	7100051f 	cmp	w8, #0x1
+   a1358:	540000c1 	b.ne	a1370 <sdm::SDMDisplayBuiltIn::CommitOrPrepare(bool, std::__1::shared_ptr<sdm::Fence>*, unsigned int*, unsigned int*, bool*)@@Base+0x118>  // b.any
+   a135c:	f9400261 	ldr	x1, [x19]
+   a1360:	eb1b003f 	cmp	x1, x27
+   a1364:	54001281 	b.ne	a15b4 <sdm::SDMDisplayBuiltIn::CommitOrPrepare(bool, std::__1::shared_ptr<sdm::Fence>*, unsigned int*, unsigned int*, bool*)@@Base+0x35c>  // b.any
+   a1368:	aa1303e0 	mov	x0, x19
+   a136c:	9400b7b1 	bl	cf230 <memmove@plt+0x660>
+   a1370:	f942d668 	ldr	x8, [x19, #1448]
+   a1374:	b40001e8 	cbz	x8, a13b0 <sdm::SDMDisplayBuiltIn::CommitOrPrepare(bool, std::__1::shared_ptr<sdm::Fence>*, unsigned int*, unsigned int*, bool*)@@Base+0x158>
+   a1378:	b9479268 	ldr	w8, [x19, #1936]
+   a137c:	340001a8 	cbz	w8, a13b0 <sdm::SDMDisplayBuiltIn::CommitOrPrepare(bool, std::__1::shared_ptr<sdm::Fence>*, unsigned int*, unsigned int*, bool*)@@Base+0x158>
+   a1380:	f9400261 	ldr	x1, [x19]
+   a1384:	eb1b003f 	cmp	x1, x27
+   a1388:	54001221 	b.ne	a15cc <sdm::SDMDisplayBuiltIn::CommitOrPrepare(bool, std::__1::shared_ptr<sdm::Fence>*, unsigned int*, unsigned int*, bool*)@@Base+0x374>  // b.any
+   a138c:	aa1303e0 	mov	x0, x19
+   a1390:	9400b7c0 	bl	cf290 <memmove@plt+0x6c0>
+   a1394:	f9400261 	ldr	x1, [x19]
+   a1398:	eb1b003f 	cmp	x1, x27
+   a139c:	54001241 	b.ne	a15e4 <sdm::SDMDisplayBuiltIn::CommitOrPrepare(bool, std::__1::shared_ptr<sdm::Fence>*, unsigned int*, unsigned int*, bool*)@@Base+0x38c>  // b.any
+   a13a0:	52800028 	mov	w8, #0x1                   	// #1
+   a13a4:	0a200101 	bic	w1, w8, w0
+   a13a8:	aa1303e0 	mov	x0, x19
+   a13ac:	9400b7bf 	bl	cf2a8 <memmove@plt+0x6d8>
+   a13b0:	f9400261 	ldr	x1, [x19]
+   a13b4:	3914627f 	strb	wzr, [x19, #1304]
+   a13b8:	eb1b003f 	cmp	x1, x27
+   a13bc:	54000dc1 	b.ne	a1574 <sdm::SDMDisplayBuiltIn::CommitOrPrepare(bool, std::__1::shared_ptr<sdm::Fence>*, unsigned int*, unsigned int*, bool*)@@Base+0x31c>  // b.any
+   a13c0:	f9428a68 	ldr	x8, [x19, #1296]
+   a13c4:	f9400d09 	ldr	x9, [x8, #24]
+   a13c8:	91008108 	add	x8, x8, #0x20
+   a13cc:	eb08013f 	cmp	x9, x8
+   a13d0:	540000c1 	b.ne	a13e8 <sdm::SDMDisplayBuiltIn::CommitOrPrepare(bool, std::__1::shared_ptr<sdm::Fence>*, unsigned int*, unsigned int*, bool*)@@Base+0x190>  // b.any
+   a13d4:	2a1f03e3 	mov	w3, wzr
+   a13d8:	14000018 	b	a1438 <sdm::SDMDisplayBuiltIn::CommitOrPrepare(bool, std::__1::shared_ptr<sdm::Fence>*, unsigned int*, unsigned int*, bool*)@@Base+0x1e0>
+   a13dc:	eb08015f 	cmp	x10, x8
+   a13e0:	aa0a03e9 	mov	x9, x10
+   a13e4:	54ffff80 	b.eq	a13d4 <sdm::SDMDisplayBuiltIn::CommitOrPrepare(bool, std::__1::shared_ptr<sdm::Fence>*, unsigned int*, unsigned int*, bool*)@@Base+0x17c>  // b.none
+   a13e8:	f940112a 	ldr	x10, [x9, #32]
+   a13ec:	3942a14b 	ldrb	w11, [x10, #168]
+   a13f0:	7100057f 	cmp	w11, #0x1
+   a13f4:	54000081 	b.ne	a1404 <sdm::SDMDisplayBuiltIn::CommitOrPrepare(bool, std::__1::shared_ptr<sdm::Fence>*, unsigned int*, unsigned int*, bool*)@@Base+0x1ac>  // b.any
+   a13f8:	f940094a 	ldr	x10, [x10, #16]
+   a13fc:	7940f14a 	ldrh	w10, [x10, #120]
+   a1400:	370801aa 	tbnz	w10, #1, a1434 <sdm::SDMDisplayBuiltIn::CommitOrPrepare(bool, std::__1::shared_ptr<sdm::Fence>*, unsigned int*, unsigned int*, bool*)@@Base+0x1dc>
+   a1404:	f940052b 	ldr	x11, [x9, #8]
+   a1408:	b40000ab 	cbz	x11, a141c <sdm::SDMDisplayBuiltIn::CommitOrPrepare(bool, std::__1::shared_ptr<sdm::Fence>*, unsigned int*, unsigned int*, bool*)@@Base+0x1c4>
+   a140c:	aa0b03ea 	mov	x10, x11
+   a1410:	f940016b 	ldr	x11, [x11]
+   a1414:	b5ffffcb 	cbnz	x11, a140c <sdm::SDMDisplayBuiltIn::CommitOrPrepare(bool, std::__1::shared_ptr<sdm::Fence>*, unsigned int*, unsigned int*, bool*)@@Base+0x1b4>
+   a1418:	17fffff1 	b	a13dc <sdm::SDMDisplayBuiltIn::CommitOrPrepare(bool, std::__1::shared_ptr<sdm::Fence>*, unsigned int*, unsigned int*, bool*)@@Base+0x184>
+   a141c:	f940092a 	ldr	x10, [x9, #16]
+   a1420:	f940014b 	ldr	x11, [x10]
+   a1424:	eb0b013f 	cmp	x9, x11
+   a1428:	aa0a03e9 	mov	x9, x10
+   a142c:	54ffff81 	b.ne	a141c <sdm::SDMDisplayBuiltIn::CommitOrPrepare(bool, std::__1::shared_ptr<sdm::Fence>*, unsigned int*, unsigned int*, bool*)@@Base+0x1c4>  // b.any
+   a1430:	17ffffeb 	b	a13dc <sdm::SDMDisplayBuiltIn::CommitOrPrepare(bool, std::__1::shared_ptr<sdm::Fence>*, unsigned int*, unsigned int*, bool*)@@Base+0x184>
+   a1434:	52800023 	mov	w3, #0x1                   	// #1
+   a1438:	39602268 	ldrb	w8, [x19, #2056]
+   a143c:	6b03011f 	cmp	w8, w3
+   a1440:	54000340 	b.eq	a14a8 <sdm::SDMDisplayBuiltIn::CommitOrPrepare(bool, std::__1::shared_ptr<sdm::Fence>*, unsigned int*, unsigned int*, bool*)@@Base+0x250>  // b.none
+   a1444:	f9400320 	ldr	x0, [x25]
+   a1448:	39202263 	strb	w3, [x19, #2056]
+   a144c:	f9400015 	ldr	x21, [x0]
+   a1450:	eb1a02bf 	cmp	x21, x26
+   a1454:	54000da1 	b.ne	a1608 <sdm::SDMDisplayBuiltIn::CommitOrPrepare(bool, std::__1::shared_ptr<sdm::Fence>*, unsigned int*, unsigned int*, bool*)@@Base+0x3b0>  // b.any
+   a1458:	f9400aa8 	ldr	x8, [x21, #16]
+   a145c:	90fffc21 	adrp	x1, 25000 <std::__1::piecewise_construct@@Base-0x9f64>
+   a1460:	913e1c21 	add	x1, x1, #0xf87
+   a1464:	d0fffc02 	adrp	x2, 23000 <std::__1::piecewise_construct@@Base-0xbf64>
+   a1468:	91055042 	add	x2, x2, #0x154
+   a146c:	d63f0100 	blr	x8
+   a1470:	f9403675 	ldr	x21, [x19, #104]
+   a1474:	d28b9540 	mov	x0, #0x5caa                	// #23722
+   a1478:	39602276 	ldrb	w22, [x19, #2056]
+   a147c:	f2a1a8e0 	movk	x0, #0xd47, lsl #16
+   a1480:	f94002b7 	ldr	x23, [x21]
+   a1484:	f2de57a0 	movk	x0, #0xf2bd, lsl #32
+   a1488:	f2fd3dc0 	movk	x0, #0xe9ee, lsl #48
+   a148c:	aa1703e1 	mov	x1, x23
+   a1490:	9400aef8 	bl	cd070 <sdm::SDMDisplayBuilder::GetDisplayMapInfo(int)@plt>
+   a1494:	f941fee8 	ldr	x8, [x23, #1016]
+   a1498:	aa1503e0 	mov	x0, x21
+   a149c:	2a1f03e1 	mov	w1, wzr
+   a14a0:	2a1603e2 	mov	w2, w22
+   a14a4:	d63f0100 	blr	x8
+   a14a8:	3954b268 	ldrb	w8, [x19, #1324]
+   a14ac:	7100051f 	cmp	w8, #0x1
+   a14b0:	54000101 	b.ne	a14d0 <sdm::SDMDisplayBuiltIn::CommitOrPrepare(bool, std::__1::shared_ptr<sdm::Fence>*, unsigned int*, unsigned int*, bool*)@@Base+0x278>  // b.any
+   a14b4:	39604268 	ldrb	w8, [x19, #2064]
+   a14b8:	7100051f 	cmp	w8, #0x1
+   a14bc:	540000a1 	b.ne	a14d0 <sdm::SDMDisplayBuiltIn::CommitOrPrepare(bool, std::__1::shared_ptr<sdm::Fence>*, unsigned int*, unsigned int*, bool*)@@Base+0x278>  // b.any
+   a14c0:	f9402260 	ldr	x0, [x19, #64]
+   a14c4:	f9402e61 	ldr	x1, [x19, #88]
+   a14c8:	3920427f 	strb	wzr, [x19, #2064]
+   a14cc:	9400b015 	bl	cd520 <pthread_mutex_lock@plt>
+   a14d0:	f9400320 	ldr	x0, [x25]
+   a14d4:	f9400013 	ldr	x19, [x0]
+   a14d8:	eb1a027f 	cmp	x19, x26
+   a14dc:	54000581 	b.ne	a158c <sdm::SDMDisplayBuiltIn::CommitOrPrepare(bool, std::__1::shared_ptr<sdm::Fence>*, unsigned int*, unsigned int*, bool*)@@Base+0x334>  // b.any
+   a14e0:	f9401a68 	ldr	x8, [x19, #48]
+   a14e4:	d63f0100 	blr	x8
+   a14e8:	2a1403e0 	mov	w0, w20
+   a14ec:	a9454ff4 	ldp	x20, x19, [sp, #80]
+   a14f0:	f9400bfb 	ldr	x27, [sp, #16]
+   a14f4:	a94457f6 	ldp	x22, x21, [sp, #64]
+   a14f8:	a9435ff8 	ldp	x24, x23, [sp, #48]
+   a14fc:	a94267fa 	ldp	x26, x25, [sp, #32]
+   a1500:	a8c67bfd 	ldp	x29, x30, [sp], #96
+   a1504:	d50323bf 	autiasp
+   a1508:	d65f03c0 	ret
+   a150c:	d28faac0 	mov	x0, #0x7d56                	// #32086
+   a1510:	f2ab7b80 	movk	x0, #0x5bdc, lsl #16
+   a1514:	f2caa020 	movk	x0, #0x5501, lsl #32
+   a1518:	f2ff2ec0 	movk	x0, #0xf976, lsl #48
+   a151c:	9400aed5 	bl	cd070 <sdm::SDMDisplayBuilder::GetDisplayMapInfo(int)@plt>
+   a1520:	17ffff84 	b	a1330 <sdm::SDMDisplayBuiltIn::CommitOrPrepare(bool, std::__1::shared_ptr<sdm::Fence>*, unsigned int*, unsigned int*, bool*)@@Base+0xd8>
+   a1524:	d286e3a0 	mov	x0, #0x371d                	// #14109
+   a1528:	aa0903e1 	mov	x1, x9
+   a152c:	f9000fa9 	str	x9, [x29, #24]
+   a1530:	f2ac3560 	movk	x0, #0x61ab, lsl #16
+   a1534:	aa0803fb 	mov	x27, x8
+   a1538:	f2d19f20 	movk	x0, #0x8cf9, lsl #32
+   a153c:	f2e12cc0 	movk	x0, #0x966, lsl #48
+   a1540:	9400aecc 	bl	cd070 <sdm::SDMDisplayBuilder::GetDisplayMapInfo(int)@plt>
+   a1544:	f9400fa9 	ldr	x9, [x29, #24]
+   a1548:	aa1b03e8 	mov	x8, x27
+   a154c:	17ffff59 	b	a12b0 <sdm::SDMDisplayBuiltIn::CommitOrPrepare(bool, std::__1::shared_ptr<sdm::Fence>*, unsigned int*, unsigned int*, bool*)@@Base+0x58>
+   a1550:	d29df7e0 	mov	x0, #0xefbf                	// #61375
+   a1554:	aa0803e1 	mov	x1, x8
+   a1558:	f9000fa8 	str	x8, [x29, #24]
+   a155c:	f2bc5820 	movk	x0, #0xe2c1, lsl #16
+   a1560:	f2d666e0 	movk	x0, #0xb337, lsl #32
+   a1564:	f2f2a6c0 	movk	x0, #0x9536, lsl #48
+   a1568:	9400aec2 	bl	cd070 <sdm::SDMDisplayBuilder::GetDisplayMapInfo(int)@plt>
+   a156c:	f9400fa8 	ldr	x8, [x29, #24]
+   a1570:	17ffff5e 	b	a12e8 <sdm::SDMDisplayBuiltIn::CommitOrPrepare(bool, std::__1::shared_ptr<sdm::Fence>*, unsigned int*, unsigned int*, bool*)@@Base+0x90>
+   a1574:	d29df7e0 	mov	x0, #0xefbf                	// #61375
+   a1578:	f2bc5820 	movk	x0, #0xe2c1, lsl #16
+   a157c:	f2d666e0 	movk	x0, #0xb337, lsl #32
+   a1580:	f2f2a6c0 	movk	x0, #0x9536, lsl #48
+   a1584:	9400aebb 	bl	cd070 <sdm::SDMDisplayBuilder::GetDisplayMapInfo(int)@plt>
+   a1588:	17ffff8e 	b	a13c0 <sdm::SDMDisplayBuiltIn::CommitOrPrepare(bool, std::__1::shared_ptr<sdm::Fence>*, unsigned int*, unsigned int*, bool*)@@Base+0x168>
+   a158c:	d286e3a8 	mov	x8, #0x371d                	// #14109
+   a1590:	aa0003f5 	mov	x21, x0
+   a1594:	aa1303e1 	mov	x1, x19
+   a1598:	f2ac3568 	movk	x8, #0x61ab, lsl #16
+   a159c:	f2d19f28 	movk	x8, #0x8cf9, lsl #32
+   a15a0:	f2e12cc8 	movk	x8, #0x966, lsl #48
+   a15a4:	aa0803e0 	mov	x0, x8
+   a15a8:	9400aeb2 	bl	cd070 <sdm::SDMDisplayBuilder::GetDisplayMapInfo(int)@plt>
+   a15ac:	aa1503e0 	mov	x0, x21
+   a15b0:	17ffffcc 	b	a14e0 <sdm::SDMDisplayBuiltIn::CommitOrPrepare(bool, std::__1::shared_ptr<sdm::Fence>*, unsigned int*, unsigned int*, bool*)@@Base+0x288>
+   a15b4:	d29df7e0 	mov	x0, #0xefbf                	// #61375
+   a15b8:	f2bc5820 	movk	x0, #0xe2c1, lsl #16
+   a15bc:	f2d666e0 	movk	x0, #0xb337, lsl #32
+   a15c0:	f2f2a6c0 	movk	x0, #0x9536, lsl #48
+   a15c4:	9400aeab 	bl	cd070 <sdm::SDMDisplayBuilder::GetDisplayMapInfo(int)@plt>
+   a15c8:	17ffff68 	b	a1368 <sdm::SDMDisplayBuiltIn::CommitOrPrepare(bool, std::__1::shared_ptr<sdm::Fence>*, unsigned int*, unsigned int*, bool*)@@Base+0x110>
+   a15cc:	d29df7e0 	mov	x0, #0xefbf                	// #61375
+   a15d0:	f2bc5820 	movk	x0, #0xe2c1, lsl #16
+   a15d4:	f2d666e0 	movk	x0, #0xb337, lsl #32
+   a15d8:	f2f2a6c0 	movk	x0, #0x9536, lsl #48
+   a15dc:	9400aea5 	bl	cd070 <sdm::SDMDisplayBuilder::GetDisplayMapInfo(int)@plt>
+   a15e0:	17ffff6b 	b	a138c <sdm::SDMDisplayBuiltIn::CommitOrPrepare(bool, std::__1::shared_ptr<sdm::Fence>*, unsigned int*, unsigned int*, bool*)@@Base+0x134>
+   a15e4:	d29df7e8 	mov	x8, #0xefbf                	// #61375
+   a15e8:	2a0003f5 	mov	w21, w0
+   a15ec:	f2bc5828 	movk	x8, #0xe2c1, lsl #16
+   a15f0:	f2d666e8 	movk	x8, #0xb337, lsl #32
+   a15f4:	f2f2a6c8 	movk	x8, #0x9536, lsl #48
+   a15f8:	aa0803e0 	mov	x0, x8
+   a15fc:	9400ae9d 	bl	cd070 <sdm::SDMDisplayBuilder::GetDisplayMapInfo(int)@plt>
+   a1600:	2a1503e0 	mov	w0, w21
+   a1604:	17ffff67 	b	a13a0 <sdm::SDMDisplayBuiltIn::CommitOrPrepare(bool, std::__1::shared_ptr<sdm::Fence>*, unsigned int*, unsigned int*, bool*)@@Base+0x148>
+   a1608:	d286e3a8 	mov	x8, #0x371d                	// #14109
+   a160c:	aa0003f6 	mov	x22, x0
+   a1610:	aa1503e1 	mov	x1, x21
+   a1614:	f2ac3568 	movk	x8, #0x61ab, lsl #16
+   a1618:	2a0303f7 	mov	w23, w3
+   a161c:	f2d19f28 	movk	x8, #0x8cf9, lsl #32
+   a1620:	f2e12cc8 	movk	x8, #0x966, lsl #48
+   a1624:	aa0803e0 	mov	x0, x8
+   a1628:	9400ae92 	bl	cd070 <sdm::SDMDisplayBuilder::GetDisplayMapInfo(int)@plt>
+   a162c:	aa1603e0 	mov	x0, x22
+   a1630:	2a1703e3 	mov	w3, w23
+   a1634:	17ffff89 	b	a1458 <sdm::SDMDisplayBuiltIn::CommitOrPrepare(bool, std::__1::shared_ptr<sdm::Fence>*, unsigned int*, unsigned int*, bool*)@@Base+0x200>
+
+/home/stfu/.cache/opencode-tmp/opencode/brightness-policy-recon-20261107/current/libsdmclient.so:     file format elf64-littleaarch64
+
+
+Disassembly of section .text:
+
+00000000000a6bb8 <sdm::SDMDisplayBuiltIn::CheckHdrType()@@Base>:
+   a6bb8:	d503245f 	bti	c
+   a6bbc:	f9428808 	ldr	x8, [x0, #1296]
+   a6bc0:	f9400d09 	ldr	x9, [x8, #24]
+   a6bc4:	91008108 	add	x8, x8, #0x20
+   a6bc8:	eb08013f 	cmp	x9, x8
+   a6bcc:	540000c1 	b.ne	a6be4 <sdm::SDMDisplayBuiltIn::CheckHdrType()@@Base+0x2c>  // b.any
+   a6bd0:	2a1f03e0 	mov	w0, wzr
+   a6bd4:	d65f03c0 	ret
+   a6bd8:	eb08015f 	cmp	x10, x8
+   a6bdc:	aa0a03e9 	mov	x9, x10
+   a6be0:	54ffff80 	b.eq	a6bd0 <sdm::SDMDisplayBuiltIn::CheckHdrType()@@Base+0x18>  // b.none
+   a6be4:	f940112a 	ldr	x10, [x9, #32]
+   a6be8:	3942a14b 	ldrb	w11, [x10, #168]
+   a6bec:	7100057f 	cmp	w11, #0x1
+   a6bf0:	54000081 	b.ne	a6c00 <sdm::SDMDisplayBuiltIn::CheckHdrType()@@Base+0x48>  // b.any
+   a6bf4:	f940094a 	ldr	x10, [x10, #16]
+   a6bf8:	7940f14a 	ldrh	w10, [x10, #120]
+   a6bfc:	370801aa 	tbnz	w10, #1, a6c30 <sdm::SDMDisplayBuiltIn::CheckHdrType()@@Base+0x78>
+   a6c00:	f940052b 	ldr	x11, [x9, #8]
+   a6c04:	b40000ab 	cbz	x11, a6c18 <sdm::SDMDisplayBuiltIn::CheckHdrType()@@Base+0x60>
+   a6c08:	aa0b03ea 	mov	x10, x11
+   a6c0c:	f940016b 	ldr	x11, [x11]
+   a6c10:	b5ffffcb 	cbnz	x11, a6c08 <sdm::SDMDisplayBuiltIn::CheckHdrType()@@Base+0x50>
+   a6c14:	17fffff1 	b	a6bd8 <sdm::SDMDisplayBuiltIn::CheckHdrType()@@Base+0x20>
+   a6c18:	f940092a 	ldr	x10, [x9, #16]
+   a6c1c:	f940014b 	ldr	x11, [x10]
+   a6c20:	eb0b013f 	cmp	x9, x11
+   a6c24:	aa0a03e9 	mov	x9, x10
+   a6c28:	54ffff81 	b.ne	a6c18 <sdm::SDMDisplayBuiltIn::CheckHdrType()@@Base+0x60>  // b.any
+   a6c2c:	17ffffeb 	b	a6bd8 <sdm::SDMDisplayBuiltIn::CheckHdrType()@@Base+0x20>
+   a6c30:	52800020 	mov	w0, #0x1                   	// #1
+   a6c34:	d65f03c0 	ret
+
+/home/stfu/.cache/opencode-tmp/opencode/brightness-policy-recon-20261107/current/libsdmclient.so:     file format elf64-littleaarch64
+
+
+Disassembly of section .text:
+
+00000000000b8564 <sdm::SDMLayer::SetLayerBuffer(vendor::qti::hardware::display::snapalloc::SnapHandle const*, std::__1::shared_ptr<sdm::Fence>)@@Base+0x410>:
+   b8564:	a97ba3a9 	ldp	x9, x8, [x29, #-72]
+   b8568:	aa1403e0 	mov	x0, x20
+   b856c:	f85e83b5 	ldur	x21, [x29, #-24]
+   b8570:	b9005fff 	str	wzr, [sp, #92]
+   b8574:	29012768 	stp	w8, w9, [x27, #8]
+   b8578:	f9400276 	ldr	x22, [x19]
+   b857c:	f94002d7 	ldr	x23, [x22]
+   b8580:	aa1703e1 	mov	x1, x23
+   b8584:	940052bb 	bl	cd070 <sdm::SDMDisplayBuilder::GetDisplayMapInfo(int)@plt>
+   b8588:	f94026e8 	ldr	x8, [x23, #72]
+   b858c:	910173e3 	add	x3, sp, #0x5c
+   b8590:	aa1603e0 	mov	x0, x22
+   b8594:	aa1503e1 	mov	x1, x21
+   b8598:	5284e442 	mov	w2, #0x2722                	// #10018
+   b859c:	d63f0100 	blr	x8
+   b85a0:	b9405fe8 	ldr	w8, [sp, #92]
+   b85a4:	7940f369 	ldrh	w9, [x27, #120]
+   b85a8:	aa1303e0 	mov	x0, x19
+   b85ac:	aa1503e1 	mov	x1, x21
+   b85b0:	7100051f 	cmp	w8, #0x1
+   b85b4:	121e7929 	and	w9, w9, #0xfffffffd
+   b85b8:	1a9f17e8 	cset	w8, eq	// eq = none
+   b85bc:	2a080528 	orr	w8, w9, w8, lsl #1
+   b85c0:	7900f368 	strh	w8, [x27, #120]
+   b85c4:	f9400a62 	ldr	x2, [x19, #16]
+   b85c8:	94005cc4 	bl	cf8d8 <memmove@plt+0xd08>
+
+/home/stfu/.cache/opencode-tmp/opencode/brightness-policy-recon-20261107/current/libsdmclient.so:     file format elf64-littleaarch64
+
+
+Disassembly of section .text:
+
+00000000000b8fac <sdm::SDMLayer::SetMetaData(vendor::qti::hardware::display::snapalloc::SnapHandle const*, sdm::Layer*)@@Base+0x464>:
+   b8fac:	f94002b7 	ldr	x23, [x21]
+   b8fb0:	aa1b03e0 	mov	x0, x27
+   b8fb4:	b9002fff 	str	wzr, [sp, #44]
+   b8fb8:	f94002f8 	ldr	x24, [x23]
+   b8fbc:	aa1803e1 	mov	x1, x24
+   b8fc0:	9400502c 	bl	cd070 <sdm::SDMDisplayBuilder::GetDisplayMapInfo(int)@plt>
+   b8fc4:	f9402708 	ldr	x8, [x24, #72]
+   b8fc8:	9100b3e3 	add	x3, sp, #0x2c
+   b8fcc:	aa1703e0 	mov	x0, x23
+   b8fd0:	aa1403e1 	mov	x1, x20
+   b8fd4:	5284e322 	mov	w2, #0x2719                	// #10009
+   b8fd8:	d63f0100 	blr	x8
+   b8fdc:	b9402fe8 	ldr	w8, [sp, #44]
+   b8fe0:	aa1503e0 	mov	x0, x21
+   b8fe4:	aa1403e1 	mov	x1, x20
+   b8fe8:	7100051f 	cmp	w8, #0x1
+   b8fec:	1a9f17e8 	cset	w8, eq	// eq = none
+   b8ff0:	390202a8 	strb	w8, [x21, #128]
+   b8ff4:	94005a3f 	bl	cf8f0 <memmove@plt+0xd20>
+   b8ff8:	f94002b7 	ldr	x23, [x21]
+   b8ffc:	aa1b03e0 	mov	x0, x27
+   b9000:	3900a3ff 	strb	wzr, [sp, #40]
+   b9004:	f94002f8 	ldr	x24, [x23]
+   b9008:	aa1803e1 	mov	x1, x24
+   b900c:	94005019 	bl	cd070 <sdm::SDMDisplayBuilder::GetDisplayMapInfo(int)@plt>
+   b9010:	f9403f08 	ldr	x8, [x24, #120]
+   b9014:	9100a3e3 	add	x3, sp, #0x28
+   b9018:	aa1703e0 	mov	x0, x23
+   b901c:	aa1403e1 	mov	x1, x20
+   b9020:	5284e5a2 	mov	w2, #0x272d                	// #10029
+   b9024:	d63f0100 	blr	x8
+   b9028:	3940a3e8 	ldrb	w8, [sp, #40]
+   b902c:	7100051f 	cmp	w8, #0x1
+   b9030:	54000961 	b.ne	b915c <sdm::SDMLayer::SetMetaData(vendor::qti::hardware::display::snapalloc::SnapHandle const*, sdm::Layer*)@@Base+0x614>  // b.any
+   b9034:	52950400 	mov	w0, #0xa820                	// #43040
+   b9038:	f90003fc 	str	x28, [sp]
+   b903c:	94005073 	bl	cd208 <sdm::SDMDisplay::TryDrawMethod(sdm::DisplayDrawMethod)@plt+0x8>
+   b9040:	f00000c8 	adrp	x8, d4000 <vtable for sdm::ConcurrencyMgr@@Base+0x1010>
+   b9044:	91060108 	add	x8, x8, #0x180
+   b9048:	91006019 	add	x25, x0, #0x18
+   b904c:	aa0003f7 	mov	x23, x0
+   b9050:	aa0003f8 	mov	x24, x0
+   b9054:	f900081f 	str	xzr, [x0, #16]
+   b9058:	f9000008 	str	x8, [x0]
+   b905c:	aa1903e0 	mov	x0, x25
+   b9060:	2a1f03e1 	mov	w1, wzr
+   b9064:	52950102 	mov	w2, #0xa808                	// #43016
+   b9068:	f8008f1f 	str	xzr, [x24, #8]!
+   b906c:	94005b23 	bl	cfcf8 <memmove@plt+0x1128>
+   b9070:	f94002ba 	ldr	x26, [x21]
+   b9074:	aa1b03e0 	mov	x0, x27
+   b9078:	aa0003fc 	mov	x28, x0
+   b907c:	f940035b 	ldr	x27, [x26]
+   b9080:	aa1b03e1 	mov	x1, x27
+   b9084:	94004ffb 	bl	cd070 <sdm::SDMDisplayBuilder::GetDisplayMapInfo(int)@plt>
+   b9088:	f9402768 	ldr	x8, [x27, #72]
+   b908c:	aa1a03e0 	mov	x0, x26
+   b9090:	aa1403e1 	mov	x1, x20
+   b9094:	5284e5a2 	mov	w2, #0x272d                	// #10029
+   b9098:	aa1903e3 	mov	x3, x25
+   b909c:	d63f0100 	blr	x8
+   b90a0:	35000440 	cbnz	w0, b9128 <sdm::SDMLayer::SetMetaData(vendor::qti::hardware::display::snapalloc::SnapHandle const*, sdm::Layer*)@@Base+0x5e0>
+   b90a4:	f9407a68 	ldr	x8, [x19, #240]
+   b90a8:	b4000148 	cbz	x8, b90d0 <sdm::SDMLayer::SetMetaData(vendor::qti::hardware::display::snapalloc::SnapHandle const*, sdm::Layer*)@@Base+0x588>
+   b90ac:	f9400329 	ldr	x9, [x25]
+   b90b0:	f940010a 	ldr	x10, [x8]
+   b90b4:	eb0a013f 	cmp	x9, x10
+   b90b8:	540000c1 	b.ne	b90d0 <sdm::SDMLayer::SetMetaData(vendor::qti::hardware::display::snapalloc::SnapHandle const*, sdm::Layer*)@@Base+0x588>  // b.any
+   b90bc:	2a0903e2 	mov	w2, w9
+   b90c0:	91002100 	add	x0, x8, #0x8
+   b90c4:	910082e1 	add	x1, x23, #0x20
+   b90c8:	94005464 	bl	ce258 <sdm::SDMLayer::ResetGeometryChanges()@plt+0x8>
+   b90cc:	340002e0 	cbz	w0, b9128 <sdm::SDMLayer::SetMetaData(vendor::qti::hardware::display::snapalloc::SnapHandle const*, sdm::Layer*)@@Base+0x5e0>
+   b90d0:	910022e1 	add	x1, x23, #0x8
+   b90d4:	52800020 	mov	w0, #0x1                   	// #1
+   b90d8:	5280003b 	mov	w27, #0x1                   	// #1
+   b90dc:	97fe3dcd 	bl	48810 <std::__1::piecewise_construct@@Base+0x198ac>
+   b90e0:	f9407e7a 	ldr	x26, [x19, #248]
+   b90e4:	a90f5e79 	stp	x25, x23, [x19, #240]
+   b90e8:	b400017a 	cbz	x26, b9114 <sdm::SDMLayer::SetMetaData(vendor::qti::hardware::display::snapalloc::SnapHandle const*, sdm::Layer*)@@Base+0x5cc>
+   b90ec:	91002341 	add	x1, x26, #0x8
+   b90f0:	92800000 	mov	x0, #0xffffffffffffffff    	// #-1
+   b90f4:	97fe3dbb 	bl	487e0 <std::__1::piecewise_construct@@Base+0x1987c>
+   b90f8:	b50000e0 	cbnz	x0, b9114 <sdm::SDMLayer::SetMetaData(vendor::qti::hardware::display::snapalloc::SnapHandle const*, sdm::Layer*)@@Base+0x5cc>
+   b90fc:	f9400348 	ldr	x8, [x26]
+   b9100:	aa1a03e0 	mov	x0, x26
+   b9104:	f9400908 	ldr	x8, [x8, #16]
+   b9108:	d63f0100 	blr	x8
+   b910c:	aa1a03e0 	mov	x0, x26
+   b9110:	94005290 	bl	cdb50 <sdm::SDMCompositorCallbacks::InitColorConvert(unsigned long, bool)@plt>
+   b9114:	f9400aa8 	ldr	x8, [x21, #16]
+   b9118:	f94c4909 	ldr	x9, [x8, #6288]
+   b911c:	b27a0129 	orr	x9, x9, #0x40
+   b9120:	f90c4909 	str	x9, [x8, #6288]
+   b9124:	3902a2bb 	strb	w27, [x21, #168]
+
+/home/stfu/.cache/opencode-tmp/opencode/brightness-policy-recon-20261107/current/libsdmclient.so:     file format elf64-littleaarch64
+
+
+Disassembly of section .text:
+
+00000000000b915c <sdm::SDMLayer::SetMetaData(vendor::qti::hardware::display::snapalloc::SnapHandle const*, sdm::Layer*)@@Base+0x614>:
+   b915c:	f9407a68 	ldr	x8, [x19, #240]
+   b9160:	b4000268 	cbz	x8, b91ac <sdm::SDMLayer::SetMetaData(vendor::qti::hardware::display::snapalloc::SnapHandle const*, sdm::Layer*)@@Base+0x664>
+   b9164:	f9407e77 	ldr	x23, [x19, #248]
+   b9168:	a90f7e7f 	stp	xzr, xzr, [x19, #240]
+   b916c:	b4000177 	cbz	x23, b9198 <sdm::SDMLayer::SetMetaData(vendor::qti::hardware::display::snapalloc::SnapHandle const*, sdm::Layer*)@@Base+0x650>
+   b9170:	910022e1 	add	x1, x23, #0x8
+   b9174:	92800000 	mov	x0, #0xffffffffffffffff    	// #-1
+   b9178:	97fe3d9a 	bl	487e0 <std::__1::piecewise_construct@@Base+0x1987c>
+   b917c:	b50000e0 	cbnz	x0, b9198 <sdm::SDMLayer::SetMetaData(vendor::qti::hardware::display::snapalloc::SnapHandle const*, sdm::Layer*)@@Base+0x650>
+   b9180:	f94002e8 	ldr	x8, [x23]
+   b9184:	aa1703e0 	mov	x0, x23
+   b9188:	f9400908 	ldr	x8, [x8, #16]
+   b918c:	d63f0100 	blr	x8
+   b9190:	aa1703e0 	mov	x0, x23
+   b9194:	9400526f 	bl	cdb50 <sdm::SDMCompositorCallbacks::InitColorConvert(unsigned long, bool)@plt>
+   b9198:	f9400aa8 	ldr	x8, [x21, #16]
+   b919c:	f94c4909 	ldr	x9, [x8, #6288]
+   b91a0:	b27a0129 	orr	x9, x9, #0x40
+   b91a4:	f90c4909 	str	x9, [x8, #6288]
+   b91a8:	3902a2bf 	strb	wzr, [x21, #168]
+
+/home/stfu/.cache/opencode-tmp/opencode/brightness-policy-recon-20261107/current/libsdmdal.so:     file format elf64-littleaarch64
+
+
+Disassembly of section .text:
+
+000000000003c7d0 <sdm::HWDeviceDRM::SetMotoDrmCmd(unsigned int, int)@@Base>:
+   3c7d0:	d503233f 	paciasp
+   3c7d4:	d10143ff 	sub	sp, sp, #0x50
+   3c7d8:	a9017bfd 	stp	x29, x30, [sp, #16]
+   3c7dc:	a9025ff8 	stp	x24, x23, [sp, #32]
+   3c7e0:	a90357f6 	stp	x22, x21, [sp, #48]
+   3c7e4:	a9044ff4 	stp	x20, x19, [sp, #64]
+   3c7e8:	910043fd 	add	x29, sp, #0x10
+   3c7ec:	d53bd058 	mrs	x24, tpidr_el0
+   3c7f0:	2a0103f4 	mov	w20, w1
+   3c7f4:	2a0203f3 	mov	w19, w2
+   3c7f8:	f9401708 	ldr	x8, [x24, #40]
+   3c7fc:	f90007e8 	str	x8, [sp, #8]
+   3c800:	b9403000 	ldr	w0, [x0, #48]
+   3c804:	29000be1 	stp	w1, w2, [sp]
+   3c808:	528c9361 	mov	w1, #0x649b                	// #25755
+   3c80c:	910003e2 	mov	x2, sp
+   3c810:	72a80101 	movk	w1, #0x4008, lsl #16
+   3c814:	94009581 	bl	61e18 <__system_property_get@plt+0x8>
+   3c818:	37f80060 	tbnz	w0, #31, 3c824 <sdm::HWDeviceDRM::SetMotoDrmCmd(unsigned int, int)@@Base+0x54>
+   3c81c:	2a1f03e0 	mov	w0, wzr
+   3c820:	14000017 	b	3c87c <sdm::HWDeviceDRM::SetMotoDrmCmd(unsigned int, int)@@Base+0xac>
+   3c824:	b0000148 	adrp	x8, 65000 <vtable for sdm::HWDeviceDRM@@Base+0x6a0>
+   3c828:	2a0003f5 	mov	w21, w0
+   3c82c:	d286e3a0 	mov	x0, #0x371d                	// #14109
+   3c830:	f940b508 	ldr	x8, [x8, #360]
+   3c834:	f2ac3560 	movk	x0, #0x61ab, lsl #16
+   3c838:	f2d19f20 	movk	x0, #0x8cf9, lsl #32
+   3c83c:	f9400116 	ldr	x22, [x8]
+   3c840:	f2e12cc0 	movk	x0, #0x966, lsl #48
+   3c844:	f94002d7 	ldr	x23, [x22]
+   3c848:	aa1703e1 	mov	x1, x23
+   3c84c:	940091ef 	bl	61008 <std::__1::__libcpp_verbose_abort(char const*, ...)@plt+0x8>
+   3c850:	f94006e8 	ldr	x8, [x23, #8]
+   3c854:	f0fffe81 	adrp	x1, f000 <std::__1::piecewise_construct@@Base-0x3f78>
+   3c858:	913b4021 	add	x1, x1, #0xed0
+   3c85c:	90fffe82 	adrp	x2, c000 <std::__1::piecewise_construct@@Base-0x6f78>
+   3c860:	9118ac42 	add	x2, x2, #0x62b
+   3c864:	aa1603e0 	mov	x0, x22
+   3c868:	2a1403e3 	mov	w3, w20
+   3c86c:	2a1303e4 	mov	w4, w19
+   3c870:	2a1503e5 	mov	w5, w21
+   3c874:	d63f0100 	blr	x8
+   3c878:	52800160 	mov	w0, #0xb                   	// #11
+   3c87c:	f9401708 	ldr	x8, [x24, #40]
+   3c880:	f94007e9 	ldr	x9, [sp, #8]
+   3c884:	eb09011f 	cmp	x8, x9
+   3c888:	54000101 	b.ne	3c8a8 <sdm::HWDeviceDRM::SetMotoDrmCmd(unsigned int, int)@@Base+0xd8>  // b.any
+   3c88c:	a9444ff4 	ldp	x20, x19, [sp, #64]
+   3c890:	a94357f6 	ldp	x22, x21, [sp, #48]
+   3c894:	a9425ff8 	ldp	x24, x23, [sp, #32]
+   3c898:	a9417bfd 	ldp	x29, x30, [sp, #16]
+   3c89c:	910143ff 	add	sp, sp, #0x50
+   3c8a0:	d50323bf 	autiasp
+   3c8a4:	d65f03c0 	ret
+   3c8a8:	94009730 	bl	62568 <exp2f@plt+0x708>
+
+PLT mapping from GOT relocation
+
+/home/stfu/.cache/opencode-tmp/opencode/brightness-policy-recon-20261107/current/libsdmclient.so:     file format elf64-littleaarch64
+
+
+Disassembly of section .plt:
+
+00000000000cd070 <_ZN3sdm17SDMDisplayBuilder17GetDisplayMapInfoEi@plt>:
+   cd070:	f0000030 	adrp	x16, d4000 <_ZTVN3sdm14ConcurrencyMgrE@@Base+0x1010>
+   cd074:	f9455e11 	ldr	x17, [x16, #2744]
+   cd078:	912ae210 	add	x16, x16, #0xab8
+   cd07c:	d61f0220 	br	x17
+
+/home/stfu/.cache/opencode-tmp/opencode/brightness-policy-recon-20261107/current/libsdmdal.so:     file format elf64-littleaarch64
+
+
+Disassembly of section .plt:
+
+0000000000061e18 <__system_property_get@plt+0x8>:
+   61e18:	90000030 	adrp	x16, 65000 <_ZTVN3sdm11HWDeviceDRME@@Base+0x6a0>
+   61e1c:	f943d611 	ldr	x17, [x16, #1960]
+
+0000000000061e20 <memcpy@plt>:
+   61e20:	911ea210 	add	x16, x16, #0x7a8
+   61e24:	d61f0220 	br	x17
+
+libsdmclient.so
+030f103e35692c6b97833582ece2b62afce4452e5ad1338ecc52efd4f3e3b70e  /home/stfu/.cache/opencode-tmp/opencode/brightness-policy-recon-20261107/current/libsdmclient.so
+    Build ID: 82d1d8c2a1c9df4a2faa8d6b30769fd0
+00000000000d4ab8  0000000300000402 R_AARCH64_JUMP_SLOT    0000000000000000 __cfi_slowpath@LIBC_OMR1 + 0
+
+libsdmcore.so
+955acdaaa5b286a0bedb77d95a30e3f6eefcc593492a498542c50035b17f7649  /home/stfu/.cache/opencode-tmp/opencode/brightness-policy-recon-20261107/current/libsdmcore.so
+    Build ID: 267b81f2531862c26bf387386b064014
+00000000000e3ce8  0000000400000402 R_AARCH64_JUMP_SLOT    0000000000000000 __cfi_slowpath@LIBC_OMR1 + 0
+
+libsdmdal.so
+f4f1bcd9117e999086101d705122f89aeb01e645544b34cecc9742a82c51f323  /home/stfu/.cache/opencode-tmp/opencode/brightness-policy-recon-20261107/current/libsdmdal.so
+    Build ID: 10b61d57f5e9fad24939556ca7838f05
+00000000000652f8  0000000400000402 R_AARCH64_JUMP_SLOT    0000000000000000 __cfi_slowpath@LIBC_OMR1 + 0
+00000000000657a8  0000005800000402 R_AARCH64_JUMP_SLOT    0000000000000000 drmIoctl + 0

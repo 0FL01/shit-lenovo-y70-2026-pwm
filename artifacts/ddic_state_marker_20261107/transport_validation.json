@@ -1,0 +1,76 @@
+{
+  "scope": "Current stored targetmodule byte verification + offline parser-level C experiment; no new hardware capture",
+  "module": "artifacts/kernel/gki_r59/target_vendor/msm_drm.ko",
+  "module_sha256_previously_identified": "1bec69faec736e7288f38e4cb83314c37c60d33e6b383213316fd880aa0b1804",
+  "ranges": [
+    {
+      "name": "target-get-cmd-read-data",
+      "start": "0x19161c",
+      "size": 844,
+      "verified_raw_words": 211,
+      "path": "/home/stfu/.cache/opencode-tmp/opencode/ddic-ec-semantics-20261107/target-get-cmd-read-data.txt"
+    },
+    {
+      "name": "target-ctrl-cmd-transfer",
+      "start": "0x1970c0",
+      "size": 2156,
+      "verified_raw_words": 539,
+      "path": "/home/stfu/.cache/opencode-tmp/opencode/ddic-ec-semantics-20261107/target-ctrl-cmd-transfer.txt"
+    }
+  ],
+  "target_long_copy_branch": "0x1975f8..0x197628, allocation-bound check but no response word-count bound",
+  "target_helper_return": "0x191650..654 stores requested rx_byte into w19;0x1918fc returns w19",
+  "c_harness": "artifacts/ddic_state_marker_20261107/long_read_counterexample.c",
+  "compiler": "sources/gki-15950084/prebuilts/clang/host/linux-x86/clang-r536225/bin/clang",
+  "flags": [
+    "-std=c11",
+    "-O2",
+    "-Wall",
+    "-Wextra",
+    "-Werror",
+    "-fsanitize=address,undefined",
+    "-fno-omit-frame-pointer"
+  ],
+  "native_tests_passed": {
+    "parser_cases": 7,
+    "modeled_fortify_panic_path": 1,
+    "sanitizer_diagnostics": 0
+  },
+  "counterexample": {
+    "requested": 3,
+    "response_word_count": 1,
+    "payload": "00",
+    "crc16_footer_lsb_first": "87 0f",
+    "returned_count": 3,
+    "copied_bytes": "00 87 0f"
+  },
+  "attempt_note": "System GCC sanitizer link failed: libasan/libubsan shared files absent. Existing pinned Clang runtimes used successfully without disabling sanitizers or addingdependencies.",
+  "independent_review": {
+    "status": "completed; successful long-copy counterexample corroborated, boundary-failure interpretation corrected",
+    "verified_target_words": 750,
+    "allocation_failure": "0x197618 -> 0x1976e8/0x1976ec -> __fortify_panic, not a returned error",
+    "model_correction": "Old -1/refusal label now explicitly means MODEL_FORTIFY_PANIC; target panic is not executed",
+    "a0d1c1_requested_payload_lengths": [1, 1, 2],
+    "short_response_paths": {
+      "0x11_or_0x21": "For requested1/2 copies header[1], returns1",
+      "0x12_or_0x22": "For requested2 copies header[1:3], returns2; requested1 returns0"
+    },
+    "short_read_condition": "Correctly aligned, fresh short-response packet; fixed payload bytes, not WC/CRC",
+    "unexpected_long_type_on_short_request": "Allocation4 leaves0 after header; positive long copy reaches __fortify_panic. No such target response observed in checked evidence",
+    "runner_guard": "run_dsi_mode_trial.py:348,357-359 uses requests1/1/2 and exact complete dictionary equality, including lengths",
+    "debugfs_return_length_path": "Controller return stored at0x1a2644..0x1a2648; RX writer length0xe876c..0xe8770; reader formats saved length0xe827c..0xe82d0",
+    "new_blocking_guard_defect_established": false,
+    "raw_response_header_wc_hw_count_in_archived_traces": false,
+    "new_device_io": false
+  },
+  "limits": [
+    "Not a simulation of entire hardware/repeated-read path",
+    "No ECC validation, concurrency or captured HW readcount in harness",
+    "MODEL_FORTIFY_PANIC is only an offline path classification; target calls __fortify_panic rather than returning -1",
+    "Requested1/2 alone does not prove response integrity or correct header alignment",
+    "Does not prove archivedC1 contains CRC bytes",
+    "A 3-byte count alone is insufficient to qualify a 3-byte DDIC payload"
+  ],
+  "device_io": false,
+  "physical_pwm_hz": null
+}

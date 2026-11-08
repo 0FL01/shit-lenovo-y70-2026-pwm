@@ -1,0 +1,27 @@
+{
+  "status": "reported; offline target-ELF verified",
+  "address_space": ".data / .rodata section offsets, relocation-backed, not live addresses",
+  "primary_dc_entry": {
+    "data_offset": "0xa2e0",
+    "name_rodata_offset": "0x13045",
+    "name": "DC",
+    "map_data_offset": "0xa158",
+    "val_max_exclusive": 2,
+    "default_value": 0,
+    "initial_cached_value": 0,
+    "initial_is_supported": false
+  },
+  "dc_map": [
+    {
+      "value": 0,
+      "command_set_index": 54,
+      "initial_command_pointer": 0
+    },
+    {
+      "value": 1,
+      "command_set_index": 53,
+      "initial_command_pointer": 0
+    }
+  ],
+  "runtime_pointers_note": "Null pointer fields await relocation/DT parsing; support initialized false is not target runtime support status."
+}

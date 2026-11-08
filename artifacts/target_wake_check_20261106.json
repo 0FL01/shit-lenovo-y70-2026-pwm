@@ -1,0 +1,16 @@
+{
+  "started_at_utc": "2026-11-06T17:36:34.828951+00:00",
+  "scope": "Wake/dismiss sequencing check only; no camera recording, brightness or panel-profile changes",
+  "samples": [
+    {
+      "elapsed_after_dismiss_s": 0.057,
+      "keyguard_dismissed": true
+    }
+  ],
+  "keyguard_dismissed": true,
+  "screen_interactive": true,
+  "before_camera_test": true,
+  "backlight_power": "0",
+  "screen_left_on": true,
+  "finished_at_utc": "2026-11-06T17:36:35.073020+00:00"
+}

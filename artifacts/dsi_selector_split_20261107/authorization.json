@@ -1,0 +1,11 @@
+{
+  "approved_at_utc": "2026-11-07T06:53:55.461534+00:00",
+  "owner_confirmation": "Разрешаю, yolo",
+  "followup": "[HORIZON: PWM RESEARCH]: first verifiable step; optical evidence, no fictitious Hz; maintain agreed hardware bounds",
+  "proposal": "artifacts/dsi_selector_split_20261107/proposal.md",
+  "candidates": [
+    "a9_only",
+    "9d_only"
+  ],
+  "scope": "Exactly stock->a9_only->stock->9d_only->stock, each once,DBV3600/software120/redraw/shortreadback/7s optical record, restore stock and captured policy. No additional values/combinations/flash/persistence."
+}

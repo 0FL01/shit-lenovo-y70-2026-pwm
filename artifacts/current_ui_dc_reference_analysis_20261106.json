@@ -1,0 +1,110 @@
+{
+  "capture": "artifacts/current_ui_dc_reference_20261106.json",
+  "video": "artifacts/optical/current_ui_dc_reference_20261106.mp4",
+  "video_bytes": 43511033,
+  "decoded_frames": 1117,
+  "native_checks": [
+    {
+      "phase": 1,
+      "dc": 0,
+      "exact_live_table_packets": 0,
+      "post_table_brightness": "51 0e 10",
+      "other_logged_writes": 0
+    },
+    {
+      "phase": 2,
+      "dc": 1,
+      "exact_live_table_packets": 75,
+      "post_table_brightness": "51 0e 10",
+      "other_logged_writes": 0
+    },
+    {
+      "phase": 3,
+      "dc": 0,
+      "exact_live_table_packets": 75,
+      "post_table_brightness": "51 0e 10",
+      "other_logged_writes": 0
+    }
+  ],
+  "native_probe_profile": {
+    "param_entry": {
+      "hits": 2,
+      "misses": 0
+    },
+    "param_return": {
+      "hits": 2,
+      "misses": 0
+    },
+    "pcd_entry": {
+      "hits": 0,
+      "misses": 0
+    },
+    "ctrl_return": {
+      "hits": 159,
+      "misses": 0
+    }
+  },
+  "native_param_returns": [
+    0,
+    0
+  ],
+  "native_ctrl_returns_nonnegative": 159,
+  "phase_measurements": [
+    {
+      "dc": 0,
+      "window_s": [
+        8,
+        12
+      ],
+      "frames": 120,
+      "q93_RMS_Y_codes": 4.477431726056234,
+      "mean_Y_minus16": 17.46162916666667,
+      "normalized_image_amplitude": 0.25641546291702355,
+      "max_Y": 47,
+      "fraction_Y_ge235": 0.0
+    },
+    {
+      "dc": 1,
+      "window_s": [
+        19,
+        23
+      ],
+      "frames": 120,
+      "q93_RMS_Y_codes": 1.5752239736459452,
+      "mean_Y_minus16": 17.021098611111107,
+      "normalized_image_amplitude": 0.09254537616142261,
+      "max_Y": 44,
+      "fraction_Y_ge235": 0.0
+    },
+    {
+      "dc": 0,
+      "window_s": [
+        30,
+        33.5
+      ],
+      "frames": 105,
+      "q93_RMS_Y_codes": 4.638027926695932,
+      "mean_Y_minus16": 17.350183809523806,
+      "normalized_image_amplitude": 0.26731866230431756,
+      "max_Y": 46,
+      "fraction_Y_ge235": 0.0
+    }
+  ],
+  "UI_ON_normalized_q93_ratio_to_adjacent_OFF_average": 0.35340594284289184,
+  "observation": "Current native UI ON again suppresses the fine train while broad moving band remains; UI OFF restores it. Raw fullON controls with/without sameDBV replay did not reproduce this.",
+  "native_UI_effect_reproduced_now": true,
+  "UI_PCD_invocation_observed": false,
+  "payload_type_HS_order_matches_static_tables": true,
+  "same_DBV_replay_only_sufficient_explanation": false,
+  "conclusion": "The discrepancy survives a current matched native-UI reference. PCD invocation and extra logged command bytes do not explain this instance. Compare runtime message/controller flags and relevant state before more custom profiles.",
+  "method": "Original limited-range Y ROI540,190,60,500; temporal mean removal per window, per-frame quadratic background, Hann q=1/93.43 component. Video-code amplitudes, not calibrated depth.",
+  "pwm_hz": "unknown",
+  "greater_equal_2000_hz_verified": false,
+  "low_frequency_component_eliminated": false,
+  "target_restored": true,
+  "limits": [
+    "Native logging precedes TX and does not expose all runtime flags or physical ACK.",
+    "UI preference layout/text can change; code-domain ratios are not photometric measurements.",
+    "No measured panel temperature, fundamental frequency or owner usability acceptance."
+  ]
+}

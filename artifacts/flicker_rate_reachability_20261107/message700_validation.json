@@ -1,0 +1,55 @@
+{
+  "scope": "Target DSP message700 handling; static copies only; no request sent",
+  "ranges": [
+    {
+      "name": "message700-handler",
+      "segment": "b21",
+      "start": "0xb231fd6c",
+      "end_exclusive": "0xb231fe5c",
+      "records_matching_saved_target_listing": 60,
+      "fresh_decode": "reused already successful decode",
+      "undecoded_records": 0
+    },
+    {
+      "name": "fft-consumer",
+      "segment": "b27",
+      "start": "0xb20343d4",
+      "end_exclusive": "0xb203450c",
+      "records_matching_saved_target_listing": 78,
+      "fresh_decode": true,
+      "undecoded_records": 0
+    },
+    {
+      "name": "fft-connect706",
+      "segment": "b27",
+      "start": "0xb2034778",
+      "end_exclusive": "0xb20347b0",
+      "records_matching_saved_target_listing": 14,
+      "fresh_decode": true,
+      "undecoded_records": 0
+    },
+    {
+      "name": "fft-init",
+      "segment": "b27",
+      "start": "0xb2034d70",
+      "end_exclusive": "0xb2034e80",
+      "records_matching_saved_target_listing": 68,
+      "fresh_decode": true,
+      "undecoded_records": 0
+    }
+  ],
+  "id700_enum_name": "unknown",
+  "id700_handler": "0xb231fd6c",
+  "handler_behavior": "constant FFT initialization -> event701 -> event705; no consumption of message700 payload as register/value arguments",
+  "id701_consumer": "0xb20343d4..0xb203450c -> stk_fft_init at 0xb2034d90",
+  "id705_behavior": "FFT version log at 0xb2034d70",
+  "id706_log_name": "SNS_STK6A2XFFT_MSGID_SNS_STK6A2XFFT_CONNECT_ALGO",
+  "limits": [
+    "Request is retained by common instance vtable; wire payload of700 is not asserted empty",
+    "Shared tail can perform registry/calibration updates when instance+2747 is set; not a fullvendorpath exclusion",
+    "FFT state and frequency coordinates do not configure ADC timing"
+  ],
+  "boundary_diagnostic": "Old consumer slice ended at0xb2034508 and cut off instruction following immext at0xb2034504; corrected end0xb203450c. Original failure preserved in private cache.",
+  "device_io": false,
+  "physical_pwm_hz": null
+}

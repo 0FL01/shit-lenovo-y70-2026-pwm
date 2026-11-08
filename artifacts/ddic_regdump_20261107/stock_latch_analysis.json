@@ -1,0 +1,125 @@
+{
+  "capture": "artifacts/ddic_regdump_20261107/stock_latch.json",
+  "phases": [
+    {
+      "dc": 0,
+      "registers_hex": {
+        "4F:80": "01",
+        "4F:81": "06",
+        "4F:88": "00",
+        "4F:8B": "00",
+        "4F:C1": "06",
+        "4F:C9": "06",
+        "4F:D1": "06",
+        "4F:D9": "10",
+        "23:A9": "0e",
+        "23:AA": "11",
+        "24:9D": "0e",
+        "24:9E": "11",
+        "23:80": "50",
+        "53:95": "00 a0",
+        "00:52": "0e 00"
+      },
+      "native_transition_packets_matched": 0,
+      "preview_after_read_frames": 3,
+      "roi_xywh": [
+        1270,
+        180,
+        50,
+        770
+      ],
+      "fine_feature_autocorrelation_lag_px": [207, 204, 205],
+      "correlation_at204px": [0.820, 0.883, 0.972],
+      "visual_band_class": "fine train plus broad band"
+    },
+    {
+      "dc": 1,
+      "registers_hex": {
+        "4F:80": "01",
+        "4F:81": "10",
+        "4F:88": "00",
+        "4F:8B": "00",
+        "4F:C1": "06",
+        "4F:C9": "06",
+        "4F:D1": "06",
+        "4F:D9": "10",
+        "23:A9": "8e",
+        "23:AA": "11",
+        "24:9D": "8e",
+        "24:9E": "11",
+        "23:80": "90",
+        "53:95": "44 50",
+        "00:52": "0e 00"
+      },
+      "native_transition_packets_matched": 75,
+      "preview_after_read_frames": 3,
+      "roi_xywh": [
+        1270,
+        180,
+        50,
+        770
+      ],
+      "fine_feature_autocorrelation_lag_px": null,
+      "correlation_at204px": [-0.084, -0.299, -0.109],
+      "visual_band_class": "sparse broad band remains"
+    },
+    {
+      "dc": 0,
+      "registers_hex": {
+        "4F:80": "01",
+        "4F:81": "10",
+        "4F:88": "00",
+        "4F:8B": "00",
+        "4F:C1": "06",
+        "4F:C9": "06",
+        "4F:D1": "06",
+        "4F:D9": "10",
+        "23:A9": "0e",
+        "23:AA": "11",
+        "24:9D": "0e",
+        "24:9E": "11",
+        "23:80": "50",
+        "53:95": "00 a0",
+        "00:52": "0e 00"
+      },
+      "native_transition_packets_matched": 75,
+      "preview_after_read_frames": 3,
+      "roi_xywh": [
+        1270,
+        180,
+        50,
+        770
+      ],
+      "fine_feature_autocorrelation_lag_px": [206, 204, 205],
+      "correlation_at204px": [0.813, 0.852, 0.975],
+      "visual_band_class": "fine train plus broad band"
+    }
+  ],
+  "known_page_writes": 94,
+  "known_register_reads": 45,
+  "matched_stock_DC_packets": 150,
+  "raw_callback_rc0": 94,
+  "controller_returns_nonnegative": 293,
+  "probe_misses": 0,
+  "esd_restored": "reg_read",
+  "target_settings_preserved": true,
+  "pwm_hz": "unknown",
+  "greater_equal_2000_hz_verified": false,
+  "comparison": "artifacts/optical/ddic_stock_latch_20261107.png",
+  "preview_method": "Per-frame mean grayscale strip x1270..1319/y180..949, quadratic background removed; normalized row autocorrelation at204px and local search170..250px. OFF recovers strong interior peaks204..207; ON has no corresponding positive peak. An exploratory Fourier maximum selected different image harmonics and is not used as a band-spacing estimate. No image gamma applied in this analysis; comparison sheet uses common brightnessx3 only for viewing.",
+  "findings": [
+    "4F:81 readback follows a completed stock DC write:06 ->10 ->10; known-register mapping is not uniformly broken.",
+    "Both optical classes occur with4F:81=10, while the two causal DC high bytes toggle0E/8E. A direct06=six pulses inference is unsupported.",
+    "4F:C1/C9/D1 stay06 andD9 stays10 despite4F:81 changing. Repeated bytes are not proven copies of a shared pulse counter.",
+    "4F:88/8B read00 after confirmed stock writes78; those reads are not a direct persistent-write mirror.",
+    "Short00:52 response0E00 matchesactualDBV3584; register0x51 readback was not the standard GET brightness."
+  ],
+  "limits": [
+    "Only stock DC transitions and known page selectors; no synthetic timing field trial.",
+    "No flat register auto-increment claim; only1/2byte requests used.",
+    "Preview screenshots include fixed camera processing/scaling; pixel periods are not Hz.",
+    "Three closely spaced frames/state are qualitative support, not photometric or temporal calibration.",
+    "The initial06 may reflect prior low-refresh timing; that history has not been replayed/causally proven here.",
+    "No independent panel temperature or physical timing map; broad band remains;goal not achieved."
+  ]
+}

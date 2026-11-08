@@ -1,0 +1,671 @@
+{
+  "started_at_utc": "2026-11-06T16:01:09.374150+00:00",
+  "authorization": "Owner Продолжить: stock brightness-boundary calibration with restoration",
+  "changed_execution": "Bounded wait for actual display on/off transitions; previous attempt stopped before any calibration phase and subsequently confirmed restored",
+  "threshold_dbv_hypothesis": 3601,
+  "phases": [
+    {
+      "android_brightness": 51,
+      "dbv": 3522,
+      "settling_samples": [
+        3522,
+        3522,
+        3522
+      ],
+      "at_utc": "2026-11-06T16:01:12.478697+00:00"
+    },
+    {
+      "android_brightness": 52,
+      "dbv": 3584,
+      "settling_samples": [
+        3584,
+        3584,
+        3584
+      ],
+      "at_utc": "2026-11-06T16:01:13.274501+00:00",
+      "native_brightness_packet": {
+        "controller": 1,
+        "payload_hex": "51 0e 00",
+        "be_value": 3584,
+        "page": 0,
+        "transport": "hs"
+      }
+    },
+    {
+      "android_brightness": 53,
+      "dbv": 3646,
+      "settling_samples": [
+        3646,
+        3646,
+        3646
+      ],
+      "at_utc": "2026-11-06T16:01:14.077818+00:00",
+      "native_brightness_packet": {
+        "controller": 1,
+        "payload_hex": "51 0e 3e",
+        "be_value": 3646,
+        "page": 0,
+        "transport": "hs"
+      }
+    },
+    {
+      "android_brightness": 54,
+      "dbv": 3708,
+      "settling_samples": [
+        3708,
+        3708,
+        3708
+      ],
+      "at_utc": "2026-11-06T16:01:14.867143+00:00"
+    }
+  ],
+  "events": [
+    {
+      "at_utc": "2026-11-06T16:01:09.455024+00:00",
+      "command": "getprop ro.boot.hardware.sku; getprop ro.build.display.id; getprop ro.boot.slot_suffix; uname -r; getenforce",
+      "exit_code": 0,
+      "stdout": "XT2611-1\nW3WWS36.65-64-4-1\n_b\n6.12.58-android16-6-g09eda8c8505a-dirty-ab15950084-4k\nEnforcing",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T16:01:09.512480+00:00",
+      "command": "su -c id",
+      "exit_code": 0,
+      "stdout": "uid=0(root) gid=0(root) groups=0(root) context=u:r:ksu:s0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T16:01:09.573791+00:00",
+      "command": "su -c 'cat /sys/class/drm/card0-DSI-1/panelName'",
+      "exit_code": 0,
+      "stdout": "boe_ili97701A_682_1440x3168_dsc_cmd_v4",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T16:01:09.637278+00:00",
+      "command": "su -c 'cat /sys/class/drm/card0-DSI-1/panelDC'",
+      "exit_code": 0,
+      "stdout": "0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T16:01:09.701179+00:00",
+      "command": "su -c 'cat /sys/class/drm/card0-DSI-1/mipi_cmd_log_en'",
+      "exit_code": 0,
+      "stdout": "ctrl->ctrl->mipi_cmd_log_en: 0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T16:01:10.838973+00:00",
+      "command": "content call --uri content://com.motorola.android.providers.settings/global --method GET_global --arg display_dc_mode_enabled",
+      "exit_code": 0,
+      "stdout": "Result: Bundle[{value=0}]",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T16:01:10.892543+00:00",
+      "command": "settings get system screen_brightness",
+      "exit_code": 0,
+      "stdout": "17",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T16:01:10.950440+00:00",
+      "command": "settings get system screen_brightness_mode",
+      "exit_code": 0,
+      "stdout": "1",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T16:01:11.007520+00:00",
+      "command": "settings get system min_refresh_rate",
+      "exit_code": 0,
+      "stdout": "null",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T16:01:11.066070+00:00",
+      "command": "settings get system peak_refresh_rate",
+      "exit_code": 0,
+      "stdout": "null",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T16:01:11.125339+00:00",
+      "command": "su -c 'cat /sys/class/backlight/panel0-backlight/bl_power'",
+      "exit_code": 0,
+      "stdout": "4",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T16:01:11.192187+00:00",
+      "command": "su -c 'printf '\"'\"'%s\\n'\"'\"' '\"'\"'<6>PWM_BOUNDARY_SETTLED_START'\"'\"' > /dev/kmsg'",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T16:01:11.251417+00:00",
+      "command": "su -c 'printf '\"'\"'1\\n'\"'\"' > /sys/class/drm/card0-DSI-1/mipi_cmd_log_en'",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T16:01:11.438078+00:00",
+      "command": "settings put system screen_brightness_mode 0; settings put system min_refresh_rate 120.0; settings put system peak_refresh_rate 120.0; settings put system screen_brightness 50; input keyevent 224; wm dismiss-keyguard",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T16:01:11.484496+00:00",
+      "command": "su -c 'cat /sys/class/backlight/panel0-backlight/bl_power'",
+      "exit_code": 0,
+      "stdout": "4",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T16:01:11.713658+00:00",
+      "command": "su -c 'cat /sys/class/backlight/panel0-backlight/bl_power'",
+      "exit_code": 0,
+      "stdout": "0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T16:01:11.745470+00:00",
+      "command": "su -c 'printf '\"'\"'%s\\n'\"'\"' '\"'\"'<6>PWM_BOUNDARY_SETTLED_LEVEL_51'\"'\"' > /dev/kmsg'",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T16:01:11.779272+00:00",
+      "command": "settings put system screen_brightness 51",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T16:01:11.809470+00:00",
+      "command": "su -c 'cat /sys/class/backlight/panel0-backlight/brightness'",
+      "exit_code": 0,
+      "stdout": "3522",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T16:01:12.061391+00:00",
+      "command": "su -c 'cat /sys/class/backlight/panel0-backlight/brightness'",
+      "exit_code": 0,
+      "stdout": "3522",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T16:01:12.323168+00:00",
+      "command": "su -c 'cat /sys/class/backlight/panel0-backlight/brightness'",
+      "exit_code": 0,
+      "stdout": "3522",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T16:01:12.369916+00:00",
+      "command": "settings get system screen_brightness",
+      "exit_code": 0,
+      "stdout": "51",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T16:01:12.426605+00:00",
+      "command": "su -c 'cat /sys/class/drm/card0-DSI-1/panelDC'",
+      "exit_code": 0,
+      "stdout": "0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T16:01:12.478415+00:00",
+      "command": "su -c 'cat /sys/class/backlight/panel0-backlight/bl_power'",
+      "exit_code": 0,
+      "stdout": "0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T16:01:12.543628+00:00",
+      "command": "su -c 'printf '\"'\"'%s\\n'\"'\"' '\"'\"'<6>PWM_BOUNDARY_SETTLED_LEVEL_52'\"'\"' > /dev/kmsg'",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T16:01:12.594993+00:00",
+      "command": "settings put system screen_brightness 52",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T16:01:12.623232+00:00",
+      "command": "su -c 'cat /sys/class/backlight/panel0-backlight/brightness'",
+      "exit_code": 0,
+      "stdout": "3584",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T16:01:12.874651+00:00",
+      "command": "su -c 'cat /sys/class/backlight/panel0-backlight/brightness'",
+      "exit_code": 0,
+      "stdout": "3584",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T16:01:13.125752+00:00",
+      "command": "su -c 'cat /sys/class/backlight/panel0-backlight/brightness'",
+      "exit_code": 0,
+      "stdout": "3584",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T16:01:13.169658+00:00",
+      "command": "settings get system screen_brightness",
+      "exit_code": 0,
+      "stdout": "52",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T16:01:13.225739+00:00",
+      "command": "su -c 'cat /sys/class/drm/card0-DSI-1/panelDC'",
+      "exit_code": 0,
+      "stdout": "0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T16:01:13.274176+00:00",
+      "command": "su -c 'cat /sys/class/backlight/panel0-backlight/bl_power'",
+      "exit_code": 0,
+      "stdout": "0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T16:01:13.316108+00:00",
+      "command": "su -c 'printf '\"'\"'%s\\n'\"'\"' '\"'\"'<6>PWM_BOUNDARY_SETTLED_LEVEL_53'\"'\"' > /dev/kmsg'",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T16:01:13.373171+00:00",
+      "command": "settings put system screen_brightness 53",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T16:01:13.406652+00:00",
+      "command": "su -c 'cat /sys/class/backlight/panel0-backlight/brightness'",
+      "exit_code": 0,
+      "stdout": "3646",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T16:01:13.664481+00:00",
+      "command": "su -c 'cat /sys/class/backlight/panel0-backlight/brightness'",
+      "exit_code": 0,
+      "stdout": "3646",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T16:01:13.918551+00:00",
+      "command": "su -c 'cat /sys/class/backlight/panel0-backlight/brightness'",
+      "exit_code": 0,
+      "stdout": "3646",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T16:01:13.970512+00:00",
+      "command": "settings get system screen_brightness",
+      "exit_code": 0,
+      "stdout": "53",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T16:01:14.022170+00:00",
+      "command": "su -c 'cat /sys/class/drm/card0-DSI-1/panelDC'",
+      "exit_code": 0,
+      "stdout": "0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T16:01:14.077445+00:00",
+      "command": "su -c 'cat /sys/class/backlight/panel0-backlight/bl_power'",
+      "exit_code": 0,
+      "stdout": "0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T16:01:14.135030+00:00",
+      "command": "su -c 'printf '\"'\"'%s\\n'\"'\"' '\"'\"'<6>PWM_BOUNDARY_SETTLED_LEVEL_54'\"'\"' > /dev/kmsg'",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T16:01:14.193805+00:00",
+      "command": "settings put system screen_brightness 54",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T16:01:14.221769+00:00",
+      "command": "su -c 'cat /sys/class/backlight/panel0-backlight/brightness'",
+      "exit_code": 0,
+      "stdout": "3708",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T16:01:14.451902+00:00",
+      "command": "su -c 'cat /sys/class/backlight/panel0-backlight/brightness'",
+      "exit_code": 0,
+      "stdout": "3708",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T16:01:14.701468+00:00",
+      "command": "su -c 'cat /sys/class/backlight/panel0-backlight/brightness'",
+      "exit_code": 0,
+      "stdout": "3708",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T16:01:14.755143+00:00",
+      "command": "settings get system screen_brightness",
+      "exit_code": 0,
+      "stdout": "54",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T16:01:14.806972+00:00",
+      "command": "su -c 'cat /sys/class/drm/card0-DSI-1/panelDC'",
+      "exit_code": 0,
+      "stdout": "0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T16:01:14.866719+00:00",
+      "command": "su -c 'cat /sys/class/backlight/panel0-backlight/bl_power'",
+      "exit_code": 0,
+      "stdout": "0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T16:01:14.898398+00:00",
+      "command": "dumpsys display",
+      "exit_code": 0,
+      "stdout": "<private settled-display.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T16:01:14.950878+00:00",
+      "command": "su -c 'printf '\"'\"'%s\\n'\"'\"' '\"'\"'<6>PWM_BOUNDARY_SETTLED_END'\"'\"' > /dev/kmsg'",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T16:01:15.015708+00:00",
+      "command": "su -c dmesg",
+      "exit_code": 0,
+      "stdout": "<private settled-kernel.txt>",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T16:01:15.073283+00:00",
+      "command": "su -c 'printf '\"'\"'0\\n'\"'\"' > /sys/class/drm/card0-DSI-1/mipi_cmd_log_en'",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T16:01:15.122466+00:00",
+      "command": "settings put system screen_brightness 17",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T16:01:15.149452+00:00",
+      "command": "settings delete system min_refresh_rate",
+      "exit_code": 0,
+      "stdout": "Deleted 1 rows",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T16:01:15.179084+00:00",
+      "command": "settings delete system peak_refresh_rate",
+      "exit_code": 0,
+      "stdout": "Deleted 1 rows",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T16:01:15.205129+00:00",
+      "command": "settings put system screen_brightness_mode 1",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T16:01:15.231999+00:00",
+      "command": "input keyevent 223",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T16:01:15.261063+00:00",
+      "command": "su -c 'cat /sys/class/backlight/panel0-backlight/bl_power'",
+      "exit_code": 0,
+      "stdout": "0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T16:01:15.504743+00:00",
+      "command": "su -c 'cat /sys/class/backlight/panel0-backlight/bl_power'",
+      "exit_code": 0,
+      "stdout": "0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T16:01:15.731814+00:00",
+      "command": "su -c 'cat /sys/class/backlight/panel0-backlight/bl_power'",
+      "exit_code": 0,
+      "stdout": "4",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T16:01:15.754665+00:00",
+      "command": "settings get system screen_brightness",
+      "exit_code": 0,
+      "stdout": "75",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T16:01:15.791385+00:00",
+      "command": "settings get system screen_brightness_mode",
+      "exit_code": 0,
+      "stdout": "1",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T16:01:15.841914+00:00",
+      "command": "settings get system min_refresh_rate",
+      "exit_code": 0,
+      "stdout": "null",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T16:01:15.877609+00:00",
+      "command": "settings get system peak_refresh_rate",
+      "exit_code": 0,
+      "stdout": "null",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T16:01:15.932859+00:00",
+      "command": "su -c 'cat /sys/class/backlight/panel0-backlight/bl_power'",
+      "exit_code": 0,
+      "stdout": "4",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T16:01:15.969289+00:00",
+      "command": "su -c 'cat /sys/class/drm/card0-DSI-1/panelDC'",
+      "exit_code": 0,
+      "stdout": "0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T16:01:16.003733+00:00",
+      "command": "su -c 'cat /sys/class/drm/card0-DSI-1/mipi_cmd_log_en'",
+      "exit_code": 0,
+      "stdout": "ctrl->ctrl->mipi_cmd_log_en: 0",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-11-06T16:01:16.025858+00:00",
+      "command": "getenforce",
+      "exit_code": 0,
+      "stdout": "Enforcing",
+      "stderr": ""
+    }
+  ],
+  "optical_observation": "not performed",
+  "pwm_hz": "unknown",
+  "before": {
+    "screen_brightness": "17",
+    "screen_brightness_mode": "1",
+    "min_refresh_rate": "null",
+    "peak_refresh_rate": "null",
+    "bl_power": "4"
+  },
+  "software_peak_refresh_rate": 120.00001,
+  "nearest_below": {
+    "android_brightness": 52,
+    "dbv": 3584,
+    "settling_samples": [
+      3584,
+      3584,
+      3584
+    ],
+    "at_utc": "2026-11-06T16:01:13.274501+00:00",
+    "native_brightness_packet": {
+      "controller": 1,
+      "payload_hex": "51 0e 00",
+      "be_value": 3584,
+      "page": 0,
+      "transport": "hs"
+    }
+  },
+  "nearest_above": {
+    "android_brightness": 53,
+    "dbv": 3646,
+    "settling_samples": [
+      3646,
+      3646,
+      3646
+    ],
+    "at_utc": "2026-11-06T16:01:14.077818+00:00",
+    "native_brightness_packet": {
+      "controller": 1,
+      "payload_hex": "51 0e 3e",
+      "be_value": 3646,
+      "page": 0,
+      "transport": "hs"
+    }
+  },
+  "brightness_pretransfer_logs": [
+    {
+      "controller": 1,
+      "payload_hex": "51 00 00",
+      "be_value": 0,
+      "page": 0,
+      "transport": "lp"
+    },
+    {
+      "controller": 1,
+      "payload_hex": "51 00 00",
+      "be_value": 0,
+      "page": 0,
+      "transport": "hs"
+    },
+    {
+      "controller": 1,
+      "payload_hex": "51 0d 84",
+      "be_value": 3460,
+      "page": 0,
+      "transport": "hs"
+    },
+    {
+      "controller": 1,
+      "payload_hex": "51 0d aa",
+      "be_value": 3498,
+      "page": 0,
+      "transport": "hs"
+    },
+    {
+      "controller": 1,
+      "payload_hex": "51 0d c2",
+      "be_value": 3522,
+      "page": 0,
+      "transport": "hs"
+    },
+    {
+      "controller": 1,
+      "payload_hex": "51 0d df",
+      "be_value": 3551,
+      "page": 0,
+      "transport": "hs"
+    },
+    {
+      "controller": 1,
+      "payload_hex": "51 0e 00",
+      "be_value": 3584,
+      "page": 0,
+      "transport": "hs"
+    },
+    {
+      "controller": 1,
+      "payload_hex": "51 0e 3e",
+      "be_value": 3646,
+      "page": 0,
+      "transport": "hs"
+    },
+    {
+      "controller": 1,
+      "payload_hex": "51 0e 5f",
+      "be_value": 3679,
+      "page": 0,
+      "transport": "hs"
+    },
+    {
+      "controller": 1,
+      "payload_hex": "51 0e 7c",
+      "be_value": 3708,
+      "page": 0,
+      "transport": "hs"
+    }
+  ],
+  "calibration_complete": true,
+  "log_limit": "Pre-transfer logger: payload observation, not physical completion or opticalHz",
+  "after": {
+    "screen_brightness": "75",
+    "screen_brightness_mode": "1",
+    "min_refresh_rate": "null",
+    "peak_refresh_rate": "null",
+    "bl_power": "4",
+    "dc": "0",
+    "logger": "ctrl->ctrl->mipi_cmd_log_en: 0",
+    "selinux": "Enforcing"
+  },
+  "restore_verified": true,
+  "restore_errors": [],
+  "finished_at_utc": "2026-11-06T16:01:16.026339+00:00"
+}

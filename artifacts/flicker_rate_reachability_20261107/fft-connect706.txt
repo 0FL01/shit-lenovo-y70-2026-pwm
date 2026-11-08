@@ -1,0 +1,15 @@
+# Diagnostic linear sweep: code/data boundaries NOT inferred.
+b2034778: 	r2 = memw(r2+#16)
+b203477c: 	callr r2
+b2034780: 	r2 = memw(r18+#0)
+b2034784: 	immext(#704)
+b2034788: 	p0 = cmp.eq(r2,##706)
+b203478c: 	if (!p0.new) jump:t 0xb20347a8
+b2034790: 	immext(#2986778368)
+b2034794: 	r3:2 = combine(##-1308188912,#1)
+b2034798: 	r4 = #1	r1:0 = combine(r17,#0)
+b203479c: 	call 0xb20defc0
+b20347a0: 	jump 0xb20347a8
+b20347a4: 	r16 = #0
+b20347a8: 	immext(#4294858688)
+b20347ac: 	r0 = r16 ; jump 0xb2019f80

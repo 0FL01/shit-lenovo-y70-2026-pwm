@@ -1,0 +1,10 @@
+{
+  "at_utc": "2026-11-07T07:06:52.932213+00:00",
+  "reason": "Android same-value52 restoration left the direct nativeDBV3600 override; restored actual pre-trial3584 evidenced before first3600write. No candidate repeated. Runner now captures/restores nativeDBV for initially-on manual mode.",
+  "before_native_dbv": 3600,
+  "after_native_dbv": 3584,
+  "android_brightness": 52,
+  "mode": 0,
+  "dc": 0,
+  "new_candidate_or_table_sent": false
+}

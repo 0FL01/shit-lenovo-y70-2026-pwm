@@ -1,0 +1,160 @@
+{
+  "source_video": "artifacts/optical/pacman_boundary_20261106.mp4",
+  "video_size_bytes": 46690837,
+  "video_duration_seconds": 39.966389,
+  "video_frames": 1199,
+  "video_resolution": [
+    1280,
+    720
+  ],
+  "encoded_rate": "4316400/143879",
+  "actual_video_approximately_fps": 30,
+  "menu_preview_reported_fps": 24,
+  "menu_fps_not_used_as_measurement": true,
+  "camera": {
+    "device": "Nothing A142P / PacmanPro",
+    "app": "Open Camera1.56.2, Camera2",
+    "verified_exposure_ns": 100000,
+    "verified_iso": 6400,
+    "ae": "OFF",
+    "video_stabilization": "OFF",
+    "focus_result_diopters_during_recording": 0.67804909,
+    "focus_limit": "Image is defocused; lens report remains constant during all holds, not an optical focus calibration",
+    "reported_rolling_shutter_skew_ns": 15047630,
+    "rolling_shutter_skew_not_converted_into_pwm_hz": true
+  },
+  "conditions": [
+    {
+      "phase": 1,
+      "android_brightness": 52,
+      "dbv": 3584,
+      "dc": 0,
+      "software_refresh_hz": 120
+    },
+    {
+      "phase": 2,
+      "android_brightness": 53,
+      "dbv": 3646,
+      "dc": 0,
+      "software_refresh_hz": 120
+    },
+    {
+      "phase": 3,
+      "android_brightness": 52,
+      "dbv": 3584,
+      "dc": 0,
+      "software_refresh_hz": 120
+    },
+    {
+      "phase": 4,
+      "android_brightness": 53,
+      "dbv": 3646,
+      "dc": 0,
+      "software_refresh_hz": 120
+    }
+  ],
+  "frame_inspection": {
+    "sample_times_seconds": [
+      6,
+      14.5,
+      23,
+      31.5
+    ],
+    "comparison": "artifacts/optical/pacman_boundary_comparison.png",
+    "visualization": "same gamma2 enhancement on all four image frames; original video unchanged",
+    "observation": "Phases1/3 show a repeated fine dark-band train plus a stronger band; phases2/4 show sparse stronger bands without the fine train."
+  },
+  "row_profile_analysis": {
+    "roi_xywh": [
+      540,
+      110,
+      60,
+      590
+    ],
+    "decoded_frames": 1199,
+    "ffmpeg_fps_mode": "passthrough (no duplicated frames)",
+    "profile": "mean grayscale across60 camera pixels; units are image code values, not calibrated luminance",
+    "windows": [
+      {
+        "phase": 1,
+        "window_seconds": [
+          5,
+          9
+        ],
+        "frame_count": 120,
+        "interior_autocorrelation_peak": true,
+        "spatial_period_px": 96,
+        "lag_96_normalized_correlation": 0.8817985055274159
+      },
+      {
+        "phase": 2,
+        "window_seconds": [
+          13.5,
+          17.5
+        ],
+        "frame_count": 120,
+        "interior_autocorrelation_peak": false,
+        "spatial_period_px": null,
+        "lag_96_normalized_correlation": 0.016809702275737613
+      },
+      {
+        "phase": 3,
+        "window_seconds": [
+          22,
+          26
+        ],
+        "frame_count": 120,
+        "interior_autocorrelation_peak": true,
+        "spatial_period_px": 96,
+        "lag_96_normalized_correlation": 0.8779646987433528
+      },
+      {
+        "phase": 4,
+        "window_seconds": [
+          30.5,
+          34.5
+        ],
+        "frame_count": 120,
+        "interior_autocorrelation_peak": false,
+        "spatial_period_px": null,
+        "lag_96_normalized_correlation": -0.001088342172371417
+      }
+    ],
+    "transition_method": "96px-lag normalized row correlation,5-frame median, threshold0.5; identifies image-pattern states, not PWM frequency",
+    "transitions": [
+      {
+        "video_seconds": 10.615433,
+        "dense_banding": false,
+        "native_brightness_command_completed_utc": "2026-11-06T16:30:32.820904+00:00"
+      },
+      {
+        "video_seconds": 18.981789,
+        "dense_banding": true,
+        "native_brightness_command_completed_utc": "2026-11-06T16:30:41.172335+00:00"
+      },
+      {
+        "video_seconds": 27.315222,
+        "dense_banding": false,
+        "native_brightness_command_completed_utc": "2026-11-06T16:30:49.500596+00:00"
+      }
+    ],
+    "alignment_spread_seconds": 0.020097017288208008,
+    "private_cache": "/home/stfu/.cache/opencode-tmp/opencode/pacman-camera-20261106"
+  },
+  "conclusion": {
+    "status": "confirmed-on-target",
+    "repeatable_optical_regime_transition_between_dbv3584_and3646": true,
+    "candidate3601_exact_boundary": "hypothesis; interval contains3601 but exact crossing was not measured",
+    "register_pair_causal_owner": "unknown; no register pair edited",
+    "pwm_hz": "unknown",
+    "greater_equal_2000_hz_verified": false,
+    "low_frequency_component_eliminated": false,
+    "relative_band_density_note": "Fine pattern repeats approximately every96 image rows below the bracket; this is not96Hz and is not independently calibrated EM frequency."
+  },
+  "restoration": {
+    "target_original_policy_restored": true,
+    "camera_original_timeout_ms": 1800000,
+    "camera_timeout_restored": true,
+    "camera_original_api_restored": true
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "prepared_at_utc": "2026-11-06T12:08:48.000490+00:00",
+  "image": "artifacts/kernel/gki_r59/kernelsu_next/persistent/boot.img",
+  "bytes": 100663296,
+  "sha256": "42db701abff335256e41d8b2ce591088512a172c7a4a7af3d37b0d2d489f5c17",
+  "target_partition": "boot_b",
+  "original": {
+    "read_at_utc": "2026-11-06T11:53:01.971132+00:00",
+    "status": "confirmed-on-target; unchanged active boot_b read during approved RAM-root trial",
+    "path": "artifacts/originals/W3WWS36.65-64-4-1/boot_b.img",
+    "bytes": 100663296,
+    "sha256": "49dcb9dd513ed5b364b9f84c6be4ab7bdc015a50562f5cca4779e46bf9287049",
+    "kernel_bytes": 41306624,
+    "kernel_sha256": "fe3ef36476044dcbdb0f281143793199edbbd75acd1d0fa401f35d99005bda6c",
+    "kernel_byte_equal_google_r59": true,
+    "header_version": 4,
+    "ramdisk_bytes": 0,
+    "os_version_patch_packed": 0,
+    "slot": "b",
+    "partition_image_writes_performed": false
+  },
+  "header": {
+    "version": 4,
+    "header_bytes": 1584,
+    "kernel_bytes": 41638400,
+    "ramdisk_bytes": 0,
+    "os_version_patch_packed": 0,
+    "cmdline": "",
+    "signature_bytes": 0
+  },
+  "executable_payload_byte_equal_successful_ram_image": true,
+  "avbtool_commit": "a7c15a79ae2a19e60457adf77e2b0bc89266f163",
+  "avb_algorithm_stock_and_new": "NONE",
+  "avb_flags_stock_and_new": 0,
+  "rollback_index_stock_and_new": 0,
+  "avb_properties_preserved": {
+    "com.android.build.boot.os_version": "16",
+    "com.android.build.boot.fingerprint": "motorola/avr_g/avr:16/WWWS36V.65-64-ST9.5/c9a7f:user/release-keys",
+    "com.android.build.boot.security_patch": "2026-10-01"
+  },
+  "stock_and_candidate_native_avb_hash_verification_pass": true,
+  "old_signed_certification_trailers_reused": false,
+  "oem_signature_claimed": false,
+  "offline_packaging_pass": true,
+  "on_target_persistent_flash_tested": false
+}

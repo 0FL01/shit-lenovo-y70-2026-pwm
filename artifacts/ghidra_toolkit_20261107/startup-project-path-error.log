@@ -1,0 +1,35 @@
+/mnt/kston/legion-Y70-madness/06-tools/ghidra_decompile.py:123: DeprecationWarning: open_program() is deprecated, use open_project() and program_context() or program_loader() instead.
+  with pyghidra.open_program(request['binary'],
+Traceback (most recent call last):
+  File "ProjectLocator.java", line 60, in ghidra.framework.model.ProjectLocator.<init>
+Exception: Java Exception
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/mnt/kston/legion-Y70-madness/06-tools/ghidra_decompile.py", line 268, in <module>
+    worker(sys.argv[2])
+    ~~~~~~^^^^^^^^^^^^^
+  File "/mnt/kston/legion-Y70-madness/06-tools/ghidra_decompile.py", line 123, in worker
+    with pyghidra.open_program(request['binary'],
+         ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+                              project_location=request['project'],
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                              project_name='analysis', analyze=False) as api:
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/stfu/miniconda3/lib/python3.13/contextlib.py", line 141, in __enter__
+    return next(self.gen)
+  File "/home/stfu/tools/ghidra-12.1.4-pyvenv/lib/python3.13/site-packages/pyghidra/core.py", line 223, in open_program
+    project, program = _setup_project(
+                       ~~~~~~~~~~~~~~^
+        binary_path,
+        ^^^^^^^^^^^^
+    ...<6 lines>...
+        nested_project_location
+        ^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/stfu/tools/ghidra-12.1.4-pyvenv/lib/python3.13/site-packages/pyghidra/core.py", line 96, in _setup_project
+    if ProjectLocator(project_location, project_name).exists():
+       ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+java.lang.java.lang.IllegalArgumentException: java.lang.IllegalArgumentException: Path element starting with '.' is not permitted

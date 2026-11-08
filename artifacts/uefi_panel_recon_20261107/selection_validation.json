@@ -1,0 +1,50 @@
+{
+  "scope": "Static reference PE catalog and archived Android software fields, no current UEFI readback",
+  "reference_pe_code_data_region_equal_except_nb10": true,
+  "reference_pe_import_rva": "0x4e338",
+  "reference_pe_catalog_file_offset": "0x4e338",
+  "boe_group_index": 0,
+  "boe_id_config_bytes": "06 00 00 00 05 00 00 00 da 00 d2 00",
+  "boe_version_config_bytes": "04 00 00 00 01 00 00 00 dc 00 00 00",
+  "boe_version_less_than_entries": [
+    {
+      "index": 0,
+      "less_than": 1,
+      "profile": "boe_ili97701A_682_1440x3168_dsc_cmd_v1"
+    },
+    {
+      "index": 1,
+      "less_than": 2,
+      "profile": "boe_ili97701A_682_1440x3168_dsc_cmd_v2"
+    },
+    {
+      "index": 2,
+      "less_than": 3,
+      "profile": "boe_ili97701A_682_1440x3168_dsc_cmd_v3"
+    },
+    {
+      "index": 3,
+      "less_than": 255,
+      "profile": "boe_ili97701A_682_1440x3168_dsc_cmd_v4"
+    }
+  ],
+  "conditional_mapping_if_group0_and_matching_readback": {
+    "0": "boe_ili97701A_682_1440x3168_dsc_cmd_v1",
+    "1": "boe_ili97701A_682_1440x3168_dsc_cmd_v2",
+    "2": "boe_ili97701A_682_1440x3168_dsc_cmd_v3",
+    "3..254": "boe_ili97701A_682_1440x3168_dsc_cmd_v4",
+    "255": "no threshold match (fallback unknown)"
+  },
+  "panelsimconfig_rows_including_header": 46,
+  "panelsimconfig_boe_rows": 0,
+  "archived_android_selected_profile": "boe_ili97701A_682_1440x3168_dsc_cmd_v4",
+  "archived_android_panel_id": "0x00000000000000d2",
+  "archived_android_panel_ver": "0x0000000000000000",
+  "limits": [
+    "Android panelVer=0 is not established as the UEFI DC readback byte",
+    "Current target UEFI binary/selection trace not captured",
+    "PE reference v3 commands cannot be applied to selected Android v4"
+  ],
+  "physical_pwm_hz": null,
+  "device_io": false
+}

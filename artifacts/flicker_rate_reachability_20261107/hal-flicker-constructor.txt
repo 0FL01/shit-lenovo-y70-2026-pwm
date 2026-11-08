@@ -1,0 +1,189 @@
+
+extracted/XT2611-1/W3WWL36.65-11-18/filesystems/vendor_a/lib64/sensors.qsh.so:	file format elf64-littleaarch64
+
+Disassembly of section .text:
+
+0000000000064208 <alternate_flicker::alternate_flicker(com::quic::sensinghub::suid, sensor_wakeup_type, int)>:
+   64208: d503233f     	paciasp
+   6420c: d10303ff     	sub	sp, sp, #0xc0
+   64210: a9097bfd     	stp	x29, x30, [sp, #0x90]
+   64214: a90a57f6     	stp	x22, x21, [sp, #0xa0]
+   64218: a90b4ff4     	stp	x20, x19, [sp, #0xb0]
+   6421c: 910243fd     	add	x29, sp, #0x90
+   64220: d53bd055     	mrs	x21, TPIDR_EL0
+   64224: 2a0403f4     	mov	w20, w4
+   64228: aa0003f3     	mov	x19, x0
+   6422c: f94016a8     	ldr	x8, [x21, #0x28]
+   64230: f81f83a8     	stur	x8, [x29, #-0x8]
+   64234: 9400b5b7     	bl	0x91910 <_ZN10qsh_sensorC2EN3com4quic10sensinghub4suidE18sensor_wakeup_type@plt>
+   64238: f0000188     	adrp	x8, 0x97000 <vtable for qsh_sensor+0x290>
+   6423c: d503201f     	nop
+   64240: 10185f96     	adr	x22, 0x94e30 <vtable for accelerometer>
+   64244: f9448108     	ldr	x8, [x8, #0x900]
+   64248: 5280068a     	mov	w10, #0x34              // =52
+   6424c: 72a0002a     	movk	w10, #0x1, lsl #16
+   64250: 91004101     	add	x1, x8, #0x10
+   64254: b900926a     	str	w10, [x19, #0x90]
+   64258: cb160029     	sub	x9, x1, x22
+   6425c: f9000261     	str	x1, [x19]
+   64260: d1004129     	sub	x9, x9, #0x10
+   64264: 93c91529     	ror	x9, x9, #0x5
+   64268: f104613f     	cmp	x9, #0x118
+   6426c: 54000ce8     	b.hi	0x64408 <alternate_flicker::alternate_flicker(com::quic::sensinghub::suid, sensor_wakeup_type, int)+0x200>
+   64270: d503201f     	nop
+   64274: 10dc1cea     	adr	x10, 0x1c610 <typeinfo name for std::bad_alloc+0xd>
+   64278: 38696949     	ldrb	w9, [x10, x9]
+   6427c: 36000c69     	tbz	w9, #0x0, 0x64408 <alternate_flicker::alternate_flicker(com::quic::sensinghub::suid, sensor_wakeup_type, int)+0x200>
+   64280: f9403508     	ldr	x8, [x8, #0x68]
+   64284: 52800681     	mov	w1, #0x34               // =52
+   64288: aa1303e0     	mov	x0, x19
+   6428c: 72a00021     	movk	w1, #0x1, lsl #16
+   64290: d63f0100     	blr	x8
+   64294: f9400261     	ldr	x1, [x19]
+   64298: cb160028     	sub	x8, x1, x22
+   6429c: d1004108     	sub	x8, x8, #0x10
+   642a0: 93c81508     	ror	x8, x8, #0x5
+   642a4: f104611f     	cmp	x8, #0x118
+   642a8: 54000c08     	b.hi	0x64428 <alternate_flicker::alternate_flicker(com::quic::sensinghub::suid, sensor_wakeup_type, int)+0x220>
+   642ac: d503201f     	nop
+   642b0: 10dc1b09     	adr	x9, 0x1c610 <typeinfo name for std::bad_alloc+0xd>
+   642b4: 38686928     	ldrb	w8, [x9, x8]
+   642b8: 36000b88     	tbz	w8, #0x0, 0x64428 <alternate_flicker::alternate_flicker(com::quic::sensinghub::suid, sensor_wakeup_type, int)+0x220>
+   642bc: cb160028     	sub	x8, x1, x22
+   642c0: b0fffda9     	adrp	x9, 0x19000
+   642c4: 910d7529     	add	x9, x9, #0x35d
+   642c8: d1004108     	sub	x8, x8, #0x10
+   642cc: f9005a69     	str	x9, [x19, #0xb0]
+   642d0: 93c81508     	ror	x8, x8, #0x5
+   642d4: f1044d1f     	cmp	x8, #0x113
+   642d8: 54000b68     	b.hi	0x64444 <alternate_flicker::alternate_flicker(com::quic::sensinghub::suid, sensor_wakeup_type, int)+0x23c>
+   642dc: d503201f     	nop
+   642e0: 10dc1989     	adr	x9, 0x1c610 <typeinfo name for std::bad_alloc+0xd>
+   642e4: 38686928     	ldrb	w8, [x9, x8]
+   642e8: 36100ae8     	tbz	w8, #0x2, 0x64444 <alternate_flicker::alternate_flicker(com::quic::sensinghub::suid, sensor_wakeup_type, int)+0x23c>
+   642ec: 52800400     	mov	w0, #0x20               // =32
+   642f0: 9400b222     	bl	0x90b78 <_Znwm@plt>
+   642f4: 90fffda8     	adrp	x8, 0x18000
+   642f8: 912c5d08     	add	x8, x8, #0xb17
+   642fc: 90fffd89     	adrp	x9, 0x14000
+   64300: 3dc00100     	ldr	q0, [x8]
+   64304: f9400908     	ldr	x8, [x8, #0x10]
+   64308: 3dc13921     	ldr	q1, [x9, #0x4e0]
+   6430c: f9000be0     	str	x0, [sp, #0x10]
+   64310: 3d800000     	str	q0, [x0]
+   64314: f9000808     	str	x8, [x0, #0x10]
+   64318: 3d8003e1     	str	q1, [sp]
+   6431c: 3900601f     	strb	wzr, [x0, #0x18]
+   64320: 910003e1     	mov	x1, sp
+   64324: aa1303e0     	mov	x0, x19
+   64328: 9400b586     	bl	0x91940 <_ZN10qsh_sensor19set_sensor_typenameERKNSt3__112basic_stringIcNS0_11char_traitsIcEENS0_9allocatorIcEEEE@plt>
+   6432c: 394003e8     	ldrb	w8, [sp]
+   64330: 360000a8     	tbz	w8, #0x0, 0x64344 <alternate_flicker::alternate_flicker(com::quic::sensinghub::suid, sensor_wakeup_type, int)+0x13c>
+   64334: f94003e8     	ldr	x8, [sp]
+   64338: f9400be0     	ldr	x0, [sp, #0x10]
+   6433c: 927ff901     	and	x1, x8, #0xfffffffffffffffe
+   64340: 9400b1ea     	bl	0x90ae8 <_ZdlPvm@plt>
+   64344: f9400261     	ldr	x1, [x19]
+   64348: cb160028     	sub	x8, x1, x22
+   6434c: d1004108     	sub	x8, x8, #0x10
+   64350: 93c81508     	ror	x8, x8, #0x5
+   64354: f1044d1f     	cmp	x8, #0x113
+   64358: 54000828     	b.hi	0x6445c <alternate_flicker::alternate_flicker(com::quic::sensinghub::suid, sensor_wakeup_type, int)+0x254>
+   6435c: d503201f     	nop
+   64360: 10dc1589     	adr	x9, 0x1c610 <typeinfo name for std::bad_alloc+0xd>
+   64364: 38686928     	ldrb	w8, [x9, x8]
+   64368: 361007a8     	tbz	w8, #0x2, 0x6445c <alternate_flicker::alternate_flicker(com::quic::sensinghub::suid, sensor_wakeup_type, int)+0x254>
+   6436c: aa1303e0     	mov	x0, x19
+   64370: 52806001     	mov	w1, #0x300              // =768
+   64374: 9400b579     	bl	0x91958 <_ZN10qsh_sensor14set_nowk_msgidEi@plt>
+   64378: 9400b62c     	bl	0x91c28 <_ZN25qsh_intf_resource_manager12get_instanceEv@plt>
+   6437c: f9400261     	ldr	x1, [x19]
+   64380: cb160028     	sub	x8, x1, x22
+   64384: d1004108     	sub	x8, x8, #0x10
+   64388: 93c81508     	ror	x8, x8, #0x5
+   6438c: f104611f     	cmp	x8, #0x118
+   64390: 54000728     	b.hi	0x64474 <alternate_flicker::alternate_flicker(com::quic::sensinghub::suid, sensor_wakeup_type, int)+0x26c>
+   64394: d503201f     	nop
+   64398: 10dc13c9     	adr	x9, 0x1c610 <typeinfo name for std::bad_alloc+0xd>
+   6439c: 38686928     	ldrb	w8, [x9, x8]
+   643a0: 360006a8     	tbz	w8, #0x0, 0x64474 <alternate_flicker::alternate_flicker(com::quic::sensinghub::suid, sensor_wakeup_type, int)+0x26c>
+   643a4: 3ccb8260     	ldur	q0, [x19, #0xb8]
+   643a8: 3ccc8261     	ldur	q1, [x19, #0xc8]
+   643ac: f9406e68     	ldr	x8, [x19, #0xd8]
+   643b0: 3cca8262     	ldur	q2, [x19, #0xa8]
+   643b4: ad0307e0     	stp	q0, q1, [sp, #0x60]
+   643b8: 3cc78260     	ldur	q0, [x19, #0x78]
+   643bc: 3cc88261     	ldur	q1, [x19, #0x88]
+   643c0: f90043e8     	str	x8, [sp, #0x80]
+   643c4: ad0107e0     	stp	q0, q1, [sp, #0x20]
+   643c8: 3cc98260     	ldur	q0, [x19, #0x98]
+   643cc: ad020be0     	stp	q0, q2, [sp, #0x40]
+   643d0: 910083e1     	add	x1, sp, #0x20
+   643d4: 2a1403e2     	mov	w2, w20
+   643d8: 9400b758     	bl	0x92138 <_ZN25qsh_intf_resource_manager15register_sensorE8sensor_ti@plt>
+   643dc: b9010a60     	str	w0, [x19, #0x108]
+   643e0: f94016a8     	ldr	x8, [x21, #0x28]
+   643e4: f85f83a9     	ldur	x9, [x29, #-0x8]
+   643e8: eb09011f     	cmp	x8, x9
+   643ec: 540007a1     	b.ne	0x644e0 <alternate_flicker::alternate_flicker(com::quic::sensinghub::suid, sensor_wakeup_type, int)+0x2d8>
+   643f0: a94b4ff4     	ldp	x20, x19, [sp, #0xb0]
+   643f4: a94a57f6     	ldp	x22, x21, [sp, #0xa0]
+   643f8: a9497bfd     	ldp	x29, x30, [sp, #0x90]
+   643fc: 910303ff     	add	sp, sp, #0xc0
+   64400: d50323bf     	autiasp
+   64404: d65f03c0     	ret
+   64408: d288f3a0     	mov	x0, #0x479d             // =18333
+   6440c: f2a1b040     	movk	x0, #0xd82, lsl #16
+   64410: f2d340e0     	movk	x0, #0x9a07, lsl #32
+   64414: f2e2e0e0     	movk	x0, #0x1707, lsl #48
+   64418: 9400b118     	bl	0x90878 <__cfi_slowpath@plt>
+   6441c: f0000188     	adrp	x8, 0x97000 <vtable for qsh_sensor+0x290>
+   64420: f9448108     	ldr	x8, [x8, #0x900]
+   64424: 17ffff97     	b	0x64280 <alternate_flicker::alternate_flicker(com::quic::sensinghub::suid, sensor_wakeup_type, int)+0x78>
+   64428: d288f3a0     	mov	x0, #0x479d             // =18333
+   6442c: f2a1b040     	movk	x0, #0xd82, lsl #16
+   64430: f2d340e0     	movk	x0, #0x9a07, lsl #32
+   64434: f2e2e0e0     	movk	x0, #0x1707, lsl #48
+   64438: 9400b110     	bl	0x90878 <__cfi_slowpath@plt>
+   6443c: f9400261     	ldr	x1, [x19]
+   64440: 17ffff9f     	b	0x642bc <alternate_flicker::alternate_flicker(com::quic::sensinghub::suid, sensor_wakeup_type, int)+0xb4>
+   64444: d29fdea0     	mov	x0, #0xfef5             // =65269
+   64448: f2bf3d20     	movk	x0, #0xf9e9, lsl #16
+   6444c: f2c33c80     	movk	x0, #0x19e4, lsl #32
+   64450: f2fd9ee0     	movk	x0, #0xecf7, lsl #48
+   64454: 9400b109     	bl	0x90878 <__cfi_slowpath@plt>
+   64458: 17ffffa5     	b	0x642ec <alternate_flicker::alternate_flicker(com::quic::sensinghub::suid, sensor_wakeup_type, int)+0xe4>
+   6445c: d29fdea0     	mov	x0, #0xfef5             // =65269
+   64460: f2bf3d20     	movk	x0, #0xf9e9, lsl #16
+   64464: f2c33c80     	movk	x0, #0x19e4, lsl #32
+   64468: f2fd9ee0     	movk	x0, #0xecf7, lsl #48
+   6446c: 9400b103     	bl	0x90878 <__cfi_slowpath@plt>
+   64470: 17ffffbf     	b	0x6436c <alternate_flicker::alternate_flicker(com::quic::sensinghub::suid, sensor_wakeup_type, int)+0x164>
+   64474: d288f3a8     	mov	x8, #0x479d             // =18333
+   64478: aa0003f6     	mov	x22, x0
+   6447c: f2a1b048     	movk	x8, #0xd82, lsl #16
+   64480: f2d340e8     	movk	x8, #0x9a07, lsl #32
+   64484: f2e2e0e8     	movk	x8, #0x1707, lsl #48
+   64488: aa0803e0     	mov	x0, x8
+   6448c: 9400b0fb     	bl	0x90878 <__cfi_slowpath@plt>
+   64490: aa1603e0     	mov	x0, x22
+   64494: 17ffffc4     	b	0x643a4 <alternate_flicker::alternate_flicker(com::quic::sensinghub::suid, sensor_wakeup_type, int)+0x19c>
+   64498: 394003e8     	ldrb	w8, [sp]
+   6449c: aa0003f4     	mov	x20, x0
+   644a0: 36000108     	tbz	w8, #0x0, 0x644c0 <alternate_flicker::alternate_flicker(com::quic::sensinghub::suid, sensor_wakeup_type, int)+0x2b8>
+   644a4: f94003e8     	ldr	x8, [sp]
+   644a8: f9400be0     	ldr	x0, [sp, #0x10]
+   644ac: 927ff901     	and	x1, x8, #0xfffffffffffffffe
+   644b0: 9400b18e     	bl	0x90ae8 <_ZdlPvm@plt>
+   644b4: 14000003     	b	0x644c0 <alternate_flicker::alternate_flicker(com::quic::sensinghub::suid, sensor_wakeup_type, int)+0x2b8>
+   644b8: 14000001     	b	0x644bc <alternate_flicker::alternate_flicker(com::quic::sensinghub::suid, sensor_wakeup_type, int)+0x2b4>
+   644bc: aa0003f4     	mov	x20, x0
+   644c0: aa1303e0     	mov	x0, x19
+   644c4: 97ffa6a9     	bl	0x4df68 <qsh_sensor::set_sensor_typename(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&)+0x7cc>
+   644c8: f94016a8     	ldr	x8, [x21, #0x28]
+   644cc: f85f83a9     	ldur	x9, [x29, #-0x8]
+   644d0: eb09011f     	cmp	x8, x9
+   644d4: 54000061     	b.ne	0x644e0 <alternate_flicker::alternate_flicker(com::quic::sensinghub::suid, sensor_wakeup_type, int)+0x2d8>
+   644d8: aa1403e0     	mov	x0, x20
+   644dc: 9400bb01     	bl	0x930e0 <_Unwind_Resume@plt>
+   644e0: 9400baf4     	bl	0x930b0 <__stack_chk_fail@plt>

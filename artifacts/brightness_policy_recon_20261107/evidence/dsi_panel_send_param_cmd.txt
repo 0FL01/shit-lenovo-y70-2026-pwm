@@ -1,0 +1,294 @@
+
+/mnt/kston/legion-Y70-madness/artifacts/kernel/gki_r59/target_vendor/msm_drm.ko:     file format elf64-littleaarch64
+
+
+Disassembly of section .text:
+
+00000000001c456c <dsi_panel_send_param_cmd>:
+  1c456c:	d503233f 	paciasp
+  1c4570:	d10183ff 	sub	sp, sp, #0x60
+  1c4574:	a9017bfd 	stp	x29, x30, [sp, #16]
+  1c4578:	a90267fa 	stp	x26, x25, [sp, #32]
+  1c457c:	a9035ff8 	stp	x24, x23, [sp, #48]
+  1c4580:	a90457f6 	stp	x22, x21, [sp, #64]
+  1c4584:	a9054ff4 	stp	x20, x19, [sp, #80]
+  1c4588:	910043fd 	add	x29, sp, #0x10
+  1c458c:	b9400028 	ldr	w8, [x1]
+  1c4590:	52800309 	mov	w9, #0x18                  	// #24
+  1c4594:	f945fc0a 	ldr	x10, [x0, #3064]
+  1c4598:	9ba92917 	umaddl	x23, w8, w9, x10
+  1c459c:	b4000537 	cbz	x23, 1c4640 <dsi_panel_send_param_cmd+0xd4>
+  1c45a0:	f9400004 	ldr	x4, [x0]
+  1c45a4:	f94002e5 	ldr	x5, [x23]
+  1c45a8:	aa0103f4 	mov	x20, x1
+  1c45ac:	794022e6 	ldrh	w6, [x23, #16]
+  1c45b0:	794026e7 	ldrh	w7, [x23, #18]
+  1c45b4:	aa0003f3 	mov	x19, x0
+  1c45b8:	79402ae8 	ldrh	w8, [x23, #20]
+  1c45bc:	90000001 	adrp	x1, 0 <msm_hdcp_register_cb-0x4>
+			1c45bc: R_AARCH64_ADR_PREL_PG_HI21	.rodata+0x51366
+  1c45c0:	91000021 	add	x1, x1, #0x0
+			1c45c0: R_AARCH64_ADD_ABS_LO12_NC	.rodata+0x51366
+  1c45c4:	90000002 	adrp	x2, 0 <msm_hdcp_register_cb-0x4>
+			1c45c4: R_AARCH64_ADR_PREL_PG_HI21	.rodata+0x4ec55
+		; rodata string: '[msm-dsi-info]: %s: [%s], param_name=%s; val_max =%d, default_value=%d, value=%d\n'
+  1c45c8:	91000042 	add	x2, x2, #0x0
+			1c45c8: R_AARCH64_ADD_ABS_LO12_NC	.rodata+0x4ec55
+		; rodata string: '[msm-dsi-info]: %s: [%s], param_name=%s; val_max =%d, default_value=%d, value=%d\n'
+  1c45cc:	90000003 	adrp	x3, 0 <msm_hdcp_register_cb-0x4>
+			1c45cc: R_AARCH64_ADR_PREL_PG_HI21	.rodata+0x6e718
+		; rodata string: 'dsi_panel_send_param_cmd'
+  1c45d0:	91000063 	add	x3, x3, #0x0
+			1c45d0: R_AARCH64_ADD_ABS_LO12_NC	.rodata+0x6e718
+		; rodata string: 'dsi_panel_send_param_cmd'
+  1c45d4:	aa1f03e0 	mov	x0, xzr
+  1c45d8:	b90003e8 	str	w8, [sp]
+  1c45dc:	94000000 	bl	0 <drm_dev_printk>
+			1c45dc: R_AARCH64_CALL26	drm_dev_printk
+  1c45e0:	91104260 	add	x0, x19, #0x410
+  1c45e4:	94000000 	bl	0 <mutex_lock>
+			1c45e4: R_AARCH64_CALL26	mutex_lock
+  1c45e8:	3965b668 	ldrb	w8, [x19, #2413]
+  1c45ec:	7100051f 	cmp	w8, #0x1
+  1c45f0:	54000741 	b.ne	1c46d8 <dsi_panel_send_param_cmd+0x16c>  // b.any
+  1c45f4:	b9400a86 	ldr	w6, [x20, #8]
+  1c45f8:	794022e8 	ldrh	w8, [x23, #16]
+  1c45fc:	6b0800df 	cmp	w6, w8
+  1c4600:	5400006b 	b.lt	1c460c <dsi_panel_send_param_cmd+0xa0>  // b.tstop
+  1c4604:	51000506 	sub	w6, w8, #0x1
+  1c4608:	b9000a86 	str	w6, [x20, #8]
+  1c460c:	79402ae5 	ldrh	w5, [x23, #20]
+  1c4610:	6b0500df 	cmp	w6, w5
+  1c4614:	540002a1 	b.ne	1c4668 <dsi_panel_send_param_cmd+0xfc>  // b.any
+  1c4618:	b9400283 	ldr	w3, [x20]
+  1c461c:	90000001 	adrp	x1, 0 <msm_hdcp_register_cb-0x4>
+			1c461c: R_AARCH64_ADR_PREL_PG_HI21	.rodata+0x51366
+  1c4620:	91000021 	add	x1, x1, #0x0
+			1c4620: R_AARCH64_ADD_ABS_LO12_NC	.rodata+0x51366
+  1c4624:	90000002 	adrp	x2, 0 <msm_hdcp_register_cb-0x4>
+			1c4624: R_AARCH64_ADR_PREL_PG_HI21	.rodata+0x2cf8d
+		; rodata string: '[msm-dsi-info]: (mode=%d): requested value=%d is same. Do nothing\n'
+  1c4628:	91000042 	add	x2, x2, #0x0
+			1c4628: R_AARCH64_ADD_ABS_LO12_NC	.rodata+0x2cf8d
+		; rodata string: '[msm-dsi-info]: (mode=%d): requested value=%d is same. Do nothing\n'
+  1c462c:	aa1f03e0 	mov	x0, xzr
+  1c4630:	2a0603e4 	mov	w4, w6
+  1c4634:	94000000 	bl	0 <drm_dev_printk>
+			1c4634: R_AARCH64_CALL26	drm_dev_printk
+  1c4638:	2a1f03f6 	mov	w22, wzr
+  1c463c:	14000044 	b	1c474c <dsi_panel_send_param_cmd+0x1e0>
+  1c4640:	90000001 	adrp	x1, 0 <msm_hdcp_register_cb-0x4>
+			1c4640: R_AARCH64_ADR_PREL_PG_HI21	.rodata+0x3d84f
+  1c4644:	91000021 	add	x1, x1, #0x0
+			1c4644: R_AARCH64_ADD_ABS_LO12_NC	.rodata+0x3d84f
+  1c4648:	90000002 	adrp	x2, 0 <msm_hdcp_register_cb-0x4>
+			1c4648: R_AARCH64_ADR_PREL_PG_HI21	.rodata+0x12ffa
+		; rodata string: '*ERROR* [msm-dsi-error]: %s: invalid panel_param.\n'
+  1c464c:	91000042 	add	x2, x2, #0x0
+			1c464c: R_AARCH64_ADD_ABS_LO12_NC	.rodata+0x12ffa
+		; rodata string: '*ERROR* [msm-dsi-error]: %s: invalid panel_param.\n'
+  1c4650:	90000003 	adrp	x3, 0 <msm_hdcp_register_cb-0x4>
+			1c4650: R_AARCH64_ADR_PREL_PG_HI21	.rodata+0x6e718
+		; rodata string: 'dsi_panel_send_param_cmd'
+  1c4654:	91000063 	add	x3, x3, #0x0
+			1c4654: R_AARCH64_ADD_ABS_LO12_NC	.rodata+0x6e718
+		; rodata string: 'dsi_panel_send_param_cmd'
+  1c4658:	aa1f03e0 	mov	x0, xzr
+  1c465c:	94000000 	bl	0 <drm_dev_printk>
+			1c465c: R_AARCH64_CALL26	drm_dev_printk
+  1c4660:	128002b6 	mov	w22, #0xffffffea            	// #-22
+  1c4664:	1400003c 	b	1c4754 <dsi_panel_send_param_cmd+0x1e8>
+  1c4668:	90000003 	adrp	x3, 0 <msm_hdcp_register_cb-0x4>
+			1c4668: R_AARCH64_ADR_PREL_PG_HI21	.rodata+0x47094
+		; rodata string: '[msm-dsi-debug]: %s: requested: old=%d new=%d.\n'
+  1c466c:	91000063 	add	x3, x3, #0x0
+			1c466c: R_AARCH64_ADD_ABS_LO12_NC	.rodata+0x47094
+		; rodata string: '[msm-dsi-debug]: %s: requested: old=%d new=%d.\n'
+  1c4670:	90000004 	adrp	x4, 0 <msm_hdcp_register_cb-0x4>
+			1c4670: R_AARCH64_ADR_PREL_PG_HI21	.rodata+0x6e718
+		; rodata string: 'dsi_panel_send_param_cmd'
+  1c4674:	91000084 	add	x4, x4, #0x0
+			1c4674: R_AARCH64_ADD_ABS_LO12_NC	.rodata+0x6e718
+		; rodata string: 'dsi_panel_send_param_cmd'
+  1c4678:	aa1f03e0 	mov	x0, xzr
+  1c467c:	aa1f03e1 	mov	x1, xzr
+  1c4680:	2a1f03e2 	mov	w2, wzr
+  1c4684:	94000000 	bl	0 <__drm_dev_dbg>
+			1c4684: R_AARCH64_CALL26	__drm_dev_dbg
+  1c4688:	b9400288 	ldr	w8, [x20]
+  1c468c:	52800309 	mov	w9, #0x18                  	// #24
+  1c4690:	f945fe6a 	ldr	x10, [x19, #3064]
+  1c4694:	9ba92908 	umaddl	x8, w8, w9, x10
+  1c4698:	b9800a89 	ldrsw	x9, [x20, #8]
+  1c469c:	f9400508 	ldr	x8, [x8, #8]
+  1c46a0:	8b091109 	add	x9, x8, x9, lsl #4
+  1c46a4:	f9400528 	ldr	x8, [x9, #8]
+  1c46a8:	b4000448 	cbz	x8, 1c4730 <dsi_panel_send_param_cmd+0x1c4>
+  1c46ac:	f9400915 	ldr	x21, [x8, #16]
+  1c46b0:	b4000415 	cbz	x21, 1c4730 <dsi_panel_send_param_cmd+0x1c4>
+  1c46b4:	3965b66a 	ldrb	w10, [x19, #2413]
+  1c46b8:	7100055f 	cmp	w10, #0x1
+  1c46bc:	540000e1 	b.ne	1c46d8 <dsi_panel_send_param_cmd+0x16c>  // b.any
+  1c46c0:	b40005c9 	cbz	x9, 1c4778 <dsi_panel_send_param_cmd+0x20c>
+  1c46c4:	b9400918 	ldr	w24, [x8, #8]
+  1c46c8:	34000698 	cbz	w24, 1c4798 <dsi_panel_send_param_cmd+0x22c>
+  1c46cc:	b9400519 	ldr	w25, [x8, #4]
+  1c46d0:	52807d1a 	mov	w26, #0x3e8                 	// #1000
+  1c46d4:	14000006 	b	1c46ec <dsi_panel_send_param_cmd+0x180>
+  1c46d8:	12800256 	mov	w22, #0xffffffed            	// #-19
+  1c46dc:	1400001c 	b	1c474c <dsi_panel_send_param_cmd+0x1e0>
+  1c46e0:	71000718 	subs	w24, w24, #0x1
+  1c46e4:	910102b5 	add	x21, x21, #0x40
+  1c46e8:	54000660 	b.eq	1c47b4 <dsi_panel_send_param_cmd+0x248>  // b.none
+  1c46ec:	b90036bf 	str	wzr, [x21, #52]
+  1c46f0:	35000099 	cbnz	w25, 1c4700 <dsi_panel_send_param_cmd+0x194>
+  1c46f4:	794006a8 	ldrh	w8, [x21, #2]
+  1c46f8:	321f0108 	orr	w8, w8, #0x2
+  1c46fc:	790006a8 	strh	w8, [x21, #2]
+  1c4700:	f9425e60 	ldr	x0, [x19, #1208]
+  1c4704:	aa1503e1 	mov	x1, x21
+  1c4708:	2a1f03e2 	mov	w2, wzr
+  1c470c:	94000000 	bl	1a1a84 <dsi_host_transfer_sub>
+			1c470c: R_AARCH64_CALL26	dsi_host_transfer_sub
+  1c4710:	37f80780 	tbnz	w0, #31, 1c4800 <dsi_panel_send_param_cmd+0x294>
+  1c4714:	b9402ea8 	ldr	w8, [x21, #44]
+  1c4718:	34fffe48 	cbz	w8, 1c46e0 <dsi_panel_send_param_cmd+0x174>
+  1c471c:	1b1a7d00 	mul	w0, w8, w26
+  1c4720:	52800042 	mov	w2, #0x2                   	// #2
+  1c4724:	11002801 	add	w1, w0, #0xa
+  1c4728:	94000000 	bl	0 <usleep_range_state>
+			1c4728: R_AARCH64_CALL26	usleep_range_state
+  1c472c:	17ffffed 	b	1c46e0 <dsi_panel_send_param_cmd+0x174>
+  1c4730:	90000001 	adrp	x1, 0 <msm_hdcp_register_cb-0x4>
+			1c4730: R_AARCH64_ADR_PREL_PG_HI21	.rodata+0x3d84f
+  1c4734:	91000021 	add	x1, x1, #0x0
+			1c4734: R_AARCH64_ADD_ABS_LO12_NC	.rodata+0x3d84f
+  1c4738:	90000002 	adrp	x2, 0 <msm_hdcp_register_cb-0x4>
+			1c4738: R_AARCH64_ADR_PREL_PG_HI21	.rodata+0x3d36
+		; rodata string: '*ERROR* [msm-dsi-error]: Invalid cmds or cmds->cmds\n'
+  1c473c:	91000042 	add	x2, x2, #0x0
+			1c473c: R_AARCH64_ADD_ABS_LO12_NC	.rodata+0x3d36
+		; rodata string: '*ERROR* [msm-dsi-error]: Invalid cmds or cmds->cmds\n'
+  1c4740:	aa1f03e0 	mov	x0, xzr
+  1c4744:	94000000 	bl	0 <drm_dev_printk>
+			1c4744: R_AARCH64_CALL26	drm_dev_printk
+  1c4748:	128002b6 	mov	w22, #0xffffffea            	// #-22
+  1c474c:	91104260 	add	x0, x19, #0x410
+  1c4750:	94000000 	bl	0 <mutex_unlock>
+			1c4750: R_AARCH64_CALL26	mutex_unlock
+  1c4754:	2a1603e0 	mov	w0, w22
+  1c4758:	a9454ff4 	ldp	x20, x19, [sp, #80]
+  1c475c:	a94457f6 	ldp	x22, x21, [sp, #64]
+  1c4760:	a9435ff8 	ldp	x24, x23, [sp, #48]
+  1c4764:	a94267fa 	ldp	x26, x25, [sp, #32]
+  1c4768:	a9417bfd 	ldp	x29, x30, [sp, #16]
+  1c476c:	910183ff 	add	sp, sp, #0x60
+  1c4770:	d50323bf 	autiasp
+  1c4774:	d65f03c0 	ret
+  1c4778:	90000001 	adrp	x1, 0 <msm_hdcp_register_cb-0x4>
+			1c4778: R_AARCH64_ADR_PREL_PG_HI21	.rodata+0x3d84f
+  1c477c:	91000021 	add	x1, x1, #0x0
+			1c477c: R_AARCH64_ADD_ABS_LO12_NC	.rodata+0x3d84f
+  1c4780:	90000002 	adrp	x2, 0 <msm_hdcp_register_cb-0x4>
+			1c4780: R_AARCH64_ADR_PREL_PG_HI21	.rodata+0x309e4
+		; rodata string: '*ERROR* [msm-dsi-error]: Invalid Params\n'
+  1c4784:	91000042 	add	x2, x2, #0x0
+			1c4784: R_AARCH64_ADD_ABS_LO12_NC	.rodata+0x309e4
+		; rodata string: '*ERROR* [msm-dsi-error]: Invalid Params\n'
+  1c4788:	aa1f03e0 	mov	x0, xzr
+  1c478c:	94000000 	bl	0 <drm_dev_printk>
+			1c478c: R_AARCH64_CALL26	drm_dev_printk
+  1c4790:	128002b6 	mov	w22, #0xffffffea            	// #-22
+  1c4794:	14000023 	b	1c4820 <dsi_panel_send_param_cmd+0x2b4>
+  1c4798:	f9400264 	ldr	x4, [x19]
+  1c479c:	90000003 	adrp	x3, 0 <msm_hdcp_register_cb-0x4>
+			1c479c: R_AARCH64_ADR_PREL_PG_HI21	.rodata+0x52a9e
+		; rodata string: '[msm-dsi-debug]: [%s] No dsi_panel_tx_send_param_cmd commands to be sent\n'
+  1c47a0:	91000063 	add	x3, x3, #0x0
+			1c47a0: R_AARCH64_ADD_ABS_LO12_NC	.rodata+0x52a9e
+		; rodata string: '[msm-dsi-debug]: [%s] No dsi_panel_tx_send_param_cmd commands to be sent\n'
+  1c47a4:	aa1f03e0 	mov	x0, xzr
+  1c47a8:	aa1f03e1 	mov	x1, xzr
+  1c47ac:	2a1f03e2 	mov	w2, wzr
+  1c47b0:	94000000 	bl	0 <__drm_dev_dbg>
+			1c47b0: R_AARCH64_CALL26	__drm_dev_dbg
+  1c47b4:	b9400a89 	ldr	w9, [x20, #8]
+  1c47b8:	f94002e8 	ldr	x8, [x23]
+  1c47bc:	79002ae9 	strh	w9, [x23, #20]
+  1c47c0:	39400109 	ldrb	w9, [x8]
+  1c47c4:	7101113f 	cmp	w9, #0x44
+  1c47c8:	540000c1 	b.ne	1c47e0 <dsi_panel_send_param_cmd+0x274>  // b.any
+  1c47cc:	39400509 	ldrb	w9, [x8, #1]
+  1c47d0:	71010d3f 	cmp	w9, #0x43
+  1c47d4:	54000061 	b.ne	1c47e0 <dsi_panel_send_param_cmd+0x274>  // b.any
+  1c47d8:	39400908 	ldrb	w8, [x8, #2]
+  1c47dc:	34000368 	cbz	w8, 1c4848 <dsi_panel_send_param_cmd+0x2dc>
+  1c47e0:	b9400283 	ldr	w3, [x20]
+  1c47e4:	b9400a84 	ldr	w4, [x20, #8]
+  1c47e8:	90000001 	adrp	x1, 0 <msm_hdcp_register_cb-0x4>
+			1c47e8: R_AARCH64_ADR_PREL_PG_HI21	.rodata+0x51366
+  1c47ec:	91000021 	add	x1, x1, #0x0
+			1c47ec: R_AARCH64_ADD_ABS_LO12_NC	.rodata+0x51366
+  1c47f0:	90000002 	adrp	x2, 0 <msm_hdcp_register_cb-0x4>
+			1c47f0: R_AARCH64_ADR_PREL_PG_HI21	.rodata+0x7cbc
+		; rodata string: '[msm-dsi-info]: (%d) is setting new value %d\n'
+  1c47f4:	91000042 	add	x2, x2, #0x0
+			1c47f4: R_AARCH64_ADD_ABS_LO12_NC	.rodata+0x7cbc
+		; rodata string: '[msm-dsi-info]: (%d) is setting new value %d\n'
+  1c47f8:	aa1f03e0 	mov	x0, xzr
+  1c47fc:	17ffff8e 	b	1c4634 <dsi_panel_send_param_cmd+0xc8>
+  1c4800:	2a0003f6 	mov	w22, w0
+  1c4804:	90000001 	adrp	x1, 0 <msm_hdcp_register_cb-0x4>
+			1c4804: R_AARCH64_ADR_PREL_PG_HI21	.rodata+0x3d84f
+  1c4808:	91000021 	add	x1, x1, #0x0
+			1c4808: R_AARCH64_ADD_ABS_LO12_NC	.rodata+0x3d84f
+  1c480c:	90000002 	adrp	x2, 0 <msm_hdcp_register_cb-0x4>
+			1c480c: R_AARCH64_ADR_PREL_PG_HI21	.rodata+0x4353e
+		; rodata string: '*ERROR* [msm-dsi-error]: failed to set dsi_panel_tx_send_param_cmd  cmds, rc=%d\n'
+  1c4810:	91000042 	add	x2, x2, #0x0
+			1c4810: R_AARCH64_ADD_ABS_LO12_NC	.rodata+0x4353e
+		; rodata string: '*ERROR* [msm-dsi-error]: failed to set dsi_panel_tx_send_param_cmd  cmds, rc=%d\n'
+  1c4814:	aa1f03e0 	mov	x0, xzr
+  1c4818:	2a1603e3 	mov	w3, w22
+  1c481c:	94000000 	bl	0 <drm_dev_printk>
+			1c481c: R_AARCH64_CALL26	drm_dev_printk
+  1c4820:	f94002e4 	ldr	x4, [x23]
+  1c4824:	90000001 	adrp	x1, 0 <msm_hdcp_register_cb-0x4>
+			1c4824: R_AARCH64_ADR_PREL_PG_HI21	.rodata+0x3d84f
+  1c4828:	91000021 	add	x1, x1, #0x0
+			1c4828: R_AARCH64_ADD_ABS_LO12_NC	.rodata+0x3d84f
+  1c482c:	90000002 	adrp	x2, 0 <msm_hdcp_register_cb-0x4>
+			1c482c: R_AARCH64_ADR_PREL_PG_HI21	.rodata+0xbb76
+		; rodata string: '*ERROR* [msm-dsi-error]: %s: failed to set %s cmd\n'
+  1c4830:	91000042 	add	x2, x2, #0x0
+			1c4830: R_AARCH64_ADD_ABS_LO12_NC	.rodata+0xbb76
+		; rodata string: '*ERROR* [msm-dsi-error]: %s: failed to set %s cmd\n'
+  1c4834:	90000003 	adrp	x3, 0 <msm_hdcp_register_cb-0x4>
+			1c4834: R_AARCH64_ADR_PREL_PG_HI21	.rodata+0x6e718
+		; rodata string: 'dsi_panel_send_param_cmd'
+  1c4838:	91000063 	add	x3, x3, #0x0
+			1c4838: R_AARCH64_ADD_ABS_LO12_NC	.rodata+0x6e718
+		; rodata string: 'dsi_panel_send_param_cmd'
+  1c483c:	aa1f03e0 	mov	x0, xzr
+  1c4840:	94000000 	bl	0 <drm_dev_printk>
+			1c4840: R_AARCH64_CALL26	drm_dev_printk
+  1c4844:	17ffffc2 	b	1c474c <dsi_panel_send_param_cmd+0x1e0>
+  1c4848:	b9400a82 	ldr	w2, [x20, #8]
+  1c484c:	90000000 	adrp	x0, 0 <msm_hdcp_register_cb-0x4>
+			1c484c: R_AARCH64_ADR_PREL_PG_HI21	.rodata+0xbba9
+  1c4850:	91000000 	add	x0, x0, #0x0
+			1c4850: R_AARCH64_ADD_ABS_LO12_NC	.rodata+0xbba9
+  1c4854:	90000001 	adrp	x1, 0 <msm_hdcp_register_cb-0x4>
+			1c4854: R_AARCH64_ADR_PREL_PG_HI21	.rodata+0x6e718
+		; rodata string: 'dsi_panel_send_param_cmd'
+  1c4858:	91000021 	add	x1, x1, #0x0
+			1c4858: R_AARCH64_ADD_ABS_LO12_NC	.rodata+0x6e718
+		; rodata string: 'dsi_panel_send_param_cmd'
+  1c485c:	b90c1a62 	str	w2, [x19, #3096]
+  1c4860:	94000000 	bl	0 <_printk>
+			1c4860: R_AARCH64_CALL26	_printk
+  1c4864:	17ffffdf 	b	1c47e0 <dsi_panel_send_param_cmd+0x274>
+
+Disassembly of section .init.text:
+
+Disassembly of section .exit.text:
