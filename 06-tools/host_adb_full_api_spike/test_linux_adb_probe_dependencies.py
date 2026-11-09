@@ -21,7 +21,7 @@ class FakeProc:
         self.reads={'/proc/net/tcp':HEADER+tcp(),'/proc/net/tcp6':HEADER,
                     '/proc/101/stat':statline(),'/proc/101/status':b'Name:\tadb\nUid:\t0\t0\t0\t0\n'}
         self.dirs={'/proc':('net','self','101'),'/proc/101/fd':('0','1')}
-        self.links={'/proc/self/ns/net':'net:[123]','/proc/101/exe':'/fixture/adb',
+        self.links={'/proc/101/ns/net':'net:[123]','/proc/self/ns/net':'net:[123]','/proc/101/exe':'/fixture/adb',
                     '/proc/101/fd/0':'/dev/null','/proc/101/fd/1':'socket:[900]'}
         self.exe=d.ExecutableSnapshot(1,2,stat.S_IFREG|0o755,0,3,PIN.executable_sha256)
         self.hooks={}
@@ -72,14 +72,15 @@ class AssociationTests(unittest.TestCase):
         for raw in (HEADER,HEADER+tcp(inode=901),HEADER+tcp()+tcp(),HEADER+tcp(address='00000000'),HEADER+tcp(uid=1000)):
             h=H();h.proc.reads['/proc/net/tcp']=raw;self.assert_sticky(h)
         h=H();h.proc.reads['/proc/net/tcp6']=HEADER+tcp(address='0'*32);self.assert_sticky(h)
-    def test_missing_ambiguous_holder(self):
+    def test_missing_holder_rejected_shared_holder_outside_contract(self):
         h=H();h.proc.links['/proc/101/fd/1']='socket:[901]';self.assert_sticky(h)
-        h=H();h.proc.other_holder();self.assert_sticky(h)
+        h=H();h.proc.other_holder();self.assertEqual(h.association(12),(f.PIN,))
+        self.assertFalse(any('/102/' in path for path in h.proc.calls))
     def test_unreadable_any_process_rejects_complete_association(self):
         for path in ('/proc/net/tcp6','/proc/101/fd','/proc/101/fd/0','/proc/101/status','binary'):
             h=H();h.proc.denied=path;self.assert_sticky(h)
     def test_caps_are_failure_not_partial_success(self):
-        for change in ({'tcp_bytes':8},{'stat_bytes':8},{'status_bytes':8},{'max_pids':2},
+        for change in ({'tcp_bytes':8},{'stat_bytes':8},{'status_bytes':8},
                        {'max_fds_per_pid':1},{'max_total_fds':1},{'link_bytes':2}):
             h=H(dataclasses.replace(LIMITS,**change));self.assert_sticky(h)
     def test_pid_reuse_owner_path_binary_changes(self):
@@ -91,7 +92,7 @@ class AssociationTests(unittest.TestCase):
             elif kind=='hash':h.proc.exe=dataclasses.replace(h.proc.exe,sha256='0'*64)
             elif kind=='inode':h.proc.exe=dataclasses.replace(h.proc.exe,inode=3)
             elif kind=='namespace':h.proc.links['/proc/self/ns/net']='net:[456]'
-            else:h.proc.dirs['/proc']=('net','self')
+            else:h.proc.hooks['/proc/101/stat']=lambda:(_ for _ in ()).throw(FileNotFoundError())
             self.assert_sticky(h)
     def test_changed_second_snapshot(self):
         h=H();count=[0]
@@ -102,12 +103,54 @@ class AssociationTests(unittest.TestCase):
     def test_changed_pid_during_fd_scan(self):
         h=H();h.proc.hooks['/proc/101/fd']=lambda:h.proc.reads.update({'/proc/101/stat':statline(start=124)})
         self.assert_sticky(h)
-    def test_process_set_churn_rejected(self):
-        h=H();count=[0]
-        def change():
-            count[0]+=1
-            if count[0]==2:h.proc.dirs['/proc']=('101','102')
-        h.proc.hooks['/proc']=change;self.assert_sticky(h)
+    def test_unrelated_pid_start_exit_and_denial_outside_contract(self):
+        for change in (('101','102'),('101',),('999',)):
+            h=H();h.proc.dirs['/proc']=change;h.proc.denied='/proc'
+            h.proc.hooks['/proc/101/fd']=lambda:h.proc.dirs.update({'/proc':('101','777')})
+            self.assertEqual(h.association(12),(f.PIN,))
+            self.assertNotIn('/proc',h.proc.calls)
+    def test_second_snapshot_server_identity_changes_rejected(self):
+        for kind in ('uid','namespace','hash','inode','mode','owner','size','path','pid','listener','exit'):
+            h=H();count=[0]
+            def change():
+                count[0]+=1
+                if count[0]!=2:return
+                if kind=='uid':h.proc.reads['/proc/101/status']=b'Uid: 0 0 1 0\n'
+                elif kind=='namespace':h.proc.links['/proc/101/ns/net']='net:[456]'
+                elif kind=='hash':h.proc.exe=dataclasses.replace(h.proc.exe,sha256='0'*64)
+                elif kind=='inode':h.proc.exe=dataclasses.replace(h.proc.exe,inode=3)
+                elif kind=='mode':h.proc.exe=dataclasses.replace(h.proc.exe,mode=0)
+                elif kind=='owner':h.proc.exe=dataclasses.replace(h.proc.exe,uid=1)
+                elif kind=='size':h.proc.exe=dataclasses.replace(h.proc.exe,size=4)
+                elif kind=='path':h.proc.links['/proc/101/exe']='/fixture/other'
+                elif kind=='pid':h.proc.reads['/proc/101/stat']=statline(start=124)
+                elif kind=='listener':h.proc.links['/proc/101/fd/1']='socket:[901]'
+                else:h.proc.denied='/proc/101/stat'
+            h.proc.hooks['/proc/101/fd']=change;self.assert_sticky(h)
+    def test_required_server_visibility_failure_sticky(self):
+        for path in ('/proc/101/stat','/proc/101/ns/net','/proc/101/exe','/proc/self/ns/net'):
+            h=H();h.proc.denied=path;self.assert_sticky(h)
+    def test_protocol_integration_churn_and_post_dispatch_invalidation(self):
+        for fail in (False,True):
+            h=H();a=f.Harness(auto=True);a.adb._acquire=h.association.acquire_process
+            a.ready()
+            def response(command):
+                h.proc.dirs['/proc']=('101','999')
+                if fail:h.proc.links['/proc/101/ns/net']='net:[456]'
+                return b'0\n'
+            a.shell_handler=response
+            if not fail:
+                self.assertEqual(a.adb.shell(7,"su -c 'id -u'",25),(0,b'0\n',b''))
+                self.assertTrue(a.adb.last_facts.completed)
+            else:
+                with self.assertRaises(f.m.TransportError) as caught:a.adb.shell(7,"su -c 'id -u'",25)
+                facts=caught.exception.facts
+                self.assertTrue(facts.dispatched and facts.accepted and facts.uncertain and facts.trust_invalidated)
+                self.assertFalse(facts.completed);self.assertEqual(facts.bytes_received,2)
+                count=len(a.used);h.proc.links['/proc/101/ns/net']='net:[123]'
+                with self.assertRaises(f.m.TransportError):a.adb.shell(7,'no retry',25)
+                self.assertEqual(len(a.used),count)
+            self.assertEqual(a.adb.identities,{'7':f.SERIALS[0],'8':f.SERIALS[1]})
     def test_late_observed_mismatch_sticky_but_matching_timeout_not(self):
         for path,mutate in (('/proc/net/tcp',lambda p:p.reads.update({'/proc/net/tcp':HEADER+tcp(inode=901)})),
                             ('/proc/101/stat',lambda p:p.reads.update({'/proc/101/stat':statline(start=124)})),
@@ -188,7 +231,9 @@ class SelfTestTests(unittest.TestCase):
         h=H();probe,raws=self.probe(h,[f.frame(b'0029'),f.frame(f.LIST)])
         result=probe();self.assertEqual(result['device_services_sent'],0)
         self.assertEqual([bytes(r.sent) for r in raws],[b'000chost:version',b'000ehost:devices-l'])
-        self.assertTrue(all(r.closed for r in raws));self.assertEqual(h.proc.calls.count('binary'),2)
+        self.assertTrue(all(r.closed for r in raws));self.assertEqual(h.proc.calls.count('binary'),4)
+        self.assertEqual(result['association_scope'],'pinned_server_fd_table')
+        self.assertFalse(result['unique_holder_qualified'])
         self.assertNotIn('fixture-target',str(result))
     def test_wrong_version_sticky_no_inventory(self):
         h=H();probe,raws=self.probe(h,[f.frame(b'0028')])
@@ -237,6 +282,37 @@ class FakeOS:
         return 'socket:[900]' if path.endswith('/1') else '/proc/101/fd'
 
 class LowLevelProcTests(unittest.TestCase):
+    def test_only_individual_vanished_fds_can_be_omitted(self):
+        for vanished in ({'0'},{'2'},{'0','2'}):
+            os=FakeOS();os.entries=('0','1','2');original=os.readlink
+            def link(path):
+                if path.rsplit('/',1)[1] in vanished:raise FileNotFoundError()
+                return original(path)
+            os.readlink=link;proc=d.LinuxProcFS(os_api=os,monotonic=f.Clock())
+            pairs=proc.fd_links(101,3,4096,12)
+            self.assertIn(('1','socket:[900]'),pairs)
+        for error in (PermissionError(),OSError('other')):
+            os=FakeOS();os.readlink=lambda path:(_ for _ in ()).throw(error)
+            with self.assertRaises(d.ProbeError) as caught:d.LinuxProcFS(os_api=os,monotonic=f.Clock()).fd_links(101,3,4096,12)
+            self.assertTrue(caught.exception.trust_invalidated)
+    def test_vanished_entries_count_and_missing_directory_fail(self):
+        os=FakeOS();os.readlink=lambda path:(_ for _ in ()).throw(FileNotFoundError())
+        proc=d.LinuxProcFS(os_api=os,monotonic=f.Clock())
+        self.assertEqual(proc.fd_links(101,2,4096,12),())
+        with self.assertRaises(d.ProbeError):proc.fd_links(101,1,4096,12)
+        os.scandir=lambda path:(_ for _ in ()).throw(FileNotFoundError())
+        with self.assertRaises(d.ProbeError) as caught:proc.fd_links(101,2,4096,12)
+        self.assertTrue(caught.exception.trust_invalidated)
+    def test_vanished_listener_cannot_satisfy_association(self):
+        for entries in (('0','1'),('1',)):
+            h=H();os=FakeOS();os.entries=entries;original=os.readlink
+            def link(path):
+                if path.endswith('/1'):raise FileNotFoundError()
+                return original(path)
+            os.readlink=link;proc=d.LinuxProcFS(os_api=os,monotonic=h.clock)
+            h.proc.fd_links=proc.fd_links
+            with self.assertRaises(d.ProbeError):h.association(12)
+            self.assertTrue(h.association.trust_invalidated)
     def test_bounded_read_uses_nofollow_and_closes(self):
         api=FakeOS();clock=f.Clock();fs=d.LinuxProcFS(os_api=api,monotonic=clock)
         self.assertEqual(fs.read('/proc/101/stat',3,12),b'adb')
@@ -312,7 +388,7 @@ class SanitizedErrorTests(unittest.TestCase):
         result=d.inspect_existing_server(association=h.association,
             make_socket=d.make_socket_factory(socket_factory=factory,monotonic=h.clock),
             expected_serials=f.SERIALS,monotonic=h.clock)
-        self.assertEqual(result['association_scope'],'visible_thread_group_leader_fd_tables')
+        self.assertEqual(result['association_scope'],'pinned_server_fd_table')
         self.assertIs(result['unique_holder_qualified'],False)
 
 if __name__=='__main__':unittest.main(verbosity=2)

@@ -72,7 +72,10 @@ class SinkIdentity:
 class OfflineBaselineADB:
     """Small baseline API model, deliberately no push.
 
-    acquire(deadline) must associate ALL endpoint listeners to one pinned process.
+    acquire(deadline) must verify the pinned server identity and its possession
+    of the unique accepted endpoint LISTEN entry, under the trusted host model.
+    This does not require a host-wide PID census or prove sole socket ownership.
+    Immutable process/endpoint/protocol/device pins and sticky faults still apply.
     make_socket() returns an unconnected socket fixture.
     create_sink(exact_path, deadline) returns a fresh exclusive sink with identity,
     write(bytes)->count, close(). It MUST refuse an existing destination; close

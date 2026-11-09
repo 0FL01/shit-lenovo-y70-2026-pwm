@@ -18,7 +18,7 @@ HARDWARE_PATHS=construction.HARDWARE_PATHS
 FINALIZER_PATHS=construction.FINALIZER_PATHS
 FINALIZER_MODULES=(('offline_acceptance','06-tools/video_validation_split_20261109/offline_acceptance.py'),
                    ('host_evidence','06-tools/video_validation_split_20261109/host_evidence.py'))
-REQUIRED_RUNTIME_SHA256 = {'06-tools/run_p85_guarded_trial.py': '6510baacb316a8dfbaf6aeea64d5a76e2d69046af46001f924d22cefdd748972', '06-tools/run_p85_timed_stock_trial.py': 'a50f04c23b306812dfd0b74d3cbe8f81d28ba0bbc74bb5f9a7c9d0bbfa10ff1a', '06-tools/stock_c1_sweep.py': '1c105480c1ec7abded156f16cf96a98719f0528620b176698dc4226bf933a0d4', '06-tools/host_adb_full_api_spike/offline_baseline_adb.py': '7f2d60bffcf4e74fc4060941a6a8444ee6bb052ae24a07d23407aaef0ce0585e'}
+REQUIRED_RUNTIME_SHA256 = {'06-tools/run_p85_guarded_trial.py': '6510baacb316a8dfbaf6aeea64d5a76e2d69046af46001f924d22cefdd748972', '06-tools/run_p85_timed_stock_trial.py': 'a50f04c23b306812dfd0b74d3cbe8f81d28ba0bbc74bb5f9a7c9d0bbfa10ff1a', '06-tools/stock_c1_sweep.py': '1c105480c1ec7abded156f16cf96a98719f0528620b176698dc4226bf933a0d4', '06-tools/host_adb_full_api_spike/offline_baseline_adb.py': '17b2cc726497e95e16414192c808fb3eed64cbe64ed87fba39710685a818cf51'}
 
 @dataclass(frozen=True)
 class HostInputs:

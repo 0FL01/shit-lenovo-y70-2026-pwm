@@ -132,12 +132,23 @@ class LinuxProcFS:
     def fd_links(self,pid,count_cap,link_cap,deadline):
         # Keep scandir alive while reading links. Closing it before readlink can
         # make our own /proc/self/fd listing contain a vanished scanner FD.
-        path='/proc/'+str(pid)+'/fd';remaining(self.clock,deadline);pairs=[]
+        path='/proc/'+str(pid)+'/fd';remaining(self.clock,deadline);pairs=[];visited=0
         with self.os.scandir(path) as entries:
             for entry in entries:
                 remaining(self.clock,deadline)
-                if len(pairs)>=count_cap:raise ProbeError('FD count cap exceeded',trust_invalidated=True)
-                pairs.append((entry.name,self.link(path+'/'+entry.name,link_cap,deadline)))
+                visited+=1
+                if visited>count_cap:raise ProbeError('FD count cap exceeded',trust_invalidated=True)
+                # Existential listener possession, not a complete FD snapshot.
+                # Only a vanished individual enumerated FD may be omitted.
+                # Directory errors and permission failures are never ignored.
+                try:value=self.os.readlink(path+'/'+entry.name)
+                except FileNotFoundError:
+                    remaining(self.clock,deadline)
+                    continue
+                remaining(self.clock,deadline)
+                if len(value.encode('utf-8'))>link_cap:
+                    raise ProbeError('Proc link cap exceeded',trust_invalidated=True)
+                pairs.append((entry.name,value))
         remaining(self.clock,deadline)
         return tuple(pairs)
 
@@ -210,11 +221,12 @@ def parse_listeners(raw,*,ipv6):
 
 
 class LinuxAssociation:
-    """Two complete visible leader-table scans against an explicit pin.
+    """Pinned server identity and listener possession, not sole-holder proof.
 
-    NOT all-task/private-FD-table ownership proof. Hidden processes and nonleader
-    task FD tables require separate visibility/task qualification before any
-    real unique-holder claim. No namespace/mount/security alteration is provided."""
+    Only the independently pinned PID is inspected. Unrelated process churn and
+    other processes sharing the listener are outside this contract. Trusted host,
+    root, kernel and server remain required; snapshots are not atomic peer auth.
+    """
     def __init__(self,*,pin,limits,proc,monotonic):
         if not isinstance(pin,VerifiedPin):raise ValueError('Independent verified pin required')
         OfflineBaselineADB._validate_process(pin.process)
@@ -256,65 +268,64 @@ class LinuxAssociation:
         if parse_listeners(raw6,ipv6=True):self.fail('Ambiguous IPv6 listener at pinned port')
         remaining(self.clock,deadline)
 
-    def pid_names(self,deadline):
-        # Cap includes non-PID proc directory entries too: no hidden truncation.
-        names=self.call('names','/proc',self.limits.max_pids,deadline=deadline)
-        if len(names)>self.limits.max_pids or len(names)!=len(set(names)):
-            self.fail('Incomplete or duplicate process directory scan')
-        pids=tuple(sorted(int(n) for n in names if re.fullmatch(r'[1-9][0-9]*',n)))
-        if self.pin.process.pid not in pids:self.fail('Pinned process missing')
-        remaining(self.clock,deadline)
-        return pids
-
     def holders(self,deadline):
-        pids=self.pid_names(deadline);holders=[];total=0
-        for pid in pids:
-            base='/proc/'+str(pid)
-            first=self.call('read',base+'/stat',self.limits.stat_bytes,deadline=deadline)
-            if len(first)>self.limits.stat_bytes:self.fail('Incomplete process stat')
-            start=parse_starttime(first,pid)
-            # Pinned process mismatch is terminal even before FD scan completes.
-            if pid==self.pin.process.pid and start!=self.pin.process.starttime:self.fail('Pinned PID reused')
+        # Historical method name retained for callers; this proves possession by
+        # the pinned server only, never absence of other holders.
+        p=self.pin.process;base='/proc/'+str(p.pid)
+        first=self.call('read',base+'/stat',self.limits.stat_bytes,deadline=deadline)
+        if len(first)>self.limits.stat_bytes or parse_starttime(first,p.pid)!=p.starttime:
+            self.fail('Pinned PID missing or reused')
+        remaining(self.clock,deadline)
+        pairs=self.call('fd_links',p.pid,self.limits.max_fds_per_pid,self.limits.link_bytes,deadline=deadline)
+        fds=tuple(fd for fd,link in pairs)
+        if (len(fds)>min(self.limits.max_fds_per_pid,self.limits.max_total_fds)
+            or len(fds)!=len(set(fds))
+            or any(re.fullmatch(r'0|[1-9][0-9]*',n) is None for n in fds)):
+            self.fail('Incomplete or malformed pinned FD scan')
+        held=False
+        for fd,link in pairs:
+            if len(link.encode('utf-8'))>self.limits.link_bytes:self.fail('Incomplete FD link')
+            if link=='socket:['+str(self.pin.listener_inode)+']':held=True
             remaining(self.clock,deadline)
-            pairs=self.call('fd_links',pid,self.limits.max_fds_per_pid,self.limits.link_bytes,deadline=deadline)
-            fds=tuple(fd for fd,link in pairs)
-            if len(fds)>self.limits.max_fds_per_pid or len(fds)!=len(set(fds)) or any(re.fullmatch(r'0|[1-9][0-9]*',n) is None for n in fds):
-                self.fail('Incomplete or malformed FD scan')
-            total+=len(fds)
-            if total>self.limits.max_total_fds:self.fail('Total FD cap exceeded')
-            held=False
-            for fd,link in pairs:
-                if len(link.encode('utf-8'))>self.limits.link_bytes:self.fail('Incomplete FD link')
-                if link=='socket:['+str(self.pin.listener_inode)+']':held=True
-                remaining(self.clock,deadline)
-            second=self.call('read',base+'/stat',self.limits.stat_bytes,deadline=deadline)
-            if len(second)>self.limits.stat_bytes or parse_starttime(second,pid)!=start:self.fail('PID changed during FD scan')
-            if held:holders.append((pid,start))
-        after=self.pid_names(deadline)
-        if pids!=after:self.fail('Process set changed during association scan')
-        if holders!=[(self.pin.process.pid,self.pin.process.starttime)]:self.fail('Listener holder missing or ambiguous')
+        second=self.call('read',base+'/stat',self.limits.stat_bytes,deadline=deadline)
+        if len(second)>self.limits.stat_bytes or parse_starttime(second,p.pid)!=p.starttime:
+            self.fail('Pinned PID changed during FD scan')
+        if not held:self.fail('Pinned server no longer holds listener')
+        remaining(self.clock,deadline)
+
+    def server_identity(self,deadline):
+        p=self.pin.process;base='/proc/'+str(p.pid)
+        raw=self.call('read',base+'/stat',self.limits.stat_bytes,deadline=deadline)
+        if len(raw)>self.limits.stat_bytes or parse_starttime(raw,p.pid)!=p.starttime:
+            self.fail('Pinned PID missing or reused')
+        remaining(self.clock,deadline)
+        ns=self.call('link',base+'/ns/net',self.limits.link_bytes,deadline=deadline)
+        if ns!=self.pin.network_namespace:self.fail('Server network namespace changed')
+        uidraw=self.call('read',base+'/status',self.limits.status_bytes,deadline=deadline)
+        if len(uidraw)>self.limits.status_bytes or parse_uids(uidraw)!=p.uids:self.fail('Process owner changed')
+        exe=self.call('link',base+'/exe',self.limits.link_bytes,deadline=deadline)
+        if exe!=p.executable:self.fail('Executable path changed')
+        observed=self.call('binary',p.pid,self.pin.executable_size,deadline=deadline)
+        expected=ExecutableSnapshot(p.executable_device,p.executable_inode,p.executable_mode,
+            p.executable_uid,self.pin.executable_size,self.pin.executable_sha256)
+        if observed!=expected:self.fail('Executable identity or digest changed')
+        remaining(self.clock,deadline)
+        raw=self.call('read',base+'/stat',self.limits.stat_bytes,deadline=deadline)
+        if len(raw)>self.limits.stat_bytes or parse_starttime(raw,p.pid)!=p.starttime:
+            self.fail('Pinned PID changed during identity check')
         remaining(self.clock,deadline)
 
     @safe_errors('association_failed')
     def __call__(self,deadline):
         if self.trust_invalidated:raise ProbeError('Association trust invalidated; no repin',trust_invalidated=True)
         try:
-            self.namespace(deadline);self.listeners(deadline);self.holders(deadline)
-            p=self.pin.process;base='/proc/'+str(p.pid)
-            uidraw=self.call('read',base+'/status',self.limits.status_bytes,deadline=deadline)
-            if len(uidraw)>self.limits.status_bytes or parse_uids(uidraw)!=p.uids:self.fail('Process owner changed')
-            exe=self.call('link',base+'/exe',self.limits.link_bytes,deadline=deadline)
-            if exe!=p.executable:self.fail('Executable path changed')
-            observed=self.call('binary',p.pid,self.pin.executable_size,deadline=deadline)
-            expected=ExecutableSnapshot(p.executable_device,p.executable_inode,p.executable_mode,
-                p.executable_uid,self.pin.executable_size,self.pin.executable_sha256)
-            if observed!=expected:self.fail('Executable identity or digest changed')
-            remaining(self.clock,deadline)
-            uidraw2=self.call('read',base+'/status',self.limits.status_bytes,deadline=deadline)
-            if len(uidraw2)>self.limits.status_bytes or parse_uids(uidraw2)!=p.uids:self.fail('Process owner changed after executable check')
-            exe2=self.call('link',base+'/exe',self.limits.link_bytes,deadline=deadline)
-            if exe2!=p.executable:self.fail('Executable changed after check')
-            self.listeners(deadline);self.holders(deadline);self.namespace(deadline)
+            # Bracket pinned FD possession with full identity checks; check the
+            # exact endpoint tables and both namespaces at both boundaries.
+            self.namespace(deadline);self.listeners(deadline)
+            self.server_identity(deadline);self.holders(deadline)
+            self.holders(deadline);self.server_identity(deadline)
+            self.listeners(deadline);self.namespace(deadline)
+            p=self.pin.process
             remaining(self.clock,deadline)
             # Full build/version comes from independently approved digest manifest,
             # NOT from a proc "version" field or an executed adb subprocess.
@@ -454,5 +465,5 @@ def inspect_existing_server(*,association,make_socket,expected_serials,monotonic
     remaining(monotonic,deadline)
     return {'protocol':41,'process_pin_matched':True,'expected_map_matched':True,
             'elapsed_seconds':monotonic()-start,'device_services_sent':0,
-            'association_scope':'visible_thread_group_leader_fd_tables',
+            'association_scope':'pinned_server_fd_table',
             'unique_holder_qualified':False}
