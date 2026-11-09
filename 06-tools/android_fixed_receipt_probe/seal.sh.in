@@ -1,0 +1,52 @@
+checkuid "$ROOT_UID"
+# Sole argument is the actual synchronous capture exit status from trusted host.
+# Absent/uncertain transport or unfinished producer: host MUST NOT call this phase.
+[ "$#" = 1 ] && [ "$1" = 7 ] || hold missing_or_wrong_actual_rc
+dir '@PARENT@' "$ROOT_UID" @PARENT_MODE@
+dir "$BASE" "$ROOT_UID" 711
+dir "$BASE/control" "$ROOT_UID" 700
+mkdir -m 700 "$BASE/control/seal_attempt" || hold seal_already_attempted
+dir "$BASE/source" "$ROOT_UID" 755
+regular "$BASE/control/state" "$ROOT_UID" 600
+hashed "$BASE/control/state" 8be8e070a76843d3ee262ec477b193fc0c085f2c8410c72595240a52dab0d1b9
+regular "$BASE/source/producer.sh" "$ROOT_UID" 444
+regular "$BASE/source/manifest" "$ROOT_UID" 444
+hashed "$BASE/source/producer.sh" '922bdfee53feef548d1b5509e682617dbaf49aa7c40e082bbe610b1b5f96d2a4'
+hashed "$BASE/source/manifest" '@MANIFEST_SHA@'
+# No concurrent shell writers is a trusted-host precondition, NOT proved by stat.
+dir "$BASE/work" "$SHELL_UID" 700
+chown "$ROOT_UID" "$BASE/work"
+dir "$BASE/work" "$ROOT_UID" 700
+dir "$BASE/work/dispatched" "$SHELL_UID" 700
+# Only inspect immediate names; the fixed producer leaves this claim empty.
+for path in "$BASE/work/dispatched/"* "$BASE/work/dispatched/".[!.]* "$BASE/work/dispatched/"..?*; do
+    if [ -e "$path" ] || [ -L "$path" ]; then hold nonempty_dispatch_claim; fi
+done
+# Exact inventory includes hidden names. No recursive traversal or removal.
+set -- "$BASE/work/"* "$BASE/work/".[!.]* "$BASE/work/"..?*
+count=0
+for path do
+    [ -e "$path" ] || [ -L "$path" ] || continue
+    case "$path" in "$BASE/work/dispatched"|"$BASE/work/stdout"|"$BASE/work/stderr") ;; *) hold extra_output;; esac
+    count=$((count + 1))
+done
+[ "$count" = 3 ] || hold missing_output
+regular "$BASE/work/stdout" "$SHELL_UID" 600
+regular "$BASE/work/stderr" "$SHELL_UID" 600
+size "$BASE/work/stdout" 2
+size "$BASE/work/stderr" 12
+hashed "$BASE/work/stdout" '@STDOUT_SHA@'
+hashed "$BASE/work/stderr" '@STDERR_SHA@'
+# Reserve seal once; partial publication remains HOLD forever, never resume.
+mkdir -m 700 "$BASE/control/sealing" || hold seal_spent
+set -C
+cat "$BASE/work/stdout" > "$BASE/control/stdout"
+cat "$BASE/work/stderr" > "$BASE/control/stderr"
+hashed "$BASE/control/stdout" '@STDOUT_SHA@'
+hashed "$BASE/control/stderr" '@STDERR_SHA@'
+printf '%s\n' 'scope=SYNTHETIC_ONLY' "epoch=$EPOCH" "boot=@BOOT@" "phase=$PHASE" "nonce=$NONCE" 'source=922bdfee53feef548d1b5509e682617dbaf49aa7c40e082bbe610b1b5f96d2a4' 'manifest=@MANIFEST_SHA@' 'actual_rc=7' 'producer_outcome=EXPECTED_NEGATIVE' 'stdout=2:@STDOUT_SHA@' 'stderr=12:@STDERR_SHA@' 'structure=COMPLETE' > "$BASE/control/receipt"
+chmod 400 "$BASE/control/stdout" "$BASE/control/stderr" "$BASE/control/receipt"
+# No mv-overwrite: receipt is created once, and completion is a distinct marker.
+printf '%s\n' COMPLETE > "$BASE/control/complete"
+chmod 400 "$BASE/control/complete"
+printf 'SEALED_EXPECTED_NEGATIVE\n'

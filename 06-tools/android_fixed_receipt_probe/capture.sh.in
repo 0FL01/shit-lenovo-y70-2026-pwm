@@ -1,0 +1,20 @@
+# Run ONLY as plain UID2000, synchronously, once. Never via root/su here.
+[ "$#" = 0 ] || hold arguments
+checkuid "$SHELL_UID"
+dir '@PARENT@' "$ROOT_UID" @PARENT_MODE@
+dir "$BASE" "$ROOT_UID" 711
+dir "$BASE/source" "$ROOT_UID" 755
+regular "$BASE/source/producer.sh" "$ROOT_UID" 444
+regular "$BASE/source/manifest" "$ROOT_UID" 444
+hashed "$BASE/source/producer.sh" 922bdfee53feef548d1b5509e682617dbaf49aa7c40e082bbe610b1b5f96d2a4
+hashed "$BASE/source/manifest" '@MANIFEST_SHA@'
+dir "$BASE/work" "$SHELL_UID" 700
+# mkdir is the once-only shell dispatch claim; it remains after completion.
+mkdir -m 700 "$BASE/work/dispatched" || exit 90
+set -C
+set +e
+@SH@ "$BASE/source/producer.sh" > "$BASE/work/stdout" 2> "$BASE/work/stderr"
+rc=$?
+set -e
+# No command substitution for payload/diagnostics; rc is the actual child status.
+exit "$rc"

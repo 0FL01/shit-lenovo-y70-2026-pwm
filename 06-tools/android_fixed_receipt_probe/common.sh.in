@@ -1,0 +1,40 @@
+# Offline reviewed template; substituted once by host, never on the device.
+set -eu
+# Production utility resolution never inherits ADB/KernelSU PATH.
+PATH=/system/bin
+LC_ALL=C
+export PATH LC_ALL
+umask 077
+ROOT_UID=@ROOT_UID@
+SHELL_UID=@SHELL_UID@
+BASE='@BASE@'
+EPOCH=synthetic_fixed_20261108_01
+NONCE=synthetic_fixed_nonce_01
+PHASE=SYNTHETIC_BINARY_01
+hold() { printf 'HOLD: %s\n' "$1" >&2; exit 90; }
+meta() {
+    [ ! -L "$1" ] || hold symlink
+    scalar=$(stat -c '%u:%a:%h' "$1") || hold stat_status
+    [ "$scalar" = "$2:$3:$4" ] || hold metadata
+}
+regular() { [ -f "$1" ] && [ ! -L "$1" ] || hold type; meta "$1" "$2" "$3" 1; }
+dir() {
+    [ -d "$1" ] && [ ! -L "$1" ] || hold directory
+    scalar=$(stat -c '%u:%a' "$1") || hold stat_status
+    [ "$scalar" = "$2:$3" ] || hold directory_metadata
+}
+hashed() {
+    scalar=$(sha256sum "$1") || hold hash_status
+    [ "$scalar" = "$2  $1" ] || hold hash_bytes
+}
+size() {
+    scalar=$(wc -c < "$1") || hold wc_status
+    [ "$scalar" -eq "$2" ] || hold size
+}
+checkuid() {
+    scalar=$(id -u) || hold id_status
+    [ "$scalar" = "$1" ] || hold uid
+}
+[ "$#" -le 1 ] || hold arguments
+scalar=$(cat '@BOOT_FILE@') || hold boot_status
+[ "$scalar" = '@BOOT@' ] || hold boot

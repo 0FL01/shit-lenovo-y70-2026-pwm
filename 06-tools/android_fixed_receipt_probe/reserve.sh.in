@@ -1,0 +1,22 @@
+checkuid "$ROOT_UID"
+[ "$#" = 0 ] || hold arguments
+# Trusted parent is required: shell cannot rename/delete BASE from its parent.
+dir '@PARENT@' "$ROOT_UID" @PARENT_MODE@
+mkdir -m 711 "$BASE" || hold spent_epoch_or_nonce
+# BASE itself is the permanent spent marker for this single fixed epoch/nonce.
+mkdir -m 700 "$BASE/control" || hold control
+mkdir -m 755 "$BASE/source" || hold source
+mkdir -m 700 "$BASE/work" || hold work
+set -C
+cat > "$BASE/source/producer.sh" <<'PRODUCER'
+#!/system/bin/sh
+# SYNTHETIC fixed finite producer. No arguments, files, subprocesses or device IO.
+printf '\012\000'
+printf 'diagnostic\012\000' >&2
+exit 7
+PRODUCER
+printf '%s\n' 'scope=SYNTHETIC_ONLY' 'epoch=synthetic_fixed_20261108_01' 'nonce=synthetic_fixed_nonce_01' 'phase=SYNTHETIC_BINARY_01' 'source=922bdfee53feef548d1b5509e682617dbaf49aa7c40e082bbe610b1b5f96d2a4' 'stdout_bytes=2' 'stderr_bytes=12' 'expected_rc=7' > "$BASE/source/manifest"
+printf '%s\n' RESERVED > "$BASE/control/state"
+chmod 444 "$BASE/source/producer.sh" "$BASE/source/manifest"
+chown "$SHELL_UID" "$BASE/work"
+printf 'RESERVED\n'

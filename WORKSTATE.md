@@ -1,5 +1,14 @@
 # Long-lived agent progress journal
 
+Checkpoint 2026-11-09, **fixed receipt остановлен до producer; причина access denial не установлена, spent BASE сохранён.**
+
+- [Receipt01](artifacts/android_fixed_receipt_20261108_01/result.md) завершёнNov8 23:54:39.110789 UTC: reserve rc0/RESERVED, затем work-access gate rc1/empty streams при completed transport. Independent saved replay15events/346 B PASS; capture/producer/seal не dispatched. Rendered sources не execution. Frozen source/PINSET/README/results неизменны; BASE permanent spent, без retry/cleanup/adoption.
+- [Read-only diagnosis/AVC](artifacts/android_fixed_receipt_20261108_01/diagnosis.md): work UID2000/mode700/system_data_file, plain shell work_w=false. Последний queryNov9 00:07:12.996050–00:07:22.425994 UTC, independent replay14events/432 B PASS: own dev+inode, dmesg0/grep1, zero matched lines, sameboot. Только доступный dmesg и literal dev-before-ino format; suppressed/rotated/reformatted/other-object AVC не исключены. MAC cause гипотеза, не установленный факт.
+- [CN policy reference](artifacts/receipt_access_policy_reference_20261109.md): shell∈appdomain, dontaudit/neverallow system_data_file directory write объясняют возможный механизм только в сохранённой CN reference. Не active current GLOBAL proof, не установленная причина target rc1; context/effective-loaded-policy gap остаётся.
+- Alternate paths после access denial запрещены. Split host-only incomplete implementation остановлена, никогда не выполнялась на target; никакого labels/security workaround. Дальнейший шаг требует отдельного решения. Android validators и clock/lifecycle integration остаются перед factory15; ни receipt, ни generic57batch не success/admission.
+- Qualified runtime13 unchanged; unknown14 disabled,37/45/8/60/600 intact. Последний experimental DSI timedstock03 Nov8 19:07:07.888880 UTC и native828 restore тогда; current brightness неизвестно, >=2000 Hz не доказаны. Предыдущий checkpoint HEAD69c5f37; текущая запись не утверждает commit/push.
+
+
 Checkpoint 2026-11-08, **FD byte observations:01 отказ локализован и owned remnants очищены;02 owner-shell путь ограниченно подтверждён.**
 
 - [Probe01](artifacts/android_fd_byte_microprobe_20261108_01/result.md): 23:22:43.226735 UTC STOP/rc90, stdout0/stderr48 B, external cat self-FD ENOENT. Independent replay9events/342 B. Read-only inspection22events/568 B выявила ровно пять owned files и первый cat failure; exact cleanup24events/568 B завершена23:27:21.906322 UTC, owner last+rmdir и независимое отсутствие. Failed result сохранён; CLOEXEC не доказан.
