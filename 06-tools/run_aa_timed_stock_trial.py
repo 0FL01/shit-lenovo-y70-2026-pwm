@@ -135,6 +135,9 @@ class AATimedTrial(timed.TimedStockTrial):
             acquisition.validate_stock_qualification(stock_qualification,optical_qualification,source_record or {})
             self.report['stock_optical_qualification']=optical_qualification
 
+    def startup_write_attempts(self):
+        return self.report['full_table_writes_attempted']
+
     def trace_check(self,text):
         events=validate_safe_gap(self.trace_snapshot,text,self.entry_count)
         if events:self.report.setdefault('background_esd_safe_gaps',[]).extend(events)

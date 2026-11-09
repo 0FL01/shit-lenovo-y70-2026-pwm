@@ -233,10 +233,14 @@ class Trial(s.Sweep):
         if self.recording:self.last_camera=result
         return result
 
+    def startup_write_attempts(self):
+        """Schema-specific attempted writes; startup must precede every write."""
+        return self.report['register85_writes_attempted']
+
     def settle_recording(self):
         """Setup-only read polling. Never retry transport/profile/session failures."""
         check(self.recording and self.last_camera is None and not self.report['stages']
-              and not self.report['register85_writes_attempted'] and 'recording_settle' not in self.report,
+              and not self.startup_write_attempts() and 'recording_settle' not in self.report,
               'Startup settling once only before baseline')
         check(threading.current_thread() is threading.main_thread(),'Startup alarm requires main thread')
         check(signal.getitimer(signal.ITIMER_REAL)==(0.0,0.0),'Existing real-time alarm: refuse startup settling')

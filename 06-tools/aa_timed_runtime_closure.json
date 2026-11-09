@@ -1,5 +1,5 @@
 {
-  "status": "offline_implemented_independent_runtime_review_pass_not_hardware_admission",
+  "status": "offline_source_correction_review_pending_not_hardware_admission",
   "profile": "aa",
   "default_profile_unchanged": "p85",
   "hardware_paths": [
@@ -84,13 +84,14 @@
     "06-tools/video_validation_split_20261109/video_validator_snapshot.py"
   ],
   "changed_or_new_runtime_sha256": {
-    "06-tools/run_aa_timed_stock_trial.py": "2a7d32b471a92718386ac2a3ab2b5771d60b234ca9d9976287f9f60c25bb1073",
+    "06-tools/run_aa_timed_stock_trial.py": "ab3efe41031364e1667b8134c6a5828086f20e8e45c06dde861d276881863e30",
     "06-tools/aa_threshold_trial.py": "97ac794b6cce9f8f141bb647b49a735e0459483e3ab68ab5f2ec8530865584ae",
     "06-tools/aa_acquisition_validation.py": "4201345b331b3593b8677ed353ca34ad95443ec9bf21298c0d86141ef7189a68",
     "06-tools/aa_video_validation.py": "00843592492b245060e8aa3098ffd3ca7303af0f43ea67fa474c288111abcff4",
     "06-tools/dsi_trial_transaction.py": "4407a55b3bc37e197e48c74673cff0626345124ca5163b4177ade9a567339ffa",
     "06-tools/host_source_integration_20261109/inert_source_loader.py": "6dd008a6f9f55b11fbcb43270f9510a659d4f61f8b7fc3ae2c80ab863c41b40c",
-    "06-tools/host_source_integration_20261109/host_entrypoint.py": "d4b43f0f187a494c8f0def2b8630a8cc96cece212971899db1405b8f6a487946"
+    "06-tools/host_source_integration_20261109/host_entrypoint.py": "9a2263fe9e4a77894d89c367b0e5e50fe8f04fea6d58157c0c00a2a2578c7889",
+    "06-tools/run_p85_guarded_trial.py": "fba1ec5dbb0f7592a4d0a3167589dadac2130370cbf886cecc1d588772fa97a5"
   },
   "worst_case_command_sizes": {
     "stock": {
@@ -120,7 +121,8 @@
   },
   "tests": [
     "06-tools/test_run_aa_timed_stock_trial.py",
-    "06-tools/host_source_integration_20261109/test_aa_source_profile.py"
+    "06-tools/host_source_integration_20261109/test_aa_source_profile.py",
+    "06-tools/test_aa_inherited_setup.py"
   ],
   "live_device_operations": 0,
   "commits_or_pushes": 0,
