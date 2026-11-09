@@ -1,5 +1,12 @@
 # Long-lived agent progress journal
 
+Checkpoint 2026-11-09, **captured current-policy query подтверждает AV deny write и подавление audit; protected write остаётся STOP.**
+
+- [Read-only loaded-policy snapshot](artifacts/loaded_policy_snapshot_20261109_01/result.md): 00:29:57.885279–00:30:09.166881 UTC, Independent saved replay: 16 events, 3,311,634 B, PASS. Binary 3,311,175 B, version 30, SHA ddf7b9e756bd9aed0b8c10d620bdf53baa298b3eacb45be13408b492b23f824c; root hash/stat совпали, fresh context u:r:shell:s0 с terminal NUL, same boot с AVC приватно проверен. Последняя device action была read-only; frozen result pending-fullparse сохранён исторически.
+- [Последующий query](artifacts/loaded_policy_snapshot_20261109_01/query.md): independent query replay PASS, parse rc 0 с пустым stderr; fresh shell → ранее сохранённый system_data_file:dir write AV denied, audit suppressed, TE reason 1; search allowed. Это current captured-policy result, не только CN reference. Lead повторил 17 acquisition и 6 query tests в normal/-O: PASS. Не exclusive historical syscall cause, не historical context/policy history/domain-permissive proof; target label freshness — assumption.
+- Protected write/retained spent BASE и split остаются STOP. Нет alternative paths, labels/permissions/security changes или нового admission. Full Android validators и clock/lifecycle integration перед factory 15 остаются открыты. Все 13 runtime blobs неизменны. Значение 14 отключено; ограничения 37/45/8/60/600 сохранены; brightness unknown, последний experimental DSI timedstock03 8 ноября 19:07:07.888880 UTC с восстановлением native 828 тогда; PWM >=2000 Hz не доказаны. Предыдущий опубликованный HEAD 0548cf6; текущая запись не утверждает commit/push.
+
+
 Checkpoint 2026-11-09, **fixed receipt остановлен до producer; причина access denial не установлена, spent BASE сохранён.**
 
 - [Receipt01](artifacts/android_fixed_receipt_20261108_01/result.md) завершёнNov8 23:54:39.110789 UTC: reserve rc0/RESERVED, затем work-access gate rc1/empty streams при completed transport. Independent saved replay15events/346 B PASS; capture/producer/seal не dispatched. Rendered sources не execution. Frozen source/PINSET/README/results неизменны; BASE permanent spent, без retry/cleanup/adoption.

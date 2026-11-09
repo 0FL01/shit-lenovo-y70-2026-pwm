@@ -1,0 +1,90 @@
+{
+  "timestamp_utc": "2026-11-09T00:26:11.041396+00:00",
+  "command": [
+    "python3",
+    "06-tools/query_saved_selinux_policy.py",
+    "extracted/XT2611-1/W3WWL36.65-11-18/filesystems/odm_a/etc/selinux/precompiled_sepolicy",
+    "--source-context",
+    "u:r:shell:s0",
+    "--target-context",
+    "u:object_r:system_data_file:s0",
+    "--permissions",
+    "write",
+    "search"
+  ],
+  "returncode": 0,
+  "stdout": "{\n  \"scope\": \"supplied saved policy only; no runtime context claim\",\n  \"policy\": \"/home/opencode/ai/legion-Y70-madness/extracted/XT2611-1/W3WWL36.65-11-18/filesystems/odm_a/etc/selinux/precompiled_sepolicy\",\n  \"policy_sha256\": \"1fd26f42d8e0467932e41ff22e237d8dc61fbf40136e29d723fc837f845d1b97\",\n  \"policy_bytes\": 2698714,\n  \"library\": \"/lib/x86_64-linux-gnu/libsepol.so.2\",\n  \"package_version\": \"3.8.1-1\",\n  \"abi_source\": \"https://github.com/SELinuxProject/selinux/tree/3.8.1/libsepol/include/sepol\",\n  \"supported_policy_versions\": [\n    15,\n    34\n  ],\n  \"parse_succeeded\": true,\n  \"query_assumptions\": {\n    \"source_context\": \"u:r:shell:s0\",\n    \"target_context\": \"u:object_r:system_data_file:s0\",\n    \"class\": \"dir\"\n  },\n  \"results\": [\n    {\n      \"permission\": \"write\",\n      \"bit\": 4,\n      \"allowed\": false,\n      \"denial_audit_bit_set\": false,\n      \"denied_and_audit_suppressed\": true,\n      \"reason_mask\": 1,\n      \"decision\": {\n        \"allowed\": 268435472,\n        \"decided\": 4294967295,\n        \"auditallow\": 0,\n        \"auditdeny\": 4294967291,\n        \"seqno\": 0\n      }\n    },\n    {\n      \"permission\": \"search\",\n      \"bit\": 268435456,\n      \"allowed\": true,\n      \"denial_audit_bit_set\": true,\n      \"denied_and_audit_suppressed\": false,\n      \"reason_mask\": 0,\n      \"decision\": {\n        \"allowed\": 268435472,\n        \"decided\": 4294967295,\n        \"auditallow\": 0,\n        \"auditdeny\": 4294967291,\n        \"seqno\": 0\n      }\n    }\n  ]\n}\n",
+  "stderr": "",
+  "source_sha256": {
+    "06-tools/query_saved_selinux_policy.py": "c8a3fc9c048756309d64605392d244c216a4e22fa64834739b2805e13d6f6960",
+    "06-tools/test_query_saved_selinux_policy.py": "b8a4b1892f834b10cc0f1b6781fd01e6c09e77870beafbd674809e0f0e70eb5c"
+  },
+  "independent_source_review": "READY from review_corrected_portability for these frozen hashes",
+  "query": {
+    "scope": "supplied saved policy only; no runtime context claim",
+    "policy": "/home/opencode/ai/legion-Y70-madness/extracted/XT2611-1/W3WWL36.65-11-18/filesystems/odm_a/etc/selinux/precompiled_sepolicy",
+    "policy_sha256": "1fd26f42d8e0467932e41ff22e237d8dc61fbf40136e29d723fc837f845d1b97",
+    "policy_bytes": 2698714,
+    "library": "/lib/x86_64-linux-gnu/libsepol.so.2",
+    "package_version": "3.8.1-1",
+    "abi_source": "https://github.com/SELinuxProject/selinux/tree/3.8.1/libsepol/include/sepol",
+    "supported_policy_versions": [
+      15,
+      34
+    ],
+    "parse_succeeded": true,
+    "query_assumptions": {
+      "source_context": "u:r:shell:s0",
+      "target_context": "u:object_r:system_data_file:s0",
+      "class": "dir"
+    },
+    "results": [
+      {
+        "permission": "write",
+        "bit": 4,
+        "allowed": false,
+        "denial_audit_bit_set": false,
+        "denied_and_audit_suppressed": true,
+        "reason_mask": 1,
+        "decision": {
+          "allowed": 268435472,
+          "decided": 4294967295,
+          "auditallow": 0,
+          "auditdeny": 4294967291,
+          "seqno": 0
+        }
+      },
+      {
+        "permission": "search",
+        "bit": 268435456,
+        "allowed": true,
+        "denial_audit_bit_set": true,
+        "denied_and_audit_suppressed": false,
+        "reason_mask": 0,
+        "decision": {
+          "allowed": 268435472,
+          "decided": 4294967295,
+          "auditallow": 0,
+          "auditdeny": 4294967291,
+          "seqno": 0
+        }
+      }
+    ]
+  },
+  "focused_tests": [
+    {
+      "mode": "normal",
+      "subprocess_optimization": "unset",
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "test_ascii_bounds (__main__.SavedPolicyTests.test_ascii_bounds) ... ok\ntest_cn_write_and_search (__main__.SavedPolicyTests.test_cn_write_and_search) ... ok\ntest_invalid_class (__main__.SavedPolicyTests.test_invalid_class) ... ok\ntest_invalid_context (__main__.SavedPolicyTests.test_invalid_context) ... ok\ntest_invalid_permission (__main__.SavedPolicyTests.test_invalid_permission) ... ok\ntest_invalid_policy (__main__.SavedPolicyTests.test_invalid_policy) ... ok\n\n----------------------------------------------------------------------\nRan 6 tests in 0.667s\n\nOK\n"
+    },
+    {
+      "mode": "optimized",
+      "subprocess_optimization": "PYTHONOPTIMIZE=1 inherited by child query",
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "test_ascii_bounds (__main__.SavedPolicyTests.test_ascii_bounds) ... ok\ntest_cn_write_and_search (__main__.SavedPolicyTests.test_cn_write_and_search) ... ok\ntest_invalid_class (__main__.SavedPolicyTests.test_invalid_class) ... ok\ntest_invalid_context (__main__.SavedPolicyTests.test_invalid_context) ... ok\ntest_invalid_permission (__main__.SavedPolicyTests.test_invalid_permission) ... ok\ntest_invalid_policy (__main__.SavedPolicyTests.test_invalid_policy) ... ok\n\n----------------------------------------------------------------------\nRan 6 tests in 1.468s\n\nOK\n"
+    }
+  ]
+}

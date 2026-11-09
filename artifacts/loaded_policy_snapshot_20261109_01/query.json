@@ -1,0 +1,65 @@
+{
+  "scope": "offline query of captured current-target loaded policy; historical target label assumption",
+  "policy_sha256": "ddf7b9e756bd9aed0b8c10d620bdf53baa298b3eacb45be13408b492b23f824c",
+  "policy_bytes": 3311175,
+  "library": "/lib/x86_64-linux-gnu/libsepol.so.2",
+  "package_version": "3.8.1-1",
+  "abi_source": "https://github.com/SELinuxProject/selinux/tree/3.8.1/libsepol/include/sepol",
+  "supported_policy_versions": [
+    15,
+    34
+  ],
+  "parse_succeeded": true,
+  "query_assumptions": {
+    "source_context": "u:r:shell:s0",
+    "target_context": "u:object_r:system_data_file:s0",
+    "class": "dir"
+  },
+  "results": [
+    {
+      "permission": "write",
+      "bit": 4,
+      "allowed": false,
+      "denial_audit_bit_set": false,
+      "denied_and_audit_suppressed": true,
+      "reason_mask": 1,
+      "decision": {
+        "allowed": 268435472,
+        "decided": 4294967295,
+        "auditallow": 0,
+        "auditdeny": 4294967291,
+        "seqno": 0
+      }
+    },
+    {
+      "permission": "search",
+      "bit": 268435456,
+      "allowed": true,
+      "denial_audit_bit_set": true,
+      "denied_and_audit_suppressed": false,
+      "reason_mask": 0,
+      "decision": {
+        "allowed": 268435472,
+        "decided": 4294967295,
+        "auditallow": 0,
+        "auditdeny": 4294967291,
+        "seqno": 0
+      }
+    }
+  ],
+  "timestamp_utc": "2026-11-09T00:31:16.916578+00:00",
+  "snapshot_result": "result.json",
+  "snapshot_policy_version": 30,
+  "source_context_provenance": "fresh_plain_shell_context in snapshot result.json; fresh not historical",
+  "target_context_provenance": "earlier saved work directory label; not re-read in this snapshot",
+  "harness_sha256": "c8a3fc9c048756309d64605392d244c216a4e22fa64834739b2805e13d6f6960",
+  "process_returncode": 0,
+  "stdout_bytes": 1432,
+  "stderr_bytes": 0,
+  "raw_streams_preserved_privately": true,
+  "device_calls_in_query": false,
+  "device_mutations_in_query": false,
+  "protected_write_admitted": false,
+  "historical_syscall_exclusive_cause_proven": false,
+  "policy_change_history_proven": false
+}
