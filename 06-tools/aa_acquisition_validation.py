@@ -169,10 +169,13 @@ def validate_acquisition(run):
         require(transaction["entry_count_after"]==entry_count+5,"Transaction callback count discontinuity")
         entry_count+=5
         replay=stage.get("same_dbv_replay",{})
+        replay_plain={"page_callbacks_verified":0,"controller_returns":[0],"entry_count_after":entry_count}
+        replay_with_poll={**replay_plain,"controller_returns":[1,0],
+            "background_esd_in_replay_observation":[{"caller":"dsi_display_validate_status+0x154/0x308","return_code":1}],
+            "limitation":"Return-event order only; dispatch order and absence of overlap are not established"}
         require(replay.get("dbv")==3600 and replay.get("exact_wire_verified") is True and
                 replay.get("observed_writes")==[{"length":3,"type":57,"mode":"hs","payload":"51 0e 10"}] and
-                replay.get("main_trace")=={"page_callbacks_verified":0,"controller_returns":[0],
-                                          "entry_count_after":entry_count},
+                replay.get("main_trace") in (replay_plain,replay_with_poll),
                 "Replay was not exact same-DBV packet")
         redraw=stage.get("redraw_audit",{})
         require(redraw.get("method")=="native_timeout_chooser_open_cancel" and

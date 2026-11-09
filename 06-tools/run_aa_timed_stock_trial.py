@@ -7,6 +7,7 @@ under the nonrenewed overall600s watchdog. Markers are not optical recovery.
 """
 import argparse
 from dataclasses import replace
+from decimal import Decimal
 import hashlib
 import json
 from pathlib import Path
@@ -38,6 +39,41 @@ def validate_replay(log,begin,end,reference):
     actual=[(int(n),int(k,16),mode,bytes.fromhex(payload)) for n,k,mode,payload in rows]
     check(section.count('dsi_ctrl_cmd_transfer len=')==1 and actual==[(3,57,'hs',b'\x51\x0e\x10')], 'Replay must be exactly one3600 packet, never a hidden table')
     return {'dbv':3600,'observed_writes':[{'length':3,'type':57,'mode':'hs','payload':'51 0e 10'}],'exact_wire_verified':True}
+
+
+def validate_replay_trace(before,after,entry_count):
+    """Account only for the observed replay return-event shape.
+
+    A known status-read return may precede the brightness return inside this
+    observation interval. Return order does not establish dispatch order,
+    absence of overlap, or general safety of concurrent ESD activity.
+    Exact replay wire/native validation remains a separate mandatory check.
+    """
+    aa.tx.check_snapshot(before,entry_count);aa.tx.check_snapshot(after,entry_count)
+    old,new=aa.tx._events(before),aa.tx._events(after)
+    for text,events in ((before,old),(after,new)):
+        check([line for line in text.splitlines() if line.strip() and not line.lstrip().startswith('#')]==events,
+              'Unknown replay trace event')
+    check(new[:len(old)]==old,'Replay trace prefix changed')
+    suffix=new[len(old):]
+    check(len(suffix) in (1,2),'Unexpected replay trace event count')
+    prefix=r'^\s*{task}-\d+\s+(?:\([^)]*\)\s+)?\[\d+\]\s+\S+\s+(\d+\.\d+):\s+mode_ctrl_return:\s+'
+    replay=prefix.format(task='printf')+re.escape('(dsi_host_transfer_sub+0x2f4/0x558 [msm_drm] <- dsi_ctrl_cmd_transfer) rc=0')
+    replay_match=re.fullmatch(replay,suffix[-1])
+    check(replay_match is not None,'Unqualified replay controller return')
+    esd=[]
+    if len(suffix)==2:
+        poll=prefix.format(task=r'kworker/\d+:\d+')+re.escape('(dsi_display_validate_status+0x154/0x308 [msm_drm] <- dsi_ctrl_cmd_transfer) rc=1')
+        poll_match=re.fullmatch(poll,suffix[0])
+        check(poll_match is not None,'Unqualified status-read return in replay observation')
+        check(Decimal(poll_match[1])<=Decimal(replay_match[1]),'Reversed replay return timestamps')
+        esd=[{'caller':'dsi_display_validate_status+0x154/0x308','return_code':1}]
+    result={'page_callbacks_verified':0,'controller_returns':([1] if esd else [])+[0],
+            'entry_count_after':entry_count}
+    if esd:
+        result.update(background_esd_in_replay_observation=esd,
+            limitation='Return-event order only; dispatch order and absence of overlap are not established')
+    return result
 
 
 def validate_safe_gap(before,after,entry_count):
@@ -243,7 +279,7 @@ class AATimedTrial(timed.TimedStockTrial):
         end=self.mark(label.upper()+'_REPLAY_END')
         result=validate_replay(self.shell('dmesg',root=True,label=label+'-replay-wire'),begin,end,self.reference)
         after=self.shell('cat '+aa.TRACE+'/trace',root=True,label=label+'-replay-trace-after')
-        result['main_trace']=aa.trace_delta(before,after,self.entry_count,[],[0])
+        result['main_trace']=validate_replay_trace(before,after,self.entry_count)
         self.trace_snapshot=after;self.pending_read=False;return result
 
     def target_ui_guard(self):

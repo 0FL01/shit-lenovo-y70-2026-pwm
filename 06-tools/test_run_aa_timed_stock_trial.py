@@ -17,6 +17,10 @@ from test_run_p85_batched_trial import ANCHOR
 from test_run_p85_timed_stock_trial import Clock
 from test_dsi_trial_transaction import TransactionTests
 
+# Sanitized observed return-event shape; no live timestamps or process IDs.
+REPLAY_POLL=' kworker/1:2-88 [001] d..1. 100.000000: mode_ctrl_return: (dsi_display_validate_status+0x154/0x308 [msm_drm] <- dsi_ctrl_cmd_transfer) rc=1\n'
+REPLAY_RETURN=' printf-99 [001] d..1. 100.020000: mode_ctrl_return: (dsi_host_transfer_sub+0x2f4/0x558 [msm_drm] <- dsi_ctrl_cmd_transfer) rc=0\n'
+
 class Transport:
     def __init__(self,run):self.run=run
     def shell(self,target,command,timeout):
@@ -100,7 +104,7 @@ class Sim(t.AATimedTrial):
         if label.endswith('-esd'):return 'reg_read'
         if label.endswith('-replay'):
             self.log+='dsi-ctrl-1: dsi_ctrl_cmd_transfer len=3, type=0x39 hs cmds= 51 0e 10\n'
-            self.trace+='mode_ctrl_return: rc=0\n'
+            self.trace+=getattr(self,'replay_suffix',REPLAY_RETURN)
         if label.endswith('-wire'):return self.log
         if label.endswith('-redraw-before') or label.endswith('-redraw-returned'):
             if self.slow:self.clock.sleep(8)
@@ -185,7 +189,91 @@ class Tests(unittest.TestCase):
             self.assertEqual(run.report['candidate_attempts'],1);self.assertTrue(run.report['unknown_value_write_attempted'])
             self.assertEqual(run.report['full_table_writes_attempted'],['baseline','aa10']);self.assertNotIn('return_stock-write',run.calls)
 
-if __name__=='__main__':unittest.main()
+class ReplayTraceTests(unittest.TestCase):
+    def before(self):
+        return ''.join(TransactionTests().block(i) for i in range(5))
+    def test_sanitized_observed_suffix_and_no_poll(self):
+        before=self.before()
+        for suffix,controls in ((REPLAY_RETURN,[0]),(REPLAY_POLL+REPLAY_RETURN,[1,0])):
+            result=t.validate_replay_trace(before,before+suffix,5)
+            self.assertEqual(result['controller_returns'],controls)
+            self.assertEqual(result['entry_count_after'],5)
+            self.assertEqual(len(result.get('background_esd_in_replay_observation',[])),len(controls)-1)
+    def test_unqualified_shapes_rejected(self):
+        before=self.before();good=REPLAY_POLL+REPLAY_RETURN
+        bad=['',REPLAY_POLL,REPLAY_RETURN+REPLAY_POLL,REPLAY_POLL+good,good+REPLAY_RETURN,
+             good.replace('printf-','sh-'),good.replace('kworker/1:2-','app-'),
+             good.replace('+0x154','+0x155'),good.replace('+0x2f4','+0x2f5'),
+             good.replace('rc=1','rc=0'),good.replace('rc=0','rc=1'),good.replace('rc=0','rc=-5'),
+             good.replace('rc=0','rc=garbled'),good.replace('mode_ctrl_return:','mode_unknown:',1),
+             good+'LOST\n',good+'unknown_event: rc=0\n',good+'mode_return: rc=0\n',
+             good+'mode_entry: pending=0 length=11 flags=0\n',
+             good+'mode_entry: pending=0 length=11 flags=0\nmode_return: rc=0\n']
+        for suffix in bad:
+            with self.subTest(suffix=suffix),self.assertRaises(ValueError):
+                t.validate_replay_trace(before,before+suffix,5)
+        with self.assertRaises(ValueError):t.validate_replay_trace(before,before.replace('pending=0','pending=1',1)+good,5)
+    def test_return_timestamps_must_be_nondecreasing(self):
+        before=self.before()
+        for stamp in ('101.000000','100.020000000000000001'):
+            suffix=REPLAY_POLL.replace('100.000000',stamp)+REPLAY_RETURN
+            with self.subTest(stamp=stamp),self.assertRaises(ValueError):
+                t.validate_replay_trace(before,before+suffix,5)
+        equal=REPLAY_POLL.replace('100.000000','100.020000')+REPLAY_RETURN
+        self.assertEqual(t.validate_replay_trace(before,before+equal,5)['controller_returns'],[1,0])
+    def test_real_replay_method_with_fake_io(self):
+        for suffix in (REPLAY_RETURN,REPLAY_POLL+REPLAY_RETURN,REPLAY_RETURN+REPLAY_POLL):
+            with tempfile.TemporaryDirectory() as root:
+                run=Sim(root);run.setup();run.entry_count=5
+                run.trace=run.trace_snapshot=self.before();run.replay_suffix=suffix
+                if suffix==REPLAY_RETURN+REPLAY_POLL:
+                    with self.assertRaises(ValueError):run.replay('baseline')
+                    self.assertTrue(run.pending_read)
+                    self.assertEqual(run.trace_snapshot,self.before())
+                else:
+                    result=run.replay('baseline')
+                    self.assertTrue(result['exact_wire_verified']);self.assertFalse(run.pending_read)
+                    self.assertEqual(run.trace_snapshot,self.before()+suffix)
+    def test_real_replay_keeps_wire_and_native_guards(self):
+        for mutation in ('extra','native','failure'):
+            with tempfile.TemporaryDirectory() as root:
+                run=Sim(root);run.setup();run.entry_count=5
+                run.trace=run.trace_snapshot=self.before();run.replay_suffix=REPLAY_POLL+REPLAY_RETURN
+                shell=run.shell
+                def corrupt(command,**kwargs):
+                    value=shell(command,**kwargs)
+                    if kwargs.get('label','').endswith('-replay-wire'):
+                        if mutation=='extra':value=value.replace('cmds= 51 0e 10','cmds= 51 0e 10\ndsi-ctrl-1: dsi_ctrl_cmd_transfer len=2, type=0x39 hs cmds= aa 11')
+                        elif mutation=='native':value=value.replace('actual=120, group=0x3','actual=1, group=0x8')
+                        else:value=value.replace('cmds= 51 0e 10','cmds= 51 0e 10\nCommand transfer failed')
+                    return value
+                run.shell=corrupt
+                with self.assertRaises(ValueError):run.replay('baseline')
+                self.assertTrue(run.pending_read)
+
+
+    def test_acquisition_exact_poll_schema_and_faults(self):
+        from aa_acquisition_validation import validate_acquisition
+        Sim.reader=execute_reader_fixture()[0].stdout
+        with tempfile.TemporaryDirectory() as root:
+            run=Sim(root);run.replay_suffix=REPLAY_POLL+REPLAY_RETURN
+            with patch.object(t.s,'now',run.now):report=run.execute()
+        validate_acquisition(report)
+        original=report['stages'][0]['same_dbv_replay']['main_trace']
+        mutations=[lambda x:x.update(controller_returns=[0]),lambda x:x.update(controller_returns=[0,1]),
+            lambda x:x.update(controller_returns=[1,1,0]),lambda x:x.update(page_callbacks_verified=1),
+            lambda x:x.update(entry_count_after=6),lambda x:x.pop('limitation'),
+            lambda x:x.update(limitation='No overlap'),lambda x:x.update(extra=True),
+            lambda x:x.pop('background_esd_in_replay_observation'),
+            lambda x:x['background_esd_in_replay_observation'].append(deepcopy(x['background_esd_in_replay_observation'][0])),
+            lambda x:x['background_esd_in_replay_observation'][0].update(caller='unknown'),
+            lambda x:x['background_esd_in_replay_observation'][0].update(return_code=0),
+            lambda x:x['background_esd_in_replay_observation'][0].update(extra=True)]
+        for mutate in mutations:
+            broken=deepcopy(report);trace=broken['stages'][0]['same_dbv_replay']['main_trace'];mutate(trace)
+            with self.subTest(trace=trace),self.assertRaises(ValueError):validate_acquisition(broken)
+        self.assertEqual(original['controller_returns'],[1,0])
+
 
 class SafeGapTests(unittest.TestCase):
     POLL=' kworker/1:2-88 [001] ... 123.450000: mode_ctrl_return: (dsi_display_validate_status+0x154/0x308 [msm_drm] <- dsi_ctrl_cmd_transfer) rc=1\n'
@@ -302,3 +390,6 @@ class PreChildGapTests(unittest.TestCase):
                 prefix=f'{failure}() {{ return 2; }}; ' if failure!='prefix' else ''
                 result=subprocess.run(['sh','-c',prefix+command+f'; echo dispatched > {root}/dispatched'],capture_output=True,text=True)
                 self.assertNotEqual(result.returncode,0);self.assertFalse((root/'dispatched').exists())
+
+
+if __name__=='__main__':unittest.main()
