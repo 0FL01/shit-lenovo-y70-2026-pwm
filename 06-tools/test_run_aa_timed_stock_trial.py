@@ -16,6 +16,7 @@ from test_p85_integration import REF,BOOT
 from test_run_p85_batched_trial import ANCHOR
 from test_run_p85_timed_stock_trial import Clock
 from test_dsi_trial_transaction import TransactionTests
+from test_aa_threshold_trial import SELECTOR_RAW
 
 # Sanitized observed return-event shape; no live timestamps or process IDs.
 REPLAY_POLL=' kworker/1:2-88 [001] d..1. 100.000000: mode_ctrl_return: (dsi_display_validate_status+0x154/0x308 [msm_drm] <- dsi_ctrl_cmd_transfer) rc=1\n'
@@ -56,7 +57,7 @@ class Transport:
                         r.trace+=f'mode_ctrl_return: rc={rc}\n'
                         if index!=1:r.trace+='mode_return: rc=0\n'
                 else:
-                    value='ESD_ISOLATED esd_sw_sim_success\nR 23:A9 0x0e\nR 24:9D 0x0e\nR 00:52 0x0e 0x10\nESD_RESTORED reg_read\n'
+                    value=getattr(r,'selector_raw',SELECTOR_RAW)
                     for index,rc in enumerate(t.aa.SELECTOR_CONTROLS):
                         if index not in (1,4,7):r.trace+='mode_entry: pending=0 length=11 flags=0\n'
                         r.trace+=f'mode_ctrl_return: rc={rc}\n'
@@ -158,6 +159,20 @@ class Tests(unittest.TestCase):
                 run=Sim(root);run.corrupt=label
                 with self.assertRaises(RuntimeError):self.execute(run)
                 self.assertEqual(run.children[-1],label);self.assertIn('reboot',run.calls)
+    def test_malformed_selector_read_recovers_before_c1_or_hold(self):
+        for raw in (SELECTOR_RAW.replace('0x10','0x11'),SELECTOR_RAW.replace('0x0e \n','0x0e  \n',1),
+                    SELECTOR_RAW.replace('R 24:9D','R 23:A9'),SELECTOR_RAW.replace('0x0e 0x10 ','0x0e ')):
+            with self.subTest(raw=raw),tempfile.TemporaryDirectory() as root:
+                run=Sim(root);run.selector_raw=raw
+                with self.assertRaises(RuntimeError):self.execute(run)
+                self.assertEqual(run.children,['baseline-write','baseline-before-hold'])
+                self.assertEqual(run.calls.count('reboot'),1)
+                self.assertNotIn('baseline-hold-start',run.calls)
+                self.assertEqual(run.report['candidate_attempts'],0)
+                self.assertEqual(run.report['full_table_writes_attempted'],['baseline'])
+                self.assertTrue(run.report['original_settings_dbv_logger_restored'])
+                self.assertTrue(run.report['mutex_released'])
+
     def test_postreturn_failure_uses_recovery_after_short_disarm(self):
         with tempfile.TemporaryDirectory() as root:
             run=Sim(root);run.failure='return_stock-after-hold'

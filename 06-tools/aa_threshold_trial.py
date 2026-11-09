@@ -136,7 +136,8 @@ def validate_selectors(raw,before,after,entry_count):
     values={}
     for line in lines:
         if line.startswith('R '):
-            m=re.fullmatch(r'R ([0-9A-F]{2}:[0-9A-F]{2}) ((?:0x)?[0-9a-fA-F]{2}(?: (?:0x)?[0-9a-fA-F]{2})*)',line)
+            # Native debugfs appends one ASCII space after the final byte.
+            m=re.fullmatch(r'R ([0-9A-F]{2}:[0-9A-F]{2}) ((?:0x)?[0-9a-fA-F]{2}(?: (?:0x)?[0-9a-fA-F]{2})*) ?',line)
             require(m is not None and m[1] not in values,'Malformed/duplicate selector')
             values[m[1]]=[int(v,16) for v in m[2].split()]
     require(values==SELECTORS,'Selector/DBV differs from exact3600 stock context')

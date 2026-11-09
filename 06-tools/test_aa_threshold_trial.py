@@ -14,6 +14,9 @@ ROOT=Path(__file__).resolve().parents[1]
 TOKEN='aa_offline_test_token'
 TMP='/data/local/tmp/aa_offline_test'
 
+# Sanitized native debugfs rendering, including its final ASCII space.
+SELECTOR_RAW='ESD_ISOLATED esd_sw_sim_success\nR 23:A9 0x0e \nR 24:9D 0x0e \nR 00:52 0x0e 0x10 \nESD_RESTORED reg_read\n'
+
 class AATests(unittest.TestCase):
     def test_exact_programs_and_all_byte_mutations(self):
         values=aa.fixed_programs()
@@ -60,10 +63,18 @@ class AATests(unittest.TestCase):
             if page:after+='mode_entry: pending=0 length=11 flags=0\n'
             after+=f'mode_ctrl_return: rc={rc}\n'
             if page:after+='mode_return: rc=0\n'
-        raw='ESD_ISOLATED esd_sw_sim_success\nR 23:A9 0x0e\nR 24:9D 0x0e\nR 00:52 0x0e 0x10\nESD_RESTORED reg_read\n'
-        self.assertEqual(aa.validate_selectors(raw,'',after,0)['entry_count_after'],7)
-        for broken in (raw.replace('0x10','0x11'),raw+'R 23:AA 0x10\n',raw+'R 23:A9 0e\n',raw.replace('ESD_RESTORED','BAD')):
-            with self.assertRaises(ValueError):aa.validate_selectors(broken,'',after,0)
+        raw=SELECTOR_RAW
+        for accepted in (raw,raw.replace(' \n','\n')):
+            self.assertEqual(aa.validate_selectors(accepted,'',after,0)['entry_count_after'],7)
+        bad=(raw.replace('0x10','0x11'),raw+'R 23:AA 0x10\n',raw+'R 23:A9 0e\n',
+             raw.replace('ESD_RESTORED','BAD'),raw.replace('0x0e \n','0x0e  \n',1),
+             raw.replace('0x0e \n','0x0e\t\n',1),raw.replace('R 23:A9',' R 23:A9'),
+             raw.replace('0x0e \n','0x0e garbage \n',1),raw.replace('0x0e \n','0x0e 0x0e \n',1),
+             raw.replace('0x0e 0x10 ','0x0e '),raw.replace('R 24:9D','R 23:A9'),
+             raw.replace('R 23:A9 0x0e \nR 24:9D 0x0e ','R 24:9D 0x0e \nR 23:A9 0x0e '),
+             raw.replace('R 24:9D 0x0e \n',''),raw.replace('0x0e 0x10','0x0e  0x10'))
+        for broken in bad:
+            with self.subTest(raw=broken),self.assertRaises(ValueError):aa.validate_selectors(broken,'',after,0)
         for broken in (after+'mode_ctrl_return: rc=0\n',after.replace('rc=2','rc=1'),after.replace('pending=0','pending=1',1),after+'LOST\n'):
             with self.assertRaises(ValueError):aa.validate_selectors(raw,'',broken,0)
 
@@ -89,11 +100,14 @@ class AATests(unittest.TestCase):
                     payload=root/f'op{operation}';payload.write_text(data)
                     prefix='printf CORRUPTED > '+shlex.quote(str(trace))+'; ' if prefix_at==operation else ''
                     lines.append(prefix+'cat '+shlex.quote(str(payload))+' >> '+shlex.quote(str(trace))+'; echo '+str(operation)+' >> '+shlex.quote(str(root/'executed')))
+                    if not page:
+                        key=('23:A9','24:9D','00:52')[(operation-1)//3]
+                        payload=root/f'rx{operation}';payload.write_text(''.join(f'0x{x:02x} ' for x in aa.SELECTORS[key]))
+                        lines.append('cat '+shlex.quote(str(payload))+' > \"$C/rx_cmd\"')
                     operation+=1
-                elif line.startswith("printf 'R "):
-                    match=re.search(r'R ([0-9A-F:]+)',line);key=match[1]
-                    lines.append('printf '+shlex.quote('R '+key+' '+' '.join(f'0x{x:02x}' for x in aa.SELECTORS[key])+'\n'))
                 else:lines.append(line)
+            rx=root/'debugfs/dri/9800000.qcom,mdss_mdp/DSI-1/rx_cmd'
+            rx.parent.mkdir(parents=True);rx.write_text('')
             esd=root/'debugfs/qcom,mdss_dsi_mot_boe_ili97701A_682_1440x3168_dsc_cmd_v4/esd_check_mode'
             esd.parent.mkdir(parents=True);(root/'debugfs').chmod(0o700);esd.write_text('reg_read\n')
             result=subprocess.run(['sh','-c',('head() { return 91; };\n' if head_failure else '')+('grep() { return 2; };\n' if grep_failure else '')+'\n'.join(lines)],capture_output=True,text=True,timeout=10)
@@ -103,6 +117,7 @@ class AATests(unittest.TestCase):
     def test_selector_all_ten_native_failure_prefixes_stop_without_cleanup_write(self):
         result,executed,esd=self.simulate_selector()
         self.assertEqual(result.returncode,0,result.stderr)
+        self.assertEqual(result.stdout,SELECTOR_RAW)
         self.assertEqual(executed,list(map(str,range(10))))
         self.assertEqual(esd,'reg_read\n')
         for i in range(10):
