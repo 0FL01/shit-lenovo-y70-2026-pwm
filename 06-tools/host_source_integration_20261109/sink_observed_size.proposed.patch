@@ -1,0 +1,11 @@
+--- a/06-tools/host_adb_full_api_spike/offline_baseline_adb.py
++++ b/06-tools/host_adb_full_api_spike/offline_baseline_adb.py
+@@ -373,7 +373,7 @@
+         with self._operation('pull',timeout) as (deadline,state):
+             # Sink is created only after protocol and exact device selection checks.
+             with self._selected(transport,'sync:',deadline,state) as sock:
+-                sink=self._create_sink(self._destination,deadline)
++                sink=self._create_sink(self._destination,deadline,observed_size=expected_size)
+                 try:
+                     self._remaining(deadline)
+                     ident=sink.identity

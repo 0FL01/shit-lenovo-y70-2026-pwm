@@ -1,0 +1,27 @@
+{
+  "status": "virtual Git hardware import slice only; NOT tracked-source admission or full deployment closure",
+  "files": {
+    "06-tools/run_p85_guarded_trial.py": "b651f185c0691d72de050415ad76886439f700e0e8d0a34e404de012014662d0",
+    "06-tools/p85_guarded_trial.py": "359d271e3eec582c636b280ea11733d032365b2000007b761b4fa5e77cad8ee5",
+    "06-tools/stock_c1_sweep.py": "68e529befbc91e7b3273149ced23670fb9789f1bb586ae859484bed8637bf5fd",
+    "06-tools/capture_ddic_c1.py": "644fb4a458a00cf6fa9a5fbdf62c269a898862c9f60fbf16eef298aa8db643ce",
+    "06-tools/p85_single_bit_plan.py": "88b490a22fde833ad74847f4e3c8668f7393dcccdb683bdf0a025f0b2dcdb0dd",
+    "06-tools/dsi_trial_transaction.py": "9dc5c47b2bdc1932e30d2764b27c218d1b7f8465f99e9eb2b98c635a183fc142",
+    "06-tools/a9_reproduction.py": "fefb204b11ecbd649feba1f2d35bed1cd0b54b75dd244610a79dfcadc7515385",
+    "06-tools/camera_capture_metadata.py": "8787b7c3f3b4019014204c095529e284a5a06d44ecfce48cda9afbd6bd0ec665",
+    "06-tools/run_dsi_mode_trial.py": "e57c886791311f2cd7ab764efd0ec7ab89956f04273f26f1482dda002659ef4e",
+    "06-tools/guarded_adb_socket.py": "375717914b1f230023ff02bec6fffe8dc79e73f53ee40f069a1dadcf85693aef",
+    "06-tools/p85_batched_envelope.py": "12d81750a45a9c9d5aec1b631e07e3f636515db93b30e57b12f02a8221d31d52",
+    "06-tools/run_p85_batched_trial.py": "51a21e7aa38b69402afe94fe1f7db3cea3f1d6edb49dc56cf64af03a9f98d0f7",
+    "06-tools/run_p85_timed_stock_trial.py": "69d6a563ba313c2c2ba304f4d1abc77f2186326c4c27fd0f09ed85adc54eb4f1",
+    "06-tools/host_adb_full_api_spike/offline_baseline_adb.py": "0177f5de73e4ddd8c04bf8fa6bc8901f7bb7528ab1c29aa9861d6dd3758de8c1",
+    "06-tools/host_adb_full_api_spike/linux_adb_probe_dependencies.py": "e341d0e2a844d03dd0f69ab7604d9defb86865ccd4649875b6670165b3bbcd06",
+    "06-tools/host_private_sink_20261109/private_video_sink.py": "2a8aff0c9c3f03438ddfc5fa45ff346b685bec860975eb0ea7dca04f668b370f",
+    "06-tools/host_source_integration_20261109/inert_host_construction.py": "f0d9d5a27977e4f1ef677eb7ec2350083ccb77b45cbe48818f466e73f3943a79",
+    "06-tools/host_source_integration_20261109/fresh_private_directory.py": "d08b64fa8c4473dc706bc65f58fbd26ab963b3a1c6e603bb1d745b9139663adf",
+    "06-tools/host_source_integration_20261109/host_entrypoint.py": "8d2faa1c8a463d0633866e3c31f79e0ecbff986996023e0cfa41dcd56a45cbf4",
+    "06-tools/host_source_integration_20261109/inert_source_loader.py": "9d13ac7f34d8160d412fcfcad2a83d81251588a7c77e7740ba1fee444e653944",
+    "06-tools/video_validation_split_20261109/offline_acceptance.py": "ccc92a5a53bf5e9ba4ea3301ae73407c09a4af977e06db3bf653eee18c2a0dc1",
+    "06-tools/video_validation_split_20261109/host_evidence.py": "a3beefcf83e13074b15bac4f70b15d5b07449f017513a985a43deb7be0ffe52e"
+  }
+}

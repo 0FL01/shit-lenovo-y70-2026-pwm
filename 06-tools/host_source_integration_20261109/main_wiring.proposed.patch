@@ -1,0 +1,55 @@
+--- a/06-tools/run_p85_timed_stock_trial.py
++++ b/06-tools/run_p85_timed_stock_trial.py
+@@ -386,7 +386,7 @@
+         return self.report
+ 
+ 
+-def main():
++def main(*, host_inputs=None, verified_sources=None, host_dependencies=None):
+     parser=argparse.ArgumentParser(description=__doc__)
+     parser.add_argument('target',type=int);parser.add_argument('camera',type=int)
+     parser.add_argument('--stock-only',action='store_true',required=True)
+@@ -394,20 +394,31 @@
+     parser.add_argument('--execute',action='store_true')
+     args=parser.parse_args();s.plan(args.experiment_id)
+     check(args.target>0 and args.camera>0 and args.target!=args.camera,'Distinct transports')
+-    private=Path.home()/'.cache/legion-y70-p85-timed-stock'/args.experiment_id
+-    check(not args.output.exists() and not private.exists(),'Fresh output/private required')
+-    bounds=size_preflight();source=base.source_provenance(paths=SOURCE_FILES,require_clean=args.execute)
++    from host_entrypoint import HARDWARE_PATHS, private_path, source_gate, prepare
++    check(not args.output.exists(),'Fresh output required')
++    bounds=size_preflight();source=base.source_provenance(paths=HARDWARE_PATHS,require_clean=args.execute)
+     if not args.execute:
+         print(json.dumps({**source,'scope':SCOPE,'candidate_enabled':False,'offline_only':True,'envelope_command_size_preflight':bounds},indent=2));return
++    check(host_inputs is not None and verified_sources is not None and host_dependencies is not None,
++          'Explicit verified host inputs required')
++    source_gate(verified_sources)
++    private=Path(str(private_path(host_inputs)))
++    check(not private.exists(),'Fresh private directory required')
+     args.output.parent.mkdir(parents=True,exist_ok=True);args.output.mkdir()
+-    private.parent.mkdir(parents=True,exist_ok=True,mode=0o700);private.mkdir(mode=0o700)
+-    from guarded_adb_socket import GuardedADB
+-    run=TimedStockTrial(GuardedADB(),args.target,args.camera,args.experiment_id,args.output,private)
+-    run.report.update(source,envelope_command_size_preflight=bounds)
+-    owner=private/'owner.txt';owner.write_text(run.token+'\n');owner.chmod(0o600)
+-    def abort(signum,frame):raise KeyboardInterrupt('Termination requested')
+-    for sig in (signal.SIGINT,signal.SIGTERM,signal.SIGHUP):signal.signal(sig,abort)
+-    run.save();run.execute();print(json.dumps({'status':run.report['status'],'candidate_enabled':False,'pwm_hz':None}))
+-
++    prepared=prepare(verified_sources,host_inputs,host_dependencies)
++    try:
++        run=TimedStockTrial(prepared.adapter,args.target,args.camera,args.experiment_id,args.output,private,
++                           sleep=host_dependencies.sleep,monotonic=host_dependencies.monotonic)
++        run.report.update(source,envelope_command_size_preflight=bounds)
++        prepared.owned.verify()
++        owner=private/'owner.txt';owner.write_text(run.token+'\n');owner.chmod(0o600)
++        prepared.owned.verify()
++        def abort(signum,frame):raise KeyboardInterrupt('Termination requested')
++        for sig in (signal.SIGINT,signal.SIGTERM,signal.SIGHUP):signal.signal(sig,abort)
++        run.save();run.execute()
++        prepared.finalize(run,(args.output/'run.json').read_bytes())
++    finally:
++        prepared.close()
++    print(json.dumps({'status':run.report['status'],'candidate_enabled':False,'pwm_hz':None}))
+ 
+ if __name__=='__main__':main()

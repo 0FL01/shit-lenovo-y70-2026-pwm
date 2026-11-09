@@ -1,0 +1,9 @@
+{
+  "path": "06-tools/host_adb_full_api_spike/offline_baseline_adb.py",
+  "original_sha256": "0177f5de73e4ddd8c04bf8fa6bc8901f7bb7528ab1c29aa9861d6dd3758de8c1",
+  "virtual_sha256": "7f2d60bffcf4e74fc4060941a6a8444ee6bb052ae24a07d23407aaef0ce0585e",
+  "old": "                sink=self._create_sink(self._destination,deadline)\n",
+  "new": "                sink=self._create_sink(self._destination,deadline,observed_size=expected_size)\n",
+  "fixture_sha256": "9122d8d5db4600a66b6c6f2f4fb0f15022d2cb99335eeccd40d7dfb84fcfbbef",
+  "live_admitted": false
+}

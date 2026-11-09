@@ -371,7 +371,7 @@ class TimedStockTrial(batch.BatchedTrial):
                 try:self.recover()
                 except BaseException:pass
         finally:
-            try:self.stop_camera()
+            try:self.stop_camera(defer_video_validation=True,bounded_pull=True)
             except BaseException as exc:self.report['camera_cleanup_error_type']=type(exc).__name__;error=error or exc
             try:self.cleanup_camera_xml()
             except BaseException as exc:self.report['camera_ui_cleanup_pending']=True;error=error or exc
@@ -383,10 +383,15 @@ class TimedStockTrial(batch.BatchedTrial):
             if error:self.report['status']='failed; inspect recovery and retained watchdog/owner'
             self.report['finished_at_utc']=s.now();self.save()
         if error:raise RuntimeError('Timed stock failed; no retry') from error
+        self.report.update(video_acquisition_schema='p85-deferred-acquisition-v1',
+                           video_acquisition_origin='timed_stock_caller',evidence_kind='acquisition')
+        self.report['video_lifecycle_complete']=True
+        self.report['status']='awaiting_offline_video_validation'
+        self.save()
         return self.report
 
 
-def main():
+def main(*, host_inputs=None, verified_sources=None, host_dependencies=None):
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('target',type=int);parser.add_argument('camera',type=int)
     parser.add_argument('--stock-only',action='store_true',required=True)
@@ -394,20 +399,31 @@ def main():
     parser.add_argument('--execute',action='store_true')
     args=parser.parse_args();s.plan(args.experiment_id)
     check(args.target>0 and args.camera>0 and args.target!=args.camera,'Distinct transports')
-    private=Path.home()/'.cache/legion-y70-p85-timed-stock'/args.experiment_id
-    check(not args.output.exists() and not private.exists(),'Fresh output/private required')
-    bounds=size_preflight();source=base.source_provenance(paths=SOURCE_FILES,require_clean=args.execute)
+    from host_entrypoint import HARDWARE_PATHS, private_path, source_gate, prepare
+    check(not args.output.exists(),'Fresh output required')
+    bounds=size_preflight();source=base.source_provenance(paths=HARDWARE_PATHS,require_clean=args.execute)
     if not args.execute:
         print(json.dumps({**source,'scope':SCOPE,'candidate_enabled':False,'offline_only':True,'envelope_command_size_preflight':bounds},indent=2));return
+    check(host_inputs is not None and verified_sources is not None and host_dependencies is not None,
+          'Explicit verified host inputs required')
+    source_gate(verified_sources)
+    private=Path(str(private_path(host_inputs)))
+    check(not private.exists(),'Fresh private directory required')
     args.output.parent.mkdir(parents=True,exist_ok=True);args.output.mkdir()
-    private.parent.mkdir(parents=True,exist_ok=True,mode=0o700);private.mkdir(mode=0o700)
-    from guarded_adb_socket import GuardedADB
-    run=TimedStockTrial(GuardedADB(),args.target,args.camera,args.experiment_id,args.output,private)
-    run.report.update(source,envelope_command_size_preflight=bounds)
-    owner=private/'owner.txt';owner.write_text(run.token+'\n');owner.chmod(0o600)
-    def abort(signum,frame):raise KeyboardInterrupt('Termination requested')
-    for sig in (signal.SIGINT,signal.SIGTERM,signal.SIGHUP):signal.signal(sig,abort)
-    run.save();run.execute();print(json.dumps({'status':run.report['status'],'candidate_enabled':False,'pwm_hz':None}))
-
+    prepared=prepare(verified_sources,host_inputs,host_dependencies)
+    try:
+        run=TimedStockTrial(prepared.adapter,args.target,args.camera,args.experiment_id,args.output,private,
+                           sleep=host_dependencies.sleep,monotonic=host_dependencies.monotonic)
+        run.report.update(source,envelope_command_size_preflight=bounds)
+        prepared.owned.verify()
+        owner=private/'owner.txt';owner.write_text(run.token+'\n');owner.chmod(0o600)
+        prepared.owned.verify()
+        def abort(signum,frame):raise KeyboardInterrupt('Termination requested')
+        for sig in (signal.SIGINT,signal.SIGTERM,signal.SIGHUP):signal.signal(sig,abort)
+        run.save();run.execute()
+        prepared.finalize(run,(args.output/'run.json').read_bytes())
+    finally:
+        prepared.close()
+    print(json.dumps({'status':run.report['status'],'candidate_enabled':False,'pwm_hz':None}))
 
 if __name__=='__main__':main()

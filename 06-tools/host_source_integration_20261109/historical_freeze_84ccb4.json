@@ -1,0 +1,30 @@
+{
+  "status": "inactive combined cleanup/construction fixtures; no live admission",
+  "outer_tests_normal": 58,
+  "outer_tests_optimized": 58,
+  "combined_tests_per_mode": 21,
+  "nested_unchanged_tests_per_mode": 32,
+  "files": {
+    "COMBINED_INTEGRATION.md": "0df4cd0ccf21036dc95bb5ab3f53a158aec25e00f96177b4af89d7cecaa9ca4f",
+    "README.md": "180d7c488a0cb90d92121eb046e8c0467cb373efc9f99664fae89b213e4c33b4",
+    "RUNTIME_INPUTS.md": "ac93d5cd5e64953609f25ed7d01e701578f238f231fd9d9cc6d97c41b3b9685b",
+    "actual_import_binding.json": "d0e897db7173d7741f51a9a0856d581917ef837e41fad1c66586305bb672bda5",
+    "check_actual_imports.py": "b9d8a84a5ca1de404cf10d5812fe58ed0fa1ac7e50901ac6c66450fc35cbd4ed",
+    "combined.proposed.patch": "11068c81d0ad34cbdba70f5545c3ab59e95605f3d2e6736ef2dd8b889ff70e5a",
+    "combined_binding.json": "701d5eaf201ecb3785929db2fdb6b03f13223d5bc78f3804bccd41d8926e7737",
+    "combined_fixture.py": "b1a0d28c7c9a727b67a05b579e809ed6529146d77c1a57e0e46d44342427511d",
+    "construction_design.py.txt": "cd0f17095a075ea668b7eeaa545f4ff839908586b9ab5567e4186976414b6bc9",
+    "inert_host_construction.py": "a4d673a3dec8e05f1f56cc79d0ede71df4a72f832b2820ec24784680e263a9ce",
+    "inert_source_loader.py": "d38b660b5c33e70ffb7c86ef31c310130933cbb40f0ec3a920a63ba080989118",
+    "phase_source_closure.json": "87bf558f2e1220c7fba294d9e1fa209830904061a63df2d6e8bdcb539849fdae",
+    "sink_bridge_binding.json": "01c43b2450c473e73ef5b539463b8db4ff7854d38636fb175a4db411b7ddae57",
+    "sink_observed_size.proposed.patch": "6332635023282d3856aab15e052c35c57480eb1a7662d03698676a4b6018dda8",
+    "source_binding.json": "7d7068f918087121b2961f9f4f3fad57ca2738e902e426bb318de61c21cd6903",
+    "source_binding_fixture.py": "12848d578ecf6c3ff7c88e4a9f86e72e11d2f25c4c4456469ca7954408da3143",
+    "test_actual_imports.py": "b47d178c5aa2f09774d8d1c9be26cd9ab125f3995d439d0638cc7da55e275ec5",
+    "test_combined_integration.py": "c91a8a785d8542f06d7ecb92fbdca37eea8b93c465f25a4621655923ad62cacc",
+    "test_inert_source_loader.py": "bba8c51e3bf593c3174a458fb7ae10e9e6e52bb8af2ca4e55bd0c944c88b1f53",
+    "test_source_binding.py": "2c7b3cdd283e43f784443b10b145d63eefa9fa44bdce9e4311aa772ec44a7309",
+    "test_virtual_sink_bridge.py": "5b5d2400511147d77a44215f18fb62ac8b5f99741b78bea157a80d306b65b6fe"
+  }
+}

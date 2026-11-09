@@ -476,7 +476,7 @@ class Trial(s.Sweep):
             'unknown_after_reboot; DDIC recovery not guaranteed' if self.candidate_attempts else False)
         self.report['physical_ddic_recovery_unverified']=True
 
-    def stop_camera(self):
+    def stop_camera(self, *, defer_video_validation=False, bounded_pull=False):
         if not self.recording:return
         ui=list(self.camera_ui().iter('node'))
         if any(n.get('content-desc')=='Stop recording video' for n in ui):
@@ -486,8 +486,17 @@ class Trial(s.Sweep):
         after=self.cam("find /sdcard/DCIM/OpenCamera -maxdepth 1 -type f -name '*.mp4'",'files-after')
         source=new_camera_video(self.files_before,after)
         size=int(self.cam('stat -c %s '+q(source),'video-size'))
-        self.g.run(['adb','-t',str(self.camera),'pull',source,str(self.private/'capture.mp4')],timeout=90,check=True)
+        if bounded_pull:
+            self.g.run(['adb','-t',str(self.camera),'pull',source,str(self.private/'capture.mp4')],
+                       timeout=90,check=True,expected_size=size,byte_cap=size)
+        else:
+            self.g.run(['adb','-t',str(self.camera),'pull',source,str(self.private/'capture.mp4')],timeout=90,check=True)
         check((self.private/'capture.mp4').stat().st_size==size and size>0,'Video transfer mismatch')
+        if defer_video_validation:
+            self.report.update(video_private_label='capture.mp4',video_bytes=size,
+                               video_transfer_verified=True,video_validation_status='pending_offline')
+            self.save()
+            return
         result=subprocess.run(['ffprobe','-v','error','-show_streams','-show_format','-of','json',
                                str(self.private/'capture.mp4')],capture_output=True,timeout=20,check=True)
         with (self.private/'video-probe.json').open('xb') as f:f.write(result.stdout)

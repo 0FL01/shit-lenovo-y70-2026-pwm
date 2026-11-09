@@ -1,0 +1,27 @@
+# INACTIVE DESIGN TEXT ONLY. Requires reviewed callback patch and launcher.
+# No real private values/default capacity; no use as production module.
+def construct_proposed_adapter(*, pin, serials, limits, parent_pin, capacity,
+                               exact_capture_path, host_uid, monotonic, sleep,
+                               os_api, socket_factory):
+    proc = LinuxProcFS(os_api=os_api, monotonic=monotonic)
+    association = LinuxAssociation(pin=pin, limits=limits, proc=proc,
+                                   monotonic=monotonic)
+    make_socket = make_socket_factory(socket_factory=socket_factory,
+                                      monotonic=monotonic)
+    attempted = False
+    def create_sink(path, deadline, *, observed_size):
+        nonlocal attempted
+        if attempted:
+            raise RuntimeError('Sink attempt already spent')
+        attempted = True  # even failed validation/construction consumes this attempt
+        if path != exact_capture_path or parent_pin.uid != host_uid:
+            raise RuntimeError('Private sink binding mismatch')
+        factory = PrivateSinkFactory(exact_path=exact_capture_path,
+            parent_pin=parent_pin, observed_size=observed_size, capacity=capacity,
+            os_api=os_api, monotonic=monotonic)
+        return factory(path, deadline)
+    # Class remains explicitly the reviewed MODEL until production admission.
+    return OfflineBaselineADB(expected_process=pin.process,
+        expected_serials=serials, acquire=association.acquire_process, make_socket=make_socket,
+        create_sink=create_sink, expected_destination=exact_capture_path,
+        expected_uid=host_uid, sleep=sleep, monotonic=monotonic)

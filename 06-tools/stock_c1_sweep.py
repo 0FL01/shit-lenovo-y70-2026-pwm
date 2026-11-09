@@ -370,7 +370,9 @@ class Sweep:
                 try:
                     boot=self.shell('cat /proc/sys/kernel/random/boot_id',label='recovery-boot')
                     complete=self.shell('getprop sys.boot_completed',label='recovery-complete')
-                    if boot!=self.before['boot_id'] and complete=='1':break
+                    if (re.fullmatch(r'[0-9a-f]{8}(?:-[0-9a-f]{4}){3}-[0-9a-f]{12}', self.before['boot_id'])
+                        and re.fullmatch(r'[0-9a-f]{8}(?:-[0-9a-f]{4}){3}-[0-9a-f]{12}', boot)
+                        and boot!=self.before['boot_id'] and complete=='1'):break
                 except (OSError,RuntimeError,ValueError):
                     pass  # Read-only polling, never repeat reboot or the uncertain query.
                 check(self.monotonic()<deadline,'New boot not verified')

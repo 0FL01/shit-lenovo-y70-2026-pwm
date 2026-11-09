@@ -1,0 +1,29 @@
+{
+  "status": "inactive ABI-corrected replay; not tracked admission",
+  "previous_freeze_sha256": "e2492c1919a625149a6c74739273fc9a5d2f27a8992ec61e418b8f4b929a26f4",
+  "unchanged_previous_files": false,
+  "post_application_tests_per_mode": 52,
+  "contract_checks_per_mode": 6,
+  "nested_current_overlay_tests_per_mode": 52,
+  "intended_import_modules": 19,
+  "files": {
+    "POST_APPLICATION_REPLAY.md": "2369433d7aa7f9125950f6ad31d2db6bdd4ba3a3f52a955714dac0b6d1b89803",
+    "check_future_imports.py": "534d63c0f5b42290c653ab5433e1fde4322ea67e7b7b41856fc261816090ba7b",
+    "check_future_tree.py": "7e0cd9039efa3862241998059cac09c15ef6751a31a1022021e0c7cc2c167b6f",
+    "check_replay_contract.py": "ce983f296059e6d4b2746db9af4ef683b925dad0faeb22e71dcfe49be43190d7",
+    "replay_binding.json": "24bda80f25ccf2a0eb5d01b2d36a6a6ac71526de49415ae3c5d5884b64521424",
+    "replay_snapshots/offline_baseline_adb.py.baseline": "0177f5de73e4ddd8c04bf8fa6bc8901f7bb7528ab1c29aa9861d6dd3758de8c1",
+    "replay_snapshots/offline_baseline_adb.py.intended": "7f2d60bffcf4e74fc4060941a6a8444ee6bb052ae24a07d23407aaef0ce0585e",
+    "replay_snapshots/run_p85_guarded_trial.py.baseline": "b651f185c0691d72de050415ad76886439f700e0e8d0a34e404de012014662d0",
+    "replay_snapshots/run_p85_guarded_trial.py.intended": "6510baacb316a8dfbaf6aeea64d5a76e2d69046af46001f924d22cefdd748972",
+    "replay_snapshots/run_p85_timed_stock_trial.py.baseline": "69d6a563ba313c2c2ba304f4d1abc77f2186326c4c27fd0f09ed85adc54eb4f1",
+    "replay_snapshots/run_p85_timed_stock_trial.py.intended": "a50f04c23b306812dfd0b74d3cbe8f81d28ba0bbc74bb5f9a7c9d0bbfa10ff1a",
+    "replay_snapshots/stock_c1_sweep.py.baseline": "68e529befbc91e7b3273149ced23670fb9789f1bb586ae859484bed8637bf5fd",
+    "replay_snapshots/stock_c1_sweep.py.intended": "1c105480c1ec7abded156f16cf96a98719f0528620b176698dc4226bf933a0d4",
+    "replay_source_fixture.py": "117207571adcddef1bc883b6a03a36abd7622cfc61d47187409a5e882fdd5c40",
+    "supporting_test_manifest.json": "d72c7360721069690393430a87a91e9495cffc0303793054a845b22b6ef52637",
+    "ABI_COMPATIBILITY.md": "e63ac6fb11f3841812b4fd4856f7ee18103039c179b13bf10b64f8ed053e13f0"
+  },
+  "current_primary_freeze_sha256": "4fc602a4d614b07377bab2083115f6c5007bee37982d9f3ca9974c1ef87ac8c7",
+  "historical_previous_files": "historical_e249_621/"
+}

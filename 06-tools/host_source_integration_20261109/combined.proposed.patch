@@ -1,0 +1,126 @@
+--- a/06-tools/run_p85_guarded_trial.py
++++ b/06-tools/run_p85_guarded_trial.py
+@@ -476,7 +476,7 @@
+             'unknown_after_reboot; DDIC recovery not guaranteed' if self.candidate_attempts else False)
+         self.report['physical_ddic_recovery_unverified']=True
+ 
+-    def stop_camera(self):
++    def stop_camera(self, *, defer_video_validation=False, bounded_pull=False):
+         if not self.recording:return
+         ui=list(self.camera_ui().iter('node'))
+         if any(n.get('content-desc')=='Stop recording video' for n in ui):
+@@ -486,8 +486,17 @@
+         after=self.cam("find /sdcard/DCIM/OpenCamera -maxdepth 1 -type f -name '*.mp4'",'files-after')
+         source=new_camera_video(self.files_before,after)
+         size=int(self.cam('stat -c %s '+q(source),'video-size'))
+-        self.g.run(['adb','-t',str(self.camera),'pull',source,str(self.private/'capture.mp4')],timeout=90,check=True)
++        if bounded_pull:
++            self.g.run(['adb','-t',str(self.camera),'pull',source,str(self.private/'capture.mp4')],
++                       timeout=90,check=True,expected_size=size,byte_cap=size)
++        else:
++            self.g.run(['adb','-t',str(self.camera),'pull',source,str(self.private/'capture.mp4')],timeout=90,check=True)
+         check((self.private/'capture.mp4').stat().st_size==size and size>0,'Video transfer mismatch')
++        if defer_video_validation:
++            self.report.update(video_private_label='capture.mp4',video_bytes=size,
++                               video_transfer_verified=True,video_validation_status='pending_offline')
++            self.save()
++            return
+         result=subprocess.run(['ffprobe','-v','error','-show_streams','-show_format','-of','json',
+                                str(self.private/'capture.mp4')],capture_output=True,timeout=20,check=True)
+         with (self.private/'video-probe.json').open('xb') as f:f.write(result.stdout)
+--- a/06-tools/run_p85_timed_stock_trial.py
++++ b/06-tools/run_p85_timed_stock_trial.py
+@@ -371,7 +371,7 @@
+                 try:self.recover()
+                 except BaseException:pass
+         finally:
+-            try:self.stop_camera()
++            try:self.stop_camera(defer_video_validation=True,bounded_pull=True)
+             except BaseException as exc:self.report['camera_cleanup_error_type']=type(exc).__name__;error=error or exc
+             try:self.cleanup_camera_xml()
+             except BaseException as exc:self.report['camera_ui_cleanup_pending']=True;error=error or exc
+@@ -383,10 +383,15 @@
+             if error:self.report['status']='failed; inspect recovery and retained watchdog/owner'
+             self.report['finished_at_utc']=s.now();self.save()
+         if error:raise RuntimeError('Timed stock failed; no retry') from error
++        self.report.update(video_acquisition_schema='p85-deferred-acquisition-v1',
++                           video_acquisition_origin='timed_stock_caller',evidence_kind='acquisition')
++        self.report['video_lifecycle_complete']=True
++        self.report['status']='awaiting_offline_video_validation'
++        self.save()
+         return self.report
+ 
+ 
+-def main():
++def main(*, host_inputs=None, verified_sources=None, host_dependencies=None):
+     parser=argparse.ArgumentParser(description=__doc__)
+     parser.add_argument('target',type=int);parser.add_argument('camera',type=int)
+     parser.add_argument('--stock-only',action='store_true',required=True)
+@@ -394,20 +399,31 @@
+     parser.add_argument('--execute',action='store_true')
+     args=parser.parse_args();s.plan(args.experiment_id)
+     check(args.target>0 and args.camera>0 and args.target!=args.camera,'Distinct transports')
+-    private=Path.home()/'.cache/legion-y70-p85-timed-stock'/args.experiment_id
+-    check(not args.output.exists() and not private.exists(),'Fresh output/private required')
+-    bounds=size_preflight();source=base.source_provenance(paths=SOURCE_FILES,require_clean=args.execute)
++    from host_entrypoint import HARDWARE_PATHS, private_path, source_gate, prepare
++    check(not args.output.exists(),'Fresh output required')
++    bounds=size_preflight();source=base.source_provenance(paths=HARDWARE_PATHS,require_clean=args.execute)
+     if not args.execute:
+         print(json.dumps({**source,'scope':SCOPE,'candidate_enabled':False,'offline_only':True,'envelope_command_size_preflight':bounds},indent=2));return
++    check(host_inputs is not None and verified_sources is not None and host_dependencies is not None,
++          'Explicit verified host inputs required')
++    source_gate(verified_sources)
++    private=Path(str(private_path(host_inputs)))
++    check(not private.exists(),'Fresh private directory required')
+     args.output.parent.mkdir(parents=True,exist_ok=True);args.output.mkdir()
+-    private.parent.mkdir(parents=True,exist_ok=True,mode=0o700);private.mkdir(mode=0o700)
+-    from guarded_adb_socket import GuardedADB
+-    run=TimedStockTrial(GuardedADB(),args.target,args.camera,args.experiment_id,args.output,private)
+-    run.report.update(source,envelope_command_size_preflight=bounds)
+-    owner=private/'owner.txt';owner.write_text(run.token+'\n');owner.chmod(0o600)
+-    def abort(signum,frame):raise KeyboardInterrupt('Termination requested')
+-    for sig in (signal.SIGINT,signal.SIGTERM,signal.SIGHUP):signal.signal(sig,abort)
+-    run.save();run.execute();print(json.dumps({'status':run.report['status'],'candidate_enabled':False,'pwm_hz':None}))
+-
++    prepared=prepare(verified_sources,host_inputs,host_dependencies)
++    try:
++        run=TimedStockTrial(prepared.adapter,args.target,args.camera,args.experiment_id,args.output,private,
++                           sleep=host_dependencies.sleep,monotonic=host_dependencies.monotonic)
++        run.report.update(source,envelope_command_size_preflight=bounds)
++        prepared.owned.verify()
++        owner=private/'owner.txt';owner.write_text(run.token+'\n');owner.chmod(0o600)
++        prepared.owned.verify()
++        def abort(signum,frame):raise KeyboardInterrupt('Termination requested')
++        for sig in (signal.SIGINT,signal.SIGTERM,signal.SIGHUP):signal.signal(sig,abort)
++        run.save();run.execute()
++        prepared.finalize(run,(args.output/'run.json').read_bytes())
++    finally:
++        prepared.close()
++    print(json.dumps({'status':run.report['status'],'candidate_enabled':False,'pwm_hz':None}))
+ 
+ if __name__=='__main__':main()
+--- a/06-tools/stock_c1_sweep.py
++++ b/06-tools/stock_c1_sweep.py
+@@ -370,7 +370,9 @@
+                 try:
+                     boot=self.shell('cat /proc/sys/kernel/random/boot_id',label='recovery-boot')
+                     complete=self.shell('getprop sys.boot_completed',label='recovery-complete')
+-                    if boot!=self.before['boot_id'] and complete=='1':break
++                    if (re.fullmatch(r'[0-9a-f]{8}(?:-[0-9a-f]{4}){3}-[0-9a-f]{12}', self.before['boot_id'])
++                        and re.fullmatch(r'[0-9a-f]{8}(?:-[0-9a-f]{4}){3}-[0-9a-f]{12}', boot)
++                        and boot!=self.before['boot_id'] and complete=='1'):break
+                 except (OSError,RuntimeError,ValueError):
+                     pass  # Read-only polling, never repeat reboot or the uncertain query.
+                 check(self.monotonic()<deadline,'New boot not verified')
+--- a/06-tools/host_adb_full_api_spike/offline_baseline_adb.py
++++ b/06-tools/host_adb_full_api_spike/offline_baseline_adb.py
+@@ -373,7 +373,7 @@
+         with self._operation('pull',timeout) as (deadline,state):
+             # Sink is created only after protocol and exact device selection checks.
+             with self._selected(transport,'sync:',deadline,state) as sock:
+-                sink=self._create_sink(self._destination,deadline)
++                sink=self._create_sink(self._destination,deadline,observed_size=expected_size)
+                 try:
+                     self._remaining(deadline)
+                     ident=sink.identity

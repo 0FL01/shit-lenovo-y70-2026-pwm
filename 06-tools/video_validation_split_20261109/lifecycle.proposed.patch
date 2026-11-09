@@ -1,0 +1,46 @@
+--- a/06-tools/run_p85_guarded_trial.py
++++ b/06-tools/run_p85_guarded_trial.py
+@@ -476,7 +476,7 @@
+             'unknown_after_reboot; DDIC recovery not guaranteed' if self.candidate_attempts else False)
+         self.report['physical_ddic_recovery_unverified']=True
+ 
+-    def stop_camera(self):
++    def stop_camera(self, *, defer_video_validation=False):
+         if not self.recording:return
+         ui=list(self.camera_ui().iter('node'))
+         if any(n.get('content-desc')=='Stop recording video' for n in ui):
+@@ -488,6 +488,11 @@
+         size=int(self.cam('stat -c %s '+q(source),'video-size'))
+         self.g.run(['adb','-t',str(self.camera),'pull',source,str(self.private/'capture.mp4')],timeout=90,check=True)
+         check((self.private/'capture.mp4').stat().st_size==size and size>0,'Video transfer mismatch')
++        if defer_video_validation:
++            self.report.update(video_private_label='capture.mp4',video_bytes=size,
++                               video_transfer_verified=True,video_validation_status='pending_offline')
++            self.save()
++            return
+         result=subprocess.run(['ffprobe','-v','error','-show_streams','-show_format','-of','json',
+                                str(self.private/'capture.mp4')],capture_output=True,timeout=20,check=True)
+         with (self.private/'video-probe.json').open('xb') as f:f.write(result.stdout)
+--- a/06-tools/run_p85_timed_stock_trial.py
++++ b/06-tools/run_p85_timed_stock_trial.py
+@@ -371,7 +371,7 @@
+                 try:self.recover()
+                 except BaseException:pass
+         finally:
+-            try:self.stop_camera()
++            try:self.stop_camera(defer_video_validation=True)
+             except BaseException as exc:self.report['camera_cleanup_error_type']=type(exc).__name__;error=error or exc
+             try:self.cleanup_camera_xml()
+             except BaseException as exc:self.report['camera_ui_cleanup_pending']=True;error=error or exc
+@@ -383,6 +383,11 @@
+             if error:self.report['status']='failed; inspect recovery and retained watchdog/owner'
+             self.report['finished_at_utc']=s.now();self.save()
+         if error:raise RuntimeError('Timed stock failed; no retry') from error
++        self.report.update(video_acquisition_schema='p85-deferred-acquisition-v1',
++                           video_acquisition_origin='timed_stock_caller',evidence_kind='acquisition')
++        self.report['video_lifecycle_complete']=True
++        self.report['status']='awaiting_offline_video_validation'
++        self.save()
+         return self.report
+ 
+ 
