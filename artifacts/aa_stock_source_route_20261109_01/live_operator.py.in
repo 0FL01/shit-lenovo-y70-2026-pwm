@@ -1,0 +1,149 @@
+"""Inert operator proposal. No CLI/default execution or device discovery.
+
+source_check and launch must run in separate fresh isolated Python processes.
+Only launch calls the additive fixed AA timed main. No new recovery/controller path.
+"""
+import hashlib
+import inspect
+import json
+import os
+from pathlib import Path
+import re
+import socket
+import stat
+import subprocess
+import sys
+import time
+import types
+import fcntl
+
+COMMIT = "@@COMMIT@@"
+LOADER_PATH = "06-tools/host_source_integration_20261109/inert_source_loader.py"
+LOADER_SHA = "@@LOADER_SHA256@@"
+CODE_NAME = "@@CODE_BASENAME@@"
+PRIVATE_NAME = "@@PRIVATE_BASENAME@@"
+OUTPUT_NAME = "@@OUTPUT_BASENAME@@"
+EXPERIMENT = "@@EXPERIMENT@@"
+
+
+def require(ok, message):
+    if not ok:
+        raise RuntimeError(message)
+
+
+def _validate(config, execute):
+    require(re.fullmatch(r"[0-9a-f]{40}", COMMIT) is not None and re.fullmatch(r"[0-9a-f]{64}", LOADER_SHA) is not None, "Unassigned AA source pins")
+    require(config.get("profile") == "aa" and config.get("trial_kind") == "full_stock_surrogate", "Only AA full-stock surrogate configured")
+    require(config["commit"] == COMMIT, "Exact approved commit required")
+    require(config["code_basename"] == CODE_NAME and config["private_basename"] == PRIVATE_NAME
+            and config["output_basename"] == OUTPUT_NAME and config["experiment_id"] == EXPERIMENT,
+            "Exact independently approved names required")
+    base = Path(config["base_path"])
+    require(base.is_absolute() and str(base) == config["base_path"] and ".." not in base.parts
+            and not config["base_path"].startswith("//"), "Canonical private base required")
+    require(config["capacity"] == dict(max_video_bytes=268435456,reserve_bytes=1073741824),
+            "Exact explicit capacity policy required")
+    roles = config["roles"]
+    require(set(roles) == {"target","camera"}, "Exact role pair required")
+    serials = [roles[name]["serial"] for name in ("target","camera")]
+    require(len(set(serials)) == 2 and all(isinstance(s,str) and
+            re.fullmatch(r"[A-Za-z0-9_.-]{1,256}",s) and s != "unknown" for s in serials),
+            "Independent private serial pair required")
+    if execute:
+        require(config["admission_stage"] == "lead_approved_aa_full_stock"
+                and config["ownership_handoff"] is True, "Explicit later ownership admission required")
+        require(config["no_concurrent_writers"] is True and
+                config["no_concurrent_namespace_mutation"] is True, "Trusted host assertions required")
+        require(config["output_basename_approved"] is True, "Output destination approval required")
+        require(isinstance(config["fresh_identity_evidence_sha256"],str) and
+                re.fullmatch(r"[0-9a-f]{64}",config["fresh_identity_evidence_sha256"]),
+                "Reviewed fresh identity evidence reference required")
+        ids = [roles[name]["transport_id"] for name in ("target","camera")]
+        require(all(type(i) is int and i > 0 for i in ids) and ids[0] != ids[1],
+                "Fresh distinct transport IDs required")
+    return base, base / CODE_NAME
+
+
+def _load(config, execute):
+    base, root = _validate(config,execute)
+    require(os.getuid() == config["base_pin"]["uid"], "Host account changed")
+    fds=[]
+    try:
+        flags=os.O_RDONLY|os.O_DIRECTORY|os.O_NOFOLLOW|os.O_CLOEXEC
+        fd=os.open("/",flags);fds.append(fd)
+        for part in base.parts[1:]:
+            fd=os.open(part,flags,dir_fd=fd);fds.append(fd)
+        s=os.fstat(fd);p=config["base_pin"]
+        require((s.st_dev,s.st_ino,s.st_uid,s.st_mode)==(p["device"],p["inode"],p["uid"],p["mode"]),
+                "Independent base pin mismatch")
+        fd=os.open(CODE_NAME,flags,dir_fd=fd);fds.append(fd);s=os.fstat(fd);p=config["code_pin"]
+        require((s.st_dev,s.st_ino,s.st_uid,s.st_mode)==(p["device"],p["inode"],p["uid"],p["mode"]),
+                "Verified deployment root changed")
+    finally:
+        error=None
+        for fd in reversed(fds):
+            try:os.close(fd)
+            except BaseException as caught:error=error or caught
+        if error is not None:raise error
+    os.environ.update(GIT_CONFIG_NOSYSTEM="1",GIT_CONFIG_GLOBAL="/dev/null",
+                      GIT_TERMINAL_PROMPT="0",PYTHONDONTWRITEBYTECODE="1")
+    def git(*args):
+        return subprocess.run(["git","-C",str(root),*args],capture_output=True,text=True,timeout=10)
+    head=git("rev-parse","--verify","HEAD")
+    require(head.returncode==0 and head.stdout.strip()==COMMIT,"Wrong source HEAD")
+    raw=(root/LOADER_PATH).read_bytes()
+    require(hashlib.sha256(raw).hexdigest()==LOADER_SHA,"External loader byte pin mismatch")
+    loader=types.ModuleType("externally_pinned_stock_loader")
+    loader.__file__=str(root/LOADER_PATH);sys.modules[loader.__name__]=loader
+    exec(compile(raw,loader.__file__,"exec",dont_inherit=True),loader.__dict__)
+    kwargs=dict(root=str(root),git=git,read_bytes=lambda path:Path(path).read_bytes(),registry=sys.modules,profile="aa")
+    inspect.signature(loader.FixedSourceLoader).bind(**kwargs)
+    loaded=loader.FixedSourceLoader(**kwargs).load()
+    require(loaded["source_commit"]==COMMIT,"Loaded commit differs from explicit approval")
+    require(loaded.get("profile") == "aa", "AA profile required")
+    entry=loaded["modules"]["host_entrypoint"]
+    entry.source_gate(loaded)
+    entry.source_gate(loaded,finalizer=True)
+    return base,root,loaded
+
+
+def source_check(*,config):
+    _,_,loaded=_load(config,False)
+    return dict(status="source_and_config_shape_checked_only",commit=loaded["source_commit"],
+                live_admitted=False,device_services_sent=0,private_directory_created=False)
+
+
+def launch(*,config):
+    base,root,loaded=_load(config,True)
+    modules=loaded["modules"];entry=modules["host_entrypoint"]
+    dep=modules["linux_adb_probe_dependencies"];adapter=modules["offline_baseline_adb"]
+    directory=modules["fresh_private_directory"];sink=modules["private_video_sink"]
+    process=dict(config["server_pin"]["process"])
+    process["endpoint"]=tuple(process["endpoint"]);process["uids"]=tuple(process["uids"])
+    process["version"]=process["version"].encode("utf-8")
+    pin=dep.VerifiedPin(process=adapter.ProcessIdentity(**process),
+        listener_inode=config["server_pin"]["listener_inode"],
+        network_namespace=config["server_pin"]["network_namespace"],
+        executable_sha256=config["server_pin"]["executable_sha256"],
+        executable_size=config["server_pin"]["executable_size"])
+    inputs=entry.HostInputs(base_path=str(base),base_pin=directory.BasePin(**config["base_pin"]),
+        directory_name=PRIVATE_NAME,process_pin=pin,
+        expected_serials=tuple(config["roles"][name]["serial"].encode("ascii") for name in ("target","camera")),
+        proc_limits=dep.ProcLimits(**config["proc_limits"]),capacity=sink.CapacityPolicy(**config["capacity"]),
+        no_concurrent_writers=config["no_concurrent_writers"],
+        no_concurrent_namespace_mutation=config["no_concurrent_namespace_mutation"])
+    dependencies=entry.HostDependencies(os_api=os,socket_factory=socket.socket,
+        proc=dep.LinuxProcFS(monotonic=time.monotonic),monotonic=time.monotonic,
+        sleep=time.sleep,fcntl_api=fcntl)
+    kwargs=dict(host_inputs=inputs,verified_sources=loaded,host_dependencies=dependencies)
+    main=modules["run_aa_timed_stock_trial"].main
+    inspect.signature(main).bind(**kwargs)
+    previous=sys.argv
+    sys.argv=[str(root/"06-tools/run_aa_timed_stock_trial.py"),
+        str(config["roles"]["target"]["transport_id"]),str(config["roles"]["camera"]["transport_id"]),
+        "--stock-only","--experiment-id",EXPERIMENT,"--output",str(base/OUTPUT_NAME),"--execute"]
+    try:
+        main(**kwargs)
+    finally:
+        sys.argv=previous
+    return dict(status="aa_full_stock_main_returned_pending_offline_validation",candidate_enabled=False)

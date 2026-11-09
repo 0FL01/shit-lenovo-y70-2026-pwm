@@ -1,0 +1,24 @@
+test_both_writer_shells_gate_every_block_and_preserve_failed_evidence (test_aa_threshold_trial.AATests.test_both_writer_shells_gate_every_block_and_preserve_failed_evidence) ... ok
+test_chunk_bytes_and_writer_scope (test_aa_threshold_trial.AATests.test_chunk_bytes_and_writer_scope) ... ok
+test_exact_programs_and_all_byte_mutations (test_aa_threshold_trial.AATests.test_exact_programs_and_all_byte_mutations) ... ok
+test_full_wire_exact (test_aa_threshold_trial.AATests.test_full_wire_exact) ... ok
+test_initial_grep_errors_never_dispatch_with_empty_or_nonempty_prefix (test_aa_threshold_trial.AATests.test_initial_grep_errors_never_dispatch_with_empty_or_nonempty_prefix) ... ok
+test_prefix_reader_failure_is_not_masked_by_empty_prefix (test_aa_threshold_trial.AATests.test_prefix_reader_failure_is_not_masked_by_empty_prefix) ... ok
+test_selector_all_ten_native_failure_prefixes_stop_without_cleanup_write (test_aa_threshold_trial.AATests.test_selector_all_ten_native_failure_prefixes_stop_without_cleanup_write) ... ok
+test_selector_has_no_generic_or_unknown_read (test_aa_threshold_trial.AATests.test_selector_has_no_generic_or_unknown_read) ... ok
+test_selectors_trace_and_values (test_aa_threshold_trial.AATests.test_selectors_trace_and_values) ... ok
+test_shared_transaction_allowlist_preserves_prior_rendering (test_aa_threshold_trial.AATests.test_shared_transaction_allowlist_preserves_prior_rendering) ... ok
+test_complete_batch_and_fail_closed_deltas (test_dsi_trial_transaction.TransactionTests.test_complete_batch_and_fail_closed_deltas) ... ok
+test_device_side_awk_checks_run_before_next_block (test_dsi_trial_transaction.TransactionTests.test_device_side_awk_checks_run_before_next_block) ... ok
+test_fresh_runner_enables_logger_before_native_ui_setup (test_dsi_trial_transaction.TransactionTests.test_fresh_runner_enables_logger_before_native_ui_setup) ... ok
+test_pinned_native_states_explicit_and_consistent (test_dsi_trial_transaction.TransactionTests.test_pinned_native_states_explicit_and_consistent) ... ok
+test_qualified_stock_anchor_last_mode_with_setup_transients (test_dsi_trial_transaction.TransactionTests.test_qualified_stock_anchor_last_mode_with_setup_transients) ... ok
+test_run_unique_markers_do_not_alias_prefix_ids_or_old_runs (test_dsi_trial_transaction.TransactionTests.test_run_unique_markers_do_not_alias_prefix_ids_or_old_runs) ... ok
+test_saved_trial03_is_real_transaction_concurrency (test_dsi_trial_transaction.TransactionTests.test_saved_trial03_is_real_transaction_concurrency) ... ok
+test_saved_trial05_duplicate_markers_reject_and_scoped_replay_separates (test_dsi_trial_transaction.TransactionTests.test_saved_trial05_duplicate_markers_reject_and_scoped_replay_separates) ... ok
+test_stock_anchor_freshness_identity_and_settings_order (test_dsi_trial_transaction.TransactionTests.test_stock_anchor_freshness_identity_and_settings_order) ... ok
+
+----------------------------------------------------------------------
+Ran 19 tests in 6.141s
+
+OK

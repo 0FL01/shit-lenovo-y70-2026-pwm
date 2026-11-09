@@ -141,7 +141,7 @@ def validate_batch_capture(raw, entry_count):
 def transaction_script(tmp, trace, name, entry_count):
     if not re.fullmatch(r'/data/local/tmp/[a-zA-Z0-9_/-]+',tmp) or trace!='/sys/kernel/tracing/instances/pwm_mode':
         raise ValueError('Unexpected transaction paths')
-    if name not in ('stock','a9_only') or type(entry_count) is not int or entry_count<0:
+    if name not in ('stock','a9_only','aa10') or type(entry_count) is not int or entry_count<0:
         raise ValueError('Unexpected transaction program/count')
     # Android awk POSIX subset; verify the actual trace after EVERY write, not dd rc alone.
     awk=r'''/LOST/ {bad=1}

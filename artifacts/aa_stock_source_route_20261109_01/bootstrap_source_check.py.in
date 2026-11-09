@@ -1,0 +1,59 @@
+"""Reviewed-operator proposal: source checks only, no prepare/main/device calls."""
+import argparse
+import hashlib
+import inspect
+import re
+import json
+import os
+from pathlib import Path
+import subprocess
+import sys
+import types
+
+COMMIT = "@@COMMIT@@"
+LOADER = "06-tools/host_source_integration_20261109/inert_source_loader.py"
+LOADER_SHA256 = "@@LOADER_SHA256@@"
+
+def require(ok, message):
+    if not ok:
+        raise RuntimeError(message)
+
+require(re.fullmatch(r'[0-9a-f]{40}', COMMIT) is not None and re.fullmatch(r'[0-9a-f]{64}', LOADER_SHA256) is not None, 'Unassigned AA source pins')
+parser = argparse.ArgumentParser()
+parser.add_argument("--root", required=True)
+args = parser.parse_args()
+root = Path(args.root)
+require(root.is_absolute() and str(root) == args.root and ".." not in root.parts,
+        "Exact canonical absolute checkout required")
+os.environ.update(GIT_CONFIG_NOSYSTEM="1", GIT_CONFIG_GLOBAL="/dev/null",
+                  GIT_TERMINAL_PROMPT="0", PYTHONDONTWRITEBYTECODE="1")
+# Original source_gate spawns Git itself, so isolate its inherited environment too.
+env = dict(os.environ)
+def git(*arguments):
+    return subprocess.run(["git", "-C", str(root), *arguments], env=env,
+                          capture_output=True, text=True, timeout=10)
+head = git("rev-parse", "--verify", "HEAD")
+require(head.returncode == 0 and head.stdout.strip() == COMMIT, "Wrong HEAD")
+raw = (root / LOADER).read_bytes()
+require(hashlib.sha256(raw).hexdigest() == LOADER_SHA256, "External loader pin mismatch")
+module = types.ModuleType("operator_verified_source_loader")
+module.__file__ = str(root / LOADER)
+sys.modules[module.__name__] = module
+exec(compile(raw, module.__file__, "exec", dont_inherit=True), module.__dict__)
+kwargs = dict(root=str(root), git=git, read_bytes=lambda path: Path(path).read_bytes(),
+              registry=sys.modules, profile="aa")
+inspect.signature(module.FixedSourceLoader).bind(**kwargs)
+loaded = module.FixedSourceLoader(**kwargs).load()
+require(loaded["source_commit"] == COMMIT, "Loaded commit differs from approved commit")
+require(loaded.get('profile') == 'aa', 'AA profile required')
+entry = loaded["modules"]["host_entrypoint"]
+_, hardware = entry.source_gate(loaded)
+_, finalizer = entry.source_gate(loaded, finalizer=True)
+require(hardware["source_commit"] == finalizer["source_commit"] == COMMIT,
+        "Post-load source gate commit mismatch")
+require(len(hardware['source_tracked_paths']) == 23 and len(finalizer['source_tracked_paths']) == 25 and len(loaded['modules']) == 22, 'AA closure shape changed; review required')
+print(json.dumps(dict(profile='aa', status="source_checks_only_passed", commit=COMMIT,
+    hardware_paths=len(hardware["source_tracked_paths"]),
+    finalizer_paths=len(finalizer["source_tracked_paths"]),
+    project_modules=len(loaded["modules"]), device_services_sent=0,
+    private_directory_created=False, live_admitted=False), sort_keys=True))

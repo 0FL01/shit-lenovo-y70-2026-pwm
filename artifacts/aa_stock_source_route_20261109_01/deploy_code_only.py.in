@@ -1,0 +1,161 @@
+"""Single proposed code-only deployment; exact private payload supplied by operator."""
+import base64
+import hashlib
+import io
+import json
+import re
+import os
+from pathlib import Path
+import stat
+import subprocess
+import sys
+import time
+from contextlib import redirect_stdout
+
+C = "@@COMMIT@@"
+BRANCH = "research/aa-threshold-20261109"
+URL = "https://github.com/0FL01/shit-lenovo-y70-2026-pwm.git"
+BASENAME = "@@CODE_BASENAME@@"
+BOOTSTRAP_SHA = "@@BOOTSTRAP_SHA256@@"
+MANIFEST_SHA = "@@MANIFEST_SHA256@@"
+
+def require(ok, message):
+    if not ok:
+        raise RuntimeError(message)
+
+def run(payload):
+    report = dict(status="STOP", phase="preparation", operations=[],
+                  clone_attempted=False, clone_outcome="not_started")
+    started = time.monotonic()
+    oldmask = os.umask(0o077)
+    fds = []
+    base_fd = None
+    try:
+        require(re.fullmatch(r'[0-9a-f]{40}', C) is not None, 'Unassigned AA source commit')
+        require(BRANCH == 'research/aa-threshold-20261109', 'Wrong assigned AA source branch')
+        manifest_raw = base64.b64decode(payload["manifest_base64"])
+        require(hashlib.sha256(manifest_raw).hexdigest() == MANIFEST_SHA, "Manifest pin mismatch")
+        manifest = json.loads(manifest_raw)
+        require(manifest["commit"] == C and manifest.get("branch") == BRANCH and len(manifest["paths"]) == 32, "Manifest scope mismatch")
+        bootstrap = base64.b64decode(payload["bootstrap_base64"])
+        require(hashlib.sha256(bootstrap).hexdigest() == BOOTSTRAP_SHA, "Bootstrap pin mismatch")
+        home = payload["home"]
+        require(home["account_home"] == home["environment_home"] == os.environ.get("HOME"), "HOME mismatch")
+        require(os.getuid() == home["uid"] == 0, "Account mismatch")
+        base = Path(home["account_home"])
+        require(base.is_absolute() and str(base) == home["account_home"] and ".." not in base.parts, "Base path grammar")
+        flags = os.O_RDONLY | os.O_DIRECTORY | os.O_NOFOLLOW | os.O_CLOEXEC
+        fd = os.open("/", flags); fds.append(fd)
+        for part in base.parts[1:]:
+            fd = os.open(part, flags, dir_fd=fd); fds.append(fd)
+        base_fd = fd
+        meta = os.fstat(fd); pin = home["held_directory"]
+        require((meta.st_dev, meta.st_ino, meta.st_uid, meta.st_mode) ==
+                (pin["device"], pin["inode"], pin["uid"], stat.S_IFDIR | pin["mode"]), "Base pin mismatch")
+        try:
+            os.stat(BASENAME, dir_fd=fd, follow_symlinks=False)
+        except FileNotFoundError:
+            pass
+        else:
+            raise RuntimeError("Checkout already exists; no adoption")
+        code = base / BASENAME
+        env = dict(os.environ, GIT_CONFIG_NOSYSTEM="1", GIT_CONFIG_GLOBAL="/dev/null",
+                   GIT_TERMINAL_PROMPT="0", GIT_LFS_SKIP_SMUDGE="1", PYTHONDONTWRITEBYTECODE="1")
+        gitprefix = ["git", "-c", "core.hooksPath=/dev/null", "-c", "init.templateDir="]
+        def command(label, argv, *, input=None, cwd=None, seconds=60):
+            report["phase"] = label
+            require(time.monotonic()-started < 240, "Deployment total deadline")
+            event = dict(label=label, argv=argv, started=time.monotonic())
+            report["operations"].append(event)
+            result = subprocess.run(argv, input=input, cwd=cwd, env=env,
+                capture_output=True, text=True, timeout=min(seconds, 240-(time.monotonic()-started)))
+            event.update(returncode=result.returncode, stdout=result.stdout, stderr=result.stderr,
+                         elapsed_seconds=time.monotonic()-event["started"])
+            require(len(result.stdout)+len(result.stderr) <= 2097152, "Command output cap")
+            require(result.returncode == 0, "Command failed; retain checkout and stop")
+            return result
+        report["clone_attempted"] = True
+        report["clone_outcome"] = "uncertain"
+        command("clone", gitprefix+["clone", "--no-checkout", "--depth=1", "--filter=blob:none",
+                                    "--branch", BRANCH, URL, str(code)], seconds=90)
+        report["clone_outcome"] = "succeeded"
+        clone = report["operations"][-1]
+        require("warning:" not in clone["stderr"].lower(), "Clone warning requires review")
+        require(command("HEAD", gitprefix+["-C",str(code),"rev-parse","--verify","HEAD"]).stdout.strip()==C,
+                "HEAD moved; no auto fetch/reset")
+        require(command("origin",gitprefix+["-C",str(code),"config","--get","remote.origin.url"]).stdout.strip()==URL,
+                "Origin differs")
+        require(command("promisor",gitprefix+["-C",str(code),"config","--get","remote.origin.promisor"]).stdout.strip()=="true",
+                "Expected filtered clone")
+        require(command("filter",gitprefix+["-C",str(code),"config","--get","remote.origin.partialclonefilter"]).stdout.strip()=="blob:none",
+                "Wrong clone filter")
+        wanted = {row["path"] for row in manifest["paths"]}
+        require(len(wanted)==32 and all(x.startswith("06-tools/") for x in wanted), "Sparse allowlist mismatch")
+        patterns = "".join("/"+path+"\n" for path in sorted(wanted))
+        command("sparse",gitprefix+["-C",str(code),"sparse-checkout","set","--no-cone","--stdin"],input=patterns)
+        command("detach",gitprefix+["-C",str(code),"checkout","--detach",C])
+        found = set()
+        for directory, dirs, files in os.walk(code, followlinks=False):
+            if directory == str(code):
+                dirs[:] = [name for name in dirs if name != ".git"]
+            for name in dirs:
+                require(not (Path(directory)/name).is_symlink(), "Symlink in source tree")
+            for name in files:
+                path=Path(directory)/name
+                require(not path.is_symlink(), "Symlink source")
+                found.add(str(path.relative_to(code)))
+        require(found==wanted, "Sparse worktree path set differs")
+        for row in manifest["paths"]:
+            raw=(code/row["path"]).read_bytes()
+            require(len(raw)==row["bytes"] and hashlib.sha256(raw).hexdigest()==row["sha256"], "Committed source mismatch")
+        report["verified_paths"]=len(found)
+        command("clean",gitprefix+["-C",str(code),"diff","--exit-code",C,"--",*sorted(wanted)])
+        check=command("source_check",["python3","-I","-S","-B","-","--root",str(code)],
+                      input=bootstrap.decode(),cwd=str(code),seconds=60)
+        report["source_check"]=json.loads(check.stdout)
+        require(report["source_check"]["status"]=="source_checks_only_passed", "Source check not passed")
+        for optimized in (False,True):
+            prefix=["python3"]+(["-O"] if optimized else [])+["-B"]
+            command("focused_association_"+str(optimized),
+                    prefix+["-m","unittest","test_linux_adb_probe_dependencies"],
+                    cwd=str(code/"06-tools/host_adb_full_api_spike"),seconds=90)
+        for optimized in (False,True):
+            prefix=["python3"]+(["-O"] if optimized else [])+["-B"]
+            command("source_profile_"+str(optimized),
+                    prefix+["-m","unittest","test_inert_source_loader","test_aa_source_profile"],
+                    cwd=str(code/"06-tools/host_source_integration_20261109"),seconds=90)
+        command("final_clean",gitprefix+["-C",str(code),"diff","--exit-code",C,"--",*sorted(wanted)])
+        report["status"]="code_only_deployment_verified"
+        report["phase"]="completed"
+        report["code_path"]=str(code)
+    except Exception as error:
+        report.update(error_type=type(error).__name__,error=str(error),retry_allowed=False)
+        if isinstance(error,subprocess.TimeoutExpired):
+            report["operation_outcome"]="child/network outcome uncertain; no retry or adoption"
+            if report["phase"] == "clone":
+                report["clone_outcome"] = "uncertain"
+        elif report["phase"] == "clone" and report["clone_attempted"]:
+            report["clone_outcome"] = "failed"
+    finally:
+        # One read-only no-follow snapshot, independent of command success flags.
+        # This is bounded work, not a hard syscall cancellation guarantee.
+        report["checkout_path_state"] = "unknown"
+        if base_fd is not None:
+            try:
+                observed = os.stat(BASENAME, dir_fd=base_fd, follow_symlinks=False)
+                report["checkout_path_state"] = "present"
+                report["checkout_path_metadata"] = dict(device=observed.st_dev,
+                    inode=observed.st_ino, uid=observed.st_uid, mode=observed.st_mode)
+            except FileNotFoundError:
+                report["checkout_path_state"] = "absent"
+            except OSError as error:
+                report["checkout_path_observation_error"] = type(error).__name__
+        failed=False
+        for fd in reversed(fds):
+            try:os.close(fd)
+            except Exception:failed=True
+        report["close"]="uncertain" if failed else "closed"
+        if failed:report["status"]="STOP"
+        os.umask(oldmask)
+        report["elapsed_seconds"]=time.monotonic()-started
+    return report

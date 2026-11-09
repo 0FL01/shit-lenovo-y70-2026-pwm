@@ -1,0 +1,50 @@
+{
+  "status": "offline_sparse_draft_checks_only_not_source_admission",
+  "copied_paths": 32,
+  "results": [
+    {
+      "optimized": false,
+      "modules": [
+        "test_linux_adb_probe_dependencies"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ".....................................\n----------------------------------------------------------------------\nRan 37 tests in 0.016s\n\nOK\n"
+    },
+    {
+      "optimized": false,
+      "modules": [
+        "test_inert_source_loader",
+        "test_aa_source_profile"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ".................\n----------------------------------------------------------------------\nRan 17 tests in 0.197s\n\nOK\n"
+    },
+    {
+      "optimized": true,
+      "modules": [
+        "test_linux_adb_probe_dependencies"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ".....................................\n----------------------------------------------------------------------\nRan 37 tests in 0.013s\n\nOK\n"
+    },
+    {
+      "optimized": true,
+      "modules": [
+        "test_inert_source_loader",
+        "test_aa_source_profile"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ".................\n----------------------------------------------------------------------\nRan 17 tests in 0.228s\n\nOK\n"
+    }
+  ],
+  "template_guards": {
+    "unassigned_commit_rejected_before_io": true,
+    "wrong_branch_rejected_before_io": true,
+    "assigned_branch": "research/aa-threshold-20261109",
+    "exact_commit": null
+  }
+}

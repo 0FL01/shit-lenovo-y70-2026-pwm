@@ -20,6 +20,12 @@ FINALIZER_MODULES=(('offline_acceptance','06-tools/video_validation_split_202611
                    ('host_evidence','06-tools/video_validation_split_20261109/host_evidence.py'))
 REQUIRED_RUNTIME_SHA256 = {'06-tools/run_p85_guarded_trial.py': '6510baacb316a8dfbaf6aeea64d5a76e2d69046af46001f924d22cefdd748972', '06-tools/run_p85_timed_stock_trial.py': 'a50f04c23b306812dfd0b74d3cbe8f81d28ba0bbc74bb5f9a7c9d0bbfa10ff1a', '06-tools/stock_c1_sweep.py': '1c105480c1ec7abded156f16cf96a98719f0528620b176698dc4226bf933a0d4', '06-tools/host_adb_full_api_spike/offline_baseline_adb.py': '17b2cc726497e95e16414192c808fb3eed64cbe64ed87fba39710685a818cf51'}
 
+# Explicit AA profile. P85 path/module set remains unchanged.
+AA_HARDWARE_PATHS=HARDWARE_PATHS+('06-tools/aa_threshold_trial.py','06-tools/run_aa_timed_stock_trial.py','06-tools/aa_acquisition_validation.py')
+AA_FINALIZER_MODULES=(('aa_video_validation','06-tools/aa_video_validation.py'),)
+AA_FINALIZER_PATHS=AA_HARDWARE_PATHS+tuple(p for _,p in AA_FINALIZER_MODULES)+(    '06-tools/video_validation_split_20261109/video_validator_snapshot.py',)
+AA_RUNTIME_SHA256 = {'06-tools/aa_threshold_trial.py': '97ac794b6cce9f8f141bb647b49a735e0459483e3ab68ab5f2ec8530865584ae', '06-tools/run_aa_timed_stock_trial.py': '2a7d32b471a92718386ac2a3ab2b5771d60b234ca9d9976287f9f60c25bb1073', '06-tools/aa_acquisition_validation.py': '4201345b331b3593b8677ed353ca34ad95443ec9bf21298c0d86141ef7189a68'}
+
 @dataclass(frozen=True)
 class HostInputs:
     base_path:str
@@ -49,7 +55,8 @@ def private_path(inputs):
     return Path(str(checked_path(inputs.base_path,inputs.directory_name)))
 
 def source_gate(loaded,*,finalizer=False):
-    modules=loaded['modules'];paths=FINALIZER_PATHS if finalizer else HARDWARE_PATHS
+    modules=loaded['modules'];is_aa=loaded.get('profile')=='aa'
+    paths=(AA_FINALIZER_PATHS if finalizer else AA_HARDWARE_PATHS) if is_aa else (FINALIZER_PATHS if finalizer else HARDWARE_PATHS)
     root=Path(modules['run_p85_timed_stock_trial'].__file__).resolve().parents[1]
     # This is the ORIGINAL source guard, not a fixture flag or replacement checker.
     proof=modules['run_p85_guarded_trial'].source_provenance(root=root,paths=paths,require_clean=True)
@@ -67,6 +74,10 @@ def source_gate(loaded,*,finalizer=False):
         raw=loaded['verified_source_bytes'].get(path)
         require(type(raw) is bytes and hashlib.sha256(raw).hexdigest()==expected,
                 'Required reviewed runtime patches are not present')
+    if is_aa:
+        require(set(AA_RUNTIME_SHA256)==set(AA_HARDWARE_PATHS)-set(HARDWARE_PATHS),'AA reviewed identity closure missing')
+        for path,expected in AA_RUNTIME_SHA256.items():
+            require(hashlib.sha256(loaded['verified_source_bytes'][path]).hexdigest()==expected,'AA reviewed runtime bytes changed')
     return root,proof
 
 class PreparedHost:
@@ -77,19 +88,23 @@ class PreparedHost:
     def close(self):self.owned.close()
     def _finalizer_modules(self):
         source_gate(self.loaded,finalizer=True)
-        names={name for name,_ in FINALIZER_MODULES}
+        finalizers=AA_FINALIZER_MODULES if self.loaded.get('profile')=='aa' else FINALIZER_MODULES
+        names={name for name,_ in finalizers}
         require(not names.intersection(sys.modules),'Preloaded finalizer modules refused')
         # Exactly two fixed deferred modules. No working-tree import fallback.
         import builtins
         original_import=builtins.__import__;made={}
         def fixed_import(name,globals=None,locals=None,fromlist=(),level=0):
+            if name=='aa_acquisition_validation' and self.loaded.get('profile')=='aa':
+                require(level==0,'No relative acquisition imports')
+                return self.loaded['modules'][name]
             if name in names:
                 require(level==0 and name in made,'Finalizer dependency order changed')
                 return made[name]
             require(level==0 and name.split('.')[0] in sys.stdlib_module_names,'Unexpected finalizer dependency')
             return original_import(name,globals,locals,fromlist,level)
         root=Path(self.loaded['modules']['run_p85_timed_stock_trial'].__file__).resolve().parents[1]
-        for name,path in FINALIZER_MODULES:
+        for name,path in finalizers:
             raw=self.loaded['verified_source_bytes'][path]
             module=ModuleType(name);origin=str(root/path)
             module.__file__=origin;module.__spec__=importlib.util.spec_from_loader(name,loader=None,origin=origin)
@@ -99,7 +114,7 @@ class PreparedHost:
             require(sys.modules[name] is module and module.__file__==origin and module.__spec__.origin==origin,
                     'Finalizer module origin changed')
             module.os=self.deps.os_api
-        made['host_evidence'].fcntl=self.deps.fcntl_api
+        made['aa_video_validation' if self.loaded.get('profile')=='aa' else 'host_evidence'].fcntl=self.deps.fcntl_api
         return made
     def _write_evidence(self,data):
         api=self.deps.os_api;fd=None;error=None
@@ -126,7 +141,7 @@ class PreparedHost:
         self.finalizer_attempted=True
         require(self.inputs.no_concurrent_writers is True,'Explicit trusted no-writer assertion required')
         require(json.loads(acquisition_raw)==run.report,'Saved acquisition differs from caller report')
-        made=self._finalizer_modules();h=made['host_evidence'];ret=self.bundle.retained
+        made=self._finalizer_modules();h=made['aa_video_validation' if self.loaded.get('profile')=='aa' else 'host_evidence'];ret=self.bundle.retained
         require(ret.sink is not None and ret.created_identity is not None,'No owned sink identity for evidence')
         # New host-only inspection deadline, not renewal of any device/alarm guard.
         self.owned.deadline=self.deps.monotonic()+12.0;self.owned.verify()

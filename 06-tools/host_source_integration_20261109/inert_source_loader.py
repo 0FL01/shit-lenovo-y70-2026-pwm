@@ -43,6 +43,14 @@ DEFERRED_PATHS=('06-tools/video_validation_split_20261109/offline_acceptance.py'
                 '06-tools/video_validation_split_20261109/host_evidence.py')
 PATHS=BASELINE+tuple(p for _,p in DAG if p not in BASELINE)+(SELF_PATH,)+DEFERRED_PATHS
 NAMES=frozenset(n for n,_ in DAG)
+AA_RUNTIME=(('aa_threshold_trial','06-tools/aa_threshold_trial.py'),
+            ('aa_acquisition_validation','06-tools/aa_acquisition_validation.py'),
+            ('run_aa_timed_stock_trial','06-tools/run_aa_timed_stock_trial.py'))
+AA_DEFERRED_PATHS=('06-tools/aa_video_validation.py',
+                   '06-tools/video_validation_split_20261109/video_validator_snapshot.py')
+AA_DAG=DAG[:13]+AA_RUNTIME+DAG[13:]
+AA_PATHS=PATHS+tuple(p for _,p in AA_RUNTIME)+AA_DEFERRED_PATHS
+
 
 def require(ok, reason):
     if not ok:raise RuntimeError(reason)
@@ -51,11 +59,16 @@ def blob_id(raw, algorithm):
     return hashlib.new(algorithm,b'blob '+str(len(raw)).encode()+b'\0'+raw).hexdigest()
 
 class FixedSourceLoader:
-    def __init__(self, *, root, git, read_bytes, registry):
+    def __init__(self, *, root, git, read_bytes, registry, profile="p85"):
         path=PurePosixPath(root)
         require(path.is_absolute() and str(path)==root and '..' not in path.parts,
                 'Exact absolute root required')
         self.root,self.git,self.read,self.registry=root,git,read_bytes,registry
+        require(profile in ('p85','aa'),'Unknown fixed source profile')
+        self.profile=profile
+        self.paths=AA_PATHS if profile=='aa' else PATHS
+        self.dag=AA_DAG if profile=='aa' else DAG
+        self.names=frozenset(n for n,_ in self.dag)
         self.spent=False
 
     def prepare(self):
@@ -66,23 +79,23 @@ class FixedSourceLoader:
             return result.stdout.strip()
         commit=git('rev-parse','--verify','HEAD')
         require(re.fullmatch(r'[0-9a-f]{40,64}',commit) is not None,'Invalid source commit')
-        rows=git('ls-tree',commit,'--',*PATHS).splitlines()
+        rows=git('ls-tree',commit,'--',*self.paths).splitlines()
         blobs={}
         for row in rows:
             match=re.fullmatch(r'[0-7]+ blob ([0-9a-f]{40,64})\t(.+)',row)
-            require(match is not None and match[2] in PATHS,'Unexpected source tree entry')
+            require(match is not None and match[2] in self.paths,'Unexpected source tree entry')
             require(match[2] not in blobs,'Duplicate source tree entry')
             blobs[match[2]]=match[1]
-        actual=git('hash-object','--',*PATHS).splitlines()
-        require(len(actual)==len(PATHS),'Incomplete source content identities')
-        diff=self.git('diff','--quiet',commit,'--',*PATHS)
+        actual=git('hash-object','--',*self.paths).splitlines()
+        require(len(actual)==len(self.paths),'Incomplete source content identities')
+        diff=self.git('diff','--quiet',commit,'--',*self.paths)
         require(diff.returncode in (0,1),'Source diff failed')
-        require(set(blobs)==set(PATHS) and dict(zip(PATHS,actual))==blobs
+        require(set(blobs)==set(self.paths) and dict(zip(self.paths,actual))==blobs
                 and diff.returncode==0,'Relevant sources not clean tracked HEAD blobs')
         algorithm=git('rev-parse','--show-object-format')
         require(algorithm in ('sha1','sha256'),'Unsupported Git object format')
         snapshot={}
-        for path in PATHS:
+        for path in self.paths:
             raw=self.read(self.root+'/'+path)
             require(type(raw) is bytes,'Source must be exact bytes')
             require(blob_id(raw,algorithm)==blobs[path],'Raw source bytes differ from HEAD blob')
@@ -93,20 +106,20 @@ class FixedSourceLoader:
         """Explicit byte execution only; never imports main/starts runtime."""
         require(not self.spent,'Loader attempt already spent')
         self.spent=True
-        require(not NAMES.intersection(self.registry),'Preloaded project module refused')
+        require(not self.names.intersection(self.registry),'Preloaded project module refused')
         commit,blobs,snapshot=self.prepare()
         # Reject late preloading before any project code executes.
-        require(not NAMES.intersection(self.registry),'Late preloaded project module refused')
+        require(not self.names.intersection(self.registry),'Late preloaded project module refused')
         loaded={}
         original_import=builtins.__import__
         def fixed_import(name,globals=None,locals=None,fromlist=(),level=0):
-            if level==0 and name in NAMES:
+            if level==0 and name in self.names:
                 require(name in loaded,'Fixed dependency order violated')
                 return loaded[name]
             require(level==0 and name.split('.')[0] in sys.stdlib_module_names,
                     'Unexpected non-stdlib dependency')
             return original_import(name,globals,locals,fromlist,level)
-        for name,path in DAG:
+        for name,path in self.dag:
             origin=self.root+'/'+path
             module=ModuleType(name)
             module.__file__=origin
@@ -119,4 +132,4 @@ class FixedSourceLoader:
             require(self.registry.get(name) is module and module.__file__==origin
                     and module.__spec__.origin==origin,'Module origin/registry changed')
         return {'source_commit':commit,'source_blob_ids':blobs,'modules':loaded,
-                'live_admitted':False,'verified_source_bytes':snapshot}
+                'live_admitted':False,'verified_source_bytes':snapshot,'profile':self.profile}
