@@ -1,0 +1,5 @@
+# Revision03 public boundary
+
+Frozen reader658edfc705bb47485c4c60d481b11a931599dac99e0fe8c0e6f877045184559c preserves02 read-only lifecycle/identity properties and rejects constructor replay. All syscall-capable helpers are now explicitly private methods. Supported public operations are only Acquisition.acquire and Held.read_stat/close; properties are read-only snapshots/references. Direct private-helper calls, private-field mutation, reflection and hostile injected dependencies are outside the Python API contract, not security-isolated.
+
+The reviewer counterexample calling public acquire_fd after close is no longer a public operation.13 fake tests normal/-O pass, including public helper absence and uncertain-close replay refusal with zero added I/O. Prior01/02 sources/tests remain unchanged. All narrower identity, mount-numbering, exec/de_thread, errno and timing caveats in ../identity_bound_reader_20261109_02/CORRECTION.md continue to apply; this does not authenticate RootPin or qualify live process/FD custody. No live experiment or production edit.

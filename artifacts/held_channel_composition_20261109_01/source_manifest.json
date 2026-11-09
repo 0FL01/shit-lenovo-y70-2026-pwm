@@ -1,0 +1,26 @@
+{
+  "offline_baseline_adb": {
+    "path": "06-tools/host_adb_full_api_spike/offline_baseline_adb.py",
+    "sha256": "7f2d60bffcf4e74fc4060941a6a8444ee6bb052ae24a07d23407aaef0ce0585e"
+  },
+  "linux_adb_probe_dependencies": {
+    "path": "06-tools/host_adb_full_api_spike/linux_adb_probe_dependencies.py",
+    "sha256": "e341d0e2a844d03dd0f69ab7604d9defb86865ccd4649875b6670165b3bbcd06"
+  },
+  "identity_bound_reader_revision03": {
+    "path": "artifacts/identity_bound_reader_20261109_03/reader.py",
+    "sha256": "658edfc705bb47485c4c60d481b11a931599dac99e0fe8c0e6f877045184559c"
+  },
+  "bound_reader_sticky_shim": {
+    "path": "artifacts/identity_bound_sticky_shim_20261109_01/shim.py",
+    "sha256": "1e00fd3a0d109a0aac7c75c5f46d9a16f97c54640732f30335024c31f31c11a9"
+  },
+  "accepted_socket_helpers": {
+    "path": "artifacts/host_only_protocol_revision02_20261109/host_only_probe_proposal.py",
+    "sha256": "3aa5265d9bab2619f53f9c98f1c8309ce7acd9f9de0122ef5e60bec472047d8d"
+  },
+  "collector": {
+    "path": "artifacts/held_server_channel_collector_20261109_02/collector.py",
+    "sha256": "5ffc2160c7422e6c74d61fc501ce70a6e6379b39b21b55cff5da7178f4febd64"
+  }
+}

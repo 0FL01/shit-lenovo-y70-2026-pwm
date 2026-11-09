@@ -1,0 +1,19 @@
+{
+  "scope": "offline_fake_only_public_API_revision03",
+  "previous_revisions": "01 and 02 preserved HOLD",
+  "dependency": "06-tools/recovery_hop_custody_20261109/custody_model.py",
+  "dependency_sha256": "bd15667991aa29e516ed14e4186215025b123a18bc79ebb49e8776cc04a8d953",
+  "files": {
+    "harness.py": "d5fb05729f675482311299833fa046301b4157beb19ebd6f4cf776b2d5e26874",
+    "custody_bridge.py": "80265a0502add4713ed83cc655ed10d7b46ee115071223ad007d58fd8e80f8a5",
+    "readonly.py": "991ff8f312dad05d0ec21864b13249461afa87caa8e06d1eb7d04019d93c5219",
+    "fixtures.py": "d8427c2d89e32e0f61a7e8a8b7beeae5807dc44ddb01630523f8a740c15409b6",
+    "test_harness.py": "7f63d5f21c68fd68eef7d2bb3ec9256680e1aedf042e84e57025a52f5a403dcb",
+    "run_scenarios.py": "be73290ae51fd8ab941d55bf88a06bebd1c49856756c5e0927184c34b4975741",
+    "README.md": "0cdcfd322a8161753375aff1d82f5e4e70e2ea31350175bcdf4344ee58c6298f",
+    "result.json": "b5a8c7125767d2a482ffda178509a426f6b3f74c2f70eb5501a519788e0db129"
+  },
+  "tests_normal": 31,
+  "tests_optimized": 31,
+  "physical_calls": 0
+}

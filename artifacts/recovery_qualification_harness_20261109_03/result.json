@@ -1,0 +1,539 @@
+{
+  "kind": "executed_fake_harness_results",
+  "physical_calls": 0,
+  "scenarios": [
+    {
+      "components": {
+        "target": {
+          "state": "VERIFIED_FAKE_COMPONENT",
+          "recovery_failed": false,
+          "original_failed_state": {
+            "status": "failed",
+            "dispatch_uncertain": true,
+            "old_adapter": "terminal"
+          },
+          "events": [
+            "READY_REBOOT",
+            "NEED_CHANGED_BOOT",
+            "READY_RESTORE",
+            "NEED_RESTORED_READBACK",
+            "VERIFIED_FAKE_COMPONENT"
+          ],
+          "failure": null,
+          "physical_admission": false,
+          "original_trial_status": "unchanged",
+          "stock_admission": "HOLD"
+        },
+        "camera": {
+          "state": "VERIFIED_FAKE_COMPONENT",
+          "recovery_failed": false,
+          "original_failed_state": {
+            "status": "failed",
+            "dispatch_uncertain": true,
+            "old_adapter": "terminal"
+          },
+          "events": [
+            "READY_STOP",
+            "NEED_STOP_OBSERVATION",
+            "NEED_MEDIA_FINALIZATION",
+            "READY_PROFILE_RESTORE",
+            "NEED_PROFILE_READBACK",
+            "VERIFIED_FAKE_COMPONENT"
+          ],
+          "failure": null,
+          "physical_admission": false,
+          "original_trial_status": "unchanged",
+          "stock_admission": "HOLD"
+        }
+      },
+      "recovery_failed": false,
+      "status": "fake_components_verified",
+      "physical_admission": false,
+      "stock_admission": "HOLD",
+      "old_adapter": "terminal",
+      "watchdog60_600_proves_camera_stop": false,
+      "scenario": "both_fake_verified",
+      "fake_journals": {
+        "target": [
+          {
+            "action": "READ_STATUS",
+            "payload": {},
+            "physical": false,
+            "effect_applied": false
+          },
+          {
+            "action": "REBOOT_TARGET",
+            "payload": {
+              "expected_boot": "00000000-0000-4000-8000-000000000001"
+            },
+            "physical": false,
+            "effect_applied": true
+          },
+          {
+            "action": "READ_STATUS",
+            "payload": {},
+            "physical": false,
+            "effect_applied": false
+          },
+          {
+            "action": "RESTORE_TARGET",
+            "payload": {
+              "expected_boot": "00000000-0000-4000-8000-000000000002",
+              "original_settings": {
+                "screen_brightness_mode": 0,
+                "screen_brightness": 123,
+                "screen_off_timeout": 60000,
+                "native_dbv": 1234,
+                "logger": 0
+              }
+            },
+            "physical": false,
+            "effect_applied": true
+          },
+          {
+            "action": "READ_STATUS",
+            "payload": {},
+            "physical": false,
+            "effect_applied": false
+          }
+        ],
+        "camera": [
+          {
+            "action": "READ_STATUS",
+            "payload": {},
+            "physical": false,
+            "effect_applied": false
+          },
+          {
+            "action": "STOP_CAMERA",
+            "payload": {
+              "session_id": "owned-recording-epoch",
+              "owner": "fixture-owner",
+              "expected_boot": "00000000-0000-4000-8000-000000000003"
+            },
+            "physical": false,
+            "effect_applied": true
+          },
+          {
+            "action": "READ_STATUS",
+            "payload": {},
+            "physical": false,
+            "effect_applied": false
+          },
+          {
+            "action": "READ_STATUS",
+            "payload": {},
+            "physical": false,
+            "effect_applied": false
+          },
+          {
+            "action": "RESTORE_CAMERA",
+            "payload": {
+              "expected_boot": "00000000-0000-4000-8000-000000000003",
+              "session_id": "owned-recording-epoch",
+              "owner": "fixture-owner",
+              "original_activity": "original-A-instance",
+              "original_task": "original-A-task",
+              "original_profile": {
+                "exposure_ns": 100000,
+                "iso": 6400,
+                "focus_diopters": 2.0,
+                "ae_lock": false,
+                "awb_lock": false,
+                "zoom": 1.0,
+                "camera_id": "0",
+                "resolution": [
+                  1280,
+                  720
+                ],
+                "fps": 30,
+                "audio": false
+              },
+              "original_settings": {
+                "video_mode": true,
+                "restart_count": 0,
+                "saf": false,
+                "duration_limit": 0,
+                "size_limit": 0
+              }
+            },
+            "physical": false,
+            "effect_applied": true
+          },
+          {
+            "action": "READ_STATUS",
+            "payload": {},
+            "physical": false,
+            "effect_applied": false
+          }
+        ]
+      }
+    },
+    {
+      "components": {
+        "target": {
+          "state": "VERIFIED_FAKE_COMPONENT",
+          "recovery_failed": false,
+          "original_failed_state": {
+            "status": "failed",
+            "dispatch_uncertain": true,
+            "old_adapter": "terminal"
+          },
+          "events": [
+            "READY_REBOOT",
+            "NEED_CHANGED_BOOT",
+            "READY_RESTORE",
+            "NEED_RESTORED_READBACK",
+            "VERIFIED_FAKE_COMPONENT"
+          ],
+          "failure": null,
+          "physical_admission": false,
+          "original_trial_status": "unchanged",
+          "stock_admission": "HOLD"
+        },
+        "camera": {
+          "state": "RECOVERY_FAILED",
+          "recovery_failed": true,
+          "original_failed_state": {
+            "status": "failed",
+            "dispatch_uncertain": true,
+            "old_adapter": "terminal"
+          },
+          "events": [
+            "READY_STOP",
+            "NEED_STOP_OBSERVATION",
+            "RECOVERY_FAILED"
+          ],
+          "failure": "callback/elapsed time/ack is not completed stop",
+          "physical_admission": false,
+          "original_trial_status": "unchanged",
+          "stock_admission": "HOLD"
+        }
+      },
+      "recovery_failed": true,
+      "status": "recovery_failed",
+      "physical_admission": false,
+      "stock_admission": "HOLD",
+      "old_adapter": "terminal",
+      "watchdog60_600_proves_camera_stop": false,
+      "scenario": "target_verified_camera_callback_only",
+      "fake_journals": {
+        "target": [
+          {
+            "action": "READ_STATUS",
+            "payload": {},
+            "physical": false,
+            "effect_applied": false
+          },
+          {
+            "action": "REBOOT_TARGET",
+            "payload": {
+              "expected_boot": "00000000-0000-4000-8000-000000000001"
+            },
+            "physical": false,
+            "effect_applied": true
+          },
+          {
+            "action": "READ_STATUS",
+            "payload": {},
+            "physical": false,
+            "effect_applied": false
+          },
+          {
+            "action": "RESTORE_TARGET",
+            "payload": {
+              "expected_boot": "00000000-0000-4000-8000-000000000002",
+              "original_settings": {
+                "screen_brightness_mode": 0,
+                "screen_brightness": 123,
+                "screen_off_timeout": 60000,
+                "native_dbv": 1234,
+                "logger": 0
+              }
+            },
+            "physical": false,
+            "effect_applied": true
+          },
+          {
+            "action": "READ_STATUS",
+            "payload": {},
+            "physical": false,
+            "effect_applied": false
+          }
+        ],
+        "camera": [
+          {
+            "action": "READ_STATUS",
+            "payload": {},
+            "physical": false,
+            "effect_applied": false
+          },
+          {
+            "action": "STOP_CAMERA",
+            "payload": {
+              "session_id": "owned-recording-epoch",
+              "owner": "fixture-owner",
+              "expected_boot": "00000000-0000-4000-8000-000000000003"
+            },
+            "physical": false,
+            "effect_applied": true
+          },
+          {
+            "action": "READ_STATUS",
+            "payload": {},
+            "physical": false,
+            "effect_applied": false
+          }
+        ]
+      }
+    },
+    {
+      "components": {
+        "target": {
+          "state": "RECOVERY_FAILED",
+          "recovery_failed": true,
+          "original_failed_state": {
+            "status": "failed",
+            "dispatch_uncertain": true,
+            "old_adapter": "terminal"
+          },
+          "events": [
+            "READY_REBOOT",
+            "RECOVERY_FAILED"
+          ],
+          "failure": "operation unknown",
+          "physical_admission": false,
+          "original_trial_status": "unchanged",
+          "stock_admission": "HOLD"
+        },
+        "camera": {
+          "state": "VERIFIED_FAKE_COMPONENT",
+          "recovery_failed": false,
+          "original_failed_state": {
+            "status": "failed",
+            "dispatch_uncertain": true,
+            "old_adapter": "terminal"
+          },
+          "events": [
+            "READY_STOP",
+            "NEED_STOP_OBSERVATION",
+            "NEED_MEDIA_FINALIZATION",
+            "READY_PROFILE_RESTORE",
+            "NEED_PROFILE_READBACK",
+            "VERIFIED_FAKE_COMPONENT"
+          ],
+          "failure": null,
+          "physical_admission": false,
+          "original_trial_status": "unchanged",
+          "stock_admission": "HOLD"
+        }
+      },
+      "recovery_failed": true,
+      "status": "recovery_failed",
+      "physical_admission": false,
+      "stock_admission": "HOLD",
+      "old_adapter": "terminal",
+      "watchdog60_600_proves_camera_stop": false,
+      "scenario": "target_reboot_unknown_camera_verified",
+      "fake_journals": {
+        "target": [
+          {
+            "action": "READ_STATUS",
+            "payload": {},
+            "physical": false,
+            "effect_applied": false
+          },
+          {
+            "action": "REBOOT_TARGET",
+            "payload": {
+              "expected_boot": "00000000-0000-4000-8000-000000000001"
+            },
+            "physical": false,
+            "effect_applied": null
+          }
+        ],
+        "camera": [
+          {
+            "action": "READ_STATUS",
+            "payload": {},
+            "physical": false,
+            "effect_applied": false
+          },
+          {
+            "action": "STOP_CAMERA",
+            "payload": {
+              "session_id": "owned-recording-epoch",
+              "owner": "fixture-owner",
+              "expected_boot": "00000000-0000-4000-8000-000000000003"
+            },
+            "physical": false,
+            "effect_applied": true
+          },
+          {
+            "action": "READ_STATUS",
+            "payload": {},
+            "physical": false,
+            "effect_applied": false
+          },
+          {
+            "action": "READ_STATUS",
+            "payload": {},
+            "physical": false,
+            "effect_applied": false
+          },
+          {
+            "action": "RESTORE_CAMERA",
+            "payload": {
+              "expected_boot": "00000000-0000-4000-8000-000000000003",
+              "session_id": "owned-recording-epoch",
+              "owner": "fixture-owner",
+              "original_activity": "original-A-instance",
+              "original_task": "original-A-task",
+              "original_profile": {
+                "exposure_ns": 100000,
+                "iso": 6400,
+                "focus_diopters": 2.0,
+                "ae_lock": false,
+                "awb_lock": false,
+                "zoom": 1.0,
+                "camera_id": "0",
+                "resolution": [
+                  1280,
+                  720
+                ],
+                "fps": 30,
+                "audio": false
+              },
+              "original_settings": {
+                "video_mode": true,
+                "restart_count": 0,
+                "saf": false,
+                "duration_limit": 0,
+                "size_limit": 0
+              }
+            },
+            "physical": false,
+            "effect_applied": true
+          },
+          {
+            "action": "READ_STATUS",
+            "payload": {},
+            "physical": false,
+            "effect_applied": false
+          }
+        ]
+      }
+    },
+    {
+      "components": {
+        "target": {
+          "state": "VERIFIED_FAKE_COMPONENT",
+          "recovery_failed": false,
+          "original_failed_state": {
+            "status": "failed",
+            "dispatch_uncertain": true,
+            "old_adapter": "terminal"
+          },
+          "events": [
+            "READY_REBOOT",
+            "NEED_CHANGED_BOOT",
+            "READY_RESTORE",
+            "NEED_RESTORED_READBACK",
+            "VERIFIED_FAKE_COMPONENT"
+          ],
+          "failure": null,
+          "physical_admission": false,
+          "original_trial_status": "unchanged",
+          "stock_admission": "HOLD"
+        },
+        "camera": {
+          "state": "RECOVERY_FAILED",
+          "recovery_failed": true,
+          "original_failed_state": {
+            "status": "failed",
+            "dispatch_uncertain": true,
+            "old_adapter": "terminal"
+          },
+          "events": [
+            "READY_STOP",
+            "RECOVERY_FAILED"
+          ],
+          "failure": "operation failed",
+          "physical_admission": false,
+          "original_trial_status": "unchanged",
+          "stock_admission": "HOLD"
+        }
+      },
+      "recovery_failed": true,
+      "status": "recovery_failed",
+      "physical_admission": false,
+      "stock_admission": "HOLD",
+      "old_adapter": "terminal",
+      "watchdog60_600_proves_camera_stop": false,
+      "scenario": "camera_session_replaced",
+      "fake_journals": {
+        "target": [
+          {
+            "action": "READ_STATUS",
+            "payload": {},
+            "physical": false,
+            "effect_applied": false
+          },
+          {
+            "action": "REBOOT_TARGET",
+            "payload": {
+              "expected_boot": "00000000-0000-4000-8000-000000000001"
+            },
+            "physical": false,
+            "effect_applied": true
+          },
+          {
+            "action": "READ_STATUS",
+            "payload": {},
+            "physical": false,
+            "effect_applied": false
+          },
+          {
+            "action": "RESTORE_TARGET",
+            "payload": {
+              "expected_boot": "00000000-0000-4000-8000-000000000002",
+              "original_settings": {
+                "screen_brightness_mode": 0,
+                "screen_brightness": 123,
+                "screen_off_timeout": 60000,
+                "native_dbv": 1234,
+                "logger": 0
+              }
+            },
+            "physical": false,
+            "effect_applied": true
+          },
+          {
+            "action": "READ_STATUS",
+            "payload": {},
+            "physical": false,
+            "effect_applied": false
+          }
+        ],
+        "camera": [
+          {
+            "action": "READ_STATUS",
+            "payload": {},
+            "physical": false,
+            "effect_applied": false
+          },
+          {
+            "action": "STOP_CAMERA",
+            "payload": {
+              "session_id": "owned-recording-epoch",
+              "owner": "fixture-owner",
+              "expected_boot": "00000000-0000-4000-8000-000000000003"
+            },
+            "physical": false,
+            "effect_applied": false
+          }
+        ]
+      }
+    }
+  ]
+}

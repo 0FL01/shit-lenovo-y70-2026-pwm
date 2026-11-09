@@ -1,5 +1,9 @@
 # Long-lived agent progress journal
 
+Checkpoint 2026-11-09: **recovery source checkpoint prepared; STOCK15 HOLD.**
+
+- [Focused recovery source checkpoint](artifacts/recovery_checkpoint_20261109.md): reviewed reader/shim/custody/harness/collector/composition and inert APK helper; bounded fake tests, not an independent qualified recovery route. Production336dd969 remains unchanged. No stock15 main, new phone operation or recovery admission follows;14/protected producer restrictions remain. Current next work is guarded APK preparation and remaining prebound-channel/root provenance qualification.
+
 Checkpoint 2026-11-09, **captured current-policy query подтверждает AV deny write и подавление audit; protected write остаётся STOP.**
 
 - [Read-only loaded-policy snapshot](artifacts/loaded_policy_snapshot_20261109_01/result.md): 00:29:57.885279–00:30:09.166881 UTC, Independent saved replay: 16 events, 3,311,634 B, PASS. Binary 3,311,175 B, version 30, SHA ddf7b9e756bd9aed0b8c10d620bdf53baa298b3eacb45be13408b492b23f824c; root hash/stat совпали, fresh context u:r:shell:s0 с terminal NUL, same boot с AVC приватно проверен. Последняя device action была read-only; frozen result pending-fullparse сохранён исторически.

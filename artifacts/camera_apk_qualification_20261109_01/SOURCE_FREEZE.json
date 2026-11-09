@@ -1,0 +1,12 @@
+{
+  "scope": "offline_helpers_no_dispatch",
+  "files": {
+    "qualification.py": "dc27574c5ea052525e1036646c80a8bc249993943b7e712793a44764422f7af1",
+    "test_qualification.py": "f7bb61871af97efcbd5c313175ce14a4e3d8b8e27a87ede0891dea9d4020fed5",
+    "PLAN.md": "3d6cea5924fd9fc8048369ca77f3908ea93e3c35302824074201d60c14a093a1"
+  },
+  "tests_normal": 11,
+  "tests_optimized": 11,
+  "physical_calls": 0,
+  "doc_only_clarification": "size gates before hashing; finite operation budget not hard cancellation; ZIP post-parse count caveat; code/tests unchanged"
+}
