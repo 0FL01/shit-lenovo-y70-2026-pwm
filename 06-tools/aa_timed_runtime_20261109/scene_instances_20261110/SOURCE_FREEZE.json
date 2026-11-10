@@ -1,0 +1,35 @@
+{
+  "status": "frozen_for_independent_review_not_physical_admission",
+  "base_commit": "2140a42445fc794f7e9bbdafd3eaae61ed6a239d",
+  "modified_files": [
+    "06-tools/run_aa_timed_stock_trial.py",
+    "06-tools/host_source_integration_20261109/host_entrypoint.py",
+    "06-tools/AA_TIMED_INTEGRATION.md",
+    "06-tools/aa_timed_runtime_closure.json"
+  ],
+  "new_files": [
+    "06-tools/test_aa_scene_instances.py",
+    "06-tools/aa_timed_runtime_20261109/scene_instances_20261110/REVIEW.md",
+    "06-tools/aa_timed_runtime_20261109/scene_instances_20261110/tests_normal.txt",
+    "06-tools/aa_timed_runtime_20261109/scene_instances_20261110/tests_optimized.txt",
+    "06-tools/aa_timed_runtime_20261109/scene_instances_20261110/consumer_tests_normal.txt",
+    "06-tools/aa_timed_runtime_20261109/scene_instances_20261110/consumer_tests_optimized.txt",
+    "06-tools/aa_timed_runtime_20261109/scene_instances_20261110/SOURCE_FREEZE.json"
+  ],
+  "sha256_excluding_self": {
+    "06-tools/run_aa_timed_stock_trial.py": "0b9a58cf84203baced88852009dcb1ebbf047363d0e8dc297f01794f055a925f",
+    "06-tools/host_source_integration_20261109/host_entrypoint.py": "cd09bb680caa7629812ef720f63f14fe2390a36bb7f4cc84901cd29922a9bf82",
+    "06-tools/AA_TIMED_INTEGRATION.md": "0765188e5cddd135ca93d6c023c22b1bc66e90f007c70f867647aab71463e62f",
+    "06-tools/aa_timed_runtime_closure.json": "7a0e61f2493c525bdaa55aa4453b3b58873936148357a281229f395c5fbd942c",
+    "06-tools/test_aa_scene_instances.py": "d141778a939593637b2f960bb5287cc8e873fab88330ef3d64eb771157b15399",
+    "06-tools/aa_timed_runtime_20261109/scene_instances_20261110/REVIEW.md": "31cc66d38a6359572c3f5a3e372742fb4584323c12637a4bab3a766cc4e633b6",
+    "06-tools/aa_timed_runtime_20261109/scene_instances_20261110/tests_normal.txt": "d700ed48cbc8618cf6f65a3907e97fa02b8b7f2e8471434132a2ab7ab11bee32",
+    "06-tools/aa_timed_runtime_20261109/scene_instances_20261110/tests_optimized.txt": "ea14b2d9d22ba719e31d43a6579f8fb054c50457d766d96b570fb660da6d4159",
+    "06-tools/aa_timed_runtime_20261109/scene_instances_20261110/consumer_tests_normal.txt": "760a5d1ff36629c49b8b94dcbe7ae658eae07b6c01d577e6854158f154d717a1",
+    "06-tools/aa_timed_runtime_20261109/scene_instances_20261110/consumer_tests_optimized.txt": "7cb6d039f02b46237200698ef765215959b888f5e65acb90d31b462ba6896490"
+  },
+  "manifest_self_hash": "Excluded to avoid recursion; report separately",
+  "raw_captures_published": false,
+  "live_device_operations": 0,
+  "git_mutations": 0
+}

@@ -227,6 +227,7 @@ def _available_settings_context(text,expected,previous):
     check(len({start[1] for start in starts})==len(starts),'Duplicate activity observation identity')
     missing=[];known_headers=0;resumed=[];foreign_states=[]
     for index,start in enumerate(starts):
+        missing_before=len(missing)
         body=text[start.end():starts[index+1].start() if index+1<len(starts) else len(text)].split('\nTASK ',1)[0]
         header=re.fullmatch(r'([^ ]+) [0-9a-f]+ pid=(\d+) userId=(\d+) uid=(\d+) displayId=(\d+)\(type=([A-Z]+)\)',start[1])
         check(header is not None,'Malformed activity observation identity')
@@ -265,18 +266,21 @@ def _available_settings_context(text,expected,previous):
         if config is not None:check(config[1]==scene['configuration'],'Settings observation configuration changed')
 
         take(r'^    ViewRoot\b',r'    ViewRoot:','ViewRoot header')
+        root_values={}
         for key in ('mAdded','mRemoved','mStopped','mPausedForTransition','mProcessInputEventsScheduled','mTraversalScheduled'):
             value=take(r'^      '+key+r'\b',r'      '+key+r'=(true|false)',key)
+            root_values[key]=value[1] if value is not None else None
             if value is not None and key in ('mAdded','mRemoved'):
                 check(value[1]==('true' if key=='mAdded' else 'false'),'Settings observation root removed/not added')
         take(r'^      mPendingInputEventCount\b',r'      mPendingInputEventCount=(0|[1-9]\d*)','pending input count')
-        take(r'^        mHasWindowFocus\b',r'        mHasWindowFocus=(true|false)','window focus')
-        take(r'^        mWindowVisibility\b',r'        mWindowVisibility=(0|4|8)','window visibility')
+        focus=take(r'^        mHasWindowFocus\b',r'        mHasWindowFocus=(true|false)','window focus')
+        visibility=take(r'^        mWindowVisibility\b',r'        mWindowVisibility=(0|4|8)','window visibility')
         take(r'^    Choreographer\b',r'    Choreographer:','Choreographer header')
         take(r'^      mFrameScheduled\b',r'      mFrameScheduled=(true|false)','frame scheduled')
 
         tree_header=take(r'^    View Hierarchy\b',r'    View Hierarchy:','hierarchy header')
         looper=take(r'^    Looper\b',r'    Looper \(main,[^\n]+','hierarchy tail')
+        hierarchy=None;complete=False
         if tree_header is not None:
             tree_start=re.search(r'^    View Hierarchy:(?:\n|\Z)',body,re.M)
             check(tree_start is not None,'Malformed hierarchy header boundary')
@@ -285,8 +289,6 @@ def _available_settings_context(text,expected,previous):
             lines=tail[:boundary.start() if boundary else len(tail)].splitlines()
             complete=boundary is not None and tail[boundary.start():].startswith('    Looper (main,')
             hierarchy=_scene_hierarchy(lines,complete=complete)
-            check(hierarchy==(scene['hierarchy'] if complete else scene['hierarchy'][:len(hierarchy)]),
-                  'Settings observation hierarchy changed')
             if not complete:missing.append('complete hierarchy')
 
         take(r'^    Local FragmentActivity\b',r'    Local FragmentActivity [0-9a-f]+ State:','support header')
@@ -301,8 +303,7 @@ def _available_settings_context(text,expected,previous):
             check(len(fragments)==1,'Duplicate active Settings observation fragment')
             fragment=re.fullmatch(r'    ([A-Za-z_$][\w.$]*)\{[0-9a-f]+\} \([0-9a-f-]+ id=0x[0-9a-f]+\)',fragments[0])
             check(fragment is not None,'Malformed active Settings observation fragment')
-            check(fragment[1]==scene['fragment'],'Settings observation fragment changed')
-        take(r'^        mState\b',r'        mState=([2-7]) mWho=[^ ]+ mBackStackNesting=\d+','live fragment state')
+        fragment_state=take(r'^        mState\b',r'        mState=([2-7]) mWho=[^ ]+ mBackStackNesting=\d+','live fragment state')
         added=take(r'^        mAdded\b',r'        mAdded=(true|false) mRemoving=(true|false) mFromLayout=(true|false) mInLayout=(true|false)','fragment membership')
         if added is not None:check(added.groups()==('true','false','false','false'),'Settings observation fragment removed')
         visible=take(r'^        mHidden\b',r'        mHidden=(true|false) mDetached=(true|false) mMenuVisible=(true|false) mHasMenu=(true|false)','fragment visibility')
@@ -313,12 +314,30 @@ def _available_settings_context(text,expected,previous):
         added_section=(body[added_start.end():].split('\n    ',1)[0] if added_start else
                        body[support_start.end():] if support_start else body)
         added_identity=take(r'^      #\d+\b',r'      #0: (.+)','added fragment identity',section=added_section)
+        added_match=None
         if added_identity is not None:
             added_match=re.fullmatch(r'([A-Za-z_$][\w.$]*)\{[0-9a-f]+\} \([0-9a-f-]+ id=0x[0-9a-f]+\)',added_identity[1])
-            check(added_match is not None and added_match[1]==scene['fragment'],'Settings observation added fragment changed')
+            check(added_match is not None,'Malformed Settings observation added fragment')
             if fragment is not None:check(added_identity[1]==fragments[0].strip(),'Settings observation active/added mismatch')
         manager=take(r'^      mCurState\b',r'      mCurState=([2-7]) mStateSaved=(true|false) mStopped=(true|false) mDestroyed=(true|false)','fragment manager tail')
         if manager is not None:check(manager[4]=='false','Destroyed Settings observation fragment manager')
+        # A component is not an activity-instance identity: dumpsys can retain
+        # an older stopped SubSettings hosting DisplaySettings alongside the
+        # resumed SubSettings hosting ScreenTimeoutSettings. Validate the whole
+        # background block first; only its calibrated scene comparisons differ.
+        # Missing or contradictory evidence cannot grant this exclusion.
+        background=(len(missing)==missing_before and complete and native is not None and
+                    native.groups()==('false','true','false') and root_values['mStopped']=='true' and
+                    focus is not None and focus[1]=='false' and visibility is not None and visibility[1]=='8' and
+                    support is not None and support.groups()==('true','false','true') and
+                    fragment_state is not None and fragment_state[1]=='4' and
+                    manager is not None and manager[1]=='4' and manager[3]=='true')
+        if not background:
+            if hierarchy is not None:
+                check(hierarchy==(scene['hierarchy'] if complete else scene['hierarchy'][:len(hierarchy)]),
+                      'Settings observation hierarchy changed')
+            if fragment is not None:check(fragment[1]==scene['fragment'],'Settings observation fragment changed')
+            if added_match is not None:check(added_match[1]==scene['fragment'],'Settings observation added fragment changed')
     check(known_headers>0,'Missing calibrated Settings identity')
     check(len(resumed)<=1,'Ambiguous resumed activity observations')
     if not resumed:check(all(state[1]=='true' for state in foreign_states),'Foreign live activity during Settings observation')

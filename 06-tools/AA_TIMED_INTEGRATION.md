@@ -423,3 +423,27 @@ roundtrip is added. See [initial-boundary review](aa_timed_runtime_20261109/sele
 and the current selector_initial_snapshot_correction closure for tests, source
 identities and encoded-size checks. Physical same-source requalification is
 still required before candidate admission.
+
+## Activity instance selection correction (2026-11-10)
+
+The2140 stock run stopped before baseline Back because the incomplete-observation
+validator bound a stopped historical SubSettings/DisplaySettings instance to
+the live SubSettings/ScreenTimeoutSettings calibration by component alone.
+The actual resumed destination scene digest already matched that run's opened
+calibration exactly, but traversal and focus were not settled.
+
+The correction preserves full background syntax, identity, configuration and
+fragment-consistency validation. Only hierarchy/fragment comparisons against
+the live calibration are excluded for a completely evidenced stopped, hidden,
+nonfocused instance with stopped root/support manager and observed fragment/
+manager state4. Missing or contradictory classification evidence cannot grant
+exclusion. Live expected/previous scenes retain exact comparisons. No destination
+tree normalization, schema expansion or additional input is introduced.
+
+Actual0109 remains pending, never stable success. A later stable frame within the
+unchanged1s acceptance deadline has not been observed. Offline caller completion
+uses an explicitly synthetic readiness projection; timeout still stops before
+Back. See [instance review](aa_timed_runtime_20261109/scene_instances_20261110/REVIEW.md)
+and activity_instance_selection_correction in aa_timed_runtime_closure.json.
+Fresh full same-source stock qualification remains required; no candidate or
+physical PWM claim follows from these tests.
