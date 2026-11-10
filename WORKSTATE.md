@@ -1,5 +1,14 @@
 # Long-lived agent progress journal
 
+Checkpoint 2026-11-10: **one explicitly approved e9f7af5 full-stock control failed at baseline UI validation; operational restoration independently checked.**
+
+The previously denied operation was confirmed unexecuted locally and on the USB host, then one unchanged retry ran at 11:48:49–11:50:12 UTC. Runtime validated only the baseline stock75 table before `Foreign Settings observation component` in the opened Settings observation. No short arm, completed hold, sham/return phase, AA10 or P85-14 occurred. The full stock qualification and physical PWM >=2000 Hz remain unproved.
+
+Saved recovery verifies an ordinary same-target reboot, originals restore and camera/watchdog/mutex cleanup. A fresh read-only postcheck at 11:53:37 UTC independently confirms root/Enforcing, native DBV828/power0/DC0/logger0, all five original Android settings, absent mutex and stopped camera PREVIEW. Physical DDIC/optical recovery is not proven. See [sanitized control result](artifacts/aa_stock_e9f7af5_20261110/RESULT.md). Exact raw UI, video and identifiers remain private.
+
+The stopped historical main Settings component and unrelated Looper transaction descriptions caused two parser false rejections. The offline correction retains exact live scenes, bounded waiting and recovery. Final verification: 189 runtime/source tests per mode (four historical private-fixture skips), 84 consumer tests per mode, plus independent revision2 review (85 per mode, three skips, 28 extra negatives) and exact current-run replay. A pending frame is never called stable. Hardware deployment remains e9f7af5; no second physical run or candidate is assigned. The next step is fresh source-bound stock qualification of the reviewed correction, not AA10 admission. Earlier checkpoints below are history.
+
+
 Checkpoint 2026-11-09: **AA integrated runtime independently reviewed; finite research-branch source checkpoint in preparation.**
 
 The pre-child trace defect was corrected with one local exact-prefix/safe-ESD-suffix guard before dispatch, retaining host postvalidation. Independent reviewer passed44 tests normal/-O plus generated-shell I/O fault cases with zero subsequent child dispatch. Lead then passed the combined133-test AA builder/runtime/loader/video and legacy optical selection in normal and optimized modes (12.764/12.403 seconds). These are offline tests, not hardware results. The separate historical host fixture suites still have53 setup errors from their stale pre-transformation source pin; they are not included as successful tests. See [runtime and limits](06-tools/aa_timed_runtime_20261109/RUNTIME.md).

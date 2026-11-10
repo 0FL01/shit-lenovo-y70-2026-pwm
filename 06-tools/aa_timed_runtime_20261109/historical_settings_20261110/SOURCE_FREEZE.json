@@ -1,0 +1,39 @@
+{
+  "status": "independent_revision2_review_pass_not_physical_admission",
+  "base_commit": "e9f7af5788c016b6bf60a724498e02ff29987dec",
+  "files": [
+    "06-tools/run_aa_timed_stock_trial.py",
+    "06-tools/test_run_aa_timed_stock_trial.py",
+    "06-tools/host_source_integration_20261109/host_entrypoint.py",
+    "06-tools/aa_timed_runtime_closure.json",
+    "06-tools/aa_timed_runtime_20261109/historical_settings_20261110/REVIEW.md",
+    "06-tools/aa_timed_runtime_20261109/historical_settings_20261110/consumer_tests_normal.txt",
+    "06-tools/aa_timed_runtime_20261109/historical_settings_20261110/consumer_tests_optimized.txt",
+    "06-tools/aa_timed_runtime_20261109/historical_settings_20261110/private_replay_summary.txt",
+    "06-tools/aa_timed_runtime_20261109/historical_settings_20261110/tests_normal.txt",
+    "06-tools/aa_timed_runtime_20261109/historical_settings_20261110/tests_optimized.txt"
+  ],
+  "sha256_excluding_self": {
+    "06-tools/run_aa_timed_stock_trial.py": "7cadad2b5b0cbe6908fbaaae8878599fb6ba9d64d264fe1eeb6c615813a677bd",
+    "06-tools/test_run_aa_timed_stock_trial.py": "f159633e6063a2c82c06d638a8b5c7874aad4828e499f97bf0e38ae254f354a4",
+    "06-tools/host_source_integration_20261109/host_entrypoint.py": "bdda82c452d481d2add5a52ff5612d82cdf55802398351b3c6add0ce1798d226",
+    "06-tools/aa_timed_runtime_closure.json": "2b5ab6dea7df946a50cd4fab5ce992c52f5c6628c6c311eaae31de40b7d3384f"
+  },
+  "runtime_tests_each_mode": 189,
+  "runtime_skips_each_mode": 4,
+  "consumer_tests_each_mode": 84,
+  "consumer_skips": 0,
+  "private_exact_replay_both_modes": true,
+  "live_device_operations": 0,
+  "commits_or_pushes": 0,
+  "raw_captures_published": false,
+  "documents_listed_without_hashes": [
+    "06-tools/aa_timed_runtime_20261109/historical_settings_20261110/REVIEW.md",
+    "06-tools/aa_timed_runtime_20261109/historical_settings_20261110/consumer_tests_normal.txt",
+    "06-tools/aa_timed_runtime_20261109/historical_settings_20261110/consumer_tests_optimized.txt",
+    "06-tools/aa_timed_runtime_20261109/historical_settings_20261110/private_replay_summary.txt",
+    "06-tools/aa_timed_runtime_20261109/historical_settings_20261110/tests_normal.txt",
+    "06-tools/aa_timed_runtime_20261109/historical_settings_20261110/tests_optimized.txt"
+  ],
+  "revision": "owning_section_scope_after_independent_review"
+}

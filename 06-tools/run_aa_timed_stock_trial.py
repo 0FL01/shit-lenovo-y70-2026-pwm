@@ -232,8 +232,6 @@ def _available_settings_context(text,expected,previous):
         header=re.fullmatch(r'([^ ]+) [0-9a-f]+ pid=(\d+) userId=(\d+) uid=(\d+) displayId=(\d+)\(type=([A-Z]+)\)',start[1])
         check(header is not None,'Malformed activity observation identity')
         component=header[1];scene=known.get(component)
-        if component.startswith('com.android.settings/'):
-            check(scene is not None,'Foreign Settings observation component')
         if scene is not None:
             known_headers+=1
             check((int(header[2]),header[3],header[4],header[5],header[6])==
@@ -256,6 +254,57 @@ def _available_settings_context(text,expected,previous):
                 resumed.append(component);check(scene is not None,'Foreign resumed activity observation')
             if scene is None:foreign_states.append(native.groups())
             elif native[3]=='true':check(component==previous['component'],'Expected destination is finished')
+        if scene is None and component.startswith('com.android.settings/'):
+            # A historical Settings home activity may coexist with the live
+            # calibrated chooser. It is not a scene candidate. Require complete
+            # independent evidence of a stopped, hidden instance in the same
+            # Settings process before ignoring its unrelated fragment/tree data.
+            # Missing evidence here is terminal, never a generic retry permit.
+            check(all((int(header[2]),header[3],header[4],header[5],header[6])==
+                      (item['pid'],'0','1000','0','INTERNAL') for item in (expected,previous)),
+                  'Foreign Settings observation identity')
+            def stopped(prefix,pattern,name,*,section=body):
+                # Keep whole-block duplicate/contradiction rejection as well as
+                # requiring the field inside its actual owning section.
+                if section is not body:take(prefix,pattern,name)
+                value=take(prefix,pattern,name,section=section)
+                check(value is not None,'Incomplete historical Settings evidence: '+name)
+                return value
+            check(native is not None and native.groups()==('false','true','false'),
+                  'Foreign live Settings observation')
+            stopped(r'^    ViewRoot\b',r'    ViewRoot:','historical root header')
+            stopped(r'^    View Hierarchy\b',r'    View Hierarchy:','historical hierarchy boundary')
+            stopped(r'^    Local FragmentActivity\b',r'    Local FragmentActivity [0-9a-f]+ State:',
+                    'historical support header')
+            stopped(r'^    Added Fragments\b',r'    Added Fragments:','historical added boundary')
+            stopped(r'^    FragmentManager misc state\b',r'    FragmentManager misc state:',
+                    'historical manager boundary')
+            native_start=re.search(r'^    Local Activity [0-9a-f]+ State:\n',body,re.M)
+            root_start=re.search(r'^    ViewRoot:\n',body,re.M)
+            tree_start=re.search(r'^    View Hierarchy:\n',body,re.M)
+            support_start=re.search(r'^    Local FragmentActivity [0-9a-f]+ State:\n',body,re.M)
+            added_start=re.search(r'^    Added Fragments:\n',body,re.M)
+            manager_start=re.search(r'^    FragmentManager misc state:\n',body,re.M)
+            check(all(item is not None for item in (native_start,root_start,tree_start,support_start,added_start,manager_start)) and
+                  native_start.end()<=root_start.start() and root_start.end()<=tree_start.start()<support_start.start()<added_start.start()<manager_start.start(),
+                  'Invalid historical Settings section order')
+            native_section=body[native_start.end():root_start.start()]
+            root_section=re.split(r'^    \S',body[root_start.end():tree_start.start()],maxsplit=1,flags=re.M)[0]
+            support_section=re.split(r'^    \S',body[support_start.end():added_start.start()],maxsplit=1,flags=re.M)[0]
+            stopped(r'^      mResumed\b',r'      mResumed=false mStopped=true mFinished=false',
+                    'historical native lifecycle',section=native_section)
+            manager_section=re.split(r'^    \S',body[manager_start.end():],maxsplit=1,flags=re.M)[0]
+            for key,value in (('mAdded','true'),('mRemoved','false'),('mStopped','true')):
+                stopped(r'^      '+key+r'\b',r'      '+key+'='+value,'historical '+key,section=root_section)
+            stopped(r'^        mHasWindowFocus\b',r'        mHasWindowFocus=false','historical focus',section=root_section)
+            stopped(r'^        mWindowVisibility\b',r'        mWindowVisibility=8','historical visibility',section=root_section)
+            stopped(r'^      mCreated\b',
+                    r'      mCreated=true mResumed=false mStopped=true    Active Fragments:',
+                    'historical support lifecycle',section=support_section)
+            stopped(r'^      mCurState\b',
+                    r'      mCurState=4 mStateSaved=(true|false) mStopped=true mDestroyed=false',
+                    'historical support tail',section=manager_section)
+            check(len(missing)==missing_before,'Incomplete historical Settings observation')
         if scene is None:continue
 
         modes=take(r'^      mIsInMultiWindowMode\b',r'      mIsInMultiWindowMode=(true|false) mIsInPictureInPictureMode=(true|false)','window modes')
@@ -296,7 +345,12 @@ def _available_settings_context(text,expected,previous):
         if support is not None:
             check(support[1]=='true' and support.groups()[1:]!=('true','true'),
                   'Uncreated/contradictory Settings observation fragment manager')
-        fragments=[line for line in body.splitlines() if re.match(r'^    [A-Za-z_$][\w.$]*\{',line)]
+        # Looper messages can contain transaction items with the same class{
+        # prefix. Only the support manager's Active Fragments section owns
+        # fragment identities, matching the complete-scene parser's boundary.
+        support_start=re.search(r'^    Local FragmentActivity [0-9a-f]+ State:(?:\n|\Z)',body,re.M)
+        fragment_section=body[support_start.end():].split('\n    Added Fragments:',1)[0] if support_start else body
+        fragments=[line for line in fragment_section.splitlines() if re.match(r'^    [A-Za-z_$][\w.$]*\{',line)]
         fragment=None
         if not fragments:missing.append('active fragment identity')
         else:

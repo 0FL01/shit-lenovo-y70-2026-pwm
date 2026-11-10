@@ -861,6 +861,88 @@ class MissingObservationTests(unittest.TestCase):
                        '    Local FragmentActivity def State:','    Added Fragments:'):
             values.append(raw[:raw.index(marker)+len(marker)])
         return values
+    def historical_home(self):
+        return (scene_fixture().replace('.Settings$DisplaySettingsActivity','.Settings')
+            .replace('mResumed=true mStopped=false mFinished=false','mResumed=false mStopped=true mFinished=false')
+            .replace('      mStopped=false\n','      mStopped=true\n')
+            .replace('mHasWindowFocus=true','mHasWindowFocus=false').replace('mWindowVisibility=0','mWindowVisibility=8')
+            .replace('mCreated=true mResumed=true mStopped=false','mCreated=true mResumed=false mStopped=true')
+            .replace('mState=7','mState=4').replace('mCurState=7 mStateSaved=false mStopped=false',
+                'mCurState=4 mStateSaved=true mStopped=true')
+            .replace('DisplaySettings','ContextualCards').replace('android:id/title','android:id/historical'))
+    def test_historical_home_is_not_a_live_scene_or_digest(self):
+        home=self.historical_home()
+        # Historical home may have multiple fragments unrelated to the chooser.
+        home=home.replace('    Added Fragments:',
+            '    OtherHistoricalFragment{aaa} (11111111-1111-1111-1111-111111111111 id=0x7f048b)\n    Added Fragments:')
+        for opened in (False,True):
+            live=scene_fixture(opened)
+            for combined in (home+live,live+home):
+                self.assertEqual(self.observe(combined),t.settings_scene(live))
+                with self.assertRaises(t.SettingsTransitionPending) as caught:
+                    self.observe(combined.replace('mTraversalScheduled=false','mTraversalScheduled=true'))
+                self.assertEqual(caught.exception.scene,t.settings_scene(live))
+        with self.assertRaises(ValueError) as caught:self.observe(home)
+        self.assertNotIsInstance(caught.exception,t.IncompleteSettingsObservation)
+    def test_historical_home_requires_complete_unambiguous_stopped_evidence(self):
+        home=self.historical_home();live=scene_fixture(True)
+        fields=[line for line in home.splitlines(True) if line.startswith((
+            '    Local Activity','      mResumed=','    ViewRoot:', '      mAdded=',
+            '      mRemoved=','      mStopped=','        mHasWindowFocus=',
+            '        mWindowVisibility=','    Local FragmentActivity','      mCreated=','      mCurState='))]
+        invalid=[]
+        for field in fields:invalid.extend((home.replace(field,''),home.replace(field,field+field),
+                                           home.replace(field,field.rstrip()+' invalid\n')))
+        invalid.extend(home.replace(a,b) for a,b in (
+            ('pid=123','pid=999'),('uid=1000','uid=2000'),('userId=0','userId=1'),('displayId=0','displayId=1'),
+            ('mResumed=false mStopped=true mFinished=false','mResumed=true mStopped=false mFinished=false'),
+            ('mResumed=false mStopped=true mFinished=false','mResumed=false mStopped=false mFinished=false'),
+            ('mFinished=false','mFinished=true'),('mHasWindowFocus=false','mHasWindowFocus=true'),
+            ('mWindowVisibility=8','mWindowVisibility=0'),('mDestroyed=false','mDestroyed=true'),
+            ('mCurState=4','mCurState=7'),('mCreated=true mResumed=false','mCreated=true mResumed=true')))
+        for bad in invalid:
+            for current in (live,live.splitlines(True)[0]):
+                with self.subTest(bad=bad[:90]),self.assertRaises(ValueError) as caught:self.observe(bad+current)
+                self.assertNotIsInstance(caught.exception,(t.IncompleteSettingsObservation,t.SettingsTransitionPending))
+    def test_historical_fields_must_belong_to_their_sections(self):
+        home=self.historical_home();live=scene_fixture(True)
+        relocations=(
+            ('      mStopped=true\n','    Added Fragments:'),
+            ('      mCurState=4 mStateSaved=true mStopped=true mDestroyed=false\n','    Local FragmentActivity def State:'),
+            ('      mResumed=false mStopped=true mFinished=false\n','    Added Fragments:'),
+            ('      mAdded=true\n','    Added Fragments:'),
+            ('      mRemoved=false\n','    Added Fragments:'),
+            ('        mHasWindowFocus=false\n','    Added Fragments:'),
+            ('        mWindowVisibility=8\n','    Added Fragments:'),
+            ('      mCreated=true mResumed=false mStopped=true    Active Fragments:\n','    ViewRoot:'))
+        invalid=[]
+        for line,destination in relocations:
+            self.assertEqual(home.count(line),1)
+            invalid.append(home.replace(line,'').replace(destination,line+destination))
+        # Even correctly spelled boundary headers cannot be reordered.
+        invalid.append(home.replace('    FragmentManager misc state:\n','').replace(
+            '    Added Fragments:','    FragmentManager misc state:\n    Added Fragments:'))
+        for bad in invalid:
+            for current in (live,live.splitlines(True)[0]):
+                with self.subTest(bad=bad[:90]),self.assertRaises(ValueError) as caught:self.observe(bad+current)
+                self.assertNotIsInstance(caught.exception,(t.SettingsTransitionPending,t.IncompleteSettingsObservation))
+
+    def test_looper_transaction_items_are_not_support_fragments(self):
+        raw=scene_fixture(True,pending=True).replace('    Local FragmentActivity def State:',
+            '    WindowStateInsetsControlChangeItem{mWindow=synthetic}\n    Local FragmentActivity def State:')
+        with self.assertRaises(t.SettingsTransitionPending) as caught:self.observe(self.historical_home()+raw)
+        self.assertEqual(caught.exception.scene,t.settings_scene(scene_fixture(True)))
+        duplicate=raw.replace('    Added Fragments:',
+            '    ForeignFragment{aaa} (11111111-1111-1111-1111-111111111111 id=0x7f048b)\n    Added Fragments:')
+        with self.assertRaisesRegex(ValueError,'Duplicate active'):self.observe(duplicate)
+
+    def test_historical_home_cannot_mask_live_scene_changes(self):
+        for before,after in (('pid=123','pid=999'),('mCurrentConfig={','mCurrentConfig={different '),
+            ('ScreenTimeoutSettings','ForeignSettings'),('android:id/title','android:id/foreign')):
+            with self.subTest(after=after),self.assertRaises(ValueError) as caught:
+                self.observe(self.historical_home()+scene_fixture(True).replace(before,after))
+            self.assertNotIsInstance(caught.exception,(t.IncompleteSettingsObservation,t.SettingsTransitionPending))
+
     def test_partial_body_matrix_has_no_scene_or_success_authority(self):
         for raw in self.partials():
             with self.subTest(length=len(raw)):
