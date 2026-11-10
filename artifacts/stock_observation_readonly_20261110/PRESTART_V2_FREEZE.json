@@ -1,0 +1,19 @@
+{
+  "status": "offline_only_awaiting_review",
+  "supersedes_unexecuted_helper": "69af98c97a43e9ad32dbbdcd127b98a46193a79cd58178534a5042d622d0b3f4",
+  "files": {
+    "06-tools/stock_observation_readonly_20261110/prestart_inspection_v2.py": "6429d7f3d7d4e15b603c63ba55ee9437d7797214ca6dd3695e4990dda8832791",
+    "06-tools/stock_observation_readonly_20261110/test_prestart_inspection_v2.py": "928fc1ec6be43472d82507986073a547bd047543913714ba3326e00177ef7c6f",
+    "06-tools/stock_observation_readonly_20261110/PRESTART_V2.md": "576675417d0862d43b73604ba6a0d2cd923978d6cbf3b33de309a6a13e5e3d5c",
+    "06-tools/stock_observation_readonly_20261110/prestart_inspection.py": "5af512cf02640e0813e627d9967439bcc1ed5ef334485f1d53cb73000158c723"
+  },
+  "tests": {
+    "v2_normal": 10,
+    "v2_optimized": 10,
+    "aggregate_normal": 50,
+    "aggregate_optimized": 50
+  },
+  "device_services_sent": 0,
+  "private_inputs_read": false,
+  "deployed": false
+}

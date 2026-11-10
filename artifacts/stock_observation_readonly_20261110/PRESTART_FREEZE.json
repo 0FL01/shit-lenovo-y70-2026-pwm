@@ -1,0 +1,20 @@
+{
+  "status": "offline_only_awaiting_review",
+  "files": {
+    "06-tools/stock_observation_readonly_20261110/prestart_inspection.py": "5af512cf02640e0813e627d9967439bcc1ed5ef334485f1d53cb73000158c723",
+    "06-tools/stock_observation_readonly_20261110/test_prestart_inspection.py": "bf2c7696ad70e11b4a27c749a83e06ecfbed760f125659bccf22a62d1bd393f1",
+    "06-tools/stock_observation_readonly_20261110/PRESTART.md": "5fe482b32702260a4a89b1e34f19f3fb7eb853359871c3578970b2d4b4839a6a",
+    "06-tools/stock_observation_readonly_20261110/launch.py": "da270f0de24d5fe769b6f876dffd18b7f972c3608ebee3e7f80b60a96164e826",
+    "06-tools/stock_observation_readonly_20261110/probe.py": "d72d1f8dd25605e3dae9d2b1ad95a753494423d0b150918dcc2495f963b909b1",
+    "06-tools/stock_observation_readonly_20261110/deploy_readonly.py": "99ac1b5aeafd1205ea71e18fa320edaf4e5150825cc6e4de38ec395ec4645b21"
+  },
+  "tests": {
+    "prestart_normal": 11,
+    "prestart_optimized": 11,
+    "aggregate_normal": 40,
+    "aggregate_optimized": 40
+  },
+  "device_services_sent": 0,
+  "private_config_read": false,
+  "deployed": false
+}
