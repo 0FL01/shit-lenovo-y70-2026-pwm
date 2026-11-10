@@ -1,0 +1,19 @@
+{
+  "status": "offline_only_awaiting_review",
+  "files": {
+    "06-tools/stock_observation_readonly_20261110/deploy_readonly.py": "99ac1b5aeafd1205ea71e18fa320edaf4e5150825cc6e4de38ec395ec4645b21",
+    "06-tools/stock_observation_readonly_20261110/test_deploy_readonly.py": "de69d720114b11f1e637f7fe70b87880eee5869e3a5ac9b6cb4321c8720a5aed",
+    "06-tools/stock_observation_readonly_20261110/DEPLOYMENT.md": "2929411d43e711166663145c7bb8986b377f3f7f045e5d4a7bcd675d0755b421",
+    "06-tools/stock_observation_readonly_20261110/launch.py": "da270f0de24d5fe769b6f876dffd18b7f972c3608ebee3e7f80b60a96164e826",
+    "06-tools/stock_observation_readonly_20261110/probe.py": "d72d1f8dd25605e3dae9d2b1ad95a753494423d0b150918dcc2495f963b909b1"
+  },
+  "tests": {
+    "wrapper_normal": 11,
+    "wrapper_optimized": 11,
+    "aggregate_normal": 29,
+    "aggregate_optimized": 29
+  },
+  "device_services_sent": 0,
+  "deployment_executed": false,
+  "private_payload_read": false
+}
