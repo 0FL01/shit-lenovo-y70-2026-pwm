@@ -1,0 +1,18 @@
+{
+  "status": "independent_offline_review_pass_not_deployed_or_executed",
+  "development_commit": "964cf0e68ebb878145ff665d70b9a2cd5eb1f758",
+  "files": {
+    "06-tools/stock_observation_readonly_20261110/probe.py": "d72d1f8dd25605e3dae9d2b1ad95a753494423d0b150918dcc2495f963b909b1",
+    "06-tools/stock_observation_readonly_20261110/launch.py": "da270f0de24d5fe769b6f876dffd18b7f972c3608ebee3e7f80b60a96164e826",
+    "06-tools/stock_observation_readonly_20261110/test_probe.py": "1a1f3a8bddbdc21d0a5ff89e497be4d74b38d54b4dc45e99376fa728696b69c8",
+    "06-tools/stock_observation_readonly_20261110/README.md": "2974baafef6914d8611ae649ea5878e3c8e29a646e0aa6b12e4994d4fb3da0af"
+  },
+  "tests": {
+    "normal": 18,
+    "optimized": 18
+  },
+  "device_services_sent": 0,
+  "deployed": false,
+  "committed": false,
+  "pushed": false
+}
