@@ -55,3 +55,29 @@ class Tests(unittest.TestCase):
     def test_profile_requires_explicit_selection(self):
         import inert_source_loader as loader
         with self.assertRaises(RuntimeError):loader.FixedSourceLoader(root=str(ROOT),git=None,read_bytes=None,registry={},profile='other')
+
+    def test_selector_lifecycle_sources_bound_and_tampering_rejected(self):
+        from types import SimpleNamespace
+        import host_entrypoint as host
+        import inert_source_loader as loader
+        import aa_acquisition_validation as acquisition
+        self.assertEqual(acquisition.SELECTOR_ESD_CONTRACT, 'aa_selector_esd_isolation_v1')
+        files={p:(ROOT/p).read_bytes() for p in host.AA_HARDWARE_PATHS}
+        proof={'source_commit':'a'*40,'source_blob_ids':{p:loader.blob_id(raw,'sha1') for p,raw in files.items()}}
+        loaded={'profile':'aa','source_commit':proof['source_commit'],
+                'source_blob_ids':dict(proof['source_blob_ids']),'verified_source_bytes':dict(files),
+                'modules':{'run_p85_timed_stock_trial':SimpleNamespace(__file__=str(ROOT/'06-tools/run_p85_timed_stock_trial.py')),
+                           'run_p85_guarded_trial':SimpleNamespace(source_provenance=lambda **kwargs:proof)}}
+        host.source_gate(loaded)
+        for path in host.AA_RUNTIME_SHA256:
+            self.assertEqual(hashlib.sha256(files[path]).hexdigest(),host.AA_RUNTIME_SHA256[path])
+            # Even coherent synthetic Git provenance must not bypass runtime pins.
+            changed=files[path]+b'\n# synthetic altered lifecycle source\n'
+            loaded['verified_source_bytes'][path]=changed
+            proof['source_blob_ids'][path]=loader.blob_id(changed,'sha1')
+            loaded['source_blob_ids'][path]=proof['source_blob_ids'][path]
+            with self.assertRaisesRegex(RuntimeError,'AA reviewed runtime bytes changed'):
+                host.source_gate(loaded)
+            loaded['verified_source_bytes'][path]=files[path]
+            proof['source_blob_ids'][path]=loader.blob_id(files[path],'sha1')
+            loaded['source_blob_ids'][path]=proof['source_blob_ids'][path]

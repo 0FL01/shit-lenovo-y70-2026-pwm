@@ -461,6 +461,9 @@ def qualification(record,source):
         check(stage.get('transaction',{}).get('controller_packets_verified')==75 and stage.get('wire',{}).get('native_packets_matched')==75,'Surrogate not full table')
         check(stage.get('same_dbv_replay',{}).get('exact_wire_verified') is True and stage.get('redraw_audit',{}).get('native_dsi_writes')==0,'Missing surrogate replay/redraw')
         check(stage.get('selectors_before_hold',{}).get('values')==aa.SELECTORS,'Missing surrogate prehold selectors')
+        acquisition.validate_selector_lifecycle(stage['selectors_before_hold'])
+        if stage['label']!='sham_stock':
+            acquisition.validate_selector_lifecycle(stage.get('selectors_after_hold',{}))
         if stage['label']=='sham_stock':
             check(stage.get('c1')==acquisition.OMITTED_C1 and stage.get('selectors_after_hold')==acquisition.OMITTED_POSTSELECTORS,
                   'Mixed middle diagnostic policy')
@@ -604,8 +607,24 @@ class AATimedTrial(timed.TimedStockTrial):
         data,begin,end=self.aa_envelope(aa.selector_script(self.tmp,self.token,self.entry_count),label)
         result=aa.validate_selectors(data['CHILD'],data['TRACE_BEFORE'],data['TRACE_AFTER'],self.entry_count)
         s.verify_read_interval(data['KERNEL'],begin,end,self.reference)
-        check(self.shell(s.esd_read_script(self.tmp),root=True,label=label+'-esd')=='reg_read','Selector ESD changed')
-        self.entry_count=result['entry_count_after'];self.trace_snapshot=data['TRACE_AFTER'];self.pending_read=False
+        validated = self.monotonic()
+        # Keep the exact pre-restore cursor. Resumed polling belongs to the
+        # next existing safe-gap guard, not a discarded fresh snapshot.
+        self.entry_count=result['entry_count_after'];self.trace_snapshot=data['TRACE_AFTER']
+        check(self.shell(aa.writer_esd_script(self.tmp,self.token,restore=True),
+                         root=True,label=label+'-selector-esd',mutation=True) ==
+              'WRITER_ESD_RESTORED reg_read','Selector ESD restoration failed')
+        restored = self.monotonic()
+        result['esd_lifecycle'] = {
+            'contract': acquisition.SELECTOR_ESD_CONTRACT,
+            'isolated_mode': 'esd_sw_sim_success', 'restored_mode': 'reg_read',
+            'final_child_readback': True, 'inflight_cancellation_proven': False,
+            'held_through': 'selector_trace_kernel_state_host_validation',
+            'validated_monotonic': validated, 'restored_monotonic': restored,
+        }
+        acquisition.validate_selector_lifecycle(result)
+        # panel_uncertain belongs to the enclosing stage, not this selector.
+        self.pending_read=False
         return result
 
     def c1(self,label):

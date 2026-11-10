@@ -173,9 +173,9 @@ def trace_delta(before,after,entry_count,entries,controls):
     return {'page_callbacks_verified':len(entries),'controller_returns':controls,'entry_count_after':entry_count+len(entries)}
 
 def validate_selectors(raw,before,after,entry_count):
-    require(raw.count('ESD_ISOLATED esd_sw_sim_success')==1 and raw.count('ESD_RESTORED reg_read')==1,'ESD lifecycle')
+    require(raw.count('ESD_ISOLATED esd_sw_sim_success')==1 and raw.count('ESD_HELD esd_sw_sim_success')==1,'ESD lifecycle')
     lines=[line for line in raw.splitlines() if line]
-    require(len(lines)==5 and lines[0]=='ESD_ISOLATED esd_sw_sim_success' and lines[-1]=='ESD_RESTORED reg_read','Unexpected selector framing')
+    require(len(lines)==5 and lines[0]=='ESD_ISOLATED esd_sw_sim_success' and lines[-1]=='ESD_HELD esd_sw_sim_success','Unexpected selector framing')
     require([line.split(' ',2)[:2] for line in lines[1:4]]==[['R','23:A9'],['R','24:9D'],['R','00:52']],'Selector read order')
     values={}
     for line in lines:
@@ -238,10 +238,7 @@ oldc=$(awk -v want={count} -v page={int(page)} -v oldc="$oldc" -v want_rc={rc} {
 cp "$N" "$V"
 '''
         if read:body+=read+'\n'
-    body+='''printf '%s\\n' reg_read > "$E"
-[ "$(tr -d '\\000' < "$E")" = reg_read ]
-printf 'ESD_RESTORED reg_read\\n'
-'''
+    body+=esd_mode_guard('esd_sw_sim_success')+"\nprintf 'ESD_HELD esd_sw_sim_success\\n'\n"
     body+='rm '+tmp+'/selector-trace '+tmp+'/selector-previous '+tmp+'/selector-events '+tmp+'/selector-prefix\n'
     return 'timeout -k 3 20 unshare -m /system/bin/sh -c '+shlex.quote(body)
 

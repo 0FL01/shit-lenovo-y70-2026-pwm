@@ -15,7 +15,7 @@ TOKEN='aa_offline_test_token'
 TMP='/data/local/tmp/aa_offline_test'
 
 # Sanitized native debugfs rendering, including its final ASCII space.
-SELECTOR_RAW='ESD_ISOLATED esd_sw_sim_success\nR 23:A9 0x0e \nR 24:9D 0x0e \nR 00:52 0x0e 0x10 \nESD_RESTORED reg_read\n'
+SELECTOR_RAW='ESD_ISOLATED esd_sw_sim_success\nR 23:A9 0x0e \nR 24:9D 0x0e \nR 00:52 0x0e 0x10 \nESD_HELD esd_sw_sim_success\n'
 
 class AATests(unittest.TestCase):
     def test_exact_programs_and_all_byte_mutations(self):
@@ -67,7 +67,7 @@ class AATests(unittest.TestCase):
         for accepted in (raw,raw.replace(' \n','\n')):
             self.assertEqual(aa.validate_selectors(accepted,'',after,0)['entry_count_after'],7)
         bad=(raw.replace('0x10','0x11'),raw+'R 23:AA 0x10\n',raw+'R 23:A9 0e\n',
-             raw.replace('ESD_RESTORED','BAD'),raw.replace('0x0e \n','0x0e  \n',1),
+             raw.replace('ESD_HELD','BAD'),raw.replace('0x0e \n','0x0e  \n',1),
              raw.replace('0x0e \n','0x0e\t\n',1),raw.replace('R 23:A9',' R 23:A9'),
              raw.replace('0x0e \n','0x0e garbage \n',1),raw.replace('0x0e \n','0x0e 0x0e \n',1),
              raw.replace('0x0e 0x10 ','0x0e '),raw.replace('R 24:9D','R 23:A9'),
@@ -119,13 +119,13 @@ class AATests(unittest.TestCase):
         self.assertEqual(result.returncode,0,result.stderr)
         self.assertEqual(result.stdout,SELECTOR_RAW)
         self.assertEqual(executed,list(map(str,range(10))))
-        self.assertEqual(esd,'reg_read\n')
+        self.assertEqual(esd,'esd_sw_sim_success\n')
         for i in range(10):
             result,executed,esd=self.simulate_selector(fail_at=i)
             self.assertNotEqual(result.returncode,0)
             self.assertEqual(executed,list(map(str,range(i+1))))
             self.assertEqual(esd,'esd_sw_sim_success\n')
-            self.assertNotIn('ESD_RESTORED',result.stdout)
+            self.assertNotIn('ESD_HELD',result.stdout)
         for i in range(1,10):
             result,executed,esd=self.simulate_selector(prefix_at=i)
             self.assertNotEqual(result.returncode,0)

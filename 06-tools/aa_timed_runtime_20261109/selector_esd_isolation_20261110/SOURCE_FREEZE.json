@@ -1,0 +1,45 @@
+{
+  "status": "frozen_for_independent_review_not_physical_admission",
+  "base_commit": "e0fbba10d9b148bfa25f5bdf98ff224a001f1523",
+  "modified_files": [
+    "06-tools/AA_TIMED_INTEGRATION.md",
+    "06-tools/aa_acquisition_validation.py",
+    "06-tools/aa_threshold_trial.py",
+    "06-tools/aa_timed_runtime_closure.json",
+    "06-tools/host_source_integration_20261109/host_entrypoint.py",
+    "06-tools/host_source_integration_20261109/test_aa_source_profile.py",
+    "06-tools/run_aa_timed_stock_trial.py",
+    "06-tools/test_aa_threshold_trial.py",
+    "06-tools/test_aa_video_validation.py",
+    "06-tools/test_run_aa_timed_stock_trial.py"
+  ],
+  "new_files": [
+    "06-tools/test_aa_selector_esd_isolation.py",
+    "06-tools/aa_timed_runtime_20261109/selector_esd_isolation_20261110/REVIEW.md",
+    "06-tools/aa_timed_runtime_20261109/selector_esd_isolation_20261110/tests_normal.txt",
+    "06-tools/aa_timed_runtime_20261109/selector_esd_isolation_20261110/tests_optimized.txt",
+    "06-tools/aa_timed_runtime_20261109/selector_esd_isolation_20261110/consumer_tests_normal.txt",
+    "06-tools/aa_timed_runtime_20261109/selector_esd_isolation_20261110/consumer_tests_optimized.txt",
+    "06-tools/aa_timed_runtime_20261109/selector_esd_isolation_20261110/SOURCE_FREEZE.json"
+  ],
+  "sha256_excluding_self": {
+    "06-tools/AA_TIMED_INTEGRATION.md": "f9c73edc120118c0dbd0e1739a59e4223f9be87c917c7ed5edd8eeb818bee67e",
+    "06-tools/aa_acquisition_validation.py": "fb45e20f585e8b5839034d90eb362e3a3d133e9ab25f020b95c6f4e732a90b5c",
+    "06-tools/aa_threshold_trial.py": "e5a419b7fb03b6a1477b8937e285efa82f47392c256699eba2a079d589c5190d",
+    "06-tools/aa_timed_runtime_closure.json": "0e92fec49eceff62eaaf55e114107d85d83150ad63a953b9988d855f43cc67d8",
+    "06-tools/host_source_integration_20261109/host_entrypoint.py": "07bddbc66404d2d338e4ae9a23a9ab33b35a757d2296024103f6e96e0d59bfcb",
+    "06-tools/host_source_integration_20261109/test_aa_source_profile.py": "e88ead6970e0caaef2c09ac254eb126ef8d76472744ad9a42be3c7a348cbf891",
+    "06-tools/run_aa_timed_stock_trial.py": "fb9f949d7acf61a84f3a5cf0bd94d2d06071d2625f790d61455685d6454d4d2c",
+    "06-tools/test_aa_threshold_trial.py": "ea503e62eaadad0be770e0abcc2e6f3593130d9d3bf878c66c96a7521e3f888c",
+    "06-tools/test_aa_video_validation.py": "aa53c65f07a13b68af27e399261b6b95a58f419cc3821486170bbe3cd2c1f35f",
+    "06-tools/test_run_aa_timed_stock_trial.py": "6a57c36835f9982918bf9f67ca2cfc6bbc199bf89feffb0a8b6c1cde50e5163b",
+    "06-tools/test_aa_selector_esd_isolation.py": "3e4249a228651c840841418ab87a8cd543ec0e161bcc6d477dc97599b92c327e",
+    "06-tools/aa_timed_runtime_20261109/selector_esd_isolation_20261110/REVIEW.md": "dda364a26caf12a8678b05ecb1bb77160836393db5e52729432db7885e91cb5e",
+    "06-tools/aa_timed_runtime_20261109/selector_esd_isolation_20261110/tests_normal.txt": "d71941d0aa0c61225cc0bbf6518c716d9254245104bd62ec0d67c2d41c83b1e8",
+    "06-tools/aa_timed_runtime_20261109/selector_esd_isolation_20261110/tests_optimized.txt": "c0f4c62fd16309fe7d83d3e58c20cbd829d260b4cdac13434fc37ecf052b3d35",
+    "06-tools/aa_timed_runtime_20261109/selector_esd_isolation_20261110/consumer_tests_normal.txt": "3f4299937c6ad158cf58984e3939949a1fc759e0784a029bdf1ff47712072ee5",
+    "06-tools/aa_timed_runtime_20261109/selector_esd_isolation_20261110/consumer_tests_optimized.txt": "90c90aed63d8b8923127de55762bb0849e0a325a451757fbe7a836077a697ce0"
+  },
+  "self_hash": "not embedded",
+  "private_raw_fixture_included": false
+}

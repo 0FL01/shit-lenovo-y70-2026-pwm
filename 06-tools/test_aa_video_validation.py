@@ -61,7 +61,13 @@ def fixture(candidate=False):
                 "single_receive":True,"data":[0,0,17 if candidate and i==1 else 96]})
         for side in ("selectors_before_hold","selectors_after_hold"):
             stage[side]={"values":deepcopy(v.SELECTORS),"page_callbacks_verified":7,
-                         "controller_returns":[0,1,0,0,1,0,0,2,0,0]}
+                         "controller_returns":[0,1,0,0,1,0,0,2,0,0],
+                         "esd_lifecycle":{
+                             "contract":v.SELECTOR_ESD_CONTRACT,
+                             "isolated_mode":"esd_sw_sim_success", "restored_mode":"reg_read",
+                             "final_child_readback":True, "inflight_cancellation_proven":False,
+                             "held_through":"selector_trace_kernel_state_host_validation",
+                             "validated_monotonic":1., "restored_monotonic":1.01}}
         stage["same_dbv_replay"]={"dbv":3600,"exact_wire_verified":True,
             "observed_writes":[{"length":3,"type":57,"mode":"hs","payload":"51 0e 10"}],
             "main_trace":{"page_callbacks_verified":0,"controller_returns":[0],"entry_count_after":5+count}}
@@ -109,6 +115,13 @@ def fixture(candidate=False):
                                      'entry_count_after':15 if i==0 else 34}
             stage['hold_guard_verified_monotonic']=stage['hold_verified_monotonic']+.005
         if i!=1:stage["postselectors_verified_monotonic"]=stage["hold_verified_monotonic"]+.01
+        stage["selectors_before_hold"]["esd_lifecycle"].update(
+            validated_monotonic=stage["prehold_started_monotonic"]+.001,
+            restored_monotonic=stage["prehold_qualified_monotonic"])
+        if i != 1:
+            stage["selectors_after_hold"]["esd_lifecycle"].update(
+                validated_monotonic=stage["hold_verified_monotonic"]+.006,
+                restored_monotonic=stage["postselectors_verified_monotonic"])
         run["stages"].append(stage)
     return run,pts
 

@@ -388,3 +388,20 @@ these suites are not claimed passing. Original loader suite does pass.
 Independent reviewer also ran44 collected tests in normal and optimized Python,
 plus real-shell cat/sha256sum/awk/rm fault injections before dispatch, all PASS.
 This is not actual stock timing, optical qualification or device admission.
+
+## Selector boundary correction (2026-11-10)
+
+Current selector CHILD ends with exact ESD_HELD mode5 readback. Runtime retains
+mode5 through full envelope/trace/values/native/state validation, saves the
+validated pre-restore cursor, and only then performs verified success-only host
+restoration. pending_read remains sticky until success; panel_uncertain remains
+owned by the enclosing phase. The new aa_selector_esd_isolation_v1 lifecycle is
+mandatory for acquisition and stock qualification; legacy restored-child evidence
+is not interchangeable. Extra operation events remain failures, including an
+already-in-flight ESD check. No timeout or watchdog limit changed.
+
+Current verification and command sizes supersede the historical numbers above:
+see aa_timed_runtime_closure.json selector_esd_isolation_correction and
+[boundary review](aa_timed_runtime_20261109/selector_esd_isolation_20261110/REVIEW.md).
+The synthetic boundary proof does not diagnose saved0171. Actual failure cause
+remains unknown, and physical retry/stock qualification remain on hold.

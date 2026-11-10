@@ -120,12 +120,14 @@ class Transport:
                         r.trace+=f'mode_ctrl_return: rc={rc}\n'
                         if index!=1:r.trace+='mode_return: rc=0\n'
                 else:
+                    if r.esd_mode != 'reg_read': raise AssertionError('Selector needs reg_read')
+                    r.esd_mode='esd_sw_sim_success'
                     value=getattr(r,'selector_raw',SELECTOR_RAW)
                     for index,rc in enumerate(t.aa.SELECTOR_CONTROLS):
                         if index not in (1,4,7):r.trace+='mode_entry: pending=0 length=11 flags=0\n'
                         r.trace+=f'mode_ctrl_return: rc={rc}\n'
                         if index not in (1,4,7):r.trace+='mode_return: rc=0\n'
-                if label==r.corrupt:value=value.replace('rc=0','rc=-5',1).replace('ESD_RESTORED','BAD_RESTORATION')
+                if label==r.corrupt:value=value.replace('rc=0','rc=-5',1).replace('ESD_HELD','BAD_ISOLATION')
             elif part.label=='KERNEL':value=r.log
             elif part.label=='FIELDS':value='3600\n0\n0\nEnforcing\n'
             elif part.label=='DISPLAY':value='mActiveSfDisplayMode= peakRefreshRate=120.00001\n'
@@ -176,7 +178,7 @@ class Sim(t.AATimedTrial):
             if self.esd_mode != 'reg_read': raise AssertionError('Isolation did not start in reg_read')
             self.esd_mode = 'esd_sw_sim_success'
             return 'WRITER_ESD_ISOLATED esd_sw_sim_success'
-        if label.endswith('-writer-esd'):
+        if label.endswith(('-writer-esd','-selector-esd')):
             if self.esd_mode != 'esd_sw_sim_success': raise AssertionError('Restore did not start in mode 5')
             self.esd_mode = 'reg_read'
             return 'WRITER_ESD_RESTORED reg_read'

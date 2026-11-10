@@ -31,12 +31,35 @@ def bounds(snapshot):
 SCHEMA = "aa-threshold-optical-v1"
 ACQUISITION_SCHEMA = "aa-threshold-acquisition-v1"
 WRITER_ESD_CONTRACT = "aa_full_table_esd_isolation_v1"
+SELECTOR_ESD_CONTRACT = "aa_selector_esd_isolation_v1"
 REDRAW_SCENE_CONTRACT = "same_trial_settings_fragment_tree_v4"
 DIAGNOSTIC_CONTRACT = "aa_middle_optical_minimal_v1"
 OMITTED_C1 = {"status":"not_measured","reason":"middle C1 omitted by "+DIAGNOSTIC_CONTRACT}
 OMITTED_POSTSELECTORS = {"status":"not_measured","reason":"middle posthold selectors omitted by "+DIAGNOSTIC_CONTRACT}
 BASELINE_PHASES = {"writer_and_quiet","same_dbv_replay","redraw_audit","selectors_before_hold",
                    "c1","hold_and_metadata","hold_end_guard","selectors_after_hold"}
+
+def validate_selector_lifecycle(selectors):
+    """Only a held child followed by validated host restoration qualifies.
+
+    These are host validation/restore times, never a fabricated isolation time.
+    The final readback does not cancel a hardware check already in flight.
+    """
+    esd = selectors.get("esd_lifecycle", {})
+    static = {
+        "contract": SELECTOR_ESD_CONTRACT,
+        "isolated_mode": "esd_sw_sim_success", "restored_mode": "reg_read",
+        "final_child_readback": True, "inflight_cancellation_proven": False,
+        "held_through": "selector_trace_kernel_state_host_validation",
+    }
+    times = ("validated_monotonic", "restored_monotonic")
+    require(type(esd) is dict and set(esd) == set(static) | set(times) and
+            all(type(esd.get(k)) is type(v) and esd[k] == v for k, v in static.items()) and
+            all(finite(esd.get(k)) for k in times) and
+            0 <= esd["validated_monotonic"] <= esd["restored_monotonic"],
+            "Missing exact selector ESD lifecycle evidence")
+    return esd
+
 
 def planning_estimate(phases):
     require(set(phases)==BASELINE_PHASES and all(finite(x) and x>0 for x in phases.values()),
@@ -208,6 +231,7 @@ def validate_acquisition(run):
                     selectors.get("values")==SELECTORS and selectors.get("page_callbacks_verified")==7 and
                     selectors.get("controller_returns")==[0,1,0,0,1,0,0,2,0,0],
                     "Selectors/controller returns not qualified")
+            validate_selector_lifecycle(selectors)
         require(transaction["entry_count_after"]==entry_count+5,"Transaction callback count discontinuity")
         entry_count+=5
         replay=stage.get("same_dbv_replay",{})
@@ -380,6 +404,14 @@ def validate_acquisition(run):
             guard=stage.get("hold_guard_verified_monotonic")
             require(finite(guard) and stage["hold_verified_monotonic"]<=guard<=post,
                     "End-hold guard timing inconsistent")
+        selector_esd = validate_selector_lifecycle(stage["selectors_before_hold"])
+        require(pre0 <= selector_esd["validated_monotonic"] <= selector_esd["restored_monotonic"] <= pre1,
+                "Prehold selector restoration outside its phase")
+        if index != 1:
+            selector_esd = validate_selector_lifecycle(stage["selectors_after_hold"])
+            require(stage["hold_verified_monotonic"] <= selector_esd["validated_monotonic"] <=
+                    selector_esd["restored_monotonic"] <= post,
+                    "Posthold selector restoration outside its phase")
         if index==0:require(post<=active,"Baseline postselectors completed after arm")
         if index==1:require(post<=writes[2]["started_monotonic"],"Stock return before middle hold guard")
         if index==2:require(pre1<=returned,"Stock return qualified before C1/selectors completed")
