@@ -1,0 +1,48 @@
+{
+  "status": "confirmed-on-target-read-only",
+  "wrapper_commit": "cfc4e06a5e7709c0b7fd7467a0b18f32f71636f6",
+  "dependency_commit": "d5a522ce002ca580c231fc87250c38d1665980d3",
+  "wrapper_sha256": "99ac1b5aeafd1205ea71e18fa320edaf4e5150825cc6e4de38ec395ec4645b21",
+  "begin_utc": "2026-11-10T14:06:07.083594+00:00",
+  "end_utc": "2026-11-10T14:06:08.327389+00:00",
+  "source_only_validated": true,
+  "host_cleanup_verified": true,
+  "device_mutations": 0,
+  "capture_attempts": 0,
+  "summary": {
+    "acquisition_qualified": false,
+    "bl_power": 0,
+    "boot_stable_during_probe": true,
+    "camera_duration_seconds": null,
+    "camera_profile": {
+      "exposure_ns": 100000,
+      "focus_diopters": 2.0387485,
+      "frame_duration_ns": 33350000,
+      "iso": 6400,
+      "zoom": 1.0
+    },
+    "camera_restart_count": null,
+    "camera_stopped_preview_verified": true,
+    "camera_version_code": 96,
+    "camera_version_name": "1.56.2",
+    "foreground": null,
+    "identity_verified": true,
+    "locked": null,
+    "logger": 0,
+    "mutex": "absent",
+    "native_dbv": 828,
+    "panel_dc": 0,
+    "power": "Awake",
+    "pwm_hz": null,
+    "schema": 1,
+    "settings": {
+      "min_refresh_rate": 120.0,
+      "peak_refresh_rate": 120.0,
+      "screen_brightness": 98,
+      "screen_brightness_mode": 0,
+      "screen_off_timeout": 1800000
+    },
+    "setup_admitted": false,
+    "status": "observed_read_only"
+  }
+}

@@ -1,5 +1,11 @@
 # Long-lived agent progress journal
 
+Checkpoint 2026-11-10: **separate read-only observer deployed and completed at14:06UTC; no new recording or device mutation.**
+
+The [actual snapshot](artifacts/stock_observation_readonly_20261110/ACTUAL_READINESS.md) verifies both roles and stable boots, target Awake/native DBV828/power0/DC0/logger0/mutex absent, unchanged framework98/manual0/120.0/120.0/1800000, and camera stopped PREVIEW with the expected manual exposure/ISO/focus and Open Camera96/1.56.2. Native DBV differs from12:26's6438 for an unknown reason; future restoration must use a fresh original. Actual native120, scene/geometry and camera duration/restart preferences still require checking.
+
+Reviewed wrapper cfc4e06 and29 tests per Python mode completed a separately approved one-shot read-only retry, after a denied nonexecuted attempt. Final stdout, SSHexit0 and host descriptor closure agree. Frozen dependency root remains d5a522c. No full trial, new DSI, capture, selector or recovery operation ran. Separate nominal10s capture code is being prepared and reviewed offline; no success or physical PWM Hz is claimed. Earlier checkpoints below are history.
+
 Checkpoint 2026-11-10: **separate stock-observation preparation and a sanitized read-only probe are independently reviewed offline; no new device observation or capture yet.**
 
 The [preparation plan](artifacts/stock_observation_preparation_20261110/PLAN.md) rejects full-trial reuse because it hides settings, logger, mode/DBV, ESD and watchdog mutations. A small inert timing/state model passes 8 tests per Python mode. The separately reviewed [read-only probe](06-tools/stock_observation_readonly_20261110/README.md) passes 18 tests per mode, uses the existing strong pinned-process transport, and exposes only fixed read operations plus sanitized results. It has not been deployed or executed at this checkpoint; current target/camera readiness remains unverified.

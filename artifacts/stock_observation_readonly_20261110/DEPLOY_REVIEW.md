@@ -69,6 +69,5 @@ duration is a preventive media bound with asynchronous/OEM residual limits,
 not an absolute wall-time guarantee under every OS failure. No new observation
 data was obtained during this review.
 
-Only public repository source/tests were inspected. Denied private scripts,
-envelopes, config, receipts and raw camera-profile records were not read.
-No commit or push performed.
+Only public repository source/tests were inspected. No host deployment,
+device operation, commit or push was performed during this review.

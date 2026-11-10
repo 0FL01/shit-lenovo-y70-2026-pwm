@@ -1,0 +1,15 @@
+{
+  "scope": "offline review freeze; not live source admission",
+  "tests": {
+    "normal": 30,
+    "optimized": 30
+  },
+  "sha256": {
+    "06-tools/stock_observation_20261110/protocol.py": "fc969a60e101364015170dc8c61beadc27ae5e43609ce7ef51da5d8f361c8907",
+    "06-tools/stock_observation_20261110/test_protocol.py": "081a76e9e510a90b90e5ffafc2bfbe2c6f7d49485931954118496a113cae041c",
+    "06-tools/stock_observation_20261110/protocol_v2.py": "9f157ba47dee49c1686c47e26654c8e678b24d00b5e97699cff8832e60c26f4d",
+    "06-tools/stock_observation_20261110/coordinator.py": "2523cc14bbf1a2023a391bfa01c6287f8fac1550e09d390828b3519069975678",
+    "06-tools/stock_observation_20261110/test_coordinator.py": "8faaa978aa2ad8380c886eb2cc0a5672c3b75c9d5ac8cacc3f007be8390d869a",
+    "artifacts/stock_observation_preparation_20261110/PROTOCOL_V2.md": "4f03238bc53b14ca4964c92906e84d7b1351b602a88afc1e8171eb75517ff6aa"
+  }
+}

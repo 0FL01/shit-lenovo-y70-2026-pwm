@@ -62,3 +62,11 @@ Upstream SourceForge source не удалось получить через web 
 4. После разрешённого выполнения требуются отдельные stop-state observation и media validation (duration, frames/PTS, resolution), плюс readback восстановления профиля. При потере наблюдения фиксировать **outcome uncertain**, не утверждать stop/cancel и не запускать повтор, пока состояние не установлено.
 
 Текущая работа ограничена offline research. Фактическое выполнение определяется применимой авторизацией и reviewed readiness; этот документ не вводит нового blanket consent правила.
+
+## UI route для prospective native10s coordinator (source-only)
+
+Официальный source1.56.2: `res/layout/activity_main.xml:188` связывает contentDescription с `action_settings`; `res/values/strings.xml:5` = **Settings**, `:173` = **Video settings…** (Unicode ellipsis), `:209` = **Maximum duration of video**, `:368` = **10 seconds**, `:211` = **Restart video after max duration**. `res/values/arrays.xml:230–244` связывает **Don't restart** с0. `res/xml/preferences_sub_video.xml:49–65`: duration/restart — ListPreference, оба default0; summary содержит описательный текст и `\n%s` текущего entry, а не только entry.
+
+Filesize title `strings.xml:215` = **Restart on maximum file size**; `preferences_sub_video.xml:76–80` — SwitchPreference с defaulttrue. Это source defaults, не current preferences. UI dialog должен однозначно показать checked entry; restore возвращает именно наблюдавшийся исходный entry/switch с повторным readback. Отсутствующий/неоднозначный control или неизвестная locale означает fail-closed, без угадывания.
+
+Новый prospective v2 native10s с окнами1–9s рассматривается отдельно; исходная дискуссия frame360/13–14s выше относится к v1 и не должна молча переинтерпретироваться. Native10s также не создаёт строгую physical wall-time гарантию; startdispatch→verifiedpreview15s — критерий успешного наблюдения, не механизм принудительной остановки.
