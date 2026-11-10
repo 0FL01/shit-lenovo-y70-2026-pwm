@@ -1,5 +1,5 @@
 {
-  "status": "offline_source_correction_review_pending_not_hardware_admission",
+  "status": "offline_redraw_correction_pending_full_stock_qualification",
   "profile": "aa",
   "default_profile_unchanged": "p85",
   "hardware_paths": [
@@ -84,13 +84,13 @@
     "06-tools/video_validation_split_20261109/video_validator_snapshot.py"
   ],
   "changed_or_new_runtime_sha256": {
-    "06-tools/run_aa_timed_stock_trial.py": "0214815d31f19eb13c21a2bb0a0d866c1decf06c8833b38345bfb1de353f670d",
+    "06-tools/run_aa_timed_stock_trial.py": "b649f5490e5859694c55f05c44b4d2d1b01a18869bba786f5d8fef53b6277ba1",
     "06-tools/aa_threshold_trial.py": "a6a495c5d3d363717c44546e93eb035eaa5c91ab93a3c200a1e7a8a09837e1d7",
-    "06-tools/aa_acquisition_validation.py": "84c8e5188493a6f1c45b05bed400f544ef159004ceac943880e8360a2df1cfed",
+    "06-tools/aa_acquisition_validation.py": "b650dab84fd82c0a0947000ee2ae70a1fceb1ff0310c5e8e12dd15540b2d8692",
     "06-tools/aa_video_validation.py": "00843592492b245060e8aa3098ffd3ca7303af0f43ea67fa474c288111abcff4",
     "06-tools/dsi_trial_transaction.py": "4407a55b3bc37e197e48c74673cff0626345124ca5163b4177ade9a567339ffa",
     "06-tools/host_source_integration_20261109/inert_source_loader.py": "6dd008a6f9f55b11fbcb43270f9510a659d4f61f8b7fc3ae2c80ab863c41b40c",
-    "06-tools/host_source_integration_20261109/host_entrypoint.py": "68048c213a47ae72819e6a5eb1e1595c6f3025b2fbbec94b2633bfbbb99b4da6",
+    "06-tools/host_source_integration_20261109/host_entrypoint.py": "d4e7f20f87ce5e2283ac918ebf48a460dd384011ceedfd4ff37f973ce5a31110",
     "06-tools/run_p85_guarded_trial.py": "fba1ec5dbb0f7592a4d0a3167589dadac2130370cbf886cecc1d588772fa97a5"
   },
   "worst_case_command_sizes": {
@@ -122,7 +122,9 @@
   "tests": [
     "06-tools/test_run_aa_timed_stock_trial.py",
     "06-tools/host_source_integration_20261109/test_aa_source_profile.py",
-    "06-tools/test_aa_inherited_setup.py"
+    "06-tools/test_aa_inherited_setup.py",
+    "06-tools/test_aa_video_validation.py",
+    "06-tools/host_source_integration_20261109/test_inert_source_loader.py"
   ],
   "live_device_operations": 0,
   "commits_or_pushes": 0,
@@ -137,5 +139,31 @@
       "rm"
     ],
     "hardware_admitted": false
+  },
+  "redraw_correction": {
+    "contract": "same_trial_settings_fragment_tree_v1",
+    "status": "offline_review_ready_not_full_stock_admission",
+    "runtime_acquisition_tests_normal": 67,
+    "runtime_acquisition_tests_optimized": 67,
+    "actual_saved_scene_parsing": {
+      "ready_nodes": 136,
+      "opened_nodes": 150,
+      "returned_equals_ready": true
+    },
+    "stock_ui_calibration_activity_seconds": [
+      0.058931,
+      0.049979,
+      0.050905
+    ],
+    "stock_ui_calibration_scope": "Separate sole-operator target-only UI observation; not full-stock timing/optical qualification",
+    "ui_xml_freshness": "Guarded owned file removed and absence verified before each dump; newly created file required",
+    "settle_limit": "1s total acceptance deadline, not transport wall bound; inherited version handshake timeout unchanged",
+    "prearm_policy": "Same actual fast path for all stages; fresh measured baseline full+prehold+3; no old-time subtraction",
+    "physical_stock_qualified": false,
+    "candidate_admitted": false,
+    "focused_suite_tests_normal": 89,
+    "focused_suite_tests_optimized": 89,
+    "immediate_fast_transition_qualified": false,
+    "immediate_fast_transition_limit": "Calibration02 activity reads followed UIAutomator; strict runtime may reject a normal transition. Fresh identical-path stock baseline tests compatibility before arm."
   }
 }

@@ -29,6 +29,88 @@ def absent_probes():
 
 STOCK_SCOPE='aa-threshold-stock-surrogate-v1'
 CANDIDATE_SCOPE='aa-threshold-candidate-v1'
+REDRAW_SCENE_CONTRACT=acquisition.REDRAW_SCENE_CONTRACT
+REDRAW_SETTLE_SECONDS=1.0
+
+
+def settings_scene(text):
+    """Narrow observed Android16 activity dump, not a generic UI/text decoder.
+
+    The top dump also includes stopped launcher/parent activities. Select by
+    each activity's own native lifecycle, then bind the focused Settings view
+    tree AND its resumed AndroidX fragment. Never global-match a fragment name.
+    Text/checked values are NOT exposed here: same-trial XML calibration and
+    the independent timeout/native checks remain required.
+    """
+    check(isinstance(text,str) and 0<len(text)<4*1024*1024 and '\ufffd' not in text,
+          'Malformed activity scene dump')
+    starts=list(re.finditer(r'^  ACTIVITY ([^\n]+)$',text,re.M))
+    check(starts,'Missing activity sections')
+    resumed=[]
+    for i,start in enumerate(starts):
+        body=text[start.end():starts[i+1].start() if i+1<len(starts) else len(text)].split('\nTASK ',1)[0]
+        local_header=re.search(r'^    Local Activity [0-9a-f]+ State:\n',body,re.M)
+        check(local_header is not None,'Missing native activity state')
+        local=body[local_header.end():].split('\n    ViewRoot:',1)[0]
+        states=re.findall(r'^      mResumed=(true|false) mStopped=(true|false) mFinished=(true|false)$',local,re.M)
+        check(len(states)==1,'Ambiguous native activity lifecycle')
+        if states[0][0]=='true':resumed.append((start[1],body,local,states[0]))
+    check(len(resumed)==1,'Missing/ambiguous resumed activity')
+    header,body,local,state=resumed[0]
+    identity=re.fullmatch(r'(com\.android\.settings/[^ ]+) [0-9a-f]+ pid=(\d+) userId=0 uid=1000 displayId=0\(type=INTERNAL\)',header)
+    check(identity is not None and state==('true','false','false'),'Unexpected resumed Settings identity')
+    check('\n      mIsInMultiWindowMode=false mIsInPictureInPictureMode=false\n' in local and
+          '\n      mChangingConfigurations=false\n' in local,'Settings configuration transition')
+    configs=re.findall(r'^      mCurrentConfig=(.+)$',local,re.M)
+    check(len(configs)==1 and 'mDisplayRotation=ROTATION_0' in configs[0] and
+          'mWindowingMode=fullscreen' in configs[0],'Unknown Settings display configuration')
+    roots=re.findall(r'^    ViewRoot:\n(.*?)^    View Hierarchy:\n',body,re.M|re.S)
+    check(len(roots)==1,'Missing/ambiguous Settings ViewRoot')
+    for key,value in (('mAdded','true'),('mRemoved','false'),('mStopped','false'),
+                      ('mPausedForTransition','false'),('mPendingInputEventCount','0'),
+                      ('mProcessInputEventsScheduled','false'),('mTraversalScheduled','false')):
+        check(re.findall(r'^      '+key+r'=(\S+)$',roots[0],re.M)==[value],'Unsettled Settings ViewRoot: '+key)
+    check(re.findall(r'^        mHasWindowFocus=(\S+)$',roots[0],re.M)==['true'] and
+          re.findall(r'^        mWindowVisibility=(\S+)$',roots[0],re.M)==['0'],'Settings window not visible/focused')
+    trees=re.findall(r'^    View Hierarchy:\n(.*?)^    Looper \(main,',body,re.M|re.S)
+    check(len(trees)==1,'Incomplete Settings hierarchy boundary')
+    hierarchy=[];depths=[]
+    for line in trees[0].splitlines():
+        match=re.fullmatch(r'( +)([A-Za-z_$][\w.$]*)\{[0-9a-f]+ ([VIG.][F.][E.][D.][H.][V.][C.][L.][X.]) ([R.][F.][S.][pP.][H.][A.][I.][D.]) (-?\d+,-?\d+--?\d+,-?\d+)( #[0-9a-f]+(?: [\w.$]+:id/[\w.$]+)?)?(?: aid=\d+)?\}(\[[^\]\n]+\])?',line)
+        check(match is not None,'Unknown/truncated Settings view line')
+        indent,klass,flags,private,bounds,resource,title=match.groups()
+        depth=(len(indent)-6)//2
+        check(len(indent)>=6 and len(indent)%2==0 and
+              ((not depths and depth==0) or (depth>0 and depth<=depths[-1]+1)),
+              'Broken Settings view hierarchy')
+        # Object/autofill IDs and invalidated/dirty frame bits are transient.
+        # Keep class, order, bounds, resource IDs and all interaction flags.
+        hierarchy.append([depth,klass,flags,private[:6],bounds,resource or '',title or ''])
+        depths.append(depth)
+    check(5<=len(hierarchy)<=4096 and hierarchy[0][1]=='com.android.internal.policy.DecorView',
+          'Incomplete Settings decor tree')
+    support=re.findall(r'^    Local FragmentActivity [0-9a-f]+ State:\n(.*)',body,re.M|re.S)
+    check(len(support)==1,'Missing/ambiguous support fragment state')
+    active=re.fullmatch(r'      mCreated=true mResumed=true mStopped=false    Active Fragments:\n(.*?)^    Added Fragments:\n(.*)',support[0],re.M|re.S)
+    check(active is not None,'Unsettled support fragment manager')
+    fragments=re.findall(r'^    ([A-Za-z_$][\w.$]*\{[0-9a-f]+\} \([0-9a-f-]+ id=0x[0-9a-f]+\))$',active[1],re.M)
+    check(len(fragments)==1,'Ambiguous current Settings fragment')
+    fragment=fragments[0];fragment_class=fragment.split('{',1)[0]
+    check(re.findall(r'^        mState=(\d+) mWho=[^ ]+ mBackStackNesting=\d+$',active[1],re.M)==['7'] and
+          '\n        mAdded=true mRemoving=false mFromLayout=false mInLayout=false\n' in active[1] and
+          '\n        mHidden=false mDetached=false mMenuVisible=true mHasMenu=' in active[1],
+          'Settings fragment not resumed/visible')
+    added=active[2].split('\n    ',1)[0]
+    check(added.strip()=='#0: '+fragment,'Current/added fragment mismatch')
+    check(active[2].rstrip().endswith('mCurState=7 mStateSaved=false mStopped=false mDestroyed=false'),
+          'Incomplete support fragment tail')
+    scene={'component':identity[1],'pid':int(identity[2]),'fragment':fragment_class,
+           'configuration':configs[0],'hierarchy':hierarchy}
+    return scene
+
+
+def scene_digest(scene):
+    return hashlib.sha256(json.dumps(scene,sort_keys=True,separators=(',',':')).encode()).hexdigest()
 
 
 def validate_replay(log,begin,end,reference):
@@ -155,6 +237,7 @@ class AATimedTrial(timed.TimedStockTrial):
         self.aa_candidate=aa_candidate;self.programs=aa.fixed_programs();self.entry_count=0
         self.trace_owned=False;self.chunks_owned=False;self.trace_snapshot='';self.redraw_ui_owned=False
         self.target_ui_path='/data/local/tmp/aa-ui-'+uuid.uuid4().hex[:12]
+        self.redraw_scenes=None;self.redraw_tap=None
         self.marker='PWM_AA_'+self.plan['experiment_id']
         self.report.update(scope=CANDIDATE_SCOPE if aa_candidate else STOCK_SCOPE,marker=self.marker,
             candidate_enabled=aa_candidate,overall_watchdog_seconds=600,overall_watchdog_renewals=0,native_dbv=3600,full_table_writes_attempted=[],writes=[],
@@ -289,35 +372,128 @@ class AATimedTrial(timed.TimedStockTrial):
                 f'test ! -L {path}/owner; test -f {path}/owner; test \"$(stat -c %u {path}/owner)\" = 2000; '
                 f'test \"$(stat -c %a {path}/owner)\" = 600; test \"$(cat {path}/owner)\" = {q(self.token)}')
 
-    def redraw(self,label):
-        check(self.redraw_ui_owned,'Owned ordinary target UI scratch required')
-        self.pending_read=True
-        begin=self.mark('REDRAW_BEGIN_'+label)
-        def ui(suffix):
-            path=self.target_ui_path+'/redraw.xml'
-            command='set -eu; '+self.target_ui_guard()+f'; test ! -L {path}; uiautomator dump {path} >/dev/null; chmod 600 {path}; test ! -L {path}; test -f {path}; test \"$(stat -c %u {path})\" = 2000; test \"$(stat -c %a {path})\" = 600; test \"$(wc -c < {path})\" -le 4194304; cat {path}'
-            return ET.fromstring(self.shell(command,label=label+'-redraw-'+suffix))
-        for attempt in range(3):
-            tree=ui('before');parents={c:p for p in tree.iter() for c in p}
-            labels=[n for n in tree.iter('node') if n.get('text')=='Screen timeout' and n.get('package')=='com.android.settings']
-            if len(labels)==1:
-                row=labels[0]
-                while row.get('clickable')!='true':row=parents[row]
-                check(not any(n.get('checkable')=='true' for n in row.iter('node')),'Unsafe redraw row')
-                coords=list(map(int,re.findall(r'\d+',row.get('bounds',''))));check(len(coords)==4,'Bad redraw bounds')
-                a,b,c,d=coords;self.shell(f'input tap {(a+c)//2} {(b+d)//2}',label=label+'-redraw-open',mutation=True)
-                check(any(n.get('text')=='10 minutes' for n in ui('opened').iter('node')),'Chooser not expected10min')
-                self.shell('input keyevent 4',label=label+'-redraw-cancel',mutation=True)
-                check(any(n.get('text')=='Screen timeout' for n in ui('returned').iter('node')),'Did not return to Settings')
-                check(self.shell('settings get system screen_off_timeout',label=label+'-redraw-setting')==str(s.setup_timeout(self.before['screen_off_timeout'])),'Timeout changed')
-                break
-            check(attempt<2,'Native timeout chooser unavailable')
-            self.shell('input swipe 720 2780 720 850 400',label=label+'-redraw-scroll',mutation=True)
+    def target_ui(self,label):
+        path=self.target_ui_path+'/redraw.xml'
+        # dump may return zero without rewriting its output. Remove only our
+        # guarded owned file, prove absence, and require a newly created file.
+        command=('set -eu; '+self.target_ui_guard()+f'; test ! -L {path}; '
+            f'if test -e {path}; then test -f {path}; test \"$(stat -c %u {path})\" = 2000; '
+            f'test \"$(stat -c %a {path})\" = 600; rm {path}; fi; '
+            f'test ! -e {path}; test ! -L {path}; uiautomator dump {path} >/dev/null; '
+            f'test ! -L {path}; test -f {path}; test \"$(stat -c %u {path})\" = 2000; '
+            f'chmod 600 {path}; test \"$(stat -c %a {path})\" = 600; '
+            f'test \"$(wc -c < {path})\" -le 4194304; cat {path}')
+        return ET.fromstring(self.shell(command,label=label))
+
+    def target_scene(self,label,timeout=5):
+        text=self.shell('set -eu; '+self.target_ui_guard()+'; dumpsys activity top',label=label,timeout=timeout)
+        return settings_scene(text)
+
+    def redraw_audit(self,label,begin):
         end=self.mark('REDRAW_END_'+label)
         log=self.shell('dmesg',root=True,label=label+'-redraw-wire')
         result=a9.verify_redraw_interval(log,self.marker,label);s.qualify_quiet(log,begin,end,self.reference)
         trace=self.shell('cat '+aa.TRACE+'/trace',root=True,label=label+'-redraw-trace');self.trace_check(trace)
-        self.state(3600);self.pending_read=False;return result
+        check(self.shell('settings get system screen_off_timeout',label=label+'-redraw-setting')==str(s.setup_timeout(self.before['screen_off_timeout'])),'Timeout changed')
+        self.state(3600)
+        return result
+
+    def calibrate_redraw(self):
+        """One-time semantic discovery, outside ALL measured stage phases.
+
+        Do not load prior run snapshots or subtract their cost from an estimate.
+        Every stage, including measured baseline, uses redraw() below unchanged.
+        """
+        check(self.redraw_ui_owned,'Owned ordinary target UI scratch required')
+        check(self.redraw_scenes is None and self.active_start is None and not self.pending_read,
+              'Redraw calibration must precede measured stages')
+        self.pending_read=True
+        label='calibration'
+        begin=self.mark('REDRAW_BEGIN_'+label)
+        for attempt in range(3):
+            tree=self.target_ui(label+'-redraw-before');parents={c:p for p in tree.iter() for c in p}
+            labels=[n for n in tree.iter('node') if n.get('text')=='Screen timeout' and n.get('package')=='com.android.settings']
+            check(len(labels)<=1,'Ambiguous timeout row')
+            if len(labels)==1:
+                row=labels[0]
+                while row.get('clickable')!='true':
+                    check(row in parents,'No clickable timeout row');row=parents[row]
+                check(not any(n.get('checkable')=='true' for n in row.iter('node')),'Unsafe redraw row')
+                check(tree.get('rotation')=='0' and row.get('enabled')=='true','Unknown timeout row orientation/state')
+                coords=re.fullmatch(r'\[(\d+),(\d+)\]\[(\d+),(\d+)\]',row.get('bounds',''))
+                check(coords is not None,'Bad redraw bounds');a,b,c,d=map(int,coords.groups())
+                check(0<=a<c<=1440 and 0<=b<d<=3168,'Timeout row out of target bounds')
+                ready=self.target_scene(label+'-scene-ready')
+                check(ready['component']=='com.android.settings/.Settings$DisplaySettingsActivity' and ready['fragment']=='DisplaySettings',
+                      'Calibration must start on observed Display settings')
+                self.redraw_tap=[(a+c)//2,(b+d)//2]
+                self.shell(f'input tap {self.redraw_tap[0]} {self.redraw_tap[1]}',label=label+'-redraw-open',mutation=True)
+                opened_xml=self.target_ui(label+'-redraw-opened')
+                options=('15 seconds','30 seconds','1 minute','2 minutes','5 minutes','10 minutes','30 minutes')
+                titles=[n.get('text') for n in opened_xml.iter('node') if n.get('resource-id')=='android:id/title' and
+                        n.get('package')=='com.android.settings' and n.get('text') in options]
+                toolbars=[n.get('content-desc') for n in opened_xml.iter('node') if
+                          n.get('resource-id')=='com.android.settings:id/collapsing_toolbar' and n.get('package')=='com.android.settings']
+                check(opened_xml.get('rotation')=='0' and titles==list(options) and toolbars==['Screen timeout'] and
+                      ET.tostring(opened_xml)!=ET.tostring(tree),'Missing fresh exact timeout options page')
+                opened=self.target_scene(label+'-scene-opened')
+                check(opened['component']=='com.android.settings/.SubSettings' and opened['fragment']=='ScreenTimeoutSettings' and
+                      opened['pid']==ready['pid'] and opened['hierarchy']!=ready['hierarchy'],
+                      'Opened scene must be distinct in the same Settings process')
+                self.shell('input keyevent 4',label=label+'-redraw-cancel',mutation=True)
+                returned_xml=self.target_ui(label+'-redraw-returned')
+                check(ET.tostring(returned_xml)==ET.tostring(tree),'Did not return to identical Settings scene')
+                returned=self.target_scene(label+'-scene-returned')
+                check(returned==ready,'Returned framework scene changed')
+                break
+            check(attempt<2,'Native timeout chooser unavailable')
+            self.shell('input swipe 720 2780 720 850 400',label=label+'-redraw-scroll',mutation=True)
+        audit=self.redraw_audit(label,begin)
+        self.redraw_scenes={'ready':ready,'opened':opened}
+        self.report['redraw_ui_calibration']={'contract':REDRAW_SCENE_CONTRACT,
+            'source_commit':self.report['source_commit'],'boot_id':self.before['boot_id'],
+            'tap_xy':self.redraw_tap,'scene_sha256':{k:scene_digest(v) for k,v in self.redraw_scenes.items()},
+            'components':{k:v['component'] for k,v in self.redraw_scenes.items()},
+            'fragments':{k:v['fragment'] for k,v in self.redraw_scenes.items()},
+            'semantic_xml_verified':True,'returned_xml_equals_ready':True,
+            'live_text_or_checked_verification':False,'audit':audit,
+            'completed_monotonic':self.monotonic()}
+        self.pending_read=False
+
+    def settle_scene(self,label,expected,previous):
+        # A single total acceptance deadline, never a fresh budget per poll.
+        # The inherited ADB version handshake has its own timeout, so this is
+        # not a new transport wall bound. Reject late results; the unchanged
+        # outer37 alarm remains the active-window interruption/recovery guard.
+        deadline=self.monotonic()+REDRAW_SETTLE_SECONDS
+        if self.active_start is not None:deadline=min(deadline,self.monotonic()+self.remaining())
+        while True:
+            left=deadline-self.monotonic();check(left>0,'Settings transition exceeded acceptance deadline')
+            observed=self.target_scene(label,timeout=left)
+            check(self.monotonic()<=deadline,'Late Settings scene result')
+            if observed==expected:return scene_digest(observed)
+            # Only the complete known previous scene is a permitted transition.
+            # Malformed/unfocused/unresumed/foreign/unknown scenes are terminal.
+            check(observed==previous,'Unexpected Settings transition scene')
+            self.sleep(min(.05,max(0,deadline-self.monotonic())))
+
+    def redraw(self,label):
+        check(self.redraw_ui_owned and self.redraw_scenes is not None,'Same-trial Settings calibration required')
+        check(not self.pending_read and not self.inflight,'No redraw into uncertainty')
+        self.pending_read=True
+        begin=self.mark('REDRAW_BEGIN_'+label)
+        ready,opened=self.redraw_scenes['ready'],self.redraw_scenes['opened']
+        before=self.target_scene(label+'-scene-ready')
+        check(before==ready,'Settings scene changed before input')
+        self.shell(f'input tap {self.redraw_tap[0]} {self.redraw_tap[1]}',label=label+'-redraw-open',mutation=True)
+        opened_digest=self.settle_scene(label+'-scene-opened',opened,ready)
+        self.shell('input keyevent 4',label=label+'-redraw-cancel',mutation=True)
+        returned_digest=self.settle_scene(label+'-scene-returned',ready,opened)
+        result=self.redraw_audit(label,begin)
+        result.update(scene_contract=REDRAW_SCENE_CONTRACT,
+            scene_sha256=[scene_digest(before),opened_digest,returned_digest])
+        self.pending_read=False
+        return result
 
     def prehold(self,record):
         label=record['label'];self.panel_uncertain=True
@@ -382,7 +558,7 @@ class AATimedTrial(timed.TimedStockTrial):
     def execute(self):
         error=None
         try:
-            self.setup();self.setup_aa()
+            self.setup();self.setup_aa();self.calibrate_redraw()
             record=self.writer('baseline');self.prehold(record);self.finish_hold(record)
             self.identity();self.camera_identity();self.metadata('pre-aa');self.state(3600)
             phases=record['phase_seconds'];full=sum(phases.values())
@@ -390,7 +566,7 @@ class AATimedTrial(timed.TimedStockTrial):
             estimate=full+prehold+3.0
             self.report['prearm_planning_estimate']={'observed_baseline_phase_seconds':dict(phases),
                 'estimated_active_seconds':estimate,'planning_margin_seconds':3.0,
-                'status':'observation_not_a_bound'}
+                'status':'observation_not_a_bound','redraw_scene_contract':REDRAW_SCENE_CONTRACT}
             self.save();check(estimate<37,'Measured baseline composition does not fit37s; stopped before short arm')
             with self.active_window():
                 self.arm_timed()

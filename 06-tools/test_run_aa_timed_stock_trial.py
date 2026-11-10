@@ -22,6 +22,51 @@ from test_aa_threshold_trial import SELECTOR_RAW
 REPLAY_POLL=' kworker/1:2-88 [001] d..1. 100.000000: mode_ctrl_return: (dsi_display_validate_status+0x154/0x308 [msm_drm] <- dsi_ctrl_cmd_transfer) rc=1\n'
 REPLAY_RETURN=' printf-99 [001] d..1. 100.020000: mode_ctrl_return: (dsi_host_transfer_sub+0x2f4/0x558 [msm_drm] <- dsi_ctrl_cmd_transfer) rc=0\n'
 
+def scene_fixture(opened=False):
+    """Synthetic observed-format fixture; not target/latency qualification."""
+    fragment='ScreenTimeoutSettings' if opened else 'DisplaySettings'
+    component='.SubSettings' if opened else '.Settings$DisplaySettingsActivity'
+    widget='android.widget.RadioButton' if opened else 'android.widget.TextView'
+    return f'''  ACTIVITY com.android.settings/{component} abc pid=123 userId=0 uid=1000 displayId=0(type=INTERNAL)
+    Local Activity def State:
+      mResumed=true mStopped=false mFinished=false
+      mIsInMultiWindowMode=false mIsInPictureInPictureMode=false
+      mChangingConfigurations=false
+      mCurrentConfig={{mDisplayRotation=ROTATION_0 mWindowingMode=fullscreen}}
+    ViewRoot:
+      mAdded=true
+      mRemoved=false
+      mStopped=false
+      mPausedForTransition=false
+      mPendingInputEventCount=0
+      mProcessInputEventsScheduled=false
+      mTraversalScheduled=false
+        mHasWindowFocus=true
+        mWindowVisibility=0
+    View Hierarchy:
+      com.android.internal.policy.DecorView{{abc V.E...... R....... 0,0-1440,3168}}[Settings]
+        android.widget.FrameLayout{{def V.E...... ........ 0,0-1440,3168 #1020002 android:id/content}}
+          androidx.recyclerview.widget.RecyclerView{{fed VFED.V... .F...... 0,0-1440,3000 #7f0602 app:id/recycler_view aid=1234}}
+            android.widget.LinearLayout{{aaa VFE..VC.. ........ 0,0-20,20 #0}}
+              {widget}{{bbb V.ED.V... ........ 0,0-20,20 #1020016 android:id/title}}
+    Looper (main, tid 2) {{ccc}}
+    Local FragmentActivity def State:
+      mCreated=true mResumed=true mStopped=false    Active Fragments:
+    {fragment}{{ddd}} (11111111-1111-1111-1111-111111111111 id=0x7f048b)
+        mState=7 mWho=11111111-1111-1111-1111-111111111111 mBackStackNesting=0
+        mAdded=true mRemoving=false mFromLayout=false mInLayout=false
+        mHidden=false mDetached=false mMenuVisible=true mHasMenu=true
+    Added Fragments:
+      #0: {fragment}{{ddd}} (11111111-1111-1111-1111-111111111111 id=0x7f048b)
+    FragmentManager misc state:
+      mCurState=7 mStateSaved=false mStopped=false mDestroyed=false
+'''
+
+READY_XML='<hierarchy rotation="0"><node text="Screen timeout" package="com.android.settings" clickable="true" checkable="false" enabled="true" bounds="[0,0][20,20]"/></hierarchy>'
+OPENED_XML=('<hierarchy rotation="0"><node resource-id="com.android.settings:id/collapsing_toolbar" package="com.android.settings" content-desc="Screen timeout"/>'+
+    ''.join('<node text="'+text+'" package="com.android.settings" resource-id="android:id/title"/>' for text in
+            ('15 seconds','30 seconds','1 minute','2 minutes','5 minutes','10 minutes','30 minutes'))+'</hierarchy>')
+
 class Transport:
     def __init__(self,run):self.run=run
     def shell(self,target,command,timeout):
@@ -78,8 +123,10 @@ class Sim(t.AATimedTrial):
         clock=Clock();super().__init__(None,6,1,'aa_timed_test',root,root,sleep=clock.sleep,monotonic=clock,**kwargs)
         self.clock=clock;self.g=t.timed.DeadlineTransport(self,Transport(self));self.calls=[];self.children=[]
         self.log=ANCHOR;self.trace='';self.failure=None;self.corrupt=None;self.frames=135;self.slow=False;self.gap_inject=None;self.gap_event='mode_ctrl_return: rc=0\n'
+        self.scene_state=False
     def setup(self):
         self.before={'boot_id':BOOT,'native_dbv':6438,'screen_off_timeout':'1800000'};self.reference=REF
+        self.report['before']=deepcopy(self.before)
         self.report.update(source_worktree_clean_for_runner=True,source_commit='a'*40,source_blob_ids={'fixture.py':'b'*40},source_tracked_paths=['fixture.py'])
         self.report['recording_preflight']=[self.metadata('preflight1'),self.metadata('preflight2')]
     def identity(self):self.calls.append('identity')
@@ -108,9 +155,13 @@ class Sim(t.AATimedTrial):
             self.trace+=getattr(self,'replay_suffix',REPLAY_RETURN)
         if label.endswith('-wire'):return self.log
         if label.endswith('-redraw-before') or label.endswith('-redraw-returned'):
-            if self.slow:self.clock.sleep(8)
-            return '<hierarchy><node text="Screen timeout" package="com.android.settings" clickable="true" bounds="[0,0][20,20]"/></hierarchy>'
-        if label.endswith('-redraw-opened'):return '<hierarchy><node text="10 minutes"/></hierarchy>'
+            return READY_XML
+        if label.endswith('-redraw-opened'):return OPENED_XML
+        if label.endswith('-redraw-open'):self.scene_state=True
+        if label.endswith('-redraw-cancel'):self.scene_state=False
+        if '-scene-' in label:
+            if self.slow and label=='baseline-scene-ready':self.clock.sleep(20)
+            return scene_fixture(self.scene_state)
         if label.endswith('-redraw-setting'):return '1800000'
         return ''
     def wait_value(self,*args,**kwargs):pass
@@ -343,6 +394,30 @@ class EntrypointTests(unittest.TestCase):
             self.assertEqual(holder['evidence']['status'],'source_finalized');self.assertIn('finalized',calls);self.assertEqual(calls[-1],'close')
 
 class TargetUIScratchTests(unittest.TestCase):
+    def test_generated_shell_requires_fresh_xml_after_zero_exit_dump(self):
+        import subprocess
+        for mode in ('no_write','fresh','remove_failure'):
+            with self.subTest(mode=mode),tempfile.TemporaryDirectory() as root:
+                run=Sim(root);run.target_ui_path=root+'/ui';path=Path(run.target_ui_path)
+                path.mkdir(mode=0o700);(path/'owner').write_text(run.token);(path/'owner').chmod(0o600)
+                stale=path/'redraw.xml';stale.write_text(READY_XML);stale.chmod(0o600)
+                calls=[]
+                prefix='id() { echo 2000; }; stat() { if [ "$2" = %u ]; then echo 2000; else command stat "$@"; fi; }; '
+                dump=('return 0;' if mode=='no_write' else 'printf %s '+t.q(OPENED_XML)+' > "$2";')
+                prefix+='uiautomator() { '+dump+' }; '
+                if mode=='remove_failure':prefix+='rm() { return 2; }; '
+                def shell(command,**kwargs):
+                    result=subprocess.run(['sh','-c',prefix+command],capture_output=True,text=True)
+                    calls.append(result)
+                    if result.returncode:raise ValueError('Generated XML command failed')
+                    return result.stdout
+                run.shell=shell
+                if mode=='fresh':self.assertEqual(t.ET.tostring(run.target_ui('fresh')),t.ET.tostring(t.ET.fromstring(OPENED_XML)))
+                else:
+                    with self.assertRaises(ValueError):run.target_ui('fresh')
+                self.assertEqual(len(calls),1)
+                if mode=='no_write':self.assertFalse(stale.exists());self.assertEqual(calls[0].stdout,'')
+                if mode=='remove_failure':self.assertEqual(stale.read_text(),READY_XML)
     def test_shell_uid_and_owner_are_not_root_fallback(self):
         import subprocess
         with tempfile.TemporaryDirectory() as root:
@@ -360,11 +435,169 @@ class TargetUIScratchTests(unittest.TestCase):
             run=Sim(root);calls=[];original=run.shell
             def shell(command,**kwargs):calls.append((command,kwargs));return original(command,**kwargs)
             run.shell=shell
-            with patch.object(t.s,'now',run.now):run.setup();run.setup_aa();run.redraw('baseline')
+            with patch.object(t.s,'now',run.now):run.setup();run.setup_aa();run.calibrate_redraw();run.redraw('baseline')
             for command,kwargs in calls:
                 if 'uiautomator dump' in command:
                     self.assertIn(run.target_ui_path+'/redraw.xml',command);self.assertNotIn(run.tmp+'/redraw',command)
                     self.assertFalse(kwargs.get('root',False));self.assertIn('= 2000',command)
+
+
+class SceneParserTests(unittest.TestCase):
+    def test_own_resumed_settings_section_not_stopped_launcher(self):
+        ready=scene_fixture()
+        launcher=ready.replace('com.android.settings/.Settings$DisplaySettingsActivity','com.motorola.launcher3/.Launcher').replace('mResumed=true mStopped=false mFinished=false','mResumed=false mStopped=true mFinished=false').replace('DisplaySettings{','MisleadingSettings{')
+        self.assertEqual(t.settings_scene(launcher+'TASK settings\n'+ready),t.settings_scene(ready))
+        self.assertEqual(t.settings_scene(ready+'TASK launcher\n'+launcher),t.settings_scene(ready))
+        with self.assertRaises(ValueError):t.settings_scene(ready+ready)
+    def test_partial_foreign_and_unsettled_dumps_rejected(self):
+        good=scene_fixture()
+        bad=[good[:good.index('    Looper')],good.replace('    View Hierarchy:','    Other:'),
+             good.replace('uid=1000','uid=2000'),good.replace('displayId=0','displayId=1'),
+             good.replace('mHasWindowFocus=true','mHasWindowFocus=false'),good.replace('mWindowVisibility=0','mWindowVisibility=4'),
+             good.replace('mTraversalScheduled=false','mTraversalScheduled=true'),
+             good.replace('mPendingInputEventCount=0','mPendingInputEventCount=1'),
+             good.replace('mState=7','mState=5'),good.replace('mHidden=false','mHidden=true'),
+             good.replace('#0: DisplaySettings{ddd}','#0: OtherSettings{ddd}'),
+             good.replace('mCurState=7 mStateSaved=false mStopped=false mDestroyed=false',''),
+             good.replace('0,0-20,20','garbled',1),good+'\ufffd',good.replace('ROTATION_0','ROTATION_1')]
+        for text in bad:
+            with self.subTest(text=text[-80:]),self.assertRaises(ValueError):t.settings_scene(text)
+    def test_only_transient_ids_and_dirty_bits_normalized(self):
+        good=scene_fixture();expected=t.settings_scene(good)
+        transient=good.replace('{aaa ', '{123abc ').replace('aid=1234','aid=8888').replace('VFE..VC.. ........','VFE..VC.. ......ID')
+        self.assertEqual(expected,t.settings_scene(transient))
+        for before,after in [('VFE..VC..','GFE..VC..'),('VFE..VC..','VF...VC..'),('VFE..VC..','VFE..V...'),
+                             ('0,0-20,20','0,1-20,20'),('android:id/title','android:id/summary'),
+                             ('pid=123','pid=456'),('DisplaySettings','OtherSettings')]:
+            with self.subTest(change=after):self.assertNotEqual(expected,t.settings_scene(good.replace(before,after)))
+
+
+class RedrawCalibrationTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):Sim.reader=execute_reader_fixture()[0].stdout
+    def execute(self,run):
+        with patch.object(t.s,'now',run.now):return run.execute()
+    def test_slow_calibration_outside_baseline_and_all_stages_same_fast_path(self):
+        with tempfile.TemporaryDirectory() as root:
+            run=Sim(root);commands=[];original=run.shell
+            def shell(command,**kwargs):
+                commands.append((command,kwargs))
+                if 'uiautomator dump' in command:run.clock.sleep(2.2)
+                return original(command,**kwargs)
+            run.shell=shell;report=self.execute(run)
+            baseline=run.calls.index('baseline-write')
+            self.assertFalse(any('redraw-before' in label or 'redraw-opened' in label or 'redraw-returned' in label for label in run.calls[baseline:]))
+            for stage in ('baseline','sham_stock','return_stock'):
+                for part in ('ready','opened','returned'):self.assertEqual(run.calls.count(stage+'-scene-'+part),1)
+            self.assertLessEqual(report['redraw_ui_calibration']['completed_monotonic'],report['writes'][0]['started_monotonic'])
+            self.assertEqual(report['prearm_planning_estimate']['observed_baseline_phase_seconds'],report['stages'][0]['phase_seconds'])
+            self.assertLess(report['stages'][0]['phase_seconds']['redraw_audit'],1)
+            for command,kwargs in commands:
+                if 'dumpsys activity top' in command:
+                    self.assertFalse(kwargs.get('root',False));self.assertIn('= 2000',command)
+    def test_calibration_semantic_or_return_fault_stops_before_writer(self):
+        for fault in ('checkable','rotation','duplicate','opened','returned','same_scene','pid','stale'):
+            with self.subTest(fault=fault),tempfile.TemporaryDirectory() as root:
+                run=Sim(root);original=run.shell
+                def shell(command,**kwargs):
+                    value=original(command,**kwargs);label=kwargs.get('label','')
+                    if label=='calibration-redraw-before':
+                        if fault=='checkable':value=value.replace('checkable="false"','checkable="true"')
+                        if fault=='rotation':value=value.replace('rotation="0"','rotation="1"')
+                        if fault=='duplicate':value=value.replace('</hierarchy>','<node text="Screen timeout" package="com.android.settings"/></hierarchy>')
+                    if label=='calibration-redraw-opened' and fault=='opened':value=value.replace('10 minutes','5 minutes')
+                    if label=='calibration-redraw-returned' and fault=='returned':value=value.replace('20,20','21,20')
+                    if label=='calibration-scene-opened' and fault=='same_scene':value=scene_fixture()
+                    if label=='calibration-scene-opened' and fault=='pid':value=value.replace('pid=123','pid=456')
+                    if fault=='stale' and label in ('calibration-redraw-before','calibration-redraw-opened','calibration-redraw-returned'):
+                        value=READY_XML.replace('</hierarchy>','<node text="10 minutes" package="com.android.settings"/></hierarchy>')
+                    return value
+                run.shell=shell
+                with self.assertRaises(RuntimeError):self.execute(run)
+                self.assertEqual(run.children,[]);self.assertNotIn('timed-watchdog-arm',run.calls)
+                if fault in ('checkable','rotation','duplicate'):self.assertNotIn('calibration-redraw-open',run.calls)
+    def test_real_dispatch_uncertainty_never_retries_input_or_next_dsi(self):
+        labels=[stage+suffix for stage in ('calibration','baseline','sham_stock','return_stock')
+                for suffix in ('-scene-ready','-redraw-open','-scene-opened','-redraw-cancel','-scene-returned','-redraw-setting')]
+        for label in labels:
+            with self.subTest(label=label),tempfile.TemporaryDirectory() as root:
+                run=Sim(root);run.failure=label
+                with self.assertRaises(RuntimeError):self.execute(run)
+                self.assertEqual(run.calls.count(label),1);self.assertEqual(run.calls.count('reboot'),1)
+                after=run.calls[run.calls.index(label)+1:run.calls.index('reboot')]
+                self.assertFalse(any(x.endswith(('-write','-before-hold','-c1','-after-hold','-redraw-open','-redraw-cancel')) for x in after))
+    def test_known_previous_scene_can_settle_without_input_replay(self):
+        with tempfile.TemporaryDirectory() as root:
+            run=Sim(root);original=run.shell;pending=['baseline-scene-opened','baseline-scene-returned']
+            def shell(command,**kwargs):
+                value=original(command,**kwargs);label=kwargs.get('label','')
+                if label in pending:pending.remove(label);return scene_fixture(label.endswith('returned'))
+                return value
+            run.shell=shell;self.execute(run)
+            for part in ('opened','returned'):self.assertEqual(run.calls.count('baseline-scene-'+part),2)
+            self.assertEqual(run.calls.count('baseline-redraw-open'),1);self.assertEqual(run.calls.count('baseline-redraw-cancel'),1)
+    def test_wrong_stable_scene_and_malformed_result_not_pollable(self):
+        for value in (scene_fixture(True).replace('pid=123','pid=999'),'truncated'):
+            with tempfile.TemporaryDirectory() as root:
+                run=Sim(root);original=run.shell
+                def shell(command,**kwargs):
+                    result=original(command,**kwargs)
+                    return value if kwargs.get('label')=='baseline-scene-opened' else result
+                run.shell=shell
+                with self.assertRaises(RuntimeError):self.execute(run)
+                self.assertEqual(run.calls.count('baseline-scene-opened'),1)
+                self.assertNotIn('baseline-redraw-cancel',run.calls);self.assertEqual(run.children,['baseline-write'])
+    def test_settle_deadline_is_total_and_keeps_pending_on_expiry(self):
+        with tempfile.TemporaryDirectory() as root:
+            run=Sim(root);original=run.shell
+            def shell(command,**kwargs):
+                result=original(command,**kwargs)
+                return scene_fixture() if kwargs.get('label')=='baseline-scene-opened' else result
+            run.shell=shell
+            with self.assertRaises(RuntimeError):self.execute(run)
+            self.assertEqual(run.calls.count('baseline-redraw-open'),1)
+            self.assertNotIn('baseline-redraw-cancel',run.calls);self.assertIn('reboot',run.calls)
+    def test_real_inherited_version_handshake_can_exceed_acceptance_deadline(self):
+        import struct
+        import guarded_adb_socket as adb_module
+        clock=Clock();start=clock();connect_timeouts=[];dispatch=[]
+        raw=b'TASK settings\n'+scene_fixture().encode()
+        class Socket:
+            def __init__(self,data):self.data=data
+            def __enter__(self):return self
+            def __exit__(self,*args):self.close()
+            def close(self):pass
+            def settimeout(self,value):pass
+            def recv(self,n):part,self.data=self.data[:n],self.data[n:];return part
+            def sendall(self,data):
+                if b'shell,v2,raw:' in data:dispatch.append(clock())
+        adb=adb_module.GuardedADB.__new__(adb_module.GuardedADB);adb.protocol=b'0029';adb.identities={}
+        def connect(timeout):
+            connect_timeouts.append(timeout)
+            if len(connect_timeouts)==1:
+                clock.sleep(1.1);return Socket(b'OKAY00040029')
+            return Socket(b'OKAYOKAY'+struct.pack('<BI',1,len(raw))+raw+struct.pack('<BI',3,1)+b'\x00')
+        adb.connect=connect
+        with tempfile.TemporaryDirectory() as root,patch.object(adb_module.time,'monotonic',clock):
+            run=t.AATimedTrial(adb,6,1,'aa_scene_clock',root,root,sleep=clock.sleep,monotonic=clock)
+            run.pending_read=True
+            with self.assertRaisesRegex(ValueError,'Late Settings scene result'):
+                run.settle_scene('late-scene',t.settings_scene(raw.decode()),{})
+            self.assertTrue(run.pending_read);self.assertEqual(connect_timeouts,[12,1.0])
+            self.assertEqual(len(dispatch),1);self.assertAlmostEqual(dispatch[0]-start,1.1)
+    def test_timeout_setting_and_wire_still_reject(self):
+        for fault in ('setting','wire','trace'):
+            with self.subTest(fault=fault),tempfile.TemporaryDirectory() as root:
+                run=Sim(root);original=run.shell
+                def shell(command,**kwargs):
+                    value=original(command,**kwargs);label=kwargs.get('label')
+                    if fault=='setting' and label=='baseline-redraw-setting':return '600000'
+                    if fault=='wire' and label=='baseline-redraw-wire':return value.replace(run.marker+'_REDRAW_END_baseline','dsi_ctrl_cmd_transfer native unexpected\n'+run.marker+'_REDRAW_END_baseline')
+                    if fault=='trace' and label=='baseline-redraw-trace':return value+'mode_ctrl_return: rc=0\n'
+                    return value
+                run.shell=shell
+                with self.assertRaises(RuntimeError):self.execute(run)
+                self.assertEqual(run.children,['baseline-write']);self.assertIn('reboot',run.calls)
 
 
 class PreChildGapTests(unittest.TestCase):

@@ -30,6 +30,7 @@ def bounds(snapshot):
 
 SCHEMA = "aa-threshold-optical-v1"
 ACQUISITION_SCHEMA = "aa-threshold-acquisition-v1"
+REDRAW_SCENE_CONTRACT = "same_trial_settings_fragment_tree_v1"
 SCOPES = ("aa-threshold-stock-surrogate-v1", "aa-threshold-candidate-v1")
 HASHES = {"stock":"b5ed66ba69e6221de5fdeaf4d003c9628602d743880acd1c8e2cf7198facd193",
           "aa10":"65846e9320d4a39fd6a677fe9689d08409e80bac050c7cbb1dc12ca276245902"}
@@ -148,6 +149,30 @@ def validate_acquisition(run):
     stages=run.get("stages",[])
     require([s.get("label") for s in stages]==labels,"Wrong AA sequence")
     require(run.get("full_table_writes_attempted")==labels,"Repeated/missing full-table attempt")
+    calibration=run.get("redraw_ui_calibration",{})
+    scene_hashes=calibration.get("scene_sha256",{})
+    require(calibration.get("contract")==REDRAW_SCENE_CONTRACT and
+            calibration.get("source_commit")==run.get("source_commit") and
+            isinstance(calibration.get("boot_id"),str) and bool(calibration["boot_id"]) and
+            calibration["boot_id"]==run.get("before",{}).get("boot_id") and
+            calibration.get("semantic_xml_verified") is True and
+            calibration.get("returned_xml_equals_ready") is True and
+            calibration.get("live_text_or_checked_verification") is False,
+            "Missing same-trial semantic/structural redraw calibration")
+    require(set(scene_hashes)=={"ready","opened"} and
+            all(isinstance(x,str) and re.fullmatch(r'[0-9a-f]{64}',x) for x in scene_hashes.values()) and
+            scene_hashes["ready"]!=scene_hashes["opened"],"Missing distinct calibrated scenes")
+    tap=calibration.get("tap_xy",[])
+    require(type(tap) is list and len(tap)==2 and all(type(x) is int for x in tap) and
+            0<tap[0]<1440 and 0<tap[1]<3168,"Invalid calibrated timeout tap")
+    require(calibration.get("fragments")=={"ready":"DisplaySettings","opened":"ScreenTimeoutSettings"} and
+            calibration.get("components")=={"ready":"com.android.settings/.Settings$DisplaySettingsActivity",
+                                            "opened":"com.android.settings/.SubSettings"},
+            "Missing calibrated Settings scene identity")
+    audit=calibration.get("audit",{})
+    require(audit.get("native_dsi_writes")==0 and audit.get("marker_interval_verified") is True and
+            audit.get("method")=="native_timeout_chooser_open_cancel",
+            "Missing calibration frame-only audit")
     entry_count=0
     for i,stage in enumerate(stages):
         name="aa10" if candidate and i==1 else "stock"
@@ -181,6 +206,9 @@ def validate_acquisition(run):
         require(redraw.get("method")=="native_timeout_chooser_open_cancel" and
                 type(redraw.get("native_dsi_writes")) is int and redraw["native_dsi_writes"]==0 and
                 redraw.get("marker_interval_verified") is True,"Missing frame-only redraw audit")
+        require(redraw.get("scene_contract")==REDRAW_SCENE_CONTRACT and
+                redraw.get("scene_sha256")==[scene_hashes["ready"],scene_hashes["opened"],scene_hashes["ready"]],
+                "Missing calibrated before/open/returned redraw scenes")
         require(stage["selectors_before_hold"].get("entry_count_after")==entry_count+7,
                 "Prehold selector count discontinuity")
         entry_count+=7
@@ -237,6 +265,8 @@ def validate_acquisition(run):
                 "c1","hold_and_metadata","selectors_after_hold"}
     require(set(phases)==phase_keys and all(finite(x) and x>0 for x in phases.values()),
             "Missing observed full-composition planning phases")
+    require(estimate.get("redraw_scene_contract")==REDRAW_SCENE_CONTRACT and
+            phases==stages[0].get("phase_seconds"),"Incomparable baseline timing observation")
     predicted=2*sum(phases.values())-phases["hold_and_metadata"]-phases["selectors_after_hold"]+3
     require(estimate.get("status")=="observation_not_a_bound" and estimate.get("planning_margin_seconds")==3 and
             finite(estimate.get("estimated_active_seconds")) and
@@ -246,6 +276,9 @@ def validate_acquisition(run):
             "Unchanged overall600 watchdog required")
     writes=run.get("writes",[])
     require([w.get("stage") for w in writes]==labels,"Missing exact writer records")
+    calibrated=calibration.get("completed_monotonic")
+    require(finite(calibrated) and finite(writes[0].get("started_monotonic")) and
+            calibrated<=writes[0]["started_monotonic"],"Calibration not completed before measured baseline")
     clock_keys = ("active_start_monotonic", "arm_seconds", "return_qualified_monotonic",
                   "disarm_seconds", "active_G_seconds")
     require(all(finite(run.get(k)) for k in clock_keys), "Missing active-window clock evidence")

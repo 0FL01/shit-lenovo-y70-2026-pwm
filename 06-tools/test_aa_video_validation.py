@@ -30,11 +30,19 @@ def fixture(candidate=False):
         source_commit="a"*40,source_blob_ids={"runner.py":"b"*40},source_tracked_paths=["runner.py"],
         overall_watchdog_seconds=600,overall_watchdog_renewals=0,
         **{k:True for k in v.CLEAN_FLAGS})
+    run['before']={'boot_id':'synthetic-boot'}
+    run['redraw_ui_calibration']={'contract':v.REDRAW_SCENE_CONTRACT,'source_commit':'a'*40,
+        'boot_id':'synthetic-boot','semantic_xml_verified':True,'returned_xml_equals_ready':True,
+        'live_text_or_checked_verification':False,'scene_sha256':{'ready':'d'*64,'opened':'e'*64},
+        'tap_xy':[720,1583],'fragments':{'ready':'DisplaySettings','opened':'ScreenTimeoutSettings'},
+        'components':{'ready':'com.android.settings/.Settings$DisplaySettingsActivity','opened':'com.android.settings/.SubSettings'},
+        'audit':{'method':'native_timeout_chooser_open_cancel','native_dsi_writes':0,'marker_interval_verified':True},
+        'completed_monotonic':8.}
     phases={k:.1 for k in ("writer_and_quiet","same_dbv_replay","redraw_audit","selectors_before_hold","c1","selectors_after_hold")}
     phases["hold_and_metadata"]=5.4
     run["prearm_planning_estimate"]={"observed_baseline_phase_seconds":phases,
         "estimated_active_seconds":2*sum(phases.values())-5.4-.1+3,"planning_margin_seconds":3.,
-        "status":"observation_not_a_bound"}
+        "status":"observation_not_a_bound","redraw_scene_contract":v.REDRAW_SCENE_CONTRACT}
     run["stages"]=[];run["writes"]=[]
     for i,oldstage in enumerate(old["stages"]):
         stage={k:deepcopy(val) for k,val in oldstage.items() if k not in ("p85","c1","return_prequiet","phase_seconds")}
@@ -52,7 +60,9 @@ def fixture(candidate=False):
         stage["same_dbv_replay"]={"dbv":3600,"exact_wire_verified":True,
             "observed_writes":[{"length":3,"type":57,"mode":"hs","payload":"51 0e 10"}],
             "main_trace":{"page_callbacks_verified":0,"controller_returns":[0],"entry_count_after":5+22*i}}
-        stage["redraw_audit"]={"method":"native_timeout_chooser_open_cancel","native_dsi_writes":0,"marker_interval_verified":True}
+        stage['phase_seconds']=deepcopy(phases)
+        stage["redraw_audit"]={"method":"native_timeout_chooser_open_cancel","native_dsi_writes":0,"marker_interval_verified":True,
+            "scene_contract":v.REDRAW_SCENE_CONTRACT,"scene_sha256":['d'*64,'e'*64,'d'*64]}
         stage["selectors_before_hold"]["entry_count_after"]=12+22*i
         stage["c1"]["main_trace"]={"page_callbacks_verified":3,"controller_returns":[0,3,0,0],
                                    "entry_count_after":15+22*i,"background_esd":[]}
@@ -79,6 +89,22 @@ def optical_view(run):
             "video_profile":{"codec":"h264","size":[1280,720],"audio_streams":0}}
 
 class AcquisitionTests(unittest.TestCase):
+    def test_redraw_contract_and_comparable_timing_required(self):
+        changes=[lambda r:r.pop('redraw_ui_calibration'),
+            lambda r:r['redraw_ui_calibration'].update(semantic_xml_verified=False),
+            lambda r:r['redraw_ui_calibration'].update(returned_xml_equals_ready=False),
+            lambda r:r['redraw_ui_calibration'].update(live_text_or_checked_verification=True),
+            lambda r:r['redraw_ui_calibration'].update(boot_id='other'),
+            lambda r:r['redraw_ui_calibration'].update(source_commit='f'*40),
+            lambda r:r['redraw_ui_calibration'].update(completed_monotonic=100),
+            lambda r:r['redraw_ui_calibration']['scene_sha256'].update(opened='d'*64),
+            lambda r:r['stages'][1]['redraw_audit'].update(scene_sha256=['d'*64]*3),
+            lambda r:r['prearm_planning_estimate'].pop('redraw_scene_contract'),
+            lambda r:r['stages'][0]['phase_seconds'].update(redraw_audit=.001)]
+        for change in changes:
+            with self.subTest(change=change):
+                run,_=fixture();change(run)
+                with self.assertRaises(ValueError):v.validate_acquisition(run)
     def test_stock_and_candidate(self):
         for candidate in (False,True):
             run,pts=fixture(candidate)
