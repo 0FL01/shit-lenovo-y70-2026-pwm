@@ -1,0 +1,189 @@
+{
+  "schema": "aa-saved-stock-unqualified-optical-summary-v1",
+  "status": "diagnostic_complete_control_repeatability_unresolved",
+  "evidence_status": "confirmed-on-saved-video diagnostic; not acquisition admission",
+  "source_commit": "03f0ed4774052e843e22e03ff85e2997e9293828",
+  "original_acquisition_sha256": "a2875aba1a9c7446eadb2272f3f6ed8c975d4ac50c183a193c9e2a1eb86a268a",
+  "original_acquisition_unchanged": true,
+  "original_acquisition_accepted": false,
+  "projection_added_field": "/before/boot_id from separately hashed original before-boot event only",
+  "projection_is_acquisition": false,
+  "video_bytes": 96172619,
+  "video_sha256": "ed4cb72fbb4052d256e4fa02eb706d2634929b953e656eec96501ad1249f6d8f",
+  "current_transfer_verified": true,
+  "historical_created_inode_custody_available": false,
+  "no_concurrent_writers": "explicit trusted assumption",
+  "decoded_frame_count": 2553,
+  "windows": [
+    {
+      "stage": "baseline",
+      "start_inclusive": 861,
+      "end_exclusive": 921,
+      "encoded_frames": 60,
+      "conditional_leading_margin_seconds": 1.1036241054534912,
+      "conditional_trailing_margin_seconds": 1.1271021366119385
+    },
+    {
+      "stage": "sham_stock",
+      "start_inclusive": 1534,
+      "end_exclusive": 1594,
+      "encoded_frames": 60,
+      "conditional_leading_margin_seconds": 1.1165039539337158,
+      "conditional_trailing_margin_seconds": 1.1051771640777588
+    },
+    {
+      "stage": "return_stock",
+      "start_inclusive": 2171,
+      "end_exclusive": 2231,
+      "encoded_frames": 60,
+      "conditional_leading_margin_seconds": 1.0980451107025146,
+      "conditional_trailing_margin_seconds": 1.1297950744628906
+    }
+  ],
+  "stronger_timing_budget_all_windows_available": true,
+  "rois_xywh": {
+    "left": [
+      225,
+      245,
+      20,
+      330
+    ],
+    "main": [
+      255,
+      245,
+      20,
+      330
+    ],
+    "right": [
+      285,
+      245,
+      20,
+      330
+    ]
+  },
+  "roi_review": "Nine actual native frames; baseline-selected fixed strips independently reviewed. Full Settings screen is not flat.",
+  "baseline_fine_search_cycles_per_row": [
+    0.012,
+    0.03
+  ],
+  "fixed_q_cycles_per_row": [
+    0.0032958984375,
+    0.0098876953125,
+    0.019775390625,
+    0.03955078125,
+    0.059326171875
+  ],
+  "fine_period_rows": 50.5679012345679,
+  "normalization": "RMS Y coefficient / (mean Y - 16)",
+  "stock_ratios": [
+    {
+      "roi": "main",
+      "stage": "sham_stock",
+      "normalized_fine_over_baseline": 1.0475652549687797,
+      "mean_y_over_baseline": 1.0032382147879593,
+      "fine_change_percent": 4.756525496877972,
+      "mean_y_change_percent": 0.32382147879592704
+    },
+    {
+      "roi": "main",
+      "stage": "return_stock",
+      "normalized_fine_over_baseline": 1.0071237674340736,
+      "mean_y_over_baseline": 1.0020010149721752,
+      "fine_change_percent": 0.7123767434073613,
+      "mean_y_change_percent": 0.20010149721751969
+    },
+    {
+      "roi": "left",
+      "stage": "sham_stock",
+      "normalized_fine_over_baseline": 1.0497416885682276,
+      "mean_y_over_baseline": 1.0028485866500636,
+      "fine_change_percent": 4.974168856822758,
+      "mean_y_change_percent": 0.28485866500636003
+    },
+    {
+      "roi": "left",
+      "stage": "return_stock",
+      "normalized_fine_over_baseline": 1.0134707696510825,
+      "mean_y_over_baseline": 1.000900466314777,
+      "fine_change_percent": 1.3470769651082515,
+      "mean_y_change_percent": 0.09004663147769154
+    },
+    {
+      "roi": "right",
+      "stage": "sham_stock",
+      "normalized_fine_over_baseline": 1.053904283833631,
+      "mean_y_over_baseline": 1.0030141677436337,
+      "fine_change_percent": 5.3904283833630995,
+      "mean_y_change_percent": 0.3014167743633722
+    },
+    {
+      "roi": "right",
+      "stage": "return_stock",
+      "normalized_fine_over_baseline": 1.0119407259422486,
+      "mean_y_over_baseline": 1.0015405969479718,
+      "fine_change_percent": 1.1940725942248598,
+      "mean_y_change_percent": 0.15405969479718173
+    }
+  ],
+  "nominal_all_roi_5_percent_criterion_met": false,
+  "criterion_failure": "right sham normalized fine +5.390428%; no ROI averaging or reselection",
+  "qualification_eligible": false,
+  "candidate_enabled": false,
+  "physical_pwm_hz": null,
+  "full_waveform_equivalence": null,
+  "optical_return_approval": false,
+  "repeat_decode_metrics_exact": true,
+  "repeat_decode_all_arrays_exact": true,
+  "independent_array_recalculation_max_difference_bound": 1e-12,
+  "tests": {
+    "normal": 11,
+    "optimized": 11,
+    "failed": 0
+  },
+  "sensitivity": {
+    "right_sham_fine_change_percent_across_detrends": [
+      5.38543068935247,
+      5.44813344818416
+    ],
+    "left_sham_without_detrend_change_percent": 5.05198614383169,
+    "main_sham_20frame_blocks_over_whole_baseline": [
+      1.13483716184289,
+      1.0282196847308929,
+      0.9720233564476557
+    ],
+    "broad_cycles_in_330rows": 1.087646484375,
+    "broad_interpretation": "Only1.088cycles; unresolved, strong detrend/leakage sensitivity;8192FFT only interpolates."
+  },
+  "limits": [
+    "Original acquisition remains rejected; projection is diagnostic only.",
+    "New current-file integrity receipts do not reconstruct acquisition-time custody.",
+    "Conditional timing envelopes are not exposure-to-MP4 calibration.",
+    "Spatial encoded Y is not linear radiance, physical Hz or modulation depth.",
+    "No comfort, full-waveform equivalence, optical return approval or candidate admission.",
+    "Neighbouring ROI/frame blocks are not independent experiments; short ROI limits broad-band inference."
+  ],
+  "private_artifacts": {
+    "outcome.json": {
+      "bytes": 565,
+      "sha256": "274bb2bf37e538d7c1458e59ba10df9b4035a9a4bdf872387b382e5bf531810a"
+    },
+    "source_current.json": {
+      "bytes": 518,
+      "sha256": "06cd49719225eb917b4e04355b21387c3dd8471fc6e2f8a53301df6081789f2b"
+    },
+    "final_result.json": {
+      "bytes": 292747,
+      "sha256": "218ebf3dc59115cea06d4067f928ae9ca404be762c8b48ab06d0a5cf9887ab1d"
+    },
+    "final_profiles.npz": {
+      "bytes": 1169398,
+      "sha256": "c674abc2a36f9549651cda4248b917dcc34008cd31dcd062bb8392198037b963"
+    }
+  },
+  "harness_sha256": "eb729ac4896b8ae7a401b4ba8262f3dae8ecf5f66648f999f58e6714ec409113",
+  "roi_review_sha256": "177d242db66d4307fd806a42b503273c68edafa9100dad436b70dc11e3e622f4",
+  "final_publication_decode_all_nonmetadata_fields_exact": true,
+  "final_publication_decode_all_arrays_exact": true,
+  "roi_background_content_verified": true,
+  "whole_screen_flat": false
+}

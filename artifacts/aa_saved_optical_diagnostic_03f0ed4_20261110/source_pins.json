@@ -1,0 +1,18 @@
+{
+  "acquisition_commit": "03f0ed4774052e843e22e03ff85e2997e9293828",
+  "analysis_commit": "03f0ed4774052e843e22e03ff85e2997e9293828",
+  "sources": {
+    "06-tools/aa_acquisition_validation.py": {
+      "git_blob": "882f5e5cbad99259204e78c987b3758ae5adcac4",
+      "sha256": "2009d9d5a9845fca4fff27930ca699f58f57cf8049069f53a1dc0f9369418ad3"
+    },
+    "06-tools/analyze_p85_optical.py": {
+      "git_blob": "832eea0afe2cc9a5008131c383eb3927e569c807",
+      "sha256": "60023bb5ff44339efd4db04c96815e869e8edbd3298175a82df98629ca22a3c6"
+    },
+    "06-tools/optical_spectrum.py": {
+      "git_blob": "a138b22bf9e7b32db9edeb4da5e77a65a83d0353",
+      "sha256": "414497032b763f815d1ec48eb0d00af48a0526a1f0e31012384ddd537886db7b"
+    }
+  }
+}

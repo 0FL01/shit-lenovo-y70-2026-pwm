@@ -1,0 +1,18 @@
+{
+  "source_commit": "d5a522ce002ca580c231fc87250c38d1665980d3",
+  "status": "code_only_deployment_verified",
+  "ssh_returncode": 0,
+  "files_verified": 32,
+  "source_profile_counts": [
+    23,
+    25,
+    22
+  ],
+  "association_tests_each_mode": 37,
+  "profile_tests_each_mode": 18,
+  "final_worktree_clean": true,
+  "device_services_sent": 0,
+  "physically_executed": false,
+  "last_physical_source_commit": "03f0ed4774052e843e22e03ff85e2997e9293828",
+  "evidence": "Saved successful code-only deployment receipt; no device action in this phase."
+}

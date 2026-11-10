@@ -1,0 +1,55 @@
+{
+  "schema": "aa-saved-stock-roi-review-v1",
+  "original_acquisition_sha256": "a2875aba1a9c7446eadb2272f3f6ed8c975d4ac50c183a193c9e2a1eb86a268a",
+  "video_sha256": "ed4cb72fbb4052d256e4fa02eb706d2634929b953e656eec96501ad1249f6d8f",
+  "reviewed_frames": {
+    "baseline": [
+      861,
+      891,
+      920
+    ],
+    "sham_stock": [
+      1534,
+      1564,
+      1593
+    ],
+    "return_stock": [
+      2171,
+      2201,
+      2230
+    ]
+  },
+  "rois_xywh": {
+    "left": [
+      225,
+      245,
+      20,
+      330
+    ],
+    "main": [
+      255,
+      245,
+      20,
+      330
+    ],
+    "right": [
+      285,
+      245,
+      20,
+      330
+    ]
+  },
+  "baseline_fine_search_cycles_per_row": [
+    0.012,
+    0.03
+  ],
+  "native_y_noautorotate_inspected": true,
+  "fixed_geometry_verified": true,
+  "timestamp_margins_reviewed": true,
+  "roi_scope": "Only these three strips are flat-background reviewed; full Settings screen contains text/icons.",
+  "selection": "Chosen from baseline native full frames and lossless native-Y crops before comparative spectra; band chosen from baseline stripe spacing (~50rows), no sham/return spectral selection.",
+  "display_review": "Full native1280x720 JPEG representations and lossless PNG crops reviewed. Display-only clip((Y-16)*5) used to reveal blur text; analysis uses unchanged native Y.",
+  "independent_review": "PASS: independent reviewer inspected exact lossless strips baseline861/891/920 before remaining sixframes. Same-coordinate sham1534/1564/1593 and return2171/2201/2230 show no visible text/icon intrusion; subvisual blur cannot be excluded.",
+  "roi_background_content_verified": true,
+  "whole_screen_flat": false
+}

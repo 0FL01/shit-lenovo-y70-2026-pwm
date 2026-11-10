@@ -1,0 +1,15 @@
+{
+  "status": "independent_offline_review_pass_with_limits",
+  "scope": [
+    "exact source03 three numerical/validator source pins",
+    "single-field diagnostic projection, original remains rejected",
+    "frozen baseline-selected three strips across all 9 native review frames",
+    "all 9 mean-Y / fine amplitudes independently recomputed from NPZ"
+  ],
+  "numerical_agreement_bound": 1e-12,
+  "flat_content_scope": "Only declared strips, not whole Settings screen; subvisual blur remains possible.",
+  "framed_boot_corroboration_source": "../aa_stock_03f0ed4_20261110/summary.json",
+  "framed_boot_corroboration_summary_sha256": "97104c74a882cb7be2fb6f0e64e0a54bafac1e8043508e075697bf0b089b8676",
+  "finding": "right sham exceeds nominal 5% across every detrend; whole 60 masks within-window variability",
+  "no_qualification": true
+}
