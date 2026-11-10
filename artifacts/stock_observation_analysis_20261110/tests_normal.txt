@@ -1,0 +1,57 @@
+test_bad_probe (test_analyze.Tests.test_bad_probe) ... ok
+test_bad_profiles (test_analyze.Tests.test_bad_profiles) ... ok
+test_decode_reused (test_analyze.Tests.test_decode_reused) ... ok
+test_exact_windows (test_analyze.Tests.test_exact_windows) ... ok
+test_frozen_duration_not_native_cap_proof (test_analyze.Tests.test_frozen_duration_not_native_cap_proof) ... ok
+test_late_controls (test_analyze.Tests.test_late_controls) ... ok
+test_missing_boot (test_analyze.Tests.test_missing_boot) ... ok
+test_native_probe (test_analyze.Tests.test_native_probe) ... ok
+test_one_roi_failure_not_averaged (test_analyze.Tests.test_one_roi_failure_not_averaged) ... ok
+test_record_rejections (test_analyze.Tests.test_record_rejections) ... ok
+test_reuse_metric (test_analyze.Tests.test_reuse_metric) ... ok
+test_roi_review (test_analyze.Tests.test_roi_review) ... ok
+test_short_video (test_analyze.Tests.test_short_video) ... ok
+test_synthetic_records_never_qualify (test_analyze.Tests.test_synthetic_records_never_qualify) ... ok
+test_aged_atime_read_and_actual_route (test_capsule.CapsuleTests.test_aged_atime_read_and_actual_route) ... ok
+test_bad_controls_rejected (test_capsule.CapsuleTests.test_bad_controls_rejected) ... ok
+test_capsule_required (test_capsule.CapsuleTests.test_capsule_required) ... ok
+test_final_boot_drift (test_capsule.CapsuleTests.test_final_boot_drift) ... ok
+test_identity_still_detects_mutations (test_capsule.CapsuleTests.test_identity_still_detects_mutations) ... ok
+test_inode_and_custody_rejected (test_capsule.CapsuleTests.test_inode_and_custody_rejected) ... ok
+test_late_pair_remains_inconclusive (test_capsule.CapsuleTests.test_late_pair_remains_inconclusive) ... ok
+test_media_tampering (test_capsule.CapsuleTests.test_media_tampering) ... ok
+test_missing_roi_review (test_capsule.CapsuleTests.test_missing_roi_review) ... ok
+test_no_overwrite (test_capsule.CapsuleTests.test_no_overwrite) ... ok
+test_private_mode (test_capsule.CapsuleTests.test_private_mode) ... ok
+test_record_tampering_rejected (test_capsule.CapsuleTests.test_record_tampering_rejected) ... ok
+test_sink_incomplete (test_capsule.CapsuleTests.test_sink_incomplete) ... ok
+test_source_and_boot_rejected (test_capsule.CapsuleTests.test_source_and_boot_rejected) ... ok
+test_source_closure_tampering (test_capsule.CapsuleTests.test_source_closure_tampering) ... ok
+test_unrelated_failure_rejected (test_capsule.CapsuleTests.test_unrelated_failure_rejected) ... ok
+test_working_conditional_route_and_outputs (test_capsule.CapsuleTests.test_working_conditional_route_and_outputs) ... ok
+test_aged_atime_transfer (test_transfer.TransferTests.test_aged_atime_transfer) ... ok
+test_capsule_mutation_rejected (test_transfer.TransferTests.test_capsule_mutation_rejected) ... ok
+test_copied_movie_without_receipt_rejected (test_transfer.TransferTests.test_copied_movie_without_receipt_rejected) ... ok
+test_corrupt_media_no_receipt (test_transfer.TransferTests.test_corrupt_media_no_receipt) ... ok
+test_destination_inode_replaced_same_bytes (test_transfer.TransferTests.test_destination_inode_replaced_same_bytes) ... ok
+test_existing_destination_rejected (test_transfer.TransferTests.test_existing_destination_rejected) ... ok
+test_final_directory_close_failure_requires_external_failed_exit (test_transfer.TransferTests.test_final_directory_close_failure_requires_external_failed_exit) ... ok
+test_helper_pin_mismatch (test_transfer.TransferTests.test_helper_pin_mismatch) ... ok
+test_missing_receipt (test_transfer.TransferTests.test_missing_receipt) ... ok
+test_missing_receiver_exit_rejected (test_transfer.TransferTests.test_missing_receiver_exit_rejected) ... ok
+test_nonfinite_deadline_rejected (test_transfer.TransferTests.test_nonfinite_deadline_rejected) ... ok
+test_nonzero_receiver_exit_rejected (test_transfer.TransferTests.test_nonzero_receiver_exit_rejected) ... ok
+test_oversized_media_rejected_before_hash (test_transfer.TransferTests.test_oversized_media_rejected_before_hash) ... ok
+test_real_sink_transfer_and_conditional_analysis (test_transfer.TransferTests.test_real_sink_transfer_and_conditional_analysis) ... ok
+test_receipt_source_and_header_tampering (test_transfer.TransferTests.test_receipt_source_and_header_tampering) ... ok
+test_sender_nonzero_no_receipt (test_transfer.TransferTests.test_sender_nonzero_no_receipt) ... ok
+test_source_inode_replaced_same_bytes (test_transfer.TransferTests.test_source_inode_replaced_same_bytes) ... ok
+test_stdlib_sender_without_site_packages (test_transfer.TransferTests.test_stdlib_sender_without_site_packages) ... ok
+test_swap_after_sink_close_rejected (test_transfer.TransferTests.test_swap_after_sink_close_rejected) ... ok
+test_trailing_stream_no_receipt (test_transfer.TransferTests.test_trailing_stream_no_receipt) ... ok
+test_truncated_stream_no_receipt (test_transfer.TransferTests.test_truncated_stream_no_receipt) ... ok
+
+----------------------------------------------------------------------
+Ran 52 tests in 2.224s
+
+OK

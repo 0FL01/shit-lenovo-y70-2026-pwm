@@ -5,8 +5,15 @@ from types import SimpleNamespace
 import unittest
 from unittest.mock import Mock
 import xml.etree.ElementTree as ET
-from coordinator import Coordinator, DURATION, RESTART
+from coordinator import Coordinator, DURATION, RESTART, normal_camera_launch, PreviewEncoderPending
 from protocol_v2 import admission, timeline, ROI, WINDOWS
+
+
+NORMAL_CAMERA="""  * Hist #0: ActivityRecord{abc123 u0 net.sourceforge.opencamera/.MainActivity t42}
+    Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=net.sourceforge.opencamera/.MainActivity }
+    mNewIntents=null
+  mResumedActivity: ActivityRecord{abc123 u0 net.sourceforge.opencamera/.MainActivity t42}
+"""
 
 
 class Clock:
@@ -17,19 +24,23 @@ class Clock:
 
 class CaptureError(ValueError):pass
 
+class Unsettled(CaptureError):
+    def __init__(self):self.continuity_snapshot={'progress_verified':True}
+
 
 def fresh():
     clock=Clock()
     c=Coordinator(transport=SimpleNamespace(),target='1',camera='2',serials=(b't',b'c'),
-        parser=SimpleNamespace(CaptureMetadataError=CaptureError),readonly=SimpleNamespace(),
+        parser=SimpleNamespace(CaptureMetadataError=CaptureError,RequestResultNotSettled=Unsettled),readonly=SimpleNamespace(),
         lock_commands=lambda token:dict(verify='verify',acquire='acquire',release='release'),
-        new_camera_video=lambda a,b:'/sdcard/DCIM/OpenCamera/new.mp4',native_state=lambda log:{},
+        new_camera_video=lambda a,b:'/sdcard/DCIM/OpenCamera/new.mp4',native_state=lambda log:{},inspection=SimpleNamespace(),
         owned_directory=SimpleNamespace(path=Path('/private')),retained_sink=SimpleNamespace(),
         source={'commit':'a'*40,'closure_sha256':'b'*64},token='obs_20261110',
         clock=clock,sleep=clock.sleep,byte_cap=1000000)
-    c.persist=Mock();c.shell=Mock(return_value='');c.unchanged=Mock()
+    c.persist=Mock();c.shell=Mock(side_effect=lambda role,cmd,**kw: NORMAL_CAMERA if role=='camera' and cmd=='dumpsys activity activities' else '');c.unchanged=Mock()
     c.boots={'target':'t','camera':'c'};c.read_boots=Mock(return_value=c.boots)
     c.before={'native_dbv':6438,'settings':{'screen_brightness':'98'}}
+    c.original_preview_verified=True;c.original_preview_signature={'synthetic':True}
     c.report['camera_limit_readback']={'duration_seconds':10,'restart_count':0,'filesize_restart':False}
     return c,clock
 
@@ -47,6 +58,9 @@ START=ET.fromstring('<hierarchy><node content-desc="Start recording video" enabl
 class Tests(unittest.TestCase):
     def prepare_recording(self,c,clock,*,stop=10,early_delay=.05,network=False):
         c.ui=Mock(return_value=START);c.click=Mock()
+        gate={'begin_monotonic':clock()}
+        c.dispatch_evidence=gate
+        c.dispatch_guard=Mock(return_value=gate)
         def metadata(*,recording,previous=None,timeout=1):
             clock.sleep(early_delay)
             if network and c.start is not None:raise TimeoutError('network')
@@ -61,7 +75,7 @@ class Tests(unittest.TestCase):
         self.assertTrue(c.stopped);self.assertEqual(c.click.call_count,1)
         self.assertTrue(c.report['early_controls_bound'])
         self.assertLess(c.report['stop_observed_elapsed'],15)
-        self.assertEqual(c.unchanged.call_count,2)
+        self.assertEqual(c.unchanged.call_count,1)
 
     def test_never_stops_retains_uncertainty(self):
         c,t=fresh();self.prepare_recording(c,t,stop=100)
@@ -151,6 +165,141 @@ class Tests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError,'late stop'):c.record()
         self.assertTrue(c.stopped)
         self.assertGreater(c.report['stop_observed_elapsed'],15)
+
+    def test_dispatch_guard_retains_unreviewed_png_not_fake_visual(self):
+        c,t=fresh();c.prior_review={'scene':{'component':'fixed'}}
+        c.current_scene=Mock(return_value={'component':'fixed'})
+        c.private_png=Mock(side_effect=[{'sha256':'a'*64},{'sha256':'b'*64}])
+        c.metadata=Mock(side_effect=[{'progress_verified':False},{'progress_verified':True}])
+        gate=c.dispatch_guard()
+        self.assertIs(c.dispatch_evidence,gate)
+        self.assertFalse(gate['new_png_visual_review'])
+        self.assertEqual(gate['geometry_status'],'actual_media_review_required')
+        with self.assertRaises(ValueError):c.dispatch_guard()
+
+    def test_changed_scene_rejected_at_dispatch(self):
+        c,t=fresh();c.prior_review={'scene':{'component':'fixed'}}
+        c.current_scene=Mock(side_effect=[{'component':'fixed'},{'component':'other'}])
+        c.private_png=Mock(return_value={})
+        c.metadata=Mock(side_effect=[{}, {'progress_verified':True}])
+        with self.assertRaisesRegex(ValueError,'scene changed'):c.dispatch_guard()
+        self.assertIsNone(c.start)
+
+    def test_changed_controls_rejected_at_dispatch(self):
+        c,t=fresh();c.prior_review={'scene':{'component':'fixed'}}
+        c.current_scene=Mock(return_value={'component':'fixed'})
+        c.metadata=Mock(side_effect=CaptureError('changed controls'))
+        c.private_png=Mock()
+        with self.assertRaises(CaptureError):c.dispatch_guard()
+        c.private_png.assert_not_called();self.assertIsNone(c.start)
+
+    def test_stale_machine_gate_blocks_tap(self):
+        c,t=fresh();self.prepare_recording(c,t)
+        c.dispatch_evidence['begin_monotonic']=t()-31
+        with self.assertRaisesRegex(ValueError,'stale machine'):c.record()
+        c.click.assert_not_called();self.assertIsNone(c.start)
+
+    def test_forged_report_fresh_flag_cannot_replace_gate(self):
+        c,t=fresh();self.prepare_recording(c,t)
+        c.report['fresh_visual_review']=True;c.report['machine_ready']=True
+        c.dispatch_guard.return_value={'begin_monotonic':t()}
+        with self.assertRaisesRegex(ValueError,'unbound machine'):c.record()
+        c.click.assert_not_called()
+
+    def test_mutex_acquire_timeout_retains_cleanup_pending(self):
+        from protocol_v2 import PriorGeometryReview
+        c,t=fresh();c.before=None;c.metadata=Mock();c.verify_original_preview=Mock()
+        c.g=SimpleNamespace(preflight=Mock(),bind=Mock(side_effect=[b't',b'c']))
+        c.ro=SimpleNamespace(CAMERA=('a','b','c'),PANEL='panel',MODULE='module')
+        values={'camera_identity':'a\nb\nc','package':'versionName=1.56.2\nversionCode=96',
+                'root':'0','panel':'panel','module':'module  /vendor/lib/modules/msm_drm.ko'}
+        c.query=Mock(side_effect=lambda role,op:values[op])
+        def acquire_timeout(role,cmd,**kwargs):
+            if role=='camera':return NORMAL_CAMERA
+            raise TimeoutError('acquire outcome uncertain')
+        c.shell.side_effect=acquire_timeout
+        r=PriorGeometryReview(c.boots,c.source,'a'*64,'b'*64,'c'*64,
+            'com.android.settings/.Settings$DisplaySettingsActivity',ROI,
+            'geometry_layout_approved_for_observation_only')
+        out=c.run(r)
+        self.assertTrue(c.acquisition_attempted);self.assertFalse(c.locked)
+        self.assertTrue(out['cleanup_pending']);self.assertEqual(out['mutex_acquire_outcome'],'uncertain')
+        self.assertEqual(c.shell.call_count,2)
+
+    def test_current_main_intent_is_bound_to_resumed_record(self):
+        result=normal_camera_launch(NORMAL_CAMERA)
+        self.assertTrue(result['duration_intent_override_absent'])
+        self.assertFalse(result['pending_intent_absence_proven'])
+        for text in (NORMAL_CAMERA.replace('act=android.intent.action.MAIN','act=android.media.action.VIDEO_CAPTURE'),
+                     NORMAL_CAMERA.replace('mNewIntents=null','mNewIntents=[Intent { act=android.media.action.VIDEO_CAPTURE }]'),
+                     NORMAL_CAMERA.replace('mResumedActivity: ActivityRecord{abc123','mResumedActivity: ActivityRecord{deed00'),
+                     NORMAL_CAMERA.replace('Intent {','UnknownIntent {')):
+            with self.assertRaises(ValueError):normal_camera_launch(text)
+
+    def test_specific_startup_unsettled_continues_reads_only(self):
+        c,t=fresh();self.prepare_recording(c,t)
+        def metadata(*,recording,previous=None,**kw):
+            t.sleep(.05)
+            if not recording:return {}
+            elapsed=t()-c.start
+            if elapsed<1:raise Unsettled()
+            if elapsed>=10:raise CaptureError('preview')
+            return {'progress_verified':previous is not None}
+        c.metadata.side_effect=metadata
+        with self.assertRaisesRegex(ValueError,'frame30'):c.record()
+        self.assertTrue(c.stopped);self.assertEqual(c.click.call_count,1)
+        self.assertGreater(c.report['request_result_startup_rejections'],0)
+        rows=[a.args[1] for a in c.persist.call_args_list if a.args[0]=='recording-snapshots'][0]
+        self.assertEqual(c.report['first_advancing_recording_elapsed'],rows[1]['elapsed'])
+
+    def test_stopped_preview_with_residual_encoder_rejected(self):
+        c,t=fresh()
+        snapshot={'recording_verified':False,'request':{'capture_intent':'PREVIEW'},
+                  'result':{'capture_intent':'PREVIEW'},
+                  'streams':[{'consumer_kind':'GraphicBufferSource','requested':False}]}
+        c.parser.ENCODER_CONSUMERS={'GraphicBufferSource','CameraSource','MediaRecorder'}
+        c.parser.validate_capture=Mock(return_value=snapshot)
+        with self.assertRaisesRegex(ValueError,'residual encoder'):c.metadata(recording=False)
+        self.assertFalse(c.stopped)
+
+    def test_stopped_preview_without_encoder_is_accepted(self):
+        c,t=fresh()
+        snapshot={'recording_verified':False,'request':{'capture_intent':'PREVIEW'},
+                  'result':{'capture_intent':'PREVIEW'},
+                  'streams':[{'consumer_kind':'SurfaceTexture','requested':True}]}
+        c.parser.ENCODER_CONSUMERS={'GraphicBufferSource','CameraSource','MediaRecorder'}
+        c.parser.validate_capture=Mock(return_value=snapshot)
+        self.assertIs(c.metadata(recording=False),snapshot)
+
+    def test_encoder_transition_is_polled_without_stop_tap(self):
+        c,t=fresh();self.prepare_recording(c,t)
+        def metadata(*,recording,previous=None,**kw):
+            t.sleep(.05)
+            elapsed=t()-c.start
+            if recording:
+                if elapsed>=10:raise CaptureError('preview transition')
+                return {'progress_verified':previous is not None}
+            if elapsed<11:raise PreviewEncoderPending()
+            return {}
+        c.metadata.side_effect=metadata
+        c.record()
+        self.assertTrue(c.stopped);self.assertEqual(c.click.call_count,1)
+        self.assertTrue(c.report['preview_encoder_pending_observed'])
+        self.assertLess(c.report['stop_observed_elapsed'],15)
+
+    def test_residual_encoder_past_cap_never_authorizes_cleanup(self):
+        c,t=fresh();self.prepare_recording(c,t)
+        def metadata(*,recording,previous=None,**kw):
+            t.sleep(.05)
+            if recording:
+                if t()-c.start>=10:raise CaptureError('preview transition')
+                return {'progress_verified':previous is not None}
+            raise PreviewEncoderPending()
+        c.metadata.side_effect=metadata
+        with self.assertRaisesRegex(ValueError,'stop unverified'):c.record()
+        self.assertFalse(c.stopped)
+        with self.assertRaises(ValueError):c.restore()
+        self.assertEqual(c.click.call_count,1)
 
     def test_no_target_mutation_before_stop(self):
         c,t=fresh();c.start=t()

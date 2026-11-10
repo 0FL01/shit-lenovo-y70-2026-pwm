@@ -1,0 +1,15 @@
+test_cli_npz_round_trip_with_restricted_frequency_range (test_optical_spectrum.OpticalSpectrumTests.test_cli_npz_round_trip_with_restricted_frequency_range) ... ok
+test_dc_mean_is_retained_separately (test_optical_spectrum.OpticalSpectrumTests.test_dc_mean_is_retained_separately) ... ok
+test_explicit_grid_and_fft_agree (test_optical_spectrum.OpticalSpectrumTests.test_explicit_grid_and_fft_agree) ... ok
+test_invalid_input_and_empty_frequency_interval_are_rejected (test_optical_spectrum.OpticalSpectrumTests.test_invalid_input_and_empty_frequency_interval_are_rejected) ... ok
+test_multiple_peaks_preserve_fundamental_and_third_harmonic (test_optical_spectrum.OpticalSpectrumTests.test_multiple_peaks_preserve_fundamental_and_third_harmonic) ... ok
+test_period_93_to_31_moves_peak_in_full_spectrum (test_optical_spectrum.OpticalSpectrumTests.test_period_93_to_31_moves_peak_in_full_spectrum) ... ok
+test_phase_rotating_stripes_are_retained_as_incoherent_power (test_optical_spectrum.OpticalSpectrumTests.test_phase_rotating_stripes_are_retained_as_incoherent_power) ... ok
+test_power_partition_raw_mean_and_input_preservation (test_optical_spectrum.OpticalSpectrumTests.test_power_partition_raw_mean_and_input_preservation) ... ok
+test_slow_drift_does_not_falsely_reduce_total_stripe_amplitude (test_optical_spectrum.OpticalSpectrumTests.test_slow_drift_does_not_falsely_reduce_total_stripe_amplitude) ... ok
+test_stationary_stripes_survive_while_old_analysis_erases_them (test_optical_spectrum.OpticalSpectrumTests.test_stationary_stripes_survive_while_old_analysis_erases_them) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.099s
+
+OK

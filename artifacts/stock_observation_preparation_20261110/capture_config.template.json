@@ -1,0 +1,57 @@
+{
+  "schema": 1,
+  "source_commit": "REPLACE_WITH_NEW_REVIEWED_COMMIT",
+  "construction_sha256": "7cc85a5c77830239cb58684a27de5724543eeafc89c95bf404bff34ddae7d505",
+  "launcher_sha256": "623064e2ec9b327e9d811b96e8735d1c1ac39daa348881d710ebbb90c84d06df",
+  "source_sha256": {
+    "offline_baseline_adb": "17b2cc726497e95e16414192c808fb3eed64cbe64ed87fba39710685a818cf51",
+    "linux_adb_probe_dependencies": "9ff5e7ea212d46961c4a74757acc5d50b9d666aa47f9f4e1c58722845bfd53d9",
+    "private_video_sink": "2a8aff0c9c3f03438ddfc5fa45ff346b685bec860975eb0ea7dca04f668b370f",
+    "fresh_private_directory": "d08b64fa8c4473dc706bc65f58fbd26ab963b3a1c6e603bb1d745b9139663adf",
+    "camera_capture_metadata": "8787b7c3f3b4019014204c095529e284a5a06d44ecfce48cda9afbd6bd0ec665",
+    "stock_readonly_probe": "d72d1f8dd25605e3dae9d2b1ad95a753494423d0b150918dcc2495f963b909b1",
+    "readonly_launch": "da270f0de24d5fe769b6f876dffd18b7f972c3608ebee3e7f80b60a96164e826",
+    "prestart_inspection": "6429d7f3d7d4e15b603c63ba55ee9437d7797214ca6dd3695e4990dda8832791",
+    "dsi_trial_transaction": "4407a55b3bc37e197e48c74673cff0626345124ca5163b4177ade9a567339ffa",
+    "a9_reproduction": "fefb204b11ecbd649feba1f2d35bed1cd0b54b75dd244610a79dfcadc7515385",
+    "video_selector": "e57c886791311f2cd7ab764efd0ec7ab89956f04273f26f1482dda002659ef4e",
+    "protocol_v2": "c3454733f45374d821f9e040850e488452d8feefaa6b1c7a10562c00c2ac29c7",
+    "coordinator": "4aafb89a3bb8396476b0a26edba337b6687cabc07a4883b88a722fbaace5a8e8"
+  },
+  "directory_name": "REPLACE_WITH_NEW_FRESH_PRIVATE_CHILD",
+  "token": "REPLACE_WITH_NEW_OWNED_TOKEN",
+  "max_video_bytes": 134217728,
+  "reserve_bytes": 67108864,
+  "no_concurrent_writers": true,
+  "no_concurrent_namespace_mutation": true,
+  "review": {
+    "inspection_path": "REPLACE_WITH_ACTUAL_PRIVATE_INSPECTION_JSON",
+    "inspection_sha256": "REPLACE_WITH_REVIEWED_RECEIPT_SHA256",
+    "camera_png_path": "REPLACE_WITH_REVIEWED_CAMERA_PNG",
+    "camera_png_sha256": "REPLACE_WITH_REVIEWED_CAMERA_SHA256",
+    "target_png_path": "REPLACE_WITH_REVIEWED_TARGET_PNG",
+    "target_png_sha256": "REPLACE_WITH_REVIEWED_TARGET_SHA256",
+    "roi": {
+      "left": [
+        225,
+        245,
+        20,
+        330
+      ],
+      "main": [
+        255,
+        245,
+        20,
+        330
+      ],
+      "right": [
+        285,
+        245,
+        20,
+        330
+      ]
+    },
+    "scene_component": "com.android.settings/.Settings$DisplaySettingsActivity",
+    "decision": "REPLACE_ONLY_AFTER_ACTUAL_LEAD_VISUAL_REVIEW"
+  }
+}

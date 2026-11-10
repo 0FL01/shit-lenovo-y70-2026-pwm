@@ -1,0 +1,25 @@
+{
+  "scope": "offline source-bound transfer wrapper and optional conditional diagnostic consumer; no actual transfer or publication",
+  "helper_sources": {
+    "06-tools/stock_observation_analysis_20261110/transfer.py": "f4278fecb36e66a8d9bc9b826955f5c857801effb9aafac6c518549b5b7d66b7",
+    "06-tools/host_adb_full_api_spike/offline_baseline_adb.py": "17b2cc726497e95e16414192c808fb3eed64cbe64ed87fba39710685a818cf51",
+    "06-tools/host_private_sink_20261109/private_video_sink.py": "2a8aff0c9c3f03438ddfc5fa45ff346b685bec860975eb0ea7dca04f668b370f",
+    "06-tools/host_source_integration_20261109/fresh_private_directory.py": "d08b64fa8c4473dc706bc65f58fbd26ab963b3a1c6e603bb1d745b9139663adf",
+    "06-tools/video_validation_split_20261109/offline_acceptance.py": "ccc92a5a53bf5e9ba4ea3301ae73407c09a4af977e06db3bf653eee18c2a0dc1",
+    "06-tools/video_validation_split_20261109/host_evidence.py": "a3beefcf83e13074b15bac4f70b15d5b07449f017513a985a43deb7be0ffe52e"
+  },
+  "analysis_and_tests": {
+    "06-tools/stock_observation_analysis_20261110/analyze.py": "9503205f52a12f8a4c09e96d3203f7e327d79febd62dca0c4e1bb8dfb0f872a7",
+    "06-tools/stock_observation_analysis_20261110/test_analyze.py": "cef95e3f2e8b072bb0e974c062ef94f6db422b6b260baab67f3a7f0268011e39",
+    "06-tools/stock_observation_analysis_20261110/test_capsule.py": "ce0b94a593a358d6c997fbda993f9e7cb088e4093a2c0161dd95f3cfa9bf2ff4",
+    "06-tools/stock_observation_analysis_20261110/test_transfer.py": "b456f9965de213b4fa41e5818279de0abc5b82fe78c422091138c9c830b8eeee"
+  },
+  "local_synthetic_tests": {
+    "normal": 52,
+    "optimized": 52
+  },
+  "actual_remote_transfer": false,
+  "actual_new_media": false,
+  "original_capture_capsule_mutated": false,
+  "independent_review": "pending recheck after receiver-exit and bounds fixes"
+}

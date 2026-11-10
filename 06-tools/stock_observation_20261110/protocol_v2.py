@@ -25,7 +25,7 @@ def timeline(pts, duration, *, early_controls_bound):
     return WINDOWS
 
 
-def admission(receipt, *, boots, source, now):
+def admission(receipt, *, boots, source, now, require_fresh=True):
     """Strict missing-evidence rejection. Producer/byte binding still needs review.
 
     No device parser currently produces this complete receipt. A synthetic test
@@ -37,7 +37,8 @@ def admission(receipt, *, boots, source, now):
     need(receipt['schema']=='stock-observation-prestart-v2' and receipt['boots']==boots
          and receipt['source']==source, 'receipt binding mismatch')
     t=receipt['observed_monotonic']
-    need(type(t) in (int,float) and math.isfinite(t) and 0 <= now-t <= 30,
+    need(type(require_fresh) is bool and type(t) in (int,float) and math.isfinite(t) and
+         0 <= now-t and (not require_fresh or now-t <= 30),
          'stale prestart receipt')
     mode=receipt['native_mode']
     need(type(mode) is dict and set(mode)=={'hz','group','evidence_sha256','parser_source_sha256'}
@@ -53,3 +54,37 @@ def admission(receipt, *, boots, source, now):
          geometry['roi']==ROI and re.fullmatch('[a-f0-9]{64}',str(geometry['image_sha256'])) and
          geometry['review_source']=='fresh_visual_review', 'fresh geometry receipt missing')
     return receipt
+
+
+from dataclasses import dataclass
+
+
+@dataclass(frozen=True)
+class PriorGeometryReview:
+    """Produced by verified file/receipt intake plus explicit lead visual decision.
+
+    This is prior visual provenance, never a fresh machine gate or pixel match.
+    """
+    boots: object
+    source: object
+    inspection_sha256: str
+    camera_png_sha256: str
+    target_png_sha256: str
+    scene_component: str
+    roi: object
+    decision: str
+
+    def validate(self, boots, source):
+        import re
+        need(self.boots==boots and self.source==source,'prior review binding changed')
+        need(all(type(x) is str and re.fullmatch('[a-f0-9]{64}',x) for x in
+                 (self.inspection_sha256,self.camera_png_sha256,self.target_png_sha256)),
+             'prior review file binding missing')
+        need(self.scene_component=='com.android.settings/.Settings$DisplaySettingsActivity' and
+             self.roi==ROI and self.decision=='geometry_layout_approved_for_observation_only',
+             'prior visual decision incomplete')
+        return {'schema':'stock-observation-prior-geometry-v1','boots':self.boots,'source':self.source,
+                'inspection_sha256':self.inspection_sha256,'camera_png_sha256':self.camera_png_sha256,
+                'target_png_sha256':self.target_png_sha256,'scene':{'component':self.scene_component},
+                'roi':self.roi,'decision':self.decision,'fresh_visual_review':False,
+                'actual_media_review_required':True}
