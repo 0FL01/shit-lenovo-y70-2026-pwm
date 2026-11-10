@@ -132,7 +132,7 @@ class AATests(unittest.TestCase):
             self.assertEqual(executed,list(map(str,range(i+1))))
             self.assertEqual(esd,'esd_sw_sim_success\n')
 
-    def simulate_writer(self,name,fail_at=None,prefix_at=None,corrupt=False,symlink=False,grep_failure=False,empty=False):
+    def simulate_writer(self,name,fail_at=None,prefix_at=None,corrupt=False,symlink=False,grep_failure=False,empty=False,esd_mode="esd_sw_sim_success\n",controller_at=None,initial_trace=None):
         with tempfile.TemporaryDirectory() as directory:
             root=Path(directory);root.chmod(0o700)
             (root/'debugfs').mkdir(mode=0o700);(root/'chunks').mkdir(mode=0o700)
@@ -142,11 +142,14 @@ class AATests(unittest.TestCase):
             if corrupt:(root/'chunks'/f'{name}_0.txt').write_bytes(b'wrong')
             if symlink:
                 path=root/'chunks'/f'{name}_0.txt';target=root/'elsewhere';path.rename(target);path.symlink_to(target)
+            esd = root/'debugfs'/aa.ESD_MODE_PATH
+            esd.parent.mkdir(parents=True); esd.write_text(esd_mode)
             c=root/'debugfs/dri/9800000.qcom,mdss_mdp/DSI-1/tx_cmd';c.parent.mkdir(parents=True);c.write_text('')
-            trace=root/'trace_instance/trace';trace.parent.mkdir();trace.write_text('' if empty else 'kworker: mode_ctrl_return: rc=1\n')
+            trace=root/'trace_instance/trace';trace.parent.mkdir();trace.write_text(initial_trace if initial_trace is not None else ('' if empty else 'kworker: mode_ctrl_return: rc=1\n'))
             fixture=fixtures.TransactionTests()
             for i in range(5):
                 block=fixture.block(i)
+                if i == controller_at: block += 'mode_ctrl_return: rc=1\n'
                 if i==fail_at:block=block.replace('pending='+str(aa.tx.RANGES[i][0]),'pending=999')
                 (root/f'fixture{i}').write_text(block)
             body=shlex.split(aa.writer_script(TMP,TOKEN,data,name,0))[-1]

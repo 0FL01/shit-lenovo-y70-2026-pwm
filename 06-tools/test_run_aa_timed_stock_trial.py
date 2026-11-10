@@ -97,7 +97,7 @@ class Transport:
                 r.children.append(label)
                 if label.endswith('-write'):
                     name='aa10' if label=='aa10-write' else 'stock'
-                    value='BLOCK_TRACE_BEGIN -1\n'+r.trace+'BLOCK_TRACE_END -1\n'
+                    value='WRITER_ESD_ISOLATED esd_sw_sim_success\nBLOCK_TRACE_BEGIN -1\n'+r.trace+'BLOCK_TRACE_END -1\n'
                     for i in range(5):
                         r.trace+=TransactionTests().block(i)
                         value+=f'BLOCK_TRACE_BEGIN {i}\n'+r.trace+f'BLOCK_TRACE_END {i}\n'
@@ -122,6 +122,11 @@ class Transport:
             elif part.label=='BOOT':value=BOOT+'\n'
             elif part.label in ('OWNER','TRACE_OWNER'):value=''
             else:raise AssertionError(part.label)
+            if label.endswith('-write'):
+                if r.esd_mode != 'esd_sw_sim_success':
+                    raise AssertionError((label, part.label, r.esd_mode))
+            fault = getattr(r, 'part_faults', {}).get((label, part.label))
+            if fault is not None: value = fault(value)
             payload[part.label]=value
         return 0,framed(plan,payload),b''
 
@@ -131,7 +136,7 @@ class Sim(t.AATimedTrial):
         clock=Clock();super().__init__(None,6,1,'aa_timed_test',root,root,sleep=clock.sleep,monotonic=clock,**kwargs)
         self.clock=clock;self.g=t.timed.DeadlineTransport(self,Transport(self));self.calls=[];self.children=[]
         self.log=ANCHOR;self.trace='';self.failure=None;self.corrupt=None;self.frames=135;self.slow=False;self.gap_inject=None;self.gap_event='mode_ctrl_return: rc=0\n'
-        self.scene_state=False
+        self.scene_state=False; self.esd_mode='reg_read'
     def setup(self):
         self.before={'boot_id':BOOT,'native_dbv':6438,'screen_off_timeout':'1800000'};self.reference=REF
         self.report['before']=deepcopy(self.before)
@@ -157,6 +162,14 @@ class Sim(t.AATimedTrial):
         label=kwargs.get('label','shell');self.calls.append(label);self.clock.sleep(.01)
         if label==self.failure:raise TimeoutError(label)
         if '-replay-trace-' in label or label in ('main-trace-initial','main-trace-final') or label.endswith('-hold-trace') or label.endswith('-redraw-trace'):return self.trace
+        if label.endswith('-writer-isolate'):
+            if self.esd_mode != 'reg_read': raise AssertionError('Isolation did not start in reg_read')
+            self.esd_mode = 'esd_sw_sim_success'
+            return 'WRITER_ESD_ISOLATED esd_sw_sim_success'
+        if label.endswith('-writer-esd'):
+            if self.esd_mode != 'esd_sw_sim_success': raise AssertionError('Restore did not start in mode 5')
+            self.esd_mode = 'reg_read'
+            return 'WRITER_ESD_RESTORED reg_read'
         if label.endswith('-esd'):return 'reg_read'
         if label.endswith('-replay'):
             self.log+='dsi-ctrl-1: dsi_ctrl_cmd_transfer len=3, type=0x39 hs cmds= 51 0e 10\n'
@@ -176,7 +189,7 @@ class Sim(t.AATimedTrial):
     def recover(self):
         self.calls.append('reboot');assert not self.guard_context and self.active_start is None
         self.panel_uncertain=self.pending_read=self.inflight=self.active_failed=False
-        self.report['recovery_reboot_verified']=True;self.trace=''
+        self.report['recovery_reboot_verified']=True;self.trace='';self.esd_mode='reg_read'
     def stop_camera(self,**kwargs):
         self.calls.append('stop-camera');self.report.update(camera_stopped_verified=True,video_transfer_verified=True,video_bytes=5,video_validation_status='pending_offline')
     def cleanup_camera_xml(self):self.report['camera_ui_temp_removed']=True

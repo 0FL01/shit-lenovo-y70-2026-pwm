@@ -1,0 +1,12 @@
+{
+  "real_git_fixed_loader": {
+    "status": "rejected_uncommitted_sources",
+    "exception": "RuntimeError",
+    "reason": "Relevant sources not clean tracked HEAD blobs"
+  },
+  "real_postload_source_gate": {
+    "status": "rejected_uncommitted_sources",
+    "exception": "ValueError",
+    "reason": "Relevant runner/helpers differ from recorded commit; commit reviewed sources before live I/O"
+  }
+}

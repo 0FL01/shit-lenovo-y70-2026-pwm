@@ -30,6 +30,7 @@ def bounds(snapshot):
 
 SCHEMA = "aa-threshold-optical-v1"
 ACQUISITION_SCHEMA = "aa-threshold-acquisition-v1"
+WRITER_ESD_CONTRACT = "aa_full_table_esd_isolation_v1"
 REDRAW_SCENE_CONTRACT = "same_trial_settings_fragment_tree_v2"
 SCOPES = ("aa-threshold-stock-surrogate-v1", "aa-threshold-candidate-v1")
 HASHES = {"stock":"b5ed66ba69e6221de5fdeaf4d003c9628602d743880acd1c8e2cf7198facd193",
@@ -319,6 +320,24 @@ def validate_acquisition(run):
                 finite(kernel.get("begin_seconds")) and finite(kernel.get("end_seconds")) and
                 kernel["end_seconds"]-kernel["begin_seconds"]>=2 and write.get("quiet_evidence")==quiet,
                 "Missing exact real2s prewriter quiet")
+        esd = stage.get("esd_lifecycle", {})
+        static_esd = {
+            "contract": WRITER_ESD_CONTRACT,
+            "isolated_mode": "esd_sw_sim_success", "restored_mode": "reg_read",
+            "pre_first_chunk_readback": True, "inflight_cancellation_proven": False,
+            "held_through": "complete_table_trace_kernel_state_host_validation",
+        }
+        esd_times = ("isolated_monotonic", "quiet_verified_monotonic",
+                     "table_validated_monotonic", "restored_monotonic")
+        require(set(esd) == set(static_esd) | set(esd_times) and
+                all(type(esd.get(k)) is type(v) and esd[k] == v for k, v in static_esd.items()) and
+                all(finite(esd.get(k)) for k in esd_times) and write.get("esd_lifecycle") == esd,
+                "Missing exact full-table ESD lifecycle evidence")
+        isolated, quiet_verified, table_validated, restored = (esd[k] for k in esd_times)
+        require(write["started_monotonic"] <= isolated <= quiet_verified <= write["dispatch_monotonic"] <=
+                table_validated <= restored == write["validated_monotonic"] and
+                quiet_verified - isolated >= 2,
+                "ESD isolation/quiet/table/restore ordering inconsistent")
         pre0,pre1,post=(stage.get(k) for k in ("prehold_started_monotonic",
                             "prehold_qualified_monotonic","postselectors_verified_monotonic"))
         require(all(finite(x) for x in (pre0,pre1,post)) and

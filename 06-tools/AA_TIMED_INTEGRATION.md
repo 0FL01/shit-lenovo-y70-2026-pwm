@@ -1,5 +1,25 @@
 # AA full-table timed integration
 
+
+## Latest checkpoint: full-table ESD isolation, 2026-11-10
+
+The current AA writer now isolates ESD before the existing two-second quiet
+period and keeps it isolated through complete host validation. Success-only
+verified restoration replaces the old writer-esd read. No shared transaction,
+wire, trace, fast-scene or watchdog guard was loosened. This is bounded
+suppression of new checks, not cancellation of an older in-flight check.
+
+Final offline tests: 125 normal and 125 optimized, zero skips, including the
+actual pinned Settings pair and the exact saved 65b1139 rejection. The real
+source-clean gates still reject the uncommitted worktree. No physical trial,
+deployment or candidate admission is implied. The next control remains stock-only.
+
+Current details, lifecycle limits and test logs are in
+`06-tools/aa_timed_runtime_20261109/esd_isolation_20261110/README.md` (repository-relative).
+Current pins and conservative encoded command sizes are in
+`06-tools/aa_timed_runtime_closure.json`. The checkpoint material below is
+historical; its older hashes and command sizes are not the current freeze.
+
 ## Opening readiness correction (2026-11-10)
 
 Status: offline source correction, not a completed full-stock qualification.

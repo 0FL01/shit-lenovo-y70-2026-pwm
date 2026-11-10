@@ -1,0 +1,78 @@
+{
+  "status": "offline_frozen_for_independent_review_not_live_admission",
+  "base_commit": "65b1139c83db75ef19ea3fd7421fd2979686bc0d",
+  "files_sha256": {
+    "06-tools/AA_TIMED_INTEGRATION.md": "1299836b82d8a49e4903c5baa13718a64099e0aca1293f40840ef32d929f0aad",
+    "06-tools/aa_acquisition_validation.py": "44c064075d6a0cba2f176b3ff2a39bf99131dbbfe7caa31295de45ca1c52a968",
+    "06-tools/aa_threshold_trial.py": "c1d5d7800a17bad391887687a516b17fb1394a530092659cba3f00a7b4d6c278",
+    "06-tools/aa_timed_runtime_20261109/RUNTIME.md": "72c6437cca55637ed0b1e5f0beaba760a61a3a08845627a5bf9a2a446f96015e",
+    "06-tools/aa_timed_runtime_closure.json": "f98a8f571cd8f2a478911d56f6f2a7b23f12b1a9246daf62a609e48773ed4223",
+    "06-tools/host_source_integration_20261109/host_entrypoint.py": "c68118011689d3c0615f6fb86827bfc51730e52bad5ce47cfb74ce8acbb1b73d",
+    "06-tools/run_aa_timed_stock_trial.py": "b10c27e313f0e9442842b707298d8ff51b1ddf592f435b7c5baadd9c51868e23",
+    "06-tools/test_aa_threshold_trial.py": "b1cc8da9144bfed4365d1cacb2b7408599e0342656e2f04096a9485624e15281",
+    "06-tools/test_aa_video_validation.py": "f6db9c33a5a29d36b40f3f48c1b7a77554d8830337ae3ca5ed5cf74d8cf5508f",
+    "06-tools/test_run_aa_timed_stock_trial.py": "e0ae2a99e02c2fe9fcc447dc492902962fb6fb23d0c322c3c4001ba2964fe7d7",
+    "06-tools/test_aa_writer_esd_isolation.py": "a43563dd2722c7a4169e21558f95caf93dd4ed7cf9d0f5321d4371578a11ec78",
+    "06-tools/test_aa_saved_esd_failure.py": "b434167b407061e9ee0c0172131dcb54892727f8338b92ff58118a5e715a4513",
+    "06-tools/aa_timed_runtime_20261109/esd_isolation_20261110/README.md": "7b23619720023ac56713bcaad39de4091269f5a4b25ef0599a960089cee66155",
+    "06-tools/aa_timed_runtime_20261109/esd_isolation_20261110/source_gate_checks.json": "c8222968e44c128da8484280824febf4b3431caeb4261a9a8d7124b19fdd978d",
+    "06-tools/aa_timed_runtime_20261109/esd_isolation_20261110/tests_normal.txt": "9878ef7c56ae690aa43c2da3c7be141bdeedd8942f60b0d39fa7d54c2b457dd9",
+    "06-tools/aa_timed_runtime_20261109/esd_isolation_20261110/tests_optimized.txt": "81e5fa331b967f08d45eb6170ad2d50292973587cfe8b7f3f0da6060f366ed32"
+  },
+  "manifest_self_hash": "Excluded to avoid recursion; obtain sha256sum of this manifest for review.",
+  "test_modules": [
+    "test_aa_threshold_trial",
+    "test_run_aa_timed_stock_trial",
+    "test_aa_inherited_setup",
+    "test_aa_video_validation",
+    "test_aa_writer_esd_isolation",
+    "test_aa_saved_esd_failure",
+    "test_aa_source_profile",
+    "test_inert_source_loader"
+  ],
+  "tests_normal": 125,
+  "tests_optimized": 125,
+  "skipped_tests": 0,
+  "pythonpath": [
+    "06-tools",
+    "06-tools/host_source_integration_20261109"
+  ],
+  "external_saved_scene_pair": {
+    "AA_SCENE_STABLE_PATH": "/home/opencode/.cache/legion-y70-aa-calibration-opened-686b6ff-01/0085-calibration-scene-opened.stdout",
+    "AA_SCENE_PENDING_PATH": "/home/opencode/.cache/legion-y70-aa-scene-opened-686b6ff-01/0108-baseline-scene-opened.stdout",
+    "stable_sha256": "84c73501853be4e8e843b7c217796f112e3d94eafa6a2614281526005a28cfab",
+    "pending_sha256": "cc51ddb6b8dac870bce3cd82288d108cd4b1df1cd933ea22ba1fb316c9af295d"
+  },
+  "privacy_review": {
+    "scope": "Exact added content in listed files; all new tests manually inspected",
+    "scan_counts": {
+      "ipv4_literal": 0,
+      "private_key": 0,
+      "literal_live_trace": 0,
+      "literal_shell_framing": 0,
+      "literal_uuid": 2
+    },
+    "non_synthetic_uuid_count": 0,
+    "raw_capture_or_video_files_in_scope": false,
+    "external_evidence_only": "Actual saved failure and scene pair stay in existing cache; published fixtures are generated synthetic data",
+    "literal_zero_uuid": "Fake boot-identity mismatch only; not a recorded identity"
+  },
+  "unchanged": [
+    "06-tools/dsi_trial_transaction.py",
+    "WORKSTATE.md"
+  ],
+  "source_gate_status": "Real loader and post-load source gate reject uncommitted source; no postcommit PASS claimed",
+  "live_device_operations": 0,
+  "deployments": 0,
+  "commits_or_pushes": 0,
+  "publication_whitespace_correction": {
+    "previous_freeze_sha256": "e9b26334576db2eb424fac7714ca43703a1da7d1f857067cd862997e118a2928",
+    "file": "06-tools/test_aa_saved_esd_failure.py",
+    "change": "Removed exactly one trailing blank line; AST including attributes unchanged",
+    "previous_test_sha256": "5ba9b8129927412090f4a6dcf4f2fa2eff6c3ba6596e8e4c06ff64e3d1c94994",
+    "tests_normal": 125,
+    "tests_optimized": 125,
+    "skipped_tests": 0,
+    "first_commit_not_attempted": "Staged diff-check stopped at trailing whitespace before any commit command ran"
+  }
+}

@@ -337,7 +337,16 @@ class AATimedTrial(timed.TimedStockTrial):
         index=len(self.report['full_table_writes_attempted']);check(index<3 and label==expected[index],'No repeated/out-of-order writer')
         check(not self.panel_uncertain and not self.pending_read and not self.inflight,'No DSI into uncertainty')
         if label!='baseline':check(self.guard_context and self.short_armed and self.timed_watchdog_verified and self.remaining()>0,'Active watchdog required')
-        started=self.monotonic();quiet=self.quiet(label+'_PRE',3600)
+        started = self.monotonic()
+        # Sticky before the first mode mutation, including isolation/readback
+        # failure. No caught error may open a later DSI child without recovery.
+        self.pending_read = self.panel_uncertain = True
+        check(self.shell(aa.writer_esd_script(self.tmp, self.token), root=True,
+                         label=label+'-writer-isolate', mutation=True) ==
+              'WRITER_ESD_ISOLATED esd_sw_sim_success', 'Writer ESD isolation failed')
+        isolated = self.monotonic()
+        quiet = self.quiet(label+'_PRE', 3600)
+        quiet_verified = self.monotonic()
         name='aa10' if label=='aa10' else 'stock';program=self.programs[name]
         self.pending_read=self.panel_uncertain=True
         if name=='aa10':
@@ -348,6 +357,9 @@ class AATimedTrial(timed.TimedStockTrial):
         child=aa.writer_script(self.tmp,self.token,program,name,self.entry_count)
         # Guard uses unchanged collision parser plus a fresh random nonreusable nonce.
         data,begin,end=self.aa_envelope(child,label+'-write',guard=(self.before['boot_id'],quiet['begin_marker'],uuid.uuid4().hex[:12]))
+        check(data['CHILD'].startswith('WRITER_ESD_ISOLATED esd_sw_sim_success\nBLOCK_TRACE_BEGIN -1\n') and
+              data['CHILD'].count('WRITER_ESD_ISOLATED esd_sw_sim_success') == 1,
+              'Missing writer pre-first-chunk ESD readback')
         initial=re.findall(r'^BLOCK_TRACE_BEGIN -1\n(.*?)^BLOCK_TRACE_END -1$',data['CHILD'],re.M|re.S)
         check(len(initial)==1 and aa.tx._events(initial[0])==aa.tx._events(data['TRACE_BEFORE']),'Activity inside writer before first block')
         transaction=aa.tx.validate_batch_capture(data['CHILD'],self.entry_count)
@@ -356,11 +368,25 @@ class AATimedTrial(timed.TimedStockTrial):
         wire=aa.validate_wire(data['KERNEL'],begin,end,program,name,self.reference)
         aa.validate_wire(data['KERNEL'],quiet['begin_marker'],end,program,name,self.reference)
         self.entry_count=transaction['entry_count_after'];self.trace_snapshot=data['TRACE_AFTER']
-        check(self.shell(s.esd_read_script(self.tmp),root=True,label=label+'-writer-esd')=='reg_read','Writer ESD changed')
+        table_validated = self.monotonic()
+        # Keep mode 5 through CHILD, final trace, END, kernel/state evidence and
+        # authoritative host validation. Replace the old independent ESD read.
+        check(self.shell(aa.writer_esd_script(self.tmp, self.token, restore=True), root=True,
+                         label=label+'-writer-esd', mutation=True) ==
+              'WRITER_ESD_RESTORED reg_read', 'Writer ESD restoration failed')
+        restored = self.monotonic()
+        esd_lifecycle = {
+            'contract': acquisition.WRITER_ESD_CONTRACT,
+            'isolated_mode': 'esd_sw_sim_success', 'restored_mode': 'reg_read',
+            'pre_first_chunk_readback': True, 'inflight_cancellation_proven': False,
+            'held_through': 'complete_table_trace_kernel_state_host_validation',
+            'isolated_monotonic': isolated, 'quiet_verified_monotonic': quiet_verified,
+            'table_validated_monotonic': table_validated, 'restored_monotonic': restored,
+        }
         self.pending_read=False;self.panel_uncertain=False
         record={'label':label,'stage':label,'program':name,'program_name':name,'program_sha256':aa.HASHES[name],
-                'quiet_evidence':quiet,'started_at_utc':s.now(),'started_monotonic':started,'dispatch_monotonic':dispatch,
-                'validated_monotonic':self.monotonic(),'transaction':transaction,'wire':wire,
+                'quiet_evidence':quiet,'esd_lifecycle':esd_lifecycle,'started_at_utc':s.now(),'started_monotonic':started,'dispatch_monotonic':dispatch,
+                'validated_monotonic':restored,'transaction':transaction,'wire':wire,
                 'qualified':False,'phase_seconds':{'writer_and_quiet':self.monotonic()-started}}
         self.report['writes'].append({k:v for k,v in record.items() if k not in ('phase_seconds','qualified')})
         return record
@@ -389,6 +415,7 @@ class AATimedTrial(timed.TimedStockTrial):
         return {**result,'main_trace':delta}
 
     def replay(self,label):
+        check(not self.pending_read and not self.inflight, 'No replay into uncertainty')
         self.pending_read=True
         before=self.shell('cat '+aa.TRACE+'/trace',root=True,label=label+'-replay-trace-before');self.trace_check(before)
         begin=self.mark(label.upper()+'_REPLAY_BEGIN')
@@ -543,6 +570,7 @@ class AATimedTrial(timed.TimedStockTrial):
         return result
 
     def prehold(self,record):
+        check(not self.pending_read and not self.inflight, 'No prehold into uncertainty')
         label=record['label'];self.panel_uncertain=True
         record['prehold_started_monotonic']=self.monotonic()
         for key,operation in (('same_dbv_replay',self.replay),('redraw_audit',self.redraw),('selectors_before_hold',self.selectors),('c1',self.c1)):
@@ -552,6 +580,7 @@ class AATimedTrial(timed.TimedStockTrial):
         record['prehold_qualified_monotonic']=self.monotonic()
 
     def finish_hold(self,record):
+        check(not self.pending_read and not self.inflight, 'No hold into uncertainty')
         label=record['label'];self.panel_uncertain=True
         self.optical_hold(label,record)
         trace=self.shell('cat '+aa.TRACE+'/trace',root=True,label=label+'-hold-trace');self.trace_check(trace)

@@ -91,6 +91,45 @@ def scratch_guards(tmp,names):
         lines.extend((f'test ! -L {path}',f'test ! -e {path}',f'(set -C; : > {path})',f'test "$(stat -c %u {path})" = 0',f'test "$(stat -c %a {path})" = 600'))
     return '\n'.join(lines)
 
+# Retain the existing NUL-normalizing debugfs read contract. Check tr's
+# status separately so a read error cannot be hidden
+# by a successful comparison. The setter itself requires one trailing LF.
+ESD_MODE_PATH = 'qcom,mdss_dsi_mot_boe_ili97701A_682_1440x3168_dsc_cmd_v4/esd_check_mode'
+
+
+def esd_mode_guard(mode):
+    require(mode in ('reg_read', 'esd_sw_sim_success'), 'Fixed ESD modes only')
+    return "esd_mode=$(tr -d '\\000' < \"$E\")\n" + f'test "$esd_mode" = {mode}'
+
+
+def writer_esd_script(tmp, token, *, restore=False):
+    """Fixed mode transition only. Failure never restores ESD in an exit trap.
+
+    Mode 5 prevents future hardware checks, but does not cancel an old check.
+    The caller must observe quiet and keep every native/wire transaction gate.
+    """
+    _path(tmp)
+    require(type(restore) is bool, 'Fixed ESD transition only')
+    before, after = ('esd_sw_sim_success', 'reg_read') if restore else ('reg_read', 'esd_sw_sim_success')
+    marker = 'WRITER_ESD_RESTORED reg_read' if restore else 'WRITER_ESD_ISOLATED esd_sw_sim_success'
+    body = f'''set -eu
+{lock_commands(token)['verify']}
+{scratch_guards(tmp, ())}
+mounted=0
+trap 'status=$?; trap - EXIT; if [ "$mounted" = 1 ]; then umount {tmp}/debugfs || status=1; fi; exit "$status"' EXIT
+trap 'exit 30' HUP INT TERM
+mount -o rprivate none /
+mount -t debugfs -o nosuid,nodev,noexec debugfs {tmp}/debugfs
+mounted=1
+E={tmp}/debugfs/{ESD_MODE_PATH}
+{esd_mode_guard(before)}
+printf '%s\\n' {after} > "$E"
+{esd_mode_guard(after)}
+printf '%s\\n' '{marker}'
+'''
+    return 'timeout -k 3 15 unshare -m /system/bin/sh -c ' + shlex.quote(body)
+
+
 def writer_script(tmp,token,data,name,entry_count):
     """Reuse shared five-block transaction; this wrapper pins complete bytes."""
     _path(tmp);validate_program(data,name)
@@ -98,7 +137,12 @@ def writer_script(tmp,token,data,name,entry_count):
     parts=shlex.split(command);body=parts[-1]
     require(body.startswith('set -eu\n'),'Transaction prologue changed')
     body=body.replace('set -eu\n','set -eu\n'+lock_commands(token)['verify']+'\n'+file_guards(tmp,data,name)+'\n'+scratch_guards(tmp,('transaction_trace','transaction-previous','transaction-events','transaction-prefix'))+'\n',1)
+    # Recheck mode 5 in the mounted writer immediately before its first trace
+    # snapshot. Restoration is a separate success-only host step, never here.
+    ready = f'E={tmp}/debugfs/{ESD_MODE_PATH}\n' + esd_mode_guard('esd_sw_sim_success')
+    ready += "\nprintf '%s\\n' 'WRITER_ESD_ISOLATED esd_sw_sim_success'\n"
     snapshot=f'cat {TRACE}/trace > "$S"'
+    body = body.replace(snapshot, ready + snapshot, 1)
     require(body.count(snapshot)==6,'Changed transaction snapshot count')
     initial=snapshot+f'''\nif grep -E 'mode_(entry|return|ctrl_return):' "$S" > {tmp}/transaction-previous; then :; else grep_rc=$?; test "$grep_rc" = 1; test ! -s {tmp}/transaction-previous; fi'''
     subsequent=snapshot+f'''\ngrep -E 'mode_(entry|return|ctrl_return):' "$S" > {tmp}/transaction-events

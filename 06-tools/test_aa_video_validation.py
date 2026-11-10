@@ -37,9 +37,13 @@ def fixture(candidate=False):
         'tap_xy':[720,1583],'fragments':{'ready':'DisplaySettings','opened':'ScreenTimeoutSettings'},
         'components':{'ready':'com.android.settings/.Settings$DisplaySettingsActivity','opened':'com.android.settings/.SubSettings'},
         'audit':{'method':'native_timeout_chooser_open_cancel','native_dsi_writes':0,'marker_interval_verified':True},
-        'completed_monotonic':8.}
+        'completed_monotonic':6.}
+    # Synthetic host times leave the full real two-second observation after
+    # isolation, while retaining the original camera timestamps and holds.
+    run.update(active_start_monotonic=16., return_qualified_monotonic=29., active_G_seconds=13.4)
     phases={k:.1 for k in ("writer_and_quiet","same_dbv_replay","redraw_audit","selectors_before_hold","c1","selectors_after_hold")}
     phases["hold_and_metadata"]=5.4
+    phases["writer_and_quiet"]=9.2-7.
     run["prearm_planning_estimate"]={"observed_baseline_phase_seconds":phases,
         "estimated_active_seconds":2*sum(phases.values())-5.4-.1+3,"planning_margin_seconds":3.,
         "status":"observation_not_a_bound","redraw_scene_contract":v.REDRAW_SCENE_CONTRACT}
@@ -68,11 +72,25 @@ def fixture(candidate=False):
                                    "entry_count_after":15+22*i,"background_esd":[]}
         stage["selectors_after_hold"]["entry_count_after"]=22+22*i
         stage["hold_verified_monotonic"]=stage["hold_end_monotonic"]+.3
-        timing=({"started_monotonic":9.,"dispatch_monotonic":9.1,"validated_monotonic":9.2}
-                if i==0 else old["writes"][i-1])
+        timing = (
+            {"started_monotonic":7., "dispatch_monotonic":9.1, "validated_monotonic":9.2},
+            {"started_monotonic":16.8, "dispatch_monotonic":19.1, "validated_monotonic":19.2},
+            {"started_monotonic":25.7, "dispatch_monotonic":28., "validated_monotonic":28.2},
+        )[i]
+        stage["phase_seconds"]["writer_and_quiet"] = timing["validated_monotonic"] - timing["started_monotonic"]
+        stage["esd_lifecycle"] = {
+            "contract":v.WRITER_ESD_CONTRACT, "isolated_mode":"esd_sw_sim_success", "restored_mode":"reg_read",
+            "pre_first_chunk_readback":True, "inflight_cancellation_proven":False,
+            "held_through":"complete_table_trace_kernel_state_host_validation",
+            "isolated_monotonic":timing["started_monotonic"]+.01,
+            "quiet_verified_monotonic":timing["dispatch_monotonic"]-.05,
+            "table_validated_monotonic":timing["validated_monotonic"]-.01,
+            "restored_monotonic":timing["validated_monotonic"],
+        }
         run["writes"].append({k:timing[k] for k in ("started_monotonic","dispatch_monotonic","validated_monotonic")})
         run["writes"][-1].update(stage=names[i],program=name,program_sha256=v.HASHES[name],
-                                transaction=deepcopy(stage["transaction"]),wire=deepcopy(stage["wire"]))
+                                transaction=deepcopy(stage["transaction"]),wire=deepcopy(stage["wire"]),
+                                esd_lifecycle=deepcopy(stage["esd_lifecycle"]))
         stage["quiet_evidence"]={"quiet_seconds":2,"begin_marker":names[i]+"_quiet_begin",
             "end_marker":names[i]+"_quiet_end","native_state":{"native_actual_hz":120,"native_group":3},
             "kernel_marker_bounds":{"clock":"target kernel printk monotonic; not host/camera clock",

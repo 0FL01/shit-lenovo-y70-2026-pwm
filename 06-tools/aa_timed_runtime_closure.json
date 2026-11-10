@@ -1,5 +1,5 @@
 {
-  "status": "offline_opening_readiness_correction_pending_full_stock_qualification",
+  "status": "offline_full_table_esd_isolation_pending_independent_review_and_full_stock_qualification",
   "profile": "aa",
   "default_profile_unchanged": "p85",
   "hardware_paths": [
@@ -84,37 +84,49 @@
     "06-tools/video_validation_split_20261109/video_validator_snapshot.py"
   ],
   "changed_or_new_runtime_sha256": {
-    "06-tools/run_aa_timed_stock_trial.py": "4b1893dde6520bc17ba1f5e27c48d328839b5c2790ab9d9c85637fe5bd9d291b",
-    "06-tools/aa_threshold_trial.py": "a6a495c5d3d363717c44546e93eb035eaa5c91ab93a3c200a1e7a8a09837e1d7",
-    "06-tools/aa_acquisition_validation.py": "ae9d34aca8833ca6dd1d04341196d710c40d08ed7932072a12c5657f5b9172a4",
+    "06-tools/run_aa_timed_stock_trial.py": "b10c27e313f0e9442842b707298d8ff51b1ddf592f435b7c5baadd9c51868e23",
+    "06-tools/aa_threshold_trial.py": "c1d5d7800a17bad391887687a516b17fb1394a530092659cba3f00a7b4d6c278",
+    "06-tools/aa_acquisition_validation.py": "44c064075d6a0cba2f176b3ff2a39bf99131dbbfe7caa31295de45ca1c52a968",
     "06-tools/aa_video_validation.py": "00843592492b245060e8aa3098ffd3ca7303af0f43ea67fa474c288111abcff4",
     "06-tools/dsi_trial_transaction.py": "4407a55b3bc37e197e48c74673cff0626345124ca5163b4177ade9a567339ffa",
     "06-tools/host_source_integration_20261109/inert_source_loader.py": "6dd008a6f9f55b11fbcb43270f9510a659d4f61f8b7fc3ae2c80ab863c41b40c",
-    "06-tools/host_source_integration_20261109/host_entrypoint.py": "89671c99284e13f443ed98ee0f8ac016809ae5cb773af5e23a899f48d4594210",
+    "06-tools/host_source_integration_20261109/host_entrypoint.py": "c68118011689d3c0615f6fb86827bfc51730e52bad5ce47cfb74ce8acbb1b73d",
     "06-tools/run_p85_guarded_trial.py": "fba1ec5dbb0f7592a4d0a3167589dadac2130370cbf886cecc1d588772fa97a5"
   },
   "worst_case_command_sizes": {
     "stock": {
-      "service_bytes": 40996,
-      "shell_argv_bytes_including_nul": 40984,
+      "service_bytes": 47875,
+      "shell_argv_bytes_including_nul": 47863,
       "service_limit_bytes": 65535,
       "argv_limit_bytes": 131072
     },
     "aa10": {
-      "service_bytes": 40961,
-      "shell_argv_bytes_including_nul": 40949,
+      "service_bytes": 47840,
+      "shell_argv_bytes_including_nul": 47828,
       "service_limit_bytes": 65535,
       "argv_limit_bytes": 131072
     },
     "selectors": {
-      "service_bytes": 41390,
-      "shell_argv_bytes_including_nul": 41378,
+      "service_bytes": 44547,
+      "shell_argv_bytes_including_nul": 44535,
       "service_limit_bytes": 65535,
       "argv_limit_bytes": 131072
     },
     "c1": {
-      "service_bytes": 34507,
-      "shell_argv_bytes_including_nul": 34495,
+      "service_bytes": 35518,
+      "shell_argv_bytes_including_nul": 35506,
+      "service_limit_bytes": 65535,
+      "argv_limit_bytes": 131072
+    },
+    "esd_isolate": {
+      "service_bytes": 3025,
+      "shell_argv_bytes_including_nul": 3013,
+      "service_limit_bytes": 65535,
+      "argv_limit_bytes": 131072
+    },
+    "esd_restore": {
+      "service_bytes": 3005,
+      "shell_argv_bytes_including_nul": 2993,
       "service_limit_bytes": 65535,
       "argv_limit_bytes": 131072
     }
@@ -124,7 +136,10 @@
     "06-tools/host_source_integration_20261109/test_aa_source_profile.py",
     "06-tools/test_aa_inherited_setup.py",
     "06-tools/test_aa_video_validation.py",
-    "06-tools/host_source_integration_20261109/test_inert_source_loader.py"
+    "06-tools/host_source_integration_20261109/test_inert_source_loader.py",
+    "06-tools/test_aa_threshold_trial.py",
+    "06-tools/test_aa_writer_esd_isolation.py",
+    "06-tools/test_aa_saved_esd_failure.py"
   ],
   "live_device_operations": 0,
   "commits_or_pushes": 0,
@@ -195,5 +210,75 @@
     "explicit_saved_pair_replay_executed": true,
     "skipped_tests": 0,
     "saved_pair_replay_limit": "Real parser/redraw caller with exact saved bytes and fake external I/O/timing; not a physical successful fast-path trial"
+  },
+  "historical_opening_readiness_command_sizes": {
+    "stock": {
+      "service_bytes": 40996,
+      "shell_argv_bytes_including_nul": 40984,
+      "service_limit_bytes": 65535,
+      "argv_limit_bytes": 131072
+    },
+    "aa10": {
+      "service_bytes": 40961,
+      "shell_argv_bytes_including_nul": 40949,
+      "service_limit_bytes": 65535,
+      "argv_limit_bytes": 131072
+    },
+    "selectors": {
+      "service_bytes": 41390,
+      "shell_argv_bytes_including_nul": 41378,
+      "service_limit_bytes": 65535,
+      "argv_limit_bytes": 131072
+    },
+    "c1": {
+      "service_bytes": 34507,
+      "shell_argv_bytes_including_nul": 34495,
+      "service_limit_bytes": 65535,
+      "argv_limit_bytes": 131072
+    }
+  },
+  "full_table_esd_isolation_correction": {
+    "contract": "aa_full_table_esd_isolation_v1",
+    "status": "offline_review_ready_not_full_stock_admission",
+    "tests_normal": 125,
+    "tests_optimized": 125,
+    "skipped_tests": 0,
+    "test_modules": [
+      "test_aa_threshold_trial",
+      "test_run_aa_timed_stock_trial",
+      "test_aa_inherited_setup",
+      "test_aa_video_validation",
+      "test_aa_writer_esd_isolation",
+      "test_aa_saved_esd_failure",
+      "test_aa_source_profile",
+      "test_inert_source_loader"
+    ],
+    "actual_pinned_scene_pair_replayed": true,
+    "source_gate": "real Git loader and post-load gate reject uncommitted worktree; positive source-pin tests use explicit fake Git provenance",
+    "native_semantics": "mode5 prevents new hardware checks but does not cancel an older in-flight checker",
+    "quiet_seconds": 2,
+    "quiet_moved_after_verified_mode5": true,
+    "inflight_cancellation_proven": false,
+    "restore_boundary": "after complete table, final trace equality, END, kernel/state evidence and authoritative host validation",
+    "error_policy": "sticky uncertainty; existing same-target reboot; no trap restore or extra DSI",
+    "timing_accounting": "isolation, quiet, table, validation and restore included in writer_and_quiet",
+    "unchanged_limits_seconds": {
+      "active": 37,
+      "host": 45,
+      "reserve": 8,
+      "short_watchdog": 60,
+      "overall_watchdog": 600
+    },
+    "saved_failure_sha256": "3833a0220298d9f913c8686d7f1189d2da5eb58abcff04343f99ce29d2b17e21",
+    "saved_failure_awk_statuses": [
+      0,
+      0,
+      0,
+      51
+    ],
+    "hardware_admitted": false,
+    "candidate_admitted": false,
+    "live_device_operations": 0,
+    "documentation": "06-tools/aa_timed_runtime_20261109/esd_isolation_20261110/README.md"
   }
 }
