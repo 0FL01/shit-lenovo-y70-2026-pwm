@@ -1,0 +1,15 @@
+test_broad_model_is_not_an_exact_fit_to_real_profiles (test_analyze.FiniteDiagnosticTests.test_broad_model_is_not_an_exact_fit_to_real_profiles) ... ok
+test_constant_correlations_undefined (test_analyze.FiniteDiagnosticTests.test_constant_correlations_undefined) ... ok
+test_envelope_recovers_known_shape (test_analyze.FiniteDiagnosticTests.test_envelope_recovers_known_shape) ... ok
+test_joint_exact_polynomial_plus_sine (test_analyze.FiniteDiagnosticTests.test_joint_exact_polynomial_plus_sine) ... ok
+test_nonmutating (test_analyze.FiniteDiagnosticTests.test_nonmutating) ... ok
+test_peak_grid_is_spatial_not_hertz (test_analyze.FiniteDiagnosticTests.test_peak_grid_is_spatial_not_hertz) ... ok
+test_phase_rotating_not_cancelled (test_analyze.FiniteDiagnosticTests.test_phase_rotating_not_cancelled) ... ok
+test_primary_failure_is_preserved (test_analyze.FiniteDiagnosticTests.test_primary_failure_is_preserved) ... ok
+test_primary_matches_pinned_all_nine (test_analyze.FiniteDiagnosticTests.test_primary_matches_pinned_all_nine) ... ok
+test_subranges_inside_reviewed_pixels (test_analyze.FiniteDiagnosticTests.test_subranges_inside_reviewed_pixels) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.123s
+
+OK

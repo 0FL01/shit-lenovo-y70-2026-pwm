@@ -1,0 +1,690 @@
+{
+  "schema": "saved-camera-codec-audit-v1",
+  "acquisition_admitted": false,
+  "physical_pwm_hz": null,
+  "snapshots": [
+    {
+      "label": "preflight_0",
+      "request": {
+        "exposure_ns": 100000,
+        "iso": 6400,
+        "ae_mode": "OFF",
+        "af_mode": "OFF",
+        "focus_diopters": 2.0387485,
+        "crop": [
+          0,
+          0,
+          4080,
+          3072
+        ],
+        "zoom": 1.0,
+        "eis_mode": "OFF",
+        "ois_mode": "OFF",
+        "capture_intent": "VIDEO_RECORD",
+        "frame_duration_ns": 33333333
+      },
+      "result": {
+        "exposure_ns": 100000,
+        "iso": 6400,
+        "ae_mode": "OFF",
+        "af_mode": "OFF",
+        "focus_diopters": 2.0387485,
+        "crop": [
+          0,
+          0,
+          4080,
+          3072
+        ],
+        "zoom": 1.0,
+        "eis_mode": "OFF",
+        "ois_mode": "OFF",
+        "capture_intent": "VIDEO_RECORD",
+        "frame_duration_ns": 33350000,
+        "rolling_shutter_skew_ns": 15047630
+      },
+      "streams": [
+        {
+          "width": 1920,
+          "height": 1080,
+          "pixel_format": "0x11",
+          "state": 4,
+          "consumer_kind": "SurfaceTexture",
+          "requested": true
+        },
+        {
+          "width": 1280,
+          "height": 720,
+          "pixel_format": "0x1000",
+          "state": 4,
+          "consumer_kind": "GraphicBufferSource",
+          "requested": true
+        },
+        {
+          "width": 3840,
+          "height": 2160,
+          "pixel_format": "0x21",
+          "state": 4,
+          "consumer_kind": "ImageReader",
+          "requested": false
+        }
+      ]
+    },
+    {
+      "label": "preflight_1",
+      "request": {
+        "exposure_ns": 100000,
+        "iso": 6400,
+        "ae_mode": "OFF",
+        "af_mode": "OFF",
+        "focus_diopters": 2.0387485,
+        "crop": [
+          0,
+          0,
+          4080,
+          3072
+        ],
+        "zoom": 1.0,
+        "eis_mode": "OFF",
+        "ois_mode": "OFF",
+        "capture_intent": "VIDEO_RECORD",
+        "frame_duration_ns": 33333333
+      },
+      "result": {
+        "exposure_ns": 100000,
+        "iso": 6400,
+        "ae_mode": "OFF",
+        "af_mode": "OFF",
+        "focus_diopters": 2.0387485,
+        "crop": [
+          0,
+          0,
+          4080,
+          3072
+        ],
+        "zoom": 1.0,
+        "eis_mode": "OFF",
+        "ois_mode": "OFF",
+        "capture_intent": "VIDEO_RECORD",
+        "frame_duration_ns": 33350000,
+        "rolling_shutter_skew_ns": 15047630
+      },
+      "streams": [
+        {
+          "width": 1920,
+          "height": 1080,
+          "pixel_format": "0x11",
+          "state": 4,
+          "consumer_kind": "SurfaceTexture",
+          "requested": true
+        },
+        {
+          "width": 1280,
+          "height": 720,
+          "pixel_format": "0x1000",
+          "state": 4,
+          "consumer_kind": "GraphicBufferSource",
+          "requested": true
+        },
+        {
+          "width": 3840,
+          "height": 2160,
+          "pixel_format": "0x21",
+          "state": 4,
+          "consumer_kind": "ImageReader",
+          "requested": false
+        }
+      ]
+    },
+    {
+      "label": "baseline_start",
+      "request": {
+        "exposure_ns": 100000,
+        "iso": 6400,
+        "ae_mode": "OFF",
+        "af_mode": "OFF",
+        "focus_diopters": 2.0387485,
+        "crop": [
+          0,
+          0,
+          4080,
+          3072
+        ],
+        "zoom": 1.0,
+        "eis_mode": "OFF",
+        "ois_mode": "OFF",
+        "capture_intent": "VIDEO_RECORD",
+        "frame_duration_ns": 33333333
+      },
+      "result": {
+        "exposure_ns": 100000,
+        "iso": 6400,
+        "ae_mode": "OFF",
+        "af_mode": "OFF",
+        "focus_diopters": 2.0387485,
+        "crop": [
+          0,
+          0,
+          4080,
+          3072
+        ],
+        "zoom": 1.0,
+        "eis_mode": "OFF",
+        "ois_mode": "OFF",
+        "capture_intent": "VIDEO_RECORD",
+        "frame_duration_ns": 33350000,
+        "rolling_shutter_skew_ns": 15047630
+      },
+      "streams": [
+        {
+          "width": 1920,
+          "height": 1080,
+          "pixel_format": "0x11",
+          "state": 4,
+          "consumer_kind": "SurfaceTexture",
+          "requested": true
+        },
+        {
+          "width": 1280,
+          "height": 720,
+          "pixel_format": "0x1000",
+          "state": 4,
+          "consumer_kind": "GraphicBufferSource",
+          "requested": true
+        },
+        {
+          "width": 3840,
+          "height": 2160,
+          "pixel_format": "0x21",
+          "state": 4,
+          "consumer_kind": "ImageReader",
+          "requested": false
+        }
+      ]
+    },
+    {
+      "label": "baseline_end",
+      "request": {
+        "exposure_ns": 100000,
+        "iso": 6400,
+        "ae_mode": "OFF",
+        "af_mode": "OFF",
+        "focus_diopters": 2.0387485,
+        "crop": [
+          0,
+          0,
+          4080,
+          3072
+        ],
+        "zoom": 1.0,
+        "eis_mode": "OFF",
+        "ois_mode": "OFF",
+        "capture_intent": "VIDEO_RECORD",
+        "frame_duration_ns": 33333333
+      },
+      "result": {
+        "exposure_ns": 100000,
+        "iso": 6400,
+        "ae_mode": "OFF",
+        "af_mode": "OFF",
+        "focus_diopters": 2.0387485,
+        "crop": [
+          0,
+          0,
+          4080,
+          3072
+        ],
+        "zoom": 1.0,
+        "eis_mode": "OFF",
+        "ois_mode": "OFF",
+        "capture_intent": "VIDEO_RECORD",
+        "frame_duration_ns": 33350000,
+        "rolling_shutter_skew_ns": 15047630
+      },
+      "streams": [
+        {
+          "width": 1920,
+          "height": 1080,
+          "pixel_format": "0x11",
+          "state": 4,
+          "consumer_kind": "SurfaceTexture",
+          "requested": true
+        },
+        {
+          "width": 1280,
+          "height": 720,
+          "pixel_format": "0x1000",
+          "state": 4,
+          "consumer_kind": "GraphicBufferSource",
+          "requested": true
+        },
+        {
+          "width": 3840,
+          "height": 2160,
+          "pixel_format": "0x21",
+          "state": 4,
+          "consumer_kind": "ImageReader",
+          "requested": false
+        }
+      ]
+    },
+    {
+      "label": "sham_start",
+      "request": {
+        "exposure_ns": 100000,
+        "iso": 6400,
+        "ae_mode": "OFF",
+        "af_mode": "OFF",
+        "focus_diopters": 2.0387485,
+        "crop": [
+          0,
+          0,
+          4080,
+          3072
+        ],
+        "zoom": 1.0,
+        "eis_mode": "OFF",
+        "ois_mode": "OFF",
+        "capture_intent": "VIDEO_RECORD",
+        "frame_duration_ns": 33333333
+      },
+      "result": {
+        "exposure_ns": 100000,
+        "iso": 6400,
+        "ae_mode": "OFF",
+        "af_mode": "OFF",
+        "focus_diopters": 2.0387485,
+        "crop": [
+          0,
+          0,
+          4080,
+          3072
+        ],
+        "zoom": 1.0,
+        "eis_mode": "OFF",
+        "ois_mode": "OFF",
+        "capture_intent": "VIDEO_RECORD",
+        "frame_duration_ns": 33350000,
+        "rolling_shutter_skew_ns": 15047630
+      },
+      "streams": [
+        {
+          "width": 1920,
+          "height": 1080,
+          "pixel_format": "0x11",
+          "state": 4,
+          "consumer_kind": "SurfaceTexture",
+          "requested": true
+        },
+        {
+          "width": 1280,
+          "height": 720,
+          "pixel_format": "0x1000",
+          "state": 4,
+          "consumer_kind": "GraphicBufferSource",
+          "requested": true
+        },
+        {
+          "width": 3840,
+          "height": 2160,
+          "pixel_format": "0x21",
+          "state": 4,
+          "consumer_kind": "ImageReader",
+          "requested": false
+        }
+      ]
+    },
+    {
+      "label": "sham_end",
+      "request": {
+        "exposure_ns": 100000,
+        "iso": 6400,
+        "ae_mode": "OFF",
+        "af_mode": "OFF",
+        "focus_diopters": 2.0387485,
+        "crop": [
+          0,
+          0,
+          4080,
+          3072
+        ],
+        "zoom": 1.0,
+        "eis_mode": "OFF",
+        "ois_mode": "OFF",
+        "capture_intent": "VIDEO_RECORD",
+        "frame_duration_ns": 33333333
+      },
+      "result": {
+        "exposure_ns": 100000,
+        "iso": 6400,
+        "ae_mode": "OFF",
+        "af_mode": "OFF",
+        "focus_diopters": 2.0387485,
+        "crop": [
+          0,
+          0,
+          4080,
+          3072
+        ],
+        "zoom": 1.0,
+        "eis_mode": "OFF",
+        "ois_mode": "OFF",
+        "capture_intent": "VIDEO_RECORD",
+        "frame_duration_ns": 33350000,
+        "rolling_shutter_skew_ns": 15047630
+      },
+      "streams": [
+        {
+          "width": 1920,
+          "height": 1080,
+          "pixel_format": "0x11",
+          "state": 4,
+          "consumer_kind": "SurfaceTexture",
+          "requested": true
+        },
+        {
+          "width": 1280,
+          "height": 720,
+          "pixel_format": "0x1000",
+          "state": 4,
+          "consumer_kind": "GraphicBufferSource",
+          "requested": true
+        },
+        {
+          "width": 3840,
+          "height": 2160,
+          "pixel_format": "0x21",
+          "state": 4,
+          "consumer_kind": "ImageReader",
+          "requested": false
+        }
+      ]
+    },
+    {
+      "label": "return_start",
+      "request": {
+        "exposure_ns": 100000,
+        "iso": 6400,
+        "ae_mode": "OFF",
+        "af_mode": "OFF",
+        "focus_diopters": 2.0387485,
+        "crop": [
+          0,
+          0,
+          4080,
+          3072
+        ],
+        "zoom": 1.0,
+        "eis_mode": "OFF",
+        "ois_mode": "OFF",
+        "capture_intent": "VIDEO_RECORD",
+        "frame_duration_ns": 33333333
+      },
+      "result": {
+        "exposure_ns": 100000,
+        "iso": 6400,
+        "ae_mode": "OFF",
+        "af_mode": "OFF",
+        "focus_diopters": 2.0387485,
+        "crop": [
+          0,
+          0,
+          4080,
+          3072
+        ],
+        "zoom": 1.0,
+        "eis_mode": "OFF",
+        "ois_mode": "OFF",
+        "capture_intent": "VIDEO_RECORD",
+        "frame_duration_ns": 33350000,
+        "rolling_shutter_skew_ns": 15047630
+      },
+      "streams": [
+        {
+          "width": 1920,
+          "height": 1080,
+          "pixel_format": "0x11",
+          "state": 4,
+          "consumer_kind": "SurfaceTexture",
+          "requested": true
+        },
+        {
+          "width": 1280,
+          "height": 720,
+          "pixel_format": "0x1000",
+          "state": 4,
+          "consumer_kind": "GraphicBufferSource",
+          "requested": true
+        },
+        {
+          "width": 3840,
+          "height": 2160,
+          "pixel_format": "0x21",
+          "state": 4,
+          "consumer_kind": "ImageReader",
+          "requested": false
+        }
+      ]
+    },
+    {
+      "label": "return_end",
+      "request": {
+        "exposure_ns": 100000,
+        "iso": 6400,
+        "ae_mode": "OFF",
+        "af_mode": "OFF",
+        "focus_diopters": 2.0387485,
+        "crop": [
+          0,
+          0,
+          4080,
+          3072
+        ],
+        "zoom": 1.0,
+        "eis_mode": "OFF",
+        "ois_mode": "OFF",
+        "capture_intent": "VIDEO_RECORD",
+        "frame_duration_ns": 33333333
+      },
+      "result": {
+        "exposure_ns": 100000,
+        "iso": 6400,
+        "ae_mode": "OFF",
+        "af_mode": "OFF",
+        "focus_diopters": 2.0387485,
+        "crop": [
+          0,
+          0,
+          4080,
+          3072
+        ],
+        "zoom": 1.0,
+        "eis_mode": "OFF",
+        "ois_mode": "OFF",
+        "capture_intent": "VIDEO_RECORD",
+        "frame_duration_ns": 33350000,
+        "rolling_shutter_skew_ns": 15047630
+      },
+      "streams": [
+        {
+          "width": 1920,
+          "height": 1080,
+          "pixel_format": "0x11",
+          "state": 4,
+          "consumer_kind": "SurfaceTexture",
+          "requested": true
+        },
+        {
+          "width": 1280,
+          "height": 720,
+          "pixel_format": "0x1000",
+          "state": 4,
+          "consumer_kind": "GraphicBufferSource",
+          "requested": true
+        },
+        {
+          "width": 3840,
+          "height": 2160,
+          "pixel_format": "0x21",
+          "state": 4,
+          "consumer_kind": "ImageReader",
+          "requested": false
+        }
+      ]
+    }
+  ],
+  "stream": [
+    {
+      "codec_name": "h264",
+      "profile": "High",
+      "width": 1280,
+      "height": 720,
+      "coded_width": 1280,
+      "coded_height": 720,
+      "has_b_frames": 0,
+      "pix_fmt": "yuv420p",
+      "color_range": "tv",
+      "color_space": "bt709",
+      "color_transfer": "bt709",
+      "color_primaries": "bt709",
+      "field_order": "progressive",
+      "r_frame_rate": "30/1",
+      "avg_frame_rate": "114885000/3829487",
+      "time_base": "1/90000",
+      "start_time": "0.000000",
+      "duration": "85.098900",
+      "bit_rate": "9002919",
+      "nb_frames": "2553"
+    }
+  ],
+  "frame_count": 2553,
+  "packet_count": 2553,
+  "frame_types": {
+    "I": 86,
+    "P": 2467
+  },
+  "keyframe_count": 86,
+  "keyframe_interval_frames": {
+    "30": 85
+  },
+  "pts_delta_seconds": {
+    "min": 0.03323299999999563,
+    "median": 0.033332999999999835,
+    "max": 0.03342299999999909,
+    "mean": 0.03333325509404389
+  },
+  "nonpositive_pts_deltas": 0,
+  "pts_deltas_outside_30fps_1ms": 0,
+  "frame_dimensions": [
+    [
+      1280,
+      720
+    ]
+  ],
+  "crop_field_presence": {
+    "crop_top": 2553,
+    "crop_bottom": 2553,
+    "crop_left": 2553,
+    "crop_right": 2553
+  },
+  "windows": {
+    "baseline": {
+      "indices": [
+        861,
+        920
+      ],
+      "pts_seconds": [
+        28.7,
+        30.666667
+      ],
+      "types": {
+        "P": 58,
+        "I": 2
+      },
+      "keyframe_indices": [
+        870,
+        900
+      ],
+      "packet_bytes": {
+        "min": 30167.0,
+        "median": 38521.5,
+        "max": 69165.0,
+        "mean": 38025.36666666667
+      },
+      "thirds_packet_mean_bytes": [
+        37974.9,
+        37386.8,
+        38714.4
+      ],
+      "gop_age_frames": [
+        21,
+        20
+      ]
+    },
+    "sham": {
+      "indices": [
+        1534,
+        1593
+      ],
+      "pts_seconds": [
+        51.133333,
+        53.1
+      ],
+      "types": {
+        "P": 58,
+        "I": 2
+      },
+      "keyframe_indices": [
+        1560,
+        1590
+      ],
+      "packet_bytes": {
+        "min": 30561.0,
+        "median": 38688.0,
+        "max": 70116.0,
+        "mean": 38055.13333333333
+      },
+      "thirds_packet_mean_bytes": [
+        39622.25,
+        38628.0,
+        35915.15
+      ],
+      "gop_age_frames": [
+        4,
+        3
+      ]
+    },
+    "return": {
+      "indices": [
+        2171,
+        2230
+      ],
+      "pts_seconds": [
+        72.366667,
+        74.333333
+      ],
+      "types": {
+        "P": 58,
+        "I": 2
+      },
+      "keyframe_indices": [
+        2190,
+        2220
+      ],
+      "packet_bytes": {
+        "min": 31801.0,
+        "median": 34699.5,
+        "max": 70190.0,
+        "mean": 36588.55
+      },
+      "thirds_packet_mean_bytes": [
+        36176.0,
+        34536.2,
+        39053.45
+      ],
+      "gop_age_frames": [
+        11,
+        10
+      ]
+    }
+  }
+}

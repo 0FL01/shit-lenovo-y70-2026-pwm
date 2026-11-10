@@ -1,0 +1,26 @@
+{
+  "baseline": {
+    "n": 60,
+    "amplitude_packet_bytes_pearson_r": 0.12398081158975977,
+    "p_only_r": -0.23097237720852729,
+    "i_n": 2,
+    "i_mean_amplitude": 0.26030878430687243,
+    "p_mean_amplitude": 0.24837875591240888
+  },
+  "sham_stock": {
+    "n": 60,
+    "amplitude_packet_bytes_pearson_r": 0.264876560588372,
+    "p_only_r": 0.6880021865874542,
+    "i_n": 2,
+    "i_mean_amplitude": 0.25456267654222997,
+    "p_mean_amplitude": 0.2602560365966024
+  },
+  "return_stock": {
+    "n": 60,
+    "amplitude_packet_bytes_pearson_r": 0.21612902124228078,
+    "p_only_r": 0.6090687026991743,
+    "i_n": 2,
+    "i_mean_amplitude": 0.25086407976283426,
+    "p_mean_amplitude": 0.25045609411941683
+  }
+}
