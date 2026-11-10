@@ -1,7 +1,61 @@
 # AA full-table timed integration
 
+## Current protocol: middle optical observation, 2026-11-10
 
-## Latest checkpoint: missing observation data, 2026-11-10
+Status: offline implementation, not physical stock or candidate admission.
+The explicit `aa_middle_optical_minimal_v1` protocol omits C1 and posthold
+A9/9D/DBV selector transactions only in `sham_stock` / `aa10`. Both fields are
+exact `not_measured` records, without data, values, trace callbacks, zero-time
+phases or a postselector completion timestamp. Baseline and return retain C1
+and both selector measurements. Callback totals are 22 / 12 / 22, or 56 overall.
+
+The middle still requires the exact full table and writer ESD lifecycle,
+same-DBV replay, calibrated ordinary redraw, before-hold selectors, final
+state(3600), full optical hold and camera metadata, native quiet/state/boot/owner
+proof, continuous main-trace validation and an explicit end-hold ESD `reg_read`.
+The end-hold guard has sticky uncertainty on any failure and permits no fallback
+input or DSI. The return writer, mandatory return C1, state, short disarm and
+subsequent return hold/postselectors are unchanged. The 37 / 45 / 8 / 60 / 600 s
+limits and 1 s scene acceptance deadline are unchanged.
+
+This deliberately removes middle C1 diagnostic evidence (including the prior
+sham stock-value check) and posthold selector readback. Candidate C1 previously
+had no value threshold. AA readback was never established; its read plane and
+latent state remain unknown. Removing these transactions also removes their
+page/read perturbations, so a fresh same-source full-stock optical control with
+the identical middle policy is mandatory before any candidate. No frequency,
+waveform equivalence, comfort or optical restoration follows from register data.
+The finalizer, verified video join, analyzer and stock qualification enforce the
+new acquisition policy. Old or mixed-policy records cannot qualify.
+
+The same read-only end-hold ESD/trace guard runs in baseline and middle. Its
+measured baseline phase includes the actual reads and validation. From that
+current run only, project middle = full - C1 - postselectors, return prehold =
+full - hold - end-hold guard - postselectors, then add the unchanged 3 s planning
+margin. Thus the measured guard is included exactly once in the active estimate.
+This is an observation, not a future bound; hard cutoff and recovery remain.
+
+The failed 1eb5c09 control measured middle C1 at 2.164688 s and postselectors at
+3.648456 s. Their 5.813144 s gross cost is not a promised net saving. A historical
+counterfactual leaves about 6.151813 s at return-C1 dispatch before accounting
+for the replacement guard. Actual return-C1 completion, state and normal disarm
+were not observed, so this does not prove the new control will fit.
+
+Final author suite: 155 normal and 155 optimized tests, zero skips, including
+104 runtime/acquisition tests. The existing five private scene references and
+saved ESD regression remain explicit offline fixtures, not new physical proof.
+New cases cover both middle modes, mandatory baseline/return measurements,
+owner/ESD/native/state/trace failures, caught/late uncertainty, exact callback
+counts, estimator guard cost, mixed records and optical consumer bindings.
+
+The current publication contains nine modified files, including the analyzer,
+and no new files or raw captures. Earlier sections describe historical versions,
+not the current diagnostic policy. The closure lists the exact current source
+identities and offline test results; physical qualification remains pending.
+
+
+
+## Earlier checkpoint: missing observation data, 2026-11-10
 
 Status: offline correction, not a completed stock qualification. The c2cb9ec
 control again stopped after Back. Exact saved 0115 contains a full stopped
@@ -41,8 +95,7 @@ No raw captures are added to the repository. ESD/native/recovery code and the
 other generated command sizes remain unchanged. The guarded scene read is
 716 service bytes with a conservative 128-character ownership token.
 
-The closure's top-level proposed_publication field is the current seven-file
-scope. Older nested publication records below it describe historical checkpoints.
+This historical checkpoint used a seven-file publication scope. Older nested publication records below it describe historical checkpoints.
 
 ## Earlier checkpoint: bounded scene readiness, 2026-11-10
 

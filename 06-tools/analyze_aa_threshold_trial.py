@@ -11,13 +11,15 @@ from pathlib import Path
 import numpy as np
 import analyze_p85_optical as common
 from aa_acquisition_validation import (ALGORITHM,QUALIFICATION_SCHEMA,canonical_sha,validate_stock_qualification,require,SCHEMA,ACQUISITION_SCHEMA,SCOPES,HASHES,SELECTORS,CLEAN_FLAGS,validate_acquisition,validate_run)
+from aa_acquisition_validation import DIAGNOSTIC_CONTRACT,OMITTED_C1
+MIDDLE_POSTHOLD_LIMIT = "not_measured; A9/9D/DBV readback only before the middle hold"
 
 def select_windows(run,pts,**kwargs):
     return common.select_windows_from_stages(validate_run(run),run.get("recording_preflight",[]),pts,**kwargs)
 
 def c1_observations(stages):
-    return [{"stage":s["label"],"status":"measured","data":s["c1"]["data"],
-             "native_dbv":s["c1"]["native_dbv"]} for s in stages]
+    return [{"stage":s["label"],**(dict(OMITTED_C1) if s["c1"]==OMITTED_C1 else
+             {"status":"measured","data":s["c1"]["data"],"native_dbv":s["c1"]["native_dbv"]})} for s in stages]
 
 def validate_review(review, *, run_sha256, video_bytes, frame_count, windows):
     require(review.get("schema") == "aa-threshold-roi-review-v1" and
@@ -67,10 +69,15 @@ def stock_qualification(acquisition_raw,analysis_raw):
     acquisition=json.loads(acquisition_raw);analysis=json.loads(analysis_raw)
     validate_acquisition(acquisition)
     require(acquisition["scope"]==SCOPES[0] and analysis.get("schema")==SCHEMA and
+            analysis.get("protocol")==DIAGNOSTIC_CONTRACT and
             analysis.get("scope")==SCOPES[0] and analysis.get("mode")=="analysis" and
             analysis.get("source_acquisition_sha256")==hashlib.sha256(acquisition_raw).hexdigest() and
             analysis.get("source_video_bytes")==acquisition["video_bytes"],
             "Stock analysis does not belong to acquisition")
+    require(analysis.get("c1_observations")==c1_observations(acquisition["stages"]) and
+            analysis.get("middle_c1_measurement")=="not_measured" and
+            analysis.get("middle_posthold_selectors")==MIDDLE_POSTHOLD_LIMIT,
+            "Analysis diagnostic observations disagree with the acquisition policy")
     require(analysis.get("timing_assumptions")=={"snapshot_max_age_seconds":.25,
             "encoder_binding_ambiguity_frames":2,"minimum_edge_margin_seconds":.25} and
             all(w.get("encoded_frames")==60 for w in analysis.get("windows",[])) and
@@ -87,7 +94,7 @@ def stock_qualification(acquisition_raw,analysis_raw):
             rows.append({"roi":roi,"stage":stage,
                 "normalized_fine_over_baseline":value["normalized_rms"][2]/baseline["normalized_rms"][2],
                 "mean_y_over_baseline":value["mean_y"]/baseline["mean_y"]})
-    result={"schema":QUALIFICATION_SCHEMA,"status":"limited_stock_diagnostic_pass",
+    result={"schema":QUALIFICATION_SCHEMA,"status":"limited_stock_diagnostic_pass","protocol":DIAGNOSTIC_CONTRACT,
         "acquisition_canonical_sha256":canonical_sha(acquisition),
         "source_commit":acquisition["source_commit"],"source_blob_ids":acquisition["source_blob_ids"],
         "optical_analysis_sha256":hashlib.sha256(analysis_raw).hexdigest(),
@@ -166,7 +173,7 @@ def main(argv=None):
     except common.OpticalError:
         stronger = {"qualified": False, "reason": "Stronger timing budgets leave no qualified window"}
     digest = hashlib.sha256(raw).hexdigest()
-    result = {"schema": SCHEMA, "scope": run["scope"], "mode": "window_plan" if args.plan else "analysis",
+    result = {"schema": SCHEMA, "scope": run["scope"], "protocol":DIAGNOSTIC_CONTRACT,"mode": "window_plan" if args.plan else "analysis",
               "source_run_sha256": digest, "source_acquisition_sha256":run["source_acquisition_sha256"],
               "source_video_sha256":run["video_sha256"], "source_video_bytes": run["video_bytes"],
               "decoded_frame_count": len(pts), "stream": stream, "windows": windows,
@@ -175,7 +182,8 @@ def main(argv=None):
                                      "minimum_edge_margin_seconds": .25},
               "stronger_timing_sensitivity": stronger,
               "c1_observations": c1_observations(stages),
-              "middle_c1_measurement": "measured long3 in all three stages",
+              "middle_c1_measurement": "not_measured",
+              "middle_posthold_selectors": MIDDLE_POSTHOLD_LIMIT,
               "full_middle_wait_timing_validated": True,
               "observed_active_G_seconds": run["active_G_seconds"],
               "timed_window_limit": "Observed AA run only, not a future latency bound",

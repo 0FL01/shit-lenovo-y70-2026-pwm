@@ -447,6 +447,7 @@ def child_plan(nonce,owner,child,begin,end,*,guard=None):
 
 def qualification(record,source):
     check(type(record) is dict and record.get('scope')==STOCK_SCOPE,'Full AA stock surrogate required')
+    check(record.get('protocol')==acquisition.DIAGNOSTIC_CONTRACT,'Exact middle diagnostic policy required')
     check(record.get('video_acquisition_schema')==aa.SCHEMA and record.get('status')=='awaiting_offline_video_validation','Completed AA acquisition required')
     check(record.get('candidate_attempts')==0 and record.get('unknown_value_write_attempted') is False,'Surrogate contains unknown write')
     check(record.get('source_commit')==source.get('source_commit') and record.get('source_blob_ids')==source.get('source_blob_ids'),'Same exact runtime sources required')
@@ -459,8 +460,14 @@ def qualification(record,source):
         check(stage.get('qualified') is True and stage.get('program_sha256')==aa.STOCK_SHA,'Unqualified surrogate stage')
         check(stage.get('transaction',{}).get('controller_packets_verified')==75 and stage.get('wire',{}).get('native_packets_matched')==75,'Surrogate not full table')
         check(stage.get('same_dbv_replay',{}).get('exact_wire_verified') is True and stage.get('redraw_audit',{}).get('native_dsi_writes')==0,'Missing surrogate replay/redraw')
-        for key in ('selectors_before_hold','selectors_after_hold'):check(stage.get(key,{}).get('values')==aa.SELECTORS,'Missing surrogate selectors')
-        check(stage.get('c1',{}).get('data')==[0,0,96] and stage.get('hold_seconds')==base.HOLD,'Missing surrogate C1/hold')
+        check(stage.get('selectors_before_hold',{}).get('values')==aa.SELECTORS,'Missing surrogate prehold selectors')
+        if stage['label']=='sham_stock':
+            check(stage.get('c1')==acquisition.OMITTED_C1 and stage.get('selectors_after_hold')==acquisition.OMITTED_POSTSELECTORS,
+                  'Mixed middle diagnostic policy')
+        else:
+            check(stage.get('selectors_after_hold',{}).get('values')==aa.SELECTORS and
+                  stage.get('c1',{}).get('data')==[0,0,96],'Missing baseline/return diagnostics')
+        check(stage.get('hold_seconds')==base.HOLD,'Missing surrogate hold')
     return {'scope':STOCK_SCOPE,'measured_G_seconds':record['active_G_seconds'],'same_source_verified':True,
             'limit':'One measured run is not a guaranteed latency bound; hard cutoff remains37s'}
 
@@ -477,8 +484,8 @@ class AATimedTrial(timed.TimedStockTrial):
         self.report.update(scope=CANDIDATE_SCOPE if aa_candidate else STOCK_SCOPE,marker=self.marker,
             candidate_enabled=aa_candidate,overall_watchdog_seconds=600,overall_watchdog_renewals=0,native_dbv=3600,full_table_writes_attempted=[],writes=[],
             schema=aa.SCHEMA,video_acquisition_schema=aa.SCHEMA,video_acquisition_origin='aa_timed_caller',
-            protocol='full_table_replay_redraw_selectors_c1_hold_postselectors',
-            diagnostic_change='C1 mandatory every phase; only known A9/9D/DBV selectors',
+            protocol=acquisition.DIAGNOSTIC_CONTRACT,
+            diagnostic_change='Middle C1 and posthold selectors not measured; baseline/return measured; middle hold native/state/trace/ESD retained',
             admission='Exact full-stock surrogate measurement required before one AA10 dispatch',
             return_disarm_boundary='full stock75+known selectors+C1+native/ESD before short disarm; mandatory hold/postselectors under overall600',
             residual_risk='Latent AA/latch effects can outlast operational stock markers; optical restoration unproven')
@@ -778,21 +785,50 @@ class AATimedTrial(timed.TimedStockTrial):
     def prehold(self,record):
         check(not self.pending_read and not self.inflight, 'No prehold into uncertainty')
         label=record['label'];self.panel_uncertain=True
+        middle=self.middle_stage(label)
         record['prehold_started_monotonic']=self.monotonic()
         for key,operation in (('same_dbv_replay',self.replay),('redraw_audit',self.redraw),('selectors_before_hold',self.selectors),('c1',self.c1)):
+            if key=='c1' and middle:
+                record[key]=dict(acquisition.OMITTED_C1)
+                continue
             start=self.monotonic();record[key]=operation(label if key not in ('selectors_before_hold',) else label+'-before-hold')
             record['phase_seconds'][key]=self.monotonic()-start
         self.state(3600);self.panel_uncertain=False
         record['prehold_qualified_monotonic']=self.monotonic()
 
+    def middle_stage(self,label):
+        middle='aa10' if self.aa_candidate else 'sham_stock'
+        check(label in ('baseline',middle,'return_stock'),'Unknown diagnostic stage')
+        return label==middle
+
+    def hold_end_guard(self,label):
+        check(not self.pending_read and not self.inflight,'No hold guard into uncertainty')
+        self.pending_read=True
+        check(self.shell(self.ops['verify']+'; '+s.esd_read_script(self.tmp),root=True,
+                         label=label+'-hold-end-esd')=='reg_read','Hold ESD changed')
+        self.trace_check(self.shell('cat '+aa.TRACE+'/trace',root=True,label=label+'-hold-trace'))
+        self.pending_read=False
+        return {'esd_mode':'reg_read','main_trace_prefix_verified':True,'entry_count_after':self.entry_count}
+
     def finish_hold(self,record):
         check(not self.pending_read and not self.inflight, 'No hold into uncertainty')
         label=record['label'];self.panel_uncertain=True
+        middle=self.middle_stage(label)
         self.optical_hold(label,record)
-        trace=self.shell('cat '+aa.TRACE+'/trace',root=True,label=label+'-hold-trace');self.trace_check(trace)
-        start=self.monotonic();record['selectors_after_hold']=self.selectors(label+'-after-hold')
-        record['phase_seconds']['selectors_after_hold']=self.monotonic()-start
-        record['postselectors_verified_monotonic']=self.monotonic()
+        if label=='baseline' or middle:
+            # Measure the identical read-only guard in this run's baseline.
+            # It never fabricates a selector measurement.
+            start=self.monotonic();record['hold_end_guard']=self.hold_end_guard(label)
+            record['phase_seconds']['hold_end_guard']=self.monotonic()-start
+            record['hold_guard_verified_monotonic']=self.monotonic()
+        else:
+            trace=self.shell('cat '+aa.TRACE+'/trace',root=True,label=label+'-hold-trace');self.trace_check(trace)
+        if middle:
+            record['selectors_after_hold']=dict(acquisition.OMITTED_POSTSELECTORS)
+        else:
+            start=self.monotonic();record['selectors_after_hold']=self.selectors(label+'-after-hold')
+            record['phase_seconds']['selectors_after_hold']=self.monotonic()-start
+            record['postselectors_verified_monotonic']=self.monotonic()
         record.update(qualified=True,elapsed_seconds=self.monotonic()-record['started_monotonic'])
         self.report['stages'].append(record);self.panel_uncertain=False;self._persist('stage-'+label)
         if label=='baseline':self.baseline_image()
@@ -843,12 +879,12 @@ class AATimedTrial(timed.TimedStockTrial):
             self.setup();self.setup_aa();self.calibrate_redraw()
             record=self.writer('baseline');self.prehold(record);self.finish_hold(record)
             self.identity();self.camera_identity();self.metadata('pre-aa');self.state(3600)
-            phases=record['phase_seconds'];full=sum(phases.values())
-            prehold=full-phases['hold_and_metadata']-phases['selectors_after_hold']
-            estimate=full+prehold+3.0
+            phases=record['phase_seconds']
+            estimate=acquisition.planning_estimate(phases)
             self.report['prearm_planning_estimate']={'observed_baseline_phase_seconds':dict(phases),
                 'estimated_active_seconds':estimate,'planning_margin_seconds':3.0,
-                'status':'observation_not_a_bound','redraw_scene_contract':REDRAW_SCENE_CONTRACT}
+                'status':'observation_not_a_bound','redraw_scene_contract':REDRAW_SCENE_CONTRACT,
+                'protocol':acquisition.DIAGNOSTIC_CONTRACT}
             self.save();check(estimate<37,'Measured baseline composition does not fit37s; stopped before short arm')
             with self.active_window():
                 self.arm_timed()

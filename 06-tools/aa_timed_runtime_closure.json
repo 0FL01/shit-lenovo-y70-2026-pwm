@@ -84,14 +84,15 @@
     "06-tools/video_validation_split_20261109/video_validator_snapshot.py"
   ],
   "changed_or_new_runtime_sha256": {
-    "06-tools/run_aa_timed_stock_trial.py": "73e53a8e83fd24ff61acc41449b6186b62e69be34f96c1335e9e8c3177f2ba36",
+    "06-tools/run_aa_timed_stock_trial.py": "7d404c0535d9f070e13428a19cce95be9e23132e2e4d7040ec322024db1c3412",
     "06-tools/aa_threshold_trial.py": "c1d5d7800a17bad391887687a516b17fb1394a530092659cba3f00a7b4d6c278",
-    "06-tools/aa_acquisition_validation.py": "79021940c8012ca8279a6f0d207441b34c7e36acb64cbbd3817adac84a95f71a",
+    "06-tools/aa_acquisition_validation.py": "52b7dc02545de9e6caf4be8fdea5f8e679e75b0cd5b000b8674c1a7120fcd4da",
     "06-tools/aa_video_validation.py": "00843592492b245060e8aa3098ffd3ca7303af0f43ea67fa474c288111abcff4",
     "06-tools/dsi_trial_transaction.py": "4407a55b3bc37e197e48c74673cff0626345124ca5163b4177ade9a567339ffa",
     "06-tools/host_source_integration_20261109/inert_source_loader.py": "6dd008a6f9f55b11fbcb43270f9510a659d4f61f8b7fc3ae2c80ab863c41b40c",
-    "06-tools/host_source_integration_20261109/host_entrypoint.py": "7142286bb7aafebb0dc3e7025a8e92ec86e55c5ad14b7aff666ad99f6a5c1b25",
-    "06-tools/run_p85_guarded_trial.py": "fba1ec5dbb0f7592a4d0a3167589dadac2130370cbf886cecc1d588772fa97a5"
+    "06-tools/host_source_integration_20261109/host_entrypoint.py": "3dbae1f1560177991596347dbb9ee1eaab38395c376f6c585426413acf8fcd65",
+    "06-tools/run_p85_guarded_trial.py": "fba1ec5dbb0f7592a4d0a3167589dadac2130370cbf886cecc1d588772fa97a5",
+    "06-tools/analyze_aa_threshold_trial.py": "0d66d69a2f79d78e18de6c05836d947dd1081e04a9e45e718d2f4c6d98ef70ae"
   },
   "worst_case_command_sizes": {
     "stock": {
@@ -127,6 +128,12 @@
     "esd_restore": {
       "service_bytes": 3005,
       "shell_argv_bytes_including_nul": 2993,
+      "service_limit_bytes": 65535,
+      "argv_limit_bytes": 131072
+    },
+    "hold_end_esd": {
+      "service_bytes": 1501,
+      "shell_argv_bytes_including_nul": 1489,
       "service_limit_bytes": 65535,
       "argv_limit_bytes": 131072
     }
@@ -425,22 +432,108 @@
     "modified_files": [
       "06-tools/run_aa_timed_stock_trial.py",
       "06-tools/aa_acquisition_validation.py",
+      "06-tools/analyze_aa_threshold_trial.py",
       "06-tools/host_source_integration_20261109/host_entrypoint.py",
       "06-tools/test_run_aa_timed_stock_trial.py",
       "06-tools/test_aa_video_validation.py",
       "06-tools/aa_timed_runtime_closure.json",
-      "06-tools/AA_TIMED_INTEGRATION.md"
+      "06-tools/AA_TIMED_INTEGRATION.md",
+      "06-tools/AA_VIDEO_VALIDATION.md"
     ],
     "new_files": [],
     "sha256_excluding_self": {
-      "06-tools/run_aa_timed_stock_trial.py": "73e53a8e83fd24ff61acc41449b6186b62e69be34f96c1335e9e8c3177f2ba36",
-      "06-tools/aa_acquisition_validation.py": "79021940c8012ca8279a6f0d207441b34c7e36acb64cbbd3817adac84a95f71a",
-      "06-tools/host_source_integration_20261109/host_entrypoint.py": "7142286bb7aafebb0dc3e7025a8e92ec86e55c5ad14b7aff666ad99f6a5c1b25",
-      "06-tools/test_run_aa_timed_stock_trial.py": "b941cca25022ec708afbf8dc22bc78f1e32b66d28156a8db122d49da19399c35",
-      "06-tools/test_aa_video_validation.py": "28ef45309a4edcc961429646e517514a0925606fdd3d056076ed7db68bba12b3",
-      "06-tools/AA_TIMED_INTEGRATION.md": "6e5c7da37c3f5b2e1055c6bfc902a596664e2bff0bffd2c25c21c039d39563bd"
+      "06-tools/run_aa_timed_stock_trial.py": "7d404c0535d9f070e13428a19cce95be9e23132e2e4d7040ec322024db1c3412",
+      "06-tools/aa_acquisition_validation.py": "52b7dc02545de9e6caf4be8fdea5f8e679e75b0cd5b000b8674c1a7120fcd4da",
+      "06-tools/analyze_aa_threshold_trial.py": "0d66d69a2f79d78e18de6c05836d947dd1081e04a9e45e718d2f4c6d98ef70ae",
+      "06-tools/host_source_integration_20261109/host_entrypoint.py": "3dbae1f1560177991596347dbb9ee1eaab38395c376f6c585426413acf8fcd65",
+      "06-tools/test_run_aa_timed_stock_trial.py": "579f8041e0087728b17818cc18625fbe75bb2f253750b9e3fd4058151321a2d3",
+      "06-tools/test_aa_video_validation.py": "839ecacdb3b22b98db5a63368c5cf28d1da700b7f4145219a4bad4c9ab947bad",
+      "06-tools/AA_TIMED_INTEGRATION.md": "2a95d2a46bb561f6c3dba2ce0fe0d6a15b005566924b1a861fb92d219fb48417",
+      "06-tools/AA_VIDEO_VALIDATION.md": "8c377f0e14bb1c5d0a50645e1d9c481481db190b60a65657e4f17a501a6f2f35"
     },
     "manifest_self_hash": "Excluded to avoid recursion; report sha256sum of this manifest separately",
     "raw_captures_published": false
+  },
+  "middle_diagnostic_policy": {
+    "contract": "aa_middle_optical_minimal_v1",
+    "base_commit": "1eb5c0991077bd37e506babbc133f5b177767ef4",
+    "status": "independent_offline_pass_pending_physical_control",
+    "middle_stages": [
+      "sham_stock",
+      "aa10"
+    ],
+    "omissions": [
+      "c1",
+      "selectors_after_hold"
+    ],
+    "not_measured_contract": "Exact markers only; no data, values, main_trace, callbacks, zero phases or postselectors timestamp",
+    "retained": "Full table/writer ESD; replay/redraw; before-hold selectors; completing state; full optical hold/native/state/boot/owner; trace prefix and end-hold reg_read",
+    "baseline_return_diagnostics": "C1 and before/after selectors mandatory",
+    "callback_counts": [
+      22,
+      12,
+      22
+    ],
+    "callback_total": 56,
+    "end_hold_guard": "Identical read-only owner/ESD/trace guard measured in baseline and middle; no return duplicate",
+    "prearm_policy": "Fresh baseline middle projection=full-c1-postselectors; return prehold=full-hold-end_hold_guard-postselectors; plus3seconds. Guard included once. Observation, not latency bound.",
+    "historical_1eb_timing": {
+      "middle_c1_seconds": 2.1646880358457565,
+      "middle_postselectors_seconds": 3.648456348106265,
+      "gross_removable_seconds": 5.813144383952022,
+      "counterfactual_return_c1_remaining_seconds_before_new_guard": 6.151813257019967,
+      "limit": "Not a net saving, future bound, completed return or admission"
+    },
+    "tests_normal": 155,
+    "tests_optimized": 155,
+    "runtime_acquisition_subset_tests": 104,
+    "skipped_tests": 0,
+    "test_modules": [
+      "test_aa_threshold_trial",
+      "test_run_aa_timed_stock_trial",
+      "test_aa_inherited_setup",
+      "test_aa_video_validation",
+      "test_aa_writer_esd_isolation",
+      "test_aa_saved_esd_failure",
+      "test_aa_source_profile",
+      "test_inert_source_loader"
+    ],
+    "external_scene_env": [
+      "AA_SCENE_STABLE_PATH",
+      "AA_SCENE_PENDING_PATH",
+      "AA_RETURN_READY_PATH",
+      "AA_RETURN_PENDING_PATH",
+      "AA_MISSING_SCENE_PATH"
+    ],
+    "explicit_private_reference_replays_executed": true,
+    "consumer_source_sha256": {
+      "aa_video_validation.py": "00843592492b245060e8aa3098ffd3ca7303af0f43ea67fa474c288111abcff4",
+      "aa_acquisition_validation.py": "52b7dc02545de9e6caf4be8fdea5f8e679e75b0cd5b000b8674c1a7120fcd4da",
+      "analyze_aa_threshold_trial.py": "0d66d69a2f79d78e18de6c05836d947dd1081e04a9e45e718d2f4c6d98ef70ae",
+      "analyze_p85_optical.py": "60023bb5ff44339efd4db04c96815e869e8edbd3298175a82df98629ca22a3c6",
+      "optical_spectrum.py": "414497032b763f815d1ec48eb0d00af48a0526a1f0e31012384ddd537886db7b",
+      "video_validation_split_20261109/video_validator_snapshot.py": "f5e82bcbbaa0c5cc2ca6c42071c8a008c55eddabc9b0f809cc6d14641be22923"
+    },
+    "unchanged_limits_seconds": {
+      "settle_acceptance": 1,
+      "active": 37,
+      "host": 45,
+      "reserve": 8,
+      "short_watchdog": 60,
+      "overall_watchdog": 600
+    },
+    "writer_esd_native_transport_recovery_unchanged": true,
+    "physical_stock_qualified": false,
+    "candidate_admitted": false,
+    "live_device_operations": 0,
+    "git_mutations": 0,
+    "independent_reviews": {
+      "runtime_tests_normal": 155,
+      "runtime_tests_optimized": 155,
+      "scientific_consumer_tests_normal": 74,
+      "scientific_consumer_tests_optimized": 74,
+      "skipped_tests": 0,
+      "physical_admission": false
+    }
   }
 }

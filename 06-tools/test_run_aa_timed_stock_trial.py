@@ -207,6 +207,10 @@ class Sim(t.AATimedTrial):
         if self.panel_uncertain or self.pending_read:raise AssertionError('restore into uncertainty')
         self.calls.append('settings-restore');self.report.update(original_settings_dbv_logger_restored=True,watchdog_disarmed=True,mutex_released=True,main_trace_removed_verified=True,chunks_removed_verified=True,target_ui_temp_removed=True)
 
+def optical_qualification_fixture(proof):
+    from aa_acquisition_validation import QUALIFICATION_SCHEMA,ALGORITHM,canonical_sha
+    return {'schema':QUALIFICATION_SCHEMA,'protocol':t.acquisition.DIAGNOSTIC_CONTRACT,'status':'limited_stock_diagnostic_pass','acquisition_canonical_sha256':canonical_sha(proof),'source_commit':'a'*40,'source_blob_ids':{'fixture.py':'b'*40},'optical_analysis_sha256':'c'*64,'algorithm':ALGORITHM,'fine_relative_tolerance':.05,'mean_y_relative_tolerance':.05,'rois_xywh':{'main':[250,0,100,400],'left':[100,0,100,400],'right':[400,0,100,400]},'baseline_fine_search_cycles_per_row':[.01,.03],'stock_ratios':[{'roi':roi,'stage':stage,'normalized_fine_over_baseline':1.,'mean_y_over_baseline':1.} for roi in ('main','left','right') for stage in ('sham_stock','return_stock')],'observed_active_G_seconds':proof['active_G_seconds'],'prearm_planning_estimate':proof['prearm_planning_estimate'],'physical_pwm_hz':None,'full_waveform_equivalence':None,'future_latency_bound':False,'optical_return_approval':False,'candidate_geometry_rule':'Use frozen ROI/band; baseline-only geometry review; mismatch is inconclusive, no B-driven reselection'}
+
 class Tests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
@@ -219,14 +223,15 @@ class Tests(unittest.TestCase):
             run=Sim(root);report=self.execute(run)
             validate_acquisition(report)
             self.assertEqual(report['full_table_writes_attempted'],['baseline','sham_stock','return_stock'])
-            self.assertEqual(len(run.children),12)
+            self.assertEqual(len(run.children),10)
             self.assertLess(run.calls.index('disarm-candidate'),run.calls.index('return_stock-hold-start'))
             self.assertLess(run.calls.index('chunks-verify'),run.calls.index('timed-watchdog-arm'))
             self.assertLess(run.calls.index('return_stock-after-hold'),run.calls.index('settings-restore'))
             self.assertEqual(report['candidate_attempts'],0);self.assertLess(report['active_G_seconds'],37)
             self.assertEqual(signal.getitimer(signal.ITIMER_REAL),(0,0))
     def test_all_child_transport_failures_no_followup_writer(self):
-        labels=[stage+suffix for stage in ('baseline','sham_stock','return_stock') for suffix in ('-write','-before-hold','-c1','-after-hold')]
+        labels=[stage+suffix for stage in ('baseline','sham_stock','return_stock')
+                for suffix in (('-write','-before-hold') if stage=='sham_stock' else ('-write','-before-hold','-c1','-after-hold'))]
         for label in labels:
             with self.subTest(label=label),tempfile.TemporaryDirectory() as root:
                 run=Sim(root);run.failure=label
@@ -279,7 +284,7 @@ class Tests(unittest.TestCase):
             stock=Sim(root);proof=self.execute(stock)
         with tempfile.TemporaryDirectory() as root:
             from aa_acquisition_validation import QUALIFICATION_SCHEMA,ALGORITHM,canonical_sha
-            optical={'schema':QUALIFICATION_SCHEMA,'status':'limited_stock_diagnostic_pass','acquisition_canonical_sha256':canonical_sha(proof),'source_commit':'a'*40,'source_blob_ids':{'fixture.py':'b'*40},'optical_analysis_sha256':'c'*64,'algorithm':ALGORITHM,'fine_relative_tolerance':.05,'mean_y_relative_tolerance':.05,'rois_xywh':{'main':[250,0,100,400],'left':[100,0,100,400],'right':[400,0,100,400]},'baseline_fine_search_cycles_per_row':[.01,.03],'stock_ratios':[{'roi':roi,'stage':stage,'normalized_fine_over_baseline':1.,'mean_y_over_baseline':1.} for roi in ('main','left','right') for stage in ('sham_stock','return_stock')],'observed_active_G_seconds':proof['active_G_seconds'],'prearm_planning_estimate':proof['prearm_planning_estimate'],'physical_pwm_hz':None,'full_waveform_equivalence':None,'future_latency_bound':False,'optical_return_approval':False,'candidate_geometry_rule':'Use frozen ROI/band; baseline-only geometry review; mismatch is inconclusive, no B-driven reselection'}
+            optical=optical_qualification_fixture(proof)
             run=Sim(root,aa_candidate=True,stock_qualification=proof,optical_qualification=optical,source_record={'source_commit':'a'*40,'source_blob_ids':{'fixture.py':'b'*40}})
             run.failure='aa10-write'
             with self.assertRaises(RuntimeError):self.execute(run)
@@ -1182,6 +1187,167 @@ class PreChildGapTests(unittest.TestCase):
                 prefix=f'{failure}() {{ return 2; }}; ' if failure!='prefix' else ''
                 result=subprocess.run(['sh','-c',prefix+command+f'; echo dispatched > {root}/dispatched'],capture_output=True,text=True)
                 self.assertNotEqual(result.returncode,0);self.assertFalse((root/'dispatched').exists())
+
+
+class MiddleDiagnosticsTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        Sim.reader=execute_reader_fixture()[0].stdout
+
+    execute=Tests.execute
+
+    def make_run(self,root,candidate=False):
+        if not candidate:return Sim(root)
+        with tempfile.TemporaryDirectory() as stock_root:
+            proof=self.execute(Sim(stock_root))
+        return Sim(root,aa_candidate=True,stock_qualification=proof,
+                   optical_qualification=optical_qualification_fixture(proof),source_record=proof)
+
+    def test_exact_stock_and_candidate_policy_and_real_callback_chain(self):
+        for candidate in (False,True):
+            with self.subTest(candidate=candidate),tempfile.TemporaryDirectory() as root:
+                run=self.make_run(root,candidate);report=self.execute(run)
+                t.acquisition.validate_acquisition(report)
+                middle='aa10' if candidate else 'sham_stock'
+                self.assertEqual(run.entry_count,56)
+                self.assertEqual([s['transaction']['entry_count_after'] for s in report['stages']],[5,27,39])
+                self.assertEqual([s['selectors_before_hold']['entry_count_after'] for s in report['stages']],[12,34,46])
+                self.assertNotIn(middle+'-c1',run.calls);self.assertNotIn(middle+'-after-hold',run.calls)
+                self.assertEqual(report['stages'][1]['c1'],t.acquisition.OMITTED_C1)
+                self.assertEqual(report['stages'][1]['selectors_after_hold'],t.acquisition.OMITTED_POSTSELECTORS)
+                self.assertNotIn('postselectors_verified_monotonic',report['stages'][1])
+                self.assertEqual(report['stages'][1]['hold_end_guard']['entry_count_after'],34)
+                self.assertLess(run.calls.index(middle+'-hold-end-esd'),run.calls.index(middle+'-hold-trace'))
+                self.assertLess(run.calls.index(middle+'-hold-trace'),run.calls.index('return_stock-writer-isolate'))
+                self.assertNotIn('return_stock-hold-end-esd',run.calls)
+                for label in ('baseline',middle,'return_stock'):
+                    self.assertEqual(run.calls.count(label+'-redraw-open'),1)
+                    self.assertEqual(run.calls.count(label+'-redraw-cancel'),1)
+                for index,label in ((0,'baseline'),(2,'return_stock')):
+                    self.assertEqual(report['stages'][index]['c1']['data'],[0,0,96])
+                    self.assertIn(label+'-after-hold',run.children)
+                self.assertEqual(report['candidate_attempts'],int(candidate))
+
+    def test_baseline_and_return_diagnostics_still_mandatory_for_candidate(self):
+        for label in ('baseline-c1','baseline-after-hold','return_stock-c1','return_stock-after-hold'):
+            with self.subTest(label=label),tempfile.TemporaryDirectory() as root:
+                run=self.make_run(root,True);run.failure=label
+                with self.assertRaises(RuntimeError):self.execute(run)
+                self.assertEqual(run.calls.count('reboot'),1)
+                self.assertNotIn('return_hold_and_postselectors_verified',run.report)
+
+    def test_middle_hold_state_native_owner_esd_and_trace_failures_abort(self):
+        faults={'FIELDS':lambda _: '3599\n0\n0\nEnforcing\n',
+                'BOOT':lambda _: 'foreign-boot\n','OWNER':lambda _: 'unexpected\n',
+                'KERNEL':lambda raw:raw+'dsi_ctrl_cmd_transfer len=1\n'}
+        for fault in (*faults,'esd_transport','esd_value','trace_transport','trace_value'):
+            with self.subTest(fault=fault),tempfile.TemporaryDirectory() as root:
+                run=Sim(root);original=run.shell
+                if fault in faults:run.part_faults={('sham_stock-hold-end',fault):faults[fault]}
+                if fault.endswith('_transport'):
+                    run.failure='sham_stock-'+('hold-end-esd' if fault.startswith('esd') else 'hold-trace')
+                def shell(command,**kwargs):
+                    value=original(command,**kwargs);label=kwargs.get('label')
+                    if fault=='esd_value' and label=='sham_stock-hold-end-esd':return 'esd_sw_sim_success'
+                    if fault=='trace_value' and label=='sham_stock-hold-trace':return value+'mode_ctrl_return: rc=-5\n'
+                    return value
+                run.shell=shell
+                with self.assertRaises(RuntimeError):self.execute(run)
+                self.assertEqual(run.calls.count('reboot'),1)
+                self.assertNotIn('return_stock-writer-isolate',run.calls)
+                self.assertEqual([s['label'] for s in run.report['stages']],['baseline'])
+
+    def test_caught_hold_guard_error_stays_latched_without_later_input_or_dsi(self):
+        for failure in ('baseline-hold-end-esd','baseline-hold-trace'):
+            with self.subTest(failure=failure),tempfile.TemporaryDirectory() as root:
+                run=Sim(root);run.setup();run.setup_aa();run.calibrate_redraw()
+                record=run.writer('baseline');run.prehold(record);run.failure=failure
+                with self.assertRaises(TimeoutError):run.finish_hold(record)
+                self.assertTrue(run.panel_uncertain);self.assertTrue(run.pending_read)
+                calls=list(run.calls)
+                for operation in (lambda:run.writer('sham_stock'),lambda:run.redraw('later'),
+                                  lambda:run.c1('later'),lambda:run.selectors('later'),
+                                  lambda:run.replay('later'),lambda:run.finish_hold(record)):
+                    with self.assertRaises(ValueError):operation()
+                self.assertEqual(run.calls,calls)
+                self.assertNotIn('hold_end_guard',record)
+                self.assertNotIn('hold_guard_verified_monotonic',record)
+
+    def test_new_guard_uses_real_inherited_shell_with_no_dsi_and_terminal_rc(self):
+        for fault in (None,'rc','timeout','value','trace','late'):
+            with self.subTest(fault=fault),tempfile.TemporaryDirectory() as root:
+                run=Sim(root);run.setup();run.setup_aa();commands=[]
+                class FakeADB:
+                    def shell(self,target,command,timeout):
+                        commands.append(command)
+                        if fault=='late':run.clock.sleep(.02)
+                        if fault=='timeout':raise TimeoutError('unknown completion')
+                        if len(commands)==1:
+                            return (1 if fault=='rc' else 0),('bad' if fault=='value' else 'reg_read\n').encode(),b''
+                        return 0,(b'mode_ctrl_return: rc=-5\n' if fault=='trace' else b''),b''
+                run.g=t.timed.DeadlineTransport(run,FakeADB());run.shell=t.s.Sweep.shell.__get__(run)
+                if fault=='late':run.active_start=run.clock()-36.99
+                if fault is None:
+                    self.assertEqual(run.hold_end_guard('baseline'),{'esd_mode':'reg_read','main_trace_prefix_verified':True,'entry_count_after':0})
+                    self.assertFalse(run.pending_read);self.assertEqual(len(commands),2)
+                else:
+                    with self.assertRaises((ValueError,TimeoutError)):run.hold_end_guard('baseline')
+                    self.assertTrue(run.pending_read)
+                    if fault=='late':
+                        self.assertTrue(run.panel_uncertain);self.assertTrue(run.active_failed)
+                        self.assertEqual(len(commands),1)
+                self.assertIn('set -eu',commands[0]);self.assertIn('esd_check_mode',commands[0])
+                self.assertNotIn('tx_cmd',commands[0]);self.assertNotIn('rx_cmd',commands[0])
+                self.assertNotIn('input ',commands[0])
+
+    def test_stage_policy_never_omits_unknown_or_wrong_mode(self):
+        with tempfile.TemporaryDirectory() as root:
+            run=Sim(root)
+            for label in ('aa10','unknown',''):
+                with self.assertRaises(ValueError):run.middle_stage(label)
+            run.aa_candidate=True
+            with self.assertRaises(ValueError):run.middle_stage('sham_stock')
+
+    def test_generated_hold_guard_owner_failure_prevents_esd_subprocess(self):
+        import os
+        import subprocess
+        for valid in (False,True):
+            with self.subTest(valid=valid),tempfile.TemporaryDirectory() as directory:
+                root=Path(directory);lock=root/'lock';lock.mkdir(mode=0o700)
+                run=Sim(directory);run.setup();commands=[]
+                (lock/'owner').write_text(run.token if valid else 'another-owner')
+                (lock/'owner').chmod(0o600)
+                def shell(command,**kwargs):
+                    commands.append(command)
+                    return 'reg_read' if kwargs.get('label').endswith('-esd') else ''
+                run.shell=shell;run.hold_end_guard('baseline')
+                command=commands[0].replace(t.a9.LOCK,str(lock))
+                command=command.replace(')" = 0',')" = '+str(os.getuid()))
+                child=t.s.esd_read_script(run.tmp)
+                self.assertEqual(command.count(child),1)
+                # Stub only the read-only child. Real generated ownership,
+                # type/mode/token checks must run before its dispatch.
+                command=command.replace(child,'printf called > '+str(root/'dispatched'))
+                result=subprocess.run(['sh','-c',command],capture_output=True,timeout=5)
+                self.assertEqual(result.returncode==0,valid)
+                self.assertEqual((root/'dispatched').exists(),valid)
+
+    def test_projection_counts_measured_guard_once_and_refuses_slow_guard_before_arm(self):
+        phases={key:1. for key in t.acquisition.BASELINE_PHASES}
+        self.assertEqual(t.acquisition.planning_estimate(phases),14.)
+        phases['hold_end_guard']=2.
+        self.assertEqual(t.acquisition.planning_estimate(phases),15.)
+        with tempfile.TemporaryDirectory() as root:
+            run=Sim(root);original=run.shell
+            def shell(command,**kwargs):
+                value=original(command,**kwargs)
+                if kwargs.get('label')=='baseline-hold-end-esd':run.clock.sleep(30)
+                return value
+            run.shell=shell
+            with self.assertRaises(RuntimeError):self.execute(run)
+            self.assertNotIn('timed-watchdog-arm',run.calls);self.assertNotIn('reboot',run.calls)
+            self.assertEqual(run.report['full_table_writes_attempted'],['baseline'])
+            self.assertGreater(run.report['prearm_planning_estimate']['estimated_active_seconds'],37)
 
 
 if __name__=='__main__':unittest.main()

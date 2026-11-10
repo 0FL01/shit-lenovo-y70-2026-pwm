@@ -32,6 +32,20 @@ SCHEMA = "aa-threshold-optical-v1"
 ACQUISITION_SCHEMA = "aa-threshold-acquisition-v1"
 WRITER_ESD_CONTRACT = "aa_full_table_esd_isolation_v1"
 REDRAW_SCENE_CONTRACT = "same_trial_settings_fragment_tree_v4"
+DIAGNOSTIC_CONTRACT = "aa_middle_optical_minimal_v1"
+OMITTED_C1 = {"status":"not_measured","reason":"middle C1 omitted by "+DIAGNOSTIC_CONTRACT}
+OMITTED_POSTSELECTORS = {"status":"not_measured","reason":"middle posthold selectors omitted by "+DIAGNOSTIC_CONTRACT}
+BASELINE_PHASES = {"writer_and_quiet","same_dbv_replay","redraw_audit","selectors_before_hold",
+                   "c1","hold_and_metadata","hold_end_guard","selectors_after_hold"}
+
+def planning_estimate(phases):
+    require(set(phases)==BASELINE_PHASES and all(finite(x) and x>0 for x in phases.values()),
+            "Missing observed diagnostic-policy planning phases")
+    full=sum(phases.values())
+    middle=full-phases["c1"]-phases["selectors_after_hold"]
+    return_prehold=full-phases["hold_and_metadata"]-phases["hold_end_guard"]-phases["selectors_after_hold"]
+    return middle+return_prehold+3.0
+
 SCOPES = ("aa-threshold-stock-surrogate-v1", "aa-threshold-candidate-v1")
 HASHES = {"stock":"b5ed66ba69e6221de5fdeaf4d003c9628602d743880acd1c8e2cf7198facd193",
           "aa10":"65846e9320d4a39fd6a677fe9689d08409e80bac050c7cbb1dc12ca276245902"}
@@ -119,6 +133,7 @@ def validate_session(stages,recording_preflight,binding_frames=2):
 def validate_acquisition(run):
     require(isinstance(run,dict) and run.get("schema")==ACQUISITION_SCHEMA and run.get("scope") in SCOPES,
             "Exact AA acquisition schema/scope required")
+    require(run.get("protocol")==DIAGNOSTIC_CONTRACT,"Exact middle diagnostic policy required")
     require(isinstance(run.get("experiment_id"),str) and
             re.fullmatch(r"[A-Za-z0-9_-]{1,128}",run["experiment_id"]) is not None and
             run.get("evidence_kind")=="acquisition","Missing acquisition identity/kind")
@@ -187,9 +202,10 @@ def validate_acquisition(run):
         wire=stage.get("wire",{})
         require(type(wire.get("native_packets_matched")) is int and wire["native_packets_matched"]==75 and
                 wire.get("program_sha256")==HASHES[name],"Missing exact wire match")
-        for side in ("selectors_before_hold","selectors_after_hold"):
+        for side in (("selectors_before_hold",) if i==1 else ("selectors_before_hold","selectors_after_hold")):
             selectors=stage.get(side,{})
-            require(selectors.get("values")==SELECTORS and selectors.get("page_callbacks_verified")==7 and
+            require("status" not in selectors and "reason" not in selectors and
+                    selectors.get("values")==SELECTORS and selectors.get("page_callbacks_verified")==7 and
                     selectors.get("controller_returns")==[0,1,0,0,1,0,0,2,0,0],
                     "Selectors/controller returns not qualified")
         require(transaction["entry_count_after"]==entry_count+5,"Transaction callback count discontinuity")
@@ -213,24 +229,43 @@ def validate_acquisition(run):
         require(stage["selectors_before_hold"].get("entry_count_after")==entry_count+7,
                 "Prehold selector count discontinuity")
         entry_count+=7
-        c1=stage.get("c1",{})
-        data=c1.get("data")
-        require(c1.get("framing_qualified") is True and c1.get("cleanup_verified") is True and
-                c1.get("native_dbv")==3600 and c1.get("page")=="23" and c1.get("opcode")=="C1" and
-                c1.get("requested")==3 and c1.get("normalized_count")==9 and
-                c1.get("scratch_allocation")==16 and c1.get("single_receive") is True and
-                isinstance(data,list) and len(data)==3 and all(type(x) is int and 0<=x<=255 for x in data),
-                "Missing qualified measured C1 long3")
-        trace=c1.get("main_trace",{})
-        require(trace.get("page_callbacks_verified")==3 and trace.get("controller_returns")==[0,3,0,0] and
-                trace.get("entry_count_after")==entry_count+3 and isinstance(trace.get("background_esd"),list),
-                "Missing main C1 trace evidence")
-        require(trace["background_esd"]==[],"No background ESD inside C1 operation envelope")
-        entry_count+=3
-        require(stage["selectors_after_hold"].get("entry_count_after")==entry_count+7,
-                "Posthold selector count discontinuity")
-        entry_count+=7
-        require(name=="aa10" or data==[0,0,96],"Stock C1 differs")
+        if i==1:
+            require(stage.get("c1")==OMITTED_C1 and stage.get("selectors_after_hold")==OMITTED_POSTSELECTORS,
+                    "Middle diagnostics must be explicitly unmeasured without fabricated evidence")
+            require("postselectors_verified_monotonic" not in stage,"Unmeasured selectors have no completion timestamp")
+        else:
+            c1=stage.get("c1",{})
+            data=c1.get("data")
+            require("status" not in c1 and "reason" not in c1 and
+                    c1.get("framing_qualified") is True and c1.get("cleanup_verified") is True and
+                    c1.get("native_dbv")==3600 and c1.get("page")=="23" and c1.get("opcode")=="C1" and
+                    c1.get("requested")==3 and c1.get("normalized_count")==9 and
+                    c1.get("scratch_allocation")==16 and c1.get("single_receive") is True and
+                    isinstance(data,list) and len(data)==3 and all(type(x) is int and 0<=x<=255 for x in data),
+                    "Missing qualified measured C1 long3")
+            trace=c1.get("main_trace",{})
+            require(trace.get("page_callbacks_verified")==3 and trace.get("controller_returns")==[0,3,0,0] and
+                    trace.get("entry_count_after")==entry_count+3 and isinstance(trace.get("background_esd"),list),
+                    "Missing main C1 trace evidence")
+            require(trace["background_esd"]==[],"No background ESD inside C1 operation envelope")
+            entry_count+=3
+            require(stage["selectors_after_hold"].get("entry_count_after")==entry_count+7,
+                    "Posthold selector count discontinuity")
+            entry_count+=7
+            require(data==[0,0,96],"Stock C1 differs")
+        if i<2:
+            guard=stage.get("hold_end_guard",{})
+            guard_count=entry_count-7 if i==0 else entry_count
+            require(guard=={"esd_mode":"reg_read","main_trace_prefix_verified":True,"entry_count_after":guard_count}
+                    and guard.get("main_trace_prefix_verified") is True and type(guard.get("entry_count_after")) is int,
+                    "Missing actual end-hold ESD/trace guard")
+        else:
+            require("hold_end_guard" not in stage and "hold_guard_verified_monotonic" not in stage,
+                    "Return uses measured postselectors, not a projected guard")
+        expected_phases=BASELINE_PHASES-({"c1","selectors_after_hold"} if i==1 else {"hold_end_guard"} if i==2 else set())
+        actual_phases=stage.get("phase_seconds",{})
+        require(set(actual_phases)==expected_phases and all(finite(x) and x>0 for x in actual_phases.values()),
+                "Stage timing must measure its exact diagnostic composition")
         require(stage.get("qualified") is True and stage.get("hold_seconds")==4.5 and
                 type(stage.get("observed_sensor_frames")) is int and stage["observed_sensor_frames"]>=120,
                 "Missing full hold")
@@ -255,6 +290,7 @@ def validate_acquisition(run):
                    utc(stage["camera_end"]["host_call_end_utc"])-end1]
         require(max(offsets)-min(offsets) < .05,
                 "UTC/monotonic offset changed across hold/camera boundaries")
+    require(entry_count==56,"Exact baseline/middle/return callback total required")
     require(run.get("active_limit_seconds")==37 and run.get("host_limit_seconds")==45 and
             run.get("recovery_reserve_seconds")==8 and run.get("timed_watchdog_seconds")==60 and
             run.get("timed_watchdog_renewals")==0 and
@@ -262,13 +298,10 @@ def validate_acquisition(run):
             run.get("host_alarm_restored_before_cleanup") is True,"Missing bounded watchdog lifecycle")
     estimate=run.get("prearm_planning_estimate",{})
     phases=estimate.get("observed_baseline_phase_seconds",{})
-    phase_keys={"writer_and_quiet","same_dbv_replay","redraw_audit","selectors_before_hold",
-                "c1","hold_and_metadata","selectors_after_hold"}
-    require(set(phases)==phase_keys and all(finite(x) and x>0 for x in phases.values()),
-            "Missing observed full-composition planning phases")
+    predicted=planning_estimate(phases)
     require(estimate.get("redraw_scene_contract")==REDRAW_SCENE_CONTRACT and
+            estimate.get("protocol")==DIAGNOSTIC_CONTRACT and
             phases==stages[0].get("phase_seconds"),"Incomparable baseline timing observation")
-    predicted=2*sum(phases.values())-phases["hold_and_metadata"]-phases["selectors_after_hold"]+3
     require(estimate.get("status")=="observation_not_a_bound" and estimate.get("planning_margin_seconds")==3 and
             finite(estimate.get("estimated_active_seconds")) and
             abs(estimate["estimated_active_seconds"]-predicted)<.01 and predicted<37,
@@ -338,13 +371,17 @@ def validate_acquisition(run):
                 table_validated <= restored == write["validated_monotonic"] and
                 quiet_verified - isolated >= 2,
                 "ESD isolation/quiet/table/restore ordering inconsistent")
-        pre0,pre1,post=(stage.get(k) for k in ("prehold_started_monotonic",
-                            "prehold_qualified_monotonic","postselectors_verified_monotonic"))
+        pre0,pre1=(stage.get(k) for k in ("prehold_started_monotonic","prehold_qualified_monotonic"))
+        post=stage.get("hold_guard_verified_monotonic" if index==1 else "postselectors_verified_monotonic")
         require(all(finite(x) for x in (pre0,pre1,post)) and
                 write["validated_monotonic"]<=pre0<=pre1<=h0<h1<=stage["hold_verified_monotonic"]<=post,
-                "Prehold/C1/selectors completion timing inconsistent")
+                "Prehold/hold/diagnostic completion timing inconsistent")
+        if index<2:
+            guard=stage.get("hold_guard_verified_monotonic")
+            require(finite(guard) and stage["hold_verified_monotonic"]<=guard<=post,
+                    "End-hold guard timing inconsistent")
         if index==0:require(post<=active,"Baseline postselectors completed after arm")
-        if index==1:require(post<=writes[2]["started_monotonic"],"Stock return before middle postselectors")
+        if index==1:require(post<=writes[2]["started_monotonic"],"Stock return before middle hold guard")
         if index==2:require(pre1<=returned,"Stock return qualified before C1/selectors completed")
 
         require(all(finite(write.get(k)) for k in ("started_monotonic","dispatch_monotonic","validated_monotonic")) and
@@ -394,6 +431,7 @@ def validate_stock_qualification(acquisition,qualification,source):
     require(acquisition["scope"]==SCOPES[0],"Stock-only AA acquisition required")
     q=qualification
     require(isinstance(q,dict) and q.get("schema")==QUALIFICATION_SCHEMA and
+            q.get("protocol")==DIAGNOSTIC_CONTRACT and
             q.get("status")=="limited_stock_diagnostic_pass" and
             q.get("acquisition_canonical_sha256")==canonical_sha(acquisition),
             "Stock qualification/acquisition binding mismatch")

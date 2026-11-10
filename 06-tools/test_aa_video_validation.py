@@ -21,7 +21,7 @@ def fixture(candidate=False):
         "return_qualified_monotonic","disarm_seconds","active_G_seconds","active_limit_seconds",
         "host_limit_seconds","recovery_reserve_seconds","timed_watchdog_seconds",
         "timed_watchdog_renewals","candidate_watchdog","host_alarm_restored_before_cleanup")}
-    run.update(schema=v.ACQUISITION_SCHEMA,scope=v.SCOPES[int(candidate)],
+    run.update(schema=v.ACQUISITION_SCHEMA,scope=v.SCOPES[int(candidate)],protocol=v.DIAGNOSTIC_CONTRACT,
         candidate_enabled=candidate,candidate_attempts=int(candidate),
         unknown_value_write_attempted=candidate,native_dbv=3600,
         status="awaiting_offline_video_validation",video_validation_status="pending_offline",
@@ -41,19 +41,20 @@ def fixture(candidate=False):
     # Synthetic host times leave the full real two-second observation after
     # isolation, while retaining the original camera timestamps and holds.
     run.update(active_start_monotonic=16., return_qualified_monotonic=29., active_G_seconds=13.4)
-    phases={k:.1 for k in ("writer_and_quiet","same_dbv_replay","redraw_audit","selectors_before_hold","c1","selectors_after_hold")}
+    phases={k:.1 for k in v.BASELINE_PHASES}
     phases["hold_and_metadata"]=5.4
     phases["writer_and_quiet"]=9.2-7.
     run["prearm_planning_estimate"]={"observed_baseline_phase_seconds":phases,
-        "estimated_active_seconds":2*sum(phases.values())-5.4-.1+3,"planning_margin_seconds":3.,
-        "status":"observation_not_a_bound","redraw_scene_contract":v.REDRAW_SCENE_CONTRACT}
+        "estimated_active_seconds":v.planning_estimate(phases),"planning_margin_seconds":3.,
+        "status":"observation_not_a_bound","redraw_scene_contract":v.REDRAW_SCENE_CONTRACT,"protocol":v.DIAGNOSTIC_CONTRACT}
     run["stages"]=[];run["writes"]=[]
     for i,oldstage in enumerate(old["stages"]):
+        count=(0,22,34)[i]
         stage={k:deepcopy(val) for k,val in oldstage.items() if k not in ("p85","c1","return_prequiet","phase_seconds")}
         name="aa10" if candidate and i==1 else "stock"
         stage.update(label=names[i],program_name=name,program_sha256=v.HASHES[name],
             transaction={"chunks_verified":5,"page_callbacks_verified":5,"controller_packets_verified":75,
-                         "entry_count_after":5+22*i},
+                         "entry_count_after":5+count},
             wire={"native_packets_matched":75,"program_sha256":v.HASHES[name]},
             c1={"framing_qualified":True,"cleanup_verified":True,"native_dbv":3600,
                 "page":"23","opcode":"C1","requested":3,"normalized_count":9,"scratch_allocation":16,
@@ -63,14 +64,19 @@ def fixture(candidate=False):
                          "controller_returns":[0,1,0,0,1,0,0,2,0,0]}
         stage["same_dbv_replay"]={"dbv":3600,"exact_wire_verified":True,
             "observed_writes":[{"length":3,"type":57,"mode":"hs","payload":"51 0e 10"}],
-            "main_trace":{"page_callbacks_verified":0,"controller_returns":[0],"entry_count_after":5+22*i}}
+            "main_trace":{"page_callbacks_verified":0,"controller_returns":[0],"entry_count_after":5+count}}
         stage['phase_seconds']=deepcopy(phases)
         stage["redraw_audit"]={"method":"native_timeout_chooser_open_cancel","native_dsi_writes":0,"marker_interval_verified":True,
             "scene_contract":v.REDRAW_SCENE_CONTRACT,"scene_sha256":['d'*64,'e'*64,'d'*64]}
-        stage["selectors_before_hold"]["entry_count_after"]=12+22*i
+        stage["selectors_before_hold"]["entry_count_after"]=12+count
         stage["c1"]["main_trace"]={"page_callbacks_verified":3,"controller_returns":[0,3,0,0],
-                                   "entry_count_after":15+22*i,"background_esd":[]}
-        stage["selectors_after_hold"]["entry_count_after"]=22+22*i
+                                   "entry_count_after":15+count,"background_esd":[]}
+        stage["selectors_after_hold"]["entry_count_after"]=22+count
+        if i==1:
+            stage['c1']=dict(v.OMITTED_C1)
+            stage['selectors_after_hold']=dict(v.OMITTED_POSTSELECTORS)
+            for key in ('c1','selectors_after_hold'):stage['phase_seconds'].pop(key)
+        if i==2:stage['phase_seconds'].pop('hold_end_guard')
         stage["hold_verified_monotonic"]=stage["hold_end_monotonic"]+.3
         timing = (
             {"started_monotonic":7., "dispatch_monotonic":9.1, "validated_monotonic":9.2},
@@ -98,7 +104,11 @@ def fixture(candidate=False):
         run["writes"][-1]["quiet_evidence"]=deepcopy(stage["quiet_evidence"])
         stage["prehold_started_monotonic"]=timing["validated_monotonic"]+.01
         stage["prehold_qualified_monotonic"]=timing["validated_monotonic"]+.02
-        stage["postselectors_verified_monotonic"]=stage["hold_verified_monotonic"]+.01
+        if i<2:
+            stage['hold_end_guard']={'esd_mode':'reg_read','main_trace_prefix_verified':True,
+                                     'entry_count_after':15 if i==0 else 34}
+            stage['hold_guard_verified_monotonic']=stage['hold_verified_monotonic']+.005
+        if i!=1:stage["postselectors_verified_monotonic"]=stage["hold_verified_monotonic"]+.01
         run["stages"].append(stage)
     return run,pts
 
@@ -107,6 +117,49 @@ def optical_view(run):
             "video_profile":{"codec":"h264","size":[1280,720],"audio_streams":0}}
 
 class AcquisitionTests(unittest.TestCase):
+    def test_middle_policy_rejects_fabricated_mixed_or_unbound_evidence(self):
+        mutations=[lambda r:r.pop('protocol'),lambda r:r.update(protocol='old-all-C1'),
+            lambda r:r['stages'][1]['c1'].update(data=[0,0,96]),
+            lambda r:r['stages'][1]['c1'].update(main_trace={}),
+            lambda r:r['stages'][1]['selectors_after_hold'].update(values=v.SELECTORS),
+            lambda r:r['stages'][1]['selectors_after_hold'].update(entry_count_after=41),
+            lambda r:r['stages'][1]['phase_seconds'].update(c1=0),
+            lambda r:r['stages'][1]['phase_seconds'].update(selectors_after_hold=0),
+            lambda r:r['stages'][1].update(postselectors_verified_monotonic=25.),
+            lambda r:r['stages'][1].pop('hold_end_guard'),
+            lambda r:r['stages'][1]['hold_end_guard'].update(esd_mode='esd_sw_sim_success'),
+            lambda r:r['stages'][1]['hold_end_guard'].update(main_trace_prefix_verified=False),
+            lambda r:r['stages'][1]['hold_end_guard'].update(entry_count_after=44),
+            lambda r:r['stages'][1].update(hold_guard_verified_monotonic=27.),
+            lambda r:r['stages'][0].pop('hold_guard_verified_monotonic'),
+            lambda r:r['stages'][2].update(hold_end_guard=r['stages'][1]['hold_end_guard']),
+            lambda r:r['prearm_planning_estimate'].pop('protocol'),
+            lambda r:r['prearm_planning_estimate']['observed_baseline_phase_seconds'].pop('hold_end_guard'),
+            lambda r:r['stages'][1].update(label='return_stock')]
+        mutations += [lambda r:r['stages'][0]['c1'].update(status='not_measured'),
+                      lambda r:r['stages'][2]['selectors_after_hold'].update(reason='omitted'),
+                      lambda r:r['stages'][1]['selectors_before_hold'].update(status='not_measured')]
+        for candidate in (False,True):
+            for change in mutations:
+                with self.subTest(candidate=candidate,change=change):
+                    run,_=fixture(candidate);change(run)
+                    with self.assertRaises((ValueError,KeyError,TypeError)):v.validate_acquisition(run)
+
+    def test_baseline_and_return_omissions_and_old_counts_are_rejected(self):
+        for index in (0,2):
+            for key,marker in (('c1',v.OMITTED_C1),('selectors_after_hold',v.OMITTED_POSTSELECTORS)):
+                for candidate in (False,True):
+                    run,_=fixture(candidate);run['stages'][index][key]=dict(marker)
+                    with self.assertRaises(ValueError):v.validate_acquisition(run)
+        run,_=fixture();run['stages'][2]['transaction']['entry_count_after']=49
+        with self.assertRaises(ValueError):v.validate_acquisition(run)
+
+    def test_optical_observations_never_impute_middle_data(self):
+        for candidate in (False,True):
+            run,_=fixture(candidate);observed=optical.c1_observations(v.validate_acquisition(run))
+            self.assertEqual(observed[1],{'stage':'aa10' if candidate else 'sham_stock',**v.OMITTED_C1})
+            self.assertEqual(observed[0]['data'],[0,0,96]);self.assertEqual(observed[2]['data'],[0,0,96])
+
     def test_redraw_contract_and_comparable_timing_required(self):
         changes=[lambda r:r.pop('redraw_ui_calibration'),
             lambda r:r['redraw_ui_calibration'].update(contract='same_trial_settings_fragment_tree_v1'),
@@ -142,7 +195,7 @@ class AcquisitionTests(unittest.TestCase):
             lambda r:r["stages"][1].update(program_sha256="f"*64),
             lambda r:r["stages"][1]["wire"].update(native_packets_matched=74),
             lambda r:r["stages"][1]["transaction"].update(controller_packets_verified=74),
-            lambda r:r["stages"][1]["selectors_after_hold"]["controller_returns"].__setitem__(1,0),
+            lambda r:r["stages"][1]["selectors_before_hold"]["controller_returns"].__setitem__(1,0),
             lambda r:r["stages"][1].pop("c1"),
             lambda r:r["stages"][1]["c1"].update(normalized_count=8),
             lambda r:r["stages"][2]["c1"].update(data=[0,0,17]),
@@ -169,8 +222,8 @@ class AcquisitionTests(unittest.TestCase):
             lambda r:r["stages"][1]["same_dbv_replay"]["observed_writes"][0].update(payload="51 0e 11"),
             lambda r:r["stages"][1]["same_dbv_replay"]["main_trace"].update(controller_returns=[1]),
             lambda r:r["stages"][1]["redraw_audit"].update(native_dsi_writes=1),
-            lambda r:r["stages"][1]["c1"]["main_trace"].update(controller_returns=[0,2,0,0]),
-            lambda r:r["stages"][1]["c1"]["main_trace"].update(entry_count_after=36),
+            lambda r:r["stages"][0]["c1"]["main_trace"].update(controller_returns=[0,2,0,0]),
+            lambda r:r["stages"][2]["c1"]["main_trace"].update(entry_count_after=36),
             lambda r:r["stages"][1]["selectors_after_hold"].update(entry_count_after=43),
             lambda r:r.update(return_hold_and_postselectors_verified=False),
             lambda r:r.update(main_trace_removed_verified=False),
@@ -221,7 +274,7 @@ class AcquisitionTests(unittest.TestCase):
             lambda r:r["stages"][2].update(prehold_qualified_monotonic=28.),
             lambda r:r["stages"][1].update(postselectors_verified_monotonic=27.),
             lambda r:r["stages"][1]["quiet_evidence"]["kernel_marker_bounds"].update(end_seconds=111.),
-            lambda r:r["stages"][1]["c1"]["main_trace"].update(background_esd=[{"return_code":1}]),
+            lambda r:r["stages"][2]["c1"]["main_trace"].update(background_esd=[{"return_code":1}]),
             lambda r:r.update(overall_watchdog_seconds=601),
             lambda r:r.update(overall_watchdog_renewals=1),
             lambda r:r.update(chunks_removed_verified=False),
@@ -236,7 +289,9 @@ class AcquisitionTests(unittest.TestCase):
             for stage in ("baseline","sham_stock","return_stock"):
                 measurements.append({"roi":roi,"stage":stage,"degrees":{"2":{
                     "normalized_rms":[.1,.1,.1,.1,.1],"mean_y":100.}}})
-        analysis={"schema":v.SCHEMA,"scope":v.SCOPES[0],"mode":"analysis",
+        analysis={"schema":v.SCHEMA,"scope":v.SCOPES[0],"mode":"analysis","protocol":v.DIAGNOSTIC_CONTRACT,
+            "c1_observations":optical.c1_observations(run['stages']),"middle_c1_measurement":"not_measured",
+            "middle_posthold_selectors":optical.MIDDLE_POSTHOLD_LIMIT,
             "source_acquisition_sha256":media.sha(raw),"source_video_bytes":3,
             "timing_assumptions":{"snapshot_max_age_seconds":.25,"encoder_binding_ambiguity_frames":2,
                 "minimum_edge_margin_seconds":.25},"windows":[{"encoded_frames":60}]*3,
@@ -244,9 +299,13 @@ class AcquisitionTests(unittest.TestCase):
                 "right":[200,100,30,330]},"baseline_fine_search_cycles_per_row":[.015,.025]}
         q=optical.stock_qualification(raw,media.canonical(analysis))
         self.assertEqual(v.validate_stock_qualification(run,q,run),q)
+        for key,value in (('protocol','old'),('middle_c1_measurement','measured'),
+                          ('middle_posthold_selectors','measured'),('c1_observations',[])):
+            bad=deepcopy(analysis);bad[key]=value
+            with self.assertRaises(ValueError):optical.stock_qualification(raw,media.canonical(bad))
         for key,value in (("source_commit","d"*40),("fine_relative_tolerance",.1),
                           ("physical_pwm_hz",2160),("future_latency_bound",True),
-                          ("acquisition_canonical_sha256","f"*64)):
+                          ("acquisition_canonical_sha256","f"*64),("protocol","old-all-C1")):
             bad=deepcopy(q);bad[key]=value
             with self.assertRaises(ValueError):v.validate_stock_qualification(run,bad,run)
         q["stock_ratios"][0]["normalized_fine_over_baseline"]=1.051
@@ -355,6 +414,9 @@ class VideoTests(unittest.TestCase):
             optical.main(args)
         plan=json.loads((root/"plan.json").read_bytes())
         self.assertEqual(plan["source_video_sha256"],media.sha(b"abc"))
+        self.assertEqual(plan['protocol'],v.DIAGNOSTIC_CONTRACT)
+        self.assertEqual(plan['middle_c1_measurement'],'not_measured')
+        self.assertNotIn('data',plan['c1_observations'][1]);self.assertIsNone(plan['physical_pwm_hz'])
         self.path.write_bytes(b"abd")
         args[-1]=str(root/"bad.json")
         with patch.object(optical.common,"probe_video") as before:
