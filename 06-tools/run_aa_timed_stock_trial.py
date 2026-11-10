@@ -33,7 +33,14 @@ REDRAW_SCENE_CONTRACT=acquisition.REDRAW_SCENE_CONTRACT
 REDRAW_SETTLE_SECONDS=1.0
 
 
-def settings_scene(text):
+class SettingsOpeningPending(ValueError):
+    """Complete observed opening scene, but not proof of a settled scene."""
+    def __init__(self,scene):
+        super().__init__('Observed Settings opening is not settled')
+        self.scene=scene
+
+
+def settings_scene(text,*,opening=False):
     """Narrow observed Android16 activity dump, not a generic UI/text decoder.
 
     The top dump also includes stopped launcher/parent activities. Select by
@@ -68,13 +75,21 @@ def settings_scene(text):
     check(len(roots)==1,'Missing/ambiguous Settings ViewRoot')
     for key,value in (('mAdded','true'),('mRemoved','false'),('mStopped','false'),
                       ('mPausedForTransition','false'),('mPendingInputEventCount','0'),
-                      ('mProcessInputEventsScheduled','false'),('mTraversalScheduled','false')):
+                      ('mProcessInputEventsScheduled','false')):
         check(re.findall(r'^      '+key+r'=(\S+)$',roots[0],re.M)==[value],'Unsettled Settings ViewRoot: '+key)
-    check(re.findall(r'^        mHasWindowFocus=(\S+)$',roots[0],re.M)==['true'] and
-          re.findall(r'^        mWindowVisibility=(\S+)$',roots[0],re.M)==['0'],'Settings window not visible/focused')
+    traversal=re.findall(r'^      mTraversalScheduled=(\S+)$',roots[0],re.M)
+    focus=re.findall(r'^        mHasWindowFocus=(\S+)$',roots[0],re.M)
+    check(re.findall(r'^        mWindowVisibility=(\S+)$',roots[0],re.M)==['0'],'Settings window not visible')
+    pending=not (traversal==['false'] and focus==['true'])
+    if pending:
+        check(opening and traversal==['true'] and focus==['false'],'Unqualified Settings traversal/focus state')
+        choreographer=re.findall(r'^    Choreographer:\n(.*?)(?=^    [^ ]|\Z)',roots[0],re.M|re.S)
+        check(len(choreographer)==1 and
+              re.findall(r'^      mFrameScheduled=(\S+)$',choreographer[0],re.M)==['true'],
+              'Unqualified Settings opening frame state')
     trees=re.findall(r'^    View Hierarchy:\n(.*?)^    Looper \(main,',body,re.M|re.S)
     check(len(trees)==1,'Incomplete Settings hierarchy boundary')
-    hierarchy=[];depths=[]
+    hierarchy=[];depths=[];ancestors=[];generated_ids=0
     for line in trees[0].splitlines():
         match=re.fullmatch(r'( +)([A-Za-z_$][\w.$]*)\{[0-9a-f]+ ([VIG.][F.][E.][D.][H.][V.][C.][L.][X.]) ([R.][F.][S.][pP.][H.][A.][I.][D.]) (-?\d+,-?\d+--?\d+,-?\d+)( #[0-9a-f]+(?: [\w.$]+:id/[\w.$]+)?)?(?: aid=\d+)?\}(\[[^\]\n]+\])?',line)
         check(match is not None,'Unknown/truncated Settings view line')
@@ -83,9 +98,25 @@ def settings_scene(text):
         check(len(indent)>=6 and len(indent)%2==0 and
               ((not depths and depth==0) or (depth>0 and depth<=depths[-1]+1)),
               'Broken Settings view hierarchy')
+        ancestors=ancestors[:depth]
+        # AndroidX ViewPager2 creates this internal child with generateViewId().
+        # Same-run observed #5 -> #6 is normalized ONLY in the hidden, zero-size
+        # tab subtree. Named/static IDs and every other node field remain exact.
+        if (klass=='androidx.viewpager2.widget.ViewPager2$RecyclerViewImpl' and
+                bounds=='0,0-0,0' and resource is not None and
+                re.fullmatch(r' #[0-9a-f]+',resource) and 0<int(resource[2:],16)<0x01000000 and
+                len(ancestors)>=2):
+            parent,grandparent=ancestors[-1],ancestors[-2]
+            if (parent[1]=='androidx.viewpager2.widget.ViewPager2' and parent[4]=='0,0-0,0' and
+                    re.fullmatch(r' #[0-9a-f]+ app:id/view_pager',parent[5]) and
+                    grandparent[1]=='android.widget.LinearLayout' and grandparent[2][0]=='G' and
+                    grandparent[4]=='0,0-0,0' and
+                    re.fullmatch(r' #[0-9a-f]+ app:id/tab_container',grandparent[5])):
+                generated_ids+=1;check(generated_ids==1,'Ambiguous generated ViewPager2 ID')
+                resource=' #<generated-view-id>'
         # Object/autofill IDs and invalidated/dirty frame bits are transient.
-        # Keep class, order, bounds, resource IDs and all interaction flags.
-        hierarchy.append([depth,klass,flags,private[:6],bounds,resource or '',title or ''])
+        node=[depth,klass,flags,private[:6],bounds,resource or '',title or '']
+        hierarchy.append(node);ancestors.append(node)
         depths.append(depth)
     check(5<=len(hierarchy)<=4096 and hierarchy[0][1]=='com.android.internal.policy.DecorView',
           'Incomplete Settings decor tree')
@@ -106,6 +137,10 @@ def settings_scene(text):
           'Incomplete support fragment tail')
     scene={'component':identity[1],'pid':int(identity[2]),'fragment':fragment_class,
            'configuration':configs[0],'hierarchy':hierarchy}
+    if pending:
+        check(scene['component']=='com.android.settings/.SubSettings' and scene['fragment']=='ScreenTimeoutSettings',
+              'Pending state is not the observed timeout opening')
+        raise SettingsOpeningPending(scene)
     return scene
 
 
@@ -385,9 +420,9 @@ class AATimedTrial(timed.TimedStockTrial):
             f'test \"$(wc -c < {path})\" -le 4194304; cat {path}')
         return ET.fromstring(self.shell(command,label=label))
 
-    def target_scene(self,label,timeout=5):
+    def target_scene(self,label,timeout=5,*,opening=False):
         text=self.shell('set -eu; '+self.target_ui_guard()+'; dumpsys activity top',label=label,timeout=timeout)
-        return settings_scene(text)
+        return settings_scene(text,opening=opening)
 
     def redraw_audit(self,label,begin):
         end=self.mark('REDRAW_END_'+label)
@@ -460,21 +495,33 @@ class AATimedTrial(timed.TimedStockTrial):
             'completed_monotonic':self.monotonic()}
         self.pending_read=False
 
-    def settle_scene(self,label,expected,previous):
+    def settle_scene(self,label,expected,previous,*,opening=False):
         # A single total acceptance deadline, never a fresh budget per poll.
         # The inherited ADB version handshake has its own timeout, so this is
         # not a new transport wall bound. Reject late results; the unchanged
         # outer37 alarm remains the active-window interruption/recovery guard.
+        if opening:
+            check(label.endswith('-scene-opened') and
+                  expected.get('component')=='com.android.settings/.SubSettings' and
+                  expected.get('fragment')=='ScreenTimeoutSettings' and
+                  previous.get('component')=='com.android.settings/.Settings$DisplaySettingsActivity' and
+                  previous.get('fragment')=='DisplaySettings','Pending reads allowed only while opening timeout page')
         deadline=self.monotonic()+REDRAW_SETTLE_SECONDS
         if self.active_start is not None:deadline=min(deadline,self.monotonic()+self.remaining())
         while True:
             left=deadline-self.monotonic();check(left>0,'Settings transition exceeded acceptance deadline')
-            observed=self.target_scene(label,timeout=left)
+            try:
+                observed=self.target_scene(label,timeout=left,opening=opening)
+            except SettingsOpeningPending as exc:
+                # Parsing completed, but this is NEVER settled success. Only
+                # the entire same-trial expected opened scene may be reread.
+                check(opening and exc.scene==expected,'Unexpected pending Settings scene')
+                observed=None
             check(self.monotonic()<=deadline,'Late Settings scene result')
             if observed==expected:return scene_digest(observed)
-            # Only the complete known previous scene is a permitted transition.
-            # Malformed/unfocused/unresumed/foreign/unknown scenes are terminal.
-            check(observed==previous,'Unexpected Settings transition scene')
+            # Otherwise permit only the complete known previous stable scene.
+            # All other parse/lifecycle/identity/transport failures are terminal.
+            check(observed is None or observed==previous,'Unexpected Settings transition scene')
             self.sleep(min(.05,max(0,deadline-self.monotonic())))
 
     def redraw(self,label):
@@ -486,7 +533,7 @@ class AATimedTrial(timed.TimedStockTrial):
         before=self.target_scene(label+'-scene-ready')
         check(before==ready,'Settings scene changed before input')
         self.shell(f'input tap {self.redraw_tap[0]} {self.redraw_tap[1]}',label=label+'-redraw-open',mutation=True)
-        opened_digest=self.settle_scene(label+'-scene-opened',opened,ready)
+        opened_digest=self.settle_scene(label+'-scene-opened',opened,ready,opening=True)
         self.shell('input keyevent 4',label=label+'-redraw-cancel',mutation=True)
         returned_digest=self.settle_scene(label+'-scene-returned',ready,opened)
         result=self.redraw_audit(label,begin)

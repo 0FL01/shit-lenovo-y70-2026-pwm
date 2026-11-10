@@ -1,6 +1,47 @@
 # AA full-table timed integration
 
-## Current redraw correction (2026-11-09)
+## Opening readiness correction (2026-11-10)
+
+Status: offline source correction, not a completed full-stock qualification.
+The 686b6ff stock run stopped during baseline opening, before short arm or any
+AA10 write. Exact same-run saved snapshots show a stable timeout scene followed
+by the same opening scene with traversal scheduled, window focus absent and a
+frame scheduled. The only canonical tree difference was an anonymous ID,
+`#5` versus `#6`, on the zero-size internal ViewPager2 recycler.
+
+Scene contract v2 normalizes that ID only for the exact observed ancestry:
+zero-size `ViewPager2$RecyclerViewImpl` under zero-size named `view_pager`, under
+GONE zero-size named `tab_container`. AndroidX ViewPager2 creates this internal
+child using `View.generateViewId()`. Named/static IDs, every other class,
+hierarchy order, bound and interaction flag remain exact. This is not general
+resource-ID removal.
+
+Only while opening the timeout page, the exact observed traversal=true,
+focus=false, frameScheduled=true tuple can produce a typed pending result.
+Frame readiness comes from the selected resumed Settings Choreographer, never
+another activity. The complete canonical scene must equal the same-trial
+expected opened scene before another read is allowed. Pending does not return
+a digest or authorize Back: a later strict stable match is required. Calibration,
+before-tap and return reads keep the previous strict policy. Unknown scenes,
+malformed output, context drift and transport/permission errors remain terminal.
+No tap or Back is repeated.
+
+The same total 1 s acceptance deadline and outer 37 s alarm remain; the inherited
+12 s version-handshake caveat below is unchanged. Every actual reread is charged
+to the measured baseline and active window. The baseline full + prehold + 3 s
+formula and all other timing, native/wire, selector/C1, return and recovery gates
+are unchanged. A new clean-source stock-only run must qualify this version.
+
+Offline tests replay the exact saved same-run stable/pending pair through the
+real redraw caller with fake I/O, and test pending-to-stable ordering, one-input
+counts, expiry/late/unknown/context/transport recovery, phase restrictions and
+neighboring ID/ancestry/visibility/bounds cases. With the explicit saved pair
+supplied, 74 runtime/acquisition tests and 96 combined tests pass in normal
+Python and `-O`. These tests are not physical timing or optical qualification.
+Frozen source hashes are recorded in the closure manifest. The earlier
+source/test counts below are historical.
+
+## Earlier redraw correction (2026-11-09)
 
 Status: offline source correction, not a qualified full-stock run or AA10 admission.
 Only the existing Settings timeout page tap/Back operation remains. No new app,

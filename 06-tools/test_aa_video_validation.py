@@ -91,6 +91,8 @@ def optical_view(run):
 class AcquisitionTests(unittest.TestCase):
     def test_redraw_contract_and_comparable_timing_required(self):
         changes=[lambda r:r.pop('redraw_ui_calibration'),
+            lambda r:r['redraw_ui_calibration'].update(contract='same_trial_settings_fragment_tree_v1'),
+            lambda r:r['stages'][1]['redraw_audit'].update(scene_contract='same_trial_settings_fragment_tree_v1'),
             lambda r:r['redraw_ui_calibration'].update(semantic_xml_verified=False),
             lambda r:r['redraw_ui_calibration'].update(returned_xml_equals_ready=False),
             lambda r:r['redraw_ui_calibration'].update(live_text_or_checked_verification=True),

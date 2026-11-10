@@ -22,12 +22,12 @@ from test_aa_threshold_trial import SELECTOR_RAW
 REPLAY_POLL=' kworker/1:2-88 [001] d..1. 100.000000: mode_ctrl_return: (dsi_display_validate_status+0x154/0x308 [msm_drm] <- dsi_ctrl_cmd_transfer) rc=1\n'
 REPLAY_RETURN=' printf-99 [001] d..1. 100.020000: mode_ctrl_return: (dsi_host_transfer_sub+0x2f4/0x558 [msm_drm] <- dsi_ctrl_cmd_transfer) rc=0\n'
 
-def scene_fixture(opened=False):
+def scene_fixture(opened=False,*,generated_id='5',pending=False):
     """Synthetic observed-format fixture; not target/latency qualification."""
     fragment='ScreenTimeoutSettings' if opened else 'DisplaySettings'
     component='.SubSettings' if opened else '.Settings$DisplaySettingsActivity'
     widget='android.widget.RadioButton' if opened else 'android.widget.TextView'
-    return f'''  ACTIVITY com.android.settings/{component} abc pid=123 userId=0 uid=1000 displayId=0(type=INTERNAL)
+    text=f'''  ACTIVITY com.android.settings/{component} abc pid=123 userId=0 uid=1000 displayId=0(type=INTERNAL)
     Local Activity def State:
       mResumed=true mStopped=false mFinished=false
       mIsInMultiWindowMode=false mIsInPictureInPictureMode=false
@@ -43,12 +43,17 @@ def scene_fixture(opened=False):
       mTraversalScheduled=false
         mHasWindowFocus=true
         mWindowVisibility=0
+    Choreographer:
+      mFrameScheduled=false
     View Hierarchy:
       com.android.internal.policy.DecorView{{abc V.E...... R....... 0,0-1440,3168}}[Settings]
         android.widget.FrameLayout{{def V.E...... ........ 0,0-1440,3168 #1020002 android:id/content}}
           androidx.recyclerview.widget.RecyclerView{{fed VFED.V... .F...... 0,0-1440,3000 #7f0602 app:id/recycler_view aid=1234}}
             android.widget.LinearLayout{{aaa VFE..VC.. ........ 0,0-20,20 #0}}
               {widget}{{bbb V.ED.V... ........ 0,0-20,20 #1020016 android:id/title}}
+          android.widget.LinearLayout{{123 G.E..V... ........ 0,0-0,0 #7f0a076c app:id/tab_container}}
+            androidx.viewpager2.widget.ViewPager2{{456 V.E..V... ........ 0,0-0,0 #7f0a0810 app:id/view_pager}}
+              androidx.viewpager2.widget.ViewPager2$RecyclerViewImpl{{789 VFED.V... ........ 0,0-0,0 #{generated_id}}}
     Looper (main, tid 2) {{ccc}}
     Local FragmentActivity def State:
       mCreated=true mResumed=true mStopped=false    Active Fragments:
@@ -61,6 +66,9 @@ def scene_fixture(opened=False):
     FragmentManager misc state:
       mCurState=7 mStateSaved=false mStopped=false mDestroyed=false
 '''
+    if pending:
+        text=text.replace('mTraversalScheduled=false','mTraversalScheduled=true').replace('mHasWindowFocus=true','mHasWindowFocus=false').replace('mFrameScheduled=false','mFrameScheduled=true')
+    return text
 
 READY_XML='<hierarchy rotation="0"><node text="Screen timeout" package="com.android.settings" clickable="true" checkable="false" enabled="true" bounds="[0,0][20,20]"/></hierarchy>'
 OPENED_XML=('<hierarchy rotation="0"><node resource-id="com.android.settings:id/collapsing_toolbar" package="com.android.settings" content-desc="Screen timeout"/>'+
@@ -470,6 +478,133 @@ class SceneParserTests(unittest.TestCase):
                              ('0,0-20,20','0,1-20,20'),('android:id/title','android:id/summary'),
                              ('pid=123','pid=456'),('DisplaySettings','OtherSettings')]:
             with self.subTest(change=after):self.assertNotEqual(expected,t.settings_scene(good.replace(before,after)))
+
+
+class OpeningPendingTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):Sim.reader=execute_reader_fixture()[0].stdout
+    def execute(self,run):
+        with patch.object(t.s,'now',run.now):return run.execute()
+    def test_only_observed_hidden_generated_id_is_normalized(self):
+        five=scene_fixture(True);six=scene_fixture(True,generated_id='6')
+        expected=t.settings_scene(five)
+        self.assertEqual(expected,t.settings_scene(six))
+        child='androidx.viewpager2.widget.ViewPager2$RecyclerViewImpl{789 VFED.V... ........ 0,0-0,0 #6}'
+        changes=[six.replace('#6}', '#0}'),six.replace('#6}', '#1020005}'),
+            six.replace('#6}', '#6 app:id/other}'),
+            six.replace(child,child.replace('0,0-0,0','0,0-1,1')),
+            six.replace(child,child.replace('VFED.V...','VFED.VC..')),
+            six.replace(child,child.replace('RecyclerViewImpl','OtherRecycler')),
+            six.replace('123 G.E..V...', '123 V.E..V...'),
+            six.replace('app:id/tab_container','app:id/other_container'),
+            six.replace('app:id/view_pager','app:id/other_pager'),
+            six.replace('456 V.E..V... ........ 0,0-0,0','456 V.E..V... ........ 0,0-1,1'),
+            six.replace('#7f0a0810','#7f0a0811')]
+        for changed in changes:
+            with self.subTest(changed=changed[-80:]):self.assertNotEqual(expected,t.settings_scene(changed))
+    def test_pending_is_typed_unready_not_stable_success(self):
+        raw=scene_fixture(True,generated_id='6',pending=True)
+        with self.assertRaises(ValueError):t.settings_scene(raw)
+        with self.assertRaises(t.SettingsOpeningPending) as caught:t.settings_scene(raw,opening=True)
+        self.assertEqual(caught.exception.scene,t.settings_scene(scene_fixture(True)))
+        for old,new in [('mTraversalScheduled=true','mTraversalScheduled=false'),
+                        ('mHasWindowFocus=false','mHasWindowFocus=true'),('mFrameScheduled=true','mFrameScheduled=false'),
+                        ('mWindowVisibility=0','mWindowVisibility=4'),('mPendingInputEventCount=0','mPendingInputEventCount=1'),
+                        ('mProcessInputEventsScheduled=false','mProcessInputEventsScheduled=true'),
+                        ('mPausedForTransition=false','mPausedForTransition=true'),
+                        ('mState=7','mState=5'),('mHidden=false','mHidden=true'),
+                        ('.SubSettings','.OtherSettings'),('ScreenTimeoutSettings','OtherSettings')]:
+            with self.subTest(change=new),self.assertRaises(ValueError) as bad:
+                t.settings_scene(raw.replace(old,new),opening=True)
+            self.assertNotIsInstance(bad.exception,t.SettingsOpeningPending)
+        for line in ('      mTraversalScheduled=true\n','        mHasWindowFocus=false\n','      mFrameScheduled=true\n'):
+            for changed in (raw.replace(line,''),raw.replace(line,line+line)):
+                with self.subTest(line=line),self.assertRaises(ValueError) as bad:t.settings_scene(changed,opening=True)
+                self.assertNotIsInstance(bad.exception,t.SettingsOpeningPending)
+    def test_frame_readiness_is_bound_to_selected_choreographer(self):
+        pending=scene_fixture(True,pending=True)
+        launcher=scene_fixture().replace('com.android.settings/.Settings$DisplaySettingsActivity','com.motorola.launcher3/.Launcher').replace('mResumed=true mStopped=false mFinished=false','mResumed=false mStopped=true mFinished=false').replace('mFrameScheduled=false','mFrameScheduled=true')
+        invalid=pending.replace('      mFrameScheduled=true\n','')
+        with self.assertRaises(ValueError) as bad:t.settings_scene(launcher+'TASK current\n'+invalid,opening=True)
+        self.assertNotIsInstance(bad.exception,t.SettingsOpeningPending)
+        with self.assertRaises(t.SettingsOpeningPending):t.settings_scene(launcher+'TASK current\n'+pending,opening=True)
+    def test_actual_caller_pending_then_stable_never_replays_input(self):
+        with tempfile.TemporaryDirectory() as root:
+            run=Sim(root);original=run.shell;seen=0
+            def shell(command,**kwargs):
+                nonlocal seen
+                value=original(command,**kwargs)
+                if kwargs.get('label')=='baseline-scene-opened':
+                    seen+=1;return scene_fixture(True,generated_id='6',pending=seen==1)
+                return value
+            run.shell=shell;report=self.execute(run)
+            self.assertEqual(seen,2);self.assertEqual(run.calls.count('baseline-redraw-open'),1)
+            self.assertEqual(run.calls.count('baseline-redraw-cancel'),1)
+            indices=[i for i,label in enumerate(run.calls) if label=='baseline-scene-opened']
+            self.assertLess(indices[-1],run.calls.index('baseline-redraw-cancel'))
+            self.assertEqual(report['stages'][0]['redraw_audit']['scene_sha256'][1],report['redraw_ui_calibration']['scene_sha256']['opened'])
+    def test_pending_timeout_unknown_late_and_transport_recover_before_back(self):
+        for fault in ('timeout','tree','pid','config','late','transport','permission'):
+            with self.subTest(fault=fault),tempfile.TemporaryDirectory() as root:
+                run=Sim(root);original=run.shell;seen=0
+                def shell(command,**kwargs):
+                    nonlocal seen
+                    value=original(command,**kwargs)
+                    if kwargs.get('label')!='baseline-scene-opened':return value
+                    seen+=1
+                    if fault=='transport' and seen==2:raise TimeoutError('uncertain read')
+                    if fault=='permission' and seen==2:raise ValueError('permission denied')
+                    value=scene_fixture(True,generated_id='6',pending=True)
+                    if fault=='tree':value=value.replace('android:id/title','android:id/other')
+                    if fault=='pid':value=value.replace('pid=123','pid=999')
+                    if fault=='config':value=value.replace('mDisplayRotation=ROTATION_0','density=changed mDisplayRotation=ROTATION_0')
+                    if fault=='late':run.clock.sleep(1.1)
+                    return value
+                run.shell=shell
+                with self.assertRaises(RuntimeError):self.execute(run)
+                self.assertEqual(run.calls.count('baseline-redraw-open'),1)
+                self.assertNotIn('baseline-redraw-cancel',run.calls);self.assertEqual(run.children,['baseline-write'])
+                self.assertEqual(run.calls.count('reboot'),1)
+                if fault in ('tree','pid','config','late'):self.assertEqual(seen,1)
+                if fault in ('transport','permission'):self.assertEqual(seen,2)
+    def test_pending_never_allowed_in_calibration_before_tap_or_return(self):
+        for label in ('calibration-scene-opened','baseline-scene-ready','baseline-scene-returned'):
+            with self.subTest(label=label),tempfile.TemporaryDirectory() as root:
+                run=Sim(root);original=run.shell
+                def shell(command,**kwargs):
+                    value=original(command,**kwargs)
+                    return scene_fixture(True,pending=True) if kwargs.get('label')==label else value
+                run.shell=shell
+                with self.assertRaises(RuntimeError):self.execute(run)
+                self.assertEqual(run.calls.count(label),1);self.assertEqual(run.calls.count('reboot'),1)
+                if label=='calibration-scene-opened':self.assertIsNone(run.redraw_scenes);self.assertEqual(run.children,[])
+                if label=='baseline-scene-ready':self.assertNotIn('baseline-redraw-open',run.calls)
+                if label=='baseline-scene-returned':self.assertEqual(run.calls.count('baseline-redraw-cancel'),1)
+    def test_external_actual_same_run_pair_through_real_redraw(self):
+        import hashlib,os
+        stable_path=os.environ.get('AA_SCENE_STABLE_PATH');pending_path=os.environ.get('AA_SCENE_PENDING_PATH')
+        if not stable_path or not pending_path:self.skipTest('Explicit external saved scene pair not supplied')
+        stable=Path(stable_path).read_bytes();pending=Path(pending_path).read_bytes()
+        self.assertEqual(hashlib.sha256(stable).hexdigest(),'84c73501853be4e8e843b7c217796f112e3d94eafa6a2614281526005a28cfab')
+        self.assertEqual(hashlib.sha256(pending).hexdigest(),'cc51ddb6b8dac870bce3cd82288d108cd4b1df1cd933ea22ba1fb316c9af295d')
+        expected=t.settings_scene(stable.decode())
+        with self.assertRaises(t.SettingsOpeningPending) as caught:t.settings_scene(pending.decode(),opening=True)
+        self.assertEqual(caught.exception.scene,expected)
+        with tempfile.TemporaryDirectory() as root:
+            run=Sim(root);run.setup();run.setup_aa();original=run.shell;reads=0
+            ready_raw=scene_fixture().replace('pid=123','pid='+str(expected['pid']))
+            run.redraw_scenes={'ready':t.settings_scene(ready_raw),'opened':expected};run.redraw_tap=[10,10]
+            def shell(command,**kwargs):
+                nonlocal reads
+                value=original(command,**kwargs);label=kwargs.get('label','')
+                if label in ('baseline-scene-ready','baseline-scene-returned'):return ready_raw
+                if label=='baseline-scene-opened':reads+=1;return (pending if reads==1 else stable).decode()
+                return value
+            run.shell=shell
+            result=run.redraw('baseline')
+            self.assertEqual(reads,2);self.assertEqual(run.calls.count('baseline-redraw-open'),1)
+            self.assertEqual(run.calls.count('baseline-redraw-cancel'),1);self.assertFalse(run.pending_read)
+            self.assertEqual(result['scene_sha256'][1],t.scene_digest(expected))
 
 
 class RedrawCalibrationTests(unittest.TestCase):

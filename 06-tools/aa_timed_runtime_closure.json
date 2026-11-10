@@ -1,5 +1,5 @@
 {
-  "status": "offline_redraw_correction_pending_full_stock_qualification",
+  "status": "offline_opening_readiness_correction_pending_full_stock_qualification",
   "profile": "aa",
   "default_profile_unchanged": "p85",
   "hardware_paths": [
@@ -84,13 +84,13 @@
     "06-tools/video_validation_split_20261109/video_validator_snapshot.py"
   ],
   "changed_or_new_runtime_sha256": {
-    "06-tools/run_aa_timed_stock_trial.py": "b649f5490e5859694c55f05c44b4d2d1b01a18869bba786f5d8fef53b6277ba1",
+    "06-tools/run_aa_timed_stock_trial.py": "4b1893dde6520bc17ba1f5e27c48d328839b5c2790ab9d9c85637fe5bd9d291b",
     "06-tools/aa_threshold_trial.py": "a6a495c5d3d363717c44546e93eb035eaa5c91ab93a3c200a1e7a8a09837e1d7",
-    "06-tools/aa_acquisition_validation.py": "b650dab84fd82c0a0947000ee2ae70a1fceb1ff0310c5e8e12dd15540b2d8692",
+    "06-tools/aa_acquisition_validation.py": "ae9d34aca8833ca6dd1d04341196d710c40d08ed7932072a12c5657f5b9172a4",
     "06-tools/aa_video_validation.py": "00843592492b245060e8aa3098ffd3ca7303af0f43ea67fa474c288111abcff4",
     "06-tools/dsi_trial_transaction.py": "4407a55b3bc37e197e48c74673cff0626345124ca5163b4177ade9a567339ffa",
     "06-tools/host_source_integration_20261109/inert_source_loader.py": "6dd008a6f9f55b11fbcb43270f9510a659d4f61f8b7fc3ae2c80ab863c41b40c",
-    "06-tools/host_source_integration_20261109/host_entrypoint.py": "d4e7f20f87ce5e2283ac918ebf48a460dd384011ceedfd4ff37f973ce5a31110",
+    "06-tools/host_source_integration_20261109/host_entrypoint.py": "89671c99284e13f443ed98ee0f8ac016809ae5cb773af5e23a899f48d4594210",
     "06-tools/run_p85_guarded_trial.py": "fba1ec5dbb0f7592a4d0a3167589dadac2130370cbf886cecc1d588772fa97a5"
   },
   "worst_case_command_sizes": {
@@ -165,5 +165,35 @@
     "focused_suite_tests_optimized": 89,
     "immediate_fast_transition_qualified": false,
     "immediate_fast_transition_limit": "Calibration02 activity reads followed UIAutomator; strict runtime may reject a normal transition. Fresh identical-path stock baseline tests compatibility before arm."
+  },
+  "opening_readiness_correction": {
+    "contract": "same_trial_settings_fragment_tree_v2",
+    "status": "offline_review_ready_not_full_stock_admission",
+    "runtime_acquisition_tests_normal": 74,
+    "same_run_pair": {
+      "stable_raw_sha256": "84c73501853be4e8e843b7c217796f112e3d94eafa6a2614281526005a28cfab",
+      "pending_raw_sha256": "cc51ddb6b8dac870bce3cd82288d108cd4b1df1cd933ea22ba1fb316c9af295d",
+      "node_count": 150,
+      "sole_tree_difference": "Anonymous generated ID #5 to #6 on zero-size internal ViewPager2 recycler"
+    },
+    "normalization_scope": "Only anonymous generated ID under exact zero-size recycler, zero-size named view_pager, GONE zero-size named tab_container; all other fields retained",
+    "pending_scope": "Opening only; traversal=true, focus=false, selected Choreographer frameScheduled=true; complete canonical expected opened scene must match; later strict stable required before Back",
+    "unchanged_limits_seconds": {
+      "settle_acceptance": 1,
+      "active": 37,
+      "host": 45,
+      "reserve": 8,
+      "short_watchdog": 60,
+      "overall_watchdog": 600
+    },
+    "physical_stock_qualified": false,
+    "candidate_admitted": false,
+    "live_device_operations_by_source_worker": 0,
+    "runtime_acquisition_tests_optimized": 74,
+    "focused_suite_tests_normal": 96,
+    "focused_suite_tests_optimized": 96,
+    "explicit_saved_pair_replay_executed": true,
+    "skipped_tests": 0,
+    "saved_pair_replay_limit": "Real parser/redraw caller with exact saved bytes and fake external I/O/timing; not a physical successful fast-path trial"
   }
 }
