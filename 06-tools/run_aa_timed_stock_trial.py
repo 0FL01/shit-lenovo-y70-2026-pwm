@@ -40,73 +40,9 @@ class SettingsTransitionPending(ValueError):
         self.scene=scene;self.finished=finished
 
 
-def settings_scene(text,*,transition=False):
-    """Narrow observed Android16 activity dump, not a generic UI/text decoder.
-
-    The top dump also includes stopped launcher/parent activities. Select by
-    each activity's own native lifecycle, then bind the focused Settings view
-    tree AND its resumed AndroidX fragment. Never global-match a fragment name.
-    Text/checked values are NOT exposed here: same-trial XML calibration and
-    the independent timeout/native checks remain required.
-    """
-    check(isinstance(text,str) and 0<len(text)<4*1024*1024 and '\ufffd' not in text,
-          'Malformed activity scene dump')
-    starts=list(re.finditer(r'^  ACTIVITY ([^\n]+)$',text,re.M))
-    check(starts,'Missing activity sections')
-    activities=[];resumed=[]
-    for i,start in enumerate(starts):
-        body=text[start.end():starts[i+1].start() if i+1<len(starts) else len(text)].split('\nTASK ',1)[0]
-        local_headers=list(re.finditer(r'^    Local Activity [0-9a-f]+ State:\n',body,re.M))
-        check(len(local_headers)==1,'Missing/duplicate native activity state')
-        local_header=local_headers[0]
-        local=body[local_header.end():].split('\n    ViewRoot:',1)[0]
-        states=re.findall(r'^      mResumed=([^\n]*)$',local,re.M)
-        check(len(states)==1,'Missing/duplicate native activity lifecycle')
-        parsed_state=re.fullmatch(r'(true|false) mStopped=(true|false) mFinished=(true|false)',states[0])
-        check(parsed_state is not None,'Malformed native activity lifecycle')
-        state=parsed_state.groups()
-        check(state[:2]!=('true','true'),'Contradictory native activity lifecycle')
-        activity=(start[1],body,local,state);activities.append(activity)
-        if state[0]=='true':resumed.append(activity)
-    check(len(resumed)<=1,'Ambiguous resumed activities')
-    if resumed:
-        selected=resumed[0]
-    else:
-        # A top dump taken after Back can contain only the finishing source.
-        # Absence of a resumed activity is not success or a generic retry:
-        # require one complete Settings context, then bind it in settle_scene.
-        check(transition,'Missing resumed activity')
-        candidates=[a for a in activities if a[0].startswith('com.android.settings/')]
-        check(len(candidates)==1 and all(a is candidates[0] or a[3][1]=='true' for a in activities),
-              'Missing/ambiguous live Settings transition context')
-        selected=candidates[0]
-    header,body,local,state=selected
-    identity=re.fullmatch(r'(com\.android\.settings/[^ ]+) [0-9a-f]+ pid=(\d+) userId=0 uid=1000 displayId=0\(type=INTERNAL\)',header)
-    check(identity is not None,'Unexpected Settings identity')
-    check(re.findall(r'^      mIsInMultiWindowMode=([^\n]+)$',local,re.M)==['false mIsInPictureInPictureMode=false'] and
-          re.findall(r'^      mChangingConfigurations=([^\n]*)$',local,re.M)==['false'],'Settings configuration transition')
-    configs=re.findall(r'^      mCurrentConfig=(.+)$',local,re.M)
-    check(len(configs)==1 and 'mDisplayRotation=ROTATION_0' in configs[0] and
-          'mWindowingMode=fullscreen' in configs[0],'Unknown Settings display configuration')
-    roots=re.findall(r'^    ViewRoot:\n(.*?)^    View Hierarchy:\n',body,re.M|re.S)
-    check(len(roots)==1,'Missing/ambiguous Settings ViewRoot')
-    def field(section,key,pattern,indent=6):
-        values=re.findall(r'^'+' '*indent+re.escape(key)+r'=([^\n]*)$',section,re.M)
-        check(len(values)==1 and re.fullmatch(pattern,values[0]),'Missing/invalid/duplicate Settings field: '+key)
-        return values[0]
-    root={key:field(roots[0],key,r'true|false') for key in
-          ('mAdded','mRemoved','mStopped','mPausedForTransition','mProcessInputEventsScheduled','mTraversalScheduled')}
-    check(root['mAdded']=='true' and root['mRemoved']=='false','Settings ViewRoot removed/not added')
-    count=field(roots[0],'mPendingInputEventCount',r'0|[1-9]\d*')
-    focus=field(roots[0],'mHasWindowFocus',r'true|false',8)
-    visibility=field(roots[0],'mWindowVisibility',r'0|4|8',8)
-    choreographer=re.findall(r'^    Choreographer:\n(.*?)(?=^    [^ ]|\Z)',roots[0],re.M|re.S)
-    check(len(choreographer)==1,'Missing/ambiguous Settings Choreographer')
-    field(choreographer[0],'mFrameScheduled',r'true|false')
-    trees=re.findall(r'^    View Hierarchy:\n(.*?)^    Looper \(main,',body,re.M|re.S)
-    check(len(trees)==1,'Incomplete Settings hierarchy boundary')
+def _scene_hierarchy(lines,*,complete=True):
     hierarchy=[];depths=[];ancestors=[];generated_ids=0
-    for line in trees[0].splitlines():
+    for line in lines:
         match=re.fullmatch(r'( +)([A-Za-z_$][\w.$]*)\{[0-9a-f]+ ([VIG.][F.][E.][D.][H.][V.][C.][L.][X.]) ([R.][F.][S.][pP.][H.][A.][I.][D.]) (-?\d+,-?\d+--?\d+,-?\d+)( #[0-9a-f]+(?: [\w.$]+:id/[\w.$]+)?)?(?: aid=\d+)?\}(\[[^\]\n]+\])?',line)
         check(match is not None,'Unknown/truncated Settings view line')
         indent,klass,flags,private,bounds,resource,title=match.groups()
@@ -134,22 +70,105 @@ def settings_scene(text,*,transition=False):
         node=[depth,klass,flags,private[:6],bounds,resource or '',title or '']
         hierarchy.append(node);ancestors.append(node)
         depths.append(depth)
-    check(5<=len(hierarchy)<=4096 and hierarchy[0][1]=='com.android.internal.policy.DecorView',
+    check(len(hierarchy)<=4096 and (not complete or len(hierarchy)>=5) and
+          (not hierarchy or hierarchy[0][1]=='com.android.internal.policy.DecorView'),
           'Incomplete Settings decor tree')
+    return hierarchy
+
+
+def _complete_settings_scene(text,*,transition=False):
+    """Narrow observed Android16 activity dump, not a generic UI/text decoder.
+
+    The top dump also includes stopped launcher/parent activities. Select by
+    each activity's own native lifecycle, then bind the focused Settings view
+    tree AND its resumed AndroidX fragment. Never global-match a fragment name.
+    Text/checked values are NOT exposed here: same-trial XML calibration and
+    the independent timeout/native checks remain required.
+    """
+    check(isinstance(text,str) and 0<len(text)<4*1024*1024 and '\ufffd' not in text,
+          'Malformed activity scene dump')
+    starts=list(re.finditer(r'^  ACTIVITY ([^\n]+)$',text,re.M))
+    check(starts,'Missing activity sections')
+    activities=[];resumed=[]
+    for i,start in enumerate(starts):
+        body=text[start.end():starts[i+1].start() if i+1<len(starts) else len(text)].split('\nTASK ',1)[0]
+        local_headers=list(re.finditer(r'^    Local Activity\b[^\n]*',body,re.M))
+        check(len(local_headers)==1,'Missing/duplicate native activity state')
+        local_header=local_headers[0]
+        check(re.fullmatch(r'    Local Activity [0-9a-f]+ State:',local_header[0]),'Malformed native activity header')
+        local=body[local_header.end():].split('\n    ViewRoot:',1)[0]
+        states=re.findall(r'^      mResumed\b([^\n]*)$',local,re.M)
+        check(len(states)==1,'Missing/duplicate native activity lifecycle')
+        parsed_state=re.fullmatch(r'=(true|false) mStopped=(true|false) mFinished=(true|false)',states[0])
+        check(parsed_state is not None,'Malformed native activity lifecycle')
+        state=parsed_state.groups()
+        check(state[:2]!=('true','true'),'Contradictory native activity lifecycle')
+        activity=(start[1],body,local,state);activities.append(activity)
+        if state[0]=='true':resumed.append(activity)
+    check(len(resumed)<=1,'Ambiguous resumed activities')
+    if resumed:
+        selected=resumed[0]
+    else:
+        # A top dump taken after Back can contain only the finishing source.
+        # Absence of a resumed activity is not success or a generic retry:
+        # require one complete Settings context, then bind it in settle_scene.
+        check(transition,'Missing resumed activity')
+        candidates=[a for a in activities if a[0].startswith('com.android.settings/')]
+        check(len(candidates)==1 and all(a is candidates[0] or a[3][1]=='true' for a in activities),
+              'Missing/ambiguous live Settings transition context')
+        selected=candidates[0]
+    header,body,local,state=selected
+    identity=re.fullmatch(r'(com\.android\.settings/[^ ]+) [0-9a-f]+ pid=(\d+) userId=0 uid=1000 displayId=0\(type=INTERNAL\)',header)
+    check(identity is not None,'Unexpected Settings identity')
+    # Count the consumed header prefix before validating its spelling. A
+    # malformed duplicate must not disappear behind one valid header.
+    for prefix,pattern in ((r'ViewRoot\b',r'ViewRoot:'),(r'View Hierarchy\b',r'View Hierarchy:'),
+                           (r'Choreographer\b',r'Choreographer:'),
+                           (r'Looper\b',r'Looper \(main,[^\n]+'),
+                           (r'Local FragmentActivity\b',r'Local FragmentActivity [0-9a-f]+ State:'),
+                           (r'Added Fragments\b',r'Added Fragments:')):
+        headers=re.findall(r'^    ('+prefix+r'[^\n]*)$',body,re.M)
+        check(len(headers)==1 and re.fullmatch(pattern,headers[0]),'Missing/malformed/duplicate Settings header: '+prefix)
+    check(re.findall(r'^      mIsInMultiWindowMode=([^\n]+)$',local,re.M)==['false mIsInPictureInPictureMode=false'] and
+          len(re.findall(r'^      mIsInMultiWindowMode\b',local,re.M))==1 and
+          re.findall(r'^      mChangingConfigurations=([^\n]*)$',local,re.M)==['false'] and
+          len(re.findall(r'^      mChangingConfigurations\b',local,re.M))==1,'Settings configuration transition')
+    configs=re.findall(r'^      mCurrentConfig=(.+)$',local,re.M)
+    check(len(configs)==1 and len(re.findall(r'^      mCurrentConfig\b',local,re.M))==1 and 'mDisplayRotation=ROTATION_0' in configs[0] and
+          'mWindowingMode=fullscreen' in configs[0],'Unknown Settings display configuration')
+    roots=re.findall(r'^    ViewRoot:\n(.*?)^    View Hierarchy:\n',body,re.M|re.S)
+    check(len(roots)==1,'Missing/ambiguous Settings ViewRoot')
+    def field(section,key,pattern,indent=6):
+        values=re.findall(r'^'+' '*indent+re.escape(key)+r'\b([^\n]*)$',section,re.M)
+        check(len(values)==1 and re.fullmatch('=(?:'+pattern+')',values[0]),'Missing/invalid/duplicate Settings field: '+key)
+        return values[0][1:]
+    root={key:field(roots[0],key,r'true|false') for key in
+          ('mAdded','mRemoved','mStopped','mPausedForTransition','mProcessInputEventsScheduled','mTraversalScheduled')}
+    check(root['mAdded']=='true' and root['mRemoved']=='false','Settings ViewRoot removed/not added')
+    count=field(roots[0],'mPendingInputEventCount',r'0|[1-9]\d*')
+    focus=field(roots[0],'mHasWindowFocus',r'true|false',8)
+    visibility=field(roots[0],'mWindowVisibility',r'0|4|8',8)
+    choreographer=re.findall(r'^    Choreographer:\n(.*?)(?=^    [^ ]|\Z)',roots[0],re.M|re.S)
+    check(len(choreographer)==1,'Missing/ambiguous Settings Choreographer')
+    field(choreographer[0],'mFrameScheduled',r'true|false')
+    trees=re.findall(r'^    View Hierarchy:\n(.*?)^    Looper \(main,',body,re.M|re.S)
+    check(len(trees)==1,'Incomplete Settings hierarchy boundary')
+    hierarchy=_scene_hierarchy(trees[0].splitlines())
     support=re.findall(r'^    Local FragmentActivity [0-9a-f]+ State:\n(.*)',body,re.M|re.S)
     check(len(support)==1,'Missing/ambiguous support fragment state')
     active=re.fullmatch(r'      mCreated=(true|false) mResumed=(true|false) mStopped=(true|false)    Active Fragments:\n(.*?)^    Added Fragments:\n(.*)',support[0],re.M|re.S)
-    check(active is not None and len(re.findall(r'^      mCreated=',support[0],re.M))==1,
+    check(active is not None and len(re.findall(r'^      mCreated\b',support[0],re.M))==1,
           'Malformed/duplicate support fragment manager')
     created,support_resumed,support_stopped,active_body,added_body=active.groups()
     check(created=='true' and (support_resumed,support_stopped)!=('true','true'),
           'Uncreated/contradictory support fragment manager')
     fragments=re.findall(r'^    ([A-Za-z_$][\w.$]*\{[0-9a-f]+\} \([0-9a-f-]+ id=0x[0-9a-f]+\))$',active_body,re.M)
-    check(len(fragments)==1,'Ambiguous current Settings fragment')
+    check(len(fragments)==1 and len(re.findall(r'^    [A-Za-z_$][\w.$]*\{',active_body,re.M))==1,
+          'Malformed/ambiguous current Settings fragment')
     fragment=fragments[0];fragment_class=fragment.split('{',1)[0]
-    fragment_lines=re.findall(r'^        mState=([^\n]*)$',active_body,re.M)
+    fragment_lines=re.findall(r'^        mState\b([^\n]*)$',active_body,re.M)
     check(len(fragment_lines)==1,'Missing/duplicate Settings fragment state')
-    fragment_state=re.fullmatch(r'(\S+) mWho=[^ ]+ mBackStackNesting=\d+',fragment_lines[0])
+    fragment_state=re.fullmatch(r'=(\S+) mWho=[^ ]+ mBackStackNesting=\d+',fragment_lines[0])
     check(fragment_state is not None,'Malformed Settings fragment state')
     fragment_states=[fragment_state[1]]
     # AndroidX VIEW_CREATED=2 through RESUMED=7 retain a view, including
@@ -158,14 +177,15 @@ def settings_scene(text,*,transition=False):
           'Missing/invalid/duplicate live Settings fragment state')
     check(re.findall(r'^        mAdded=([^\n]+)$',active_body,re.M)==
           ['true mRemoving=false mFromLayout=false mInLayout=false'] and
+          len(re.findall(r'^        mAdded\b',active_body,re.M))==1 and
           len(re.findall(r'^        mHidden=false mDetached=false mMenuVisible=true mHasMenu=(?:true|false)$',active_body,re.M))==1 and
-          len(re.findall(r'^        mHidden=',active_body,re.M))==1,
+          len(re.findall(r'^        mHidden\b',active_body,re.M))==1,
           'Settings fragment removed/detached/hidden')
     added=added_body.split('\n    ',1)[0]
     check(added.strip()=='#0: '+fragment,'Current/added fragment mismatch')
-    tail_lines=re.findall(r'^      mCurState=([^\n]*)$',added_body,re.M)
+    tail_lines=re.findall(r'^      mCurState\b([^\n]*)$',added_body,re.M)
     check(len(tail_lines)==1,'Missing/duplicate support fragment tail')
-    tail=re.fullmatch(r'(\S+) mStateSaved=(true|false) mStopped=(true|false) mDestroyed=(true|false)',tail_lines[0])
+    tail=re.fullmatch(r'=(\S+) mStateSaved=(true|false) mStopped=(true|false) mDestroyed=(true|false)',tail_lines[0])
     check(tail is not None,'Malformed support fragment tail')
     tails=[tail.groups()]
     check(tails[0][0] in ('2','3','4','5','6','7') and tails[0][3]=='false' and
@@ -185,6 +205,143 @@ def settings_scene(text,*,transition=False):
         check(transition,'Unsettled Settings scene')
         raise SettingsTransitionPending(scene,finished=state[2]=='true')
     return scene
+
+
+class IncompleteSettingsObservation(ValueError):
+    """Missing observation data only; contains no scene or success digest."""
+    def __init__(self,missing):
+        super().__init__('Incomplete Settings observation: '+', '.join(missing))
+        self.missing=tuple(missing)
+
+
+def _available_settings_context(text,expected,previous):
+    """Validate every present field before classifying missing observation data.
+
+    Android's asynchronous activity dump can lose its client activity after the
+    system prints its header. Missing data grants only another bounded read;
+    present contradictions must not hide behind an earlier missing section.
+    """
+    known={scene['component']:scene for scene in (expected,previous)}
+    starts=list(re.finditer(r'^  ACTIVITY ([^\n]+)$',text,re.M))
+    check(starts,'Missing activity identity, not a bound Settings observation')
+    check(len({start[1] for start in starts})==len(starts),'Duplicate activity observation identity')
+    missing=[];known_headers=0;resumed=[];foreign_states=[]
+    for index,start in enumerate(starts):
+        body=text[start.end():starts[index+1].start() if index+1<len(starts) else len(text)].split('\nTASK ',1)[0]
+        header=re.fullmatch(r'([^ ]+) [0-9a-f]+ pid=(\d+) userId=(\d+) uid=(\d+) displayId=(\d+)\(type=([A-Z]+)\)',start[1])
+        check(header is not None,'Malformed activity observation identity')
+        component=header[1];scene=known.get(component)
+        if component.startswith('com.android.settings/'):
+            check(scene is not None,'Foreign Settings observation component')
+        if scene is not None:
+            known_headers+=1
+            check((int(header[2]),header[3],header[4],header[5],header[6])==
+                  (scene['pid'],'0','1000','0','INTERNAL'),'Settings observation identity changed')
+
+        def take(prefix,pattern,name,*,section=body):
+            lines=[line for line in section.splitlines() if re.match(prefix,line)]
+            if not lines:
+                missing.append(name);return None
+            check(len(lines)==1,'Duplicate Settings observation field: '+name)
+            match=re.fullmatch(pattern,lines[0])
+            check(match is not None,'Malformed Settings observation field: '+name)
+            return match
+
+        take(r'^    Local Activity\b',r'    Local Activity [0-9a-f]+ State:','native header')
+        native=take(r'^      mResumed\b',r'      mResumed=(true|false) mStopped=(true|false) mFinished=(true|false)','native lifecycle')
+        if native is not None:
+            check(native.groups()[:2]!=('true','true'),'Contradictory native observation lifecycle')
+            if native[1]=='true':
+                resumed.append(component);check(scene is not None,'Foreign resumed activity observation')
+            if scene is None:foreign_states.append(native.groups())
+            elif native[3]=='true':check(component==previous['component'],'Expected destination is finished')
+        if scene is None:continue
+
+        modes=take(r'^      mIsInMultiWindowMode\b',r'      mIsInMultiWindowMode=(true|false) mIsInPictureInPictureMode=(true|false)','window modes')
+        if modes is not None:check(modes.groups()==('false','false'),'Settings observation window mode changed')
+        changing=take(r'^      mChangingConfigurations\b',r'      mChangingConfigurations=(true|false)','changing configuration')
+        if changing is not None:check(changing[1]=='false','Settings observation configuration transition')
+        config=take(r'^      mCurrentConfig\b',r'      mCurrentConfig=(.+)','configuration')
+        if config is not None:check(config[1]==scene['configuration'],'Settings observation configuration changed')
+
+        take(r'^    ViewRoot\b',r'    ViewRoot:','ViewRoot header')
+        for key in ('mAdded','mRemoved','mStopped','mPausedForTransition','mProcessInputEventsScheduled','mTraversalScheduled'):
+            value=take(r'^      '+key+r'\b',r'      '+key+r'=(true|false)',key)
+            if value is not None and key in ('mAdded','mRemoved'):
+                check(value[1]==('true' if key=='mAdded' else 'false'),'Settings observation root removed/not added')
+        take(r'^      mPendingInputEventCount\b',r'      mPendingInputEventCount=(0|[1-9]\d*)','pending input count')
+        take(r'^        mHasWindowFocus\b',r'        mHasWindowFocus=(true|false)','window focus')
+        take(r'^        mWindowVisibility\b',r'        mWindowVisibility=(0|4|8)','window visibility')
+        take(r'^    Choreographer\b',r'    Choreographer:','Choreographer header')
+        take(r'^      mFrameScheduled\b',r'      mFrameScheduled=(true|false)','frame scheduled')
+
+        tree_header=take(r'^    View Hierarchy\b',r'    View Hierarchy:','hierarchy header')
+        looper=take(r'^    Looper\b',r'    Looper \(main,[^\n]+','hierarchy tail')
+        if tree_header is not None:
+            tree_start=re.search(r'^    View Hierarchy:(?:\n|\Z)',body,re.M)
+            check(tree_start is not None,'Malformed hierarchy header boundary')
+            tail=body[tree_start.end():]
+            boundary=re.search(r'^    \S',tail,re.M)
+            lines=tail[:boundary.start() if boundary else len(tail)].splitlines()
+            complete=boundary is not None and tail[boundary.start():].startswith('    Looper (main,')
+            hierarchy=_scene_hierarchy(lines,complete=complete)
+            check(hierarchy==(scene['hierarchy'] if complete else scene['hierarchy'][:len(hierarchy)]),
+                  'Settings observation hierarchy changed')
+            if not complete:missing.append('complete hierarchy')
+
+        take(r'^    Local FragmentActivity\b',r'    Local FragmentActivity [0-9a-f]+ State:','support header')
+        support=take(r'^      mCreated\b',r'      mCreated=(true|false) mResumed=(true|false) mStopped=(true|false)    Active Fragments:','support lifecycle')
+        if support is not None:
+            check(support[1]=='true' and support.groups()[1:]!=('true','true'),
+                  'Uncreated/contradictory Settings observation fragment manager')
+        fragments=[line for line in body.splitlines() if re.match(r'^    [A-Za-z_$][\w.$]*\{',line)]
+        fragment=None
+        if not fragments:missing.append('active fragment identity')
+        else:
+            check(len(fragments)==1,'Duplicate active Settings observation fragment')
+            fragment=re.fullmatch(r'    ([A-Za-z_$][\w.$]*)\{[0-9a-f]+\} \([0-9a-f-]+ id=0x[0-9a-f]+\)',fragments[0])
+            check(fragment is not None,'Malformed active Settings observation fragment')
+            check(fragment[1]==scene['fragment'],'Settings observation fragment changed')
+        take(r'^        mState\b',r'        mState=([2-7]) mWho=[^ ]+ mBackStackNesting=\d+','live fragment state')
+        added=take(r'^        mAdded\b',r'        mAdded=(true|false) mRemoving=(true|false) mFromLayout=(true|false) mInLayout=(true|false)','fragment membership')
+        if added is not None:check(added.groups()==('true','false','false','false'),'Settings observation fragment removed')
+        visible=take(r'^        mHidden\b',r'        mHidden=(true|false) mDetached=(true|false) mMenuVisible=(true|false) mHasMenu=(true|false)','fragment visibility')
+        if visible is not None:check(visible.groups()[:3]==('false','false','true'),'Settings observation fragment detached/hidden')
+        take(r'^    Added Fragments\b',r'    Added Fragments:','added fragment header')
+        support_start=re.search(r'^    Local FragmentActivity [0-9a-f]+ State:(?:\n|\Z)',body,re.M)
+        added_start=re.search(r'^    Added Fragments:(?:\n|\Z)',body,re.M)
+        added_section=(body[added_start.end():].split('\n    ',1)[0] if added_start else
+                       body[support_start.end():] if support_start else body)
+        added_identity=take(r'^      #\d+\b',r'      #0: (.+)','added fragment identity',section=added_section)
+        if added_identity is not None:
+            added_match=re.fullmatch(r'([A-Za-z_$][\w.$]*)\{[0-9a-f]+\} \([0-9a-f-]+ id=0x[0-9a-f]+\)',added_identity[1])
+            check(added_match is not None and added_match[1]==scene['fragment'],'Settings observation added fragment changed')
+            if fragment is not None:check(added_identity[1]==fragments[0].strip(),'Settings observation active/added mismatch')
+        manager=take(r'^      mCurState\b',r'      mCurState=([2-7]) mStateSaved=(true|false) mStopped=(true|false) mDestroyed=(true|false)','fragment manager tail')
+        if manager is not None:check(manager[4]=='false','Destroyed Settings observation fragment manager')
+    check(known_headers>0,'Missing calibrated Settings identity')
+    check(len(resumed)<=1,'Ambiguous resumed activity observations')
+    if not resumed:check(all(state[1]=='true' for state in foreign_states),'Foreign live activity during Settings observation')
+    if missing:raise IncompleteSettingsObservation(missing)
+
+
+def settings_scene(text,*,transition=False,known_scenes=None):
+    check(isinstance(text,str) and 0<len(text)<4*1024*1024 and '\ufffd' not in text,
+          'Malformed activity scene dump')
+    for line in text.splitlines():
+        if re.match(r'^  ACTIVITY\b',line):
+            check(re.fullmatch(r'  ACTIVITY [^ ]+ [0-9a-f]+ pid=\d+ userId=\d+ uid=\d+ displayId=\d+\(type=[A-Z]+\)',line),
+                  'Malformed activity observation identity')
+    # The scene command merges stderr without a pipeline or rc-masking suffix.
+    # Reject explicit diagnostics even beside an otherwise complete good dump.
+    check(not re.search(r'permission denied|permission denial|access denied|securityexception|'
+                        r'deadobjectexception|remoteexception|timeoutexception|'
+                        r'(?:error|failure|exception|failed|unable)\s+(?:[^\n]{0,160}?\s+)?dump(?:ing)?\b|'
+                        r'(?m:^\s*(?:Error:|Can.t find service:))',text,re.I),
+          'Activity dump access/error diagnostic')
+    if transition and known_scenes is not None:
+        _available_settings_context(text,*known_scenes)
+    return _complete_settings_scene(text,transition=transition)
 
 
 def scene_digest(scene):
@@ -490,9 +647,9 @@ class AATimedTrial(timed.TimedStockTrial):
             f'test \"$(wc -c < {path})\" -le 4194304; cat {path}')
         return ET.fromstring(self.shell(command,label=label))
 
-    def target_scene(self,label,timeout=5,*,transition=False):
-        text=self.shell('set -eu; '+self.target_ui_guard()+'; dumpsys activity top',label=label,timeout=timeout)
-        return settings_scene(text,transition=transition)
+    def target_scene(self,label,timeout=5,*,transition=False,known_scenes=None):
+        text=self.shell('set -eu; '+self.target_ui_guard()+'; dumpsys activity top 2>&1',label=label,timeout=timeout)
+        return settings_scene(text,transition=transition,known_scenes=known_scenes)
 
     def redraw_audit(self,label,begin):
         end=self.mark('REDRAW_END_'+label)
@@ -582,7 +739,11 @@ class AATimedTrial(timed.TimedStockTrial):
         while True:
             left=deadline-self.monotonic();check(left>0,'Settings transition exceeded acceptance deadline')
             try:
-                observed=self.target_scene(label,timeout=left,transition=True)
+                observed=self.target_scene(label,timeout=left,transition=True,known_scenes=(expected,previous))
+            except IncompleteSettingsObservation:
+                # All present identity/context fields were checked. Missing
+                # observation data grants only this bounded read-only wait.
+                observed=None
             except SettingsTransitionPending as exc:
                 # A complete known context with unfinished readiness has no
                 # action authority. Finished is legal only for the source.

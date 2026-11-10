@@ -832,6 +832,190 @@ class TransitionLifecycleTests(unittest.TestCase):
                 self.assertEqual(run.calls.count('baseline-redraw-open'),1);self.assertEqual(run.calls.count('baseline-redraw-cancel'),1)
 
 
+class MissingObservationTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):Sim.reader=execute_reader_fixture()[0].stdout
+    def contexts(self):return t.settings_scene(scene_fixture()),t.settings_scene(scene_fixture(True))
+    def observe(self,raw):return t.settings_scene(raw,transition=True,known_scenes=self.contexts())
+    def partials(self):
+        raw=scene_fixture(True)
+        cuts=[raw.index('    Local Activity'),raw.index('      mResumed='),raw.index('    ViewRoot:'),
+              raw.index('      mPausedForTransition='),raw.index('    Looper'),raw.index('    Local FragmentActivity'),
+              raw.index('      mCurState=')]
+        values=[raw[:cut] for cut in cuts]
+        values.extend((raw.replace('    Local Activity def State:\n',''),
+            raw[:raw.index('    ViewRoot:')]+raw[raw.index('    View Hierarchy:'):],
+            raw.replace('    Local FragmentActivity def State:\n',''),
+            raw.replace('      mCurrentConfig={mDisplayRotation=ROTATION_0 mWindowingMode=fullscreen}\n','')))
+        for marker in ('    Local Activity def State:','    ViewRoot:','    View Hierarchy:',
+                       '    Local FragmentActivity def State:','    Added Fragments:'):
+            values.append(raw[:raw.index(marker)+len(marker)])
+        return values
+    def test_partial_body_matrix_has_no_scene_or_success_authority(self):
+        for raw in self.partials():
+            with self.subTest(length=len(raw)):
+                with self.assertRaises(ValueError) as strict:t.settings_scene(raw)
+                self.assertNotIsInstance(strict.exception,t.IncompleteSettingsObservation)
+                with self.assertRaises(t.IncompleteSettingsObservation) as pending:self.observe(raw)
+                self.assertTrue(pending.exception.missing);self.assertFalse(hasattr(pending.exception,'scene'))
+    def test_missing_early_data_does_not_hide_later_contradictions(self):
+        raw=scene_fixture(True).replace('    Local Activity def State:\n','')
+        changes=[('pid=123','pid=999'),('uid=1000','uid=2000'),('userId=0','userId=1'),('displayId=0','displayId=1'),
+            ('mCurrentConfig={','mCurrentConfig={different '),('mHidden=false','mHidden=true'),
+            ('mDetached=false','mDetached=true'),('mDestroyed=false','mDestroyed=true'),
+            ('mAdded=true mRemoving=false','mAdded=false mRemoving=false'),('mRemoved=false','mRemoved=true'),
+            ('mFrameScheduled=false','mFrameScheduled=invalid'),('mState=7','mState=1'),
+            ('ScreenTimeoutSettings','ForeignSettings'),('android:id/title','android:id/foreign'),
+            ('mPendingInputEventCount=0','mPendingInputEventCount=-1')]
+        for before,after in changes:
+            with self.subTest(after=after),self.assertRaises(ValueError) as caught:self.observe(raw.replace(before,after))
+            self.assertNotIsInstance(caught.exception,t.IncompleteSettingsObservation)
+        foreign=scene_fixture().replace('com.android.settings/.Settings$DisplaySettingsActivity','com.foreign/.Activity')
+        with self.assertRaisesRegex(ValueError,'Foreign resumed'):self.observe(raw.splitlines(True)[0]+foreign)
+        # A complete-line tree prefix already proving a mismatch is terminal.
+        prefix=raw[:raw.index('    Looper')].replace('android:id/title','android:id/foreign')
+        with self.assertRaisesRegex(ValueError,'hierarchy changed'):self.observe(prefix)
+    def test_malformed_present_is_not_missing(self):
+        raw=scene_fixture(True).replace('      mPendingInputEventCount=0\n','')
+        changes=[('    Local Activity def State:','    Local Activity NOT_HEX State:'),
+            ('    ViewRoot:','    ViewRoot: extra'),('mCurrentConfig={mDisplayRotation=ROTATION_0 mWindowingMode=fullscreen}','mCurrentConfig='),
+            ('    Local FragmentActivity def State:','    Local FragmentActivity BAD State:'),
+            ('    Added Fragments:','    Added Fragments: extra'),('mHasWindowFocus=true','mHasWindowFocus=wat'),
+            ('mCurrentConfig={mDisplayRotation=ROTATION_0 mWindowingMode=fullscreen}','mCurrentConfig invalid'),
+            ('mFrameScheduled=false','mFrameScheduled invalid'),('      #0: ScreenTimeoutSettings','      #0 ScreenTimeoutSettings')]
+        values=[raw.replace(a,b) for a,b in changes]
+        values.extend((raw+'  ACTIVITY \n',raw+'  ACTIVITY malformed\n',raw.splitlines(True)[0]*2,raw.replace('      mFrameScheduled=false\n','      mFrameScheduled=false\n      mFrameScheduled=invalid\n'),
+            raw[:raw.index('    Looper')]+'        android.widget.TextView{half-row'))
+        for value in values:
+            with self.subTest(last=value[-90:]),self.assertRaises(ValueError) as caught:self.observe(value)
+            self.assertNotIsInstance(caught.exception,t.IncompleteSettingsObservation)
+        for value in ('','TASK nothing\n','Permission Denial: activity dump\n'):
+            with self.assertRaises(ValueError) as caught:self.observe(value)
+            self.assertNotIsInstance(caught.exception,t.IncompleteSettingsObservation)
+    def test_complete_strict_results_and_diagnostics_remain_strict(self):
+        ready,opened=self.contexts()
+        self.assertEqual(self.observe(scene_fixture()),ready);self.assertEqual(self.observe(scene_fixture(True)),opened)
+        full=scene_fixture()
+        for valid,malformed in [('    Local Activity def State:','    Local Activity NOT_HEX State:'),
+                ('    ViewRoot:','    ViewRoot: extra'),
+                ('    Local FragmentActivity def State:','    Local FragmentActivity NOT_HEX State:'),
+                ('      mFrameScheduled=false','      mFrameScheduled invalid'),
+                ('      mChangingConfigurations=false','      mChangingConfigurations invalid')]:
+            bad=full.replace(valid,malformed+'\n'+valid)
+            for read in (t.settings_scene,self.observe):
+                with self.subTest(malformed=malformed),self.assertRaises(ValueError) as caught:read(bad)
+                self.assertNotIsInstance(caught.exception,t.IncompleteSettingsObservation)
+        for prefix in (scene_fixture(),scene_fixture(True).splitlines(True)[0]):
+            for diagnostic in ('Permission Denial: no access','dumpsys: Permission denied','java.lang.SecurityException: denied',
+                               'Error dumping activity: remote died','Error: unavailable',
+                               'Failure while dumping the activity: java.io.IOException: Pipe closed',
+                               'Exception while dumping: java.lang.IllegalStateException','Unable to dump activity'):
+                with self.subTest(diagnostic=diagnostic),self.assertRaisesRegex(ValueError,'access/error diagnostic'):
+                    self.observe(prefix+diagnostic+'\n')
+    def test_actual_caller_missing_then_stable_never_repeats_input(self):
+        for suffix in ('opened','returned'):
+            with self.subTest(suffix=suffix),tempfile.TemporaryDirectory() as root:
+                run=Sim(root);original=run.shell;reads=0
+                def shell(command,**kwargs):
+                    nonlocal reads
+                    value=original(command,**kwargs)
+                    if kwargs.get('label')=='baseline-scene-'+suffix:
+                        reads+=1
+                        if reads==1:return scene_fixture(suffix=='returned').splitlines(True)[0]
+                    return value
+                run.shell=shell
+                with patch.object(t.s,'now',run.now):report=run.execute()
+                self.assertEqual(reads,2);self.assertEqual(run.calls.count('baseline-redraw-open'),1)
+                self.assertEqual(run.calls.count('baseline-redraw-cancel'),1)
+                self.assertEqual(report['stages'][0]['redraw_audit']['scene_sha256'][2],report['redraw_ui_calibration']['scene_sha256']['ready'])
+    def test_missing_timeout_late_transport_access_and_caught_failures_stay_latched(self):
+        for fault in ('timeout','late','transport','access','contradiction'):
+            with self.subTest(fault=fault),tempfile.TemporaryDirectory() as root:
+                run=Sim(root);original=run.shell;reads=0
+                def shell(command,**kwargs):
+                    nonlocal reads
+                    value=original(command,**kwargs)
+                    if kwargs.get('label')!='baseline-scene-returned':return value
+                    reads+=1;value=scene_fixture(True).splitlines(True)[0]
+                    if fault=='late':run.clock.sleep(1.1)
+                    if fault=='transport' and reads==2:raise TimeoutError('read transport failed')
+                    if fault=='access':value+='Permission Denial: no access\n'
+                    if fault=='contradiction':value=value.replace('pid=123','pid=999')
+                    return value
+                run.shell=shell
+                with patch.object(t.s,'now',run.now),self.assertRaises(RuntimeError):run.execute()
+                self.assertEqual(run.calls.count('reboot'),1);self.assertEqual(run.children,['baseline-write'])
+                self.assertEqual(run.calls.count('baseline-redraw-open'),1);self.assertEqual(run.calls.count('baseline-redraw-cancel'),1)
+                self.assertNotIn('baseline-before-hold',run.calls)
+                if fault in ('late','access','contradiction'):self.assertEqual(reads,1)
+        with tempfile.TemporaryDirectory() as root:
+            run=Sim(root);run.setup();run.setup_aa();run.redraw_scenes=dict(zip(('ready','opened'),self.contexts()));run.redraw_tap=[10,10]
+            original=run.shell
+            def shell(command,**kwargs):
+                value=original(command,**kwargs)
+                return scene_fixture(True).splitlines(True)[0] if kwargs.get('label')=='baseline-scene-returned' else value
+            run.shell=shell
+            with self.assertRaises(ValueError):run.redraw('baseline')
+            self.assertTrue(run.pending_read);before=list(run.calls)
+            for action in (lambda:run.redraw('again'),lambda:run.replay('again'),lambda:run.prehold({})):
+                with self.assertRaises(ValueError):action()
+                self.assertEqual(run.calls,before)
+    def test_real_scene_command_merges_rc0_stderr_and_preserves_failure_rc(self):
+        import subprocess,shlex
+        ready,opened=self.contexts()
+        for full in (False,True):
+            for rc,diagnostic in ((0,'Permission Denial: no access'),(0,'Error dumping activity: failed'),(7,'')):
+                with self.subTest(full=full,rc=rc,diagnostic=diagnostic),tempfile.TemporaryDirectory() as root:
+                    clock=Clock();calls=[];stderr_results=[]
+                    class FakeADB:
+                        def shell(self,target,command,timeout):
+                            calls.append(command)
+                            raw='TASK fixture\n'+(scene_fixture() if full else scene_fixture(True).splitlines(True)[0])
+                            stub='dumpsys() { printf %s '+shlex.quote(raw)+'; printf %s '+shlex.quote(diagnostic)+' >&2; return '+str(rc)+'; }; '
+                            result=subprocess.run(['sh','-c',stub+command],stdout=subprocess.PIPE,stderr=subprocess.PIPE)
+                            stderr_results.append(result.stderr)
+                            return result.returncode,result.stdout,result.stderr
+                    run=t.AATimedTrial(FakeADB(),6,1,'aa_stderr_scene',root,root,sleep=clock.sleep,monotonic=clock)
+                    run.target_ui_guard=lambda:'true';run.pending_read=True
+                    with self.assertRaises(ValueError):run.settle_scene('baseline-scene-returned',ready,opened)
+                    self.assertEqual(len(calls),1);self.assertTrue(run.pending_read)
+                    self.assertEqual(stderr_results,[b''])
+                    self.assertTrue(calls[0].endswith('dumpsys activity top 2>&1'));self.assertNotIn('|',calls[0])
+    def test_external_c2_header_only_through_inherited_read_settle(self):
+        import hashlib,os
+        path=os.environ.get('AA_MISSING_SCENE_PATH')
+        if not path:self.skipTest('Explicit private C2 missing-body reference not supplied')
+        raw=Path(path).read_bytes();self.assertEqual(len(raw),63056)
+        self.assertEqual(hashlib.sha256(raw).hexdigest(),'06c101b59d8d6e8e01b111febf6c06a0c5bd29ed21e5aa92e44a035051ae2d99')
+        text=raw.decode();header=re.search(r'^  ACTIVITY com.android.settings/.SubSettings [0-9a-f]+ pid=(\d+)[^\n]*\n\Z',text,re.M)
+        self.assertIsNotNone(header)
+        # The exact missing record has no canonical scene. Test contexts and
+        # later ready response are synthetic, bound to the available header PID.
+        ready_raw='TASK synthetic\n'+scene_fixture().replace('pid=123','pid='+header[1])
+        opened_raw=scene_fixture(True).replace('pid=123','pid='+header[1])
+        ready,opened=t.settings_scene(ready_raw),t.settings_scene(opened_raw)
+        with self.assertRaises(ValueError):t.settings_scene(text)
+        with self.assertRaises(t.IncompleteSettingsObservation) as caught:
+            t.settings_scene(text,transition=True,known_scenes=(ready,opened))
+        self.assertFalse(hasattr(caught.exception,'scene'))
+        for timeout in (False,True):
+            with self.subTest(timeout=timeout),tempfile.TemporaryDirectory() as root:
+                clock=Clock();calls=[]
+                class FakeADB:
+                    def shell(self,target,command,budget):
+                        calls.append((command,budget));clock.sleep(.01)
+                        return 0,(raw if timeout or len(calls)==1 else ready_raw.encode()),b''
+                run=t.AATimedTrial(FakeADB(),6,1,'aa_missing_scene',root,root,sleep=clock.sleep,monotonic=clock)
+                run.target_ui_guard=lambda:'true';run.pending_read=True
+                if timeout:
+                    with self.assertRaises(ValueError):run.settle_scene('baseline-scene-returned',ready,opened)
+                else:
+                    self.assertEqual(run.settle_scene('baseline-scene-returned',ready,opened),t.scene_digest(ready));self.assertEqual(len(calls),2)
+                self.assertTrue(run.pending_read)
+                self.assertTrue(all('input ' not in command for command,_ in calls))
+                self.assertTrue(all(a[1]>b[1] for a,b in zip(calls,calls[1:])))
+
+
 class RedrawCalibrationTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):Sim.reader=execute_reader_fixture()[0].stdout

@@ -24,7 +24,7 @@ REQUIRED_RUNTIME_SHA256 = {'06-tools/run_p85_guarded_trial.py': 'fba1ec5dbb0f759
 AA_HARDWARE_PATHS=HARDWARE_PATHS+('06-tools/aa_threshold_trial.py','06-tools/run_aa_timed_stock_trial.py','06-tools/aa_acquisition_validation.py')
 AA_FINALIZER_MODULES=(('aa_video_validation','06-tools/aa_video_validation.py'),)
 AA_FINALIZER_PATHS=AA_HARDWARE_PATHS+tuple(p for _,p in AA_FINALIZER_MODULES)+(    '06-tools/video_validation_split_20261109/video_validator_snapshot.py',)
-AA_RUNTIME_SHA256 = {'06-tools/aa_threshold_trial.py': 'c1d5d7800a17bad391887687a516b17fb1394a530092659cba3f00a7b4d6c278', '06-tools/run_aa_timed_stock_trial.py': 'b88638eb3a3b8bd5c8c24be2c8601d87ae87178600dcae1d83b7a474c33f395d', '06-tools/aa_acquisition_validation.py': '34871459008eeb1bffb04a49d5069931f7722360d83fa5104457718361171f3f'}
+AA_RUNTIME_SHA256 = {'06-tools/aa_threshold_trial.py': 'c1d5d7800a17bad391887687a516b17fb1394a530092659cba3f00a7b4d6c278', '06-tools/run_aa_timed_stock_trial.py': '73e53a8e83fd24ff61acc41449b6186b62e69be34f96c1335e9e8c3177f2ba36', '06-tools/aa_acquisition_validation.py': '79021940c8012ca8279a6f0d207441b34c7e36acb64cbbd3817adac84a95f71a'}
 
 @dataclass(frozen=True)
 class HostInputs:

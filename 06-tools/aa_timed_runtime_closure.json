@@ -1,5 +1,5 @@
 {
-  "status": "offline_scene_readiness_correction_pending_independent_review_and_full_stock_qualification",
+  "status": "offline_missing_observation_correction_pending_independent_review_and_full_stock_qualification",
   "profile": "aa",
   "default_profile_unchanged": "p85",
   "hardware_paths": [
@@ -84,13 +84,13 @@
     "06-tools/video_validation_split_20261109/video_validator_snapshot.py"
   ],
   "changed_or_new_runtime_sha256": {
-    "06-tools/run_aa_timed_stock_trial.py": "b88638eb3a3b8bd5c8c24be2c8601d87ae87178600dcae1d83b7a474c33f395d",
+    "06-tools/run_aa_timed_stock_trial.py": "73e53a8e83fd24ff61acc41449b6186b62e69be34f96c1335e9e8c3177f2ba36",
     "06-tools/aa_threshold_trial.py": "c1d5d7800a17bad391887687a516b17fb1394a530092659cba3f00a7b4d6c278",
-    "06-tools/aa_acquisition_validation.py": "34871459008eeb1bffb04a49d5069931f7722360d83fa5104457718361171f3f",
+    "06-tools/aa_acquisition_validation.py": "79021940c8012ca8279a6f0d207441b34c7e36acb64cbbd3817adac84a95f71a",
     "06-tools/aa_video_validation.py": "00843592492b245060e8aa3098ffd3ca7303af0f43ea67fa474c288111abcff4",
     "06-tools/dsi_trial_transaction.py": "4407a55b3bc37e197e48c74673cff0626345124ca5163b4177ade9a567339ffa",
     "06-tools/host_source_integration_20261109/inert_source_loader.py": "6dd008a6f9f55b11fbcb43270f9510a659d4f61f8b7fc3ae2c80ab863c41b40c",
-    "06-tools/host_source_integration_20261109/host_entrypoint.py": "3117447385ae88d3793831947fb7120c563fac1c68bf82d19b7fab38e7b060c5",
+    "06-tools/host_source_integration_20261109/host_entrypoint.py": "7142286bb7aafebb0dc3e7025a8e92ec86e55c5ad14b7aff666ad99f6a5c1b25",
     "06-tools/run_p85_guarded_trial.py": "fba1ec5dbb0f7592a4d0a3167589dadac2130370cbf886cecc1d588772fa97a5"
   },
   "worst_case_command_sizes": {
@@ -362,5 +362,85 @@
       "manifest_self_hash": "Excluded to avoid recursion; report sha256sum of this manifest separately",
       "raw_captures_published": false
     }
+  },
+  "missing_observation_correction": {
+    "contract": "same_trial_settings_fragment_tree_v4",
+    "base_commit": "c2cb9ec445fa9ec987c8859d1822be81dbbf477f",
+    "tests_normal": 144,
+    "tests_optimized": 144,
+    "runtime_acquisition_subset_tests": 93,
+    "skipped_tests": 0,
+    "test_modules": [
+      "test_aa_threshold_trial",
+      "test_run_aa_timed_stock_trial",
+      "test_aa_inherited_setup",
+      "test_aa_video_validation",
+      "test_aa_writer_esd_isolation",
+      "test_aa_saved_esd_failure",
+      "test_aa_source_profile",
+      "test_inert_source_loader"
+    ],
+    "external_scene_env": [
+      "AA_SCENE_STABLE_PATH",
+      "AA_SCENE_PENDING_PATH",
+      "AA_RETURN_READY_PATH",
+      "AA_RETURN_PENDING_PATH",
+      "AA_MISSING_SCENE_PATH"
+    ],
+    "explicit_private_reference_replays_executed": true,
+    "c2_missing_record": {
+      "size": 63056,
+      "sha256": "06c101b59d8d6e8e01b111febf6c06a0c5bd29ed21e5aa92e44a035051ae2d99",
+      "observation": "Stopped launcher then known-format SubSettings header and EOF; no Settings body"
+    },
+    "replay_limit": "Exact missing bytes with synthetic header-bound known contexts and synthetic later ready response; no actual physical C2 return or timing qualification",
+    "missing_scope": "Post-input, valid calibrated header identity; all present fields/blocks and tree prefixes checked before typed missing outcome; no scene/digest/action authority",
+    "strict_success": "Existing complete expected stable parser remains required before further input or qualification",
+    "stderr_policy": "dumpsys activity top 2>&1 preserves command rc; explicit access/dump diagnostics terminal even beside a valid full body",
+    "empty_or_absent_identity_retry_allowed": false,
+    "unchanged_limits_seconds": {
+      "settle_acceptance": 1,
+      "active": 37,
+      "host": 45,
+      "reserve": 8,
+      "short_watchdog": 60,
+      "overall_watchdog": 600
+    },
+    "settle_limit": "Acceptance deadline, not transport wall bound; inherited version handshake unchanged",
+    "prearm_policy": "Fresh same-version actual baseline full + prehold + 3 seconds; no old subtraction or fabricated latency",
+    "esd_native_execute_restore_ast_unchanged_from_base": true,
+    "other_generated_command_sizes_recomputed_and_unchanged": true,
+    "guarded_scene_command_sizes_with_128_character_token": {
+      "service_bytes": 716,
+      "shell_argv_bytes_including_nul": 704,
+      "service_limit_bytes": 65535,
+      "argv_limit_bytes": 131072
+    },
+    "physical_stock_qualified": false,
+    "candidate_admitted": false,
+    "live_device_operations": 0,
+    "commits_or_pushes": 0
+  },
+  "proposed_publication": {
+    "modified_files": [
+      "06-tools/run_aa_timed_stock_trial.py",
+      "06-tools/aa_acquisition_validation.py",
+      "06-tools/host_source_integration_20261109/host_entrypoint.py",
+      "06-tools/test_run_aa_timed_stock_trial.py",
+      "06-tools/test_aa_video_validation.py",
+      "06-tools/aa_timed_runtime_closure.json",
+      "06-tools/AA_TIMED_INTEGRATION.md"
+    ],
+    "new_files": [],
+    "sha256_excluding_self": {
+      "06-tools/run_aa_timed_stock_trial.py": "73e53a8e83fd24ff61acc41449b6186b62e69be34f96c1335e9e8c3177f2ba36",
+      "06-tools/aa_acquisition_validation.py": "79021940c8012ca8279a6f0d207441b34c7e36acb64cbbd3817adac84a95f71a",
+      "06-tools/host_source_integration_20261109/host_entrypoint.py": "7142286bb7aafebb0dc3e7025a8e92ec86e55c5ad14b7aff666ad99f6a5c1b25",
+      "06-tools/test_run_aa_timed_stock_trial.py": "b941cca25022ec708afbf8dc22bc78f1e32b66d28156a8db122d49da19399c35",
+      "06-tools/test_aa_video_validation.py": "28ef45309a4edcc961429646e517514a0925606fdd3d056076ed7db68bba12b3",
+      "06-tools/AA_TIMED_INTEGRATION.md": "6e5c7da37c3f5b2e1055c6bfc902a596664e2bff0bffd2c25c21c039d39563bd"
+    },
+    "manifest_self_hash": "Excluded to avoid recursion; report sha256sum of this manifest separately",
+    "raw_captures_published": false
   }
 }

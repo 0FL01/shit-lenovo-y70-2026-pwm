@@ -1,7 +1,50 @@
 # AA full-table timed integration
 
 
-## Latest checkpoint: bounded scene readiness, 2026-11-10
+## Latest checkpoint: missing observation data, 2026-11-10
+
+Status: offline correction, not a completed stock qualification. The c2cb9ec
+control again stopped after Back. Exact saved 0115 contains a full stopped
+launcher dump followed by a SubSettings header and EOF, with no Settings body.
+It is neither a complete scene nor proof of a later return. AOSP ActivityThread
+handles activity dumps asynchronously and writes no body when the activity
+record is gone. This is a possible mechanism, not proof of the target's race:
+[ActivityThread.handleDumpActivity](https://github.com/aosp-mirror/platform_frameworks_base/blob/android16-release/core/java/android/app/ActivityThread.java#L5409).
+
+Scene contract v4 adds a missing-only observation layer before the existing
+complete parser, only after the single tap or Back. A syntactically valid known
+component/PID/user/UID/display header is required. Every available configuration,
+lifecycle, fragment and complete or prefix view-tree field is checked against
+the calibrated context before missing data can request another read. Missing
+an early block cannot hide a later present contradiction. Duplicate or malformed
+data, a proven foreign context and explicit access/dump errors remain terminal.
+Completely empty output or absent activity identity remains outside this retry
+contract. The ordinary scene command merges stderr with stdout using 2>&1,
+without a pipeline or exit-code-masking suffix, so rc0 diagnostics cannot vanish.
+
+Incomplete observations contain no scene or digest and grant no input, DSI or
+qualification authority. A new complete strict stable expected scene is still
+required. Calibration and before-input reads remain strict. The same total 1 s
+acceptance deadline and outer 37 s guard apply, including actual read/wait cost
+and the existing version-handshake caveat. This does not establish that a later
+physical return will occur within that budget. Fresh same-version baseline
+measurement and full stock/optical qualification remain required.
+
+Final offline suite: 144 normal and 144 optimized tests, zero skips, including
+93 runtime/acquisition tests and all five explicit private scene references.
+Tests cover complete-line partial bodies, valid headers at EOF after inherited
+shell stripping, later contradictions, malformed duplicates, rc0 stderr errors,
+preserved failing exit codes, elapsed/uncertainty latches and at most one tap/Back.
+Exact 0115 is replayed through inherited fake-I/O reads using synthetic known
+contexts and a synthetic later ready response; no actual C2 return is inferred.
+No raw captures are added to the repository. ESD/native/recovery code and the
+other generated command sizes remain unchanged. The guarded scene read is
+716 service bytes with a conservative 128-character ownership token.
+
+The closure's top-level proposed_publication field is the current seven-file
+scope. Older nested publication records below it describe historical checkpoints.
+
+## Earlier checkpoint: bounded scene readiness, 2026-11-10
 
 Status: offline correction, not a completed stock qualification. The 9ee6a9f
 stock run completed the baseline table/replay and then stopped after Back.
