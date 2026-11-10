@@ -1,0 +1,12 @@
+test_original_stays_rejected_and_all_downstream_predicates_are_audited (test_aa_saved_calibration_failure.SavedCalibrationFailure.test_original_stays_rejected_and_all_downstream_predicates_are_audited) ... ok
+test_separate_raw_boot_corroboration_does_not_repair_original (test_aa_saved_calibration_failure.SavedCalibrationFailure.test_separate_raw_boot_corroboration_does_not_repair_original) ... ok
+test_aa_prior_attempt_refuses_before_metadata (test_aa_inherited_setup.Tests.test_aa_prior_attempt_refuses_before_metadata) ... ok
+test_actual_inherited_setup_reaches_real_settle_in_aa_schema (test_aa_inherited_setup.Tests.test_actual_inherited_setup_reaches_real_settle_in_aa_schema) ... ok
+test_actual_setup_preserves_settle_retry_limit_and_second_call_guard (test_aa_inherited_setup.Tests.test_actual_setup_preserves_settle_retry_limit_and_second_call_guard) ... ok
+test_missing_aa_attempts_is_not_defaulted_to_empty (test_aa_inherited_setup.Tests.test_missing_aa_attempts_is_not_defaulted_to_empty) ... ok
+test_original_p85_setup_and_attempt_guard_unchanged (test_aa_inherited_setup.Tests.test_original_p85_setup_and_attempt_guard_unchanged) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.026s
+
+OK

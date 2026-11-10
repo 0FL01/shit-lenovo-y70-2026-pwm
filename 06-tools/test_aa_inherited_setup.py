@@ -58,11 +58,14 @@ class RealP85Setup(SetupIO,aa.base.Trial):pass
 
 class Tests(unittest.TestCase):
     def test_actual_inherited_setup_reaches_real_settle_in_aa_schema(self):
-        self.assertIs(RealAASetup.setup,aa.base.Trial.setup)
+        self.assertIs(RealAASetup.setup,aa.AATimedTrial.setup)
         self.assertIs(RealAASetup.settle_recording,aa.base.Trial.settle_recording)
         self.assertIs(RealAASetup.metadata,aa.base.Trial.metadata)
         with tempfile.TemporaryDirectory() as root:
             run=RealAASetup(root);run.setup()
+            self.assertEqual(run.report['before']['boot_id'],BOOT)
+            self.assertEqual(run.report['before']['boot_id'],run.before['boot_id'])
+            self.assertIsNot(run.report['before'],run.before)
             self.assertEqual(run.preflight_count,1);self.assertEqual(run.binds,[6,1])
             self.assertEqual(run.before['native_dbv'],828);self.assertEqual(run.dbv,3600)
             self.assertEqual([x['native_actual_hz'] for x in run.report['fresh_native_anchor']],[90,120])
@@ -83,6 +86,7 @@ class Tests(unittest.TestCase):
     def test_original_p85_setup_and_attempt_guard_unchanged(self):
         with tempfile.TemporaryDirectory() as root:
             run=RealP85Setup(root);run.setup()
+            self.assertNotIn('boot_id',run.report['before'])
             self.assertEqual(run.report['recording_settle']['status'],'qualified')
             self.assertEqual(run.report['register85_writes_attempted'],[])
             self.assertNotIn('full_table_writes_attempted',run.report)

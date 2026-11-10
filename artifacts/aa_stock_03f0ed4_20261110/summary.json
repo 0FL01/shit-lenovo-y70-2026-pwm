@@ -1,0 +1,91 @@
+{
+  "status": "physical_execution_completed_acquisition_finalizer_rejected",
+  "evidence_status": "confirmed-on-target saved execution and separate readonly postcheck; optical result unknown",
+  "source_commit": "03f0ed4774052e843e22e03ff85e2997e9293828",
+  "deployed_source_files_verified": 32,
+  "deployment_verification_source": "verified code-only deployment receipt",
+  "original_acquisition_sha256": "a2875aba1a9c7446eadb2272f3f6ed8c975d4ac50c183a193c9e2a1eb86a268a",
+  "original_acquisition_bytes": 176932,
+  "original_acquisition_unchanged": true,
+  "original_acquisition_accepted": false,
+  "stages": [
+    {
+      "label": "baseline",
+      "qualified_runtime": true,
+      "native_packets_matched": 75
+    },
+    {
+      "label": "sham_stock",
+      "qualified_runtime": true,
+      "native_packets_matched": 75
+    },
+    {
+      "label": "return_stock",
+      "qualified_runtime": true,
+      "native_packets_matched": 75
+    }
+  ],
+  "active_G_seconds": 33.46979668410495,
+  "active_limit_seconds": 37,
+  "candidate_attempts": 0,
+  "aa10_or_p85_14_executed": false,
+  "recovery_reboot_attempted": false,
+  "failure": {
+    "phase": "post_execution_finalizer",
+    "message": "Missing same-trial semantic/structural redraw calibration",
+    "cause": "Inherited P85 report.before omits boot_id; strict AA calibration comparison fails",
+    "all_downstream_predicate_failures_diagnostic": 1,
+    "raw_boot_corroboration_verified": true
+  },
+  "restoration": {
+    "camera_stopped_verified": true,
+    "original_settings_dbv_logger_restored": true,
+    "watchdog_disarmed": true,
+    "mutex_released": true,
+    "explicit_full_stock_return_verified": true,
+    "return_hold_and_postselectors_verified": true
+  },
+  "original_settings": {
+    "screen_brightness": "98",
+    "screen_brightness_mode": "0",
+    "min_refresh_rate": "120.0",
+    "peak_refresh_rate": "120.0",
+    "screen_off_timeout": "1800000"
+  },
+  "original_native_dbv": 6438,
+  "postflight": {
+    "utc": "2026-11-10T12:26:31.982124+00:00",
+    "native_dbv": 6438,
+    "logger": 0,
+    "settings_restored": true,
+    "mutex_absent": true,
+    "camera_stopped_preview": true,
+    "physical_ddic_recovery_proven": false
+  },
+  "final_association_utc": "2026-11-10T12:26:31.986027+00:00",
+  "root_identity_pass": true,
+  "video": {
+    "bytes": 96172619,
+    "location": "private USB host and private analysis copy",
+    "optical_analysis_completed": false,
+    "read_by_this_correction": false,
+    "analysis_status_at_checkpoint": "separate offline diagnostic in progress",
+    "transfer_sha256": "ed4cb72fbb4052d256e4fa02eb706d2634929b953e656eec96501ad1249f6d8f",
+    "transfer_integrity_verified": true,
+    "historical_created_inode_custody_available": false,
+    "transfer_is_qualification": false
+  },
+  "producer_fix": {
+    "review": "independent offline code review PASS",
+    "physically_tested": false,
+    "candidate_admitted": false
+  },
+  "pwm_hz": null,
+  "physical_pwm_goal_met": false,
+  "retry_allowance": "One unchanged retry after confirmed nonexecution was authorized and consumed; no future allowance",
+  "active_G_scope": "middle and return active window through short-watchdog disarm; not whole experiment",
+  "postflight_observation_scope": "saved 2026-11-10 12:26 UTC observation; not a new current-device check",
+  "saved_evidence_review": "independent offline saved-evidence review PASS",
+  "association_scope": "pinned_server_fd_table",
+  "unique_holder_qualified": false
+}

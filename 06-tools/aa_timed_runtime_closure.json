@@ -1,5 +1,5 @@
 {
-  "status": "offline_historical_settings_scope_independently_reviewed_full_stock_qualification_required",
+  "status": "offline_boot_report_producer_reviewed_source_pins_updated_not_physically_qualified",
   "profile": "aa",
   "default_profile_unchanged": "p85",
   "hardware_paths": [
@@ -84,13 +84,13 @@
     "06-tools/video_validation_split_20261109/video_validator_snapshot.py"
   ],
   "changed_or_new_runtime_sha256": {
-    "06-tools/run_aa_timed_stock_trial.py": "7cadad2b5b0cbe6908fbaaae8878599fb6ba9d64d264fe1eeb6c615813a677bd",
+    "06-tools/run_aa_timed_stock_trial.py": "f4107234d039606da3b9c3da195832d7a64a4ef1d1eb4c665615d1c928c5394c",
     "06-tools/aa_threshold_trial.py": "131b35fba1e50bb36b3d0513726ae990786372e19d962b43e570d936c92d7aba",
     "06-tools/aa_acquisition_validation.py": "2009d9d5a9845fca4fff27930ca699f58f57cf8049069f53a1dc0f9369418ad3",
     "06-tools/aa_video_validation.py": "00843592492b245060e8aa3098ffd3ca7303af0f43ea67fa474c288111abcff4",
     "06-tools/dsi_trial_transaction.py": "4407a55b3bc37e197e48c74673cff0626345124ca5163b4177ade9a567339ffa",
     "06-tools/host_source_integration_20261109/inert_source_loader.py": "6dd008a6f9f55b11fbcb43270f9510a659d4f61f8b7fc3ae2c80ab863c41b40c",
-    "06-tools/host_source_integration_20261109/host_entrypoint.py": "bdda82c452d481d2add5a52ff5612d82cdf55802398351b3c6add0ce1798d226",
+    "06-tools/host_source_integration_20261109/host_entrypoint.py": "e8b46e57909396b7c1cb8d5768290ed6e868f32061a3bb454715285da76be18e",
     "06-tools/run_p85_guarded_trial.py": "fba1ec5dbb0f7592a4d0a3167589dadac2130370cbf886cecc1d588772fa97a5",
     "06-tools/analyze_aa_threshold_trial.py": "0d66d69a2f79d78e18de6c05836d947dd1081e04a9e45e718d2f4c6d98ef70ae"
   },
@@ -839,5 +839,26 @@
     "independent_skips_each_mode": 3,
     "independent_extra_negative_combinations": 28,
     "independent_exact_current_run_replay_both_modes": true
+  },
+  "boot_report_serialization_correction": {
+    "status": "producer_independent_review_pass_current_pins_source_consumer_tests_pass_offline_only",
+    "executed_historical_source_commit": "03f0ed4774052e843e22e03ff85e2997e9293828",
+    "original_acquisition_sha256": "a2875aba1a9c7446eadb2272f3f6ed8c975d4ac50c183a193c9e2a1eb86a268a",
+    "original_acquisition_remains_rejected": true,
+    "strict_acquisition_validator_unchanged": true,
+    "video_finalizer_unchanged": true,
+    "producer_change": "AA setup records actual inherited preflight boot_id in report.before; shared P85 unchanged",
+    "raw_boot_corroboration": "separate original before-boot and return envelope BOOT agree with calibration; original not repaired",
+    "historical_projection_implemented": false,
+    "current_producer_physically_tested": false,
+    "candidate_admitted": false,
+    "review": "independent offline code review PASS; subsequent source pin update tested separately",
+    "evidence_directory": "06-tools/aa_timed_runtime_20261109/calibration_report_20261110",
+    "runtime_sha256": {
+      "06-tools/run_aa_timed_stock_trial.py": "f4107234d039606da3b9c3da195832d7a64a4ef1d1eb4c665615d1c928c5394c",
+      "06-tools/host_source_integration_20261109/host_entrypoint.py": "e8b46e57909396b7c1cb8d5768290ed6e868f32061a3bb454715285da76be18e"
+    },
+    "source_consumer_tests_each_mode": 71,
+    "source_consumer_skips_each_mode": 0
   }
 }

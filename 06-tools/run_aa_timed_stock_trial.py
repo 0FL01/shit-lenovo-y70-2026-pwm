@@ -577,6 +577,14 @@ class AATimedTrial(timed.TimedStockTrial):
     def startup_write_attempts(self):
         return self.report['full_table_writes_attempted']
 
+    def setup(self):
+        super().setup()
+        # The shared P85 report intentionally retains only restoration values.
+        # AA also needs the independently observed preflight boot identity for
+        # its same-trial redraw calibration contract. Do not infer it later
+        # from calibration or retrofit an already recorded acquisition.
+        self.report['before']['boot_id']=self.before['boot_id']
+
     def trace_check(self,text):
         events=validate_safe_gap(self.trace_snapshot,text,self.entry_count)
         if events:self.report.setdefault('background_esd_safe_gaps',[]).extend(events)

@@ -196,6 +196,8 @@ class AcquisitionTests(unittest.TestCase):
             lambda r:r['redraw_ui_calibration'].update(returned_xml_equals_ready=False),
             lambda r:r['redraw_ui_calibration'].update(live_text_or_checked_verification=True),
             lambda r:r['redraw_ui_calibration'].update(boot_id='other'),
+            lambda r:r['before'].pop('boot_id'),
+            lambda r:r['before'].update(boot_id='other'),
             lambda r:r['redraw_ui_calibration'].update(source_commit='f'*40),
             lambda r:r['redraw_ui_calibration'].update(completed_monotonic=100),
             lambda r:r['redraw_ui_calibration']['scene_sha256'].update(opened='d'*64),

@@ -1,0 +1,18 @@
+{
+  "status": "offline_producer_reviewed_pin_update_tests_pass_not_committed_or_deployed",
+  "sha256": {
+    "06-tools/run_aa_timed_stock_trial.py": "f4107234d039606da3b9c3da195832d7a64a4ef1d1eb4c665615d1c928c5394c",
+    "06-tools/host_source_integration_20261109/host_entrypoint.py": "e8b46e57909396b7c1cb8d5768290ed6e868f32061a3bb454715285da76be18e",
+    "06-tools/aa_timed_runtime_closure.json": "ccc9d661638f6376a914e7321dd74f90473b46fa39ff22615bdebe890a66db05",
+    "06-tools/test_aa_inherited_setup.py": "d785cb5e855296df55e41d76c37b3436c2e8f3d5668cdeba2c262832fc371dde",
+    "06-tools/test_aa_video_validation.py": "74457ef3fcfd822867c46ca5dff7cdce61e46c9ed5fbdbd7f6204a5c6fb45449",
+    "06-tools/test_aa_saved_calibration_failure.py": "548f6a561feb40a30f0dc2999eab5f8b49bcf8ca7ddaf23551f8f0bf9d2dcfa3",
+    "WORKSTATE.md": "57b9da50121e5fb7b1857d500e45760edd74f21b8bc54c8df1b5fc292f49e191",
+    "artifacts/aa_stock_03f0ed4_20261110/RESULT.md": "bba01518223d2d4dfe0811e257c0685d0444df90aa41fe515f0c5861187635d6",
+    "artifacts/aa_stock_03f0ed4_20261110/summary.json": "97104c74a882cb7be2fb6f0e64e0a54bafac1e8043508e075697bf0b089b8676"
+  },
+  "source_consumer_tests_each_mode": 71,
+  "skips": 0,
+  "candidate_admitted": false,
+  "current_producer_physically_tested": false
+}
