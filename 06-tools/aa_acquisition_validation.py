@@ -31,7 +31,7 @@ def bounds(snapshot):
 SCHEMA = "aa-threshold-optical-v1"
 ACQUISITION_SCHEMA = "aa-threshold-acquisition-v1"
 WRITER_ESD_CONTRACT = "aa_full_table_esd_isolation_v1"
-REDRAW_SCENE_CONTRACT = "same_trial_settings_fragment_tree_v2"
+REDRAW_SCENE_CONTRACT = "same_trial_settings_fragment_tree_v3"
 SCOPES = ("aa-threshold-stock-surrogate-v1", "aa-threshold-candidate-v1")
 HASHES = {"stock":"b5ed66ba69e6221de5fdeaf4d003c9628602d743880acd1c8e2cf7198facd193",
           "aa10":"65846e9320d4a39fd6a677fe9689d08409e80bac050c7cbb1dc12ca276245902"}

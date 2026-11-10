@@ -1,7 +1,61 @@
 # AA full-table timed integration
 
 
-## Latest checkpoint: full-table ESD isolation, 2026-11-10
+## Latest checkpoint: bounded scene readiness, 2026-11-10
+
+Status: offline correction, not a completed stock qualification. The 9ee6a9f
+stock run completed the baseline table/replay and then stopped after Back.
+Its saved 0112 dump has zero resumed activities: only stopped launcher and the
+finishing SubSettings page. That page's complete canonical context matches the
+same-run opened scene, not the required ready scene. No subsequent physical
+return is established by this capture.
+
+Scene contract v3 separates complete scene parsing from stable readiness.
+Only after the existing single tap or Back, a complete scene equal to the
+same-trial expected or previous context can request another read. Identity,
+process, configuration, fragment and the full canonical tree remain exact.
+A finished activity is allowed only as the previous source, never the expected
+destination. Zero resumed activities require one complete known Settings
+context; multiple resumed activities remain ambiguous and terminal.
+
+Ordinary lifecycle, focus, traversal, visibility and input-queue readiness no
+longer require an observed Boolean tuple. AndroidX live-view states 2 through 7
+include VIEW_CREATED, AWAITING_EXIT_EFFECTS and AWAITING_ENTER_EFFECTS. The source
+creates the view at state 2 and destroys it on descent to state 1. This domain
+permits only read-only waiting. Removed roots, uncreated/removed/detached/hidden
+fragments, destroyed managers, malformed or duplicate fields, unknown scenes,
+and transport/permission failures remain terminal. Relevant AndroidX sources:
+[Fragment.java](https://github.com/androidx/androidx/blob/androidx-main/fragment/fragment/src/main/java/androidx/fragment/app/Fragment.java)
+and [FragmentStateManager.java](https://github.com/androidx/androidx/blob/androidx-main/fragment/fragment/src/main/java/androidx/fragment/app/FragmentStateManager.java).
+
+The strict success predicate is unchanged: a new expected scene must be
+resumed, focused, settled and in state 7 before Back or qualification proceeds.
+FrameScheduled alone was not a previous success gate and is not a new one.
+Calibration and before-input reads remain strict. Pending returns no digest
+and does not clear uncertainty or authorize another input or DSI operation.
+
+The total 1 s acceptance deadline, remaining-active-budget clipping and outer
+37 s guard are unchanged. This is not a new transport wall bound: the inherited
+12 s version-handshake caveat still applies. Every read and wait counts in the
+fresh baseline and active measurement. The baseline full + prehold + 3 s policy
+uses this same version and path, never an old run or subtracted timing.
+
+Final offline suite: 136 normal and 136 optimized tests, zero skips, including
+85 runtime/acquisition tests. Both private scene references are supplied
+explicitly. The 9ee6a9f regression rejects 0112 as success, tests its typed
+pending state, then uses historical 0107 as a simulated later stable read, or
+repeats pending until expiry. This is fake-I/O caller testing, not evidence of
+an actual later return. Published fixtures are generated synthetic data; raw
+captures remain outside the repository. Tests include duplicate malformed
+lifecycle fields, hard guards, caught failures, late results, one-input counts,
+single recovery and remaining-budget clipping.
+
+The ESD isolation lifecycle, native/wire/trace checks, recovery and generated
+command sizes are unchanged from 9ee6a9f. The closure manifest lists exactly
+seven proposed publication files and no new files. Fresh clean-source stock
+qualification and optical review are still required before candidate admission.
+
+## Earlier checkpoint: full-table ESD isolation, 2026-11-10
 
 The current AA writer now isolates ESD before the existing two-second quiet
 period and keeps it isolated through complete host validation. Success-only

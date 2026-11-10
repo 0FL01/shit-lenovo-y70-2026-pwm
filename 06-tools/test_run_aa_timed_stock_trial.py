@@ -70,6 +70,16 @@ def scene_fixture(opened=False,*,generated_id='5',pending=False):
         text=text.replace('mTraversalScheduled=false','mTraversalScheduled=true').replace('mHasWindowFocus=true','mHasWindowFocus=false').replace('mFrameScheduled=false','mFrameScheduled=true')
     return text
 
+
+def retiring_scene_fixture(*,opened=True,state=5,finished=True):
+    """Synthetic lifecycle only; no claim of a physical transition result."""
+    return (scene_fixture(opened).replace('mResumed=true mStopped=false mFinished=false',
+                'mResumed=false mStopped=false mFinished='+str(finished).lower())
+            .replace('mCreated=true mResumed=true','mCreated=true mResumed=false')
+            .replace('mState=7','mState='+str(state)).replace('mCurState=7','mCurState='+str(state))
+            .replace('mHasWindowFocus=true','mHasWindowFocus=false')
+            .replace('mFrameScheduled=false','mFrameScheduled=true'))
+
 READY_XML='<hierarchy rotation="0"><node text="Screen timeout" package="com.android.settings" clickable="true" checkable="false" enabled="true" bounds="[0,0][20,20]"/></hierarchy>'
 OPENED_XML=('<hierarchy rotation="0"><node resource-id="com.android.settings:id/collapsing_toolbar" package="com.android.settings" content-desc="Screen timeout"/>'+
     ''.join('<node text="'+text+'" package="com.android.settings" resource-id="android:id/title"/>' for text in
@@ -518,29 +528,26 @@ class OpeningPendingTests(unittest.TestCase):
     def test_pending_is_typed_unready_not_stable_success(self):
         raw=scene_fixture(True,generated_id='6',pending=True)
         with self.assertRaises(ValueError):t.settings_scene(raw)
-        with self.assertRaises(t.SettingsOpeningPending) as caught:t.settings_scene(raw,opening=True)
+        with self.assertRaises(t.SettingsTransitionPending) as caught:t.settings_scene(raw,transition=True)
         self.assertEqual(caught.exception.scene,t.settings_scene(scene_fixture(True)))
-        for old,new in [('mTraversalScheduled=true','mTraversalScheduled=false'),
-                        ('mHasWindowFocus=false','mHasWindowFocus=true'),('mFrameScheduled=true','mFrameScheduled=false'),
-                        ('mWindowVisibility=0','mWindowVisibility=4'),('mPendingInputEventCount=0','mPendingInputEventCount=1'),
-                        ('mProcessInputEventsScheduled=false','mProcessInputEventsScheduled=true'),
-                        ('mPausedForTransition=false','mPausedForTransition=true'),
-                        ('mState=7','mState=5'),('mHidden=false','mHidden=true'),
-                        ('.SubSettings','.OtherSettings'),('ScreenTimeoutSettings','OtherSettings')]:
+        for old,new in [('mWindowVisibility=0','mWindowVisibility=9'),
+                        ('mPendingInputEventCount=0','mPendingInputEventCount=-1'),
+                        ('mFrameScheduled=true','mFrameScheduled=unknown'),
+                        ('mState=7','mState=1'),('mHidden=false','mHidden=true')]:
             with self.subTest(change=new),self.assertRaises(ValueError) as bad:
-                t.settings_scene(raw.replace(old,new),opening=True)
-            self.assertNotIsInstance(bad.exception,t.SettingsOpeningPending)
+                t.settings_scene(raw.replace(old,new),transition=True)
+            self.assertNotIsInstance(bad.exception,t.SettingsTransitionPending)
         for line in ('      mTraversalScheduled=true\n','        mHasWindowFocus=false\n','      mFrameScheduled=true\n'):
             for changed in (raw.replace(line,''),raw.replace(line,line+line)):
-                with self.subTest(line=line),self.assertRaises(ValueError) as bad:t.settings_scene(changed,opening=True)
-                self.assertNotIsInstance(bad.exception,t.SettingsOpeningPending)
+                with self.subTest(line=line),self.assertRaises(ValueError) as bad:t.settings_scene(changed,transition=True)
+                self.assertNotIsInstance(bad.exception,t.SettingsTransitionPending)
     def test_frame_readiness_is_bound_to_selected_choreographer(self):
         pending=scene_fixture(True,pending=True)
         launcher=scene_fixture().replace('com.android.settings/.Settings$DisplaySettingsActivity','com.motorola.launcher3/.Launcher').replace('mResumed=true mStopped=false mFinished=false','mResumed=false mStopped=true mFinished=false').replace('mFrameScheduled=false','mFrameScheduled=true')
         invalid=pending.replace('      mFrameScheduled=true\n','')
-        with self.assertRaises(ValueError) as bad:t.settings_scene(launcher+'TASK current\n'+invalid,opening=True)
-        self.assertNotIsInstance(bad.exception,t.SettingsOpeningPending)
-        with self.assertRaises(t.SettingsOpeningPending):t.settings_scene(launcher+'TASK current\n'+pending,opening=True)
+        with self.assertRaises(ValueError) as bad:t.settings_scene(launcher+'TASK current\n'+invalid,transition=True)
+        self.assertNotIsInstance(bad.exception,t.SettingsTransitionPending)
+        with self.assertRaises(t.SettingsTransitionPending):t.settings_scene(launcher+'TASK current\n'+pending,transition=True)
     def test_actual_caller_pending_then_stable_never_replays_input(self):
         with tempfile.TemporaryDirectory() as root:
             run=Sim(root);original=run.shell;seen=0
@@ -580,8 +587,8 @@ class OpeningPendingTests(unittest.TestCase):
                 self.assertEqual(run.calls.count('reboot'),1)
                 if fault in ('tree','pid','config','late'):self.assertEqual(seen,1)
                 if fault in ('transport','permission'):self.assertEqual(seen,2)
-    def test_pending_never_allowed_in_calibration_before_tap_or_return(self):
-        for label in ('calibration-scene-opened','baseline-scene-ready','baseline-scene-returned'):
+    def test_pending_never_allowed_in_calibration_or_before_tap(self):
+        for label in ('calibration-scene-opened','baseline-scene-ready'):
             with self.subTest(label=label),tempfile.TemporaryDirectory() as root:
                 run=Sim(root);original=run.shell
                 def shell(command,**kwargs):
@@ -592,7 +599,6 @@ class OpeningPendingTests(unittest.TestCase):
                 self.assertEqual(run.calls.count(label),1);self.assertEqual(run.calls.count('reboot'),1)
                 if label=='calibration-scene-opened':self.assertIsNone(run.redraw_scenes);self.assertEqual(run.children,[])
                 if label=='baseline-scene-ready':self.assertNotIn('baseline-redraw-open',run.calls)
-                if label=='baseline-scene-returned':self.assertEqual(run.calls.count('baseline-redraw-cancel'),1)
     def test_external_actual_same_run_pair_through_real_redraw(self):
         import hashlib,os
         stable_path=os.environ.get('AA_SCENE_STABLE_PATH');pending_path=os.environ.get('AA_SCENE_PENDING_PATH')
@@ -601,7 +607,7 @@ class OpeningPendingTests(unittest.TestCase):
         self.assertEqual(hashlib.sha256(stable).hexdigest(),'84c73501853be4e8e843b7c217796f112e3d94eafa6a2614281526005a28cfab')
         self.assertEqual(hashlib.sha256(pending).hexdigest(),'cc51ddb6b8dac870bce3cd82288d108cd4b1df1cd933ea22ba1fb316c9af295d')
         expected=t.settings_scene(stable.decode())
-        with self.assertRaises(t.SettingsOpeningPending) as caught:t.settings_scene(pending.decode(),opening=True)
+        with self.assertRaises(t.SettingsTransitionPending) as caught:t.settings_scene(pending.decode(),transition=True)
         self.assertEqual(caught.exception.scene,expected)
         with tempfile.TemporaryDirectory() as root:
             run=Sim(root);run.setup();run.setup_aa();original=run.shell;reads=0
@@ -618,6 +624,212 @@ class OpeningPendingTests(unittest.TestCase):
             self.assertEqual(reads,2);self.assertEqual(run.calls.count('baseline-redraw-open'),1)
             self.assertEqual(run.calls.count('baseline-redraw-cancel'),1);self.assertFalse(run.pending_read)
             self.assertEqual(result['scene_sha256'][1],t.scene_digest(expected))
+
+
+class TransitionLifecycleTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):Sim.reader=execute_reader_fixture()[0].stdout
+    def execute(self,run):
+        with patch.object(t.s,'now',run.now):return run.execute()
+    def test_live_view_states_are_pending_not_success(self):
+        expected=t.settings_scene(scene_fixture(True))
+        for state in range(2,8):
+            raw=retiring_scene_fixture(state=state)
+            with self.subTest(state=state):
+                with self.assertRaises(ValueError):t.settings_scene(raw)
+                with self.assertRaises(t.SettingsTransitionPending) as caught:t.settings_scene(raw,transition=True)
+                self.assertEqual(caught.exception.scene,expected);self.assertTrue(caught.exception.finished)
+        for state in (-1,0,1,8):
+            with self.subTest(state=state),self.assertRaises(ValueError) as caught:
+                t.settings_scene(retiring_scene_fixture(state=state),transition=True)
+            self.assertNotIsInstance(caught.exception,t.SettingsTransitionPending)
+    def test_readiness_is_not_a_boolean_tuple_whitelist(self):
+        good=scene_fixture(True);expected=t.settings_scene(good)
+        # Each otherwise-complete readiness change is read-only pending.
+        changes=[('mHasWindowFocus=true','mHasWindowFocus=false'),
+            ('mTraversalScheduled=false','mTraversalScheduled=true'),
+            ('mPausedForTransition=false','mPausedForTransition=true'),
+            ('mPendingInputEventCount=0','mPendingInputEventCount=3'),
+            ('mProcessInputEventsScheduled=false','mProcessInputEventsScheduled=true'),
+            ('mWindowVisibility=0','mWindowVisibility=4'),('mWindowVisibility=0','mWindowVisibility=8'),
+            ('      mStopped=false\n','      mStopped=true\n'),
+            ('mCreated=true mResumed=true','mCreated=true mResumed=false'),
+            ('mStateSaved=false','mStateSaved=true'),('mState=7','mState=6'),('mCurState=7','mCurState=3')]
+        for before,after in changes:
+            with self.subTest(after=after),self.assertRaises(t.SettingsTransitionPending) as caught:
+                t.settings_scene(good.replace(before,after),transition=True)
+            self.assertEqual(caught.exception.scene,expected)
+        # Scheduled frames alone were never excluded by strict success.
+        self.assertEqual(t.settings_scene(good.replace('mFrameScheduled=false','mFrameScheduled=true')),expected)
+    def test_hard_guards_and_malformed_fields_are_never_pending(self):
+        good=retiring_scene_fixture()
+        changes=[('      mAdded=true\n','      mAdded=false\n'),('mRemoved=false','mRemoved=true'),
+            ('mCreated=true','mCreated=false'),('mAdded=true mRemoving=false','mAdded=false mRemoving=false'),
+            ('mRemoving=false','mRemoving=true'),('mHidden=false','mHidden=true'),
+            ('mDetached=false','mDetached=true'),('mDestroyed=false','mDestroyed=true'),
+            ('uid=1000','uid=2000'),('mChangingConfigurations=false','mChangingConfigurations=true'),
+            ('mWindowVisibility=0','mWindowVisibility=9'),('mPendingInputEventCount=0','mPendingInputEventCount=-1'),
+            ('mResumed=false mStopped=false mFinished=true','mResumed=true mStopped=true mFinished=false'),
+            ('mCreated=true mResumed=false mStopped=false','mCreated=true mResumed=true mStopped=true')]
+        invalid=[good.replace(a,b) for a,b in changes]+['',good[:good.index('    Looper')],scene_fixture()+scene_fixture(True)]
+        fields=['      mResumed=false mStopped=false mFinished=true\n',
+            '      mAdded=true\n','      mRemoved=false\n','      mStopped=false\n',
+            '      mPausedForTransition=false\n','      mPendingInputEventCount=0\n',
+            '      mProcessInputEventsScheduled=false\n','      mTraversalScheduled=false\n',
+            '        mHasWindowFocus=false\n','        mWindowVisibility=0\n','      mFrameScheduled=true\n',
+            '      mChangingConfigurations=false\n',
+            '        mState=5 mWho=11111111-1111-1111-1111-111111111111 mBackStackNesting=0\n',
+            '      mCurState=5 mStateSaved=false mStopped=false mDestroyed=false\n']
+        for field in fields:invalid.extend((good.replace(field,''),good.replace(field,field+field)))
+        for raw in invalid:
+            with self.subTest(raw=raw[-100:]),self.assertRaises(ValueError) as caught:t.settings_scene(raw,transition=True)
+            self.assertNotIsInstance(caught.exception,t.SettingsTransitionPending)
+    def test_zero_resumed_requires_a_unique_complete_settings_context(self):
+        raw=retiring_scene_fixture()
+        launcher=scene_fixture().replace('com.android.settings/.Settings$DisplaySettingsActivity','com.motorola.launcher3/.Launcher').replace(
+            'mResumed=true mStopped=false mFinished=false','mResumed=false mStopped=true mFinished=false')
+        with self.assertRaises(t.SettingsTransitionPending):t.settings_scene(launcher+'TASK current\n'+raw,transition=True)
+        for bad in (launcher,raw+raw,launcher.replace('mResumed=false mStopped=true','mResumed=false mStopped=false')+raw,
+                    scene_fixture().replace('com.android.settings/.Settings$DisplaySettingsActivity','com.foreign/.Activity')+raw):
+            with self.subTest(bad=bad[:100]),self.assertRaises(ValueError) as caught:t.settings_scene(bad,transition=True)
+            self.assertNotIsInstance(caught.exception,t.SettingsTransitionPending)
+    def test_malformed_duplicate_lifecycle_never_hides_behind_valid_line(self):
+        for raw in (scene_fixture(),retiring_scene_fixture()):
+            lines=[line for line in raw.splitlines(True) if line.startswith(
+                ('      mResumed=','      mCurState=','      mFrameScheduled=',
+                 '      mPendingInputEventCount=','        mState=','      mCreated='))]
+            for line in lines:
+                malformed=re.sub(r'=(?:true|false|\d+)', '=invalid extra',line,count=1)
+                for replacement in (line+malformed,malformed+line):
+                    for transition in (False,True):
+                        with self.subTest(line=line,transition=transition),self.assertRaises(ValueError) as caught:
+                            t.settings_scene(raw.replace(line,replacement),transition=transition)
+                        self.assertNotIsInstance(caught.exception,t.SettingsTransitionPending)
+    def test_return_pending_then_new_stable_read_has_one_back(self):
+        with tempfile.TemporaryDirectory() as root:
+            run=Sim(root);original=run.shell;reads=0
+            def shell(command,**kwargs):
+                nonlocal reads
+                value=original(command,**kwargs)
+                if kwargs.get('label')=='baseline-scene-returned':
+                    reads+=1
+                    if reads==1:return retiring_scene_fixture()
+                return value
+            run.shell=shell;report=self.execute(run)
+            self.assertEqual(reads,2);self.assertEqual(run.calls.count('baseline-redraw-open'),1)
+            self.assertEqual(run.calls.count('baseline-redraw-cancel'),1)
+            self.assertEqual(report['stages'][0]['redraw_audit']['scene_sha256'][2],report['redraw_ui_calibration']['scene_sha256']['ready'])
+            self.assertLess(max(i for i,x in enumerate(run.calls) if x=='baseline-scene-returned'),run.calls.index('baseline-before-hold'))
+    def test_return_pending_faults_are_terminal_and_recover_once(self):
+        for fault in ('timeout','tree','pid','config','foreign','ambiguous','malformed','removed','destroyed',
+                      'hidden','detached','finished_expected','transport','permission','late'):
+            with self.subTest(fault=fault),tempfile.TemporaryDirectory() as root:
+                run=Sim(root);original=run.shell;reads=0
+                def shell(command,**kwargs):
+                    nonlocal reads
+                    value=original(command,**kwargs)
+                    if kwargs.get('label')!='baseline-scene-returned':return value
+                    reads+=1
+                    if fault=='transport' and reads==2:raise TimeoutError('uncertain read')
+                    if fault=='permission' and reads==2:raise PermissionError('guard/access denied')
+                    value=retiring_scene_fixture()
+                    edits={'tree':('android:id/title','android:id/other'),'pid':('pid=123','pid=999'),
+                        'config':('mDisplayRotation=ROTATION_0','density=changed mDisplayRotation=ROTATION_0'),
+                        'foreign':('com.android.settings/.SubSettings','com.foreign/.SubSettings'),
+                        'removed':('mRemoved=false','mRemoved=true'),'destroyed':('mDestroyed=false','mDestroyed=true'),
+                        'hidden':('mHidden=false','mHidden=true'),'detached':('mDetached=false','mDetached=true')}
+                    if fault in edits:value=value.replace(*edits[fault])
+                    if fault=='ambiguous':value=scene_fixture()+scene_fixture(True)
+                    if fault=='malformed':value='Permission Denial: no activity data'
+                    if fault=='finished_expected':value=retiring_scene_fixture(opened=False)
+                    if fault=='late':run.clock.sleep(1.1)
+                    return value
+                run.shell=shell
+                with self.assertRaises(RuntimeError):self.execute(run)
+                self.assertEqual(run.calls.count('baseline-redraw-open'),1);self.assertEqual(run.calls.count('baseline-redraw-cancel'),1)
+                self.assertEqual(run.calls.count('reboot'),1);self.assertEqual(run.children,['baseline-write'])
+                self.assertNotIn('baseline-before-hold',run.calls)
+                if fault in ('transport','permission'):self.assertEqual(reads,2)
+                elif fault!='timeout':self.assertEqual(reads,1)
+    def test_caught_return_failure_cannot_resume_inputs_or_dsi(self):
+        with tempfile.TemporaryDirectory() as root:
+            run=Sim(root);run.setup();run.setup_aa();original=run.shell
+            run.redraw_scenes={'ready':t.settings_scene(scene_fixture()),'opened':t.settings_scene(scene_fixture(True))}
+            run.redraw_tap=[10,10]
+            def shell(command,**kwargs):
+                value=original(command,**kwargs)
+                return 'malformed' if kwargs.get('label')=='baseline-scene-returned' else value
+            run.shell=shell
+            with self.assertRaises(ValueError):run.redraw('baseline')
+            self.assertTrue(run.pending_read);before=list(run.calls)
+            for operation in (lambda:run.redraw('again'),lambda:run.replay('again'),lambda:run.selectors('again'),
+                              lambda:run.c1('again'),lambda:run.prehold({}),lambda:run.finish_hold({})):
+                with self.assertRaises(ValueError):operation()
+                self.assertEqual(run.calls,before)
+    def test_transition_acceptance_is_clipped_to_remaining_active_budget(self):
+        with tempfile.TemporaryDirectory() as root:
+            run=Sim(root);run.setup();run.setup_aa();original=run.shell
+            run.redraw_scenes={'ready':t.settings_scene(scene_fixture()),'opened':t.settings_scene(scene_fixture(True))}
+            run.redraw_tap=[10,10];start=run.clock();run.active_start=start-36.8
+            def shell(command,**kwargs):
+                value=original(command,**kwargs)
+                return retiring_scene_fixture() if kwargs.get('label')=='baseline-scene-returned' else value
+            run.shell=shell
+            with self.assertRaises(ValueError):run.redraw('baseline')
+            self.assertLess(run.clock()-start,.3);self.assertTrue(run.pending_read)
+            self.assertEqual(run.calls.count('baseline-redraw-open'),1);self.assertEqual(run.calls.count('baseline-redraw-cancel'),1)
+    def test_phase_binding_does_not_grant_pending_to_arbitrary_calls(self):
+        with tempfile.TemporaryDirectory() as root:
+            run=Sim(root);ready=t.settings_scene(scene_fixture());opened=t.settings_scene(scene_fixture(True))
+            for label,expected,previous,pending in [('wrong',ready,opened,True),('x-scene-opened',ready,opened,True),
+                    ('x-scene-returned',opened,ready,True),('x-scene-returned',ready,opened,False)]:
+                run.pending_read=pending
+                with self.assertRaises(ValueError):run.settle_scene(label,expected,previous)
+            self.assertEqual(run.calls,[])
+    def test_external_9ee_retiring_context_and_simulated_fresh_return(self):
+        import hashlib,os
+        ready_path=os.environ.get('AA_RETURN_READY_PATH');retiring_path=os.environ.get('AA_RETURN_PENDING_PATH')
+        if not ready_path or not retiring_path:self.skipTest('Explicit private 9ee scene references not supplied')
+        ready_raw=Path(ready_path).read_bytes();retiring_raw=Path(retiring_path).read_bytes()
+        self.assertEqual(hashlib.sha256(ready_raw).hexdigest(),'4417e4b70e10b85914cc8696c2a55906cf440678963860e2cf21d04eedea2c07')
+        self.assertEqual(hashlib.sha256(retiring_raw).hexdigest(),'3f226af0a21e614a5d4de34c7a68d927ce92bc34645c6c37e5554263e4bf0494')
+        ready=t.settings_scene(ready_raw.decode())
+        self.assertEqual(t.scene_digest(ready),'6f85cdeed29e9e3d672438d3bcf733e1188551a4a6ccc5f1520249fd7a2bfb32')
+        with self.assertRaises(ValueError):t.settings_scene(retiring_raw.decode())
+        with self.assertRaises(t.SettingsTransitionPending) as caught:t.settings_scene(retiring_raw.decode(),transition=True)
+        opened=caught.exception.scene;self.assertTrue(caught.exception.finished)
+        self.assertEqual(t.scene_digest(opened),'a6103e941432f4822c97b15c12e58c743620bb20796c253f64fd520f35a3bf5e')
+        # Test-only stable lifecycle projection supplies the earlier opened read.
+        # Historical 0107 supplies a SIMULATED later stable return. Neither is
+        # evidence that a physical post-Back return occurred in the failed run.
+        stable_opened=retiring_raw.decode()
+        for old,new in [('mResumed=false mStopped=false mFinished=true','mResumed=true mStopped=false mFinished=false'),
+            ('mCreated=true mResumed=false mStopped=false','mCreated=true mResumed=true mStopped=false'),
+            ('        mHasWindowFocus=false\n','        mHasWindowFocus=true\n'),
+            ('        mState=5 mWho=','        mState=7 mWho='),
+            ('mCurState=5 mStateSaved=false mStopped=false mDestroyed=false','mCurState=7 mStateSaved=false mStopped=false mDestroyed=false')]:
+            stable_opened=stable_opened.replace(old,new)
+        self.assertEqual(t.settings_scene(stable_opened),opened)
+        for timeout in (False,True):
+            with self.subTest(timeout=timeout),tempfile.TemporaryDirectory() as root:
+                run=Sim(root);run.setup();run.setup_aa();original=run.shell;reads=0
+                run.redraw_scenes={'ready':ready,'opened':opened};run.redraw_tap=[10,10]
+                def shell(command,**kwargs):
+                    nonlocal reads
+                    value=original(command,**kwargs);label=kwargs.get('label')
+                    if label=='baseline-scene-ready':return ready_raw.decode()
+                    if label=='baseline-scene-opened':return stable_opened
+                    if label=='baseline-scene-returned':
+                        reads+=1;return retiring_raw.decode() if timeout or reads==1 else ready_raw.decode()
+                    return value
+                run.shell=shell
+                if timeout:
+                    with self.assertRaises(ValueError):run.redraw('baseline')
+                    self.assertTrue(run.pending_read)
+                else:
+                    result=run.redraw('baseline');self.assertEqual(reads,2);self.assertFalse(run.pending_read)
+                    self.assertEqual(result['scene_sha256'][2],t.scene_digest(ready))
+                self.assertEqual(run.calls.count('baseline-redraw-open'),1);self.assertEqual(run.calls.count('baseline-redraw-cancel'),1)
 
 
 class RedrawCalibrationTests(unittest.TestCase):
@@ -730,7 +942,7 @@ class RedrawCalibrationTests(unittest.TestCase):
             run=t.AATimedTrial(adb,6,1,'aa_scene_clock',root,root,sleep=clock.sleep,monotonic=clock)
             run.pending_read=True
             with self.assertRaisesRegex(ValueError,'Late Settings scene result'):
-                run.settle_scene('late-scene',t.settings_scene(raw.decode()),{})
+                run.settle_scene('late-scene-returned',t.settings_scene(raw.decode()),t.settings_scene(scene_fixture(True)))
             self.assertTrue(run.pending_read);self.assertEqual(connect_timeouts,[12,1.0])
             self.assertEqual(len(dispatch),1);self.assertAlmostEqual(dispatch[0]-start,1.1)
     def test_timeout_setting_and_wire_still_reject(self):

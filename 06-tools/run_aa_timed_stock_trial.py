@@ -33,14 +33,14 @@ REDRAW_SCENE_CONTRACT=acquisition.REDRAW_SCENE_CONTRACT
 REDRAW_SETTLE_SECONDS=1.0
 
 
-class SettingsOpeningPending(ValueError):
-    """Complete observed opening scene, but not proof of a settled scene."""
-    def __init__(self,scene):
-        super().__init__('Observed Settings opening is not settled')
-        self.scene=scene
+class SettingsTransitionPending(ValueError):
+    """Complete live scene with unready lifecycle; grants read-only waiting."""
+    def __init__(self,scene,*,finished):
+        super().__init__('Settings transition is not settled')
+        self.scene=scene;self.finished=finished
 
 
-def settings_scene(text,*,opening=False):
+def settings_scene(text,*,transition=False):
     """Narrow observed Android16 activity dump, not a generic UI/text decoder.
 
     The top dump also includes stopped launcher/parent activities. Select by
@@ -53,40 +53,56 @@ def settings_scene(text,*,opening=False):
           'Malformed activity scene dump')
     starts=list(re.finditer(r'^  ACTIVITY ([^\n]+)$',text,re.M))
     check(starts,'Missing activity sections')
-    resumed=[]
+    activities=[];resumed=[]
     for i,start in enumerate(starts):
         body=text[start.end():starts[i+1].start() if i+1<len(starts) else len(text)].split('\nTASK ',1)[0]
-        local_header=re.search(r'^    Local Activity [0-9a-f]+ State:\n',body,re.M)
-        check(local_header is not None,'Missing native activity state')
+        local_headers=list(re.finditer(r'^    Local Activity [0-9a-f]+ State:\n',body,re.M))
+        check(len(local_headers)==1,'Missing/duplicate native activity state')
+        local_header=local_headers[0]
         local=body[local_header.end():].split('\n    ViewRoot:',1)[0]
-        states=re.findall(r'^      mResumed=(true|false) mStopped=(true|false) mFinished=(true|false)$',local,re.M)
-        check(len(states)==1,'Ambiguous native activity lifecycle')
-        if states[0][0]=='true':resumed.append((start[1],body,local,states[0]))
-    check(len(resumed)==1,'Missing/ambiguous resumed activity')
-    header,body,local,state=resumed[0]
+        states=re.findall(r'^      mResumed=([^\n]*)$',local,re.M)
+        check(len(states)==1,'Missing/duplicate native activity lifecycle')
+        parsed_state=re.fullmatch(r'(true|false) mStopped=(true|false) mFinished=(true|false)',states[0])
+        check(parsed_state is not None,'Malformed native activity lifecycle')
+        state=parsed_state.groups()
+        check(state[:2]!=('true','true'),'Contradictory native activity lifecycle')
+        activity=(start[1],body,local,state);activities.append(activity)
+        if state[0]=='true':resumed.append(activity)
+    check(len(resumed)<=1,'Ambiguous resumed activities')
+    if resumed:
+        selected=resumed[0]
+    else:
+        # A top dump taken after Back can contain only the finishing source.
+        # Absence of a resumed activity is not success or a generic retry:
+        # require one complete Settings context, then bind it in settle_scene.
+        check(transition,'Missing resumed activity')
+        candidates=[a for a in activities if a[0].startswith('com.android.settings/')]
+        check(len(candidates)==1 and all(a is candidates[0] or a[3][1]=='true' for a in activities),
+              'Missing/ambiguous live Settings transition context')
+        selected=candidates[0]
+    header,body,local,state=selected
     identity=re.fullmatch(r'(com\.android\.settings/[^ ]+) [0-9a-f]+ pid=(\d+) userId=0 uid=1000 displayId=0\(type=INTERNAL\)',header)
-    check(identity is not None and state==('true','false','false'),'Unexpected resumed Settings identity')
-    check('\n      mIsInMultiWindowMode=false mIsInPictureInPictureMode=false\n' in local and
-          '\n      mChangingConfigurations=false\n' in local,'Settings configuration transition')
+    check(identity is not None,'Unexpected Settings identity')
+    check(re.findall(r'^      mIsInMultiWindowMode=([^\n]+)$',local,re.M)==['false mIsInPictureInPictureMode=false'] and
+          re.findall(r'^      mChangingConfigurations=([^\n]*)$',local,re.M)==['false'],'Settings configuration transition')
     configs=re.findall(r'^      mCurrentConfig=(.+)$',local,re.M)
     check(len(configs)==1 and 'mDisplayRotation=ROTATION_0' in configs[0] and
           'mWindowingMode=fullscreen' in configs[0],'Unknown Settings display configuration')
     roots=re.findall(r'^    ViewRoot:\n(.*?)^    View Hierarchy:\n',body,re.M|re.S)
     check(len(roots)==1,'Missing/ambiguous Settings ViewRoot')
-    for key,value in (('mAdded','true'),('mRemoved','false'),('mStopped','false'),
-                      ('mPausedForTransition','false'),('mPendingInputEventCount','0'),
-                      ('mProcessInputEventsScheduled','false')):
-        check(re.findall(r'^      '+key+r'=(\S+)$',roots[0],re.M)==[value],'Unsettled Settings ViewRoot: '+key)
-    traversal=re.findall(r'^      mTraversalScheduled=(\S+)$',roots[0],re.M)
-    focus=re.findall(r'^        mHasWindowFocus=(\S+)$',roots[0],re.M)
-    check(re.findall(r'^        mWindowVisibility=(\S+)$',roots[0],re.M)==['0'],'Settings window not visible')
-    pending=not (traversal==['false'] and focus==['true'])
-    if pending:
-        check(opening and traversal==['true'] and focus==['false'],'Unqualified Settings traversal/focus state')
-        choreographer=re.findall(r'^    Choreographer:\n(.*?)(?=^    [^ ]|\Z)',roots[0],re.M|re.S)
-        check(len(choreographer)==1 and
-              re.findall(r'^      mFrameScheduled=(\S+)$',choreographer[0],re.M)==['true'],
-              'Unqualified Settings opening frame state')
+    def field(section,key,pattern,indent=6):
+        values=re.findall(r'^'+' '*indent+re.escape(key)+r'=([^\n]*)$',section,re.M)
+        check(len(values)==1 and re.fullmatch(pattern,values[0]),'Missing/invalid/duplicate Settings field: '+key)
+        return values[0]
+    root={key:field(roots[0],key,r'true|false') for key in
+          ('mAdded','mRemoved','mStopped','mPausedForTransition','mProcessInputEventsScheduled','mTraversalScheduled')}
+    check(root['mAdded']=='true' and root['mRemoved']=='false','Settings ViewRoot removed/not added')
+    count=field(roots[0],'mPendingInputEventCount',r'0|[1-9]\d*')
+    focus=field(roots[0],'mHasWindowFocus',r'true|false',8)
+    visibility=field(roots[0],'mWindowVisibility',r'0|4|8',8)
+    choreographer=re.findall(r'^    Choreographer:\n(.*?)(?=^    [^ ]|\Z)',roots[0],re.M|re.S)
+    check(len(choreographer)==1,'Missing/ambiguous Settings Choreographer')
+    field(choreographer[0],'mFrameScheduled',r'true|false')
     trees=re.findall(r'^    View Hierarchy:\n(.*?)^    Looper \(main,',body,re.M|re.S)
     check(len(trees)==1,'Incomplete Settings hierarchy boundary')
     hierarchy=[];depths=[];ancestors=[];generated_ids=0
@@ -122,25 +138,52 @@ def settings_scene(text,*,opening=False):
           'Incomplete Settings decor tree')
     support=re.findall(r'^    Local FragmentActivity [0-9a-f]+ State:\n(.*)',body,re.M|re.S)
     check(len(support)==1,'Missing/ambiguous support fragment state')
-    active=re.fullmatch(r'      mCreated=true mResumed=true mStopped=false    Active Fragments:\n(.*?)^    Added Fragments:\n(.*)',support[0],re.M|re.S)
-    check(active is not None,'Unsettled support fragment manager')
-    fragments=re.findall(r'^    ([A-Za-z_$][\w.$]*\{[0-9a-f]+\} \([0-9a-f-]+ id=0x[0-9a-f]+\))$',active[1],re.M)
+    active=re.fullmatch(r'      mCreated=(true|false) mResumed=(true|false) mStopped=(true|false)    Active Fragments:\n(.*?)^    Added Fragments:\n(.*)',support[0],re.M|re.S)
+    check(active is not None and len(re.findall(r'^      mCreated=',support[0],re.M))==1,
+          'Malformed/duplicate support fragment manager')
+    created,support_resumed,support_stopped,active_body,added_body=active.groups()
+    check(created=='true' and (support_resumed,support_stopped)!=('true','true'),
+          'Uncreated/contradictory support fragment manager')
+    fragments=re.findall(r'^    ([A-Za-z_$][\w.$]*\{[0-9a-f]+\} \([0-9a-f-]+ id=0x[0-9a-f]+\))$',active_body,re.M)
     check(len(fragments)==1,'Ambiguous current Settings fragment')
     fragment=fragments[0];fragment_class=fragment.split('{',1)[0]
-    check(re.findall(r'^        mState=(\d+) mWho=[^ ]+ mBackStackNesting=\d+$',active[1],re.M)==['7'] and
-          '\n        mAdded=true mRemoving=false mFromLayout=false mInLayout=false\n' in active[1] and
-          '\n        mHidden=false mDetached=false mMenuVisible=true mHasMenu=' in active[1],
-          'Settings fragment not resumed/visible')
-    added=active[2].split('\n    ',1)[0]
+    fragment_lines=re.findall(r'^        mState=([^\n]*)$',active_body,re.M)
+    check(len(fragment_lines)==1,'Missing/duplicate Settings fragment state')
+    fragment_state=re.fullmatch(r'(\S+) mWho=[^ ]+ mBackStackNesting=\d+',fragment_lines[0])
+    check(fragment_state is not None,'Malformed Settings fragment state')
+    fragment_states=[fragment_state[1]]
+    # AndroidX VIEW_CREATED=2 through RESUMED=7 retain a view, including
+    # AWAITING_EXIT_EFFECTS=3. destroyFragmentView runs on descent to CREATED=1.
+    check(len(fragment_states)==1 and fragment_states[0] in ('2','3','4','5','6','7'),
+          'Missing/invalid/duplicate live Settings fragment state')
+    check(re.findall(r'^        mAdded=([^\n]+)$',active_body,re.M)==
+          ['true mRemoving=false mFromLayout=false mInLayout=false'] and
+          len(re.findall(r'^        mHidden=false mDetached=false mMenuVisible=true mHasMenu=(?:true|false)$',active_body,re.M))==1 and
+          len(re.findall(r'^        mHidden=',active_body,re.M))==1,
+          'Settings fragment removed/detached/hidden')
+    added=added_body.split('\n    ',1)[0]
     check(added.strip()=='#0: '+fragment,'Current/added fragment mismatch')
-    check(active[2].rstrip().endswith('mCurState=7 mStateSaved=false mStopped=false mDestroyed=false'),
-          'Incomplete support fragment tail')
+    tail_lines=re.findall(r'^      mCurState=([^\n]*)$',added_body,re.M)
+    check(len(tail_lines)==1,'Missing/duplicate support fragment tail')
+    tail=re.fullmatch(r'(\S+) mStateSaved=(true|false) mStopped=(true|false) mDestroyed=(true|false)',tail_lines[0])
+    check(tail is not None,'Malformed support fragment tail')
+    tails=[tail.groups()]
+    check(tails[0][0] in ('2','3','4','5','6','7') and tails[0][3]=='false' and
+          re.search(r'\n      mCurState=\S+ mStateSaved=(?:true|false) mStopped=(?:true|false) mDestroyed=false\s*\Z',added_body),
+          'Incomplete/invalid/destroyed support fragment tail')
     scene={'component':identity[1],'pid':int(identity[2]),'fragment':fragment_class,
            'configuration':configs[0],'hierarchy':hierarchy}
-    if pending:
-        check(scene['component']=='com.android.settings/.SubSettings' and scene['fragment']=='ScreenTimeoutSettings',
-              'Pending state is not the observed timeout opening')
-        raise SettingsOpeningPending(scene)
+    # Keep the previous stable-success predicate. FrameScheduled is parsed,
+    # but was never itself a stable-success gate. All ordinary readiness
+    # changes can only request another read, never grant action authority.
+    stable=(state==('true','false','false') and root['mStopped']=='false' and
+            root['mPausedForTransition']=='false' and count=='0' and
+            root['mProcessInputEventsScheduled']=='false' and root['mTraversalScheduled']=='false' and
+            focus=='true' and visibility=='0' and support_resumed=='true' and support_stopped=='false' and
+            fragment_states==['7'] and tails==[('7','false','false','false')])
+    if not stable:
+        check(transition,'Unsettled Settings scene')
+        raise SettingsTransitionPending(scene,finished=state[2]=='true')
     return scene
 
 
@@ -447,9 +490,9 @@ class AATimedTrial(timed.TimedStockTrial):
             f'test \"$(wc -c < {path})\" -le 4194304; cat {path}')
         return ET.fromstring(self.shell(command,label=label))
 
-    def target_scene(self,label,timeout=5,*,opening=False):
+    def target_scene(self,label,timeout=5,*,transition=False):
         text=self.shell('set -eu; '+self.target_ui_guard()+'; dumpsys activity top',label=label,timeout=timeout)
-        return settings_scene(text,opening=opening)
+        return settings_scene(text,transition=transition)
 
     def redraw_audit(self,label,begin):
         end=self.mark('REDRAW_END_'+label)
@@ -522,27 +565,29 @@ class AATimedTrial(timed.TimedStockTrial):
             'completed_monotonic':self.monotonic()}
         self.pending_read=False
 
-    def settle_scene(self,label,expected,previous,*,opening=False):
+    def settle_scene(self,label,expected,previous):
         # A single total acceptance deadline, never a fresh budget per poll.
         # The inherited ADB version handshake has its own timeout, so this is
         # not a new transport wall bound. Reject late results; the unchanged
         # outer37 alarm remains the active-window interruption/recovery guard.
-        if opening:
-            check(label.endswith('-scene-opened') and
-                  expected.get('component')=='com.android.settings/.SubSettings' and
-                  expected.get('fragment')=='ScreenTimeoutSettings' and
-                  previous.get('component')=='com.android.settings/.Settings$DisplaySettingsActivity' and
-                  previous.get('fragment')=='DisplaySettings','Pending reads allowed only while opening timeout page')
+        ready_context=('com.android.settings/.Settings$DisplaySettingsActivity','DisplaySettings')
+        opened_context=('com.android.settings/.SubSettings','ScreenTimeoutSettings')
+        contexts=(opened_context,ready_context) if label.endswith('-scene-opened') else (ready_context,opened_context)
+        check(self.pending_read and label.endswith(('-scene-opened','-scene-returned')) and
+              ((expected.get('component'),expected.get('fragment')),
+               (previous.get('component'),previous.get('fragment')))==contexts and
+              expected.get('pid')==previous.get('pid'), 'Pending reads require the known post-input transition')
         deadline=self.monotonic()+REDRAW_SETTLE_SECONDS
         if self.active_start is not None:deadline=min(deadline,self.monotonic()+self.remaining())
         while True:
             left=deadline-self.monotonic();check(left>0,'Settings transition exceeded acceptance deadline')
             try:
-                observed=self.target_scene(label,timeout=left,opening=opening)
-            except SettingsOpeningPending as exc:
-                # Parsing completed, but this is NEVER settled success. Only
-                # the entire same-trial expected opened scene may be reread.
-                check(opening and exc.scene==expected,'Unexpected pending Settings scene')
+                observed=self.target_scene(label,timeout=left,transition=True)
+            except SettingsTransitionPending as exc:
+                # A complete known context with unfinished readiness has no
+                # action authority. Finished is legal only for the source.
+                check(exc.scene in (expected,previous) and (not exc.finished or exc.scene==previous),
+                      'Unexpected pending Settings scene')
                 observed=None
             check(self.monotonic()<=deadline,'Late Settings scene result')
             if observed==expected:return scene_digest(observed)
@@ -560,7 +605,7 @@ class AATimedTrial(timed.TimedStockTrial):
         before=self.target_scene(label+'-scene-ready')
         check(before==ready,'Settings scene changed before input')
         self.shell(f'input tap {self.redraw_tap[0]} {self.redraw_tap[1]}',label=label+'-redraw-open',mutation=True)
-        opened_digest=self.settle_scene(label+'-scene-opened',opened,ready,opening=True)
+        opened_digest=self.settle_scene(label+'-scene-opened',opened,ready)
         self.shell('input keyevent 4',label=label+'-redraw-cancel',mutation=True)
         returned_digest=self.settle_scene(label+'-scene-returned',ready,opened)
         result=self.redraw_audit(label,begin)
