@@ -1,5 +1,5 @@
 {
-  "status": "offline_selector_boundary_correction_pending_independent_review_and_full_stock_qualification",
+  "status": "offline_selector_initial_snapshot_correction_pending_independent_review_and_full_stock_qualification",
   "profile": "aa",
   "default_profile_unchanged": "p85",
   "hardware_paths": [
@@ -84,13 +84,13 @@
     "06-tools/video_validation_split_20261109/video_validator_snapshot.py"
   ],
   "changed_or_new_runtime_sha256": {
-    "06-tools/run_aa_timed_stock_trial.py": "fb9f949d7acf61a84f3a5cf0bd94d2d06071d2625f790d61455685d6454d4d2c",
-    "06-tools/aa_threshold_trial.py": "e5a419b7fb03b6a1477b8937e285efa82f47392c256699eba2a079d589c5190d",
-    "06-tools/aa_acquisition_validation.py": "fb45e20f585e8b5839034d90eb362e3a3d133e9ab25f020b95c6f4e732a90b5c",
+    "06-tools/run_aa_timed_stock_trial.py": "7ec05a551af1560a75fc1765717bf35e5e6bc5290d13df0245153c347f02fdf1",
+    "06-tools/aa_threshold_trial.py": "131b35fba1e50bb36b3d0513726ae990786372e19d962b43e570d936c92d7aba",
+    "06-tools/aa_acquisition_validation.py": "2009d9d5a9845fca4fff27930ca699f58f57cf8049069f53a1dc0f9369418ad3",
     "06-tools/aa_video_validation.py": "00843592492b245060e8aa3098ffd3ca7303af0f43ea67fa474c288111abcff4",
     "06-tools/dsi_trial_transaction.py": "4407a55b3bc37e197e48c74673cff0626345124ca5163b4177ade9a567339ffa",
     "06-tools/host_source_integration_20261109/inert_source_loader.py": "6dd008a6f9f55b11fbcb43270f9510a659d4f61f8b7fc3ae2c80ab863c41b40c",
-    "06-tools/host_source_integration_20261109/host_entrypoint.py": "07bddbc66404d2d338e4ae9a23a9ab33b35a757d2296024103f6e96e0d59bfcb",
+    "06-tools/host_source_integration_20261109/host_entrypoint.py": "17c3eaae5cf34eacd89f5dc1f22c9225fed5d00857b8fed701ec789fd0d63a3a",
     "06-tools/run_p85_guarded_trial.py": "fba1ec5dbb0f7592a4d0a3167589dadac2130370cbf886cecc1d588772fa97a5",
     "06-tools/analyze_aa_threshold_trial.py": "0d66d69a2f79d78e18de6c05836d947dd1081e04a9e45e718d2f4c6d98ef70ae"
   },
@@ -108,8 +108,8 @@
       "argv_limit_bytes": 131072
     },
     "selectors": {
-      "service_bytes": 44233,
-      "shell_argv_bytes_including_nul": 44221,
+      "service_bytes": 45093,
+      "shell_argv_bytes_including_nul": 45081,
       "service_limit_bytes": 65535,
       "argv_limit_bytes": 131072
     },
@@ -621,5 +621,109 @@
       "06-tools/aa_timed_runtime_20261109/selector_esd_isolation_20261110/SOURCE_FREEZE.json"
     ],
     "evidence_directory": "06-tools/aa_timed_runtime_20261109/selector_esd_isolation_20261110"
+  },
+  "selector_initial_snapshot_correction": {
+    "contract": "aa_selector_initial_snapshot_v1",
+    "base_commit": "1612f970e1cdad38c01e967fad014733b8aeebe6",
+    "status": "author_offline_pass_pending_independent_review_physical_requalification",
+    "tests_normal": 176,
+    "tests_optimized": 176,
+    "skipped_tests": 0,
+    "test_modules": [
+      "test_aa_threshold_trial",
+      "test_run_aa_timed_stock_trial",
+      "test_aa_inherited_setup",
+      "test_aa_video_validation",
+      "test_aa_writer_esd_isolation",
+      "test_aa_saved_esd_failure",
+      "test_aa_source_profile",
+      "test_inert_source_loader",
+      "test_aa_selector_esd_isolation",
+      "test_aa_selector_initial_snapshot"
+    ],
+    "consumer_tests_normal": 84,
+    "consumer_tests_optimized": 84,
+    "consumer_test_modules": [
+      "test_aa_video_validation",
+      "test_analyze_p85_optical",
+      "test_optical_spectrum",
+      "test_analyze_p85_timed_surrogate"
+    ],
+    "test_environment": {
+      "PYTHONDONTWRITEBYTECODE": "1",
+      "PYTHONPATH": "06-tools:06-tools/host_source_integration_20261109",
+      "external_reference_variables": [
+        "AA_SCENE_STABLE_PATH",
+        "AA_SCENE_PENDING_PATH",
+        "AA_RETURN_READY_PATH",
+        "AA_RETURN_PENDING_PATH",
+        "AA_MISSING_SCENE_PATH"
+      ],
+      "private_references_published": false
+    },
+    "runtime_sha256": {
+      "06-tools/aa_threshold_trial.py": "131b35fba1e50bb36b3d0513726ae990786372e19d962b43e570d936c92d7aba",
+      "06-tools/run_aa_timed_stock_trial.py": "7ec05a551af1560a75fc1765717bf35e5e6bc5290d13df0245153c347f02fdf1",
+      "06-tools/aa_acquisition_validation.py": "2009d9d5a9845fca4fff27930ca699f58f57cf8049069f53a1dc0f9369418ad3",
+      "06-tools/host_source_integration_20261109/host_entrypoint.py": "17c3eaae5cf34eacd89f5dc1f22c9225fed5d00857b8fed701ec789fd0d63a3a"
+    },
+    "snapshot_source": "same_existing_initial_S_after_initial_local_checks_before_isolation_or_DSI",
+    "initial_snapshot_cap_bytes": 4193280,
+    "child_cap_bytes": 4194304,
+    "outer_to_initial_rule": "unchanged_validate_safe_gap",
+    "initial_to_after_rule": "unchanged_exact_trace_delta",
+    "numeric_empty_controller_count": true,
+    "retained_provenance": [
+      "outer_before_sha256",
+      "initial_sha256",
+      "outer_event_count",
+      "initial_event_count",
+      "entry_count_before",
+      "safe_gap_events"
+    ],
+    "held_esd_and_restore_cursor_latches_unchanged": true,
+    "residual": "guard_to_initial_gap_is_host_classified_after_CHILD_not_atomic_first_dispatch_or_whole_ESD_nonoverlap_proof",
+    "new_remote_classifier": false,
+    "new_trace_capture_count": 0,
+    "extra_fixed_wait_seconds": 0,
+    "host_dispatch_count_change": 0,
+    "measured_physical_overhead_seconds": null,
+    "unchanged_limits_seconds": {
+      "active": 37,
+      "host": 45,
+      "reserve": 8,
+      "short_watchdog": 60,
+      "overall_watchdog": 600
+    },
+    "actual_0171_diagnosis": "one_leading_native_ESD_rc1_then_exact_seven_pages_ten_controls_no_trailing_extra",
+    "actual_0171_new_contract_rejection_verified": true,
+    "actual_missing_initial_snapshot_reconstructed": false,
+    "physical_stock_qualified": false,
+    "candidate_admitted": false,
+    "pwm_hz": null,
+    "live_device_operations": 0,
+    "git_mutations": 0,
+    "modified_files": [
+      "06-tools/AA_TIMED_INTEGRATION.md",
+      "06-tools/aa_acquisition_validation.py",
+      "06-tools/aa_threshold_trial.py",
+      "06-tools/aa_timed_runtime_closure.json",
+      "06-tools/host_source_integration_20261109/host_entrypoint.py",
+      "06-tools/host_source_integration_20261109/test_aa_source_profile.py",
+      "06-tools/run_aa_timed_stock_trial.py",
+      "06-tools/test_aa_threshold_trial.py",
+      "06-tools/test_aa_video_validation.py",
+      "06-tools/test_run_aa_timed_stock_trial.py"
+    ],
+    "new_files": [
+      "06-tools/test_aa_selector_initial_snapshot.py",
+      "06-tools/aa_timed_runtime_20261109/selector_initial_snapshot_20261110/REVIEW.md",
+      "06-tools/aa_timed_runtime_20261109/selector_initial_snapshot_20261110/tests_normal.txt",
+      "06-tools/aa_timed_runtime_20261109/selector_initial_snapshot_20261110/tests_optimized.txt",
+      "06-tools/aa_timed_runtime_20261109/selector_initial_snapshot_20261110/consumer_tests_normal.txt",
+      "06-tools/aa_timed_runtime_20261109/selector_initial_snapshot_20261110/consumer_tests_optimized.txt",
+      "06-tools/aa_timed_runtime_20261109/selector_initial_snapshot_20261110/SOURCE_FREEZE.json"
+    ],
+    "evidence_directory": "06-tools/aa_timed_runtime_20261109/selector_initial_snapshot_20261110"
   }
 }

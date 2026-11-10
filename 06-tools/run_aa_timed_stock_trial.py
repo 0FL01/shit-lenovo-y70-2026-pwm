@@ -462,8 +462,10 @@ def qualification(record,source):
         check(stage.get('same_dbv_replay',{}).get('exact_wire_verified') is True and stage.get('redraw_audit',{}).get('native_dsi_writes')==0,'Missing surrogate replay/redraw')
         check(stage.get('selectors_before_hold',{}).get('values')==aa.SELECTORS,'Missing surrogate prehold selectors')
         acquisition.validate_selector_lifecycle(stage['selectors_before_hold'])
+        acquisition.validate_selector_boundary(stage['selectors_before_hold'])
         if stage['label']!='sham_stock':
             acquisition.validate_selector_lifecycle(stage.get('selectors_after_hold',{}))
+            acquisition.validate_selector_boundary(stage.get('selectors_after_hold',{}))
         if stage['label']=='sham_stock':
             check(stage.get('c1')==acquisition.OMITTED_C1 and stage.get('selectors_after_hold')==acquisition.OMITTED_POSTSELECTORS,
                   'Mixed middle diagnostic policy')
@@ -605,7 +607,20 @@ class AATimedTrial(timed.TimedStockTrial):
         check(not self.pending_read and not self.inflight,'Selectors forbidden after uncertainty')
         self.pending_read=True
         data,begin,end=self.aa_envelope(aa.selector_script(self.tmp,self.token,self.entry_count),label)
-        result=aa.validate_selectors(data['CHILD'],data['TRACE_BEFORE'],data['TRACE_AFTER'],self.entry_count)
+        initial,_=aa.selector_initial(data['CHILD'])
+        gap=validate_safe_gap(data['TRACE_BEFORE'],initial,self.entry_count)
+        result=aa.validate_selectors(data['CHILD'],initial,data['TRACE_AFTER'],self.entry_count)
+        result['trace_boundary']={
+            'contract': acquisition.SELECTOR_TRACE_CONTRACT,
+            'outer_source': 'TRACE_BEFORE', 'initial_source': 'CHILD/SELECTOR_INITIAL',
+            'capture': 'existing_snapshot_before_isolation_and_dsi',
+            'outer_before_sha256': aa.digest(data['TRACE_BEFORE'].encode('utf-8')),
+            'initial_sha256': aa.digest(initial.encode('utf-8')),
+            'outer_event_count': len(aa.tx._events(data['TRACE_BEFORE'])),
+            'initial_event_count': len(aa.tx._events(initial)),
+            'entry_count_before': self.entry_count, 'safe_gap_events': gap,
+        }
+        acquisition.validate_selector_boundary(result)
         s.verify_read_interval(data['KERNEL'],begin,end,self.reference)
         validated = self.monotonic()
         # Keep the exact pre-restore cursor. Resumed polling belongs to the

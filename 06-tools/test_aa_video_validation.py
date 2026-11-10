@@ -115,6 +115,15 @@ def fixture(candidate=False):
                                      'entry_count_after':15 if i==0 else 34}
             stage['hold_guard_verified_monotonic']=stage['hold_verified_monotonic']+.005
         if i!=1:stage["postselectors_verified_monotonic"]=stage["hold_verified_monotonic"]+.01
+        for side in (("selectors_before_hold",) if i==1 else ("selectors_before_hold","selectors_after_hold")):
+            before=stage[side]["entry_count_after"]-7
+            stage[side]["trace_boundary"]={
+                "contract":v.SELECTOR_TRACE_CONTRACT,"outer_source":"TRACE_BEFORE",
+                "initial_source":"CHILD/SELECTOR_INITIAL",
+                "capture":"existing_snapshot_before_isolation_and_dsi",
+                "outer_before_sha256":"a"*64,"initial_sha256":"a"*64,
+                "outer_event_count":before*3,"initial_event_count":before*3,
+                "entry_count_before":before,"safe_gap_events":[]}
         stage["selectors_before_hold"]["esd_lifecycle"].update(
             validated_monotonic=stage["prehold_started_monotonic"]+.001,
             restored_monotonic=stage["prehold_qualified_monotonic"])

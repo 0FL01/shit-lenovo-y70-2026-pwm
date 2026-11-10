@@ -122,7 +122,10 @@ class Transport:
                 else:
                     if r.esd_mode != 'reg_read': raise AssertionError('Selector needs reg_read')
                     r.esd_mode='esd_sw_sim_success'
-                    value=getattr(r,'selector_raw',SELECTOR_RAW)
+                    from test_aa_threshold_trial import selector_capture
+                    r.trace+=getattr(r,'selector_initial_suffix','')
+                    value=getattr(r,'selector_raw',selector_capture(r.trace))
+                    r.trace+=getattr(r,'selector_after_initial_suffix','')
                     for index,rc in enumerate(t.aa.SELECTOR_CONTROLS):
                         if index not in (1,4,7):r.trace+='mode_entry: pending=0 length=11 flags=0\n'
                         r.trace+=f'mode_ctrl_return: rc={rc}\n'

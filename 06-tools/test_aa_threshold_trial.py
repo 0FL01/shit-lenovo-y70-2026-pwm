@@ -15,7 +15,12 @@ TOKEN='aa_offline_test_token'
 TMP='/data/local/tmp/aa_offline_test'
 
 # Sanitized native debugfs rendering, including its final ASCII space.
-SELECTOR_RAW='ESD_ISOLATED esd_sw_sim_success\nR 23:A9 0x0e \nR 24:9D 0x0e \nR 00:52 0x0e 0x10 \nESD_HELD esd_sw_sim_success\n'
+SELECTOR_BODY='ESD_ISOLATED esd_sw_sim_success\nR 23:A9 0x0e \nR 24:9D 0x0e \nR 00:52 0x0e 0x10 \nESD_HELD esd_sw_sim_success\n'
+
+def selector_capture(initial='',body=SELECTOR_BODY):
+    return f'SELECTOR_INITIAL_BEGIN {len(initial.encode())}\n'+initial+'\nSELECTOR_INITIAL_END\n'+body
+
+SELECTOR_RAW=selector_capture()
 
 class AATests(unittest.TestCase):
     def test_exact_programs_and_all_byte_mutations(self):

@@ -32,12 +32,44 @@ SCHEMA = "aa-threshold-optical-v1"
 ACQUISITION_SCHEMA = "aa-threshold-acquisition-v1"
 WRITER_ESD_CONTRACT = "aa_full_table_esd_isolation_v1"
 SELECTOR_ESD_CONTRACT = "aa_selector_esd_isolation_v1"
+SELECTOR_TRACE_CONTRACT = "aa_selector_initial_snapshot_v1"
 REDRAW_SCENE_CONTRACT = "same_trial_settings_fragment_tree_v4"
 DIAGNOSTIC_CONTRACT = "aa_middle_optical_minimal_v1"
 OMITTED_C1 = {"status":"not_measured","reason":"middle C1 omitted by "+DIAGNOSTIC_CONTRACT}
 OMITTED_POSTSELECTORS = {"status":"not_measured","reason":"middle posthold selectors omitted by "+DIAGNOSTIC_CONTRACT}
 BASELINE_PHASES = {"writer_and_quiet","same_dbv_replay","redraw_audit","selectors_before_hold",
                    "c1","hold_and_metadata","hold_end_guard","selectors_after_hold"}
+
+def validate_selector_boundary(selectors):
+    boundary=selectors.get("trace_boundary",{})
+    static={"contract":SELECTOR_TRACE_CONTRACT,"outer_source":"TRACE_BEFORE",
+            "initial_source":"CHILD/SELECTOR_INITIAL",
+            "capture":"existing_snapshot_before_isolation_and_dsi"}
+    fields={"outer_before_sha256","initial_sha256","outer_event_count",
+            "initial_event_count","entry_count_before","safe_gap_events"}
+    require(type(boundary) is dict and set(boundary)==set(static)|fields and
+            all(type(boundary.get(k)) is type(v) and boundary[k]==v for k,v in static.items()),
+            "Missing exact selector initial snapshot provenance")
+    require(all(type(boundary[k]) is str and re.fullmatch(r'[0-9a-f]{64}',boundary[k])
+                for k in ("outer_before_sha256","initial_sha256")) and
+            all(type(boundary[k]) is int and boundary[k]>=0
+                for k in ("outer_event_count","initial_event_count","entry_count_before")),
+            "Invalid selector initial snapshot identity/counts")
+    gap=boundary["safe_gap_events"]
+    require(type(gap) is list and boundary["initial_event_count"]==boundary["outer_event_count"]+len(gap) and
+            boundary["outer_event_count"]>=2*boundary["entry_count_before"] and
+            type(selectors.get("entry_count_after")) is int and
+            selectors["entry_count_after"]==boundary["entry_count_before"]+7,
+            "Selector initial snapshot event/count discontinuity")
+    for event in gap:
+        require(type(event) is dict and set(event)=={"kind","caller","return_code","timestamp"} and
+                event["kind"]=="native_esd_in_safe_gap" and
+                event["caller"]=="dsi_display_validate_status+0x154/0x308" and
+                type(event["return_code"]) is int and event["return_code"]==1 and
+                finite(event["timestamp"]) and event["timestamp"]>=0,
+                "Unqualified selector preinput safe-gap evidence")
+    return boundary
+
 
 def validate_selector_lifecycle(selectors):
     """Only a held child followed by validated host restoration qualifies.
@@ -232,6 +264,7 @@ def validate_acquisition(run):
                     selectors.get("controller_returns")==[0,1,0,0,1,0,0,2,0,0],
                     "Selectors/controller returns not qualified")
             validate_selector_lifecycle(selectors)
+            validate_selector_boundary(selectors)
         require(transaction["entry_count_after"]==entry_count+5,"Transaction callback count discontinuity")
         entry_count+=5
         replay=stage.get("same_dbv_replay",{})

@@ -405,3 +405,21 @@ see aa_timed_runtime_closure.json selector_esd_isolation_correction and
 [boundary review](aa_timed_runtime_20261109/selector_esd_isolation_20261110/REVIEW.md).
 The synthetic boundary proof does not diagnose saved0171. Actual failure cause
 remains unknown, and physical retry/stock qualification remain on hold.
+
+## Initial selector snapshot correction (2026-11-10)
+
+The actual saved0171 failure was subsequently resolved as one leading native
+ESD controller return, not the restoration-side window. The new
+`aa_selector_initial_snapshot_v1` contract publishes the already-captured child
+initial snapshot, validates outer-before→initial using the existing safe-gap
+rule, and initial→outer-after using unchanged exact selector checks. This is
+required in runtime, acquisition and stock qualification; old captures without
+the snapshot remain nonqualifying. The1612 held-ESD restoration order is retained.
+No snapshot is reconstructed by slicing or return timestamps.
+
+The guard→initial interval remains host-classified after CHILD; no atomic first-
+dispatch or whole-ESD-overlap guarantee is claimed. No extra capture, sleep or
+roundtrip is added. See [initial-boundary review](aa_timed_runtime_20261109/selector_initial_snapshot_20261110/REVIEW.md)
+and the current selector_initial_snapshot_correction closure for tests, source
+identities and encoded-size checks. Physical same-source requalification is
+still required before candidate admission.

@@ -19,6 +19,7 @@ TRACE='/sys/kernel/tracing/instances/pwm_mode'
 SELECTORS={'23:A9':[14],'24:9D':[14],'00:52':[14,16]}
 SELECTOR_CONTROLS=[0,1,0,0,1,0,0,2,0,0]
 SCHEMA='aa-threshold-acquisition-v1'
+SELECTOR_INITIAL_LIMIT=4*1024*1024-1024
 PROBES={
  'mode_entry':'p:pwm_mode/mode_entry msm_drm:dsi_display_cmd_transfer pending=+0x694($arg2):u32 length=$arg4:u32 flags=+3($arg3):u8',
  'mode_return':'r:pwm_mode/mode_return msm_drm:dsi_display_cmd_transfer rc=$retval:s32',
@@ -172,7 +173,29 @@ def trace_delta(before,after,entry_count,entries,controls):
     require(found[entry_count:]==entries and new==old+controls,'Unexpected callback/control delta')
     return {'page_callbacks_verified':len(entries),'controller_returns':controls,'entry_count_after':entry_count+len(entries)}
 
+def selector_initial(raw):
+    """Parse the exact existing child snapshot; never reconstruct it from events."""
+    require(type(raw) is str, 'Selector bytes must decode strictly')
+    data=raw.encode('utf-8')
+    require(len(data)<=4*1024*1024 and b'\x00' not in data, 'Oversized/NUL selector capture')
+    require(data.count(b'SELECTOR_INITIAL_BEGIN ')==1 and data.count(b'SELECTOR_INITIAL_END')==1,
+            'Missing/duplicate selector initial snapshot')
+    match=re.match(rb'SELECTOR_INITIAL_BEGIN (0|[1-9][0-9]{0,6})\n',data)
+    require(match is not None, 'Malformed selector initial framing')
+    length=int(match[1]);require(length<=SELECTOR_INITIAL_LIMIT, 'Oversized selector initial snapshot')
+    end=match.end()+length;boundary=b'\nSELECTOR_INITIAL_END\n'
+    require(data[end:end+len(boundary)]==boundary, 'Truncated/mismatched selector initial snapshot')
+    initial=data[match.end():end].decode('utf-8','strict')
+    require([line for line in initial.splitlines() if line.strip() and not line.lstrip().startswith('#')]==tx._events(initial),
+            'Unknown selector initial trace event')
+    return initial,data[end+len(boundary):].decode('utf-8','strict')
+
+
 def validate_selectors(raw,before,after,entry_count):
+    # The host first validates outer TRACE_BEFORE -> this exact initial snapshot
+    # with its existing safe-gap rule. This validator never admits an edge gap.
+    initial,raw=selector_initial(raw)
+    require(initial==before, 'Selector initial snapshot differs from admitted boundary')
     require(raw.count('ESD_ISOLATED esd_sw_sim_success')==1 and raw.count('ESD_HELD esd_sw_sim_success')==1,'ESD lifecycle')
     lines=[line for line in raw.splitlines() if line]
     require(len(lines)==5 and lines[0]=='ESD_ISOLATED esd_sw_sim_success' and lines[-1]=='ESD_HELD esd_sw_sim_success','Unexpected selector framing')
@@ -199,7 +222,7 @@ def selector_script(tmp,token,entry_count):
 /mode_entry:/ {e++;for(i=1;i<=NF;i++){if($i~/^pending=/){split($i,a,"=");p=a[2]} if($i~/^length=/){split($i,a,"=");l=a[2]} if($i~/^flags=/){split($i,a,"=");f=a[2]}}}
 /mode_return:/ {r++;if($NF!="rc=0")bad=1}
 /mode_ctrl_return:/ {c++;if(oldc>=0 && c>oldc && $NF!="rc="want_rc)bad=1}
-END {if(bad || e!=want || r!=want || (page && (p!=0 || l!=11 || f!=0)) || (oldc>=0 && c!=oldc+1))exit 51;print c}'''
+END {if(bad || e!=want || r!=want || (page && (p!=0 || l!=11 || f!=0)) || (oldc>=0 && c!=oldc+1))exit 51;print c+0}'''
     body=f'''set -eu
 {lock_commands(token)['verify']}
 {scratch_guards(tmp,('selector-trace','selector-previous','selector-events','selector-prefix'))}
@@ -216,6 +239,12 @@ P0='0x39 0 0 0 0 0 4 0xFF 0x5A 0xA5 0'
 cat {TRACE}/trace > "$S"
 oldc=$(awk -v want={entry_count} -v oldc=-1 {shlex.quote(awk)} "$S")
 if grep -E 'mode_(entry|return|ctrl_return):' "$S" > "$V"; then :; else grep_rc=$?; test "$grep_rc" = 1; test ! -s "$V"; fi
+initial_bytes=$(wc -c < "$S")
+initial_bytes=$((initial_bytes + 0))
+test "$initial_bytes" -le {SELECTOR_INITIAL_LIMIT}
+printf 'SELECTOR_INITIAL_BEGIN %s\\n' "$initial_bytes"
+cat "$S"
+printf '\\nSELECTOR_INITIAL_END\\n'
 [ "$(tr -d '\\000' < "$E")" = reg_read ]
 printf '%s\\n' esd_sw_sim_success > "$E"
 [ "$(tr -d '\\000' < "$E")" = esd_sw_sim_success ]

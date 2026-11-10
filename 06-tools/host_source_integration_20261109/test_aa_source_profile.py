@@ -62,6 +62,7 @@ class Tests(unittest.TestCase):
         import inert_source_loader as loader
         import aa_acquisition_validation as acquisition
         self.assertEqual(acquisition.SELECTOR_ESD_CONTRACT, 'aa_selector_esd_isolation_v1')
+        self.assertEqual(acquisition.SELECTOR_TRACE_CONTRACT, 'aa_selector_initial_snapshot_v1')
         files={p:(ROOT/p).read_bytes() for p in host.AA_HARDWARE_PATHS}
         proof={'source_commit':'a'*40,'source_blob_ids':{p:loader.blob_id(raw,'sha1') for p,raw in files.items()}}
         loaded={'profile':'aa','source_commit':proof['source_commit'],

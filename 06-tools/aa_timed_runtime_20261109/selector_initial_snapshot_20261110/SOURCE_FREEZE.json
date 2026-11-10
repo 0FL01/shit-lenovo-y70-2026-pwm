@@ -1,0 +1,45 @@
+{
+  "status": "frozen_for_independent_review_not_physical_admission",
+  "base_commit": "1612f970e1cdad38c01e967fad014733b8aeebe6",
+  "modified_files": [
+    "06-tools/AA_TIMED_INTEGRATION.md",
+    "06-tools/aa_acquisition_validation.py",
+    "06-tools/aa_threshold_trial.py",
+    "06-tools/aa_timed_runtime_closure.json",
+    "06-tools/host_source_integration_20261109/host_entrypoint.py",
+    "06-tools/host_source_integration_20261109/test_aa_source_profile.py",
+    "06-tools/run_aa_timed_stock_trial.py",
+    "06-tools/test_aa_threshold_trial.py",
+    "06-tools/test_aa_video_validation.py",
+    "06-tools/test_run_aa_timed_stock_trial.py"
+  ],
+  "new_files": [
+    "06-tools/test_aa_selector_initial_snapshot.py",
+    "06-tools/aa_timed_runtime_20261109/selector_initial_snapshot_20261110/REVIEW.md",
+    "06-tools/aa_timed_runtime_20261109/selector_initial_snapshot_20261110/tests_normal.txt",
+    "06-tools/aa_timed_runtime_20261109/selector_initial_snapshot_20261110/tests_optimized.txt",
+    "06-tools/aa_timed_runtime_20261109/selector_initial_snapshot_20261110/consumer_tests_normal.txt",
+    "06-tools/aa_timed_runtime_20261109/selector_initial_snapshot_20261110/consumer_tests_optimized.txt",
+    "06-tools/aa_timed_runtime_20261109/selector_initial_snapshot_20261110/SOURCE_FREEZE.json"
+  ],
+  "sha256_excluding_self": {
+    "06-tools/AA_TIMED_INTEGRATION.md": "b519e9aecadccfd6270d3f178ae4dd82e62ff636d0889a01c67a1c66ef8ca072",
+    "06-tools/aa_acquisition_validation.py": "2009d9d5a9845fca4fff27930ca699f58f57cf8049069f53a1dc0f9369418ad3",
+    "06-tools/aa_threshold_trial.py": "131b35fba1e50bb36b3d0513726ae990786372e19d962b43e570d936c92d7aba",
+    "06-tools/aa_timed_runtime_closure.json": "78489cff041396e579b3d311a24bd465b99ae681760c05e815b81819e03e11ba",
+    "06-tools/host_source_integration_20261109/host_entrypoint.py": "17c3eaae5cf34eacd89f5dc1f22c9225fed5d00857b8fed701ec789fd0d63a3a",
+    "06-tools/host_source_integration_20261109/test_aa_source_profile.py": "1138d1acf5108139517941f63fec1582e24ef7a38fbb8019b51afef375398f9a",
+    "06-tools/run_aa_timed_stock_trial.py": "7ec05a551af1560a75fc1765717bf35e5e6bc5290d13df0245153c347f02fdf1",
+    "06-tools/test_aa_threshold_trial.py": "5226139696698008779b6922778a0ad91e1a1fbdb9868c5b5d9e2adb4dd0ab27",
+    "06-tools/test_aa_video_validation.py": "e55dc1711e86e84dd5dbd905e940fa3a96eb13b519cec8a2c91f3ee4ffb5d095",
+    "06-tools/test_run_aa_timed_stock_trial.py": "9508127c584894173bd38ea3e6785017c705b88365f979671d16c756e1772f66",
+    "06-tools/test_aa_selector_initial_snapshot.py": "46122aa63c80ad2df6ee07cf672afa632ff9cc2d1bdf603d46a036176640d854",
+    "06-tools/aa_timed_runtime_20261109/selector_initial_snapshot_20261110/REVIEW.md": "ca1652dfbacc9289b4493d42551073558a89906417b8648534ec1496b11fba9f",
+    "06-tools/aa_timed_runtime_20261109/selector_initial_snapshot_20261110/tests_normal.txt": "b6061a3c6ce1010f0d32b6f3ecfab0161c850ad532a907e85ded80355f18a718",
+    "06-tools/aa_timed_runtime_20261109/selector_initial_snapshot_20261110/tests_optimized.txt": "6ee73814309f49ab42072968c94f1482fc14b15a643925d4fc1db590fa558578",
+    "06-tools/aa_timed_runtime_20261109/selector_initial_snapshot_20261110/consumer_tests_normal.txt": "99dcbdf8bb3dfc0f899b28e7605b21c18e5eada83f7d26d8b591c5958fb3eb65",
+    "06-tools/aa_timed_runtime_20261109/selector_initial_snapshot_20261110/consumer_tests_optimized.txt": "dca02752b10c789680a828f2f23884acb628df73e6f7e55bbdda8e10c57b9429"
+  },
+  "self_hash": "not embedded",
+  "private_raw_fixture_included": false
+}
