@@ -1,0 +1,470 @@
+{
+  "WBW": [
+    {
+      "phase": "1_white",
+      "log_C_over_R_median": 0.16232247,
+      "regions": {
+        "C": {
+          "pixels_per_slot": 70400,
+          "slot_counts_floor_ceiling_union": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "range_across_channels_slots_DN": [
+            4,
+            82
+          ],
+          "phase_union_pct": 0.0,
+          "slots_at_or_above_1pct_union": 0
+        },
+        "R": {
+          "pixels_per_slot": 50600,
+          "slot_counts_floor_ceiling_union": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "range_across_channels_slots_DN": [
+            3,
+            28
+          ],
+          "phase_union_pct": 0.0,
+          "slots_at_or_above_1pct_union": 0
+        }
+      }
+    },
+    {
+      "phase": "2_black",
+      "log_C_over_R_median": 0.26448314,
+      "regions": {
+        "C": {
+          "pixels_per_slot": 70400,
+          "slot_counts_floor_ceiling_union": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "range_across_channels_slots_DN": [
+            4,
+            91
+          ],
+          "phase_union_pct": 0.0,
+          "slots_at_or_above_1pct_union": 0
+        },
+        "R": {
+          "pixels_per_slot": 50600,
+          "slot_counts_floor_ceiling_union": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "range_across_channels_slots_DN": [
+            3,
+            21
+          ],
+          "phase_union_pct": 0.0,
+          "slots_at_or_above_1pct_union": 0
+        }
+      }
+    },
+    {
+      "phase": "3_white",
+      "log_C_over_R_median": 0.17818233,
+      "regions": {
+        "C": {
+          "pixels_per_slot": 70400,
+          "slot_counts_floor_ceiling_union": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "range_across_channels_slots_DN": [
+            4,
+            83
+          ],
+          "phase_union_pct": 0.0,
+          "slots_at_or_above_1pct_union": 0
+        },
+        "R": {
+          "pixels_per_slot": 50600,
+          "slot_counts_floor_ceiling_union": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "range_across_channels_slots_DN": [
+            3,
+            26
+          ],
+          "phase_union_pct": 0.0,
+          "slots_at_or_above_1pct_union": 0
+        }
+      }
+    }
+  ],
+  "spatial": [
+    {
+      "phase": "1A",
+      "log_C_over_R_median": 0.22435357,
+      "regions": {
+        "C": {
+          "pixels_per_slot": 70400,
+          "slot_counts_floor_ceiling_union": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "range_across_channels_slots_DN": [
+            4,
+            88
+          ],
+          "phase_union_pct": 0.0,
+          "slots_at_or_above_1pct_union": 0
+        },
+        "R": {
+          "pixels_per_slot": 50600,
+          "slot_counts_floor_ceiling_union": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "range_across_channels_slots_DN": [
+            3,
+            27
+          ],
+          "phase_union_pct": 0.0,
+          "slots_at_or_above_1pct_union": 0
+        }
+      }
+    },
+    {
+      "phase": "2B",
+      "log_C_over_R_median": 0.18992361,
+      "regions": {
+        "C": {
+          "pixels_per_slot": 70400,
+          "slot_counts_floor_ceiling_union": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "range_across_channels_slots_DN": [
+            4,
+            80
+          ],
+          "phase_union_pct": 0.0,
+          "slots_at_or_above_1pct_union": 0
+        },
+        "R": {
+          "pixels_per_slot": 50600,
+          "slot_counts_floor_ceiling_union": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "range_across_channels_slots_DN": [
+            3,
+            24
+          ],
+          "phase_union_pct": 0.0,
+          "slots_at_or_above_1pct_union": 0
+        }
+      }
+    },
+    {
+      "phase": "3A",
+      "log_C_over_R_median": 0.22827498,
+      "regions": {
+        "C": {
+          "pixels_per_slot": 70400,
+          "slot_counts_floor_ceiling_union": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "range_across_channels_slots_DN": [
+            4,
+            91
+          ],
+          "phase_union_pct": 0.0,
+          "slots_at_or_above_1pct_union": 0
+        },
+        "R": {
+          "pixels_per_slot": 50600,
+          "slot_counts_floor_ceiling_union": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "range_across_channels_slots_DN": [
+            3,
+            25
+          ],
+          "phase_union_pct": 0.0,
+          "slots_at_or_above_1pct_union": 0
+        }
+      }
+    },
+    {
+      "phase": "4B",
+      "log_C_over_R_median": 0.19550263,
+      "regions": {
+        "C": {
+          "pixels_per_slot": 70400,
+          "slot_counts_floor_ceiling_union": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "range_across_channels_slots_DN": [
+            4,
+            83
+          ],
+          "phase_union_pct": 0.0,
+          "slots_at_or_above_1pct_union": 0
+        },
+        "R": {
+          "pixels_per_slot": 50600,
+          "slot_counts_floor_ceiling_union": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "range_across_channels_slots_DN": [
+            2,
+            23
+          ],
+          "phase_union_pct": 0.0,
+          "slots_at_or_above_1pct_union": 0
+        }
+      }
+    },
+    {
+      "phase": "5A",
+      "log_C_over_R_median": 0.22699393,
+      "regions": {
+        "C": {
+          "pixels_per_slot": 70400,
+          "slot_counts_floor_ceiling_union": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "range_across_channels_slots_DN": [
+            4,
+            87
+          ],
+          "phase_union_pct": 0.0,
+          "slots_at_or_above_1pct_union": 0
+        },
+        "R": {
+          "pixels_per_slot": 50600,
+          "slot_counts_floor_ceiling_union": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "range_across_channels_slots_DN": [
+            3,
+            26
+          ],
+          "phase_union_pct": 0.0,
+          "slots_at_or_above_1pct_union": 0
+        }
+      }
+    }
+  ]
+}
