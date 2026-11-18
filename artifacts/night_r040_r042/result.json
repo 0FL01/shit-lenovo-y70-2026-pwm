@@ -1,0 +1,668 @@
+{
+  "phases": [
+    {
+      "phase": "P00",
+      "planned_dbv": 2632,
+      "state": "accepted",
+      "planned": 3,
+      "captured": 3,
+      "accepted": 3,
+      "early_dbv": 2632,
+      "late_dbv": 2632,
+      "n_pixel_observations": 243960,
+      "channel_zero": [
+        320,
+        7260,
+        100931
+      ],
+      "any_zero": 108282,
+      "all_zero": 2,
+      "any_255": 0,
+      "chroma_s1": 108280,
+      "max_rgb": 174,
+      "n_coordinates": 81320,
+      "identical_rgb_across_three": 369,
+      "bottom_yellow_wide": 0,
+      "bottom_yellow_primary": 4,
+      "bottom_n": 1284
+    },
+    {
+      "phase": "P01",
+      "planned_dbv": 2632,
+      "state": "accepted",
+      "planned": 3,
+      "captured": 3,
+      "accepted": 3,
+      "early_dbv": 2632,
+      "late_dbv": 2632,
+      "n_pixel_observations": 243960,
+      "channel_zero": [
+        287,
+        7109,
+        100938
+      ],
+      "any_zero": 107990,
+      "all_zero": 2,
+      "any_255": 0,
+      "chroma_s1": 107988,
+      "max_rgb": 171,
+      "n_coordinates": 81320,
+      "identical_rgb_across_three": 340,
+      "bottom_yellow_wide": 0,
+      "bottom_yellow_primary": 0,
+      "bottom_n": 1284
+    },
+    {
+      "phase": "P02",
+      "planned_dbv": 2633,
+      "state": "accepted",
+      "planned": 3,
+      "captured": 3,
+      "accepted": 3,
+      "early_dbv": 2633,
+      "late_dbv": 2633,
+      "n_pixel_observations": 243960,
+      "channel_zero": [
+        440,
+        7451,
+        101945
+      ],
+      "any_zero": 109436,
+      "all_zero": 2,
+      "any_255": 0,
+      "chroma_s1": 109434,
+      "max_rgb": 170,
+      "n_coordinates": 81320,
+      "identical_rgb_across_three": 286,
+      "bottom_yellow_wide": 0,
+      "bottom_yellow_primary": 0,
+      "bottom_n": 1284
+    },
+    {
+      "phase": "P03",
+      "planned_dbv": 2632,
+      "state": "accepted",
+      "planned": 3,
+      "captured": 3,
+      "accepted": 3,
+      "early_dbv": 2632,
+      "late_dbv": 2632,
+      "n_pixel_observations": 243960,
+      "channel_zero": [
+        298,
+        7745,
+        102094
+      ],
+      "any_zero": 109834,
+      "all_zero": 4,
+      "any_255": 0,
+      "chroma_s1": 109830,
+      "max_rgb": 169,
+      "n_coordinates": 81320,
+      "identical_rgb_across_three": 439,
+      "bottom_yellow_wide": 0,
+      "bottom_yellow_primary": 0,
+      "bottom_n": 1284
+    },
+    {
+      "phase": "P04",
+      "planned_dbv": 2631,
+      "state": "accepted",
+      "planned": 3,
+      "captured": 3,
+      "accepted": 3,
+      "early_dbv": 2631,
+      "late_dbv": 2631,
+      "n_pixel_observations": 243960,
+      "channel_zero": [
+        318,
+        7106,
+        101271
+      ],
+      "any_zero": 108413,
+      "all_zero": 24,
+      "any_255": 0,
+      "chroma_s1": 108389,
+      "max_rgb": 174,
+      "n_coordinates": 81320,
+      "identical_rgb_across_three": 385,
+      "bottom_yellow_wide": 0,
+      "bottom_yellow_primary": 0,
+      "bottom_n": 1284
+    },
+    {
+      "phase": "P05",
+      "planned_dbv": 2632,
+      "state": "accepted",
+      "planned": 3,
+      "captured": 3,
+      "accepted": 3,
+      "early_dbv": 2632,
+      "late_dbv": 2632,
+      "n_pixel_observations": 243960,
+      "channel_zero": [
+        382,
+        7334,
+        101322
+      ],
+      "any_zero": 108819,
+      "all_zero": 6,
+      "any_255": 0,
+      "chroma_s1": 108813,
+      "max_rgb": 178,
+      "n_coordinates": 81320,
+      "identical_rgb_across_three": 391,
+      "bottom_yellow_wide": 0,
+      "bottom_yellow_primary": 0,
+      "bottom_n": 1284
+    },
+    {
+      "phase": "P06",
+      "planned_dbv": 2633,
+      "state": "accepted",
+      "planned": 3,
+      "captured": 3,
+      "accepted": 3,
+      "early_dbv": 2633,
+      "late_dbv": 2633,
+      "n_pixel_observations": 243960,
+      "channel_zero": [
+        354,
+        7226,
+        100305
+      ],
+      "any_zero": 107545,
+      "all_zero": 6,
+      "any_255": 0,
+      "chroma_s1": 107539,
+      "max_rgb": 168,
+      "n_coordinates": 81320,
+      "identical_rgb_across_three": 232,
+      "bottom_yellow_wide": 0,
+      "bottom_yellow_primary": 0,
+      "bottom_n": 1284
+    },
+    {
+      "phase": "P07",
+      "planned_dbv": 2634,
+      "state": "accepted",
+      "planned": 3,
+      "captured": 3,
+      "accepted": 3,
+      "early_dbv": 2634,
+      "late_dbv": 2634,
+      "n_pixel_observations": 243960,
+      "channel_zero": [
+        427,
+        7414,
+        101932
+      ],
+      "any_zero": 109431,
+      "all_zero": 7,
+      "any_255": 0,
+      "chroma_s1": 109424,
+      "max_rgb": 172,
+      "n_coordinates": 81320,
+      "identical_rgb_across_three": 343,
+      "bottom_yellow_wide": 0,
+      "bottom_yellow_primary": 0,
+      "bottom_n": 1284
+    },
+    {
+      "phase": "P08",
+      "planned_dbv": 2633,
+      "state": "accepted",
+      "planned": 3,
+      "captured": 3,
+      "accepted": 3,
+      "early_dbv": 2633,
+      "late_dbv": 2633,
+      "n_pixel_observations": 243960,
+      "channel_zero": [
+        460,
+        8863,
+        101451
+      ],
+      "any_zero": 110253,
+      "all_zero": 13,
+      "any_255": 0,
+      "chroma_s1": 110240,
+      "max_rgb": 169,
+      "n_coordinates": 81320,
+      "identical_rgb_across_three": 451,
+      "bottom_yellow_wide": 0,
+      "bottom_yellow_primary": 0,
+      "bottom_n": 1284
+    },
+    {
+      "phase": "P09",
+      "planned_dbv": 2632,
+      "state": "accepted",
+      "planned": 3,
+      "captured": 3,
+      "accepted": 3,
+      "early_dbv": 2632,
+      "late_dbv": 2632,
+      "n_pixel_observations": 243960,
+      "channel_zero": [
+        457,
+        7689,
+        101544
+      ],
+      "any_zero": 109334,
+      "all_zero": 17,
+      "any_255": 0,
+      "chroma_s1": 109317,
+      "max_rgb": 174,
+      "n_coordinates": 81320,
+      "identical_rgb_across_three": 360,
+      "bottom_yellow_wide": 0,
+      "bottom_yellow_primary": 0,
+      "bottom_n": 1284
+    },
+    {
+      "phase": "P10",
+      "planned_dbv": 2633,
+      "state": "accepted",
+      "planned": 3,
+      "captured": 3,
+      "accepted": 3,
+      "early_dbv": 2633,
+      "late_dbv": 2633,
+      "n_pixel_observations": 243960,
+      "channel_zero": [
+        339,
+        8396,
+        102362
+      ],
+      "any_zero": 110566,
+      "all_zero": 35,
+      "any_255": 0,
+      "chroma_s1": 110531,
+      "max_rgb": 170,
+      "n_coordinates": 81320,
+      "identical_rgb_across_three": 287,
+      "bottom_yellow_wide": 0,
+      "bottom_yellow_primary": 0,
+      "bottom_n": 1284
+    },
+    {
+      "phase": "P11",
+      "planned_dbv": 2633,
+      "state": "accepted",
+      "planned": 3,
+      "captured": 3,
+      "accepted": 3,
+      "early_dbv": 2633,
+      "late_dbv": 2633,
+      "n_pixel_observations": 243960,
+      "channel_zero": [
+        419,
+        7709,
+        102075
+      ],
+      "any_zero": 109743,
+      "all_zero": 7,
+      "any_255": 0,
+      "chroma_s1": 109736,
+      "max_rgb": 174,
+      "n_coordinates": 81320,
+      "identical_rgb_across_three": 248,
+      "bottom_yellow_wide": 0,
+      "bottom_yellow_primary": 0,
+      "bottom_n": 1284
+    },
+    {
+      "phase": "P12",
+      "planned_dbv": 2634,
+      "state": "accepted",
+      "planned": 3,
+      "captured": 3,
+      "accepted": 3,
+      "early_dbv": 2634,
+      "late_dbv": 2634,
+      "n_pixel_observations": 243960,
+      "channel_zero": [
+        501,
+        7152,
+        99273
+      ],
+      "any_zero": 106630,
+      "all_zero": 2,
+      "any_255": 0,
+      "chroma_s1": 106628,
+      "max_rgb": 169,
+      "n_coordinates": 81320,
+      "identical_rgb_across_three": 364,
+      "bottom_yellow_wide": 0,
+      "bottom_yellow_primary": 0,
+      "bottom_n": 1284
+    },
+    {
+      "phase": "P13",
+      "planned_dbv": 2633,
+      "state": "accepted",
+      "planned": 3,
+      "captured": 3,
+      "accepted": 3,
+      "early_dbv": 2633,
+      "late_dbv": 2633,
+      "n_pixel_observations": 243960,
+      "channel_zero": [
+        389,
+        7580,
+        101850
+      ],
+      "any_zero": 109553,
+      "all_zero": 6,
+      "any_255": 0,
+      "chroma_s1": 109547,
+      "max_rgb": 166,
+      "n_coordinates": 81320,
+      "identical_rgb_across_three": 398,
+      "bottom_yellow_wide": 0,
+      "bottom_yellow_primary": 1,
+      "bottom_n": 1284
+    },
+    {
+      "phase": "P14",
+      "planned_dbv": 2632,
+      "state": "rejected-slot-0",
+      "planned": 3,
+      "captured": 1,
+      "accepted": 0,
+      "early_dbv": 2632,
+      "late_dbv": null
+    },
+    {
+      "phase": "P15",
+      "planned_dbv": 2631,
+      "state": "not-issued",
+      "planned": 3,
+      "captured": 0,
+      "accepted": 0,
+      "early_dbv": null,
+      "late_dbv": null
+    },
+    {
+      "phase": "P16",
+      "planned_dbv": 2632,
+      "state": "not-issued",
+      "planned": 3,
+      "captured": 0,
+      "accepted": 0,
+      "early_dbv": null,
+      "late_dbv": null
+    }
+  ],
+  "median_profile_pairs": {
+    "sham": [
+      {
+        "i": 0,
+        "j": 1,
+        "distance": 0.006619938
+      },
+      {
+        "i": 10,
+        "j": 11,
+        "distance": 0.009865005
+      }
+    ],
+    "repeated": [
+      {
+        "i": 0,
+        "j": 3,
+        "distance": 0.009371755
+      },
+      {
+        "i": 0,
+        "j": 5,
+        "distance": 0.007969886
+      },
+      {
+        "i": 0,
+        "j": 9,
+        "distance": 0.007450675
+      },
+      {
+        "i": 1,
+        "j": 3,
+        "distance": 0.006905504
+      },
+      {
+        "i": 1,
+        "j": 5,
+        "distance": 0.008307373
+      },
+      {
+        "i": 1,
+        "j": 9,
+        "distance": 0.007165109
+      },
+      {
+        "i": 2,
+        "j": 6,
+        "distance": 0.007242991
+      },
+      {
+        "i": 2,
+        "j": 8,
+        "distance": 0.009319834
+      },
+      {
+        "i": 2,
+        "j": 10,
+        "distance": 0.008800623
+      },
+      {
+        "i": 2,
+        "j": 11,
+        "distance": 0.013369678
+      },
+      {
+        "i": 2,
+        "j": 13,
+        "distance": 0.009190031
+      },
+      {
+        "i": 3,
+        "j": 5,
+        "distance": 0.007165109
+      },
+      {
+        "i": 3,
+        "j": 9,
+        "distance": 0.008930426
+      },
+      {
+        "i": 5,
+        "j": 9,
+        "distance": 0.008826584
+      },
+      {
+        "i": 6,
+        "j": 8,
+        "distance": 0.011370717
+      },
+      {
+        "i": 6,
+        "j": 10,
+        "distance": 0.007061267
+      },
+      {
+        "i": 6,
+        "j": 11,
+        "distance": 0.012305296
+      },
+      {
+        "i": 6,
+        "j": 13,
+        "distance": 0.009008307
+      },
+      {
+        "i": 7,
+        "j": 12,
+        "distance": 0.011915888
+      },
+      {
+        "i": 8,
+        "j": 10,
+        "distance": 0.011370717
+      },
+      {
+        "i": 8,
+        "j": 11,
+        "distance": 0.014330218
+      },
+      {
+        "i": 8,
+        "j": 13,
+        "distance": 0.010773624
+      },
+      {
+        "i": 10,
+        "j": 13,
+        "distance": 0.008437175
+      },
+      {
+        "i": 11,
+        "j": 13,
+        "distance": 0.010410177
+      }
+    ],
+    "up": [
+      {
+        "i": 1,
+        "j": 2,
+        "distance": 0.007943925
+      },
+      {
+        "i": 5,
+        "j": 6,
+        "distance": 0.008956386
+      },
+      {
+        "i": 9,
+        "j": 10,
+        "distance": 0.007398754
+      }
+    ],
+    "down": [
+      {
+        "i": 2,
+        "j": 3,
+        "distance": 0.007320872
+      },
+      {
+        "i": 8,
+        "j": 9,
+        "distance": 0.008904465
+      }
+    ],
+    "lower_neighbor": [
+      {
+        "i": 3,
+        "j": 4,
+        "distance": 0.008359294
+      },
+      {
+        "i": 4,
+        "j": 5,
+        "distance": 0.008826584
+      }
+    ],
+    "upper_neighbor": [
+      {
+        "i": 6,
+        "j": 7,
+        "distance": 0.00674974
+      },
+      {
+        "i": 7,
+        "j": 8,
+        "distance": 0.014226376
+      },
+      {
+        "i": 11,
+        "j": 12,
+        "distance": 0.008229491
+      },
+      {
+        "i": 12,
+        "j": 13,
+        "distance": 0.007892004
+      }
+    ]
+  },
+  "original_primary": {
+    "margin_at_csv_precision": -0.016588,
+    "groups": {
+      "within": [
+        14,
+        0.008775,
+        0.026739
+      ],
+      "sham": [
+        2,
+        0.011085,
+        0.014901
+      ],
+      "repeated": [
+        24,
+        0.010073,
+        0.018172
+      ],
+      "up": [
+        3,
+        0.01028,
+        0.012799
+      ],
+      "down": [
+        2,
+        0.010151,
+        0.01298
+      ],
+      "lower_neighbor": [
+        2,
+        0.011942,
+        0.012279
+      ],
+      "upper_neighbor": [
+        4,
+        0.012591,
+        0.018302
+      ]
+    },
+    "crossings": [
+      [
+        1,
+        2,
+        0.01041
+      ],
+      [
+        2,
+        3,
+        0.010151
+      ],
+      [
+        5,
+        6,
+        0.012799
+      ],
+      [
+        8,
+        9,
+        0.01298
+      ],
+      [
+        9,
+        10,
+        0.01028
+      ]
+    ]
+  },
+  "failed_glyphs": {
+    "AUTO": 0.7987798979573179,
+    "X1": 0.7847946210530344
+  }
+}

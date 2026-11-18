@@ -1,0 +1,41 @@
+{
+  "metric": "per-slot ln(center/right), as summarized in R8",
+  "archived": {
+    "WBW": {
+      "phases": "ABA",
+      "frames": 9,
+      "B_minus_A_median_range": [
+        0.08630081,
+        0.10216067
+      ],
+      "B_minus_A_all_slot_range": [
+        0.068812,
+        0.11652095
+      ]
+    },
+    "spatial": {
+      "phases": "ABABA",
+      "frames": 15,
+      "B_minus_A_median_range": [
+        -0.03835137,
+        -0.02885094
+      ],
+      "B_minus_A_all_slot_range": [
+        -0.06726812,
+        -0.0050637
+      ]
+    }
+  },
+  "R7_42_slots_any_channel_zero_percent_min_max": [
+    [
+      29.69023569,
+      3.9512987
+    ],
+    [
+      35.40824916,
+      5.42694805
+    ]
+  ],
+  "matched_sham_triplets_available_in_input": 0,
+  "new_slots": 0
+}
