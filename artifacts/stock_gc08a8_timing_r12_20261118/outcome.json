@@ -1,0 +1,126 @@
+{
+  "public_driver_git_commit": "65ef638c5c49dddf78f5b48edddd44786d705197",
+  "public_source_sha256": "31642addc37af0b7c370b80805ffe731a9f8074fa50e8d8114f6daef6a7a6e05",
+  "driver_declared_modes": {
+    "prev": {
+      "pclk": 280000000,
+      "linelength": 3640,
+      "framelength": 2548,
+      "full_h": 2448,
+      "y1_offset": 0,
+      "w2_tg_size": 3264,
+      "h2_tg_size": 2448
+    },
+    "cap": {
+      "pclk": 280000000,
+      "linelength": 3640,
+      "framelength": 2548,
+      "full_h": 2448,
+      "y1_offset": 0,
+      "w2_tg_size": 3264,
+      "h2_tg_size": 2448
+    },
+    "vid": {
+      "pclk": 280000000,
+      "linelength": 3640,
+      "framelength": 2548,
+      "full_h": 2448,
+      "y1_offset": 306,
+      "w2_tg_size": 3264,
+      "h2_tg_size": 1836
+    }
+  },
+  "model_line_ns": 13000,
+  "declared_exposure_step_lines": 4,
+  "samples": {
+    "expert_wide": {
+      "driver": "SENSOR_DRVNAME_GC08A8_MIPI_RAW",
+      "active_rect": [
+        0,
+        0,
+        3264,
+        2448
+      ],
+      "ae": "ON",
+      "skew_ns": 31824000,
+      "exposure_ns": 60008000,
+      "request_exposure_ns": 0,
+      "exposure_in_model_lines": 4616
+    },
+    "short_drag": {
+      "driver": "SENSOR_DRVNAME_GC08A8_MIPI_RAW",
+      "active_rect": [
+        0,
+        0,
+        3264,
+        2448
+      ],
+      "ae": "OFF",
+      "skew_ns": 31824000,
+      "exposure_ns": 156000,
+      "request_exposure_ns": 200000,
+      "exposure_in_model_lines": 12
+    },
+    "short2": {
+      "driver": "SENSOR_DRVNAME_GC08A8_MIPI_RAW",
+      "active_rect": [
+        0,
+        0,
+        3264,
+        2448
+      ],
+      "ae": "OFF",
+      "skew_ns": 31824000,
+      "exposure_ns": 156000,
+      "request_exposure_ns": 200000,
+      "exposure_in_model_lines": 12
+    },
+    "short3": {
+      "driver": "SENSOR_DRVNAME_GC08A8_MIPI_RAW",
+      "active_rect": [
+        0,
+        0,
+        3264,
+        2448
+      ],
+      "ae": "OFF",
+      "skew_ns": 31824000,
+      "exposure_ns": 156000,
+      "request_exposure_ns": 200000,
+      "exposure_in_model_lines": 12
+    },
+    "short4": {
+      "driver": "SENSOR_DRVNAME_GC08A8_MIPI_RAW",
+      "active_rect": [
+        0,
+        0,
+        3264,
+        2448
+      ],
+      "ae": "OFF",
+      "skew_ns": 31824000,
+      "exposure_ns": 156000,
+      "request_exposure_ns": 200000,
+      "exposure_in_model_lines": 12
+    },
+    "wide_auto_return": {
+      "driver": "SENSOR_DRVNAME_GC08A8_MIPI_RAW",
+      "active_rect": [
+        0,
+        0,
+        3264,
+        2448
+      ],
+      "ae": "ON",
+      "skew_ns": 31824000,
+      "exposure_ns": 60008000,
+      "request_exposure_ns": 0,
+      "exposure_in_model_lines": 4616
+    }
+  },
+  "installed_binary_source_match": null,
+  "selected_sensor_scenario": null,
+  "screenshot_readout_axis_and_sign": null,
+  "optical_preview_pixel_time_ns": null,
+  "panel_pwm_hz": null
+}
