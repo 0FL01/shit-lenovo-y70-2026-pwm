@@ -1,0 +1,369 @@
+{
+  "scope": "Android stock Extra Dim: software positive; optical acquisition rejected on EXIF drift. No physical PWM inference.",
+  "photos": [
+    {
+      "phase": "off1",
+      "shutter_command_host_utc": "2026-11-18T18:39:55.603692+00:00",
+      "dimensions": [
+        4080,
+        3072
+      ],
+      "exif": {
+        "exposure_seconds": 0.06999804,
+        "iso": 9827,
+        "focal_mm": 5.56,
+        "f_number": 1.87,
+        "exposure_mode": 0,
+        "white_balance": 0,
+        "flash": 0
+      }
+    },
+    {
+      "phase": "off2",
+      "shutter_command_host_utc": "2026-11-18T18:41:29.661546+00:00",
+      "dimensions": [
+        4080,
+        3072
+      ],
+      "exif": {
+        "exposure_seconds": 0.06999804,
+        "iso": 9827,
+        "focal_mm": 5.56,
+        "f_number": 1.87,
+        "exposure_mode": 0,
+        "white_balance": 0,
+        "flash": 0
+      }
+    },
+    {
+      "phase": "off3",
+      "shutter_command_host_utc": "2026-11-18T18:41:38.243783+00:00",
+      "dimensions": [
+        4080,
+        3072
+      ],
+      "exif": {
+        "exposure_seconds": 0.06999804,
+        "iso": 9827,
+        "focal_mm": 5.56,
+        "f_number": 1.87,
+        "exposure_mode": 0,
+        "white_balance": 0,
+        "flash": 0
+      }
+    },
+    {
+      "phase": "on1",
+      "shutter_command_host_utc": "2026-11-18T18:43:07.214462+00:00",
+      "dimensions": [
+        4080,
+        3072
+      ],
+      "exif": {
+        "exposure_seconds": 0.06999804,
+        "iso": 12681,
+        "focal_mm": 5.56,
+        "f_number": 1.87,
+        "exposure_mode": 0,
+        "white_balance": 0,
+        "flash": 0
+      }
+    },
+    {
+      "phase": "return1",
+      "shutter_command_host_utc": "2026-11-18T18:43:51.479333+00:00",
+      "dimensions": [
+        4080,
+        3072
+      ],
+      "exif": {
+        "exposure_seconds": 0.06999804,
+        "iso": 9117,
+        "focal_mm": 5.56,
+        "f_number": 1.87,
+        "exposure_mode": 0,
+        "white_balance": 0,
+        "flash": 0
+      }
+    },
+    {
+      "phase": "return2",
+      "shutter_command_host_utc": "2026-11-18T18:43:59.912657+00:00",
+      "dimensions": [
+        4080,
+        3072
+      ],
+      "exif": {
+        "exposure_seconds": 0.06999804,
+        "iso": 9117,
+        "focal_mm": 5.56,
+        "f_number": 1.87,
+        "exposure_mode": 0,
+        "white_balance": 0,
+        "flash": 0
+      }
+    },
+    {
+      "phase": "return3",
+      "shutter_command_host_utc": "2026-11-18T18:44:08.228875+00:00",
+      "dimensions": [
+        4080,
+        3072
+      ],
+      "exif": {
+        "exposure_seconds": 0.06999804,
+        "iso": 9117,
+        "focal_mm": 5.56,
+        "f_number": 1.87,
+        "exposure_mode": 0,
+        "white_balance": 0,
+        "flash": 0
+      }
+    }
+  ],
+  "target_snapshots": {
+    "transaction_pre": {
+      "host_utc": "2026-11-18T18:43:00.053308+00:00",
+      "fields": {
+        "user": 0,
+        "awake": true,
+        "keyguard_showing": "false",
+        "foreground": "com.motorola.appforecast/com.motorola.appforecast.ui.activity.ZRamSettingsActivity",
+        "screen_brightness": 105,
+        "screen_brightness_mode": 0,
+        "min_refresh": 120.0,
+        "peak_refresh": 120.0,
+        "activated_key": "null",
+        "level_key": "null",
+        "persist_key": "null",
+        "activated": "false",
+        "strength": 50,
+        "policy": "DIM",
+        "reason": "manual [ dim ]",
+        "rbc": "false",
+        "hdr_layer": "false",
+        "active_sf_mode": 0,
+        "vsync_hz": 120.0,
+        "display_nits": 4.835865,
+        "sdr_white_nits": 4.835865,
+        "color_matrix": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "panel_brightness": 828,
+        "panel_actual_brightness": 0,
+        "panel_bl_power": 0,
+        "panel_dc": 0
+      }
+    },
+    "on1_pre": {
+      "host_utc": "2026-11-18T18:43:05.912809+00:00",
+      "fields": {
+        "user": 0,
+        "awake": true,
+        "keyguard_showing": "false",
+        "foreground": "com.motorola.appforecast/com.motorola.appforecast.ui.activity.ZRamSettingsActivity",
+        "screen_brightness": 105,
+        "screen_brightness_mode": 0,
+        "min_refresh": 120.0,
+        "peak_refresh": 120.0,
+        "activated_key": "1",
+        "level_key": "null",
+        "persist_key": "null",
+        "activated": "true",
+        "strength": 50,
+        "policy": "DIM",
+        "reason": "manual [ dim ]",
+        "rbc": "true",
+        "hdr_layer": "false",
+        "active_sf_mode": 0,
+        "vsync_hz": 120.0,
+        "display_nits": 4.835865,
+        "sdr_white_nits": 4.835865,
+        "color_matrix": [
+          [
+            0.522,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.522,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.522,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "panel_brightness": 828,
+        "panel_actual_brightness": 0,
+        "panel_bl_power": 0,
+        "panel_dc": 0
+      }
+    },
+    "restore_independent": {
+      "host_utc": "2026-11-18T18:43:49.493357+00:00",
+      "fields": {
+        "user": 0,
+        "awake": true,
+        "keyguard_showing": "false",
+        "foreground": "com.motorola.appforecast/com.motorola.appforecast.ui.activity.ZRamSettingsActivity",
+        "screen_brightness": 105,
+        "screen_brightness_mode": 0,
+        "min_refresh": 120.0,
+        "peak_refresh": 120.0,
+        "activated_key": "null",
+        "level_key": "null",
+        "persist_key": "null",
+        "activated": "false",
+        "strength": 50,
+        "policy": "DIM",
+        "reason": "manual [ dim ]",
+        "rbc": "false",
+        "hdr_layer": "false",
+        "active_sf_mode": 0,
+        "vsync_hz": 120.0,
+        "display_nits": 4.835865,
+        "sdr_white_nits": 4.835865,
+        "color_matrix": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "panel_brightness": 828,
+        "panel_actual_brightness": 0,
+        "panel_bl_power": 0,
+        "panel_dc": 0
+      }
+    },
+    "final": {
+      "host_utc": "2026-11-18T18:44:16.176282+00:00",
+      "fields": {
+        "user": 0,
+        "awake": true,
+        "keyguard_showing": "false",
+        "foreground": "com.motorola.appforecast/com.motorola.appforecast.ui.activity.ZRamSettingsActivity",
+        "screen_brightness": 105,
+        "screen_brightness_mode": 0,
+        "min_refresh": 120.0,
+        "peak_refresh": 120.0,
+        "activated_key": "null",
+        "level_key": "null",
+        "persist_key": "null",
+        "activated": "false",
+        "strength": 50,
+        "policy": "DIM",
+        "reason": "manual [ dim ]",
+        "rbc": "false",
+        "hdr_layer": "false",
+        "active_sf_mode": 0,
+        "vsync_hz": 120.0,
+        "display_nits": 4.835865,
+        "sdr_white_nits": 4.835865,
+        "color_matrix": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "panel_brightness": 828,
+        "panel_actual_brightness": 0,
+        "panel_bl_power": 0,
+        "panel_dc": 0
+      }
+    }
+  },
+  "transaction": {
+    "dispatch_stock_enable_with_bounded_inverse": {
+      "host_utc": "2026-11-18T18:43:02.644444+00:00",
+      "result": true
+    },
+    "own_rollback": {
+      "host_utc": "2026-11-18T18:43:15.530175+00:00",
+      "result": "Deleted 1 rows"
+    },
+    "device_inverse_ack": {
+      "host_utc": "2026-11-18T18:43:15.888150+00:00",
+      "result": 0
+    }
+  },
+  "restore_exact_all_original_lines_ignoring_timestamp": [
+    true,
+    true
+  ],
+  "on_contrast_admitted": false
+}
