@@ -1,0 +1,261 @@
+{
+  "cn_qdcm": {
+    "bytes": 1058416,
+    "common_dither_fields": [],
+    "panel": "mipi_mot_cmd_boe_1440p_dsc_682",
+    "profiles": {
+      "hdr-dolby-257": {
+        "PostBlendDither": {
+          "displayID": 0,
+          "enable": false
+        },
+        "PostBlendPaDither": {
+          "displayID": 0,
+          "enable": 0
+        }
+      },
+      "hdr-nature": {
+        "PostBlendDither": {
+          "displayID": 0,
+          "ditherMode": "LUMA",
+          "enable": true,
+          "matrix": [
+            15,
+            7,
+            13,
+            5,
+            3,
+            11,
+            1,
+            9,
+            12,
+            4,
+            14,
+            6,
+            0,
+            8,
+            2,
+            10
+          ],
+          "matrixExt": [
+            15,
+            7,
+            13,
+            5,
+            3,
+            11,
+            1,
+            9,
+            12,
+            4,
+            14,
+            6,
+            0,
+            8,
+            2,
+            10
+          ],
+          "matrixSelect": 0,
+          "offsetEnable": false,
+          "strengthB": 6,
+          "strengthG": 6,
+          "strengthR": 6,
+          "temporalEnable": 0
+        },
+        "PostBlendPaDither": {
+          "displayID": 0,
+          "enable": 0
+        }
+      },
+      "hdr-vivid-300": {
+        "PostBlendDither": {
+          "displayID": 0,
+          "ditherMode": "LUMA",
+          "enable": true,
+          "matrix": [
+            15,
+            7,
+            13,
+            5,
+            3,
+            11,
+            1,
+            9,
+            12,
+            4,
+            14,
+            6,
+            0,
+            8,
+            2,
+            10
+          ],
+          "matrixExt": [
+            15,
+            7,
+            13,
+            5,
+            3,
+            11,
+            1,
+            9,
+            12,
+            4,
+            14,
+            6,
+            0,
+            8,
+            2,
+            10
+          ],
+          "matrixSelect": 0,
+          "offsetEnable": false,
+          "strengthB": 6,
+          "strengthG": 6,
+          "strengthR": 6,
+          "temporalEnable": 0
+        },
+        "PostBlendPaDither": {
+          "displayID": 0,
+          "enable": 0
+        }
+      },
+      "native-calibration-259": {
+        "PostBlendDither": {
+          "displayID": 0,
+          "enable": false
+        },
+        "PostBlendPaDither": {
+          "displayID": 0,
+          "enable": 0
+        }
+      },
+      "native-radiant-256": {
+        "PostBlendDither": {
+          "displayID": 0,
+          "enable": false
+        },
+        "PostBlendPaDither": {
+          "displayID": 0,
+          "enable": 0
+        }
+      },
+      "native-vivid-v04": {
+        "PostBlendDither": {
+          "displayID": 0,
+          "enable": false
+        },
+        "PostBlendPaDither": {
+          "displayID": 0,
+          "enable": 0
+        }
+      },
+      "p3-257-unused": {
+        "PostBlendDither": {
+          "displayID": 0,
+          "enable": false
+        },
+        "PostBlendPaDither": {
+          "displayID": 0,
+          "enable": 0
+        }
+      },
+      "p3-300-unused": {
+        "PostBlendDither": {
+          "displayID": 0,
+          "enable": false
+        },
+        "PostBlendPaDither": {
+          "displayID": 0,
+          "enable": 0
+        }
+      },
+      "p3-natural-merge-cali-3dlut": {
+        "PostBlendDither": {
+          "displayID": 0,
+          "enable": false
+        },
+        "PostBlendPaDither": {
+          "displayID": 0,
+          "enable": 0
+        }
+      },
+      "srgb-257-for-sdrRenderList-unused": {
+        "PostBlendDither": {
+          "displayID": 0,
+          "enable": false
+        },
+        "PostBlendPaDither": {
+          "displayID": 0,
+          "enable": 0
+        }
+      },
+      "srgb-300-for-sdrRenderList-unused": {
+        "PostBlendDither": {
+          "displayID": 0,
+          "enable": false
+        },
+        "PostBlendPaDither": {
+          "displayID": 0,
+          "enable": 0
+        }
+      },
+      "srgb-natural-merge-cali-3dlut": {
+        "PostBlendDither": {
+          "displayID": 0,
+          "enable": false
+        },
+        "PostBlendPaDither": {
+          "displayID": 0,
+          "enable": 0
+        }
+      }
+    },
+    "sha256": "bda2618a08c53244d90a913c167d40ba386e954f02737ef6423bf79e735ca1db",
+    "version": 3
+  },
+  "device_actions": 0,
+  "dt_apl_enabled": true,
+  "func_id": 0,
+  "global_qdcm_identity": null,
+  "manual_16001_reachability": null,
+  "max_dbv": 16180,
+  "module_sha256": "1bec69faec736e7288f38e4cb83314c37c60d33e6b383213316fd880aa0b1804",
+  "optical_pwm_hz": null,
+  "payloads": {
+    "hbm-off": [
+      "ff 5a a5 1e",
+      "80 89",
+      "ff 5a a5 00",
+      "6e 00"
+    ],
+    "hbm-on": [
+      "ff 5a a5 1e",
+      "80 a9",
+      "85 08",
+      "ff 5a a5 00",
+      "51 3f fc"
+    ],
+    "panel-apl-off": [
+      "ff 5a a5 1e",
+      "80 89",
+      "ff 5a a5 00"
+    ],
+    "panel-apl-on": [
+      "ff 5a a5 1e",
+      "80 a9",
+      "85 08",
+      "ff 5a a5 00"
+    ]
+  },
+  "text_words": {
+    "0x1b5a6c": "0x6b01013f",
+    "0x1b5a70": "0x54000262",
+    "0x1b5a74": "0x370001a8",
+    "0x1b5a7c": "0x35000168",
+    "0x1b5ad4": "0x94003e63",
+    "0x1b5afc": "0x392122d4",
+    "0x1b5b04": "0x34fffd35"
+  },
+  "threshold": 16000
+}
