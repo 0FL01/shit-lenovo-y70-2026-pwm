@@ -1,0 +1,182 @@
+{
+  "r11": {
+    "frames": {
+      "expert_wide": {
+        "direct": {
+          "n": 1280,
+          "mean_y": 221.34391093749997,
+          "any0": 0,
+          "any255": 645
+        },
+        "background": {
+          "n": 1280,
+          "mean_y": 4.4826929687499995,
+          "any0": 0,
+          "any255": 0
+        }
+      },
+      "short_drag": {
+        "direct": {
+          "n": 1280,
+          "mean_y": 47.86447328124999,
+          "any0": 0,
+          "any255": 0
+        },
+        "background": {
+          "n": 1280,
+          "mean_y": 8.760088437499999,
+          "any0": 0,
+          "any255": 0
+        }
+      },
+      "short2": {
+        "direct": {
+          "n": 1280,
+          "mean_y": 44.33389296875,
+          "any0": 0,
+          "any255": 0
+        },
+        "background": {
+          "n": 1280,
+          "mean_y": 9.11552140625,
+          "any0": 0,
+          "any255": 0
+        }
+      },
+      "short3": {
+        "direct": {
+          "n": 1280,
+          "mean_y": 50.2537328125,
+          "any0": 0,
+          "any255": 0
+        },
+        "background": {
+          "n": 1280,
+          "mean_y": 9.56500125,
+          "any0": 0,
+          "any255": 0
+        }
+      },
+      "short4": {
+        "direct": {
+          "n": 1280,
+          "mean_y": 49.7537709375,
+          "any0": 0,
+          "any255": 0
+        },
+        "background": {
+          "n": 1280,
+          "mean_y": 9.83524734375,
+          "any0": 0,
+          "any255": 0
+        }
+      }
+    },
+    "box_exclusive": {
+      "direct": [
+        914,
+        1085,
+        1011,
+        1182
+      ],
+      "background": [
+        114,
+        1085,
+        211,
+        1182
+      ],
+      "witnesses_union": [
+        920,
+        915,
+        1053,
+        975
+      ]
+    },
+    "ratios": {
+      "short_drag": {
+        "direct": 4.624388314834069,
+        "background": 0.5117177755375829,
+        "direct_over_background": 9.036989793790019,
+        "within_10_percent": false
+      },
+      "short2": {
+        "direct": 4.992656771502572,
+        "background": 0.49176484470504006,
+        "direct_over_background": 10.152528846378113,
+        "within_10_percent": false
+      },
+      "short3": {
+        "direct": 4.404526759501603,
+        "background": 0.4686557640282587,
+        "direct_over_background": 9.398213139732174,
+        "within_10_percent": false
+      },
+      "short4": {
+        "direct": 4.448786629973216,
+        "background": 0.45577836652970544,
+        "direct_over_background": 9.76085518021897,
+        "within_10_percent": false
+      }
+    }
+  },
+  "r7": {
+    "groups": {
+      "X1 / 5mS / AC": [
+        "P00_s0",
+        "P00_s1",
+        "P00_s2",
+        "P01_s0",
+        "P01_s1",
+        "P01_s2",
+        "P02_s0",
+        "P02_s1",
+        "P02_s2",
+        "P03_s0",
+        "P03_s1",
+        "P03_s2",
+        "P04_s0",
+        "P04_s1",
+        "P04_s2",
+        "P05_s0",
+        "P05_s1",
+        "P05_s2",
+        "P06_s0",
+        "P06_s1",
+        "P06_s2",
+        "P07_s0",
+        "P07_s1",
+        "P07_s2",
+        "P08_s0",
+        "P08_s1",
+        "P08_s2",
+        "P09_s0",
+        "P09_s1",
+        "P09_s2",
+        "P10_s0",
+        "P10_s1",
+        "P10_s2",
+        "P11_s0",
+        "P11_s1",
+        "P11_s2",
+        "P12_s0",
+        "P12_s1",
+        "P12_s2",
+        "P13_s0",
+        "P13_s1",
+        "P13_s2",
+        "P14_s0"
+      ]
+    },
+    "unreadable": [],
+    "missing": [
+      "P14_s1",
+      "P14_s2",
+      "P15_s0",
+      "P15_s1",
+      "P15_s2",
+      "P16_s0",
+      "P16_s1",
+      "P16_s2"
+    ]
+  }
+}
