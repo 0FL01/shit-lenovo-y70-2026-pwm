@@ -1,0 +1,113 @@
+{
+  "dc_phase_rows": [
+    [
+      "brightness78_dc0_0",
+      0,
+      0,
+      5197,
+      [
+        "on",
+        "off"
+      ]
+    ],
+    [
+      "brightness78_dc1_1",
+      1,
+      1,
+      5197,
+      [
+        "on"
+      ]
+    ],
+    [
+      "brightness78_dc0_2",
+      0,
+      0,
+      5197,
+      [
+        "off"
+      ]
+    ],
+    [
+      "brightness40_dc0_3",
+      0,
+      0,
+      2839,
+      []
+    ],
+    [
+      "brightness40_dc1_4",
+      1,
+      1,
+      2839,
+      [
+        "on"
+      ]
+    ],
+    [
+      "brightness40_dc0_5",
+      0,
+      0,
+      2839,
+      [
+        "off"
+      ]
+    ]
+  ],
+  "extra_dim": {
+    "states": [
+      [
+        "transaction_pre",
+        "null",
+        1.0,
+        50,
+        828,
+        0,
+        120.0
+      ],
+      [
+        "on1_pre",
+        "1",
+        0.522,
+        50,
+        828,
+        0,
+        120.0
+      ],
+      [
+        "restore_independent",
+        "null",
+        1.0,
+        50,
+        828,
+        0,
+        120.0
+      ],
+      [
+        "final",
+        "null",
+        1.0,
+        50,
+        828,
+        0,
+        120.0
+      ]
+    ],
+    "auto_accepted": false,
+    "auto_photos": 7,
+    "locked_raster_medians": [
+      0.61,
+      0.091,
+      0.537
+    ]
+  },
+  "apl": {
+    "threshold": 16000,
+    "first_on_candidate": 16001,
+    "max_class": 16180,
+    "framework_cap": 0.86662334,
+    "mapped_normalized_backlight": 0.87007874,
+    "estimated_native_at_cap": 14078,
+    "pre_and_post_native": 6879
+  }
+}
