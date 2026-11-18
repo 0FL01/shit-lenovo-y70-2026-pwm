@@ -1,0 +1,202 @@
+{
+  "status": "commissioning_rejected",
+  "samples": 0,
+  "native_reference_count": 3,
+  "reference_failure": "commissioning absolute gate",
+  "reference_scores": [
+    {
+      "score": {
+        "pass_geometry_highlights": false,
+        "failures": [
+          "right-upper/b:absolute"
+        ],
+        "anchors": {
+          "top-right/a": {
+            "pos": 963,
+            "height": 36.5,
+            "grad": 24.0,
+            "width": 2
+          },
+          "top-right/b": {
+            "pos": 963,
+            "height": 37.0,
+            "grad": 24.0,
+            "width": 2
+          },
+          "right-upper/a": {
+            "pos": 554,
+            "height": 15.75,
+            "grad": 8.5,
+            "width": 3
+          },
+          "right-upper/b": {
+            "pos": 555,
+            "height": 7.75,
+            "grad": 4.5,
+            "width": 2
+          },
+          "top-left": {
+            "pos": 965,
+            "height": 15.0,
+            "grad": 9.0,
+            "width": 3
+          },
+          "right-lower": {
+            "pos": 556,
+            "height": 28.375,
+            "grad": 16.25,
+            "width": 3
+          },
+          "bottom-right": {
+            "pos": 1289,
+            "height": 40.25,
+            "grad": 23.0,
+            "width": 3
+          }
+        },
+        "face_max": 204,
+        "trace_max": 181,
+        "trace_zero_rgb": [
+          98,
+          2407,
+          33859
+        ],
+        "trace_pixels": 81320
+      },
+      "any_zero": 36232,
+      "all_zero": 0
+    },
+    {
+      "score": {
+        "pass_geometry_highlights": true,
+        "failures": [],
+        "anchors": {
+          "top-right/a": {
+            "pos": 963,
+            "height": 27.5,
+            "grad": 18.0,
+            "width": 2
+          },
+          "top-right/b": {
+            "pos": 964,
+            "height": 26.0,
+            "grad": 18.0,
+            "width": 2
+          },
+          "right-upper/a": {
+            "pos": 554,
+            "height": 12.25,
+            "grad": 7.5,
+            "width": 4
+          },
+          "right-upper/b": {
+            "pos": 554,
+            "height": 10.0,
+            "grad": 5.5,
+            "width": 3
+          },
+          "top-left": {
+            "pos": 965,
+            "height": 15.5,
+            "grad": 8.0,
+            "width": 3
+          },
+          "right-lower": {
+            "pos": 556,
+            "height": 18.375,
+            "grad": 8.75,
+            "width": 4
+          },
+          "bottom-right": {
+            "pos": 1289,
+            "height": 36.75,
+            "grad": 20.75,
+            "width": 2
+          }
+        },
+        "face_max": 205,
+        "trace_max": 172,
+        "trace_zero_rgb": [
+          149,
+          3279,
+          32811
+        ],
+        "trace_pixels": 81320
+      },
+      "any_zero": 36090,
+      "all_zero": 0
+    },
+    {
+      "score": {
+        "pass_geometry_highlights": true,
+        "failures": [],
+        "anchors": {
+          "top-right/a": {
+            "pos": 964,
+            "height": 35.375,
+            "grad": 22.75,
+            "width": 2
+          },
+          "top-right/b": {
+            "pos": 963,
+            "height": 32.0,
+            "grad": 21.0,
+            "width": 2
+          },
+          "right-upper/a": {
+            "pos": 554,
+            "height": 25.5,
+            "grad": 14.5,
+            "width": 3
+          },
+          "right-upper/b": {
+            "pos": 554,
+            "height": 20.0,
+            "grad": 10.0,
+            "width": 3
+          },
+          "top-left": {
+            "pos": 965,
+            "height": 19.5,
+            "grad": 10.5,
+            "width": 3
+          },
+          "right-lower": {
+            "pos": 556,
+            "height": 22.75,
+            "grad": 13.0,
+            "width": 3
+          },
+          "bottom-right": {
+            "pos": 1289,
+            "height": 36.875,
+            "grad": 22.25,
+            "width": 3
+          }
+        },
+        "face_max": 204,
+        "trace_max": 176,
+        "trace_zero_rgb": [
+          131,
+          1877,
+          33524
+        ],
+        "trace_pixels": 81320
+      },
+      "any_zero": 35468,
+      "all_zero": 0
+    }
+  ],
+  "restoration": {
+    "oc_observed_fields": 14,
+    "stock_observed_fields": 15,
+    "hidden_preferences": "not bytewise checked",
+    "sole_camera": "live guard attestation, not raw metadata"
+  },
+  "limits": [
+    "Only observed commissioning rejection is reproduced; no long sham statistics or DBV comparison.",
+    "2632 raw settled readback precedes the three references; no late 2632 plateau readback was captured.",
+    "Raw before/after return readbacks are 6879; do not call them late 2632 evidence.",
+    "Preview at 500 us can alias; auto AWB/ISP and channel zeros prevent amplitude or PWM conclusions."
+  ]
+}
