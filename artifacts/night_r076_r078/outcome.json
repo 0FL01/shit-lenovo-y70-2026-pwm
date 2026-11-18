@@ -1,0 +1,45 @@
+{
+  "boundary": {
+    "max_control_or_within_Dmax_all_variants": 0.036111,
+    "min_crossing_Dmin_all_variants": 0.336458,
+    "primary_control_Dmed": {
+      "1_3600 -> 5_3600": 0.02375,
+      "2_3601 -> 3_3602": 0.013681,
+      "2_3601 -> 4_3601": 0.018889,
+      "3_3602 -> 4_3601": 0.014444,
+      "base -> restored": 0.018681
+    },
+    "primary_crossing_Dmed": {
+      "1_3600 -> 2_3601": 0.390069,
+      "4_3601 -> 5_3600": 0.407361
+    },
+    "primary_max_within_Dmax": 0.034792,
+    "separated_variants_of_7": 7
+  },
+  "dc_3600": {
+    "max_control_or_within_Dmax_all_variants": 0.037708,
+    "min_crossing_Dmin_all_variants": 0.332083,
+    "primary_control_Dmed": {
+      "1_0 -> 3_0": 0.020208
+    },
+    "primary_crossing_Dmed": {
+      "1_0 -> 2_1": 0.398681,
+      "2_1 -> 3_0": 0.395764
+    },
+    "primary_max_within_Dmax": 0.036736,
+    "separated_variants_of_7": 7
+  },
+  "dc_3601": {
+    "max_control_or_within_Dmax_all_variants": 0.029722,
+    "min_crossing_Dmin_all_variants": 0.005417,
+    "primary_control_Dmed": {
+      "1_0 -> 3_0": 0.00875
+    },
+    "primary_crossing_Dmed": {
+      "1_0 -> 2_1": 0.011319,
+      "2_1 -> 3_0": 0.013542
+    },
+    "primary_max_within_Dmax": 0.027153,
+    "separated_variants_of_7": 0
+  }
+}
