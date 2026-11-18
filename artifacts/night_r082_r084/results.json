@@ -1,0 +1,129 @@
+{
+  "R083": [
+    {
+      "weights": [
+        1
+      ],
+      "percent_strictly_above_fundamental": {
+        "2": [],
+        "3": []
+      }
+    },
+    {
+      "weights": [
+        1,
+        0.65
+      ],
+      "percent_strictly_above_fundamental": {
+        "2": [
+          1,
+          86,
+          86
+        ],
+        "3": []
+      }
+    },
+    {
+      "weights": [
+        1,
+        0.65,
+        0.65
+      ],
+      "percent_strictly_above_fundamental": {
+        "2": [],
+        "3": [
+          1,
+          88,
+          88
+        ]
+      }
+    }
+  ],
+  "R084": [
+    {
+      "fs": 2880,
+      "exposure_us": 0,
+      "offset_rows": 0.0,
+      "first4_A": [
+        0.78,
+        0.5,
+        0.22,
+        0.5
+      ],
+      "first4_B": [
+        0.78,
+        0.5,
+        0.22,
+        0.5
+      ],
+      "rms": 0.0,
+      "similar": true
+    },
+    {
+      "fs": 2880,
+      "exposure_us": 100,
+      "offset_rows": 0.0,
+      "first4_A": [
+        0.773629,
+        0.5,
+        0.226371,
+        0.5
+      ],
+      "first4_B": [
+        0.759,
+        0.5,
+        0.241,
+        0.5
+      ],
+      "rms": 0.010343845,
+      "similar": true
+    },
+    {
+      "fs": 11520,
+      "exposure_us": 100,
+      "offset_rows": 0.0,
+      "first4_A": [
+        0.773629,
+        0.722764,
+        0.614996,
+        0.532199
+      ],
+      "first4_B": [
+        0.759,
+        0.599115,
+        0.316859,
+        0.260715
+      ],
+      "rms": 0.210941421,
+      "similar": false
+    },
+    {
+      "fs": 2880,
+      "exposure_us": 0,
+      "offset_rows": 0.25,
+      "first4_A": [
+        0.726215,
+        0.471242,
+        0.273785,
+        0.528758
+      ],
+      "first4_B": [
+        0.607151,
+        0.758686,
+        0.392849,
+        0.241314
+      ],
+      "rms": 0.22,
+      "similar": false
+    }
+  ],
+  "R084_weak_fundamental": {
+    "fs": 11520,
+    "rms": 0.010606602,
+    "similar": true,
+    "720_projection": [
+      0.015,
+      -0.0
+    ]
+  }
+}
