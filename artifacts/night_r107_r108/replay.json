@@ -1,0 +1,49 @@
+{
+  "python": "3.13.5",
+  "packages": {
+    "numpy": "2.4.4",
+    "Pillow": "12.1.1"
+  },
+  "public_pass": [
+    {
+      "suite": "night_r076_r078/test_audit",
+      "tests": 3,
+      "byte_match": "outcome.json"
+    },
+    {
+      "suite": "night_r079_r081/test_audit",
+      "tests": 3,
+      "byte_match": "outcome.json"
+    },
+    {
+      "suite": "night_r088_r091/test_audit",
+      "tests": 4,
+      "byte_match": "inventory.json"
+    },
+    {
+      "suite": "night_r082_r084/test_models",
+      "tests": 6,
+      "byte_match": "results.json"
+    },
+    {
+      "suite": "night_r085_r087/test_audit",
+      "tests": 3,
+      "byte_match": "results.json"
+    },
+    {
+      "suite": "stock_blind_static_r12_20261118/analysis/test_public_replay",
+      "tests": 3
+    },
+    {
+      "suite": "stock_blind_static_r12_20261118/analysis/test_synthetic",
+      "tests": 8
+    }
+  ],
+  "private_not_run": {
+    "R7 pixels -> phase D": "private ordinal PNGs and acquisition receipts not supplied",
+    "3600/3601 scope photos -> D": "private original previews not supplied",
+    "Extra Dim stills -> red fractions": "private original JPEGs not supplied",
+    "R10/R11 original pixels -> cell decisions": "private preview sets not supplied",
+    "R12b original pixels -> blind predictions": "18 private original PNGs not supplied"
+  }
+}
