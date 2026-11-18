@@ -1,0 +1,234 @@
+{
+  "status": "INCOMPLETE_OR_REJECTED",
+  "expected_frames": 18,
+  "request_exposure_ns": "200000",
+  "frozen_R11_request_matches": true,
+  "exported_json_exclusions_raw_checked": [
+    "control.videoStabilizationMode",
+    "lens.opticalStabilizationMode"
+  ],
+  "present_brackets": 0,
+  "missing": [
+    {
+      "ordinal": "P00_0",
+      "missing": [
+        "P00_0_pre_raw.txt",
+        "P00_0.png",
+        "P00_0_post_raw.txt",
+        "P00_0_pre_metadata.json",
+        "P00_0_post_metadata.json"
+      ]
+    },
+    {
+      "ordinal": "P00_1",
+      "missing": [
+        "P00_1_pre_raw.txt",
+        "P00_1.png",
+        "P00_1_post_raw.txt",
+        "P00_1_pre_metadata.json",
+        "P00_1_post_metadata.json"
+      ]
+    },
+    {
+      "ordinal": "P00_2",
+      "missing": [
+        "P00_2_pre_raw.txt",
+        "P00_2.png",
+        "P00_2_post_raw.txt",
+        "P00_2_pre_metadata.json",
+        "P00_2_post_metadata.json"
+      ]
+    },
+    {
+      "ordinal": "P01_0",
+      "missing": [
+        "P01_0_pre_raw.txt",
+        "P01_0.png",
+        "P01_0_post_raw.txt",
+        "P01_0_pre_metadata.json",
+        "P01_0_post_metadata.json"
+      ]
+    },
+    {
+      "ordinal": "P01_1",
+      "missing": [
+        "P01_1_pre_raw.txt",
+        "P01_1.png",
+        "P01_1_post_raw.txt",
+        "P01_1_pre_metadata.json",
+        "P01_1_post_metadata.json"
+      ]
+    },
+    {
+      "ordinal": "P01_2",
+      "missing": [
+        "P01_2_pre_raw.txt",
+        "P01_2.png",
+        "P01_2_post_raw.txt",
+        "P01_2_pre_metadata.json",
+        "P01_2_post_metadata.json"
+      ]
+    },
+    {
+      "ordinal": "P02_0",
+      "missing": [
+        "P02_0_pre_raw.txt",
+        "P02_0.png",
+        "P02_0_post_raw.txt",
+        "P02_0_pre_metadata.json",
+        "P02_0_post_metadata.json"
+      ]
+    },
+    {
+      "ordinal": "P02_1",
+      "missing": [
+        "P02_1_pre_raw.txt",
+        "P02_1.png",
+        "P02_1_post_raw.txt",
+        "P02_1_pre_metadata.json",
+        "P02_1_post_metadata.json"
+      ]
+    },
+    {
+      "ordinal": "P02_2",
+      "missing": [
+        "P02_2_pre_raw.txt",
+        "P02_2.png",
+        "P02_2_post_raw.txt",
+        "P02_2_pre_metadata.json",
+        "P02_2_post_metadata.json"
+      ]
+    },
+    {
+      "ordinal": "P03_0",
+      "missing": [
+        "P03_0_pre_raw.txt",
+        "P03_0.png",
+        "P03_0_post_raw.txt",
+        "P03_0_pre_metadata.json",
+        "P03_0_post_metadata.json"
+      ]
+    },
+    {
+      "ordinal": "P03_1",
+      "missing": [
+        "P03_1_pre_raw.txt",
+        "P03_1.png",
+        "P03_1_post_raw.txt",
+        "P03_1_pre_metadata.json",
+        "P03_1_post_metadata.json"
+      ]
+    },
+    {
+      "ordinal": "P03_2",
+      "missing": [
+        "P03_2_pre_raw.txt",
+        "P03_2.png",
+        "P03_2_post_raw.txt",
+        "P03_2_pre_metadata.json",
+        "P03_2_post_metadata.json"
+      ]
+    },
+    {
+      "ordinal": "P04_0",
+      "missing": [
+        "P04_0_pre_raw.txt",
+        "P04_0.png",
+        "P04_0_post_raw.txt",
+        "P04_0_pre_metadata.json",
+        "P04_0_post_metadata.json"
+      ]
+    },
+    {
+      "ordinal": "P04_1",
+      "missing": [
+        "P04_1_pre_raw.txt",
+        "P04_1.png",
+        "P04_1_post_raw.txt",
+        "P04_1_pre_metadata.json",
+        "P04_1_post_metadata.json"
+      ]
+    },
+    {
+      "ordinal": "P04_2",
+      "missing": [
+        "P04_2_pre_raw.txt",
+        "P04_2.png",
+        "P04_2_post_raw.txt",
+        "P04_2_pre_metadata.json",
+        "P04_2_post_metadata.json"
+      ]
+    },
+    {
+      "ordinal": "P05_0",
+      "missing": [
+        "P05_0_pre_raw.txt",
+        "P05_0.png",
+        "P05_0_post_raw.txt",
+        "P05_0_pre_metadata.json",
+        "P05_0_post_metadata.json"
+      ]
+    },
+    {
+      "ordinal": "P05_1",
+      "missing": [
+        "P05_1_pre_raw.txt",
+        "P05_1.png",
+        "P05_1_post_raw.txt",
+        "P05_1_pre_metadata.json",
+        "P05_1_post_metadata.json"
+      ]
+    },
+    {
+      "ordinal": "P05_2",
+      "missing": [
+        "P05_2_pre_raw.txt",
+        "P05_2.png",
+        "P05_2_post_raw.txt",
+        "P05_2_pre_metadata.json",
+        "P05_2_post_metadata.json"
+      ]
+    }
+  ],
+  "unique_png_hashes": 0,
+  "duplicate_png_hashes": 0,
+  "frames": [],
+  "failures": [
+    {
+      "stage": "source_state",
+      "reason": "'P00_early'"
+    }
+  ],
+  "release": {
+    "available": true,
+    "verified": true,
+    "actual_backlight": "0.40987244",
+    "current_brightness": "0.40987244",
+    "hbm": "off",
+    "provider_dc": "0",
+    "timestamp_embedded": false
+  },
+  "restoration": {
+    "target_observed_settings_and_crop": true,
+    "camera_observed_stock_settings": true,
+    "original_policy_native": [
+      "BRIGHT",
+      "6879"
+    ],
+    "returned_policy_native": [
+      "BRIGHT",
+      "6879"
+    ],
+    "hidden_preferences_verified": false,
+    "expert_mode_saved_controls_verified": false,
+    "photo_ui_mode_verified": false
+  },
+  "source_state_verified": false,
+  "limits": [
+    "Bracket frame identity is not screenshot sensor identity.",
+    "No decoding or physical timing inference.",
+    "Source stability checks only x0:1440/y332:3090, not full page, HTML semantics or pixel budgets.",
+    "Exact R11 request reproduction is distinct from actual-result compatibility.",
+    "Missing hidden preferences and PHOTO UI verification remain explicit."
+  ]
+}

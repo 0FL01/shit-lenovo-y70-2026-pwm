@@ -1,0 +1,27 @@
+{
+  "reference": "archived R11 short3",
+  "reference_sha256": "561fa8cbcbdb554a2be51e92b97cc6f02f92b83ebf2ee9e4cfe1577e669b90fa",
+  "files": {
+    "template0.npy": "73904e4cbb78c36ff5db595d56f356ec3dc6024a5715e5e4c16d203dfa0988a7",
+    "template1.npy": "c98068f0408b03501a4d813eb4226985bd88f5314b0cc5c79b30f96712b7adb9",
+    "locked_transform.json": "952bde8317f3fe1227719dc042bff16ec8e72bd826301ba8ca712b7276b4f631"
+  },
+  "boxes": [
+    [
+      920,
+      915,
+      974,
+      965
+    ],
+    [
+      988,
+      918,
+      1053,
+      975
+    ]
+  ],
+  "ncc_min": 0.9,
+  "max_translation": 2,
+  "search": 6,
+  "support_max_exclusive": 250
+}

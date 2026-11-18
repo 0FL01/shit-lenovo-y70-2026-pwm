@@ -1,0 +1,722 @@
+[
+  {
+    "name": "p01_1.png",
+    "checks": {
+      "local_structures": [
+        {
+          "ncc": 0.951150261340627,
+          "dx": 0,
+          "dy": 0,
+          "pass_local": true
+        },
+        {
+          "ncc": 0.9739659292780173,
+          "dx": 0,
+          "dy": 0,
+          "pass_local": true
+        }
+      ],
+      "pass_local_translation": true,
+      "support_count": 2944,
+      "rgb_min": [
+        8,
+        2,
+        12
+      ],
+      "rgb_max": [
+        88,
+        92,
+        117
+      ],
+      "zero_per_channel": [
+        0,
+        0,
+        0
+      ],
+      "any_zero": 0,
+      "pass_headroom": true,
+      "pass_witness": true,
+      "full_display_registration": "unknown"
+    }
+  },
+  {
+    "name": "p01_2.png",
+    "checks": {
+      "local_structures": [
+        {
+          "ncc": 0.9512774911245436,
+          "dx": 0,
+          "dy": 0,
+          "pass_local": true
+        },
+        {
+          "ncc": 0.9945535863183183,
+          "dx": 0,
+          "dy": 0,
+          "pass_local": true
+        }
+      ],
+      "pass_local_translation": true,
+      "support_count": 2944,
+      "rgb_min": [
+        12,
+        10,
+        24
+      ],
+      "rgb_max": [
+        89,
+        96,
+        122
+      ],
+      "zero_per_channel": [
+        0,
+        0,
+        0
+      ],
+      "any_zero": 0,
+      "pass_headroom": true,
+      "pass_witness": true,
+      "full_display_registration": "unknown"
+    }
+  },
+  {
+    "name": "p01_3.png",
+    "checks": {
+      "local_structures": [
+        {
+          "ncc": 0.9521724923269131,
+          "dx": 0,
+          "dy": 0,
+          "pass_local": true
+        },
+        {
+          "ncc": 0.9776190383758604,
+          "dx": 0,
+          "dy": 0,
+          "pass_local": true
+        }
+      ],
+      "pass_local_translation": true,
+      "support_count": 2944,
+      "rgb_min": [
+        4,
+        0,
+        17
+      ],
+      "rgb_max": [
+        86,
+        86,
+        116
+      ],
+      "zero_per_channel": [
+        0,
+        3,
+        0
+      ],
+      "any_zero": 3,
+      "pass_headroom": true,
+      "pass_witness": true,
+      "full_display_registration": "unknown"
+    }
+  },
+  {
+    "name": "p02_1.png",
+    "checks": {
+      "local_structures": [
+        {
+          "ncc": 0.9533332428024306,
+          "dx": 0,
+          "dy": 0,
+          "pass_local": true
+        },
+        {
+          "ncc": 0.9517859099536015,
+          "dx": 1,
+          "dy": 0,
+          "pass_local": true
+        }
+      ],
+      "pass_local_translation": true,
+      "support_count": 2944,
+      "rgb_min": [
+        9,
+        3,
+        13
+      ],
+      "rgb_max": [
+        84,
+        92,
+        121
+      ],
+      "zero_per_channel": [
+        0,
+        0,
+        0
+      ],
+      "any_zero": 0,
+      "pass_headroom": true,
+      "pass_witness": true,
+      "full_display_registration": "unknown"
+    }
+  },
+  {
+    "name": "p02_2.png",
+    "checks": {
+      "local_structures": [
+        {
+          "ncc": 0.9528819781324499,
+          "dx": 0,
+          "dy": 0,
+          "pass_local": true
+        },
+        {
+          "ncc": 0.9959434586418213,
+          "dx": 0,
+          "dy": 0,
+          "pass_local": true
+        }
+      ],
+      "pass_local_translation": true,
+      "support_count": 2944,
+      "rgb_min": [
+        11,
+        4,
+        15
+      ],
+      "rgb_max": [
+        88,
+        91,
+        121
+      ],
+      "zero_per_channel": [
+        0,
+        0,
+        0
+      ],
+      "any_zero": 0,
+      "pass_headroom": true,
+      "pass_witness": true,
+      "full_display_registration": "unknown"
+    }
+  },
+  {
+    "name": "p02_3.png",
+    "checks": {
+      "local_structures": [
+        {
+          "ncc": 0.8677815881454838,
+          "dx": 1,
+          "dy": 0,
+          "pass_local": false
+        },
+        {
+          "ncc": 0.9955991106556283,
+          "dx": 0,
+          "dy": 0,
+          "pass_local": true
+        }
+      ],
+      "pass_local_translation": false,
+      "support_count": 2944,
+      "rgb_min": [
+        11,
+        8,
+        19
+      ],
+      "rgb_max": [
+        87,
+        92,
+        121
+      ],
+      "zero_per_channel": [
+        0,
+        0,
+        0
+      ],
+      "any_zero": 0,
+      "pass_headroom": true,
+      "pass_witness": false,
+      "full_display_registration": "unknown"
+    }
+  },
+  {
+    "name": "p03_1.png",
+    "checks": {
+      "local_structures": [
+        {
+          "ncc": 0.9530466981878291,
+          "dx": 0,
+          "dy": 0,
+          "pass_local": true
+        },
+        {
+          "ncc": 0.995975554851888,
+          "dx": 0,
+          "dy": 0,
+          "pass_local": true
+        }
+      ],
+      "pass_local_translation": true,
+      "support_count": 2944,
+      "rgb_min": [
+        9,
+        5,
+        17
+      ],
+      "rgb_max": [
+        85,
+        88,
+        117
+      ],
+      "zero_per_channel": [
+        0,
+        0,
+        0
+      ],
+      "any_zero": 0,
+      "pass_headroom": true,
+      "pass_witness": true,
+      "full_display_registration": "unknown"
+    }
+  },
+  {
+    "name": "p03_2.png",
+    "checks": {
+      "local_structures": [
+        {
+          "ncc": 0.951668147450545,
+          "dx": 0,
+          "dy": 0,
+          "pass_local": true
+        },
+        {
+          "ncc": 0.9966830965623357,
+          "dx": 0,
+          "dy": 0,
+          "pass_local": true
+        }
+      ],
+      "pass_local_translation": true,
+      "support_count": 2944,
+      "rgb_min": [
+        12,
+        10,
+        27
+      ],
+      "rgb_max": [
+        89,
+        91,
+        119
+      ],
+      "zero_per_channel": [
+        0,
+        0,
+        0
+      ],
+      "any_zero": 0,
+      "pass_headroom": true,
+      "pass_witness": true,
+      "full_display_registration": "unknown"
+    }
+  },
+  {
+    "name": "p03_3.png",
+    "checks": {
+      "local_structures": [
+        {
+          "ncc": 0.952252455954819,
+          "dx": 0,
+          "dy": 0,
+          "pass_local": true
+        },
+        {
+          "ncc": 0.9696123765694376,
+          "dx": 0,
+          "dy": 0,
+          "pass_local": true
+        }
+      ],
+      "pass_local_translation": true,
+      "support_count": 2944,
+      "rgb_min": [
+        6,
+        3,
+        16
+      ],
+      "rgb_max": [
+        92,
+        94,
+        118
+      ],
+      "zero_per_channel": [
+        0,
+        0,
+        0
+      ],
+      "any_zero": 0,
+      "pass_headroom": true,
+      "pass_witness": true,
+      "full_display_registration": "unknown"
+    }
+  },
+  {
+    "name": "p04_1.png",
+    "checks": {
+      "local_structures": [
+        {
+          "ncc": 0.8599037537080609,
+          "dx": 0,
+          "dy": 0,
+          "pass_local": false
+        },
+        {
+          "ncc": 0.9970353376646873,
+          "dx": 0,
+          "dy": 0,
+          "pass_local": true
+        }
+      ],
+      "pass_local_translation": false,
+      "support_count": 2944,
+      "rgb_min": [
+        12,
+        6,
+        16
+      ],
+      "rgb_max": [
+        91,
+        95,
+        122
+      ],
+      "zero_per_channel": [
+        0,
+        0,
+        0
+      ],
+      "any_zero": 0,
+      "pass_headroom": true,
+      "pass_witness": false,
+      "full_display_registration": "unknown"
+    }
+  },
+  {
+    "name": "p04_2.png",
+    "checks": {
+      "local_structures": [
+        {
+          "ncc": 0.952579334827901,
+          "dx": 0,
+          "dy": 0,
+          "pass_local": true
+        },
+        {
+          "ncc": 0.9963682084909287,
+          "dx": 0,
+          "dy": 0,
+          "pass_local": true
+        }
+      ],
+      "pass_local_translation": true,
+      "support_count": 2944,
+      "rgb_min": [
+        14,
+        9,
+        24
+      ],
+      "rgb_max": [
+        89,
+        93,
+        122
+      ],
+      "zero_per_channel": [
+        0,
+        0,
+        0
+      ],
+      "any_zero": 0,
+      "pass_headroom": true,
+      "pass_witness": true,
+      "full_display_registration": "unknown"
+    }
+  },
+  {
+    "name": "p04_3.png",
+    "checks": {
+      "local_structures": [
+        {
+          "ncc": 0.9216464900110813,
+          "dx": 3,
+          "dy": 0,
+          "pass_local": false
+        },
+        {
+          "ncc": 0.9969723147903143,
+          "dx": 0,
+          "dy": 0,
+          "pass_local": true
+        }
+      ],
+      "pass_local_translation": false,
+      "support_count": 2944,
+      "rgb_min": [
+        14,
+        9,
+        21
+      ],
+      "rgb_max": [
+        90,
+        93,
+        122
+      ],
+      "zero_per_channel": [
+        0,
+        0,
+        0
+      ],
+      "any_zero": 0,
+      "pass_headroom": true,
+      "pass_witness": false,
+      "full_display_registration": "unknown"
+    }
+  },
+  {
+    "name": "p05_1.png",
+    "checks": {
+      "local_structures": [
+        {
+          "ncc": 0.9521771371015355,
+          "dx": 0,
+          "dy": 0,
+          "pass_local": true
+        },
+        {
+          "ncc": 0.9957808067995033,
+          "dx": 0,
+          "dy": 0,
+          "pass_local": true
+        }
+      ],
+      "pass_local_translation": true,
+      "support_count": 2944,
+      "rgb_min": [
+        34,
+        33,
+        55
+      ],
+      "rgb_max": [
+        65,
+        63,
+        86
+      ],
+      "zero_per_channel": [
+        0,
+        0,
+        0
+      ],
+      "any_zero": 0,
+      "pass_headroom": true,
+      "pass_witness": true,
+      "full_display_registration": "unknown"
+    }
+  },
+  {
+    "name": "p05_2.png",
+    "checks": {
+      "local_structures": [
+        {
+          "ncc": 0.9714430394843255,
+          "dx": -1,
+          "dy": 0,
+          "pass_local": true
+        },
+        {
+          "ncc": 0.996998274914838,
+          "dx": 0,
+          "dy": 0,
+          "pass_local": true
+        }
+      ],
+      "pass_local_translation": true,
+      "support_count": 2944,
+      "rgb_min": [
+        38,
+        34,
+        56
+      ],
+      "rgb_max": [
+        63,
+        59,
+        83
+      ],
+      "zero_per_channel": [
+        0,
+        0,
+        0
+      ],
+      "any_zero": 0,
+      "pass_headroom": true,
+      "pass_witness": true,
+      "full_display_registration": "unknown"
+    }
+  },
+  {
+    "name": "p05_3.png",
+    "checks": {
+      "local_structures": [
+        {
+          "ncc": 0.9528500295020654,
+          "dx": 0,
+          "dy": 0,
+          "pass_local": true
+        },
+        {
+          "ncc": 0.9965979547532211,
+          "dx": 0,
+          "dy": 0,
+          "pass_local": true
+        }
+      ],
+      "pass_local_translation": true,
+      "support_count": 2944,
+      "rgb_min": [
+        18,
+        14,
+        34
+      ],
+      "rgb_max": [
+        59,
+        56,
+        79
+      ],
+      "zero_per_channel": [
+        0,
+        0,
+        0
+      ],
+      "any_zero": 0,
+      "pass_headroom": true,
+      "pass_witness": true,
+      "full_display_registration": "unknown"
+    }
+  },
+  {
+    "name": "p06_1.png",
+    "checks": {
+      "local_structures": [
+        {
+          "ncc": 0.9525458270660957,
+          "dx": 0,
+          "dy": 0,
+          "pass_local": true
+        },
+        {
+          "ncc": 0.9780183939416216,
+          "dx": -1,
+          "dy": 0,
+          "pass_local": true
+        }
+      ],
+      "pass_local_translation": true,
+      "support_count": 2944,
+      "rgb_min": [
+        7,
+        0,
+        11
+      ],
+      "rgb_max": [
+        87,
+        90,
+        118
+      ],
+      "zero_per_channel": [
+        0,
+        18,
+        0
+      ],
+      "any_zero": 18,
+      "pass_headroom": true,
+      "pass_witness": true,
+      "full_display_registration": "unknown"
+    }
+  },
+  {
+    "name": "p06_2.png",
+    "checks": {
+      "local_structures": [
+        {
+          "ncc": 0.9532272449769122,
+          "dx": 0,
+          "dy": 0,
+          "pass_local": true
+        },
+        {
+          "ncc": 0.9965202052281267,
+          "dx": 0,
+          "dy": 0,
+          "pass_local": true
+        }
+      ],
+      "pass_local_translation": true,
+      "support_count": 2944,
+      "rgb_min": [
+        8,
+        3,
+        13
+      ],
+      "rgb_max": [
+        89,
+        93,
+        122
+      ],
+      "zero_per_channel": [
+        0,
+        0,
+        0
+      ],
+      "any_zero": 0,
+      "pass_headroom": true,
+      "pass_witness": true,
+      "full_display_registration": "unknown"
+    }
+  },
+  {
+    "name": "p06_3.png",
+    "checks": {
+      "local_structures": [
+        {
+          "ncc": 0.9546154141561951,
+          "dx": 0,
+          "dy": 0,
+          "pass_local": true
+        },
+        {
+          "ncc": 0.96719652244208,
+          "dx": 1,
+          "dy": 0,
+          "pass_local": true
+        }
+      ],
+      "pass_local_translation": true,
+      "support_count": 2944,
+      "rgb_min": [
+        9,
+        4,
+        15
+      ],
+      "rgb_max": [
+        88,
+        92,
+        121
+      ],
+      "zero_per_channel": [
+        0,
+        0,
+        0
+      ],
+      "any_zero": 0,
+      "pass_headroom": true,
+      "pass_witness": true,
+      "full_display_registration": "unknown"
+    }
+  }
+]

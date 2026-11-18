@@ -1,0 +1,162 @@
+[
+  {
+    "name": "short_drag.png",
+    "checks": {
+      "local_structures": [
+        {
+          "ncc": 0.9249230958447756,
+          "dx": 2,
+          "dy": 0,
+          "pass_local": true
+        },
+        {
+          "ncc": 0.9963576574854702,
+          "dx": 0,
+          "dy": 0,
+          "pass_local": true
+        }
+      ],
+      "pass_local_translation": true,
+      "support_count": 2944,
+      "rgb_min": [
+        9,
+        5,
+        13
+      ],
+      "rgb_max": [
+        85,
+        89,
+        113
+      ],
+      "zero_per_channel": [
+        0,
+        0,
+        0
+      ],
+      "any_zero": 0,
+      "pass_headroom": true,
+      "pass_witness": true,
+      "full_display_registration": "unknown"
+    }
+  },
+  {
+    "name": "short2.png",
+    "checks": {
+      "local_structures": [
+        {
+          "ncc": 0.9522802535344268,
+          "dx": 0,
+          "dy": 0,
+          "pass_local": true
+        },
+        {
+          "ncc": 0.9964378641753598,
+          "dx": 0,
+          "dy": 0,
+          "pass_local": true
+        }
+      ],
+      "pass_local_translation": true,
+      "support_count": 2944,
+      "rgb_min": [
+        5,
+        2,
+        15
+      ],
+      "rgb_max": [
+        86,
+        88,
+        114
+      ],
+      "zero_per_channel": [
+        0,
+        0,
+        0
+      ],
+      "any_zero": 0,
+      "pass_headroom": true,
+      "pass_witness": true,
+      "full_display_registration": "unknown"
+    }
+  },
+  {
+    "name": "short3.png",
+    "checks": {
+      "local_structures": [
+        {
+          "ncc": 1.0000000000000002,
+          "dx": 0,
+          "dy": 0,
+          "pass_local": true
+        },
+        {
+          "ncc": 0.9999999999999997,
+          "dx": 0,
+          "dy": 0,
+          "pass_local": true
+        }
+      ],
+      "pass_local_translation": true,
+      "support_count": 2944,
+      "rgb_min": [
+        13,
+        5,
+        18
+      ],
+      "rgb_max": [
+        88,
+        90,
+        117
+      ],
+      "zero_per_channel": [
+        0,
+        0,
+        0
+      ],
+      "any_zero": 0,
+      "pass_headroom": true,
+      "pass_witness": true,
+      "full_display_registration": "unknown"
+    }
+  },
+  {
+    "name": "short4.png",
+    "checks": {
+      "local_structures": [
+        {
+          "ncc": 0.9534081130355987,
+          "dx": 0,
+          "dy": 0,
+          "pass_local": true
+        },
+        {
+          "ncc": 0.9968821355241305,
+          "dx": 0,
+          "dy": 0,
+          "pass_local": true
+        }
+      ],
+      "pass_local_translation": true,
+      "support_count": 2944,
+      "rgb_min": [
+        12,
+        8,
+        17
+      ],
+      "rgb_max": [
+        86,
+        91,
+        116
+      ],
+      "zero_per_channel": [
+        0,
+        0,
+        0
+      ],
+      "any_zero": 0,
+      "pass_headroom": true,
+      "pass_witness": true,
+      "full_display_registration": "unknown"
+    }
+  }
+]

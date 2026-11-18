@@ -1,0 +1,104 @@
+{
+  "operator_key_commitment": "6684bf87f9ef6de8c6d33a9b6118aabb988d6926facf4accd7616f2ea176d747",
+  "blind_prediction_commitment": "c3c353e34585c4e4b4bc60d16586d813219bc1372a9a2714f23f09e3b1a56079",
+  "source": [
+    {
+      "ordinal": "p01",
+      "role": "d",
+      "verified_centres": 1152,
+      "early_late_plateau_equal": true,
+      "plateau_channel_sum": [
+        476176188,
+        476176188,
+        476176188
+      ],
+      "max_abs_row_delta_from_ideal": 19440
+    },
+    {
+      "ordinal": "p02",
+      "role": "C",
+      "verified_centres": 1152,
+      "early_late_plateau_equal": true,
+      "plateau_channel_sum": [
+        476245074,
+        476245074,
+        476245074
+      ],
+      "max_abs_row_delta_from_ideal": 19433
+    },
+    {
+      "ordinal": "p03",
+      "role": "D",
+      "verified_centres": 1152,
+      "early_late_plateau_equal": true,
+      "plateau_channel_sum": [
+        476176297,
+        476176297,
+        476176297
+      ],
+      "max_abs_row_delta_from_ideal": 19426
+    },
+    {
+      "ordinal": "p04",
+      "role": "c",
+      "verified_centres": 1152,
+      "early_late_plateau_equal": true,
+      "plateau_channel_sum": [
+        476244938,
+        476244938,
+        476244938
+      ],
+      "max_abs_row_delta_from_ideal": 19433
+    },
+    {
+      "ordinal": "p05",
+      "role": "U",
+      "verified_centres": 1152,
+      "early_late_plateau_equal": true,
+      "plateau_channel_sum": [
+        476454246,
+        476454246,
+        476454246
+      ],
+      "max_abs_row_delta_from_ideal": 20148
+    },
+    {
+      "ordinal": "p06",
+      "role": "C",
+      "verified_centres": 1152,
+      "early_late_plateau_equal": true,
+      "plateau_channel_sum": [
+        476245074,
+        476245074,
+        476245074
+      ],
+      "max_abs_row_delta_from_ideal": 19433
+    }
+  ],
+  "identical_18_input_aliases": true,
+  "sha256": {
+    "p01_1.png": "63d2ea85a492297f84b88deaee3283c1fd2a89364fe2f9e8dcea720becde7681",
+    "p01_2.png": "d52fd5b8e117b77e963bda67c5658f44d605905a4a1f2434bb68441231cc290c",
+    "p01_3.png": "8ae8fa8156f0251b33d62a6ffa943839d4e5078064091f9fbd34a2ae0a82d57b",
+    "p02_1.png": "60ef810423a7b8618786f06152726c31c6082caa22acb67d179c1614b6c51d6c",
+    "p02_2.png": "8858723d7f4a51bcff3a6e93f1192fc8caf861414e612af9f27f9ad566fd25b8",
+    "p02_3.png": "e902c2ed140d7f1acda3df0151ebae303e12f078577a6cb685df4e1769ea4d80",
+    "p03_1.png": "d6f480c9f328c02200c4414aa6980d729df102edfb58011c70c8208540081ce0",
+    "p03_2.png": "8020baab56f9714af31426a680d3a76cb077fdb31bfeffe9ef048ab96f396ffd",
+    "p03_3.png": "ed6d74937f33294cb15939c318383f120b4a6684125fed716e59f57de82e1823",
+    "p04_1.png": "f62164d4abd05326a52dee91be74e5d183d41ef307d42e2b11a0bc046c18d9fc",
+    "p04_2.png": "63d119110a211d8e1d52d08d9a1ad3a9d6dbf998cc756c288129bf2af2626938",
+    "p04_3.png": "b13ae5cfed70d6ce9a1e58239bbbca5eb1f274491197950e47276b9acf1ea918",
+    "p05_1.png": "9f179d95ede39d43eb5d0f2aa63d95cba25fc52a1a367a717f9b3e812936ab12",
+    "p05_2.png": "1bc2a6267af9bea77d246adbb3a2f01a6b77130007bef433b11ba8ca97d5e845",
+    "p05_3.png": "83070c68cedc5892577bfd43332b5a46779c54bb8f519cf452a669de0f845905",
+    "p06_1.png": "651e5feae0c26e4295b3e0571a1b9e41b63b6ac0ccab7a03e79a93461392ee65",
+    "p06_2.png": "be1fec4fe31a00859c3f1a65f4afc7ebe94c81e502f5b2755b4c252a28c43ac9",
+    "p06_3.png": "5e17bd0b42a744ec68ef93fd224629f036402cdd1c73126002e7c0ab9bb71865"
+  },
+  "limitations": [
+    "Static spatial source only, not equal optical brightness.",
+    "Android system bars excluded from source equality.",
+    "Prediction timestamp sequencing recorded by analyst/operator handoff; hashes verify bytes, not the mental state of participants."
+  ]
+}

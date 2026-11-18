@@ -1,0 +1,1131 @@
+{
+  "status": "SPEC_ACTUAL_PASS_R11_REQUEST_FAIL",
+  "expected_frames": 18,
+  "request_exposure_ns": "156250",
+  "frozen_R11_request_matches": false,
+  "exported_json_exclusions_raw_checked": [
+    "control.videoStabilizationMode",
+    "lens.opticalStabilizationMode"
+  ],
+  "present_brackets": 18,
+  "missing": [],
+  "unique_png_hashes": 18,
+  "duplicate_png_hashes": 0,
+  "frames": [
+    {
+      "ordinal": "P00_0",
+      "pre": {
+        "sha256": "892d4be77d69e063b56e7f5fdc548a3d0a935d43d83ddc917ba11536683db960",
+        "result": {
+          "sensor.exposureTime": "156000",
+          "sensor.sensitivity": "6400",
+          "sensor.frameDuration": "33350000",
+          "sensor.rollingShutterSkew": "31824000",
+          "scaler.cropRegion": "0 0 3264 2448",
+          "control.aeMode": "OFF",
+          "lens.focusDistance": "0.00000000",
+          "lens.focalLength": "1.63999999",
+          "control.videoStabilizationMode": "OFF",
+          "lens.opticalStabilizationMode": "OFF"
+        },
+        "request": {
+          "sensor.exposureTime": "156250",
+          "sensor.sensitivity": "0",
+          "sensor.frameDuration": "33333333",
+          "scaler.cropRegion": "0 0 3264 2448",
+          "control.aeMode": "OFF"
+        },
+        "frame_offset": 0,
+        "timestamp_offset_ns": 0
+      },
+      "image": {
+        "sha256": "63d2ea85a492297f84b88deaee3283c1fd2a89364fe2f9e8dcea720becde7681",
+        "bytes": 1594563,
+        "dimensions": [
+          1080,
+          2392
+        ]
+      },
+      "post": {
+        "sha256": "02de5d1d7ea03dd5796ae1275b049146a5dd197d09fbca6ff7c758653f02240c",
+        "result": {
+          "sensor.exposureTime": "156000",
+          "sensor.sensitivity": "6400",
+          "sensor.frameDuration": "33350000",
+          "sensor.rollingShutterSkew": "31824000",
+          "scaler.cropRegion": "0 0 3264 2448",
+          "control.aeMode": "OFF",
+          "lens.focusDistance": "0.00000000",
+          "lens.focalLength": "1.63999999",
+          "control.videoStabilizationMode": "OFF",
+          "lens.opticalStabilizationMode": "OFF"
+        },
+        "request": {
+          "sensor.exposureTime": "156250",
+          "sensor.sensitivity": "0",
+          "sensor.frameDuration": "33333333",
+          "scaler.cropRegion": "0 0 3264 2448",
+          "control.aeMode": "OFF"
+        },
+        "frame_offset": 287,
+        "timestamp_offset_ns": 9566308000
+      },
+      "displayed_sensor_frame_identity": "unknown"
+    },
+    {
+      "ordinal": "P00_1",
+      "pre": {
+        "sha256": "a96e51c858b33359a02c408cfc51e40cbf6824cb2ac26426780839a301f44aef",
+        "result": {
+          "sensor.exposureTime": "156000",
+          "sensor.sensitivity": "6400",
+          "sensor.frameDuration": "33350000",
+          "sensor.rollingShutterSkew": "31824000",
+          "scaler.cropRegion": "0 0 3264 2448",
+          "control.aeMode": "OFF",
+          "lens.focusDistance": "0.00000000",
+          "lens.focalLength": "1.63999999",
+          "control.videoStabilizationMode": "OFF",
+          "lens.opticalStabilizationMode": "OFF"
+        },
+        "request": {
+          "sensor.exposureTime": "156250",
+          "sensor.sensitivity": "0",
+          "sensor.frameDuration": "33333333",
+          "scaler.cropRegion": "0 0 3264 2448",
+          "control.aeMode": "OFF"
+        },
+        "frame_offset": 326,
+        "timestamp_offset_ns": 10866260000
+      },
+      "image": {
+        "sha256": "d52fd5b8e117b77e963bda67c5658f44d605905a4a1f2434bb68441231cc290c",
+        "bytes": 1570245,
+        "dimensions": [
+          1080,
+          2392
+        ]
+      },
+      "post": {
+        "sha256": "fbd96dea2f80fa6d5f09b3732c2b92722c0019df8cff4389b4afd526bdb39881",
+        "result": {
+          "sensor.exposureTime": "156000",
+          "sensor.sensitivity": "6400",
+          "sensor.frameDuration": "33350000",
+          "sensor.rollingShutterSkew": "31824000",
+          "scaler.cropRegion": "0 0 3264 2448",
+          "control.aeMode": "OFF",
+          "lens.focusDistance": "0.00000000",
+          "lens.focalLength": "1.63999999",
+          "control.videoStabilizationMode": "OFF",
+          "lens.opticalStabilizationMode": "OFF"
+        },
+        "request": {
+          "sensor.exposureTime": "156250",
+          "sensor.sensitivity": "0",
+          "sensor.frameDuration": "33333333",
+          "scaler.cropRegion": "0 0 3264 2448",
+          "control.aeMode": "OFF"
+        },
+        "frame_offset": 600,
+        "timestamp_offset_ns": 19999251000
+      },
+      "displayed_sensor_frame_identity": "unknown"
+    },
+    {
+      "ordinal": "P00_2",
+      "pre": {
+        "sha256": "143008b4bd47d290b6db8ff72020c5b9c19dcf4eab126fdae4f18d19841dc243",
+        "result": {
+          "sensor.exposureTime": "156000",
+          "sensor.sensitivity": "6400",
+          "sensor.frameDuration": "33350000",
+          "sensor.rollingShutterSkew": "31824000",
+          "scaler.cropRegion": "0 0 3264 2448",
+          "control.aeMode": "OFF",
+          "lens.focusDistance": "0.00000000",
+          "lens.focalLength": "1.63999999",
+          "control.videoStabilizationMode": "OFF",
+          "lens.opticalStabilizationMode": "OFF"
+        },
+        "request": {
+          "sensor.exposureTime": "156250",
+          "sensor.sensitivity": "0",
+          "sensor.frameDuration": "33333333",
+          "scaler.cropRegion": "0 0 3264 2448",
+          "control.aeMode": "OFF"
+        },
+        "frame_offset": 639,
+        "timestamp_offset_ns": 21299202000
+      },
+      "image": {
+        "sha256": "8ae8fa8156f0251b33d62a6ffa943839d4e5078064091f9fbd34a2ae0a82d57b",
+        "bytes": 1578110,
+        "dimensions": [
+          1080,
+          2392
+        ]
+      },
+      "post": {
+        "sha256": "57cc930be779cb3b0afc653e8f830107c123ce1152bd04363905a0abd210f90b",
+        "result": {
+          "sensor.exposureTime": "156000",
+          "sensor.sensitivity": "6400",
+          "sensor.frameDuration": "33350000",
+          "sensor.rollingShutterSkew": "31824000",
+          "scaler.cropRegion": "0 0 3264 2448",
+          "control.aeMode": "OFF",
+          "lens.focusDistance": "0.00000000",
+          "lens.focalLength": "1.63999999",
+          "control.videoStabilizationMode": "OFF",
+          "lens.opticalStabilizationMode": "OFF"
+        },
+        "request": {
+          "sensor.exposureTime": "156250",
+          "sensor.sensitivity": "0",
+          "sensor.frameDuration": "33333333",
+          "scaler.cropRegion": "0 0 3264 2448",
+          "control.aeMode": "OFF"
+        },
+        "frame_offset": 915,
+        "timestamp_offset_ns": 30498856000
+      },
+      "displayed_sensor_frame_identity": "unknown"
+    },
+    {
+      "ordinal": "P01_0",
+      "pre": {
+        "sha256": "b67b69c69379e4a614ce24e14b5726379b77d06e0dd311726a35f0cd287289f4",
+        "result": {
+          "sensor.exposureTime": "156000",
+          "sensor.sensitivity": "6400",
+          "sensor.frameDuration": "33350000",
+          "sensor.rollingShutterSkew": "31824000",
+          "scaler.cropRegion": "0 0 3264 2448",
+          "control.aeMode": "OFF",
+          "lens.focusDistance": "0.00000000",
+          "lens.focalLength": "1.63999999",
+          "control.videoStabilizationMode": "OFF",
+          "lens.opticalStabilizationMode": "OFF"
+        },
+        "request": {
+          "sensor.exposureTime": "156250",
+          "sensor.sensitivity": "0",
+          "sensor.frameDuration": "33333333",
+          "scaler.cropRegion": "0 0 3264 2448",
+          "control.aeMode": "OFF"
+        },
+        "frame_offset": 1130,
+        "timestamp_offset_ns": 37665254000
+      },
+      "image": {
+        "sha256": "60ef810423a7b8618786f06152726c31c6082caa22acb67d179c1614b6c51d6c",
+        "bytes": 1568892,
+        "dimensions": [
+          1080,
+          2392
+        ]
+      },
+      "post": {
+        "sha256": "2b2e8aa4e15f1df9b774e946ac4d0754f0f7b5fdf17e673ed319227537b42073",
+        "result": {
+          "sensor.exposureTime": "156000",
+          "sensor.sensitivity": "6400",
+          "sensor.frameDuration": "33350000",
+          "sensor.rollingShutterSkew": "31824000",
+          "scaler.cropRegion": "0 0 3264 2448",
+          "control.aeMode": "OFF",
+          "lens.focusDistance": "0.00000000",
+          "lens.focalLength": "1.63999999",
+          "control.videoStabilizationMode": "OFF",
+          "lens.opticalStabilizationMode": "OFF"
+        },
+        "request": {
+          "sensor.exposureTime": "156250",
+          "sensor.sensitivity": "0",
+          "sensor.frameDuration": "33333333",
+          "scaler.cropRegion": "0 0 3264 2448",
+          "control.aeMode": "OFF"
+        },
+        "frame_offset": 1405,
+        "timestamp_offset_ns": 46831577000
+      },
+      "displayed_sensor_frame_identity": "unknown"
+    },
+    {
+      "ordinal": "P01_1",
+      "pre": {
+        "sha256": "484f9b3fb200df3e85bb198956598aa3c66fcf67491a77063ab13630d1bcef63",
+        "result": {
+          "sensor.exposureTime": "156000",
+          "sensor.sensitivity": "6400",
+          "sensor.frameDuration": "33350000",
+          "sensor.rollingShutterSkew": "31824000",
+          "scaler.cropRegion": "0 0 3264 2448",
+          "control.aeMode": "OFF",
+          "lens.focusDistance": "0.00000000",
+          "lens.focalLength": "1.63999999",
+          "control.videoStabilizationMode": "OFF",
+          "lens.opticalStabilizationMode": "OFF"
+        },
+        "request": {
+          "sensor.exposureTime": "156250",
+          "sensor.sensitivity": "0",
+          "sensor.frameDuration": "33333333",
+          "scaler.cropRegion": "0 0 3264 2448",
+          "control.aeMode": "OFF"
+        },
+        "frame_offset": 1443,
+        "timestamp_offset_ns": 48098196000
+      },
+      "image": {
+        "sha256": "8858723d7f4a51bcff3a6e93f1192fc8caf861414e612af9f27f9ad566fd25b8",
+        "bytes": 1577211,
+        "dimensions": [
+          1080,
+          2392
+        ]
+      },
+      "post": {
+        "sha256": "d8b71c4ad19936aa9e8347772559c24630998ac6b75c6d0c1bed7cf1dd84e4b8",
+        "result": {
+          "sensor.exposureTime": "156000",
+          "sensor.sensitivity": "6400",
+          "sensor.frameDuration": "33350000",
+          "sensor.rollingShutterSkew": "31824000",
+          "scaler.cropRegion": "0 0 3264 2448",
+          "control.aeMode": "OFF",
+          "lens.focusDistance": "0.00000000",
+          "lens.focalLength": "1.63999999",
+          "control.videoStabilizationMode": "OFF",
+          "lens.opticalStabilizationMode": "OFF"
+        },
+        "request": {
+          "sensor.exposureTime": "156250",
+          "sensor.sensitivity": "0",
+          "sensor.frameDuration": "33333333",
+          "scaler.cropRegion": "0 0 3264 2448",
+          "control.aeMode": "OFF"
+        },
+        "frame_offset": 1725,
+        "timestamp_offset_ns": 57497842000
+      },
+      "displayed_sensor_frame_identity": "unknown"
+    },
+    {
+      "ordinal": "P01_2",
+      "pre": {
+        "sha256": "e6de7780a5bd72040fd1ffa9705bc1ed53470dd5ffd28b5e477d0f6b2a79c788",
+        "result": {
+          "sensor.exposureTime": "156000",
+          "sensor.sensitivity": "6400",
+          "sensor.frameDuration": "33350000",
+          "sensor.rollingShutterSkew": "31824000",
+          "scaler.cropRegion": "0 0 3264 2448",
+          "control.aeMode": "OFF",
+          "lens.focusDistance": "0.00000000",
+          "lens.focalLength": "1.63999999",
+          "control.videoStabilizationMode": "OFF",
+          "lens.opticalStabilizationMode": "OFF"
+        },
+        "request": {
+          "sensor.exposureTime": "156250",
+          "sensor.sensitivity": "0",
+          "sensor.frameDuration": "33333333",
+          "scaler.cropRegion": "0 0 3264 2448",
+          "control.aeMode": "OFF"
+        },
+        "frame_offset": 1763,
+        "timestamp_offset_ns": 58764461000
+      },
+      "image": {
+        "sha256": "e902c2ed140d7f1acda3df0151ebae303e12f078577a6cb685df4e1769ea4d80",
+        "bytes": 1572106,
+        "dimensions": [
+          1080,
+          2392
+        ]
+      },
+      "post": {
+        "sha256": "06ec955d7a062083e8891f02a138f9f47f91eb6d5504199f05a9059f7cc6f460",
+        "result": {
+          "sensor.exposureTime": "156000",
+          "sensor.sensitivity": "6400",
+          "sensor.frameDuration": "33350000",
+          "sensor.rollingShutterSkew": "31824000",
+          "scaler.cropRegion": "0 0 3264 2448",
+          "control.aeMode": "OFF",
+          "lens.focusDistance": "0.00000000",
+          "lens.focalLength": "1.63999999",
+          "control.videoStabilizationMode": "OFF",
+          "lens.opticalStabilizationMode": "OFF"
+        },
+        "request": {
+          "sensor.exposureTime": "156250",
+          "sensor.sensitivity": "0",
+          "sensor.frameDuration": "33333333",
+          "scaler.cropRegion": "0 0 3264 2448",
+          "control.aeMode": "OFF"
+        },
+        "frame_offset": 2025,
+        "timestamp_offset_ns": 67497466000
+      },
+      "displayed_sensor_frame_identity": "unknown"
+    },
+    {
+      "ordinal": "P02_0",
+      "pre": {
+        "sha256": "a54ee54de725af67b4d6609452b67dc429d46d8ea6f2f3cd2383c1995baf771b",
+        "result": {
+          "sensor.exposureTime": "156000",
+          "sensor.sensitivity": "6400",
+          "sensor.frameDuration": "33350000",
+          "sensor.rollingShutterSkew": "31824000",
+          "scaler.cropRegion": "0 0 3264 2448",
+          "control.aeMode": "OFF",
+          "lens.focusDistance": "0.00000000",
+          "lens.focalLength": "1.63999999",
+          "control.videoStabilizationMode": "OFF",
+          "lens.opticalStabilizationMode": "OFF"
+        },
+        "request": {
+          "sensor.exposureTime": "156250",
+          "sensor.sensitivity": "0",
+          "sensor.frameDuration": "33333333",
+          "scaler.cropRegion": "0 0 3264 2448",
+          "control.aeMode": "OFF"
+        },
+        "frame_offset": 2240,
+        "timestamp_offset_ns": 74663863000
+      },
+      "image": {
+        "sha256": "d6f480c9f328c02200c4414aa6980d729df102edfb58011c70c8208540081ce0",
+        "bytes": 1580300,
+        "dimensions": [
+          1080,
+          2392
+        ]
+      },
+      "post": {
+        "sha256": "3dc53a8205bfeec0a89f278e03f6dbf91be0cc7390a22b3168bb1ccf38c2aa1c",
+        "result": {
+          "sensor.exposureTime": "156000",
+          "sensor.sensitivity": "6400",
+          "sensor.frameDuration": "33350000",
+          "sensor.rollingShutterSkew": "31824000",
+          "scaler.cropRegion": "0 0 3264 2448",
+          "control.aeMode": "OFF",
+          "lens.focusDistance": "0.00000000",
+          "lens.focalLength": "1.63999999",
+          "control.videoStabilizationMode": "OFF",
+          "lens.opticalStabilizationMode": "OFF"
+        },
+        "request": {
+          "sensor.exposureTime": "156250",
+          "sensor.sensitivity": "0",
+          "sensor.frameDuration": "33333333",
+          "scaler.cropRegion": "0 0 3264 2448",
+          "control.aeMode": "OFF"
+        },
+        "frame_offset": 2512,
+        "timestamp_offset_ns": 83730189000
+      },
+      "displayed_sensor_frame_identity": "unknown"
+    },
+    {
+      "ordinal": "P02_1",
+      "pre": {
+        "sha256": "7387eb54d556e05eac406cad5b3042154651d4da93162ffc1a7a265e80fc1d7b",
+        "result": {
+          "sensor.exposureTime": "156000",
+          "sensor.sensitivity": "6400",
+          "sensor.frameDuration": "33350000",
+          "sensor.rollingShutterSkew": "31824000",
+          "scaler.cropRegion": "0 0 3264 2448",
+          "control.aeMode": "OFF",
+          "lens.focusDistance": "0.00000000",
+          "lens.focalLength": "1.63999999",
+          "control.videoStabilizationMode": "OFF",
+          "lens.opticalStabilizationMode": "OFF"
+        },
+        "request": {
+          "sensor.exposureTime": "156250",
+          "sensor.sensitivity": "0",
+          "sensor.frameDuration": "33333333",
+          "scaler.cropRegion": "0 0 3264 2448",
+          "control.aeMode": "OFF"
+        },
+        "frame_offset": 2551,
+        "timestamp_offset_ns": 85030140000
+      },
+      "image": {
+        "sha256": "8020baab56f9714af31426a680d3a76cb077fdb31bfeffe9ef048ab96f396ffd",
+        "bytes": 1577235,
+        "dimensions": [
+          1080,
+          2392
+        ]
+      },
+      "post": {
+        "sha256": "d6075773106584b16229e03e4f094791112510a675c13de6b79a26a9b2773368",
+        "result": {
+          "sensor.exposureTime": "156000",
+          "sensor.sensitivity": "6400",
+          "sensor.frameDuration": "33350000",
+          "sensor.rollingShutterSkew": "31824000",
+          "scaler.cropRegion": "0 0 3264 2448",
+          "control.aeMode": "OFF",
+          "lens.focusDistance": "0.00000000",
+          "lens.focalLength": "1.63999999",
+          "control.videoStabilizationMode": "OFF",
+          "lens.opticalStabilizationMode": "OFF"
+        },
+        "request": {
+          "sensor.exposureTime": "156250",
+          "sensor.sensitivity": "0",
+          "sensor.frameDuration": "33333333",
+          "scaler.cropRegion": "0 0 3264 2448",
+          "control.aeMode": "OFF"
+        },
+        "frame_offset": 2833,
+        "timestamp_offset_ns": 94429786000
+      },
+      "displayed_sensor_frame_identity": "unknown"
+    },
+    {
+      "ordinal": "P02_2",
+      "pre": {
+        "sha256": "ac0f9e9c93f631ced30f935b0b11fc8c478c2b6ac8d3fd071a4bc4e1ad3b34df",
+        "result": {
+          "sensor.exposureTime": "156000",
+          "sensor.sensitivity": "6400",
+          "sensor.frameDuration": "33350000",
+          "sensor.rollingShutterSkew": "31824000",
+          "scaler.cropRegion": "0 0 3264 2448",
+          "control.aeMode": "OFF",
+          "lens.focusDistance": "0.00000000",
+          "lens.focalLength": "1.63999999",
+          "control.videoStabilizationMode": "OFF",
+          "lens.opticalStabilizationMode": "OFF"
+        },
+        "request": {
+          "sensor.exposureTime": "156250",
+          "sensor.sensitivity": "0",
+          "sensor.frameDuration": "33333333",
+          "scaler.cropRegion": "0 0 3264 2448",
+          "control.aeMode": "OFF"
+        },
+        "frame_offset": 2871,
+        "timestamp_offset_ns": 95696405000
+      },
+      "image": {
+        "sha256": "ed6d74937f33294cb15939c318383f120b4a6684125fed716e59f57de82e1823",
+        "bytes": 1581675,
+        "dimensions": [
+          1080,
+          2392
+        ]
+      },
+      "post": {
+        "sha256": "c2a968c0e500ac6607e962a1ba0f9beec462e37b9739083c5119dfc8fa01dd2a",
+        "result": {
+          "sensor.exposureTime": "156000",
+          "sensor.sensitivity": "6400",
+          "sensor.frameDuration": "33350000",
+          "sensor.rollingShutterSkew": "31824000",
+          "scaler.cropRegion": "0 0 3264 2448",
+          "control.aeMode": "OFF",
+          "lens.focusDistance": "0.00000000",
+          "lens.focalLength": "1.63999999",
+          "control.videoStabilizationMode": "OFF",
+          "lens.opticalStabilizationMode": "OFF"
+        },
+        "request": {
+          "sensor.exposureTime": "156250",
+          "sensor.sensitivity": "0",
+          "sensor.frameDuration": "33333333",
+          "scaler.cropRegion": "0 0 3264 2448",
+          "control.aeMode": "OFF"
+        },
+        "frame_offset": 3152,
+        "timestamp_offset_ns": 105062718000
+      },
+      "displayed_sensor_frame_identity": "unknown"
+    },
+    {
+      "ordinal": "P03_0",
+      "pre": {
+        "sha256": "63dfa2f82c03f9ec7458e03c06977764951673551baae6e817945c415c330a63",
+        "result": {
+          "sensor.exposureTime": "156000",
+          "sensor.sensitivity": "6400",
+          "sensor.frameDuration": "33350000",
+          "sensor.rollingShutterSkew": "31824000",
+          "scaler.cropRegion": "0 0 3264 2448",
+          "control.aeMode": "OFF",
+          "lens.focusDistance": "0.00000000",
+          "lens.focalLength": "1.63999999",
+          "control.videoStabilizationMode": "OFF",
+          "lens.opticalStabilizationMode": "OFF"
+        },
+        "request": {
+          "sensor.exposureTime": "156250",
+          "sensor.sensitivity": "0",
+          "sensor.frameDuration": "33333333",
+          "scaler.cropRegion": "0 0 3264 2448",
+          "control.aeMode": "OFF"
+        },
+        "frame_offset": 3368,
+        "timestamp_offset_ns": 112262447000
+      },
+      "image": {
+        "sha256": "f62164d4abd05326a52dee91be74e5d183d41ef307d42e2b11a0bc046c18d9fc",
+        "bytes": 1577462,
+        "dimensions": [
+          1080,
+          2392
+        ]
+      },
+      "post": {
+        "sha256": "926c431bfd1104c9777c55a91a70cec0115ea620e704b170d6fc0f25308df93e",
+        "result": {
+          "sensor.exposureTime": "156000",
+          "sensor.sensitivity": "6400",
+          "sensor.frameDuration": "33350000",
+          "sensor.rollingShutterSkew": "31824000",
+          "scaler.cropRegion": "0 0 3264 2448",
+          "control.aeMode": "OFF",
+          "lens.focusDistance": "0.00000000",
+          "lens.focalLength": "1.63999999",
+          "control.videoStabilizationMode": "OFF",
+          "lens.opticalStabilizationMode": "OFF"
+        },
+        "request": {
+          "sensor.exposureTime": "156250",
+          "sensor.sensitivity": "0",
+          "sensor.frameDuration": "33333333",
+          "scaler.cropRegion": "0 0 3264 2448",
+          "control.aeMode": "OFF"
+        },
+        "frame_offset": 3646,
+        "timestamp_offset_ns": 121528764000
+      },
+      "displayed_sensor_frame_identity": "unknown"
+    },
+    {
+      "ordinal": "P03_1",
+      "pre": {
+        "sha256": "25ae544d44684d7e97d5657e10b63c30caed6dbc59511244a44d4bca23120c87",
+        "result": {
+          "sensor.exposureTime": "156000",
+          "sensor.sensitivity": "6400",
+          "sensor.frameDuration": "33350000",
+          "sensor.rollingShutterSkew": "31824000",
+          "scaler.cropRegion": "0 0 3264 2448",
+          "control.aeMode": "OFF",
+          "lens.focusDistance": "0.00000000",
+          "lens.focalLength": "1.63999999",
+          "control.videoStabilizationMode": "OFF",
+          "lens.opticalStabilizationMode": "OFF"
+        },
+        "request": {
+          "sensor.exposureTime": "156250",
+          "sensor.sensitivity": "0",
+          "sensor.frameDuration": "33333333",
+          "scaler.cropRegion": "0 0 3264 2448",
+          "control.aeMode": "OFF"
+        },
+        "frame_offset": 3686,
+        "timestamp_offset_ns": 122862047000
+      },
+      "image": {
+        "sha256": "63d119110a211d8e1d52d08d9a1ad3a9d6dbf998cc756c288129bf2af2626938",
+        "bytes": 1591913,
+        "dimensions": [
+          1080,
+          2392
+        ]
+      },
+      "post": {
+        "sha256": "f6cbf41d5c6ab7a7b55df03502eda5a75b021fbd6134d6c0a2ab02b134a099c9",
+        "result": {
+          "sensor.exposureTime": "156000",
+          "sensor.sensitivity": "6400",
+          "sensor.frameDuration": "33350000",
+          "sensor.rollingShutterSkew": "31824000",
+          "scaler.cropRegion": "0 0 3264 2448",
+          "control.aeMode": "OFF",
+          "lens.focusDistance": "0.00000000",
+          "lens.focalLength": "1.63999999",
+          "control.videoStabilizationMode": "OFF",
+          "lens.opticalStabilizationMode": "OFF"
+        },
+        "request": {
+          "sensor.exposureTime": "156250",
+          "sensor.sensitivity": "0",
+          "sensor.frameDuration": "33333333",
+          "scaler.cropRegion": "0 0 3264 2448",
+          "control.aeMode": "OFF"
+        },
+        "frame_offset": 3962,
+        "timestamp_offset_ns": 132061700000
+      },
+      "displayed_sensor_frame_identity": "unknown"
+    },
+    {
+      "ordinal": "P03_2",
+      "pre": {
+        "sha256": "61fd3010a88be50c40ded7227865a1fab97d718e73caa9887aef24095cf65fd6",
+        "result": {
+          "sensor.exposureTime": "156000",
+          "sensor.sensitivity": "6400",
+          "sensor.frameDuration": "33350000",
+          "sensor.rollingShutterSkew": "31824000",
+          "scaler.cropRegion": "0 0 3264 2448",
+          "control.aeMode": "OFF",
+          "lens.focusDistance": "0.00000000",
+          "lens.focalLength": "1.63999999",
+          "control.videoStabilizationMode": "OFF",
+          "lens.opticalStabilizationMode": "OFF"
+        },
+        "request": {
+          "sensor.exposureTime": "156250",
+          "sensor.sensitivity": "0",
+          "sensor.frameDuration": "33333333",
+          "scaler.cropRegion": "0 0 3264 2448",
+          "control.aeMode": "OFF"
+        },
+        "frame_offset": 4000,
+        "timestamp_offset_ns": 133328319000
+      },
+      "image": {
+        "sha256": "b13ae5cfed70d6ce9a1e58239bbbca5eb1f274491197950e47276b9acf1ea918",
+        "bytes": 1569787,
+        "dimensions": [
+          1080,
+          2392
+        ]
+      },
+      "post": {
+        "sha256": "d9d05487dc628242d0c87df7568381747376540a9b34d536660c0a6f2f610d15",
+        "result": {
+          "sensor.exposureTime": "156000",
+          "sensor.sensitivity": "6400",
+          "sensor.frameDuration": "33350000",
+          "sensor.rollingShutterSkew": "31824000",
+          "scaler.cropRegion": "0 0 3264 2448",
+          "control.aeMode": "OFF",
+          "lens.focusDistance": "0.00000000",
+          "lens.focalLength": "1.63999999",
+          "control.videoStabilizationMode": "OFF",
+          "lens.opticalStabilizationMode": "OFF"
+        },
+        "request": {
+          "sensor.exposureTime": "156250",
+          "sensor.sensitivity": "0",
+          "sensor.frameDuration": "33333333",
+          "scaler.cropRegion": "0 0 3264 2448",
+          "control.aeMode": "OFF"
+        },
+        "frame_offset": 4269,
+        "timestamp_offset_ns": 142294647000
+      },
+      "displayed_sensor_frame_identity": "unknown"
+    },
+    {
+      "ordinal": "P04_0",
+      "pre": {
+        "sha256": "fcc126e2d57812b0dcbacb49443f6084ddc04b0ec3c62c2d1fc955908f31a99d",
+        "result": {
+          "sensor.exposureTime": "156000",
+          "sensor.sensitivity": "6400",
+          "sensor.frameDuration": "33350000",
+          "sensor.rollingShutterSkew": "31824000",
+          "scaler.cropRegion": "0 0 3264 2448",
+          "control.aeMode": "OFF",
+          "lens.focusDistance": "0.00000000",
+          "lens.focalLength": "1.63999999",
+          "control.videoStabilizationMode": "OFF",
+          "lens.opticalStabilizationMode": "OFF"
+        },
+        "request": {
+          "sensor.exposureTime": "156250",
+          "sensor.sensitivity": "0",
+          "sensor.frameDuration": "33333333",
+          "scaler.cropRegion": "0 0 3264 2448",
+          "control.aeMode": "OFF"
+        },
+        "frame_offset": 4485,
+        "timestamp_offset_ns": 149494375000
+      },
+      "image": {
+        "sha256": "9f179d95ede39d43eb5d0f2aa63d95cba25fc52a1a367a717f9b3e812936ab12",
+        "bytes": 1555890,
+        "dimensions": [
+          1080,
+          2392
+        ]
+      },
+      "post": {
+        "sha256": "dac84cd8cdef730096686ff889d40967f7c32c1388d4bbb6a6d41af777241f0e",
+        "result": {
+          "sensor.exposureTime": "156000",
+          "sensor.sensitivity": "6400",
+          "sensor.frameDuration": "33350000",
+          "sensor.rollingShutterSkew": "31824000",
+          "scaler.cropRegion": "0 0 3264 2448",
+          "control.aeMode": "OFF",
+          "lens.focusDistance": "0.00000000",
+          "lens.focalLength": "1.63999999",
+          "control.videoStabilizationMode": "OFF",
+          "lens.opticalStabilizationMode": "OFF"
+        },
+        "request": {
+          "sensor.exposureTime": "156250",
+          "sensor.sensitivity": "0",
+          "sensor.frameDuration": "33333333",
+          "scaler.cropRegion": "0 0 3264 2448",
+          "control.aeMode": "OFF"
+        },
+        "frame_offset": 4766,
+        "timestamp_offset_ns": 158860688000
+      },
+      "displayed_sensor_frame_identity": "unknown"
+    },
+    {
+      "ordinal": "P04_1",
+      "pre": {
+        "sha256": "ead6f6ca8c632634df01ca91f21c25630bd0736f7262226629bcfcab88563aee",
+        "result": {
+          "sensor.exposureTime": "156000",
+          "sensor.sensitivity": "6400",
+          "sensor.frameDuration": "33350000",
+          "sensor.rollingShutterSkew": "31824000",
+          "scaler.cropRegion": "0 0 3264 2448",
+          "control.aeMode": "OFF",
+          "lens.focusDistance": "0.00000000",
+          "lens.focalLength": "1.63999999",
+          "control.videoStabilizationMode": "OFF",
+          "lens.opticalStabilizationMode": "OFF"
+        },
+        "request": {
+          "sensor.exposureTime": "156250",
+          "sensor.sensitivity": "0",
+          "sensor.frameDuration": "33333333",
+          "scaler.cropRegion": "0 0 3264 2448",
+          "control.aeMode": "OFF"
+        },
+        "frame_offset": 4805,
+        "timestamp_offset_ns": 160160639000
+      },
+      "image": {
+        "sha256": "1bc2a6267af9bea77d246adbb3a2f01a6b77130007bef433b11ba8ca97d5e845",
+        "bytes": 1560408,
+        "dimensions": [
+          1080,
+          2392
+        ]
+      },
+      "post": {
+        "sha256": "4d53bfa19a968e0122eb34012f659285936316547731d1122fec27707714f44a",
+        "result": {
+          "sensor.exposureTime": "156000",
+          "sensor.sensitivity": "6400",
+          "sensor.frameDuration": "33350000",
+          "sensor.rollingShutterSkew": "31824000",
+          "scaler.cropRegion": "0 0 3264 2448",
+          "control.aeMode": "OFF",
+          "lens.focusDistance": "0.00000000",
+          "lens.focalLength": "1.63999999",
+          "control.videoStabilizationMode": "OFF",
+          "lens.opticalStabilizationMode": "OFF"
+        },
+        "request": {
+          "sensor.exposureTime": "156250",
+          "sensor.sensitivity": "0",
+          "sensor.frameDuration": "33333333",
+          "scaler.cropRegion": "0 0 3264 2448",
+          "control.aeMode": "OFF"
+        },
+        "frame_offset": 5087,
+        "timestamp_offset_ns": 169560284000
+      },
+      "displayed_sensor_frame_identity": "unknown"
+    },
+    {
+      "ordinal": "P04_2",
+      "pre": {
+        "sha256": "f7b749c786ba328b01bd40d9ede62363d4dfa04ba88246769722df52f6d17d24",
+        "result": {
+          "sensor.exposureTime": "156000",
+          "sensor.sensitivity": "6400",
+          "sensor.frameDuration": "33350000",
+          "sensor.rollingShutterSkew": "31824000",
+          "scaler.cropRegion": "0 0 3264 2448",
+          "control.aeMode": "OFF",
+          "lens.focusDistance": "0.00000000",
+          "lens.focalLength": "1.63999999",
+          "control.videoStabilizationMode": "OFF",
+          "lens.opticalStabilizationMode": "OFF"
+        },
+        "request": {
+          "sensor.exposureTime": "156250",
+          "sensor.sensitivity": "0",
+          "sensor.frameDuration": "33333333",
+          "scaler.cropRegion": "0 0 3264 2448",
+          "control.aeMode": "OFF"
+        },
+        "frame_offset": 5126,
+        "timestamp_offset_ns": 170860234000
+      },
+      "image": {
+        "sha256": "83070c68cedc5892577bfd43332b5a46779c54bb8f519cf452a669de0f845905",
+        "bytes": 1538522,
+        "dimensions": [
+          1080,
+          2392
+        ]
+      },
+      "post": {
+        "sha256": "a04d23f58ca2681a15f6e0abefbb4a9aa5c02d942ddf084c3dff18f06a538c20",
+        "result": {
+          "sensor.exposureTime": "156000",
+          "sensor.sensitivity": "6400",
+          "sensor.frameDuration": "33350000",
+          "sensor.rollingShutterSkew": "31824000",
+          "scaler.cropRegion": "0 0 3264 2448",
+          "control.aeMode": "OFF",
+          "lens.focusDistance": "0.00000000",
+          "lens.focalLength": "1.63999999",
+          "control.videoStabilizationMode": "OFF",
+          "lens.opticalStabilizationMode": "OFF"
+        },
+        "request": {
+          "sensor.exposureTime": "156250",
+          "sensor.sensitivity": "0",
+          "sensor.frameDuration": "33333333",
+          "scaler.cropRegion": "0 0 3264 2448",
+          "control.aeMode": "OFF"
+        },
+        "frame_offset": 5405,
+        "timestamp_offset_ns": 180159883000
+      },
+      "displayed_sensor_frame_identity": "unknown"
+    },
+    {
+      "ordinal": "P05_0",
+      "pre": {
+        "sha256": "467e95c6600dc027397c1cf9c5dad74536c026f9b6200bfafae51d8d494a5553",
+        "result": {
+          "sensor.exposureTime": "156000",
+          "sensor.sensitivity": "6400",
+          "sensor.frameDuration": "33350000",
+          "sensor.rollingShutterSkew": "31824000",
+          "scaler.cropRegion": "0 0 3264 2448",
+          "control.aeMode": "OFF",
+          "lens.focusDistance": "0.00000000",
+          "lens.focalLength": "1.63999999",
+          "control.videoStabilizationMode": "OFF",
+          "lens.opticalStabilizationMode": "OFF"
+        },
+        "request": {
+          "sensor.exposureTime": "156250",
+          "sensor.sensitivity": "0",
+          "sensor.frameDuration": "33333333",
+          "scaler.cropRegion": "0 0 3264 2448",
+          "control.aeMode": "OFF"
+        },
+        "frame_offset": 5621,
+        "timestamp_offset_ns": 187359611000
+      },
+      "image": {
+        "sha256": "651e5feae0c26e4295b3e0571a1b9e41b63b6ac0ccab7a03e79a93461392ee65",
+        "bytes": 1566866,
+        "dimensions": [
+          1080,
+          2392
+        ]
+      },
+      "post": {
+        "sha256": "8b05f3bb030989067441f782ef17a9eb2af4e7098195cf14908f7b9b13cd8d0c",
+        "result": {
+          "sensor.exposureTime": "156000",
+          "sensor.sensitivity": "6400",
+          "sensor.frameDuration": "33350000",
+          "sensor.rollingShutterSkew": "31824000",
+          "scaler.cropRegion": "0 0 3264 2448",
+          "control.aeMode": "OFF",
+          "lens.focusDistance": "0.00000000",
+          "lens.focalLength": "1.63999999",
+          "control.videoStabilizationMode": "OFF",
+          "lens.opticalStabilizationMode": "OFF"
+        },
+        "request": {
+          "sensor.exposureTime": "156250",
+          "sensor.sensitivity": "0",
+          "sensor.frameDuration": "33333333",
+          "scaler.cropRegion": "0 0 3264 2448",
+          "control.aeMode": "OFF"
+        },
+        "frame_offset": 5900,
+        "timestamp_offset_ns": 196659259000
+      },
+      "displayed_sensor_frame_identity": "unknown"
+    },
+    {
+      "ordinal": "P05_1",
+      "pre": {
+        "sha256": "0557cc0b9613b36bd767110b9cced94adf7009ba8750fced36cce5e49e701511",
+        "result": {
+          "sensor.exposureTime": "156000",
+          "sensor.sensitivity": "6400",
+          "sensor.frameDuration": "33350000",
+          "sensor.rollingShutterSkew": "31824000",
+          "scaler.cropRegion": "0 0 3264 2448",
+          "control.aeMode": "OFF",
+          "lens.focusDistance": "0.00000000",
+          "lens.focalLength": "1.63999999",
+          "control.videoStabilizationMode": "OFF",
+          "lens.opticalStabilizationMode": "OFF"
+        },
+        "request": {
+          "sensor.exposureTime": "156250",
+          "sensor.sensitivity": "0",
+          "sensor.frameDuration": "33333333",
+          "scaler.cropRegion": "0 0 3264 2448",
+          "control.aeMode": "OFF"
+        },
+        "frame_offset": 5938,
+        "timestamp_offset_ns": 197925877000
+      },
+      "image": {
+        "sha256": "be1fec4fe31a00859c3f1a65f4afc7ebe94c81e502f5b2755b4c252a28c43ac9",
+        "bytes": 1552390,
+        "dimensions": [
+          1080,
+          2392
+        ]
+      },
+      "post": {
+        "sha256": "3c46237783aa664a3443eb4fccaa89e06a296169f67fabf8e95c6772d3478a45",
+        "result": {
+          "sensor.exposureTime": "156000",
+          "sensor.sensitivity": "6400",
+          "sensor.frameDuration": "33350000",
+          "sensor.rollingShutterSkew": "31824000",
+          "scaler.cropRegion": "0 0 3264 2448",
+          "control.aeMode": "OFF",
+          "lens.focusDistance": "0.00000000",
+          "lens.focalLength": "1.63999999",
+          "control.videoStabilizationMode": "OFF",
+          "lens.opticalStabilizationMode": "OFF"
+        },
+        "request": {
+          "sensor.exposureTime": "156250",
+          "sensor.sensitivity": "0",
+          "sensor.frameDuration": "33333333",
+          "scaler.cropRegion": "0 0 3264 2448",
+          "control.aeMode": "OFF"
+        },
+        "frame_offset": 6200,
+        "timestamp_offset_ns": 206658880000
+      },
+      "displayed_sensor_frame_identity": "unknown"
+    },
+    {
+      "ordinal": "P05_2",
+      "pre": {
+        "sha256": "0ca4cf36bb7b45833eadc676c0ca4194453356419dfd3d5153cd7bd662f250db",
+        "result": {
+          "sensor.exposureTime": "156000",
+          "sensor.sensitivity": "6400",
+          "sensor.frameDuration": "33350000",
+          "sensor.rollingShutterSkew": "31824000",
+          "scaler.cropRegion": "0 0 3264 2448",
+          "control.aeMode": "OFF",
+          "lens.focusDistance": "0.00000000",
+          "lens.focalLength": "1.63999999",
+          "control.videoStabilizationMode": "OFF",
+          "lens.opticalStabilizationMode": "OFF"
+        },
+        "request": {
+          "sensor.exposureTime": "156250",
+          "sensor.sensitivity": "0",
+          "sensor.frameDuration": "33333333",
+          "scaler.cropRegion": "0 0 3264 2448",
+          "control.aeMode": "OFF"
+        },
+        "frame_offset": 6239,
+        "timestamp_offset_ns": 207958831000
+      },
+      "image": {
+        "sha256": "5e17bd0b42a744ec68ef93fd224629f036402cdd1c73126002e7c0ab9bb71865",
+        "bytes": 1584763,
+        "dimensions": [
+          1080,
+          2392
+        ]
+      },
+      "post": {
+        "sha256": "00fe80b362e14d3c34360629a7c52169759daf2f87acbc667b75e6930b7e24ba",
+        "result": {
+          "sensor.exposureTime": "156000",
+          "sensor.sensitivity": "6400",
+          "sensor.frameDuration": "33350000",
+          "sensor.rollingShutterSkew": "31824000",
+          "scaler.cropRegion": "0 0 3264 2448",
+          "control.aeMode": "OFF",
+          "lens.focusDistance": "0.00000000",
+          "lens.focalLength": "1.63999999",
+          "control.videoStabilizationMode": "OFF",
+          "lens.opticalStabilizationMode": "OFF"
+        },
+        "request": {
+          "sensor.exposureTime": "156250",
+          "sensor.sensitivity": "0",
+          "sensor.frameDuration": "33333333",
+          "scaler.cropRegion": "0 0 3264 2448",
+          "control.aeMode": "OFF"
+        },
+        "frame_offset": 6524,
+        "timestamp_offset_ns": 217458471000
+      },
+      "displayed_sensor_frame_identity": "unknown"
+    }
+  ],
+  "failures": [],
+  "release": {
+    "available": true,
+    "verified": true,
+    "actual_backlight": "0.40987244",
+    "current_brightness": "0.40987244",
+    "hbm": "off",
+    "provider_dc": "0",
+    "timestamp_embedded": false
+  },
+  "restoration": {
+    "target_observed_settings_and_crop": true,
+    "camera_observed_stock_settings": true,
+    "original_policy_native": [
+      "BRIGHT",
+      "6879"
+    ],
+    "returned_policy_native": [
+      "BRIGHT",
+      "6879"
+    ],
+    "hidden_preferences_verified": false,
+    "expert_mode_saved_controls_verified": false,
+    "photo_ui_mode_verified": false,
+    "expert_observed_auto_modes_verified": true,
+    "expert_hidden_preferences_verified": false
+  },
+  "source_state_verified": true,
+  "limits": [
+    "Bracket frame identity is not screenshot sensor identity.",
+    "No decoding or physical timing inference.",
+    "Source stability checks only x0:1440/y332:3090, not full page, HTML semantics or pixel budgets.",
+    "Exact R11 request reproduction is distinct from actual-result compatibility.",
+    "Missing hidden preferences and PHOTO UI verification remain explicit."
+  ]
+}
