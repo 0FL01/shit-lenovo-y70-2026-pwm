@@ -1,0 +1,37 @@
+{
+  "R7": {
+    "captured": 43,
+    "coupling_label": {
+      "AC": 43
+    },
+    "dc_labels_requiring_review_not_qualified_pairs": [],
+    "original_qc": {
+      "accepted": 42,
+      "missing": 8,
+      "rejected": 1
+    },
+    "planned": 51
+  },
+  "panelDC_3600": {
+    "frame_rows": 9,
+    "per_phase": {
+      "1_0": 3,
+      "2_1": 3,
+      "3_0": 3
+    },
+    "raster_qc": {
+      "ok": 9
+    }
+  },
+  "panelDC_3601": {
+    "frame_rows": 9,
+    "per_phase": {
+      "1_0": 3,
+      "2_1": 3,
+      "3_0": 3
+    },
+    "raster_qc": {
+      "ok": 9
+    }
+  }
+}
