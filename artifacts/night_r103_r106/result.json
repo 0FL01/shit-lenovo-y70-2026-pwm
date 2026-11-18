@@ -1,0 +1,540 @@
+{
+  "R103": {
+    "coded": {
+      "p01_1.png": 64,
+      "p01_2.png": 64,
+      "p01_3.png": 62,
+      "p02_1.png": 64,
+      "p02_2.png": 64,
+      "p02_3.png": 64,
+      "p03_1.png": 64,
+      "p03_2.png": 64,
+      "p03_3.png": 62,
+      "p04_1.png": 64,
+      "p04_2.png": 64,
+      "p04_3.png": 64,
+      "p06_1.png": 64,
+      "p06_2.png": 64,
+      "p06_3.png": 62
+    },
+    "total": 954,
+    "fixed_bound": 576,
+    "uniform_row_split_green": [
+      5.875,
+      5.25,
+      9.25
+    ]
+  },
+  "R104": {
+    "variants": {
+      "(18, 0, 0)": {
+        "n_cross": 5,
+        "n_control": 46,
+        "min_cross": {
+          "pair": [
+            2,
+            3
+          ],
+          "kind": "cross",
+          "d": 0.010150571
+        },
+        "max_cross": {
+          "pair": [
+            8,
+            9
+          ],
+          "kind": "cross",
+          "d": 0.01298027
+        },
+        "max_control": {
+          "pair": [
+            8,
+            8
+          ],
+          "kind": "within",
+          "d": 0.026739356
+        },
+        "max_same": {
+          "pair": [
+            6,
+            8
+          ],
+          "kind": "same",
+          "d": 0.018172378
+        },
+        "margin": -0.016588785,
+        "separated": false
+      },
+      "(12, 0, 0)": {
+        "n_cross": 5,
+        "n_control": 46,
+        "min_cross": {
+          "pair": [
+            2,
+            3
+          ],
+          "kind": "cross",
+          "d": 0.012071651
+        },
+        "max_cross": {
+          "pair": [
+            8,
+            9
+          ],
+          "kind": "cross",
+          "d": 0.017834891
+        },
+        "max_control": {
+          "pair": [
+            8,
+            8
+          ],
+          "kind": "within",
+          "d": 0.034761163
+        },
+        "max_same": {
+          "pair": [
+            8,
+            11
+          ],
+          "kind": "same",
+          "d": 0.023727934
+        },
+        "margin": -0.022689512,
+        "separated": false
+      },
+      "(24, 0, 0)": {
+        "n_cross": 5,
+        "n_control": 46,
+        "min_cross": {
+          "pair": [
+            2,
+            3
+          ],
+          "kind": "cross",
+          "d": 0.009060228
+        },
+        "max_cross": {
+          "pair": [
+            8,
+            9
+          ],
+          "kind": "cross",
+          "d": 0.017082035
+        },
+        "max_control": {
+          "pair": [
+            8,
+            8
+          ],
+          "kind": "within",
+          "d": 0.032087227
+        },
+        "max_same": {
+          "pair": [
+            6,
+            11
+          ],
+          "kind": "same",
+          "d": 0.017860852
+        },
+        "margin": -0.023026999,
+        "separated": false
+      },
+      "(18, -3, 0)": {
+        "n_cross": 5,
+        "n_control": 46,
+        "min_cross": {
+          "pair": [
+            1,
+            2
+          ],
+          "kind": "cross",
+          "d": 0.010851506
+        },
+        "max_cross": {
+          "pair": [
+            8,
+            9
+          ],
+          "kind": "cross",
+          "d": 0.015498442
+        },
+        "max_control": {
+          "pair": [
+            8,
+            8
+          ],
+          "kind": "within",
+          "d": 0.028530633
+        },
+        "max_same": {
+          "pair": [
+            8,
+            11
+          ],
+          "kind": "same",
+          "d": 0.019678089
+        },
+        "margin": -0.017679128,
+        "separated": false
+      },
+      "(18, 3, 0)": {
+        "n_cross": 5,
+        "n_control": 46,
+        "min_cross": {
+          "pair": [
+            2,
+            3
+          ],
+          "kind": "cross",
+          "d": 0.0096054
+        },
+        "max_cross": {
+          "pair": [
+            5,
+            6
+          ],
+          "kind": "cross",
+          "d": 0.014356179
+        },
+        "max_control": {
+          "pair": [
+            8,
+            8
+          ],
+          "kind": "within",
+          "d": 0.028063344
+        },
+        "max_same": {
+          "pair": [
+            6,
+            8
+          ],
+          "kind": "same",
+          "d": 0.018665628
+        },
+        "margin": -0.018457944,
+        "separated": false
+      },
+      "(18, 0, -3)": {
+        "n_cross": 5,
+        "n_control": 46,
+        "min_cross": {
+          "pair": [
+            2,
+            3
+          ],
+          "kind": "cross",
+          "d": 0.009942887
+        },
+        "max_cross": {
+          "pair": [
+            8,
+            9
+          ],
+          "kind": "cross",
+          "d": 0.014096573
+        },
+        "max_control": {
+          "pair": [
+            8,
+            8
+          ],
+          "kind": "within",
+          "d": 0.028452752
+        },
+        "max_same": {
+          "pair": [
+            2,
+            11
+          ],
+          "kind": "same",
+          "d": 0.018951194
+        },
+        "margin": -0.018509865,
+        "separated": false
+      },
+      "(18, 0, 3)": {
+        "n_cross": 5,
+        "n_control": 46,
+        "min_cross": {
+          "pair": [
+            2,
+            3
+          ],
+          "kind": "cross",
+          "d": 0.009968847
+        },
+        "max_cross": {
+          "pair": [
+            8,
+            9
+          ],
+          "kind": "cross",
+          "d": 0.012876428
+        },
+        "max_control": {
+          "pair": [
+            8,
+            8
+          ],
+          "kind": "within",
+          "d": 0.024896158
+        },
+        "max_same": {
+          "pair": [
+            6,
+            11
+          ],
+          "kind": "same",
+          "d": 0.017056075
+        },
+        "margin": -0.01492731,
+        "separated": false
+      }
+    },
+    "csv_rows": 735,
+    "rejected_glyph_ncc": {
+      "AUTO": 0.79878,
+      "X1": 0.784795
+    },
+    "planned_slots": 51,
+    "captured_slots": 43,
+    "accepted_slots": 42,
+    "missing_slots": 8
+  },
+  "R105": {
+    "(1, 0)": {
+      "totals": [
+        952,
+        954,
+        958,
+        948,
+        930,
+        826,
+        686,
+        534,
+        412,
+        384,
+        378,
+        376
+      ],
+      "first_failure": 8
+    },
+    "(-1, 0)": {
+      "totals": [
+        946,
+        944,
+        934,
+        880,
+        720,
+        576,
+        470,
+        454,
+        450,
+        444,
+        432,
+        428
+      ],
+      "first_failure": 6
+    },
+    "(0, 1)": {
+      "totals": [
+        950,
+        948,
+        946,
+        878,
+        724,
+        568,
+        492,
+        476,
+        474,
+        474,
+        472,
+        470
+      ],
+      "first_failure": 6
+    },
+    "(0, -1)": {
+      "totals": [
+        950,
+        948,
+        942,
+        938,
+        906,
+        792,
+        642,
+        510,
+        480,
+        478,
+        474,
+        470
+      ],
+      "first_failure": 8
+    }
+  },
+  "R106": {
+    "full": {
+      "phases": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "n_cross": 6,
+      "n_control": 63,
+      "min_cross": {
+        "pair": [
+          13,
+          14
+        ],
+        "kind": "cross",
+        "d": 0.010410177
+      },
+      "max_cross": {
+        "pair": [
+          1,
+          2
+        ],
+        "kind": "cross",
+        "d": 0.014875389
+      },
+      "max_control": {
+        "pair": [
+          1,
+          1
+        ],
+        "kind": "within",
+        "d": 0.020742471
+      },
+      "max_same": {
+        "pair": [
+          1,
+          16
+        ],
+        "kind": "same",
+        "d": 0.017367601
+      },
+      "margin": -0.010332295,
+      "separated": false
+    },
+    "first": {
+      "phases": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "n_cross": 3,
+      "n_control": 18,
+      "min_cross": {
+        "pair": [
+          5,
+          6
+        ],
+        "kind": "cross",
+        "d": 0.012383178
+      },
+      "max_cross": {
+        "pair": [
+          1,
+          2
+        ],
+        "kind": "cross",
+        "d": 0.014875389
+      },
+      "max_control": {
+        "pair": [
+          1,
+          1
+        ],
+        "kind": "within",
+        "d": 0.020742471
+      },
+      "max_same": {
+        "pair": [
+          1,
+          5
+        ],
+        "kind": "same",
+        "d": 0.015732087
+      },
+      "margin": -0.008359294,
+      "separated": false
+    },
+    "last": {
+      "phases": [
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "n_cross": 2,
+      "n_control": 18,
+      "min_cross": {
+        "pair": [
+          13,
+          14
+        ],
+        "kind": "cross",
+        "d": 0.010410177
+      },
+      "max_cross": {
+        "pair": [
+          9,
+          10
+        ],
+        "kind": "cross",
+        "d": 0.013499481
+      },
+      "max_control": {
+        "pair": [
+          10,
+          10
+        ],
+        "kind": "within",
+        "d": 0.019626168
+      },
+      "max_same": {
+        "pair": [
+          10,
+          13
+        ],
+        "kind": "same",
+        "d": 0.014044652
+      },
+      "margin": -0.009215992,
+      "separated": false
+    },
+    "midpoint_s": 223.375742,
+    "straddles": [
+      8
+    ],
+    "badge_pass_by_time": [
+      26,
+      25
+    ]
+  }
+}
