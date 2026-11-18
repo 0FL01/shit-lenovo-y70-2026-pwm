@@ -1,0 +1,66 @@
+{
+  "archive_phases": "ABABA",
+  "camera_slots": 15,
+  "archived_sequences": 1,
+  "windows": [
+    {
+      "phases": "ABA",
+      "index": 1,
+      "B_minus_A": [
+        -0.03442996,
+        -0.03835137
+      ]
+    },
+    {
+      "phases": "BAB",
+      "index": 2,
+      "B_minus_A": [
+        -0.03835137,
+        -0.03277235
+      ]
+    },
+    {
+      "phases": "ABA",
+      "index": 3,
+      "B_minus_A": [
+        -0.03277235,
+        -0.0314913
+      ]
+    }
+  ],
+  "disjoint_ABA_BAB_pairs": 0,
+  "AAA_windows": 0,
+  "target_center_code": [
+    255,
+    0,
+    255,
+    0,
+    255
+  ],
+  "target_white_row_bounds": [
+    [
+      720,
+      720
+    ],
+    [
+      720,
+      720
+    ],
+    [
+      720,
+      720
+    ],
+    [
+      720,
+      720
+    ],
+    [
+      720,
+      720
+    ]
+  ],
+  "all_test_rows_720_white": true,
+  "full_screenshot_mean_span_DN": 0.001603,
+  "qualified_sham_triplets_in_parent_input": 0,
+  "new_camera_slots": 0
+}
