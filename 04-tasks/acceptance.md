@@ -1,5 +1,7 @@
 # Checkpoints and quality bar
 
+Ночная очередь после R12: [100 дополнительных раундов, R013–R112](night-100.md). Это условный план, не результаты измерений; защитные условия ниже сохраняются.
+
 ## Stage 0: no hardware access
 
 T02/T03/T04/T05/T07 can progress independently. Save source versions, diff reports, exact CLI, scripts and open questions. Do **not** block on T01 if device is temporarily disconnected.
