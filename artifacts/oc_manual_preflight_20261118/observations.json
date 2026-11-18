@@ -1,0 +1,95 @@
+{
+  "parameters": {
+    "control.aeMode": "OFF",
+    "control.afMode": "OFF",
+    "sensor.sensitivity": "6400",
+    "sensor.exposureTime": "500000",
+    "lens.focusDistance": "6.69673395",
+    "control.zoomRatio": "1.00000000",
+    "scaler.cropRegion": "0 0 4080 3072",
+    "control.captureIntent": "PREVIEW"
+  },
+  "frames": [
+    {
+      "frame": 11816,
+      "face_max_rgb": [
+        159,
+        159,
+        196
+      ],
+      "trace_max_rgb": [
+        144,
+        159,
+        181
+      ],
+      "edges": [
+        48.0,
+        49.5
+      ],
+      "trace_pixels": 81320,
+      "zero_trace_per_channel": [
+        189,
+        1635,
+        30505
+      ],
+      "any_zero_trace_pixels": 31823,
+      "black_trace_pixels": 39,
+      "black_face_pixels": 177
+    },
+    {
+      "frame": 11914,
+      "face_max_rgb": [
+        160,
+        161,
+        193
+      ],
+      "trace_max_rgb": [
+        145,
+        154,
+        167
+      ],
+      "edges": [
+        48.0,
+        44.5
+      ],
+      "trace_pixels": 81320,
+      "zero_trace_per_channel": [
+        211,
+        1788,
+        30739
+      ],
+      "any_zero_trace_pixels": 32377,
+      "black_trace_pixels": 48,
+      "black_face_pixels": 87
+    },
+    {
+      "frame": 12010,
+      "face_max_rgb": [
+        163,
+        161,
+        195
+      ],
+      "trace_max_rgb": [
+        149,
+        156,
+        174
+      ],
+      "edges": [
+        46.0,
+        46.5
+      ],
+      "trace_pixels": 81320,
+      "zero_trace_per_channel": [
+        254,
+        2160,
+        30458
+      ],
+      "any_zero_trace_pixels": 32336,
+      "black_trace_pixels": 29,
+      "black_face_pixels": 124
+    }
+  ],
+  "oc_observed_fields_restored": 14,
+  "nothing_control_fields_restored": 15,
+  "hidden_pref_identity": "not checked"
+}
