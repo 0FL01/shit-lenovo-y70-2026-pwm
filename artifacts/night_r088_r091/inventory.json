@@ -1,0 +1,52 @@
+{
+  "calibration_host_start_span_s_not_record_length": 265,
+  "calibration_screenshot_count_by_phase": {
+    "blk": 3,
+    "hi": 3,
+    "lockwhite": 3,
+    "w1": 3,
+    "w2": 3,
+    "w3": 3
+  },
+  "r7_qc": {
+    "accepted": 42,
+    "missing": 8,
+    "rejected": 1
+  },
+  "r7_visible_legends_by_qc": {
+    "accepted:5mS:AC:X1": 42,
+    "rejected:5mS:AC:X1": 1
+  },
+  "sleep_screenshot_count_by_phase": {
+    "after": 3,
+    "before": 3,
+    "off": 3,
+    "restored": 3
+  },
+  "stock_sessions": {
+    "3600": {
+      "phase_status": {
+        "1_0:ok": 3,
+        "2_1:ok": 3,
+        "3_0:ok": 3
+      },
+      "raster_Dmed": {
+        "1_0 : 2_1": 0.398681,
+        "1_0 : 3_0": 0.020208,
+        "2_1 : 3_0": 0.395764
+      }
+    },
+    "3601": {
+      "phase_status": {
+        "1_0:ok": 3,
+        "2_1:ok": 3,
+        "3_0:ok": 3
+      },
+      "raster_Dmed": {
+        "1_0 : 2_1": 0.011319,
+        "1_0 : 3_0": 0.00875,
+        "2_1 : 3_0": 0.013542
+      }
+    }
+  }
+}
