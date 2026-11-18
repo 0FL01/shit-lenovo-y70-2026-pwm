@@ -1,0 +1,138 @@
+{
+  "target_build": "W3WWS36.65-64-4-1",
+  "tables": {
+    "archived_passes": 8,
+    "24_D2": [
+      16380,
+      3600,
+      2632,
+      1920,
+      1400,
+      1
+    ],
+    "24_D3": [
+      3601,
+      2633,
+      1921,
+      1401,
+      2
+    ],
+    "4F_pairs": [
+      2632,
+      2633
+    ],
+    "command_arrays": 52,
+    "packets": 1101,
+    "literal_BE16_hits_in_single_data_payload": {
+      "2632": 0,
+      "2633": 0,
+      "3600": 0,
+      "3601": 0
+    },
+    "explicit_field_hits": {
+      "qcom,mdss-dsi-dc-off-command": [
+        [
+          35,
+          169,
+          "0e"
+        ],
+        [
+          35,
+          170,
+          "11"
+        ]
+      ],
+      "qcom,mdss-dsi-dc-on-command": [
+        [
+          35,
+          169,
+          "8e"
+        ],
+        [
+          35,
+          170,
+          "11"
+        ]
+      ]
+    }
+  },
+  "effective_ALS_if_branch_reached": [
+    [
+      2632,
+      0,
+      0
+    ],
+    [
+      2632,
+      1,
+      1
+    ],
+    [
+      2633,
+      0,
+      0
+    ],
+    [
+      2633,
+      1,
+      1
+    ],
+    [
+      3600,
+      0,
+      0
+    ],
+    [
+      3600,
+      1,
+      1
+    ],
+    [
+      3601,
+      0,
+      0
+    ],
+    [
+      3601,
+      1,
+      0
+    ]
+  ],
+  "actual_native_setter_dispatch": [
+    3600,
+    3601,
+    3600,
+    3601
+  ],
+  "calibration": {
+    "int_37_dbv": [
+      2626,
+      2631,
+      2632,
+      2633,
+      2634
+    ],
+    "binary32_matches": 6,
+    "local_affine_fit_rows": 6,
+    "normalized_spline_times_max_nearest_disagreements": [
+      [
+        "0.150000000",
+        2783,
+        2784
+      ]
+    ],
+    "r7_repeated_complete_phases": 14,
+    "direct_native_series": [
+      6879,
+      3600,
+      3601,
+      3602,
+      3601,
+      3600,
+      6879
+    ]
+  },
+  "actual_ALS_branch_trace": null,
+  "actual_DDIC_interval_branch_trace": null,
+  "optical_hz": null
+}

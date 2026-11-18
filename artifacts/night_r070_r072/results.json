@@ -1,0 +1,79 @@
+{
+  "R070": {
+    "calibration_key": "mipi_mot_cmd_boe_1440p_dsc_682",
+    "current_merged_profile": null,
+    "disabled_profiles": [
+      "hdr-dolby-257",
+      "native-calibration-259",
+      "native-radiant-256",
+      "native-vivid-v04",
+      "p3-257-unused",
+      "p3-300-unused",
+      "p3-natural-merge-cali-3dlut",
+      "srgb-257-for-sdrRenderList-unused",
+      "srgb-300-for-sdrRenderList-unused",
+      "srgb-natural-merge-cali-3dlut"
+    ],
+    "historical_global_build": "W3WW36.65-64-4",
+    "selected_global_node": "qcom,mdss_dsi_mot_boe_ili97701A_682_1440x3168_dsc_cmd_v4",
+    "spatial_only_enabled": [
+      "hdr-nature",
+      "hdr-vivid-300"
+    ],
+    "target_inventory_utc": "2026-10-28T17:49:02Z",
+    "whole_file_sha256": "bda2618a08c53244d90a913c167d40ba386e954f02737ef6423bf79e735ca1db"
+  },
+  "R071": {
+    "independent_sweeps": 1,
+    "native_archive_counts": {
+      "controller_returns": 85,
+      "negative_returns": 0,
+      "probe_misses": 0,
+      "timing_packets": 62
+    },
+    "sweep": [
+      {
+        "active_sf_peak_hz": 120.00001,
+        "phase": 1,
+        "request": 120,
+        "strongest_peak_rows": 94.161
+      },
+      {
+        "active_sf_peak_hz": 144.00002,
+        "phase": 2,
+        "request": 144,
+        "strongest_peak_rows": 87.615
+      },
+      {
+        "active_sf_peak_hz": 120.00001,
+        "phase": 3,
+        "request": 120,
+        "strongest_peak_rows": 93.623
+      },
+      {
+        "active_sf_peak_hz": 90.0,
+        "phase": 4,
+        "request": 90,
+        "strongest_peak_rows": 92.565
+      },
+      {
+        "active_sf_peak_hz": 120.00001,
+        "phase": 5,
+        "request": 120,
+        "strongest_peak_rows": 92.565
+      }
+    ]
+  },
+  "R072": {
+    "active_sf_mode": 0,
+    "extra_dim_snapshot_rgb_diagonal": [
+      1.0,
+      0.522,
+      1.0,
+      1.0
+    ],
+    "panel_brightness": 828
+  },
+  "new_device_actions": 0,
+  "physical_pwm_hz": null
+}
