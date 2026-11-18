@@ -1,0 +1,423 @@
+{
+  "R022": {
+    "coded": {
+      "both_pass": 6,
+      "signal_only_fails": 6,
+      "geometry_only_fails": 3,
+      "both_fail": 0
+    },
+    "completed_series": 1,
+    "accepted_series": 0
+  },
+  "R023": {
+    "samples": {
+      "short_drag": {
+        "ui": {
+          "display_rotation": "ROTATION_0",
+          "orientation": "port",
+          "app_bounds": [
+            0,
+            0,
+            1080,
+            2392
+          ],
+          "render_frame_parent_rect": [
+            0,
+            261,
+            1080,
+            1701
+          ]
+        },
+        "ui_snapshot_sha256": "cf9881400b16808ccad614f13f7bcff6b50476e1d650623103d81131595c2349",
+        "screenshot_size": [
+          1080,
+          2392
+        ],
+        "sensor_orientation": 90,
+        "active_rect": [
+          0,
+          0,
+          3264,
+          2448
+        ],
+        "result_crop": [
+          0,
+          0,
+          3264,
+          2448
+        ],
+        "mode": 36869,
+        "streams": [
+          {
+            "index": 0,
+            "consumer": "SurfaceTexture",
+            "size": [
+              1440,
+              1080
+            ],
+            "format": "0x11",
+            "frames_produced": 1724
+          },
+          {
+            "index": 1,
+            "consumer": "ImageReader",
+            "size": [
+              3264,
+              2448
+            ],
+            "format": "0x21",
+            "frames_produced": 0
+          },
+          {
+            "index": 2,
+            "consumer": "ImageReader",
+            "size": [
+              3264,
+              2448
+            ],
+            "format": "0x23",
+            "frames_produced": 0
+          },
+          {
+            "index": 3,
+            "consumer": "ImageReader",
+            "size": [
+              3264,
+              2448
+            ],
+            "format": "0x20",
+            "frames_produced": 0
+          },
+          {
+            "index": 4,
+            "consumer": "ImageReader",
+            "size": [
+              1920,
+              1088
+            ],
+            "format": "0x32315659",
+            "frames_produced": 0
+          }
+        ]
+      },
+      "short2": {
+        "ui": {
+          "display_rotation": "ROTATION_0",
+          "orientation": "port",
+          "app_bounds": [
+            0,
+            0,
+            1080,
+            2392
+          ],
+          "render_frame_parent_rect": [
+            0,
+            261,
+            1080,
+            1701
+          ]
+        },
+        "ui_snapshot_sha256": "bffde3d54db4287b4844baf37c11388935f91801f177952e1f1096bae80ca58c",
+        "screenshot_size": [
+          1080,
+          2392
+        ],
+        "sensor_orientation": 90,
+        "active_rect": [
+          0,
+          0,
+          3264,
+          2448
+        ],
+        "result_crop": [
+          0,
+          0,
+          3264,
+          2448
+        ],
+        "mode": 36869,
+        "streams": [
+          {
+            "index": 0,
+            "consumer": "SurfaceTexture",
+            "size": [
+              1440,
+              1080
+            ],
+            "format": "0x11",
+            "frames_produced": 2545
+          },
+          {
+            "index": 1,
+            "consumer": "ImageReader",
+            "size": [
+              3264,
+              2448
+            ],
+            "format": "0x21",
+            "frames_produced": 0
+          },
+          {
+            "index": 2,
+            "consumer": "ImageReader",
+            "size": [
+              3264,
+              2448
+            ],
+            "format": "0x23",
+            "frames_produced": 0
+          },
+          {
+            "index": 3,
+            "consumer": "ImageReader",
+            "size": [
+              3264,
+              2448
+            ],
+            "format": "0x20",
+            "frames_produced": 0
+          },
+          {
+            "index": 4,
+            "consumer": "ImageReader",
+            "size": [
+              1920,
+              1088
+            ],
+            "format": "0x32315659",
+            "frames_produced": 0
+          }
+        ]
+      },
+      "short3": {
+        "ui": {
+          "display_rotation": "ROTATION_0",
+          "orientation": "port",
+          "app_bounds": [
+            0,
+            0,
+            1080,
+            2392
+          ],
+          "render_frame_parent_rect": [
+            0,
+            261,
+            1080,
+            1701
+          ]
+        },
+        "ui_snapshot_sha256": "879b872620e381d5d44d3301213b57e8690bdb62eda03ec7cf9ac8523057bf93",
+        "screenshot_size": [
+          1080,
+          2392
+        ],
+        "sensor_orientation": 90,
+        "active_rect": [
+          0,
+          0,
+          3264,
+          2448
+        ],
+        "result_crop": [
+          0,
+          0,
+          3264,
+          2448
+        ],
+        "mode": 36869,
+        "streams": [
+          {
+            "index": 0,
+            "consumer": "SurfaceTexture",
+            "size": [
+              1440,
+              1080
+            ],
+            "format": "0x11",
+            "frames_produced": 3018
+          },
+          {
+            "index": 1,
+            "consumer": "ImageReader",
+            "size": [
+              3264,
+              2448
+            ],
+            "format": "0x21",
+            "frames_produced": 0
+          },
+          {
+            "index": 2,
+            "consumer": "ImageReader",
+            "size": [
+              3264,
+              2448
+            ],
+            "format": "0x23",
+            "frames_produced": 0
+          },
+          {
+            "index": 3,
+            "consumer": "ImageReader",
+            "size": [
+              3264,
+              2448
+            ],
+            "format": "0x20",
+            "frames_produced": 0
+          },
+          {
+            "index": 4,
+            "consumer": "ImageReader",
+            "size": [
+              1920,
+              1088
+            ],
+            "format": "0x32315659",
+            "frames_produced": 0
+          }
+        ]
+      },
+      "short4": {
+        "ui": {
+          "display_rotation": "ROTATION_0",
+          "orientation": "port",
+          "app_bounds": [
+            0,
+            0,
+            1080,
+            2392
+          ],
+          "render_frame_parent_rect": [
+            0,
+            261,
+            1080,
+            1701
+          ]
+        },
+        "ui_snapshot_sha256": "6ee256844fe3dbfb1ffbb7adbb1eb9e31763277bb3d5bd226e2df38153cae2e6",
+        "screenshot_size": [
+          1080,
+          2392
+        ],
+        "sensor_orientation": 90,
+        "active_rect": [
+          0,
+          0,
+          3264,
+          2448
+        ],
+        "result_crop": [
+          0,
+          0,
+          3264,
+          2448
+        ],
+        "mode": 36869,
+        "streams": [
+          {
+            "index": 0,
+            "consumer": "SurfaceTexture",
+            "size": [
+              1440,
+              1080
+            ],
+            "format": "0x11",
+            "frames_produced": 3496
+          },
+          {
+            "index": 1,
+            "consumer": "ImageReader",
+            "size": [
+              3264,
+              2448
+            ],
+            "format": "0x21",
+            "frames_produced": 0
+          },
+          {
+            "index": 2,
+            "consumer": "ImageReader",
+            "size": [
+              3264,
+              2448
+            ],
+            "format": "0x23",
+            "frames_produced": 0
+          },
+          {
+            "index": 3,
+            "consumer": "ImageReader",
+            "size": [
+              3264,
+              2448
+            ],
+            "format": "0x20",
+            "frames_produced": 0
+          },
+          {
+            "index": 4,
+            "consumer": "ImageReader",
+            "size": [
+              1920,
+              1088
+            ],
+            "format": "0x32315659",
+            "frames_produced": 0
+          }
+        ]
+      }
+    },
+    "buffer_to_view_matrix": null,
+    "readout_axis_sign": null
+  },
+  "R024": {
+    "public_commit": "65ef638c5c49dddf78f5b48edddd44786d705197",
+    "public_mode_geometry": {
+      "prev": {
+        "source_output": [
+          3264,
+          2448
+        ],
+        "y1_offset": 0,
+        "to_stream_by_index": [
+          "uniform_scale_15/34",
+          "equal_size",
+          "equal_size",
+          "equal_size",
+          "aspect_change_required"
+        ]
+      },
+      "cap": {
+        "source_output": [
+          3264,
+          2448
+        ],
+        "y1_offset": 0,
+        "to_stream_by_index": [
+          "uniform_scale_15/34",
+          "equal_size",
+          "equal_size",
+          "equal_size",
+          "aspect_change_required"
+        ]
+      },
+      "vid": {
+        "source_output": [
+          3264,
+          1836
+        ],
+        "y1_offset": 306,
+        "to_stream_by_index": [
+          "aspect_change_required",
+          "aspect_change_required",
+          "aspect_change_required",
+          "aspect_change_required",
+          "aspect_change_required"
+        ]
+      }
+    },
+    "selected_sensor_scenario": null,
+    "installed_driver_equivalence": null
+  }
+}
