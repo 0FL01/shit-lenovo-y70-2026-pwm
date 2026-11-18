@@ -1,0 +1,88 @@
+{
+  "archive_states": [
+    "s1_dbv3584_120",
+    "s2_dbv3646_120",
+    "s3_dbv3584_144",
+    "s4_dbv3584_60"
+  ],
+  "passes": 8,
+  "scoped_prefixes_per_pass": 18,
+  "interpretation": "BE16 arithmetic on captured prefixes only; no verified word counts or optical measurements",
+  "als_anchors": {
+    "pwmToDcDbv": 3601,
+    "brightnessRange": 14056
+  },
+  "physical_pwm_hz": null,
+  "broad_axis": [
+    16381,
+    16380,
+    16376,
+    16250,
+    16125,
+    16000,
+    14056,
+    11344,
+    6568,
+    3601,
+    3600,
+    2632,
+    1920,
+    1400,
+    1
+  ],
+  "short_axis": [
+    16380,
+    16376,
+    16000,
+    14056,
+    11344,
+    6568,
+    3601,
+    3600,
+    2632,
+    1920,
+    1400,
+    1
+  ],
+  "24_D2": [
+    16380,
+    3600,
+    2632,
+    1920,
+    1400,
+    1
+  ],
+  "24_D3": [
+    3601,
+    2633,
+    1921,
+    1401,
+    2
+  ],
+  "adjacent_pairs": [
+    [
+      3600,
+      3601
+    ],
+    [
+      2632,
+      2633
+    ],
+    [
+      1920,
+      1921
+    ],
+    [
+      1400,
+      1401
+    ],
+    [
+      1,
+      2
+    ]
+  ],
+  "4F_pairs": [
+    2632,
+    2633
+  ]
+}
