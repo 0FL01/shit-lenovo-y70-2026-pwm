@@ -1,0 +1,169 @@
+{
+  "R019": {
+    "planned": 18,
+    "available": 18,
+    "retained_after_rgb_dedup": 18,
+    "duplicate_slots": [],
+    "unique_full_rgb": 18,
+    "unique_central_1280_rgb": 18,
+    "unique_png": 18,
+    "distinct_service_offsets": 36,
+    "strictly_increasing_offsets": true,
+    "displayed_sensor_frame_id": "unknown",
+    "original_signal_series_pass": false,
+    "after_dedup": false
+  },
+  "R020": {
+    "independent_completed_series": 1,
+    "series_pass": 0,
+    "coded_signal_pass": 9,
+    "coded_total": 15,
+    "null_pass": 3,
+    "null_total": 3,
+    "geometric_pass": 15,
+    "geometric_total": 18,
+    "joint_coded_pass": 6,
+    "inversion_pass": 6,
+    "inversion_total": 6,
+    "request_matches_R11": false
+  },
+  "R021": {
+    "control_shift_xy": [
+      -800,
+      0
+    ],
+    "planned": 18,
+    "analysed": 18,
+    "candidates_per_frame": 4,
+    "false_call_frames": 0,
+    "endpoint_free_frames": 18,
+    "frames": {
+      "p01_1.png": {
+        "calls": [],
+        "max_accuracy": 34,
+        "max_abs_ncc": 0.07913578975383527,
+        "gap": 0.02032000000004608,
+        "endpoints": 0
+      },
+      "p01_2.png": {
+        "calls": [],
+        "max_accuracy": 34,
+        "max_abs_ncc": 0.09024045485629953,
+        "gap": 0.0,
+        "endpoints": 0
+      },
+      "p01_3.png": {
+        "calls": [],
+        "max_accuracy": 34,
+        "max_abs_ncc": 0.09829170502178099,
+        "gap": 0.043920000000085224,
+        "endpoints": 0
+      },
+      "p02_1.png": {
+        "calls": [],
+        "max_accuracy": 36,
+        "max_abs_ncc": 0.21830191923888892,
+        "gap": 0.029219999999869017,
+        "endpoints": 0
+      },
+      "p02_2.png": {
+        "calls": [],
+        "max_accuracy": 34,
+        "max_abs_ncc": 0.1328380305420008,
+        "gap": 0.035080000000103695,
+        "endpoints": 0
+      },
+      "p02_3.png": {
+        "calls": [],
+        "max_accuracy": 36,
+        "max_abs_ncc": 0.09281577534586466,
+        "gap": 0.0,
+        "endpoints": 0
+      },
+      "p03_1.png": {
+        "calls": [],
+        "max_accuracy": 36,
+        "max_abs_ncc": 0.12453787892866514,
+        "gap": 0.009579999999962396,
+        "endpoints": 0
+      },
+      "p03_2.png": {
+        "calls": [],
+        "max_accuracy": 42,
+        "max_abs_ncc": 0.34319921099998224,
+        "gap": 0.07657599999996911,
+        "endpoints": 0
+      },
+      "p03_3.png": {
+        "calls": [],
+        "max_accuracy": 36,
+        "max_abs_ncc": 0.17267757740555117,
+        "gap": 0.022347999999755785,
+        "endpoints": 0
+      },
+      "p04_1.png": {
+        "calls": [],
+        "max_accuracy": 40,
+        "max_abs_ncc": 0.21632763749064232,
+        "gap": 0.12057600000011348,
+        "endpoints": 0
+      },
+      "p04_2.png": {
+        "calls": [],
+        "max_accuracy": 42,
+        "max_abs_ncc": 0.25396225002167366,
+        "gap": 0.02815599999997076,
+        "endpoints": 0
+      },
+      "p04_3.png": {
+        "calls": [],
+        "max_accuracy": 34,
+        "max_abs_ncc": 0.06958689559935674,
+        "gap": 0.026142000000650256,
+        "endpoints": 0
+      },
+      "p05_1.png": {
+        "calls": [],
+        "max_accuracy": 38,
+        "max_abs_ncc": 0.23493267743549898,
+        "gap": 0.009496000000662974,
+        "endpoints": 0
+      },
+      "p05_2.png": {
+        "calls": [],
+        "max_accuracy": 34,
+        "max_abs_ncc": 0.21072285635208768,
+        "gap": 0.10754799999995335,
+        "endpoints": 0
+      },
+      "p05_3.png": {
+        "calls": [],
+        "max_accuracy": 42,
+        "max_abs_ncc": 0.390730942021112,
+        "gap": 0.14284200000000524,
+        "endpoints": 0
+      },
+      "p06_1.png": {
+        "calls": [],
+        "max_accuracy": 34,
+        "max_abs_ncc": 0.16397084628898093,
+        "gap": 0.0,
+        "endpoints": 0
+      },
+      "p06_2.png": {
+        "calls": [],
+        "max_accuracy": 36,
+        "max_abs_ncc": 0.14061934806562615,
+        "gap": 0.06141799999999353,
+        "endpoints": 0
+      },
+      "p06_3.png": {
+        "calls": [],
+        "max_accuracy": 34,
+        "max_abs_ncc": 0.07803485285693414,
+        "gap": 0.07829200000011127,
+        "endpoints": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,288 @@
+{
+  "R016": {
+    "all": {
+      "frames": 15,
+      "cells": 960,
+      "decoder": 954,
+      "all_positive": 480,
+      "all_negative": 480,
+      "fixed_upper_bound": 576
+    },
+    "no_return": {
+      "frames": 12,
+      "cells": 768,
+      "decoder": 766,
+      "all_positive": 384,
+      "all_negative": 384,
+      "fixed_upper_bound": 384
+    }
+  },
+  "R017": {
+    "areas": {
+      "edge": {
+        "errors": 2,
+        "opportunities": 420
+      },
+      "center": {
+        "errors": 4,
+        "opportunities": 540
+      }
+    },
+    "cells": [
+      {
+        "row": 1,
+        "col": 1,
+        "slots": [
+          "p06_3.png"
+        ],
+        "repeat": false,
+        "across_phases": false
+      },
+      {
+        "row": 1,
+        "col": 8,
+        "slots": [
+          "p06_3.png"
+        ],
+        "repeat": false,
+        "across_phases": false
+      },
+      {
+        "row": 2,
+        "col": 5,
+        "slots": [
+          "p01_3.png"
+        ],
+        "repeat": false,
+        "across_phases": false
+      },
+      {
+        "row": 2,
+        "col": 7,
+        "slots": [
+          "p01_3.png"
+        ],
+        "repeat": false,
+        "across_phases": false
+      },
+      {
+        "row": 5,
+        "col": 3,
+        "slots": [
+          "p06_1.png"
+        ],
+        "repeat": false,
+        "across_phases": false
+      },
+      {
+        "row": 5,
+        "col": 6,
+        "slots": [
+          "p06_1.png"
+        ],
+        "repeat": false,
+        "across_phases": false
+      }
+    ]
+  },
+  "R018": {
+    "p01_1.png": {
+      "role": "d",
+      "correct": 64,
+      "original_signal_pass": false,
+      "geometry_pass": true,
+      "status": "bracket only",
+      "exposure_ns": 156000,
+      "iso": 6400,
+      "request_exposure_ns": 156250,
+      "sensor_frame": "unknown"
+    },
+    "p01_2.png": {
+      "role": "d",
+      "correct": 64,
+      "original_signal_pass": true,
+      "geometry_pass": true,
+      "status": "bracket only",
+      "exposure_ns": 156000,
+      "iso": 6400,
+      "request_exposure_ns": 156250,
+      "sensor_frame": "unknown"
+    },
+    "p01_3.png": {
+      "role": "d",
+      "correct": 62,
+      "original_signal_pass": false,
+      "geometry_pass": true,
+      "status": "bracket only",
+      "exposure_ns": 156000,
+      "iso": 6400,
+      "request_exposure_ns": 156250,
+      "sensor_frame": "unknown"
+    },
+    "p02_1.png": {
+      "role": "C",
+      "correct": 64,
+      "original_signal_pass": true,
+      "geometry_pass": true,
+      "status": "bracket only",
+      "exposure_ns": 156000,
+      "iso": 6400,
+      "request_exposure_ns": 156250,
+      "sensor_frame": "unknown"
+    },
+    "p02_2.png": {
+      "role": "C",
+      "correct": 64,
+      "original_signal_pass": true,
+      "geometry_pass": true,
+      "status": "bracket only",
+      "exposure_ns": 156000,
+      "iso": 6400,
+      "request_exposure_ns": 156250,
+      "sensor_frame": "unknown"
+    },
+    "p02_3.png": {
+      "role": "C",
+      "correct": 64,
+      "original_signal_pass": true,
+      "geometry_pass": false,
+      "status": "bracket only",
+      "exposure_ns": 156000,
+      "iso": 6400,
+      "request_exposure_ns": 156250,
+      "sensor_frame": "unknown"
+    },
+    "p03_1.png": {
+      "role": "D",
+      "correct": 64,
+      "original_signal_pass": false,
+      "geometry_pass": true,
+      "status": "bracket only",
+      "exposure_ns": 156000,
+      "iso": 6400,
+      "request_exposure_ns": 156250,
+      "sensor_frame": "unknown"
+    },
+    "p03_2.png": {
+      "role": "D",
+      "correct": 64,
+      "original_signal_pass": true,
+      "geometry_pass": true,
+      "status": "bracket only",
+      "exposure_ns": 156000,
+      "iso": 6400,
+      "request_exposure_ns": 156250,
+      "sensor_frame": "unknown"
+    },
+    "p03_3.png": {
+      "role": "D",
+      "correct": 64,
+      "original_signal_pass": false,
+      "geometry_pass": true,
+      "status": "bracket only",
+      "exposure_ns": 156000,
+      "iso": 6400,
+      "request_exposure_ns": 156250,
+      "sensor_frame": "unknown"
+    },
+    "p04_1.png": {
+      "role": "c",
+      "correct": 64,
+      "original_signal_pass": true,
+      "geometry_pass": false,
+      "status": "bracket only",
+      "exposure_ns": 156000,
+      "iso": 6400,
+      "request_exposure_ns": 156250,
+      "sensor_frame": "unknown"
+    },
+    "p04_2.png": {
+      "role": "c",
+      "correct": 64,
+      "original_signal_pass": true,
+      "geometry_pass": true,
+      "status": "bracket only",
+      "exposure_ns": 156000,
+      "iso": 6400,
+      "request_exposure_ns": 156250,
+      "sensor_frame": "unknown"
+    },
+    "p04_3.png": {
+      "role": "c",
+      "correct": 64,
+      "original_signal_pass": true,
+      "geometry_pass": false,
+      "status": "bracket only",
+      "exposure_ns": 156000,
+      "iso": 6400,
+      "request_exposure_ns": 156250,
+      "sensor_frame": "unknown"
+    },
+    "p05_1.png": {
+      "role": "U",
+      "correct": null,
+      "original_signal_pass": true,
+      "geometry_pass": true,
+      "status": "bracket only",
+      "exposure_ns": 156000,
+      "iso": 6400,
+      "request_exposure_ns": 156250,
+      "sensor_frame": "unknown"
+    },
+    "p05_2.png": {
+      "role": "U",
+      "correct": null,
+      "original_signal_pass": true,
+      "geometry_pass": true,
+      "status": "bracket only",
+      "exposure_ns": 156000,
+      "iso": 6400,
+      "request_exposure_ns": 156250,
+      "sensor_frame": "unknown"
+    },
+    "p05_3.png": {
+      "role": "U",
+      "correct": null,
+      "original_signal_pass": true,
+      "geometry_pass": true,
+      "status": "bracket only",
+      "exposure_ns": 156000,
+      "iso": 6400,
+      "request_exposure_ns": 156250,
+      "sensor_frame": "unknown"
+    },
+    "p06_1.png": {
+      "role": "C",
+      "correct": 62,
+      "original_signal_pass": false,
+      "geometry_pass": true,
+      "status": "bracket only",
+      "exposure_ns": 156000,
+      "iso": 6400,
+      "request_exposure_ns": 156250,
+      "sensor_frame": "unknown"
+    },
+    "p06_2.png": {
+      "role": "C",
+      "correct": 64,
+      "original_signal_pass": true,
+      "geometry_pass": true,
+      "status": "bracket only",
+      "exposure_ns": 156000,
+      "iso": 6400,
+      "request_exposure_ns": 156250,
+      "sensor_frame": "unknown"
+    },
+    "p06_3.png": {
+      "role": "C",
+      "correct": 62,
+      "original_signal_pass": false,
+      "geometry_pass": true,
+      "status": "bracket only",
+      "exposure_ns": 156000,
+      "iso": 6400,
+      "request_exposure_ns": 156250,
+      "sensor_frame": "unknown"
+    }
+  }
+}

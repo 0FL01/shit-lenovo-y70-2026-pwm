@@ -1,0 +1,41 @@
+{
+  "R013": {
+    "public_predictor": "33c590a96ce0185e184f23661761b0dc69bb6c2b3383f350ec4527b2ee00f4cf",
+    "frozen_predictor": "66aaa0a623a316ebd3932a42b34f0de8c13d8a5dae1b3fd6d5c9f662bec86749",
+    "freeze_manifest": "5285639f7dccff76abab209a2c5280d5c4c42a1a6c8aabde2225a3098c88b35f",
+    "public_companions_exact": 3,
+    "historical_chronology": "reported; no independent trusted timestamp",
+    "originals_exact": 4,
+    "portable_only_line_changed": 7
+  },
+  "R014": {
+    "planned_r12b": 18,
+    "new_acquisitions": 0,
+    "ordered_brackets": 18,
+    "complete_phase_markers": 6,
+    "present": 18,
+    "absent": 0,
+    "extra_slot_files": 0,
+    "duplicate_slot_events": 0,
+    "byte_identical_aliases": 18,
+    "distinct_png_digests": 18
+  },
+  "R015": {
+    "private_replay": "MATCH",
+    "retrospective": true,
+    "predictors_matching_seal": 2,
+    "predictions_digest": "c3c353e34585c4e4b4bc60d16586d813219bc1372a9a2714f23f09e3b1a56079",
+    "salted_key_digest": "6684bf87f9ef6de8c6d33a9b6118aabb988d6926facf4accd7616f2ea176d747",
+    "full_score_digest": "e634b72e37f8361c80b31c9c3d052631de61997011f33eeed03214e8fe8a2364",
+    "published_score": {
+      "correct_cells": 954,
+      "coded_cells": 960,
+      "coded_pixel_pass": 9,
+      "coded_frames": 15,
+      "negative_pass": 3,
+      "negative_frames": 3,
+      "inversions_pass": 6,
+      "decoder_pixel_pass": false
+    }
+  }
+}
