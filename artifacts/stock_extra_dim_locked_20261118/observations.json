@@ -1,0 +1,217 @@
+{
+  "photos": [
+    {
+      "label": "off1",
+      "shutter_command_host_utc": "2026-11-18T18:57:37.677476+00:00",
+      "border_positions": [
+        45,
+        37,
+        527
+      ],
+      "border_edge_gradients": [
+        70.174,
+        138.822,
+        140.644
+      ],
+      "bright_red_pixel_fraction": 0.7
+    },
+    {
+      "label": "off2",
+      "shutter_command_host_utc": "2026-11-18T18:57:47.752329+00:00",
+      "border_positions": [
+        44,
+        37,
+        527
+      ],
+      "border_edge_gradients": [
+        75.856,
+        144.022,
+        140.356
+      ],
+      "bright_red_pixel_fraction": 0.599
+    },
+    {
+      "label": "off3",
+      "shutter_command_host_utc": "2026-11-18T18:57:59.239213+00:00",
+      "border_positions": [
+        45,
+        37,
+        527
+      ],
+      "border_edge_gradients": [
+        70.005,
+        139.956,
+        130.578
+      ],
+      "bright_red_pixel_fraction": 0.61
+    },
+    {
+      "label": "on1",
+      "shutter_command_host_utc": "2026-11-18T18:58:19.742335+00:00",
+      "border_positions": [
+        44,
+        37,
+        527
+      ],
+      "border_edge_gradients": [
+        77.626,
+        140.511,
+        155.556
+      ],
+      "bright_red_pixel_fraction": 0.09
+    },
+    {
+      "label": "on2",
+      "shutter_command_host_utc": "2026-11-18T18:58:29.729441+00:00",
+      "border_positions": [
+        44,
+        37,
+        527
+      ],
+      "border_edge_gradients": [
+        75.963,
+        139.467,
+        149.911
+      ],
+      "bright_red_pixel_fraction": 0.1
+    },
+    {
+      "label": "on3",
+      "shutter_command_host_utc": "2026-11-18T18:58:39.763509+00:00",
+      "border_positions": [
+        44,
+        37,
+        527
+      ],
+      "border_edge_gradients": [
+        77.97,
+        143.089,
+        162.822
+      ],
+      "bright_red_pixel_fraction": 0.091
+    },
+    {
+      "label": "return1",
+      "shutter_command_host_utc": "2026-11-18T18:58:59.836427+00:00",
+      "border_positions": [
+        45,
+        37,
+        527
+      ],
+      "border_edge_gradients": [
+        71.581,
+        143.422,
+        156.489
+      ],
+      "bright_red_pixel_fraction": 0.629
+    },
+    {
+      "label": "return2",
+      "shutter_command_host_utc": "2026-11-18T18:59:09.836917+00:00",
+      "border_positions": [
+        45,
+        37,
+        527
+      ],
+      "border_edge_gradients": [
+        70.319,
+        141.067,
+        133.733
+      ],
+      "bright_red_pixel_fraction": 0.534
+    },
+    {
+      "label": "return3",
+      "shutter_command_host_utc": "2026-11-18T18:59:19.945029+00:00",
+      "border_positions": [
+        44,
+        37,
+        527
+      ],
+      "border_edge_gradients": [
+        72.209,
+        142.689,
+        135.756
+      ],
+      "bright_red_pixel_fraction": 0.537
+    }
+  ],
+  "photo_exif": {
+    "exposure_s": 0.05999832,
+    "ISO": 5586,
+    "f_number": 1.87,
+    "focal_mm": 5.56,
+    "exposure_mode": 0,
+    "white_balance": 0,
+    "flash": 0
+  },
+  "camera2": {
+    "samples": 20,
+    "advancing_frames": 2042,
+    "sensor.sensitivity": "5586",
+    "sensor.exposureTime": "59998320",
+    "lens.focusDistance": "6.75919294",
+    "control.awbMode": "AUTO",
+    "control.awbLock": "OFF",
+    "scaler.cropRegion": "0 0 4080 3072",
+    "flash.mode": "OFF"
+  },
+  "preview_grid_edges": [
+    [
+      "edge_before_edge",
+      [
+        722,
+        69.0,
+        730,
+        56.0
+      ]
+    ],
+    [
+      "grid_held_edge",
+      [
+        723,
+        93.0,
+        731,
+        88.0
+      ]
+    ],
+    [
+      "off_edge_edge",
+      [
+        723,
+        89.0,
+        731,
+        89.0
+      ]
+    ],
+    [
+      "on_edge_edge",
+      [
+        723,
+        94.0,
+        731,
+        87.0
+      ]
+    ],
+    [
+      "return_edge_edge",
+      [
+        723,
+        79.0,
+        731,
+        89.0
+      ]
+    ]
+  ],
+  "target_scene_equal_720x1584": true,
+  "restore_target": true,
+  "restore_camera_controls": true,
+  "target_change_fields": [
+    "reduce_bright_colors_activated",
+    "Activated",
+    "mIsRbcActive",
+    "colorTransformMatrix"
+  ],
+  "missing_camera_result_reads": 1,
+  "notes": "Raster metric is not optical modulation or duty cycle. AE/AF/Capture metadata are checked at sampled brackets; AWB/ISP not locked."
+}

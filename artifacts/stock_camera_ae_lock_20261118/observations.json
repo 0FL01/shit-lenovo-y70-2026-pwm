@@ -1,0 +1,157 @@
+{
+  "camera": "Nothing A001, stock Photo, Camera2 logical ID 4",
+  "type": "sampled latest preview results; frames start again after HOME and task resume",
+  "phases": {
+    "before": [
+      {
+        "request.frameCount": "212904",
+        "control.aeMode": "ON",
+        "control.aeLock": "OFF",
+        "control.aeState": "FLASH_REQUIRED",
+        "control.afMode": "CONTINUOUS_PICTURE",
+        "control.afState": "PASSIVE_FOCUSED",
+        "sensor.exposureTime": "69998040",
+        "sensor.sensitivity": "9117",
+        "lens.focusDistance": "7.06995535",
+        "control.awbLock": "OFF",
+        "control.zoomRatio": "2.00000000"
+      },
+      {
+        "request.frameCount": "212931",
+        "control.aeMode": "ON",
+        "control.aeLock": "OFF",
+        "control.aeState": "FLASH_REQUIRED",
+        "control.afMode": "CONTINUOUS_PICTURE",
+        "control.afState": "PASSIVE_FOCUSED",
+        "sensor.exposureTime": "69998040",
+        "sensor.sensitivity": "9117",
+        "lens.focusDistance": "7.06995535",
+        "control.awbLock": "OFF",
+        "control.zoomRatio": "2.00000000"
+      }
+    ],
+    "held": [
+      {
+        "request.frameCount": "213576",
+        "control.aeMode": "ON",
+        "control.aeLock": "ON",
+        "control.aeState": "LOCKED",
+        "control.afMode": "AUTO",
+        "control.afState": "NOT_FOCUSED_LOCKED",
+        "sensor.exposureTime": "69998040",
+        "sensor.sensitivity": "10230",
+        "lens.focusDistance": "6.82578468",
+        "control.awbLock": "OFF",
+        "control.zoomRatio": "2.00000000"
+      },
+      {
+        "request.frameCount": "213601",
+        "control.aeMode": "ON",
+        "control.aeLock": "ON",
+        "control.aeState": "LOCKED",
+        "control.afMode": "AUTO",
+        "control.afState": "NOT_FOCUSED_LOCKED",
+        "sensor.exposureTime": "69998040",
+        "sensor.sensitivity": "10230",
+        "lens.focusDistance": "6.82578468",
+        "control.awbLock": "OFF",
+        "control.zoomRatio": "2.00000000"
+      }
+    ],
+    "short_tap": [
+      {
+        "request.frameCount": "214081",
+        "control.aeMode": "ON",
+        "control.aeLock": "OFF",
+        "control.aeState": "FLASH_REQUIRED",
+        "control.afMode": "AUTO",
+        "control.afState": "FOCUSED_LOCKED",
+        "sensor.exposureTime": "69998040",
+        "sensor.sensitivity": "10678",
+        "lens.focusDistance": "6.84798241",
+        "control.awbLock": "OFF",
+        "control.zoomRatio": "2.00000000"
+      },
+      {
+        "request.frameCount": "214107",
+        "control.aeMode": "ON",
+        "control.aeLock": "OFF",
+        "control.aeState": "FLASH_REQUIRED",
+        "control.afMode": "AUTO",
+        "control.afState": "FOCUSED_LOCKED",
+        "sensor.exposureTime": "69998040",
+        "sensor.sensitivity": "10678",
+        "lens.focusDistance": "6.84798241",
+        "control.awbLock": "OFF",
+        "control.zoomRatio": "2.00000000"
+      }
+    ],
+    "after_resume_1x": [
+      {
+        "request.frameCount": "304",
+        "control.aeMode": "ON",
+        "control.aeLock": "OFF",
+        "control.aeState": "FLASH_REQUIRED",
+        "control.afMode": "CONTINUOUS_PICTURE",
+        "control.afState": "PASSIVE_FOCUSED",
+        "sensor.exposureTime": "69998040",
+        "sensor.sensitivity": "13469",
+        "lens.focusDistance": "6.95896864",
+        "control.awbLock": "OFF",
+        "control.zoomRatio": "1.00000000"
+      }
+    ],
+    "restored": [
+      {
+        "request.frameCount": "685",
+        "control.aeMode": "ON",
+        "control.aeLock": "OFF",
+        "control.aeState": "FLASH_REQUIRED",
+        "control.afMode": "CONTINUOUS_PICTURE",
+        "control.afState": "PASSIVE_FOCUSED",
+        "sensor.exposureTime": "69998040",
+        "sensor.sensitivity": "8752",
+        "lens.focusDistance": "6.95896864",
+        "control.awbLock": "OFF",
+        "control.zoomRatio": "2.00000000"
+      },
+      {
+        "request.frameCount": "714",
+        "control.aeMode": "ON",
+        "control.aeLock": "OFF",
+        "control.aeState": "FLASH_REQUIRED",
+        "control.afMode": "CONTINUOUS_PICTURE",
+        "control.afState": "PASSIVE_FOCUSED",
+        "sensor.exposureTime": "69998040",
+        "sensor.sensitivity": "8752",
+        "lens.focusDistance": "6.95896864",
+        "control.awbLock": "OFF",
+        "control.zoomRatio": "2.00000000"
+      }
+    ]
+  },
+  "restored_observed_fields_equal_to_baseline": {
+    "control.aeMode": "ON",
+    "control.aeLock": "OFF",
+    "control.aeState": "FLASH_REQUIRED",
+    "control.awbMode": "AUTO",
+    "control.awbLock": "OFF",
+    "control.afMode": "CONTINUOUS_PICTURE",
+    "control.afState": "PASSIVE_FOCUSED",
+    "sensor.exposureTime": "69998040",
+    "lens.opticalStabilizationMode": "ON",
+    "scaler.cropRegion": "0 0 4080 3072",
+    "control.zoomRatio": "2.00000000",
+    "sensor.frameDuration": "69998040",
+    "statistics.sceneFlicker": "50HZ",
+    "control.captureIntent": "PREVIEW",
+    "control.aeRegions": "1020 768 1020 768",
+    "control.afRegions": "1020 768 1020 768",
+    "control.awbRegions": "1020 768 1020 768",
+    "control.afTrigger": "IDLE",
+    "control.aePrecaptureTrigger": "IDLE",
+    "control.aeExposureCompensation": "0",
+    "control.aeTargetFpsRange": "5 30",
+    "flash.mode": "OFF"
+  }
+}
