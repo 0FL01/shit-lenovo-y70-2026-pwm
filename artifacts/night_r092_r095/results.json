@@ -1,0 +1,57 @@
+{
+  "ac": {
+    "count": 32,
+    "max_difference": 0,
+    "true_M": [
+      50.0,
+      20.0
+    ]
+  },
+  "uncertainty_units_v": 5.820766091346741e-11,
+  "raster": [
+    {
+      "case": "dark",
+      "status": "unresolved",
+      "M": null,
+      "reason": "vertical swing below 6 pixels or flat/unresolved"
+    },
+    {
+      "case": "negative",
+      "status": "resolved_raster",
+      "M": null,
+      "warnings": [
+        "Trace below dark baseline; invalid optical depth."
+      ]
+    },
+    {
+      "case": "bound_missing",
+      "status": "resolved_raster",
+      "M": null,
+      "warnings": [
+        "No independent level error bound; optical depth withheld."
+      ]
+    },
+    {
+      "case": "below_resolution",
+      "status": "resolved_raster",
+      "M": null,
+      "warnings": [
+        "Dark-corrected level sum does not exceed its uncertainty; optical depth withheld."
+      ]
+    },
+    {
+      "case": "at_resolution",
+      "status": "resolved_raster",
+      "M": null,
+      "warnings": [
+        "Dark-corrected level sum does not exceed its uncertainty; optical depth withheld."
+      ]
+    },
+    {
+      "case": "resolved_same_levels",
+      "status": "resolved_raster",
+      "M": 50.00000000000001,
+      "warnings": []
+    }
+  ]
+}

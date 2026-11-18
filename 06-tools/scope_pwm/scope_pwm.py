@@ -23,6 +23,7 @@ class Calibration:
     polarity: str = "unknown"  # voltage response to increasing light
     dark_y: float | None = None  # global image row with detector dark
     linear_dc_unclipped: bool = False
+    level_error_v: float | None = None  # independent absolute bound per corrected level
 
     def check(self):
         scales = (self.seconds_per_div, self.x_px_per_div,
@@ -31,6 +32,9 @@ class Calibration:
             raise Unresolved("calibration scales must be finite and positive")
         if self.dark_y is not None and not math.isfinite(self.dark_y):
             raise Unresolved("invalid dark reference row")
+        if self.level_error_v is not None and not (math.isfinite(self.level_error_v)
+                                                     and self.level_error_v > 0):
+            raise Unresolved("level error bound must be finite and positive")
         if self.polarity not in ("positive", "negative", "unknown"):
             raise Unresolved("invalid detector polarity")
         scales = (self.seconds_per_div / self.x_px_per_div,
@@ -188,8 +192,16 @@ def measure(image, roi, rgb, tolerance, cal):
             v_max = (float(high) - dark) * volts_per_pixel
             if not math.isfinite(v_max) or v_max <= 0:
                 raise Unresolved("dark-referenced voltage out of numeric range")
-            ratio = v_min / v_max
-            depth = 100 * (1 - ratio) / (1 + ratio)
+            u = cal.level_error_v
+            if u is None:
+                warnings.append("No independent level error bound; optical depth withheld.")
+            # Equivalent to max + min <= 2*u, without overflowing either sum.
+            elif v_max <= u or (v_min <= u and v_max - u <= u - v_min):
+                warnings.append("Dark-corrected level sum does not exceed its uncertainty; "
+                                "optical depth withheld.")
+            else:
+                ratio = v_min / v_max
+                depth = 100 * (1 - ratio) / (1 + ratio)
     else:
         warnings.append("No calibrated optical depth: need dark row, known polarity "
                         "and verified linear, DC-coupled, unclipped optical chain.")
@@ -226,9 +238,13 @@ def main():
     parser.add_argument("--dark-y", type=float, help="global image row of dark detector output")
     parser.add_argument("--linear-dc-unclipped", action="store_true",
                         help="attest calibrated linear DC, adequate bandwidth and no clipping")
+    parser.add_argument("--level-error-v", type=float,
+                        help="independent absolute uncertainty bound (V) per dark-corrected "
+                             "level, including noise, dark offset and raster uncertainty")
     args = parser.parse_args()
     cal = Calibration(args.seconds_per_div, args.x_px_per_div, args.volts_per_div,
-                      args.y_px_per_div, args.polarity, args.dark_y, args.linear_dc_unclipped)
+                      args.y_px_per_div, args.polarity, args.dark_y, args.linear_dc_unclipped,
+                      args.level_error_v)
     try:
         with Image.open(args.image) as im:
             result = measure(im, tuple(args.roi), args.rgb, args.tolerance, cal)

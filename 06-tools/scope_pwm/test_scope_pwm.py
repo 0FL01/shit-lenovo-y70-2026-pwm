@@ -15,7 +15,7 @@ from scope_pwm import Calibration, Unresolved, measure
 RGB = (240, 210, 45)
 W, H = 380, 101
 ROI = (10, 5, W - 10, H - 5)
-CAL = Calibration(.0005, 40, .2, 20, "positive", 90, True)
+CAL = Calibration(.0005, 40, .2, 20, "positive", 90, True, .01)
 
 
 def draw(f, seed_grid=True):
@@ -66,6 +66,26 @@ class TestScope(unittest.TestCase):
                     replace(CAL, polarity="unknown"), replace(CAL, dark_y=50)):
             self.assertIsNone(run(draw(square), cal)["percent_modulation"])
         self.assertIsNone(run(im, replace(CAL, polarity="unknown"))["optical_high_duty_pct"])
+
+    def test_depth_noise_gate(self):
+        with self.assertRaisesRegex(Unresolved, "flat/unresolved"):
+            run(draw(lambda x: 90))
+        r = run(draw(square), replace(CAL, dark_y=68))
+        self.assertIsNone(r["percent_modulation"])
+        self.assertTrue(any("below dark" in w for w in r["warnings"]))
+        # Exact binary units: min/max = 20*q and 60*q; sum = 80*q.
+        q = 2.0**-34
+        cal = replace(CAL, volts_per_div=20*q)
+        for u in (None, 40*q, 41*q):
+            r = run(draw(square), replace(cal, level_error_v=u))
+            self.assertIsNone(r["percent_modulation"])
+            self.assertEqual(r["frequency_hz"], 2000)
+            self.assertTrue(any("bound" in w or "uncertainty" in w for w in r["warnings"]))
+        self.assertAlmostEqual(run(draw(square), replace(cal, level_error_v=q))[
+            "percent_modulation"], 50)
+        for u in (0., -1., math.nan, math.inf):
+            with self.assertRaisesRegex(Unresolved, "level error"):
+                run(draw(square), replace(CAL, level_error_v=u))
 
     def test_sine_is_not_pwm(self):
         r = run(draw(lambda x: 50 - 20 * math.sin(2 * math.pi * x / 48)))
