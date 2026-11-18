@@ -1,0 +1,208 @@
+{
+  "four_results_advance": true,
+  "samples": [
+    {
+      "sample": "short_drag",
+      "raw_sha256": "2f21c787831cfe590d055323eae5e1b0d269f844c7be9af435ed514ae6011b5c",
+      "result": {
+        "sensor.exposureTime": "156000",
+        "sensor.sensitivity": "6400",
+        "sensor.frameDuration": "33350000",
+        "sensor.rollingShutterSkew": "31824000",
+        "scaler.cropRegion": "0 0 3264 2448",
+        "control.aeMode": "OFF",
+        "control.postRawSensitivityBoost": "100",
+        "lens.focusDistance": "0.00000000",
+        "lens.focalLength": "1.63999999",
+        "control.videoStabilizationMode": "OFF",
+        "lens.opticalStabilizationMode": "OFF",
+        "timestamp_offset_ns": 0,
+        "frame_offset": 0
+      },
+      "last_request": {
+        "sensor.exposureTime": "200000",
+        "sensor.sensitivity": "0",
+        "sensor.frameDuration": "33333333",
+        "sensor.rollingShutterSkew": null,
+        "sensor.timestamp": null,
+        "request.frameCount": null,
+        "scaler.cropRegion": "0 0 3264 2448",
+        "control.aeMode": "OFF",
+        "control.postRawSensitivityBoost": "100",
+        "lens.focusDistance": "0.00000000",
+        "lens.focalLength": "1.63999999",
+        "control.videoStabilizationMode": "OFF",
+        "lens.opticalStabilizationMode": "OFF"
+      },
+      "static_id2": {
+        "sensor.info.activeArraySize": "0 0 3264 2448",
+        "sensor.info.preCorrectionActiveArraySize": "0 0 3264 2448",
+        "sensor.info.pixelArraySize": "3264 2448",
+        "sensor.orientation": "90",
+        "sensor.info.timestampSource": "REALTIME",
+        "sensor.maxAnalogSensitivity": "1600"
+      },
+      "alternate_result": {
+        "com.mediatek.3afeature.aeIsoSpeed": "0",
+        "com.mediatek.3afeature.aeSensorGain": "16384",
+        "com.mediatek.3afeature.aeIspGain": "16384",
+        "com.mediatek.control.capture.scalerCropRegion": "0 0 3264 2448"
+      },
+      "stream0_dimensions": "1440 x 1080, format 0x11, dataspace 0x8c20000"
+    },
+    {
+      "sample": "short2",
+      "raw_sha256": "df5c481d1594ddbcb6b45afe2dda5df34e48a43971a12227df3be25b21ebcbc8",
+      "result": {
+        "sensor.exposureTime": "156000",
+        "sensor.sensitivity": "6400",
+        "sensor.frameDuration": "33350000",
+        "sensor.rollingShutterSkew": "31824000",
+        "scaler.cropRegion": "0 0 3264 2448",
+        "control.aeMode": "OFF",
+        "control.postRawSensitivityBoost": "100",
+        "lens.focusDistance": "0.00000000",
+        "lens.focalLength": "1.63999999",
+        "control.videoStabilizationMode": "OFF",
+        "lens.opticalStabilizationMode": "OFF",
+        "timestamp_offset_ns": 27365632000,
+        "frame_offset": 821
+      },
+      "last_request": {
+        "sensor.exposureTime": "200000",
+        "sensor.sensitivity": "0",
+        "sensor.frameDuration": "33333333",
+        "sensor.rollingShutterSkew": null,
+        "sensor.timestamp": null,
+        "request.frameCount": null,
+        "scaler.cropRegion": "0 0 3264 2448",
+        "control.aeMode": "OFF",
+        "control.postRawSensitivityBoost": "100",
+        "lens.focusDistance": "0.00000000",
+        "lens.focalLength": "1.63999999",
+        "control.videoStabilizationMode": "OFF",
+        "lens.opticalStabilizationMode": "OFF"
+      },
+      "static_id2": {
+        "sensor.info.activeArraySize": "0 0 3264 2448",
+        "sensor.info.preCorrectionActiveArraySize": "0 0 3264 2448",
+        "sensor.info.pixelArraySize": "3264 2448",
+        "sensor.orientation": "90",
+        "sensor.info.timestampSource": "REALTIME",
+        "sensor.maxAnalogSensitivity": "1600"
+      },
+      "alternate_result": {
+        "com.mediatek.3afeature.aeIsoSpeed": "0",
+        "com.mediatek.3afeature.aeSensorGain": "16384",
+        "com.mediatek.3afeature.aeIspGain": "16384",
+        "com.mediatek.control.capture.scalerCropRegion": "0 0 3264 2448"
+      },
+      "stream0_dimensions": "1440 x 1080, format 0x11, dataspace 0x8c20000"
+    },
+    {
+      "sample": "short3",
+      "raw_sha256": "38708da484ab90bdc61b0802a84f4e28b09ae73993b0999072b86a2184eea936",
+      "result": {
+        "sensor.exposureTime": "156000",
+        "sensor.sensitivity": "6400",
+        "sensor.frameDuration": "33350000",
+        "sensor.rollingShutterSkew": "31824000",
+        "scaler.cropRegion": "0 0 3264 2448",
+        "control.aeMode": "OFF",
+        "control.postRawSensitivityBoost": "100",
+        "lens.focusDistance": "0.00000000",
+        "lens.focalLength": "1.63999999",
+        "control.videoStabilizationMode": "OFF",
+        "lens.opticalStabilizationMode": "OFF",
+        "timestamp_offset_ns": 43165035000,
+        "frame_offset": 1295
+      },
+      "last_request": {
+        "sensor.exposureTime": "200000",
+        "sensor.sensitivity": "0",
+        "sensor.frameDuration": "33333333",
+        "sensor.rollingShutterSkew": null,
+        "sensor.timestamp": null,
+        "request.frameCount": null,
+        "scaler.cropRegion": "0 0 3264 2448",
+        "control.aeMode": "OFF",
+        "control.postRawSensitivityBoost": "100",
+        "lens.focusDistance": "0.00000000",
+        "lens.focalLength": "1.63999999",
+        "control.videoStabilizationMode": "OFF",
+        "lens.opticalStabilizationMode": "OFF"
+      },
+      "static_id2": {
+        "sensor.info.activeArraySize": "0 0 3264 2448",
+        "sensor.info.preCorrectionActiveArraySize": "0 0 3264 2448",
+        "sensor.info.pixelArraySize": "3264 2448",
+        "sensor.orientation": "90",
+        "sensor.info.timestampSource": "REALTIME",
+        "sensor.maxAnalogSensitivity": "1600"
+      },
+      "alternate_result": {
+        "com.mediatek.3afeature.aeIsoSpeed": "0",
+        "com.mediatek.3afeature.aeSensorGain": "16384",
+        "com.mediatek.3afeature.aeIspGain": "16384",
+        "com.mediatek.control.capture.scalerCropRegion": "0 0 3264 2448"
+      },
+      "stream0_dimensions": "1440 x 1080, format 0x11, dataspace 0x8c20000"
+    },
+    {
+      "sample": "short4",
+      "raw_sha256": "9d6be47b18a7361ceeda819bdb7d0dde51b0ea32fcf206e693807c5b7cf7d769",
+      "result": {
+        "sensor.exposureTime": "156000",
+        "sensor.sensitivity": "6400",
+        "sensor.frameDuration": "33350000",
+        "sensor.rollingShutterSkew": "31824000",
+        "scaler.cropRegion": "0 0 3264 2448",
+        "control.aeMode": "OFF",
+        "control.postRawSensitivityBoost": "100",
+        "lens.focusDistance": "0.00000000",
+        "lens.focalLength": "1.63999999",
+        "control.videoStabilizationMode": "OFF",
+        "lens.opticalStabilizationMode": "OFF",
+        "timestamp_offset_ns": 59064433000,
+        "frame_offset": 1772
+      },
+      "last_request": {
+        "sensor.exposureTime": "200000",
+        "sensor.sensitivity": "0",
+        "sensor.frameDuration": "33333333",
+        "sensor.rollingShutterSkew": null,
+        "sensor.timestamp": null,
+        "request.frameCount": null,
+        "scaler.cropRegion": "0 0 3264 2448",
+        "control.aeMode": "OFF",
+        "control.postRawSensitivityBoost": "100",
+        "lens.focusDistance": "0.00000000",
+        "lens.focalLength": "1.63999999",
+        "control.videoStabilizationMode": "OFF",
+        "lens.opticalStabilizationMode": "OFF"
+      },
+      "static_id2": {
+        "sensor.info.activeArraySize": "0 0 3264 2448",
+        "sensor.info.preCorrectionActiveArraySize": "0 0 3264 2448",
+        "sensor.info.pixelArraySize": "3264 2448",
+        "sensor.orientation": "90",
+        "sensor.info.timestampSource": "REALTIME",
+        "sensor.maxAnalogSensitivity": "1600"
+      },
+      "alternate_result": {
+        "com.mediatek.3afeature.aeIsoSpeed": "0",
+        "com.mediatek.3afeature.aeSensorGain": "16384",
+        "com.mediatek.3afeature.aeIspGain": "16384",
+        "com.mediatek.control.capture.scalerCropRegion": "0 0 3264 2448"
+      },
+      "stream0_dimensions": "1440 x 1080, format 0x11, dataspace 0x8c20000"
+    }
+  ],
+  "calibrated_preview_row_time": null,
+  "physical_pwm_frequency": null,
+  "limits": [
+    "Last request is not proven paired with latest result or screenshot.",
+    "Static pixel dimensions and skew do not establish sensor sampling mode or UI spatial transform.",
+    "No independent optical timebase or sensor-to-preview frame identifier."
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "target_static": "A",
+  "verified_rgb_centres": 1152,
+  "pattern_first_last_pixel_identical": true,
+  "panel_DBV_before_during_after": 6879,
+  "android_manual": 105,
+  "android_float_return": 0.40987244,
+  "active_hz": 120,
+  "dc": 0,
+  "hdr": false,
+  "original_scene_crop_equal": true,
+  "expert_wide_ae_return": "ON",
+  "expert_main_return": true,
+  "stock_controls_equal": 15,
+  "stock_2x_return": true,
+  "stock_frames": [
+    236,
+    269
+  ],
+  "limits": [
+    "Discrete state readbacks, not continuous.",
+    "Visible settings restored; hidden preferences not compared.",
+    "No shutter capture or timebase experiment."
+  ]
+}
