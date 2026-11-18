@@ -1,0 +1,61 @@
+{
+  "camera_reentry_pairs_scored": 0,
+  "physical_inputs": {
+    "independent_optical_edge_interval_us": null,
+    "qualified_marker_separation_px": null,
+    "effective_exposure_upper_us": null
+  },
+  "physical_us_per_px": null,
+  "synthetic_indistinguishable_us_per_px": [
+    208,
+    156
+  ],
+  "target_build": "W3WWS36.65-64-4-1",
+  "target_node": "qcom,mdss_dsi_mot_boe_ili97701A_682_1440x3168_dsc_cmd_v4",
+  "command_properties": 53,
+  "reference_rows_model_region_build_equal": [
+    [
+      "XT2611-1",
+      "RETCN",
+      "W3WWL36.65-11-18",
+      41
+    ],
+    [
+      "XT2611-3",
+      "RETEU",
+      "W3WW36.65-64-4",
+      53
+    ],
+    [
+      "XT2611-1",
+      "RETCN",
+      "W3WWL36.65-48-7",
+      53
+    ]
+  ],
+  "bytes_rechecked_paths": [
+    "qcom,mdss-dsi-display-timings/timing@0/qcom,mdss-dsi-on-command",
+    "qcom,mdss-dsi-display-timings/timing@0/qcom,mdss-dsi-timing-switch-command",
+    "qcom,mdss-dsi-display-timings/timing@3/qcom,mdss-dsi-on-command",
+    "qcom,mdss-dsi-display-timings/timing@3/qcom,mdss-dsi-timing-switch-command",
+    "qcom,mdss-dsi-display-timings/timing@4/qcom,mdss-dsi-on-command",
+    "qcom,mdss-dsi-display-timings/timing@4/qcom,mdss-dsi-timing-switch-command",
+    "qcom,mdss-dsi-display-timings/timing@5/qcom,mdss-dsi-on-command",
+    "qcom,mdss-dsi-display-timings/timing@5/qcom,mdss-dsi-timing-switch-command",
+    "qcom,mdss-dsi-display-timings/timing@6/qcom,mdss-dsi-on-command",
+    "qcom,mdss-dsi-display-timings/timing@6/qcom,mdss-dsi-timing-switch-command",
+    "qcom,mdss-dsi-display-timings/timing@7/qcom,mdss-dsi-on-command",
+    "qcom,mdss-dsi-display-timings/timing@7/qcom,mdss-dsi-timing-switch-command"
+  ],
+  "excluded_nodes_with_number_of_changed_commands_vs_global": {
+    "qcom,mdss_dsi_mot_boe_ili97680A_678_1264x2780_dsc_cmd_v1": 0,
+    "qcom,mdss_dsi_mot_boe_ili97680A_678_1264x2780_dsc_cmd_v2": 0,
+    "qcom,mdss_dsi_mot_boe_ili97680A_678_1264x2780_dsc_cmd_v3": 0,
+    "qcom,mdss_dsi_mot_boe_ili97680A_678_1264x2780_dsc_cmd_v4": 0,
+    "qcom,mdss_dsi_mot_boe_ili97701A_682_1440x3168_dsc_cmd_v0": 0,
+    "qcom,mdss_dsi_mot_boe_ili97701A_682_1440x3168_dsc_cmd_v1": 0,
+    "qcom,mdss_dsi_mot_boe_ili97701A_682_1440x3168_dsc_cmd_v2": 12,
+    "qcom,mdss_dsi_mot_boe_ili97701A_682_1440x3168_dsc_cmd_v3": 12
+  },
+  "physical_pwm_hz": null
+}
