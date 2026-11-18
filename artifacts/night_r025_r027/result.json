@@ -1,0 +1,587 @@
+{
+  "r025": {
+    "archive": {
+      "A10": {
+        "correct": 64,
+        "ties": 1,
+        "runner_up": 48,
+        "identity_wins": true
+      },
+      "A11": {
+        "correct": 64,
+        "ties": 1,
+        "runner_up": 48,
+        "identity_wins": true
+      },
+      "Ai0": {
+        "correct": 64,
+        "ties": 1,
+        "runner_up": 48,
+        "identity_wins": true
+      },
+      "Ai1": {
+        "correct": 64,
+        "ties": 1,
+        "runner_up": 48,
+        "identity_wins": true
+      },
+      "B0": {
+        "correct": 64,
+        "ties": 1,
+        "runner_up": 46,
+        "identity_wins": true
+      },
+      "B1": {
+        "correct": 64,
+        "ties": 1,
+        "runner_up": 46,
+        "identity_wins": true
+      },
+      "Bi0": {
+        "correct": 64,
+        "ties": 1,
+        "runner_up": 46,
+        "identity_wins": true
+      },
+      "Bi1": {
+        "correct": 64,
+        "ties": 1,
+        "runner_up": 46,
+        "identity_wins": true
+      },
+      "A20": {
+        "correct": 64,
+        "ties": 1,
+        "runner_up": 48,
+        "identity_wins": true
+      },
+      "A21": {
+        "correct": 64,
+        "ties": 1,
+        "runner_up": 48,
+        "identity_wins": true
+      }
+    },
+    "checker": {
+      "correct": 64,
+      "ties": 256,
+      "runner_up": 64,
+      "identity_wins": true
+    },
+    "flat": {
+      "correct": 64,
+      "ties": 512,
+      "runner_up": 64,
+      "identity_wins": true
+    }
+  },
+  "train": "A10, even-parity internal corners",
+  "test": {
+    "B0": {
+      "eligible": 11,
+      "accepted": 11,
+      "max_px": 0.7805103347003414,
+      "rms_px": 0.505614886752994,
+      "prior_max_px": 2.9261749776799064,
+      "all_under_2px": true,
+      "top": {
+        "pairs": 3,
+        "median_px": 12.486172908016647
+      },
+      "bottom": {
+        "pairs": 0,
+        "median_px": null
+      },
+      "bottom_tested": 1,
+      "bottom_max_px": 0.649152275820341
+    },
+    "B1": {
+      "eligible": 11,
+      "accepted": 11,
+      "max_px": 1.0332509230750755,
+      "rms_px": 0.5414587008737736,
+      "prior_max_px": 2.9261749776799064,
+      "all_under_2px": true,
+      "top": {
+        "pairs": 3,
+        "median_px": 12.444599453399677
+      },
+      "bottom": {
+        "pairs": 0,
+        "median_px": null
+      },
+      "bottom_tested": 1,
+      "bottom_max_px": 0.5724353183617071
+    }
+  },
+  "landmarks": {
+    "A10": [
+      {
+        "src": [
+          1,
+          1
+        ],
+        "xy": [
+          928.75,
+          1096.25
+        ],
+        "ncc": 0.983831,
+        "accepted": true
+      },
+      {
+        "src": [
+          3,
+          1
+        ],
+        "xy": [
+          954.0,
+          1098.0
+        ],
+        "ncc": 0.992716,
+        "accepted": true
+      },
+      {
+        "src": [
+          5,
+          1
+        ],
+        "xy": [
+          979.5,
+          1099.25
+        ],
+        "ncc": 0.994979,
+        "accepted": true
+      },
+      {
+        "src": [
+          3,
+          3
+        ],
+        "xy": [
+          952.0,
+          1121.5
+        ],
+        "ncc": 0.970087,
+        "accepted": true
+      },
+      {
+        "src": [
+          5,
+          3
+        ],
+        "xy": [
+          976.25,
+          1123.25
+        ],
+        "ncc": 0.992271,
+        "accepted": true
+      },
+      {
+        "src": [
+          7,
+          3
+        ],
+        "xy": [
+          1002.25,
+          1124.5
+        ],
+        "ncc": 0.991546,
+        "accepted": true
+      },
+      {
+        "src": [
+          6,
+          4
+        ],
+        "xy": [
+          987.75,
+          1135.75
+        ],
+        "ncc": 0.992888,
+        "accepted": true
+      },
+      {
+        "src": [
+          3,
+          5
+        ],
+        "xy": [
+          949.25,
+          1145.0
+        ],
+        "ncc": 0.994047,
+        "accepted": true
+      },
+      {
+        "src": [
+          5,
+          5
+        ],
+        "xy": [
+          974.25,
+          1146.0
+        ],
+        "ncc": 0.995481,
+        "accepted": true
+      },
+      {
+        "src": [
+          4,
+          6
+        ],
+        "xy": [
+          961.75,
+          1157.25
+        ],
+        "ncc": 0.995466,
+        "accepted": true
+      },
+      {
+        "src": [
+          1,
+          7
+        ],
+        "xy": [
+          922.5,
+          1166.0
+        ],
+        "ncc": 0.994231,
+        "accepted": true
+      },
+      {
+        "src": [
+          5,
+          7
+        ],
+        "xy": [
+          972.25,
+          1169.25
+        ],
+        "ncc": 0.99473,
+        "accepted": true
+      }
+    ],
+    "B0": [
+      {
+        "src": [
+          4,
+          1
+        ],
+        "xy": [
+          967.0,
+          1099.0
+        ],
+        "ncc": 0.993632,
+        "accepted": true,
+        "resid_px": 0.5226050894486808
+      },
+      {
+        "src": [
+          1,
+          2
+        ],
+        "xy": [
+          927.75,
+          1107.75
+        ],
+        "ncc": 0.989289,
+        "accepted": true,
+        "resid_px": 0.4248531509872916
+      },
+      {
+        "src": [
+          3,
+          2
+        ],
+        "xy": [
+          953.25,
+          1109.75
+        ],
+        "ncc": 0.995777,
+        "accepted": true,
+        "resid_px": 0.3968885937137593
+      },
+      {
+        "src": [
+          7,
+          2
+        ],
+        "xy": [
+          1002.5,
+          1112.75
+        ],
+        "ncc": 0.992846,
+        "accepted": true,
+        "resid_px": 0.7805103347003414
+      },
+      {
+        "src": [
+          2,
+          3
+        ],
+        "xy": [
+          939.25,
+          1120.5
+        ],
+        "ncc": 0.983233,
+        "accepted": true,
+        "resid_px": 0.21742019302166674
+      },
+      {
+        "src": [
+          6,
+          3
+        ],
+        "xy": [
+          989.75,
+          1124.0
+        ],
+        "ncc": 0.992778,
+        "accepted": true,
+        "resid_px": 0.37129430503162936
+      },
+      {
+        "src": [
+          3,
+          4
+        ],
+        "xy": [
+          950.5,
+          1132.75
+        ],
+        "ncc": 0.991543,
+        "accepted": true,
+        "resid_px": 0.4528633937686023
+      },
+      {
+        "src": [
+          5,
+          4
+        ],
+        "xy": [
+          976.25,
+          1135.0
+        ],
+        "ncc": 0.996086,
+        "accepted": true,
+        "resid_px": 0.640814320679563
+      },
+      {
+        "src": [
+          2,
+          5
+        ],
+        "xy": [
+          936.75,
+          1144.0
+        ],
+        "ncc": 0.995149,
+        "accepted": true,
+        "resid_px": 0.3680232477620555
+      },
+      {
+        "src": [
+          4,
+          5
+        ],
+        "xy": [
+          962.5,
+          1145.5
+        ],
+        "ncc": 0.969461,
+        "accepted": true,
+        "resid_px": 0.483816387249202
+      },
+      {
+        "src": [
+          7,
+          6
+        ],
+        "xy": [
+          998.75,
+          1159.75
+        ],
+        "ncc": 0.965631,
+        "accepted": true,
+        "resid_px": 0.649152275820341
+      }
+    ],
+    "B1": [
+      {
+        "src": [
+          4,
+          1
+        ],
+        "xy": [
+          966.75,
+          1099.0
+        ],
+        "ncc": 0.995253,
+        "accepted": true,
+        "resid_px": 0.370092266559642
+      },
+      {
+        "src": [
+          1,
+          2
+        ],
+        "xy": [
+          927.75,
+          1108.0
+        ],
+        "ncc": 0.985162,
+        "accepted": true,
+        "resid_px": 0.17916394872987967
+      },
+      {
+        "src": [
+          3,
+          2
+        ],
+        "xy": [
+          953.5,
+          1110.0
+        ],
+        "ncc": 0.996007,
+        "accepted": true,
+        "resid_px": 0.7001545875630847
+      },
+      {
+        "src": [
+          7,
+          2
+        ],
+        "xy": [
+          1002.25,
+          1113.0
+        ],
+        "ncc": 0.989474,
+        "accepted": true,
+        "resid_px": 1.0332509230750755
+      },
+      {
+        "src": [
+          2,
+          3
+        ],
+        "xy": [
+          939.25,
+          1120.5
+        ],
+        "ncc": 0.980664,
+        "accepted": true,
+        "resid_px": 0.21742019302166674
+      },
+      {
+        "src": [
+          6,
+          3
+        ],
+        "xy": [
+          989.75,
+          1124.0
+        ],
+        "ncc": 0.99365,
+        "accepted": true,
+        "resid_px": 0.37129430503162936
+      },
+      {
+        "src": [
+          3,
+          4
+        ],
+        "xy": [
+          950.5,
+          1132.75
+        ],
+        "ncc": 0.994624,
+        "accepted": true,
+        "resid_px": 0.4528633937686023
+      },
+      {
+        "src": [
+          5,
+          4
+        ],
+        "xy": [
+          976.25,
+          1135.0
+        ],
+        "ncc": 0.996344,
+        "accepted": true,
+        "resid_px": 0.640814320679563
+      },
+      {
+        "src": [
+          2,
+          5
+        ],
+        "xy": [
+          936.75,
+          1144.0
+        ],
+        "ncc": 0.99435,
+        "accepted": true,
+        "resid_px": 0.3680232477620555
+      },
+      {
+        "src": [
+          4,
+          5
+        ],
+        "xy": [
+          962.5,
+          1145.5
+        ],
+        "ncc": 0.970438,
+        "accepted": true,
+        "resid_px": 0.483816387249202
+      },
+      {
+        "src": [
+          7,
+          6
+        ],
+        "xy": [
+          998.75,
+          1159.5
+        ],
+        "ncc": 0.964997,
+        "accepted": true,
+        "resid_px": 0.5724353183617071
+      }
+    ]
+  },
+  "h_relative_to_origin": [
+    [
+      12.650679617614784,
+      -0.9889749177364536,
+      -0.9069811626721942
+    ],
+    [
+      0.7743722791330069,
+      11.983154510357947,
+      2.6176495758606086
+    ],
+    [
+      -0.0003689787842031554,
+      0.003616906647658124,
+      1.0
+    ]
+  ],
+  "fitted_pitch_top_bottom": [
+    12.665547064552586,
+    12.396206116485354
+  ],
+  "four_cell_vectors_px": [
+    [
+      50.56621757361961,
+      3.1168829634282247
+    ],
+    [
+      49.484571379974,
+      3.151509584069345
+    ]
+  ],
+  "anchored_transfer_difference_px": 1.0822003008154555
+}
