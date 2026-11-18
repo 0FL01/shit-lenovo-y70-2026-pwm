@@ -1,0 +1,56 @@
+{
+  "status": "aborted_not_comparative_evidence",
+  "rejection": "P00_s0 static right-edge gate",
+  "issued_phases": 1,
+  "completed_phases": 0,
+  "completed_samples": 0,
+  "blocker_image": {
+    "geometry_ok": false,
+    "highlight_pixels": 0,
+    "edges": [
+      [
+        53.0,
+        18
+      ],
+      [
+        123.0,
+        16
+      ]
+    ],
+    "face_max": [
+      170,
+      174,
+      204
+    ],
+    "trace_max": [
+      156,
+      171,
+      175
+    ],
+    "zero_rgb_counts": [
+      100,
+      2459,
+      33820
+    ],
+    "any_zero_count": 36187,
+    "all_zero_count": 0,
+    "trace_pixels": 81320
+  },
+  "reachable_dbv": [
+    2632,
+    2633,
+    2634,
+    2631
+  ],
+  "restoration": {
+    "oc_observed_fields": 14,
+    "stock_observed_fields": 15,
+    "hidden_preferences": "not bytewise checked",
+    "sole_camera": "live guard attestation, not raw metadata"
+  },
+  "limits": [
+    "Calibration/phase DBV are parsed live readbacks, not archived full raw snapshots at each level.",
+    "Raw baseline and return independently show 120 Hz, DC off, SDR, Extra Dim off; per-level proof is live-guard only.",
+    "No 2632-versus-2633 optical comparison; 500 us preview may alias and ISP/AWB remain active."
+  ]
+}
