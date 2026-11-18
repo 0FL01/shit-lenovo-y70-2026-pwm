@@ -1,5 +1,7 @@
 # Long-lived agent progress journal
 
+Checkpoint 2026-11-18: [Первичный RECON оптического стенда](05-safety/optical_measurement.md). Обе роли подтверждены через reverse ADB; фото осциллографа в режиме AC не даёт частоты ШИМ и процента модуляции. Следующий шаг: темновой контроль и повторяемая серия периодов на известной развёртке.
+
 Checkpoint 2026-11-09: **recovery source checkpoint prepared; STOCK15 HOLD.**
 
 - [Focused recovery source checkpoint](artifacts/recovery_checkpoint_20261109.md): reviewed reader/shim/custody/harness/collector/composition and inert APK helper; bounded fake tests, not an independent qualified recovery route. Production336dd969 remains unchanged. No stock15 main, new phone operation or recovery admission follows;14/protected producer restrictions remain. Current next work is guarded APK preparation and remaining prebound-channel/root provenance qualification.

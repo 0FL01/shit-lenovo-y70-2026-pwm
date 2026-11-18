@@ -147,11 +147,11 @@ tasks:
     dependencies: [T01]
     can_run_offline: false
     actions:
-      - 'Follow 05-safety/optical_measurement.md: no oscilloscope available; use owner assessment and another smartphone camera without blocking comparative trials on instruments.'
+      - 'Follow 05-safety/optical_measurement.md: oscilloscope now available; distinguish its trace from direct phone-camera bands and qualitative owner assessment.'
       - 'Record target before/after clips and compare two owner-reported ~2000 Hz phones with consistent camera settings, content, brightness and refresh conditions.'
-      - 'Record comfort only during brief voluntary observation; stop at discomfort. Label exact Hz, modulation depth and low-frequency envelope as unverified; waveform/FFT only if adequate instrumentation later becomes available.'
+      - 'Record comfort only during brief voluntary observation; stop at discomfort. Label exact Hz, modulation depth and low-frequency envelope as unverified; use a waveform only after qualifying the optical signal, timebase and capture.'
     outputs: [artifacts/optical_baseline.md]
-    acceptance: 'Documented qualitative baseline/comparison and owner report, not an inferred numeric frequency. Lack of oscilloscope does not block T09 completion or later justified trials; camera bands/symptoms do not certify >=2000 Hz.'
+    acceptance: 'Documented qualitative baseline/comparison and owner report, not an inferred numeric frequency. Lack of a qualified scope trace does not block qualitative T09 completion or later justified trials; camera bands/symptoms do not certify >=2000 Hz.'
   - id: T10
     title: 'Decide feasibility and design guarded native PWM override'
     status: todo

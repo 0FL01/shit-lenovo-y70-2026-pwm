@@ -22,8 +22,8 @@ owner_observations:
   current_pwm_estimate_status: 'hypothesis: owner now considers ~720 Hz likely and reports tests quoting ~170 or ~720 Hz; controlled exposure evidence favors a ~720 Hz fine component. Exact/fundamental Hz and lower-frequency components remain unknown; artifacts/pacman_exposure_analysis_20261106.json. This does not meet the >=2000 Hz requirement.'
   minimum_usable_pwm_hz: 2000
   minimum_usable_pwm_status: 'reported: owner tolerates 2000 Hz based on experience with three other phones; individual usability requirement'
-  oscilloscope_available: false
-  validation_methods_status: 'reported: visual/comfort assessment and another smartphone camera; two other phones with owner-reported ~2000 Hz PWM available for comparison'
+  oscilloscope_available: true
+  validation_methods_status: 'reported: oscilloscope visible in owner photos, Nothing A001 monitors its screen; optical signal and numeric results not yet validated (05-safety/optical_measurement.md). Visual/comfort and two owner-reported ~2000 Hz phones remain qualitative comparisons'
   validation_limits: 'Qualitative improvement/usability can be reported; exact Hz, modulation depth and absence of a low-frequency envelope remain unverified. No instrumentation prerequisite for comparative trials; stop at discomfort, do not deliberately provoke symptoms.'
   flicker_prevention: 'ON'
   flicker_prevention_effect: 'No noticeable relief (user reports placebo)'
