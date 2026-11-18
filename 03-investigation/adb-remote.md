@@ -1,6 +1,6 @@
 # Remote ADB and fastboot
 
-The R&D host reaches a separate USB host over an authenticated SSH connection.
+The R&D host consumes an authenticated reverse tunnel from a separate USB host.
 The research target and a second phone used as the optical camera are distinct
 devices. The owner reports they are available 24/7; connectivity, USB state,
 camera framing, exposure and target display state must be checked each time.
@@ -9,53 +9,22 @@ commit them or unredacted command output.
 
 ## ADB
 
-On the R&D host, user service `legion-y70-adb.service` forwards a private Unix
-socket to the USB host's loopback ADB server. The service is enabled with
-automatic restart; its directory is mode 0700 and its socket mode 0600.
-The user service manager has linger enabled. The private SSH configuration is
-`~/.config/legion-y70/ssh_config`, with alias `research-usb`. It and the unit
-are host-local, not repository files. A working service or socket alone does
-not prove that the upstream ADB server or either device is available.
+The USB host initiates an SSH reverse Unix forward to its loopback ADB server.
+On the R&D host the socket-activated user proxy preserves the private agent
+endpoint (0700 directory, 0600 socket). There is no SSH login back to the USB
+host through this path. Linger is enabled. A socket alone is not proof of ADB.
 
-Before ADB use, from the same shell that will run the command or Python tool:
+From the repository root in the same environment as the agent:
 
 ```sh
-export XDG_RUNTIME_DIR="${XDG_RUNTIME_DIR:-/run/user/$(id -u)}"
-export DBUS_SESSION_BUS_ADDRESS="${DBUS_SESSION_BUS_ADDRESS:-unix:path=$XDG_RUNTIME_DIR/bus}"
+export XDG_RUNTIME_DIR="/run/user/$(id -u)"
 export ADB_SERVER_SOCKET="localfilesystem:$XDG_RUNTIME_DIR/legion-y70-adb/adb.sock"
-preflight() {
-systemctl --user is-active --quiet legion-y70-adb.service || return 1
-
-# This probes ADB's host:version over the socket without invoking the ADB client.
-python3 - <<'PY' || return 1
-import os, socket
-path = os.environ['ADB_SERVER_SOCKET'].removeprefix('localfilesystem:')
-with socket.socket(socket.AF_UNIX) as s:
-    s.settimeout(5)
-    s.connect(path)
-    s.sendall(b'000chost:version')
-    def read_exact(n):
-        data = b''
-        while len(data) < n:
-            part = s.recv(n - len(data))
-            if not part:
-                raise RuntimeError('ADB server closed the connection')
-            data += part
-        return data
-    if read_exact(4) != b'OKAY':
-        raise RuntimeError('ADB server rejected the probe')
-    version = read_exact(int(read_exact(4), 16))
-    print('ADB server protocol version:', version.decode('ascii'))
-PY
-
-# Compare before issuing any command that connects to the server.
-local_version=$(adb version | head -2) || return 1
-remote_version=$(ssh -F "$HOME/.config/legion-y70/ssh_config" research-usb 'adb version | head -2') || return 1
-[ "$local_version" = "$remote_version" ] || return 1
-}
-preflight || { echo 'STOP: ADB preflight failed' >&2; exit 1; }
-echo 'ADB preflight passed'
+PYTHONPATH=06-tools python3 -B -c 'from guarded_adb_socket import GuardedADB; GuardedADB().preflight()' || exit 1
 ```
+
+The preflight requires the private socket, live server protocol 41 and the
+same pinned Debian client build as the USB host checks at SSH startup. After a
+package upgrade reconcile the pins on both hosts before resuming operations.
 
 **Stop if the service/probe fails or versions differ.** An ADB client can start
 a local daemon when the tunnel socket is missing; a version mismatch can cause
@@ -76,12 +45,9 @@ must be audited before use.
 
 ## Fastboot and recovery
 
-Fastboot talks to USB directly and does not use the ADB socket. From the R&D
-host, enumerate through the private SSH alias without an interactive login:
-
-```sh
-ssh -F "$HOME/.config/legion-y70/ssh_config" research-usb 'fastboot devices -l'
-```
+Fastboot talks to USB directly. The ADB carrier does not provide fastboot,
+SSH login, or file transfer to the USB host. Arrange separate operator LAN
+access and run the enumeration locally on the USB host before any such work.
 
 Select the confirmed target explicitly for `getvar` and subsequent operations;
 do not publish identifiers. Fastboot was installed on the USB host at the
@@ -93,7 +59,7 @@ route before the operation. No implicit reboot, retry, slot change or flash.
 
 ## Verified scope
 
-At the checkpoint, two authorized Android devices were identified and shell,
+At the earlier research checkpoint, two authorized Android devices were identified and shell,
 binary `exec-out` and `pull` worked through the tunnel. A controlled service
 restart and a simulated unexpected SSH exit both recovered the connection.
 No AWG interruption, host reboot, camera capture, bootloader transition or

@@ -61,16 +61,16 @@ class GuardedADB:
             return self.exact(sock, size)
 
     def preflight(self):
-        subprocess.run(['systemctl', '--user', 'is-active', '--quiet', 'legion-y70-adb.service'],
+        subprocess.run(['systemctl', '--user', 'is-active', '--quiet', 'legion-y70-adb.socket'],
                        check=True, capture_output=True, timeout=10)
         version = self.host('host:version')
         if version != b'0029':
             raise RuntimeError('Expected ADB protocol 41')
         local = subprocess.run(['adb', 'version'], check=True, capture_output=True, timeout=10)
-        remote = subprocess.run(['ssh', '-F', str(Path.home() / '.config/legion-y70/ssh_config'),
-                                 'research-usb', 'adb version'], check=True, capture_output=True, timeout=15)
-        if local.stdout.splitlines()[:2] != remote.stdout.splitlines()[:2]:
-            raise RuntimeError('Local and remote ADB versions differ')
+        # The USB host checks the same build before starting its SSH carrier.
+        if local.stdout.splitlines()[:2] != [b'Android Debug Bridge version 1.0.41',
+                                             b'Version 34.0.5-debian']:
+            raise RuntimeError('Local ADB build differs from carrier pin')
         self.protocol = version
 
     def bind(self, transport):

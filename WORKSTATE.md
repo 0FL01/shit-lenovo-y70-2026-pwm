@@ -1,5 +1,7 @@
 # Long-lived agent progress journal
 
+Checkpoint 2026-11-18: **ADB carrier replaced** ([agent preflight](03-investigation/adb-remote.md)). The private endpoint recovered after SSH interruption and rejected requests while upstream was stopped. The optical phone answered a read-only model query. The research target also disappeared on the USB host (USB configuration error -71); do not begin a trial until it is stable and identified. Fastboot is not provided by this carrier.
+
 Checkpoint 2026-11-10: **short stock capture and conditional analysis are independently reviewed offline; no new capture or device mutation.**
 
 The separate nominal 10-second [capture path](artifacts/stock_observation_preparation_20261110/DEPLOYMENT_CAPTURE.md) retains one Start, native auto-stop, restart disabled, a 15-second stop-verification limit and exact original settings. The [final UI review](artifacts/stock_observation_preparation_20261110/UI_CLEANUP_INDEPENDENT_REVIEW.md) supersedes the earlier review: uncertain settings navigation now retains cleanup pending and ownership, even when no preference changed. Release and capsule creation require a freshly verified original preview with stopped encoder and original controls. All 68 aggregate tests pass in normal and optimized Python. This is code verification, not physical readiness or an unconditional duration/recovery guarantee.
