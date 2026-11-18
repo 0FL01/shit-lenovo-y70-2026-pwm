@@ -1,0 +1,283 @@
+{
+  "code_a": "012021201021",
+  "synthetic_traces": 1920,
+  "cells": [
+    {
+      "density_px_per_slot": 0.75,
+      "blur_slots": 0.0,
+      "counts": {
+        "shape": 96
+      },
+      "over_5pct": 0,
+      "worst_abs_percent": null,
+      "signed_range_pct": null,
+      "worst_phase_eighths": null
+    },
+    {
+      "density_px_per_slot": 0.75,
+      "blur_slots": 0.5,
+      "counts": {
+        "shape": 96
+      },
+      "over_5pct": 0,
+      "worst_abs_percent": null,
+      "signed_range_pct": null,
+      "worst_phase_eighths": null
+    },
+    {
+      "density_px_per_slot": 0.75,
+      "blur_slots": 1.0,
+      "counts": {
+        "shape": 96
+      },
+      "over_5pct": 0,
+      "worst_abs_percent": null,
+      "signed_range_pct": null,
+      "worst_phase_eighths": null
+    },
+    {
+      "density_px_per_slot": 0.75,
+      "blur_slots": 2.0,
+      "counts": {
+        "shape": 75,
+        "few_edges": 21
+      },
+      "over_5pct": 0,
+      "worst_abs_percent": null,
+      "signed_range_pct": null,
+      "worst_phase_eighths": null
+    },
+    {
+      "density_px_per_slot": 0.75,
+      "blur_slots": 12.0,
+      "counts": {
+        "few_edges": 96
+      },
+      "over_5pct": 0,
+      "worst_abs_percent": null,
+      "signed_range_pct": null,
+      "worst_phase_eighths": null
+    },
+    {
+      "density_px_per_slot": 1.25,
+      "blur_slots": 0.0,
+      "counts": {
+        "accepted": 96
+      },
+      "over_5pct": 0,
+      "worst_abs_percent": 0.01837,
+      "signed_range_pct": [
+        -0.00972,
+        0.01837
+      ],
+      "worst_phase_eighths": 29
+    },
+    {
+      "density_px_per_slot": 1.25,
+      "blur_slots": 0.5,
+      "counts": {
+        "accepted": 96
+      },
+      "over_5pct": 0,
+      "worst_abs_percent": 0.0292,
+      "signed_range_pct": [
+        -0.02918,
+        0.0292
+      ],
+      "worst_phase_eighths": 61
+    },
+    {
+      "density_px_per_slot": 1.25,
+      "blur_slots": 1.0,
+      "counts": {
+        "accepted": 87,
+        "shape": 9
+      },
+      "over_5pct": 0,
+      "worst_abs_percent": 0.0292,
+      "signed_range_pct": [
+        -0.02918,
+        0.0292
+      ],
+      "worst_phase_eighths": 61
+    },
+    {
+      "density_px_per_slot": 1.25,
+      "blur_slots": 2.0,
+      "counts": {
+        "shape": 96
+      },
+      "over_5pct": 0,
+      "worst_abs_percent": null,
+      "signed_range_pct": null,
+      "worst_phase_eighths": null
+    },
+    {
+      "density_px_per_slot": 1.25,
+      "blur_slots": 12.0,
+      "counts": {
+        "few_edges": 96
+      },
+      "over_5pct": 0,
+      "worst_abs_percent": null,
+      "signed_range_pct": null,
+      "worst_phase_eighths": null
+    },
+    {
+      "density_px_per_slot": 2.3,
+      "blur_slots": 0.0,
+      "counts": {
+        "accepted": 96
+      },
+      "over_5pct": 0,
+      "worst_abs_percent": 0.07934,
+      "signed_range_pct": [
+        -0.07934,
+        0.0598
+      ],
+      "worst_phase_eighths": 3
+    },
+    {
+      "density_px_per_slot": 2.3,
+      "blur_slots": 0.5,
+      "counts": {
+        "accepted": 96
+      },
+      "over_5pct": 0,
+      "worst_abs_percent": 0.10065,
+      "signed_range_pct": [
+        -0.08433,
+        0.10065
+      ],
+      "worst_phase_eighths": 34
+    },
+    {
+      "density_px_per_slot": 2.3,
+      "blur_slots": 1.0,
+      "counts": {
+        "accepted": 96
+      },
+      "over_5pct": 0,
+      "worst_abs_percent": 0.13948,
+      "signed_range_pct": [
+        -0.11321,
+        0.13948
+      ],
+      "worst_phase_eighths": 23
+    },
+    {
+      "density_px_per_slot": 2.3,
+      "blur_slots": 2.0,
+      "counts": {
+        "few_edges": 92,
+        "shape": 4
+      },
+      "over_5pct": 0,
+      "worst_abs_percent": null,
+      "signed_range_pct": null,
+      "worst_phase_eighths": null
+    },
+    {
+      "density_px_per_slot": 2.3,
+      "blur_slots": 12.0,
+      "counts": {
+        "few_edges": 96
+      },
+      "over_5pct": 0,
+      "worst_abs_percent": null,
+      "signed_range_pct": null,
+      "worst_phase_eighths": null
+    },
+    {
+      "density_px_per_slot": 4.7,
+      "blur_slots": 0.0,
+      "counts": {
+        "accepted": 96
+      },
+      "over_5pct": 0,
+      "worst_abs_percent": 0.22159,
+      "signed_range_pct": [
+        -0.22159,
+        0.21338
+      ],
+      "worst_phase_eighths": 11
+    },
+    {
+      "density_px_per_slot": 4.7,
+      "blur_slots": 0.5,
+      "counts": {
+        "accepted": 96
+      },
+      "over_5pct": 0,
+      "worst_abs_percent": 0.32946,
+      "signed_range_pct": [
+        -0.28861,
+        0.32946
+      ],
+      "worst_phase_eighths": 52
+    },
+    {
+      "density_px_per_slot": 4.7,
+      "blur_slots": 1.0,
+      "counts": {
+        "accepted": 40,
+        "shape": 56
+      },
+      "over_5pct": 0,
+      "worst_abs_percent": 0.38948,
+      "signed_range_pct": [
+        -0.38948,
+        0.35829
+      ],
+      "worst_phase_eighths": 6
+    },
+    {
+      "density_px_per_slot": 4.7,
+      "blur_slots": 2.0,
+      "counts": {
+        "few_edges": 96
+      },
+      "over_5pct": 0,
+      "worst_abs_percent": null,
+      "signed_range_pct": null,
+      "worst_phase_eighths": null
+    },
+    {
+      "density_px_per_slot": 4.7,
+      "blur_slots": 12.0,
+      "counts": {
+        "few_edges": 96
+      },
+      "over_5pct": 0,
+      "worst_abs_percent": null,
+      "signed_range_pct": null,
+      "worst_phase_eighths": null
+    }
+  ],
+  "worst_fraction_over_5pct_all_planned": 0.0,
+  "crop_example": {
+    "models": [
+      {
+        "height": 2448,
+        "origin_rows": 0,
+        "modeled_us_per_px": 208,
+        "source_slot_us": 624,
+        "exposure_us": 156
+      },
+      {
+        "height": 1836,
+        "origin_rows": 306,
+        "modeled_us_per_px": 156,
+        "source_slot_us": 468,
+        "exposure_us": 156
+      }
+    ],
+    "ui_positions": 153,
+    "unequal": 0,
+    "levels": [
+      0.0,
+      1.0,
+      2.0
+    ]
+  }
+}
