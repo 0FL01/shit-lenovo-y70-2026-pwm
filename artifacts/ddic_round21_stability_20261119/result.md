@@ -1,5 +1,7 @@
 # Round 21: Stability / Defect Hunt of the 3-Write Recipe Under Real Usage (`2026-11-19`)
 
+> **Fast path:** the hunt process of this round is codified for reuse in [06-tools/RECIPE_BUG_HUNT.md](../../06-tools/RECIPE_BUG_HUNT.md) (protocol) and [06-tools/recipe_bug_hunt.sh](../../06-tools/recipe_bug_hunt.sh) (one-command regression; the required target files are staged under the protocol names).
+
 ## 1. Purpose and Method
 
 The owner's live trial of the 3-write recipe (`23:A9=0x8e`, `24:9D=0x8e`, `23:80=0x90`) was positive in direction; this round hunts for defects under the real use-case: brightness moves (manual and adaptive), refresh-rate changes, screen off/on, and the stock Flicker-prevention toggle. Method: apply the action on the live phone, then read back `23:A9`, `24:9D`, `23:80`, `23:C1`, `00:52` through the guarded read-only debugfs probe (`unshare -m`, `esd_sw_sim_success → reg_read`). No camera frames; the persistence question is register-level, and the optical re-derivation per sysfs BL was already mapped in R15.
