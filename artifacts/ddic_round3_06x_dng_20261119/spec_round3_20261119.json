@@ -1,0 +1,143 @@
+{
+  "experiment": "ddic_round3_06x_dng_20261119",
+  "panel": "BOE ILI97701A cmd_v4 (ID 0xd2)",
+  "reference_dng": "IMG_20260502_083009182.DNG",
+  "sinc_files": null,
+  "fixed_conditions": {
+    "dbv": 3600,
+    "panelDC": 0,
+    "refresh_hz": 120,
+    "pattern": "#FFFFFF (HTMLViewer)",
+    "camera": "A001 Camera ID 2 (EXPERT 0.6x RAW, 3264x2448, ISO 6400)",
+    "exposure_us_default": 625.0,
+    "esd_check_mode_restored": "reg_read"
+  },
+  "candidates": [
+    {
+      "name": "63:F2 / 63:F3 (under 53:F0 01 -> 00 bank)",
+      "baseline_readback": {
+        "63:F1": "10 10 10 10 10 00 00 00 00 00 00 00 00 00 00 00",
+        "63:F2": "10 10 10 10 10 00 00 00 00 00 00 00 00 00 00 00",
+        "63:F3": "00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+        "63:F4": "00 00 00 00 00 f0 f0 f0 f0 f0 00 00 00 00 00 00"
+      },
+      "writes": {
+        "f2f3_dcon": {
+          "63:F2": "00*5 20*5 00*6",
+          "63:F3": "00*16",
+          "readback_changed": true
+        },
+        "f2f3_dcoff": {
+          "63:F2": "00*16",
+          "63:F3": "00*5 20*5 00*6",
+          "readback_changed": true
+        },
+        "f2f3_restore": {
+          "63:F2": "10*5 00*11",
+          "63:F3": "00*16",
+          "readback_changed": true
+        }
+      }
+    },
+    {
+      "name": "23:C2 (3B)",
+      "baseline_readback": "00 03 84 (900)",
+      "write_attempt": "00 07 08 (1800)",
+      "readback_changed": false,
+      "post_readback": "00 03 84"
+    },
+    {
+      "name": "4F:9D / 4F:9E (1B each)",
+      "baseline_readback": {
+        "4F:9D": "3e",
+        "4F:9E": "64"
+      },
+      "write_attempt": {
+        "4F:9D": "3e (same as baseline, writability untested)",
+        "4F:9E": "7d"
+      },
+      "readback_changed": {
+        "4F:9D": false,
+        "4F:9E": false
+      },
+      "post_readback": {
+        "4F:9D": "3e",
+        "4F:9E": "64"
+      }
+    },
+    {
+      "name": "23:A9 (0x0e -> 0x8e -> 0x0e) + 10x exposure sweep",
+      "readback_changed": true,
+      "coupled_telemetry": {
+        "23:A9=0x0e": {
+          "23:C1": "00 00 60 (96)"
+        },
+        "23:A9=0x8e": {
+          "23:C1": "00 00 10 (16)"
+        },
+        "23:A9=0x0e (restored)": {
+          "23:C1": "00 00 60 (96)"
+        }
+      },
+      "exposures_us": [
+        250.0,
+        625.0,
+        800.0,
+        1000.0,
+        2500.0
+      ]
+    }
+  ],
+  "phases": {
+    "base": [
+      "IMG_20260502_103003022.DNG",
+      "IMG_20260502_103026811.DNG",
+      "IMG_20260502_103028979.DNG"
+    ],
+    "f2f3_dcon": [
+      "IMG_20260502_103037480.DNG",
+      "IMG_20260502_103039635.DNG",
+      "IMG_20260502_103041781.DNG"
+    ],
+    "f2f3_dcoff": [
+      "IMG_20260502_103101663.DNG",
+      "IMG_20260502_103103813.DNG",
+      "IMG_20260502_103105955.DNG"
+    ],
+    "f2f3_restore": [
+      "IMG_20260502_103111676.DNG",
+      "IMG_20260502_103113834.DNG",
+      "IMG_20260502_103115972.DNG"
+    ],
+    "a9_8e_625us": [
+      "IMG_20260502_103434737.DNG",
+      "IMG_20260502_103436886.DNG",
+      "IMG_20260502_103439042.DNG"
+    ],
+    "a9_8e_800us": [
+      "IMG_20260502_103459165.DNG",
+      "IMG_20260502_103501310.DNG",
+      "IMG_20260502_103503468.DNG"
+    ],
+    "a9_8e_250us": [
+      "IMG_20260502_103519212.DNG",
+      "IMG_20260502_103521378.DNG",
+      "IMG_20260502_103523525.DNG"
+    ],
+    "a9_8e_1000us": [
+      "IMG_20260502_103549467.DNG",
+      "IMG_20260502_103551616.DNG",
+      "IMG_20260502_103553771.DNG"
+    ],
+    "a9_8e_2500us": [
+      "IMG_20260502_103620704.DNG",
+      "IMG_20260502_103622853.DNG",
+      "IMG_20260502_103625012.DNG"
+    ],
+    "a9_restore_625us": [
+      "IMG_20260502_103655770.DNG",
+      "IMG_20260502_103657913.DNG",
+      "IMG_20260502_103700048.DNG"
+    ]
+  }
+}
