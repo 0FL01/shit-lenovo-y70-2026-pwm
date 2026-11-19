@@ -132,6 +132,23 @@ class Analyze2DModulationTests(unittest.TestCase):
         res = mod.analyze_patch_2d(cur, ref)
         self.assertAlmostEqual(res["peak_2d_amp"], 0.10, delta=0.005)
 
+    def test_run_bench_summary_allows_omitted_sinc_files(self) -> None:
+        cur, ref = _make_synthetic_grid(amp_wave=0.12)
+        tags = {33434: [0.000625], 34855: [6400]}
+        with tempfile.TemporaryDirectory() as td:
+            d = Path(td)
+            (d / "ref.dng").write_bytes(b"ref")
+            (d / "cur.dng").write_bytes(b"cur")
+            with mock.patch.object(
+                mod,
+                "load_bayer2x2_green",
+                side_effect=[(ref, tags), (cur, tags)],
+            ):
+                out = mod.run_bench_summary(d, "ref.dng", {"p": ["cur.dng"]}, None)
+        self.assertIsNone(out["sinc_fit"])
+        self.assertEqual(out["sinc_sweep_samples"], [])
+        self.assertAlmostEqual(out["phases"]["p"][0]["target_wave_amp"], 0.12, delta=0.01)
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -185,8 +185,13 @@ def sha256_file(path: Path) -> str:
     return h.hexdigest()
 
 
-def run_bench_summary(evidence_dir: Path, ref_name: str, phases: dict[str, list[str]], sinc_files: list[str]) -> dict[str, Any]:
-    """Analyze all recorded bench DNG phases and exposure sinc sweep from disk."""
+def run_bench_summary(
+    evidence_dir: Path,
+    ref_name: str,
+    phases: dict[str, list[str]],
+    sinc_files: list[str] | None = None,
+) -> dict[str, Any]:
+    """Analyze all recorded bench DNG phases and optional exposure sinc sweep from disk."""
     ref_b2, ref_tags = load_bayer2x2_green(evidence_dir / ref_name)
     phase_results: dict[str, list[dict[str, Any]]] = {}
     hashes: dict[str, str] = {ref_name: sha256_file(evidence_dir / ref_name)}
@@ -210,7 +215,7 @@ def run_bench_summary(evidence_dir: Path, ref_name: str, phases: dict[str, list[
 
     sinc_samples: list[tuple[float, float]] = []
     sinc_rows = []
-    for name in sinc_files:
+    for name in sinc_files or []:
         p = evidence_dir / name
         hashes[name] = sha256_file(p)
         cur_b2, tags = load_bayer2x2_green(p)
@@ -232,7 +237,7 @@ def run_bench_summary(evidence_dir: Path, ref_name: str, phases: dict[str, list[
         "target_wave_vector_k": [DEFAULT_WAVE_KY, DEFAULT_WAVE_KX],
         "phases": phase_results,
         "sinc_sweep_samples": sinc_rows,
-        "sinc_fit": fit_sinc_frequency(sinc_samples),
+        "sinc_fit": fit_sinc_frequency(sinc_samples) if sinc_samples else None,
         "file_sha256": hashes,
     }
 
@@ -240,7 +245,7 @@ def run_bench_summary(evidence_dir: Path, ref_name: str, phases: dict[str, list[
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description="Analyze native 0.6x bench DNG phases and sinc sweep.")
     parser.add_argument("--evidence-dir", type=Path, required=True, help="Directory holding private raw DNG files.")
-    parser.add_argument("--spec-json", type=Path, required=True, help="JSON file defining reference_dng, phases, sinc_files.")
+    parser.add_argument("--spec-json", type=Path, required=True, help="JSON file defining reference_dng, phases, optional sinc_files.")
     parser.add_argument("--out-json", type=Path, required=True, help="Output summary JSON path.")
     args = parser.parse_args(argv)
 
@@ -249,7 +254,7 @@ def main(argv: list[str] | None = None) -> int:
         args.evidence_dir,
         spec["reference_dng"],
         spec["phases"],
-        spec["sinc_files"],
+        spec.get("sinc_files"),
     )
     args.out_json.write_text(json.dumps(summary, indent=2) + "\n", encoding="utf-8")
     return 0
