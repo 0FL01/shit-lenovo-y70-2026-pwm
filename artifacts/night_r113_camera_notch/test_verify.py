@@ -85,6 +85,32 @@ class Test(unittest.TestCase):
                 self.assertLessEqual(lo, v.response(x))
                 self.assertLessEqual(v.response(x), hi)
 
+    def test_alias_band_context_and_offgrid_rejection(self):
+        # Saved payload with h_17071hz_alias must never output bare candidate_hz=2160.
+        f_alias = 1e6 / 52.0 - 2160.0
+        d = fixture(f_alias, err=.0002)
+        d["minimum_fractional_contrast"] = .0001
+        d["band_context"] = {"band_key": "h_17071hz_alias"}
+        res = v.verify(d)
+        self.assertEqual(res["status"], "CONDITIONAL_ALIAS_COMPONENT_MATCH")
+        self.assertNotIn("candidate_hz", res)
+
+        # Off-grid M=480 us separates 2160 Hz (sinc~0.0354) from 17070.77 Hz (sinc~0.0222).
+        offgrid = fixture(2160, err=.0002, amp=.4)
+        for b in offgrid["blocks"]:
+            m_idx = b["order"].index("M")
+            b["samples"][m_idx]["actual_time_us"] = [479.8, 480.2]
+            a = .4 * v.response(2160 * 480e-6)
+            b["samples"][m_idx]["amplitude"] = [a - .0002, a + .0002]
+        offgrid["band_context"] = {"band_key": "h_17071hz_alias"}
+        self.assertEqual(v.verify(offgrid)["status"], "HOLD")
+
+        # 720 Hz and 1440 Hz data must return HOLD under h_17071hz_alias, never alias match.
+        for other_hz in (720, 1440):
+            other = fixture(other_hz, err=.0002)
+            other["band_context"] = {"band_key": "h_17071hz_alias"}
+            self.assertEqual(v.verify(other)["status"], "HOLD")
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -7,6 +7,7 @@ import math
 import sys
 
 FREQ = (720, 1440, 2160)
+ALIAS_HZ = 1e6 / 52.0 - 2160.0
 GATES = ("capture_result_per_frame", "fixed_roi_band_geometry", "linear_black_corrected",
          "no_clipping", "fixed_panel_and_camera_mode", "dark_offscreen_noise_checked",
          "short_signal_and_return", "independent_blocks", "intervals_cover_noise_and_drift")
@@ -89,8 +90,14 @@ def assess(d):
         blocks.append((order, times, amps))
     if any(sum(o==q for o, _, _ in blocks)<2 for q in ORDERS):
         return hold("need at least two independent blocks per order; not a statistical confidence claim")
+    band_ctx = d.get("band_context") or {}
+    band_key = band_ctx.get("band_key", "h_2160hz")
+    if band_key not in ("h_2160hz", "h_17071hz_alias"):
+        raise ValueError("unsupported band_key in band_context")
+    freqs = (720, 1440, ALIAS_HZ) if band_key == "h_17071hz_alias" else FREQ
+
     survivors, witnessed, contrast = [], [], []
-    for f in FREQ:
+    for f in freqs:
         viable = witness = separated = True
         for order, times, amps in blocks:
             viable &= common_scale(amps, [envelope(f, rel, t) for t in times])
@@ -98,7 +105,7 @@ def assess(d):
             p = [response(f*sum(t)*.5e-6) for t in times]
             witness &= common_scale(amps, [(x, x) for x in p])
             # Both short endpoints must clear larger middle response; separate M/L despite noise.
-            high, low = (order.index(c) for c in ("LM" if f==2160 else "ML"))
+            high, low = (order.index(c) for c in ("LM" if f in (2160, ALIAS_HZ) else "ML"))
             separated &= (min(amps[0][0], amps[-1][0])-amps[high][1] > margin
                           and amps[high][0]-amps[low][1] > margin)
         if viable:
@@ -110,6 +117,18 @@ def assess(d):
     if len(survivors)!=1 or survivors[0] not in witnessed or survivors[0] not in contrast:
         return hold("no unique joint nominal fit with resolved contrasts in both orders",
                     possible_candidates_hz=survivors)
+    if band_key == "h_17071hz_alias":
+        if survivors[0] != ALIAS_HZ:
+            return hold(
+                f"spatial band {band_key} disagreed with matched temporal candidate {survivors[0]} Hz",
+                possible_candidates_hz=survivors,
+            )
+        return dict(
+            status="CONDITIONAL_ALIAS_COMPONENT_MATCH",
+            spatial_band_hz=ALIAS_HZ,
+            temporal_alias_pair_hz=[2160, ALIAS_HZ],
+            scope="tested against 720/1440/17070.77 Hz on actual times; exact 52-us grid points share normalized sinc ratios with 2160 Hz",
+        )
     return dict(status="CONDITIONAL_COMPONENT_MATCH", candidate_hz=survivors[0],
                 scope="only among 720/1440/2160 Hz under the stated model and input gates")
 
@@ -128,4 +147,4 @@ if __name__ == "__main__":
     except (IndexError, OSError, ValueError) as e:
         result = {"status": "HOLD", "reason": "input unavailable or invalid: " + str(e)}
     print(json.dumps(result, indent=2))
-    sys.exit(0 if result["status"] == "CONDITIONAL_COMPONENT_MATCH" else 2)
+    sys.exit(0 if result["status"] in ("CONDITIONAL_COMPONENT_MATCH", "CONDITIONAL_ALIAS_COMPONENT_MATCH") else 2)
