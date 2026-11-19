@@ -1,0 +1,78 @@
+{
+  "experiment": "ddic_round6_06x_dng_20261119",
+  "panel": "BOE ILI97701A cmd_v4 (ID 0xd2)",
+  "reference_dng": "IMG_20260502_083009182.DNG",
+  "sinc_files": null,
+  "fixed_conditions": {
+    "panelDC": 0,
+    "refresh_hz": 120,
+    "pattern": "#FFFFFF (HTMLViewer)",
+    "camera": "A001 Camera ID 2 (EXPERT 0.6x RAW, 3264x2448, ISO 6400)",
+    "exposure_us": 625.0,
+    "esd_check_mode_restored": "reg_read"
+  },
+  "phases": {
+    "dbv2048_0e_off_base": [
+      "IMG_20260502_115603467.DNG",
+      "IMG_20260502_115605633.DNG",
+      "IMG_20260502_115607782.DNG"
+    ],
+    "dbv256_8e_off": [
+      "IMG_20260502_115613221.DNG",
+      "IMG_20260502_115615378.DNG",
+      "IMG_20260502_115617525.DNG"
+    ],
+    "dbv128_8e_off": [
+      "IMG_20260502_115623198.DNG",
+      "IMG_20260502_115625368.DNG",
+      "IMG_20260502_115627535.DNG"
+    ],
+    "dbv256_0e_off_base": [
+      "IMG_20260502_115641472.DNG",
+      "IMG_20260502_115643605.DNG",
+      "IMG_20260502_115645755.DNG"
+    ],
+    "dbv2048_8e_a2on": [
+      "IMG_20260502_115651211.DNG",
+      "IMG_20260502_115653364.DNG",
+      "IMG_20260502_115655518.DNG"
+    ],
+    "dbv2048_0e_off_ret": [
+      "IMG_20260502_115700767.DNG",
+      "IMG_20260502_115702925.DNG",
+      "IMG_20260502_115705051.DNG"
+    ]
+  },
+  "ddic_readbacks": {
+    "dbv2048_0e_off_base": {
+      "R_A9": "0x0e",
+      "R_C1": "0x00 0x02 0x26 (550)",
+      "R_A2_tail": "0x10 0x4b 0x4b"
+    },
+    "dbv256_8e_off": {
+      "R_A9": "0x8e",
+      "R_C1": "0x00 0x00 0x10 (16)",
+      "R_A2_tail": "0x10 0x4b 0x4b"
+    },
+    "dbv128_8e_off": {
+      "R_A9": "0x8e",
+      "R_C1": "0x00 0x00 0x10 (16)",
+      "R_A2_tail": "0x10 0x4b 0x4b"
+    },
+    "dbv256_0e_off_base": {
+      "R_A9": "0x0e",
+      "R_C1": "0x00 0x02 0xc0 (704)",
+      "R_A2_tail": "0x10 0x4b 0x4b"
+    },
+    "dbv2048_8e_a2on": {
+      "R_A9": "0x8e",
+      "R_C1": "0x00 0x00 0x10 (16)",
+      "R_A2_tail": "0x74 0x7b 0xb4"
+    },
+    "dbv2048_0e_off_ret": {
+      "R_A9": "0x0e",
+      "R_C1": "0x00 0x02 0x26 (550)",
+      "R_A2_tail": "0x10 0x4b 0x4b"
+    }
+  }
+}
