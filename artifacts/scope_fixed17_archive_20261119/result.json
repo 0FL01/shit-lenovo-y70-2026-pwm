@@ -1,0 +1,243 @@
+{
+  "dc3600": [
+    {
+      "phase": "1_0",
+      "red_code_amplitude": [
+        30.150248,
+        28.419347,
+        26.101438
+      ],
+      "median_A17": 28.419347,
+      "diagnostic_median_local_magnitude": 29.234132,
+      "diagnostic_median_coherence": 0.96579
+    },
+    {
+      "phase": "2_1",
+      "red_code_amplitude": [
+        5.545031,
+        1.488229,
+        8.672716
+      ],
+      "median_A17": 5.545031,
+      "diagnostic_median_local_magnitude": 52.478583,
+      "diagnostic_median_coherence": 0.094438
+    },
+    {
+      "phase": "3_0",
+      "red_code_amplitude": [
+        28.367369,
+        29.120599,
+        28.592605
+      ],
+      "median_A17": 28.592605,
+      "diagnostic_median_local_magnitude": 29.884586,
+      "diagnostic_median_coherence": 0.962207
+    }
+  ],
+  "dc3601": [
+    {
+      "phase": "1_0",
+      "red_code_amplitude": [
+        5.279674,
+        5.310732,
+        3.584675
+      ],
+      "median_A17": 5.279674,
+      "diagnostic_median_local_magnitude": 43.894663,
+      "diagnostic_median_coherence": 0.118232
+    },
+    {
+      "phase": "2_1",
+      "red_code_amplitude": [
+        2.765304,
+        7.284457,
+        5.752477
+      ],
+      "median_A17": 5.752477,
+      "diagnostic_median_local_magnitude": 42.740704,
+      "diagnostic_median_coherence": 0.122537
+    },
+    {
+      "phase": "3_0",
+      "red_code_amplitude": [
+        5.699741,
+        2.501958,
+        2.048949
+      ],
+      "median_A17": 2.501958,
+      "diagnostic_median_local_magnitude": 33.366051,
+      "diagnostic_median_coherence": 0.074985
+    }
+  ],
+  "boundary": [
+    {
+      "phase": "base",
+      "red_code_amplitude": [
+        7.46164,
+        6.896513,
+        10.155843
+      ],
+      "median_A17": 7.46164,
+      "diagnostic_median_local_magnitude": 48.300519,
+      "diagnostic_median_coherence": 0.154932
+    },
+    {
+      "phase": "1_3600",
+      "red_code_amplitude": [
+        24.784253,
+        29.350876,
+        25.911259
+      ],
+      "median_A17": 25.911259,
+      "diagnostic_median_local_magnitude": 27.158695,
+      "diagnostic_median_coherence": 0.959028
+    },
+    {
+      "phase": "2_3601",
+      "red_code_amplitude": [
+        6.441329,
+        1.219036,
+        0.631356
+      ],
+      "median_A17": 1.219036,
+      "diagnostic_median_local_magnitude": 41.087522,
+      "diagnostic_median_coherence": 0.026072
+    },
+    {
+      "phase": "3_3602",
+      "red_code_amplitude": [
+        4.457381,
+        5.791221,
+        7.656313
+      ],
+      "median_A17": 5.791221,
+      "diagnostic_median_local_magnitude": 43.20357,
+      "diagnostic_median_coherence": 0.159231
+    },
+    {
+      "phase": "4_3601",
+      "red_code_amplitude": [
+        0.596575,
+        9.916633,
+        8.551904
+      ],
+      "median_A17": 8.551904,
+      "diagnostic_median_local_magnitude": 41.827275,
+      "diagnostic_median_coherence": 0.198077
+    },
+    {
+      "phase": "5_3600",
+      "red_code_amplitude": [
+        29.472301,
+        29.894169,
+        27.357247
+      ],
+      "median_A17": 29.472301,
+      "diagnostic_median_local_magnitude": 30.393081,
+      "diagnostic_median_coherence": 0.969704
+    },
+    {
+      "phase": "restored",
+      "red_code_amplitude": [
+        4.703953,
+        4.619641,
+        7.148263
+      ],
+      "median_A17": 4.703953,
+      "diagnostic_median_local_magnitude": 51.647772,
+      "diagnostic_median_coherence": 0.110162
+    }
+  ],
+  "color": [
+    {
+      "phase": "1_white",
+      "red_code_amplitude": [
+        6.283161,
+        9.689384,
+        4.809849
+      ],
+      "median_A17": 6.283161,
+      "diagnostic_median_local_magnitude": 7.199999,
+      "diagnostic_median_coherence": 0.872661
+    },
+    {
+      "phase": "2_black",
+      "red_code_amplitude": [
+        7.306614,
+        14.321244,
+        11.199719
+      ],
+      "median_A17": 11.199719,
+      "diagnostic_median_local_magnitude": 26.390593,
+      "diagnostic_median_coherence": 0.446695
+    },
+    {
+      "phase": "3_white",
+      "red_code_amplitude": [
+        7.939064,
+        7.226401,
+        7.089041
+      ],
+      "median_A17": 7.226401,
+      "diagnostic_median_local_magnitude": 8.696811,
+      "diagnostic_median_coherence": 0.842278
+    }
+  ],
+  "spatial": [
+    {
+      "phase": "1A",
+      "red_code_amplitude": [
+        7.809654,
+        4.765242,
+        5.204961
+      ],
+      "median_A17": 5.204961,
+      "diagnostic_median_local_magnitude": 5.595947,
+      "diagnostic_median_coherence": 0.881416
+    },
+    {
+      "phase": "2B",
+      "red_code_amplitude": [
+        13.300253,
+        6.554489,
+        9.674059
+      ],
+      "median_A17": 9.674059,
+      "diagnostic_median_local_magnitude": 26.460764,
+      "diagnostic_median_coherence": 0.427724
+    },
+    {
+      "phase": "3A",
+      "red_code_amplitude": [
+        5.931499,
+        4.628842,
+        9.4983
+      ],
+      "median_A17": 5.931499,
+      "diagnostic_median_local_magnitude": 6.368361,
+      "diagnostic_median_coherence": 0.823125
+    },
+    {
+      "phase": "4B",
+      "red_code_amplitude": [
+        10.682021,
+        13.211904,
+        2.090208
+      ],
+      "median_A17": 10.682021,
+      "diagnostic_median_local_magnitude": 25.43094,
+      "diagnostic_median_coherence": 0.39359
+    },
+    {
+      "phase": "5A",
+      "red_code_amplitude": [
+        4.219053,
+        6.453165,
+        10.704968
+      ],
+      "median_A17": 6.453165,
+      "diagnostic_median_local_magnitude": 7.173104,
+      "diagnostic_median_coherence": 0.83349
+    }
+  ]
+}
