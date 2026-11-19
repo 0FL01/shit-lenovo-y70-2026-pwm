@@ -1,0 +1,86 @@
+{
+ "sinc_fits_rmse": {
+  "360": 0.1655,
+  "480": 0.1166,
+  "600": 0.1614,
+  "640": 0.1852,
+  "720": 0.179,
+  "840": 0.2162,
+  "960": 0.2771,
+  "1200": 0.4175,
+  "1440": 0.4568,
+  "2160": 0.4837
+ },
+ "sinc_best_hz": 480,
+ "row_pitch_us": 13.616,
+ "frames": {
+  "dc_460_dark625": {
+   "file": "IMG_20260502_144127654.DNG",
+   "mean_dn": 0.3168,
+   "dark_runs": [],
+   "run_durations_us": [],
+   "run_depth_min_rel": []
+  },
+  "dc_460_bright625": {
+   "file": "IMG_20260502_144131564.DNG",
+   "mean_dn": 0.2861,
+   "dark_runs": [
+    [
+     0,
+     34
+    ],
+    [
+     38,
+     50
+    ]
+   ],
+   "run_durations_us": [
+    463.0,
+    163.4
+   ],
+   "run_depth_min_rel": [
+    0.134,
+    0.501
+   ]
+  },
+  "dc_460_dark800": {
+   "file": "IMG_20260502_144150574.DNG",
+   "mean_dn": 0.3564,
+   "dark_runs": [
+    [
+     75,
+     129
+    ]
+   ],
+   "run_durations_us": [
+    735.3
+   ],
+   "run_depth_min_rel": [
+    0.316
+   ]
+  },
+  "dc_460_floor625_1": {
+   "file": "IMG_20260502_142038399.DNG",
+   "mean_dn": 0.3511,
+   "dark_runs": [],
+   "run_durations_us": [],
+   "run_depth_min_rel": []
+  },
+  "pwm_460_base_1": {
+   "file": "IMG_20260502_142005471.DNG",
+   "mean_dn": 0.3336,
+   "dark_runs": [
+    [
+     74,
+     136
+    ]
+   ],
+   "run_durations_us": [
+    844.2
+   ],
+   "run_depth_min_rel": [
+    0.299
+   ]
+  }
+ }
+}
