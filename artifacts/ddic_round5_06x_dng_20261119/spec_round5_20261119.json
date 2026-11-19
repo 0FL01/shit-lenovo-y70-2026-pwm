@@ -1,0 +1,65 @@
+{
+  "experiment": "ddic_round5_06x_dng_20261119",
+  "panel": "BOE ILI97701A cmd_v4 (ID 0xd2)",
+  "reference_dng": "IMG_20260502_083009182.DNG",
+  "sinc_files": null,
+  "fixed_conditions": {
+    "panelDC": 0,
+    "refresh_hz": 120,
+    "pattern": "#FFFFFF (HTMLViewer)",
+    "camera": "A001 Camera ID 2 (EXPERT 0.6x RAW, 3264x2448, ISO 6400)",
+    "exposure_us": 625.0,
+    "esd_check_mode_restored": "reg_read"
+  },
+  "ddic_probes": {
+    "a9_aba_dbv3600": {
+      "0x88/0x89/0x8a/0x8b/0x8c/0x8d": {
+        "23:C1": "0x00 0x00 0x60 (96)",
+        "ret_0x0e": "0x00 0x00 0x60"
+      },
+      "0x8e/0x8f": {
+        "23:C1": "0x00 0x00 0x10 (16)",
+        "ret_0x0e": "0x00 0x00 0x60"
+      }
+    },
+    "dbv_writes_after_a9_0x8e": {
+      "1500/1024/800/512": {
+        "R_A9": "0x8e (retained across brightness writes)",
+        "R_C1": "0x00 0x00 0x10 (16)"
+      }
+    },
+    "53_a2_30B_identical_at_3600_and_2048": "10 10 10 10 48 10 10 10 4b 4b (repeated x3)"
+  },
+  "phases": {
+    "dbv2048_0e_base": [
+      "IMG_20260502_112122731.DNG",
+      "IMG_20260502_112124886.DNG",
+      "IMG_20260502_112127028.DNG"
+    ],
+    "dbv1024_8e": [
+      "IMG_20260502_112138916.DNG",
+      "IMG_20260502_112141073.DNG",
+      "IMG_20260502_112143231.DNG"
+    ],
+    "dbv680_8e": [
+      "IMG_20260502_112148260.DNG",
+      "IMG_20260502_112150386.DNG",
+      "IMG_20260502_112152536.DNG"
+    ],
+    "dbv512_8e": [
+      "IMG_20260502_112157589.DNG",
+      "IMG_20260502_112159734.DNG",
+      "IMG_20260502_112201861.DNG"
+    ],
+    "dbv1024_0e_base": [
+      "IMG_20260502_112216434.DNG",
+      "IMG_20260502_112218580.DNG",
+      "IMG_20260502_112220723.DNG"
+    ],
+    "dbv2048_0e_ret": [
+      "IMG_20260502_112226128.DNG",
+      "IMG_20260502_112228280.DNG",
+      "IMG_20260502_112230427.DNG"
+    ]
+  }
+}
