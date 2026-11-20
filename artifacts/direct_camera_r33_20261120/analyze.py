@@ -34,7 +34,7 @@ def spatial_peak(blocks):
     span = abs(sy) * (h - 1) + abs(sx) * (w - 1)
     residual = blocks - blocks.mean() - sy * y[:, None] - sx * x
     if min(h, w) < 3 or np.max(abs(residual)) <= 1e-12 * max(1., np.max(abs(blocks))):
-        return span, None, None, None
+        return span, None, None, None, None
     amp = 2 * abs(np.fft.rfft2(residual)) / blocks.size
     # A self-conjugate bin has no separate negative-frequency partner.
     for ix in ([0, w // 2] if w % 2 == 0 else [0]):
@@ -44,7 +44,8 @@ def spatial_peak(blocks):
         amp[h // 2 + 1:, ix] = 0  # conjugate duplicates on this axis
     amp[0, 0] = 0
     iy, ix = np.unravel_index(amp.argmax(), amp.shape)
-    return span, iy if iy <= h // 2 else iy - h, ix, amp[iy, ix]
+    # A fixed bin permits an A/B/A comparison even if the largest peak changes bin.
+    return span, iy if iy <= h // 2 else iy - h, ix, amp[iy, ix], amp[8, 0] if h >= 16 else None
 
 
 def row_notch(green, y0, usable):
@@ -121,7 +122,7 @@ def analyze(path, roi):
     mean = blocks.mean()
     p5, p95 = np.percentile(blocks, (5, 95))
     usable = mean >= 20 and clipped == 0
-    span, ky, kx, peak = spatial_peak(blocks) if usable else (None, None, None, None)
+    span, ky, kx, peak, k8 = spatial_peak(blocks) if usable else (None,)*5
     return dict(width=m['width'], height=m['height'], orientation=m['orientation'],
                 cfa=''.join('RGB'[n] for n in cfa), exposure_us=m['exposure_us'],
                 iso=m['iso'], focal_mm=m['focal_length_mm'], white_dn=m['white_level'],
@@ -132,7 +133,7 @@ def analyze(path, roi):
                 camera_amp_pct=100*(p95-p5)/(p95+p5) if usable and p95+p5 > 0 else None,
                 cv_pct=100*blocks.std()/mean if usable else None, subfloor_lt20=int(mean < 20),
                 deep_lt065mean_frac=(blocks < 0.65*mean).mean() if usable else None,
-                plane_span_dn=span, fft_ky=ky, fft_kx=kx, fft_peak_amp_dn=peak,
+                plane_span_dn=span, fft_ky=ky, fft_kx=kx, fft_peak_amp_dn=peak, fft_k8_0_dn=k8,
                 **row_notch(green, y0, usable))
 
 
