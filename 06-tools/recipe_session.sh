@@ -65,35 +65,42 @@ stock_off() {
         --method GET_global --arg display_dc_mode_enabled)" = 'Result: Bundle[{value=0}]' ]
 }
 
-tx() {
+tx_ok() {
     # The pinned driver returns the accepted byte count even on DSI failure.
-    printf '%s' "$1" > "$DSI/tx_cmd" &&
-        [ "$(cat "$DSI/tx_cmd")" = 'last_cmd_tx_sts:0x1' ] || {
-        printf '%s\n' 'ERROR: DSI TX not acknowledged; no further packets in this transaction' >&2
-        return 1
-    }
+    [ "$(cat "$DSI/tx_cmd")" = 'last_cmd_tx_sts:0x1' ]
 }
 
-select_page() { tx "$PAGE $1"; }
+select_page() { printf '%s' "$PAGE $1" > "$DSI/tx_cmd" && tx_ok; }
 read_reg() {
     panel_on && select_page "$1" || return 1
-    if printf '%s' "$2 0x06 1 0 1 0 0 1 $3" > "$DSI/rx_cmd"; then
-        value=$(cat "$DSI/rx_cmd") || return 1
-        select_page 0x00 || return 1
-        printf '%s\n' "$value" | awk '{$1=$1; print tolower($0)}'
-    else
+    if ! printf '%s' "$2 0x06 1 0 1 0 0 1 $3" > "$DSI/rx_cmd" ||
+       ! value=$(cat "$DSI/rx_cmd"); then
+        # Only recover after a confirmed selector and a synchronous RX error.
+        if ! ready "$epoch" || ! select_page 0x00; then
+            printf '%s\n' 'ERROR: page 0 not verified after RX failure' >&2
+        fi
         return 1
     fi
+    panel_on && select_page 0x00 || return 1
+    printf '%s\n' "$value" | awk '{$1=$1; print tolower($0)}'
 }
 
-write_reg() {
-    panel_on && select_page "$1" && panel_on &&
-    tx "0x39 0 0 0 0 0 2 $2 $3" &&
-    select_page 0x00 && [ "$(read_reg "$1" 1 "$2")" = "$3" ]
+core_packets() {
+    # Preserve each old selector/write/page-0 triplet and its descriptor flags.
+    printf '%s' "$PAGE 0x23 0x39 0 0 0 0 0 2 0xA9 $1 $PAGE 0x00 $PAGE 0x24 0x39 0 0 0 0 0 2 0x9D $2 $PAGE 0x00 $PAGE 0x23 0x39 0 0 0 0 0 2 0x80 $3 $PAGE 0x00"
 }
 
 apply_core() {
-    write_reg 0x23 0xA9 "$1" && write_reg 0x24 0x9D "$2" && write_reg 0x23 0x80 "$3"
+    # One write, first descriptor BATCH bit clear: the target driver parses all
+    # 93 bytes and sends the list under panel_lock, without staged queue writes.
+    # dd from a regular file guarantees a single output block, not stdio chunks.
+    core_packets "$@" > "$DIR/core.tx" && panel_on || return 1
+    if ! dd if="$DIR/core.tx" of="$DSI/tx_cmd" bs=4096 count=1 conv=notrunc status=none || ! tx_ok; then
+        printf '%s\n' 'ERROR: grouped DSI TX failed; page/profile uncertain, no further DSI' >&2
+        return 6
+    fi
+    [ "$(read_reg 0x23 1 0xA9)" = "$1" ] && [ "$(read_reg 0x24 1 0x9D)" = "$2" ] &&
+        [ "$(read_reg 0x23 1 0x80)" = "$3" ]
 }
 
 cleanup() {
@@ -148,7 +155,8 @@ panel_io() {
     if [ "$action" = restore ]; then
         apply_core 0x0e 0x0e 0x50
     else
-        apply_core 0x8e 0x8e 0x90 && [ "$(read_reg 0x23 3 0xC1)" = '0x00 0x00 0x10' ]
+        apply_core 0x8e 0x8e 0x90 || return "$?"
+        [ "$(read_reg 0x23 3 0xC1)" = '0x00 0x00 0x10' ]
     fi
 }
 
@@ -158,9 +166,11 @@ run_txn() {
     # The supervisor already verified ESD cleanup on these return codes.
     # A timed-out child, a bad entry, or failed cleanup is never auto-retried.
     case "$rc" in
-        0|1|2) if transitioned "$2"; then return 3; fi ;;
+        0) if ready "$2"; then return 0; fi
+           if transitioned "$2"; then return 3; fi
+           return 1 ;;
+        1|2) if transitioned "$2"; then return 3; fi ;;
     esac
-    if [ "$rc" = 0 ] && ! ready "$2"; then return 1; fi
     return "$rc"
 }
 

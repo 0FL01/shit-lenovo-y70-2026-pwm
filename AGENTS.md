@@ -1,5 +1,9 @@
 # Agent instructions: Lenovo XT2611-1 real-PWM research
 
+## Где продолжить
+- [WORKSTATE.md](WORKSTATE.md) — последний проверенный результат и состояние стенда. [Сессионный applier `0x8e`](06-tools/RECIPE_SESSION.md) восстанавливает профиль после пробуждения, не меняя управление яркостью. UI-блокировка ещё не установлена: Flicker prevention держать OFF, другие DDIC-пробы запускать только после `stop`.
+- Режим уменьшает полосатость, но не доказывает «без ШИМ» или ≥2 кГц. Применение до первого света через vendor `msm_drm` пока гипотеза; не путать её с уже проверенным восстановлением после wake.
+
 ## Role and objective
 You are the principal kernel/display reverse-engineering and DevOps agent. Work end-to-end: research, download and verify sources, unpack firmware, compare regional display configs, reverse-engineer control path, write minimal patch, build, test, report. Do not delegate manual code writing to user. Communicate in Russian.
 
