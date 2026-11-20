@@ -13,8 +13,15 @@ RX = re.compile(r'receipt=(entry|result) profile=(\w+) epoch=(\d+) A9=0x(\w{2}) 
 def collect(path, writer):
     current_epoch = None
     text = path.read_text().strip()
-    for chunk in re.split(r'(?m)(?=^RCPT )', text):
+    wake_recovery = False
+    for chunk in re.split(r'(?m)(?=^(?:RCPT|REJECT) )', text):
         if not chunk:
+            continue
+        if chunk.strip() == 'REJECT restorea9 no stable awake epoch':
+            # Exact observed rejection at entry (before any I/O). Do not fabricate
+            # a result/ESD receipt. The next acceptable operation is a fresh stock check.
+            writer.writerow(('cleanup','restorea9','declined_no_awake_epoch','','','','','','','',''))
+            wake_recovery = True
             continue
         hdr, label, action, rest = chunk.split(maxsplit=3)
         if hdr!='RCPT' or not re.fullmatch(r'\w+', label):
@@ -24,7 +31,11 @@ def collect(path, writer):
         if not term or term[1]!=action or lines[-2]!='ESD_RESTORED reg_read io_rc=0':
             raise ValueError('missing success or ESD restore')
         epoch = term[2]
-        if current_epoch is not None and current_epoch!=epoch: raise ValueError('wake changed inside session')
+        if wake_recovery:
+            if (label,action)!=('after_native_wake','stock-check') or current_epoch==epoch:
+                raise ValueError('missing independent stock recovery')
+            wake_recovery=False
+        elif current_epoch is not None and current_epoch!=epoch: raise ValueError('wake changed inside session')
         current_epoch = epoch
         if action=='stock-check': expected=['stock']
         else:
@@ -38,6 +49,7 @@ def collect(path, writer):
             c1=bytes(int(v,16) for v in r[7].split()).hex(); dbv=bytes(int(v,16) for v in r[8].split()).hex()
             if (r[4],r[5],r[6],c1)!=EXPECTED[profile] or dbv!='0200': raise ValueError('register mismatch')
             writer.writerow((label,action,r[1],profile,r[4],r[5],r[6],c1,dbv,0,'reg_read'))
+    if wake_recovery: raise ValueError('unverified recovery')
 
 
 if __name__=='__main__':

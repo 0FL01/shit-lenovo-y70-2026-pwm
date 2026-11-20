@@ -18,6 +18,7 @@ def main():
     ap.add_argument('archive', type=Path)
     ap.add_argument('frames_csv', type=Path)
     ap.add_argument('--receipts',type=Path,help='verified receipts.py CSV; required for candidate windows')
+    ap.add_argument('--rejected',type=Path,help='explicitly excluded, incomplete groups in private unbound/')
     args = ap.parse_args()
     groups = defaultdict(list)
     with args.frames_csv.open() as f:
@@ -51,6 +52,15 @@ def main():
                 if verified.pop(phase+'_'+side,[]) != [('check'+profile,profile,'0200','0','reg_read')]:
                     raise ValueError(f'{phase}: missing or conflicting {side} state readback')
         out.writerow((phase,profile,rgb,bl,pre,post,a,b,exp,count))
+    if args.rejected:
+        with args.rejected.open() as f:
+            for r in csv.DictReader(f):
+                ph=r['phase']; profile=r['profile']
+                files=sorted((args.archive/'unbound').glob(ph+'__*.dng'))
+                expected=[f'{ph}__{i}.dng' for i in range(1,int(r['frames'])+1)]
+                if ([p.name for p in files]!=expected or ph in groups or ph+'_post' in verified or
+                    verified.pop(ph+'_pre',[])!=[('check'+profile,profile,'0200','0','reg_read')]):
+                    raise ValueError('invalid incomplete-window exclusion')
     if verified or set(groups) != {'pilot'} or len(groups['pilot']) != 1:
         raise ValueError('unbound frames outside pilot')
     out.writerow(('pilot','geometry','ffffff',6692,'','','','',200,1))
