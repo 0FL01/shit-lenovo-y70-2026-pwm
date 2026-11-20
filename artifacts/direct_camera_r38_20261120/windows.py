@@ -29,7 +29,8 @@ def protocol(picks, k):
 
     def sample(prefix, dc, gray):
         for suffix, ns, count in [('black', 25000000, 3), ('flat', 25000000, 3),
-                                  ('short', 4000000, 4), ('other', 6666667, 3)]:
+                                   ('short', 4000000, 4), ('other', 6666667, 3)]:
+            if prefix=='repeat10' and suffix=='other':add('repeat10_reflat', dc, 25000000, 3, gray)
             add(f'{prefix}_{suffix}', dc, ns, count, 0 if suffix == 'black' else gray)
 
     sample('ref', 0, 255)
