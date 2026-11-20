@@ -1,6 +1,6 @@
 #!/system/bin/sh
-# Run once on the identified XT2611-1, as root, under a device-side timeout.
-# Stdout is private bench evidence. No direct DDIC/debugfs panel writes.
+# Run once on the identified XT2611-1 as root: timeout -k 60 100 /system/bin/sh
+# Keep both stdout and stderr private. No direct DDIC/debugfs panel writes.
 set -eu -o pipefail
 T=/sys/kernel/tracing
 G=legion_wake_recon
@@ -25,15 +25,13 @@ cleanup() {
         [ "$(settings get secure doze_always_on)" = "$aod0" ] || restore_rc=1
     fi
     if [ "$stop_requested" = 1 ]; then
-        # Restore the prior session only after our probes are removed.
+        # TERM can interrupt stop after the request, before the worker exits.
+        # Keep wake out of that interval; on timeout do not start or wake.
         if [ "$restore_rc" = 0 ]; then
-            status=$("$S" status) || restore_rc=1
-            if printf '%s\n' "$status" | grep -Fxq inactive; then
-                input keyevent KEYCODE_SLEEP && sleep 2 &&
-                    [ "$(display_state)" = mCommittedState=OFF ] && "$S" start || restore_rc=1
-            fi
+            wait_inactive && input keyevent KEYCODE_SLEEP && sleep 2 &&
+                [ "$(display_state)" = mCommittedState=OFF ] && "$S" start &&
+                input keyevent KEYCODE_WAKEUP || restore_rc=1
         fi
-        input keyevent KEYCODE_WAKEUP || restore_rc=1
         if [ "$restore_rc" = 0 ]; then
             sleep 7
             status=$("$S" status) || restore_rc=1
@@ -56,8 +54,19 @@ add() {
 }
 
 mark() { printf '%s\n' "$*" > "$I/trace_marker"; }
+wait_inactive() {
+    left=30
+    while [ "$left" -gt 0 ]; do
+        state=$("$S" status) || return 1
+        if printf '%s\n' "$state" | grep -Fxq inactive; then return 0; fi
+        left=$((left - 1))
+        sleep 1
+    done
+    printf '%s\n' 'cleanup: worker did not stop within 30 s; not waking display' >&2
+    return 1
+}
 display_state() {
-    dumpsys display | awk '$1 ~ /^mCommittedState=/ { print $1; count++ } END { exit !(count == 1) }'
+    timeout 3 dumpsys display | awk '$1 ~ /^mCommittedState=/ { print $1; count++ } END { exit !(count == 1) }'
 }
 await_state() {
     for try in 1 2 3 4 5 6 7 8; do
