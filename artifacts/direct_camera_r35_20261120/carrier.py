@@ -5,7 +5,9 @@ Input: sanitized phase__N.dng. Only hRATE_bBL_tLABEL (optionally decorated
 with cal/calibration or ret/return) at BL 3600/3601 enters carrier analysis.
 RATE and BL describe the window; T always comes from the DNG. Explicit cal
 windows take precedence over plain windows for spatial selection; a return
-never selects the carrier. Unrecognized phases still get RAW diagnostics.
+never selects the carrier. linkRATE_bBL_tLABEL is measured at locked k, never
+used for calibration or training: the 400/625-us link windows are fresh optical
+prediction test in a separate session. Unrecognized phases still get RAW diagnostics.
 
 Frames CSV records spatial selection, unmasked fractional cosine amplitude
 and a broad-notch sensitivity check. Both use the same k (cycles across the
@@ -54,11 +56,12 @@ AMPS = {'all_rows': 'amp_frac', 'notch_excluded': 'masked_amp_frac'}
 
 
 def phase_tags(phase):
-    m = PHASE.fullmatch(phase)
+    external = phase.startswith('link')
+    m = PHASE.fullmatch('h' + phase[4:] if external else phase)
     if not m or (m['pre'] and m['post']) or int(m['b']) not in (3600, 3601):
         return None, None, None, 'other'
     marker = m['pre'] or m['post'] or ''
-    role = 'return' if marker.startswith('ret') else 'cal' if marker else 'plain'
+    role = 'external' if external else 'return' if marker.startswith('ret') else 'cal' if marker else 'plain'
     return int(m['h']), int(m['b']), int(m['t']), role
 
 
@@ -157,7 +160,7 @@ def measure(rows, profiles):
 def duration_groups(rows, column):
     by_key = defaultdict(list)
     for r in rows:
-        if r[column] is not None:
+        if r[column] is not None and r['role'] != 'external':
             by_key[r['bl'], r['rate_hz'], r['exposure_us']].append(r)
     for (bl, rate, t), frames in sorted(by_key.items()):
         a = [r[column] for r in frames]
