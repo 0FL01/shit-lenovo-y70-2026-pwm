@@ -17,11 +17,18 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument('archive', type=Path)
     ap.add_argument('frames_csv', type=Path)
+    ap.add_argument('--receipts',type=Path,help='verified receipts.py CSV; required for candidate windows')
     args = ap.parse_args()
     groups = defaultdict(list)
     with args.frames_csv.open() as f:
         for r in csv.DictReader(f):
             groups[r['phase']].append(r)
+    verified=defaultdict(list)
+    if args.receipts:
+        with args.receipts.open() as f:
+            for r in csv.DictReader(f):
+                if r['action'].startswith('check') and r['receipt']=='entry':
+                    verified[r['checkpoint']].append((r['action'],r['profile'],r['00_52'],r['page_return'],r['esd_after']))
     out = csv.writer(sys.stdout, lineterminator='\n')
     out.writerow(('phase', 'profile', 'scene_rgb', 'sysfs_bl', 'hwc_pre', 'hwc_post', 'sf_rgb_pre',
                   'sf_rgb_post', 'exposure_us', 'frames'))
@@ -39,8 +46,12 @@ def main():
         pre,a = r33.sf(args.archive/f'{phase}-pre.sf'); post,b = r33.sf(args.archive/f'{phase}-post.sf')
         if (pre,post)!=(hwc,hwc):
             raise ValueError(f'{phase}: HWC mismatch')
+        if profile not in ('active','stock'):
+            for side in ('pre','post'):
+                if verified.pop(phase+'_'+side,[]) != [('check'+profile,profile,'0200','0','reg_read')]:
+                    raise ValueError(f'{phase}: missing or conflicting {side} state readback')
         out.writerow((phase,profile,rgb,bl,pre,post,a,b,exp,count))
-    if set(groups) != {'pilot'} or len(groups['pilot']) != 1:
+    if verified or set(groups) != {'pilot'} or len(groups['pilot']) != 1:
         raise ValueError('unbound frames outside pilot')
     out.writerow(('pilot','geometry','ffffff',6692,'','','','',200,1))
 
