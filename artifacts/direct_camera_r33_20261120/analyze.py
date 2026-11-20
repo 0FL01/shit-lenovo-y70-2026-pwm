@@ -5,7 +5,7 @@ ROI bounds are half-open in native (unrotated) 2x2 Bayer cells; both extents
 must be multiples of 5. Each block averages 50 green samples. Without a flat, scene texture,
 vignetting and illumination gradients contribute to the percentiles, CV and deep
 fraction. Compare only matched framing/ROI and exposure settings. Below 20 DN
-mean, contrast ratios are noise-sensitive; a nonpositive denominator is blank.
+mean or with clipped green samples, band and normalized contrast metrics are blank.
 Only the FFT removes a fitted plane; this can attenuate long-period bands and
 does not remove curved shading. Its (ky,kx) are cycles across the ROI, not Hz.
 Phase ordinals start at 1 in sorted phase-name order; N is the capture index.
@@ -47,12 +47,12 @@ def spatial_peak(blocks):
     return span, iy if iy <= h // 2 else iy - h, ix, amp[iy, ix]
 
 
-def row_notch(green, y0):
+def row_notch(green, y0, usable):
     """Local dark stripe in a sloping white field; widths/positions are sensor rows, not time."""
     empty = dict(row_notch_pct=None, notch_center_raw_y=None, notch_fwhm_raw_rows=None,
-                 notch_lr_offset_raw_rows=None)
+                 notch_lr_offset_raw_rows=None, complete_runs_lt070=None, run_spacing_raw_rows=None)
     h, w = green.shape
-    if h < 90 or w < 4 or green.mean() < 20:
+    if not usable or h < 90 or w < 4:
         return empty
     def relative(p):
         # Smooth 3 Bayer rows. Median of 81 such rows defines the local plateau;
@@ -77,9 +77,14 @@ def row_notch(green, y0):
         hi += 1
     # Compare the same event across the two halves, not distinct periodic minima.
     win = slice(max(0, idx-15), min(len(p), idx+16))
+    crossings = np.diff(np.r_[False, p < 0.70, False].astype(int))
+    centers = [(lo_+hi_-1)/2 for lo_, hi_ in zip(np.where(crossings == 1)[0],
+                np.where(crossings == -1)[0]) if lo_ > 0 and hi_ < len(p) and hi_-lo_ >= 3]
     return dict(row_notch_pct=100*depth, notch_center_raw_y=2*(y0+41+idx),
                 notch_fwhm_raw_rows=2*(hi-lo+1) if lo > 0 and hi+1 < len(p) else None,
-                notch_lr_offset_raw_rows=2*int(np.argmin(right[win])-np.argmin(left[win])))
+                notch_lr_offset_raw_rows=2*int(np.argmin(right[win])-np.argmin(left[win])),
+                complete_runs_lt070=len(centers),
+                run_spacing_raw_rows=2*np.median(np.diff(centers)) if len(centers) >= 2 else None)
 
 
 def analyze(path, roi):
@@ -106,7 +111,8 @@ def analyze(path, roi):
     blocks = green.reshape(h // 5, 5, w // 5, 5).mean(axis=(1, 3))
     mean = blocks.mean()
     p5, p95 = np.percentile(blocks, (5, 95))
-    span, ky, kx, peak = spatial_peak(blocks)
+    usable = mean >= 20 and clipped == 0
+    span, ky, kx, peak = spatial_peak(blocks) if usable else (None, None, None, None)
     return dict(width=m['width'], height=m['height'], orientation=m['orientation'],
                 cfa=''.join('RGB'[n] for n in cfa), exposure_us=m['exposure_us'],
                 iso=m['iso'], focal_mm=m['focal_length_mm'], white_dn=m['white_level'],
@@ -114,11 +120,11 @@ def analyze(path, roi):
                 y0=y0, y1=y1, x0=x0, x1=x1, blocks=blocks.size, green_mean_dn=mean,
                 raw_green_clip_frac=clipped / (2*h*w), raw_green_zero_frac=floor / (2*h*w),
                 p5_dn=p5, p95_dn=p95, p95_p5_span_dn=p95-p5,
-                camera_amp_pct=100*(p95-p5)/(p95+p5) if p95+p5 > 0 else None,
-                cv_pct=100*blocks.std()/mean if mean > 0 else None, subfloor_lt20=int(mean < 20),
-                deep_lt065mean_frac=(blocks < 0.65*mean).mean() if mean > 0 else None,
+                 camera_amp_pct=100*(p95-p5)/(p95+p5) if usable and p95+p5 > 0 else None,
+                 cv_pct=100*blocks.std()/mean if usable else None, subfloor_lt20=int(mean < 20),
+                 deep_lt065mean_frac=(blocks < 0.65*mean).mean() if usable else None,
                  plane_span_dn=span, fft_ky=ky, fft_kx=kx, fft_peak_amp_dn=peak,
-                 **row_notch(green, y0))
+                 **row_notch(green, y0, usable))
 
 
 def main():
