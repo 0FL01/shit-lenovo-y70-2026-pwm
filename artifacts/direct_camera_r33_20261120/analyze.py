@@ -87,7 +87,7 @@ def row_notch(green, y0, usable):
                 run_spacing_raw_rows=2*np.median(np.diff(centers)) if len(centers) >= 2 else None)
 
 
-def analyze(path, roi):
+def read_patch(path, roi):
     raw, tags = decode_dng_bytes(path.read_bytes())
     m = extract_metadata(tags)
     y0, y1, x0, x1 = roi
@@ -108,6 +108,15 @@ def analyze(path, roi):
         floor += np.count_nonzero(plane == 0)
         green += plane.astype(float) - m['black_levels'][i]
     green *= 0.5
+    return m, green, clipped, floor
+
+
+def analyze(path, roi):
+    m, green, clipped, floor = read_patch(path, roi)
+    y0, y1, x0, x1 = roi
+    h, w = green.shape
+    cfa = m['cfa_pattern_2x2']
+    g1, g2 = (i for i, color in enumerate(cfa) if color == 1)
     blocks = green.reshape(h // 5, 5, w // 5, 5).mean(axis=(1, 3))
     mean = blocks.mean()
     p5, p95 = np.percentile(blocks, (5, 95))
@@ -120,11 +129,11 @@ def analyze(path, roi):
                 y0=y0, y1=y1, x0=x0, x1=x1, blocks=blocks.size, green_mean_dn=mean,
                 raw_green_clip_frac=clipped / (2*h*w), raw_green_zero_frac=floor / (2*h*w),
                 p5_dn=p5, p95_dn=p95, p95_p5_span_dn=p95-p5,
-                 camera_amp_pct=100*(p95-p5)/(p95+p5) if usable and p95+p5 > 0 else None,
-                 cv_pct=100*blocks.std()/mean if usable else None, subfloor_lt20=int(mean < 20),
-                 deep_lt065mean_frac=(blocks < 0.65*mean).mean() if usable else None,
-                 plane_span_dn=span, fft_ky=ky, fft_kx=kx, fft_peak_amp_dn=peak,
-                 **row_notch(green, y0, usable))
+                camera_amp_pct=100*(p95-p5)/(p95+p5) if usable and p95+p5 > 0 else None,
+                cv_pct=100*blocks.std()/mean if usable else None, subfloor_lt20=int(mean < 20),
+                deep_lt065mean_frac=(blocks < 0.65*mean).mean() if usable else None,
+                plane_span_dn=span, fft_ky=ky, fft_kx=kx, fft_peak_amp_dn=peak,
+                **row_notch(green, y0, usable))
 
 
 def main():
