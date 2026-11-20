@@ -25,8 +25,8 @@ def intervals(mask):
     return list(zip(np.flatnonzero(ends == 1), np.flatnonzero(ends == -1)))
 
 
-def profile(path):
-    m,g,clip,_ = read_patch(path,ROI)
+def profile(path,roi):
+    m,g,clip,_ = read_patch(path,roi)
     if clip or g.mean() < 20 or m['iso'] != 6400 or m['focal_length_mm'] != 5.56 or m['exposure_us'] != 500:
         raise ValueError(f'unqualified 500 us capture: {path.name}')
     p = g.mean(axis=1); y = np.arange(len(p)); t = y/len(p)-.5
@@ -54,12 +54,12 @@ def profile(path):
 
 
 def main():
-    ap=argparse.ArgumentParser(description=__doc__);ap.add_argument('frames',type=Path);args=ap.parse_args()
+    ap=argparse.ArgumentParser(description=__doc__);ap.add_argument('frames',type=Path);ap.add_argument('--long-strip',action='store_true',help='second interior strip: y605:1475,x540:640 in Bayer cells');args=ap.parse_args()
     rx=re.compile(r'h(90|120|144)_b(3600|3601)_t500(_ret)?__(\d+)\.dng')
     data={}
     for path in sorted(args.frames.glob('*__*.dng')):
         m=rx.fullmatch(path.name)
-        if m: data[(int(m[1]),int(m[2]),bool(m[3]),int(m[4]))]=profile(path)
+        if m: data[(int(m[1]),int(m[2]),bool(m[3]),int(m[4]))]=profile(path,(605,1475,540,640) if args.long_strip else ROI)
     out=csv.writer(sys.stdout,lineterminator='\n');out.writerow(('refresh','sysfs_bl','return','frame','kept_bayer_rows','independent_pitch_raw','locked_pitch_raw','fundamental_semiamp_pct','three_harmonic_r2_pct','complete_dark_centers','dark_spacing_raw','dark_over_locked_pitch'))
     for hz in sorted({k[0] for k in data}):
         pitches={}

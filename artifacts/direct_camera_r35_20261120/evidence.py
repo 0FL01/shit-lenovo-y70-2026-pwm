@@ -16,6 +16,10 @@ MODES={90:('4','0x5'),120:('0','0x3'),144:('1','0x1')}
 SNAP=re.compile(r'SNAP (\w+) (before|after) hw=(\d+) R35_OK bl=(\d+) epoch=(\d+) FE=(23) sig=(500000) A4=([a-f0-9]{2}) AD=([a-f0-9]{2}) B4=([a-f0-9]{2}) A9=(0e) C1=([a-f0-9]{6}) C2=([a-f0-9]{6}) DBV=([a-f0-9]{4}) page=(0) esd=(reg_read)')
 
 
+def need(condition, message):
+    if not condition: raise ValueError(message)
+
+
 def mode(path,hz):
     hw,color=sf(path)
     modes=set(re.findall(r'activeMode=\{[^\n}]*?vsyncRate=([\d.]+) Hz,[^\n}]*?group=(0x[\da-f]+),',path.read_text()))
@@ -31,30 +35,42 @@ def main():
     with a.frames_csv.open() as f: frames=list(csv.DictReader(f))
     ok={};w=[];registers=[];seen=set()
     for line in (e/'windows.log').read_text().splitlines():
-        marker,tag,hw,hz,b,ns,n=line.split();assert marker=='WINDOW_OK' and tag not in ok
+        marker,tag,hw,hz,b,ns,n=line.split();need(marker=='WINDOW_OK' and tag not in ok, 'duplicate/invalid window receipt')
+        label=re.fullmatch(r'(?:link|h)(\d+)_b(\d+)_t(\d+)(?:_ret)?',tag)
+        need(label and label.groups()==(hz,b,str(int(ns)//1000)),f'phase coding mismatch: {tag}')
         ok[tag]=(hw,int(hz),b,int(ns),int(n))
     for log in a.log:
-        color=prev=None;snaps={};winlog=(e/log).read_text().splitlines()
+        color=prev=None;snaps={};observed=[];expected_events=[];winlog=(e/log).read_text().splitlines()
         for line in winlog:
             if line.startswith('scene '):color=line.split()[1]
             if line.startswith('SNAP '):
-                m=SNAP.fullmatch(line);assert m and prev=='AUDIT esd=reg_read',line
-                tag,pos,hw,b=m.group(1,2,3,4);assert (tag,pos) not in snaps and tag in ok and ok[tag][0]==hw and ok[tag][2]==b and int(m[14],16)==int(b)
-                assert mode(e/f'{tag}-{pos}-snap.sf',ok[tag][1])[0]==hw
+                m=SNAP.fullmatch(line);need(m and prev=='AUDIT esd=reg_read','invalid snapshot or missing independent ESD audit')
+                tag,pos,hw,b=m.group(1,2,3,4);need((tag,pos) not in snaps and tag in ok and ok[tag][0]==hw and ok[tag][2]==b and int(m[14],16)==int(b), f'inconsistent {tag} {pos}')
+                need(mode(e/f'{tag}-{pos}-snap.sf',ok[tag][1])[0]==hw, f'snapshot HWC mismatch: {tag}')
                 snaps[tag,pos]=m.groups()[4:];registers.append(m.groups())
+                observed.append((tag,pos))
+            if line.startswith('frame '):
+                m=re.fullmatch(r'frame (\w+)__(\d+) (\d+)',line);need(m,'invalid frame receipt')
+                need((e/'frames'/f'{m[1]}__{m[2]}.dng').stat().st_size==int(m[3]),'incorrect frame size')
+                observed.append((m[1],int(m[2])))
             if m:=re.fullmatch(r'WINDOW (\w+) stock BL=(\d+) hwcId=(\d+) count=(\d+)',line):
-                tag,b,hw,n=m.groups();expected,hz,dbv,ns,count=ok[tag];assert tag not in seen and (b,hw,int(n))==(dbv,expected,count) and color=='ffffff'
-                pre=mode(e/f'{tag}-pre.sf',hz);post=mode(e/f'{tag}-post.sf',hz);assert pre==post and pre[0]==hw
-                rows=[r for r in frames if r['phase']==tag];assert sorted(int(r['frame_n']) for r in rows)==list(range(1,count+1))
+                tag,b,hw,n=m.groups();expected,hz,dbv,ns,count=ok[tag];need(tag not in seen and (b,hw,int(n))==(dbv,expected,count) and color=='ffffff',f'window mismatch: {tag}')
+                pre=mode(e/f'{tag}-pre.sf',hz);post=mode(e/f'{tag}-post.sf',hz);need(pre==post and pre[0]==hw,f'HWC/color change: {tag}')
+                observed.append((tag,'window'));linked=tag.startswith('link')
+                if linked:expected_events.append((tag,'before'))
+                expected_events.extend((tag,i) for i in range(1,count+1));expected_events.append((tag,'window'))
+                if linked:expected_events.append((tag,'after'))
+                rows=[r for r in frames if r['phase']==tag];need(sorted(int(r['frame_n']) for r in rows)==list(range(1,count+1)),f'incomplete phase: {tag}')
                 for r in rows:
-                    assert (r['width'],r['height'],r['iso'],r['focal_mm'],r['orientation'],r['cfa'])==('4080','3072','6400','5.56','1','GBRG')
-                    assert abs(float(r['exposure_us'])*1000-ns)<=1,tag
+                    need((r['width'],r['height'],r['iso'],r['focal_mm'],r['orientation'],r['cfa'])==('4080','3072','6400','5.56','1','GBRG'),f'wrong camera metadata: {tag}')
+                    need(abs(float(r['exposure_us'])*1000-ns)<=1,f'exposure mismatch: {tag}')
                 seen.add(tag);w.append((tag,'stock',color,b,*pre,ns,n,'before+after' if tag.startswith('link') else ''))
             prev=line
+        need(observed==expected_events,'capture/readback order mismatch inside acquisition log')
         for tag in {k[0] for k in snaps}:
-            assert tag.startswith('link') and tag in seen and snaps[tag,'before']==snaps[tag,'after'],tag
-    assert seen==set(ok)=={r['phase'] for r in frames}-{'pilot'} and sum(r['phase']=='pilot' for r in frames)==1
-    assert {r[0] for r in registers}=={t for t in seen if t.startswith('link')}
+            need(snaps[tag,'before']==snaps[tag,'after'],f'panel changed during {tag}')
+    need(seen==set(ok)=={r['phase'] for r in frames}-{'pilot'} and sum(r['phase']=='pilot' for r in frames)==1,'unbound frame/window')
+    need({r[0] for r in registers}=={t for t in seen if t.startswith('link')},'missing native snapshot')
     with a.windows.open('w') as f:
         out=csv.writer(f,lineterminator='\n');out.writerow('phase profile scene sysfs_bl hwc_both refresh_both group_both rgb_both exposure_ns frames native_readbacks'.split());out.writerows(w)
     with a.readbacks.open('w') as f:
