@@ -7,6 +7,8 @@ matrix; new system actions plug in as one-line cases (template below).
 
 ## Preconditions
 
+- Stop the [session applier](RECIPE_SESSION.md) before running the hunt:
+  concurrent DDIC access can interfere with the probes and their rollback.
 - Remote ADB per `03-investigation/adb-remote.md` (no `kill/start-server`),
   both devices re-identified; target must be the XT2611-1 with the audited
   `msm_drm.ko` (`1bec69fa…`) and `esd_check_mode=reg_read` at rest.
