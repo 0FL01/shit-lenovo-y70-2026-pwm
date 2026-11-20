@@ -97,6 +97,15 @@ def correct(row, blocks, flat, n_used):
     row.update(flat_status='ok', flat_n_used=n_used,
                flat_block_contrast_pct=100 * (p95 - p5) / (p95 + p5),
                flat_row_p01_dip_pct=100 * (1 - p1 / p90))
+    # Do the two interleaved column sets carry the same row structure? Their
+    # half-difference estimates the *uncorrelated* contribution, not a confidence limit.
+    if ratios.shape[1] >= 2 and ratios.shape[1] % 2 == 0:
+        a = ratios[:, ::2].mean(axis=1)
+        b = ratios[:, 1::2].mean(axis=1)
+        lo, hi = np.percentile((a-b)/2, (1, 90))
+        if a.std() > 0 and b.std() > 0:
+            row['column_sets_r'] = np.corrcoef(a,b)[0,1]
+        row['column_halfdiff_span_pct'] = 100*(hi-lo)/p90
 
 
 def apply_flats(groups, mapping):
@@ -139,7 +148,8 @@ def measure(directory, roi, map_path):
         row = dict(phase=phase, phase_ordinal=ordinals[phase], frame_n=n, **analyze(path, roi))
         if mapping:
             row.update(flat_ref_phase=None, flat_role=None, flat_status='unmapped', flat_n_used=0,
-                       flat_block_contrast_pct=None, flat_row_p01_dip_pct=None)
+                       flat_block_contrast_pct=None, flat_row_p01_dip_pct=None,
+                       column_sets_r=None, column_halfdiff_span_pct=None)
         groups[phase].append((row, block_image(path, roi) if phase in mapped else None))
     apply_flats(groups, mapping)
     return [row for group in groups.values() for row, _ in group]
