@@ -1,0 +1,16 @@
+NO_IO_TIMEOUT_RC=124
+AUDIT timeout_pre esd=reg_read inherited_guard_mount=absent
+KNOWN timeout_pre R35_OK bl=1024 epoch=32149020 FE=23 sig=500000 A4=10 AD=10 B4=10 A9=0e C1=0002ac C2=000384 DBV=0400 page=0 esd=reg_read
+R39_WAIT action=timeout
+TARGET_TIMEOUT_RC=124
+AUDIT timeout_post esd=reg_read inherited_guard_mount=absent
+R39_RESULT action=timeout epoch=32149020 isolated=1 rc=124 esd=reg_read unmount=verified post=verified final_rc=124
+KNOWN timeout_post R35_OK bl=1024 epoch=32149020 FE=23 sig=500000 A4=10 AD=10 B4=10 A9=0e C1=0002ac C2=000384 DBV=0400 page=0 esd=reg_read
+AUDIT disconnect_pre esd=reg_read inherited_guard_mount=absent
+KNOWN disconnect_pre R35_OK bl=1024 epoch=32149020 FE=23 sig=500000 A4=10 AD=10 B4=10 A9=0e C1=0002ac C2=000384 DBV=0400 page=0 esd=reg_read
+HOST_DISCONNECT marker=R39_WAIT live_client=yes client_rc=-15 terminate_ms=3.27 marker_after_start_s=3.954
+AUDIT disconnect_post esd=reg_read inherited_guard_mount=absent
+R39_RESULT action=disconnect epoch=32149020 isolated=1 rc=124 esd=reg_read unmount=verified post=verified final_rc=124
+KNOWN disconnect_post R35_OK bl=1024 epoch=32149020 FE=23 sig=500000 A4=10 AD=10 B4=10 A9=0e C1=0002ac C2=000384 DBV=0400 page=0 esd=reg_read
+R39 temporary directories absent
+RETURN BL=6692
