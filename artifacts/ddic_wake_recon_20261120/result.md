@@ -1,0 +1,42 @@
+# Wake path: live passive DSI trace (2026-11-20)
+
+**Confirmed on target:** XT2611-1, GLOBAL `W3WWS36.65-64-4-1`, BOE ILI97701A `cmd_v4`, exact `msm_drm.ko` and notifier pinned in [`capture.sh`](capture.sh). Two accepted captures, each with two confirmed `OFF → ON` transitions and one confirmed `DOZE_SUSPEND → ON`. No experimental DSI writes or module loads during capture. The session applier was stopped while the screen was dark and was restarted **after** removing the probes and restoring the temporary AOD setting. Stock anti-flicker stayed off; brightness settings and the camera were not changed.
+
+## Native chronology
+
+First accepted capture; offset in **ms**, relative to the **entry** of the first non-zero DCS brightness `51 06 3f` (DBV 1599) after the corresponding wake marker. Native host return for this write was `0` in all three trials. A dash means the event was not seen in the window, not that the driver lacks it.
+
+| Event | Full 1 | Full 2 | AOD |
+|---|---:|---:|---:|
+| Qualcomm notifier tag 1, event 2, `early=1` | −206.046 | −205.810 | −18.214 |
+| `dsi_panel_enable` | −166.203 | −165.268 | — |
+| DCS brightness `51 00 00` in ON table | −164.645 | −164.831 | — |
+| DCS Sleep Out (`type=05`, len 1, `11`) | −163.311 | −163.779 | — |
+| DCS Display On (`type=05`, len 1, `29`) | −42.988 | −43.492 | — |
+| `dsi_panel_set_nolp` | — | — | −15.709 |
+| Qualcomm notifier tag 1, event 2, `early=0` | −10.087 | −18.293 | −7.946 |
+| Last stock DC setter return (`id=3, request=0`) | −9.337 | −14.153 | −6.695 |
+| First captured nonzero DCS brightness (`51 06 3f`) | 0 | 0 | 0 |
+
+- **Full wake:** native `11 → 29` spans **120.323 / 120.287 ms**. After `29`, post-enable ran and a second `51 00 00` was sent, **18.050 / 18.888 ms** before the positive brightness. The following `type=0a`, length 128 packet also starts with `11`, but is DSC PPS, not a second Sleep Out. There were 98 matched host entries/returns per wake, all `rc=0`.
+- **AOD wake:** no `dsi_panel_enable`, DCS `11` or `29` in the captured wake window. `nolp` was followed by post-enable. A second run of mode/vendor commands preceded another positive `51` about 42 ms later. Positive brightness writes were already present on the way into AOD, so the first positive `51` after the wake marker is not evidence of a dark-to-light transition. There were 30 matched host entries/returns, all `rc=0`. This was a stock run; it does **not** test whether `0x8e` survives AOD.
+- **DC OFF dispatch:** one `id=3, request=0` call in each full wake and two in AOD (all `rc=0`). Between entry and return of each call there were **zero host transfers on that task**. This supports a no-op in these stock-OFF cases, not a claim that OFF never sends a table. A real OFF transition after toggling ON did send the stock table in [R21](../ddic_round21_stability_20261119/result.md).
+- **Repeat with pinned notifier and hardened cleanup:** full-wake `11 → 29` took **120.316 / 120.447 ms**, `29 → first positive 51` took **67.593 / 60.275 ms**. The latter is not a fixed delay: all four full wakes span **42.988–67.593 ms**. In all four, no host packet was seen between `11` and `29`; between `29` and the first positive `51`, only the DSC PPS and `51 00 00` were seen. AOD `nolp → first positive 51` took **15.873 ms** on repeat. Packet counts, returns, and the absence of observed host traffic during same-task DC OFF calls were unchanged.
+
+## Decision
+
+1. The existing kernel probes resolved the native chronology. **Do not build or load the optional observer LKM for this step.** Notifier timing alone is insufficient for writes: in the table above, `early=1` preceded full panel enable by ≈40 ms, whereas `early=0` followed `29` on full wake and left only ≈8 ms until positive `51` on AOD. Neither is a verified DSI-safe or pre-emission barrier.
+2. The ON-table split **before `29`** is the first full-wake candidate. A hook **before the first positive DCS brightness** is a later alternative only if optics show that the panel is still dark there. AOD needs its own qualification around `nolp`, not unconditional replay of the full-wake hook. Ordered software events do not prove which state first emits light.
+3. **No vendor build/load candidate is qualified.** The target ELF declares `built_with=DDK`, Clang 19.0.1 based on `r536225`, modversions and dependencies on other vendor modules, including `panel_event_notifier`, `synx-driver` and `msm_dma_iommu_mapping`. The checked-in source of the local GKI r59 tree contains neither vendor `dsi_panel.c` nor `dsi_display.c`. The [pinned Motorola CN source](../../03-investigation/code-search.md#1-public-source-priorities) is a reference; [the source-to-module match](../source_inventory.md#L15-L29) and [exact GLOBAL public tag](../source_inventory.md#L279-L285) remain unestablished. Next: qualify a compatible vendor build and an optical trace keyed to wake (first light); if qualified, present an exact reversible kernel experiment for approval. No `msm_drm` changes were made.
+
+### Best lead for the unmodified vendor build
+
+The closer [CN `W3WWL36.65-48-7` binary](../cn_48_7_recon_20261107/result.md) already matched the target's `.text`, `.rodata`, `.data` and resolved relocations in the prior offline comparison; the ELF files are not byte-identical. A bounded public GitHub ref check returned no `MMI-W3WWL36.65-48` tags in Motorola `kernel-msm` or `kernel-msm-5.4-techpack-display`, nor `MMI-W3WWS36.65-64` tags in the latter. This is not an exhaustive source search. Use CN48 as a binary reference while qualifying the available CN11 source.
+
+The extracted CN `W3WWL36.65-11-18` module (Build ID `13232a6fe74b761626ed9c14ee2f59b68ca46504`) and installed GLOBAL module (`be0229cf369bc5a905ceb61ca429fa2075235c3a`) have **identical extended modversion names and CRC sections (788 imports)**. Raw, unrelocated instruction bytes also match in `dsi_panel_enable`, `dsi_panel_set_nolp`, `dsi_panel_send_param_cmd`, `dsi_panel_post_enable`, `dsi_host_transfer_sub`, `dsi_panel_tx_cmd_set`, `dsi_display_set_backlight`, `dsi_display_enable` and `_sde_kms_drm_check_dpms`. The whole `.text` does not match; local data relocation targets were not compared for equivalence. This makes the pinned CN release a concrete **baseline build candidate**, not a drop-in replacement. First reconstruct its original DDK inputs and build it **unmodified**; compare imports and CRCs, exports, vendor dependency graph, and the relocated behavior of the stock lifecycle and locking paths against GLOBAL before preparing an apply patch.
+
+The public tree contains a real [Kleaf `ddk_module` rule generator](https://github.com/MotorolaMobilityLLC/kernel-msm-5.4-techpack-display/blob/fa008c43c070ff20faa33853649f5dfd4c427e99/display_driver_build.bzl) and [per-module source and dependency selections](https://github.com/MotorolaMobilityLLC/kernel-msm-5.4-techpack-display/blob/fa008c43c070ff20faa33853649f5dfd4c427e99/display_modules.bzl). Live `ro.board.platform=canoe` (SM8845) points to the [published `canoe_*_msm_drm` rules](https://github.com/MotorolaMobilityLLC/kernel-msm-5.4-techpack-display/blob/fa008c43c070ff20faa33853649f5dfd4c427e99/targets/canoe.bzl); the property alone does not identify the build variant. The rule refers to a separate SoC/vendor build graph, including Qualcomm media, `synx-kernel` and `securemsm` targets; these packages are absent from the local GKI-only workspace. The shipping variant, matching vendor headers, dependency symbol versions and workspace manifest are not all pinned; a standalone build against GKI alone would not test the correct configuration.
+
+## Verification and recovery
+
+Both accepted captures had `586/586` trace entries, zero CPU buffer overrun/commit overrun/drop counters, and `CLEANUP rc=0`. Timestamp calculations use the trace instance's `mono` clock, paired returns by task, and match brightness only on the instrumented DCS packet type and length. The pilot produced a trace and restored the session but had a cleanup-reporting error (`tee /dev/stderr`) and an incorrect optional brightness-call argument; it is excluded. The accepted traces use native wire bytes plus the corrected third brightness-call argument. The raw traces are private; neither task IDs nor absolute timestamps appear here. No optical capture was made. The final read-only state check found no traces left by the capture, restored AOD setting `null`, unchanged brightness settings `20` / mode `0`, and the `af31ed9` applier active with verified readback.
