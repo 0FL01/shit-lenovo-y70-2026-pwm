@@ -1,0 +1,250 @@
+[
+  {
+    "phase": "rate_sdr",
+    "output_layer_count": 1,
+    "layers": [
+      {
+        "kind": "video",
+        "visible": true,
+        "yuv_buffer": true,
+        "buffer_format": "Y_CBCR_420_TP10_UBWC",
+        "sf_dataspace": "0x10810000",
+        "sf_transfer": "SRGB",
+        "hwc_dataspace": "0x10810000",
+        "hwc_transfer": "SRGB"
+      }
+    ],
+    "visible_pq_video": false,
+    "visible_pq_tagged_layer_count": 0,
+    "display_power": "On",
+    "current_hdr_layer_count": null,
+    "historical_hdr_layer_counts_seen": [
+      0,
+      1
+    ],
+    "hwc_dynamic_range": "SDR",
+    "sdm_dynamic_range": "SDR",
+    "active_mode": {
+      "hwc_id": 0,
+      "vsync_hz": 120.0,
+      "group": "0x3",
+      "sdm_config": 0,
+      "sdm_fps": 120.0
+    },
+    "sf_color_transform": [
+      [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.965,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.914,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "sf_display_nits": 153.139008,
+    "sf_sdr_white_nits": 153.139008,
+    "display_hdr_sdr_ratio": 1.0,
+    "hdr_modifier": {
+      "mode": "NO_HDR",
+      "max_desired_ratio": 1.0,
+      "thermal_ratio_scale": 1.0
+    },
+    "hbm": {
+      "mode": "off",
+      "stats_state": "HBM_OFF",
+      "hdr_layer_present": false,
+      "force_hdr_layer_present": false
+    },
+    "thermal": {
+      "brightness_throttling_status": 0,
+      "brightness_cap": 1.0,
+      "cap_applied": false,
+      "service_status": 0,
+      "service_override": false
+    },
+    "sysfs_bl": 6692,
+    "framework_actual_backlight": 0.39799744,
+    "framework_actual_sdr_backlight": 0.39799744
+  },
+  {
+    "phase": "rate_hdr",
+    "output_layer_count": 1,
+    "layers": [
+      {
+        "kind": "video",
+        "visible": true,
+        "yuv_buffer": true,
+        "buffer_format": "Y_CBCR_420_TP10_UBWC",
+        "sf_dataspace": "0x11c60000",
+        "sf_transfer": "PQ",
+        "hwc_dataspace": "0x11c60000",
+        "hwc_transfer": "PQ"
+      }
+    ],
+    "visible_pq_video": true,
+    "visible_pq_tagged_layer_count": 1,
+    "display_power": "On",
+    "current_hdr_layer_count": null,
+    "historical_hdr_layer_counts_seen": [
+      1
+    ],
+    "hwc_dynamic_range": "HDR",
+    "sdm_dynamic_range": "HDR",
+    "active_mode": {
+      "hwc_id": 0,
+      "vsync_hz": 120.0,
+      "group": "0x3",
+      "sdm_config": 0,
+      "sdm_fps": 120.0
+    },
+    "sf_color_transform": [
+      [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.965,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.914,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "sf_display_nits": 657.104309,
+    "sf_sdr_white_nits": 153.139008,
+    "display_hdr_sdr_ratio": 4.2909007,
+    "hdr_modifier": {
+      "mode": "HBM_HDR",
+      "max_desired_ratio": 49.261086,
+      "thermal_ratio_scale": 1.0
+    },
+    "hbm": {
+      "mode": "hdr",
+      "stats_state": "HBM_OFF",
+      "hdr_layer_present": true,
+      "force_hdr_layer_present": false
+    },
+    "thermal": {
+      "brightness_throttling_status": 0,
+      "brightness_cap": 1.0,
+      "cap_applied": false,
+      "service_status": 0,
+      "service_override": false
+    },
+    "sysfs_bl": 13119,
+    "framework_actual_backlight": 0.8057834,
+    "framework_actual_sdr_backlight": 0.39799744
+  },
+  {
+    "phase": "rate_sdrRet",
+    "output_layer_count": 1,
+    "layers": [
+      {
+        "kind": "video",
+        "visible": true,
+        "yuv_buffer": true,
+        "buffer_format": "Y_CBCR_420_TP10_UBWC",
+        "sf_dataspace": "0x10810000",
+        "sf_transfer": "SRGB",
+        "hwc_dataspace": "0x10810000",
+        "hwc_transfer": "SRGB"
+      }
+    ],
+    "visible_pq_video": false,
+    "visible_pq_tagged_layer_count": 0,
+    "display_power": "On",
+    "current_hdr_layer_count": null,
+    "historical_hdr_layer_counts_seen": [
+      0,
+      1
+    ],
+    "hwc_dynamic_range": "SDR",
+    "sdm_dynamic_range": "SDR",
+    "active_mode": {
+      "hwc_id": 0,
+      "vsync_hz": 120.0,
+      "group": "0x3",
+      "sdm_config": 0,
+      "sdm_fps": 120.0
+    },
+    "sf_color_transform": [
+      [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.965,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.914,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "sf_display_nits": 153.139008,
+    "sf_sdr_white_nits": 153.139008,
+    "display_hdr_sdr_ratio": 1.0,
+    "hdr_modifier": {
+      "mode": "NO_HDR",
+      "max_desired_ratio": 1.0,
+      "thermal_ratio_scale": 1.0
+    },
+    "hbm": {
+      "mode": "off",
+      "stats_state": "HBM_OFF",
+      "hdr_layer_present": false,
+      "force_hdr_layer_present": false
+    },
+    "thermal": {
+      "brightness_throttling_status": 0,
+      "brightness_cap": 1.0,
+      "cap_applied": false,
+      "service_status": 0,
+      "service_override": false
+    },
+    "sysfs_bl": 6692,
+    "framework_actual_backlight": 0.39799744,
+    "framework_actual_sdr_backlight": 0.39799744
+  }
+]
