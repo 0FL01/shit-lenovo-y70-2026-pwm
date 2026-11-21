@@ -1,0 +1,36 @@
+R48: selected literal lines of private records. Headings and omissions are editorial.
+
+[preflight.log: roles and initial state]
+R48_XT2611-1/W3WWS36.65-64-4-1.and.A001
+IsStatusOverride: false
+Thermal Status: 0
+BL=6692 DC=0 PREF=0
+R48_PREFLIGHT
+
+[guard.log: target-local rollback and observer-only control]
+guard_low=5148
+R48_DEVICE_GUARD_RETURN_OK
+TX guard request=none settled=6692
+R48_OBSERVER_OK
+
+[acquisition.log: initial fit and final return after both approach directions]
+FIT 1 0.865172000 14055
+FIT 2 0.865235452 14056
+FIT 3 0.865298904 14057
+FIT 4 0.865362356 14058
+TX retlow request=0.39799744 settled=6692
+POINT retlow req=0.39799744 bl=6692
+R48_REACH_DONE
+removed owned temporary clip r48pilot
+active: verified wake=94015423
+RETURN bl=6692 pref=0 dc=0 wake=94015423
+R44_RETURN_VERIFIED
+
+[optics/acquisition.log: entire first optical attempt]
+Both roles required
+
+[roles-after.log: source-bound read-only reidentification, no transport ID]
+server protocol OK; transport count 1
+transport device model:motorola_edge_70_max
+XT2611-1
+W3WWS36.65-64-4-1

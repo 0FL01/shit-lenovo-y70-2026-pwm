@@ -1,0 +1,62 @@
+{
+  "file": "white.mp4",
+  "bytes": 14967374,
+  "sha256": "cddfd068268ef7639425233018a479939047fbf85efa50764fd7f7a9b20916e9",
+  "ffmpeg": "ffmpeg version 7.1.5-0+deb13u1 Copyright (c) 2000-2026 the FFmpeg developers",
+  "source": {
+    "render": "direct_camera_r43_20261121/clips.py:render",
+    "duration_seconds": 40,
+    "copies_without_reencoding": 60,
+    "verification": [
+      "[sdr.mp4] 252614 bytes",
+      "ffprobe: {\"codec_type\": \"video\", \"codec_name\": \"hevc\", \"codec_tag_string\": \"hvc1\", \"profile\": \"Main 10\", \"width\": 720, \"height\": 1584, \"pix_fmt\": \"yuv420p10le\", \"color_range\": \"tv\", \"color_primaries\": \"bt709\", \"color_transfer\": \"bt709\", \"color_space\": \"bt709\", \"avg_frame_rate\": \"120/1\", \"nb_frames\": \"4800\", \"duration\": \"40.000000\"}",
+      "first-frame mastering display SEI: null",
+      "first-frame content light level SEI: null",
+      "Decoded full field Y'/Cb/Cr (10-bit): 940/512/512",
+      "Identical complete frames verified: 120; raw frame MD5: d63d169d0c921e034e16341ee9354f67",
+      "All 4800 coded packets verified: 40 identical closed GOPs by per-packet SHA-256; PTS=DTS from 0 in exact 1/120 s steps, duration 1/120 s each; sync packet every 120 packets.",
+      "BT.709 non-linear luma: 100% of legal excursion above black"
+    ]
+  },
+  "stream": {
+    "codec_type": "video",
+    "codec_name": "hevc",
+    "codec_tag_string": "hvc1",
+    "profile": "Main 10",
+    "width": 720,
+    "height": 1584,
+    "pix_fmt": "yuv420p10le",
+    "color_range": "tv",
+    "color_primaries": "bt709",
+    "color_transfer": "bt709",
+    "color_space": "bt709",
+    "extradata_hash": "SHA256:94172b97bceebb9f63a4a58ad6a642014fc699b62c5b8b6a8e5b6a8912bcb70b",
+    "avg_frame_rate": "120/1",
+    "r_frame_rate": "120/1",
+    "time_base": "1/15360"
+  },
+  "duration_seconds": 2400,
+  "video_tracks": 1,
+  "other_tracks": 0,
+  "decoded_full_field_y_cb_cr": [
+    940,
+    512,
+    512
+  ],
+  "decoded_frames_compared_byte_for_byte": 120,
+  "decoded_frame_sha256": "ebe41ca82d3a9635c825f85c58b51aa7caf12754c5a88d4ce509579f79655b50",
+  "packet_proof": {
+    "verified_packets": 288000,
+    "closed_gop_frames": 120,
+    "identical_closed_gops": 2400,
+    "pts_equals_dts": true,
+    "first_pts_seconds": "0",
+    "step_and_packet_duration_seconds": "1/120",
+    "last_pts_seconds": "287999/120"
+  },
+  "hdr_metadata": {
+    "mastering_display": null,
+    "content_light_level": null,
+    "unexpected_stream_or_decoded_gop_side_data": false
+  }
+}
