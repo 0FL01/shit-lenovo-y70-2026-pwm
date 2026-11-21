@@ -34,7 +34,7 @@ from dng_qualify import decode_dng_bytes, extract_metadata
 
 ROI = (630, 1370, 540, 720)  # half-open, native 2x2 cells
 SITES = (('R', 2), ('G1', 0), ('B', 1), ('G2', 3))  # GBRG row-major indices
-DARK = re.compile(r'(?:^|_)(?:black|darks?|bg)[0-9]*(?:_|$)', re.I)
+DARK = re.compile(r'(?:^|_)(?:blackother|black|darks?|bg)[0-9]*(?:_|$)', re.I)
 
 
 def measure(phase, n, path):
