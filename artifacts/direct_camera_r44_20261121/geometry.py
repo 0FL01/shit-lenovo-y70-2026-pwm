@@ -23,7 +23,7 @@ FIELDS = ('scene exposure_us y0 y1 x0 x1 guard clip1 clip2 floor1 floor2 quarter
           'uncovered_rows min_pair_score worst_y worst_window_x0 status').split()
 
 
-def run(frames):
+def run(frames, required=('off', 'on', 'ret')):
     groups = {}
     for p in sorted(frames.iterdir()):
         if not p.name.startswith('cal_') or p.suffix.lower() not in ('.dng', '.partial'):
@@ -33,7 +33,7 @@ def run(frames):
             raise ValueError(f'invalid or unfinished CAL: {p.name}')
         groups.setdefault((m[1], int(m[2])), {})[int(m[3])] = p
 
-    scenes = {'off', 'on', 'ret'} | {scene for scene, _ in groups}
+    scenes = set(required) | {scene for scene, _ in groups}
     for scene in sorted(scenes):
         if (scene, 1250) not in groups:
             raise ValueError(f'{scene}/1250: missing primary CAL pair')
@@ -61,9 +61,11 @@ def run(frames):
 def main():
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument('frames', metavar='FRAMES', type=Path)
+    ap.add_argument('--required-scenes', nargs='+', default=['off', 'on', 'ret'],
+                    help='required CAL labels (default: the R44 high-drive triple)')
     args = ap.parse_args()
     try:
-        rows = run(args.frames)
+        rows = run(args.frames, args.required_scenes)
     except (OSError, ValueError) as exc:
         ap.exit(1, f'FAIL: {exc}\n')
     out = csv.DictWriter(sys.stdout, FIELDS, lineterminator='\n')
