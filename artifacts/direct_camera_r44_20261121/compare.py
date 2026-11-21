@@ -28,7 +28,8 @@ METRICS = ('depth_pct', 'michelson_pct', 'fwhm_raw_rows', 'mean_dn')
 EXPOSURE_NS = {'125': 125000, '200': 200000, '312': 312500, '500': 500000}
 HDR = dict(group='day', scene='hdr', video_dataspace='0x11c60000', sdm_eotf='PQ',
            hwc_dynamic_range='HDR', sdm_dynamic_range='HDR', hdr_mode='HBM_HDR',
-           hbm_mode='hdr', session_status='inactive', hwc_id='0', sdm_config='0')
+           hbm_mode='hdr', session_status='inactive', hwc_id='0', sdm_config='0',
+           same_surface_at_boundaries='True')
 
 
 def read_csv(path, required):
@@ -102,6 +103,8 @@ def compare(frames_csv, windows_csv):
             phases = [f'day_{state}{suffix}_{shutter}' for state in STATES]
             if suffix and not any(p in frames or p in windows for p in phases):
                 continue
+            if [p for p in windows if p in phases] != phases:
+                raise ValueError(f'{level}/{shutter}: missing or out-of-order OFF/ON/return windows')
             stats = []
             for state, p in zip(STATES, phases):
                 if p not in windows or p not in frames:

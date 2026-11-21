@@ -143,17 +143,23 @@ def frame(path, scene, expected, seen):
     return row, value, gaps
 
 
-def analyze(directory):
-    paths = inputs(directory)
-    seen = set()
+def r43_scenes(paths):
     scenes = {s: US for s in SCENES}
     # 120-fps acquisition uses e.g. day_sdr120_125. Never borrow 500 us from day_sdr.
     for name in ('sdr120', 'hdr120', 'sdrRet120', 'sdrMatch', 'hdrAgain'):
         if any(ph.startswith(f'day_{name}_') for ph, _ in paths):
             scenes[name] = {k: US[k] for k in (('200', '312') if name == 'hdrAgain' else ('125', '200', '312'))}
+    return scenes
+
+
+def analyze(directory, scenes=None):
+    paths = inputs(directory)
+    seen = set()
+    if scenes is None:
+        scenes = r43_scenes(paths)
     phases = {f'day_{s}_{k}' for s, times in scenes.items() for k in times}
     if not any(ph in phases for ph, _ in paths):
-        raise ValueError('no R43 daytime timing windows')
+        raise ValueError('no matching daytime timing windows')
     for scene, times in scenes.items():
         events, spacings, counts = {}, {}, {}
         for token, us in times.items():

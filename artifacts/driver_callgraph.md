@@ -1,5 +1,7 @@
 # Flicker prevention: static GLOBAL chain и runtime-блокеры
 
+**2026-11-21, confirmed-on-target:** [R44, штатная отправка при настоящем HDR](direct_camera_r44_20261121/result.md). При остановленном владельческом applier, одном PQ-видеослое и BL 13119 смена Motorola provider OFF → ON → OFF дала соответствующие полные штатные последовательности в журнале TX (по 75 пакетов); в каждом интервале функция `dsi_panel_send_param_cmd` вернулась с нулём, sham без переключения не дал отправок. Это динамическое подтверждение концов маршрута в HDR, не readback итоговых значений DDIC и не свидетельство уменьшения глубины оптического провала.
+
 ## Addendum2026-11-07 — brightness policy, current userspace
 
 [Проверенный разбор](brightness_policy_recon_20261107/result.md): target digital

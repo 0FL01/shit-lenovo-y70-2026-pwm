@@ -95,7 +95,8 @@ def verify_windows(path, data):
             if ((w['group'], w['dc_label'], w['session_status']) != (group, stage, 'inactive')
                     or any(w[k] != dc for k in ('panel_dc_pre', 'panel_dc_post', 'pref_pre', 'pref_post'))):
                 raise ValueError(f'{phase}: expected stock {stage} with panelDC and preference {dc} at both ends')
-            if ((w['scene'], w['hwc_dynamic_range'], w['sdm_dynamic_range']) != ('hdr', 'HDR', 'HDR')
+            if (w['same_surface_at_boundaries'] != 'True' or
+                    (w['scene'], w['hwc_dynamic_range'], w['sdm_dynamic_range']) != ('hdr', 'HDR', 'HDR')
                     or (w['video_dataspace'], w['sdm_tr'], w['sdm_eotf']) != ('0x11c60000', '16', 'PQ')):
                 raise ValueError(f'{phase}: window does not establish HDR/PQ video and actual HDR output')
             if (int(w['frames']) != len(rec) or int(w['bytes']) != sum(r.size for r in rec)
