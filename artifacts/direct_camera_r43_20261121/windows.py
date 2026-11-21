@@ -222,7 +222,9 @@ def bind_frame(path, size, ns, expected_us, group, label, row, seen_raw):
 
 
 def bind(archive, frames_csv, log=None):
-    default_log = archive / 'run.log'
+    default_log = archive / 'acquisition.log'
+    if not default_log.is_file():
+        default_log = archive / 'run.log'  # a standalone, closed 30-fps snapshot
     full = log is None or log.resolve() == default_log.resolve()
     windows = list(read_windows(log if log is not None else default_log))
     require(len({w[-2] for w in windows}) == 1, 'windows do not share one verified wake epoch')
