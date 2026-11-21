@@ -34,3 +34,38 @@ server protocol OK; transport count 1
 transport device model:motorola_edge_70_max
 XT2611-1
 W3WWS36.65-64-4-1
+
+[resume/preflight.log: both roles rebound, entry policy verified]
+BL=6692 DC=0 PREF=0
+IsStatusOverride: false
+Thermal Status: 0
+R48_RESUME_PREFLIGHT
+
+[resume/acquisition.log: separate 16-CAL diagnostic acquisition and return]
+EXCURSION cal312 start=110870.40 end=110936.04 limit=83 return=6692
+AssertionError: non-clipping CAL failure; do not substitute shutter
+RETURN bl=6692 pref=0 dc=0 wake=99749623
+R44_RETURN_VERIFIED
+
+[qualified/acquisition.log: all final guarded excursions, separated by baseline]
+EXCURSION cal312 start=111331.09 end=111394.87 limit=83 return=6692
+EXCURSION cal200 start=111456.69 end=111520.26 limit=83 return=6692
+EXCURSION up125 start=111587.54 end=111651.95 limit=83 return=6692
+EXCURSION down125 start=111702.99 end=111766.91 limit=83 return=6692
+EXCURSION repeat125 start=111819.39 end=111855.20 limit=47 return=6692
+EXCURSION up200 start=111893.48 end=111957.70 limit=83 return=6692
+EXCURSION down200 start=112011.35 end=112075.89 limit=83 return=6692
+EXCURSION up312 start=112135.40 end=112200.56 limit=83 return=6692
+EXCURSION down312 start=112254.81 end=112318.05 limit=83 return=6692
+R48_OPTICAL_DONE
+RETURN bl=6692 pref=0 dc=0 wake=101126515
+R44_RETURN_VERIFIED
+
+[qualified/final.log: independent bench return after verified cleanup]
+ctrl->ctrl->mipi_cmd_log_en: 0
+IsStatusOverride: false
+Thermal Status: 0
+active: verified wake=101126515
+manual=0 setting=102 min=120.0 peak=0
+BL=6692 pref=0 panelDC=0 wake=101126515
+R48_FINAL_RETURN_VERIFIED

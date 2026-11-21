@@ -1,0 +1,11 @@
+state,expected_dbv,cal_state,cal_us,cal_status,day_n_125_200_312,status,spacing_frames,spacing_n,gaps_raw_rows_by_release,spacing_status,fit_125_312_status,fit_200_312_status,scale_status,lead_125_312_us_per_raw_row,check_200_312_us_per_raw_row,conditional_period_us,conditional_broad_recurrence_hz,physical_pwm_hz_status
+offA,14055,offA,200,PASS,4/4/4,unresolved,0,0,,too_few_releases_with_gaps,ok,ok,ok,7.9,8.1,,,unidentified_carrier
+offB,14056,offB,200,PASS,4/4/4,unresolved,0,0,,too_few_releases_with_gaps,ok,ok,ok,7.9,7.9,,,unidentified_carrier
+offC,14057,offC,200,PASS,4/4/4,unresolved,0,0,,too_few_releases_with_gaps,ok,ok,ok,7.9,7.8,,,unidentified_carrier
+offD,14058,offD,200,PASS,4/4/4,unresolved,1,1,125#2:1067.351,too_few_releases_with_gaps,ok,skipped_too_few_complete,too_few_qualified_fits,7.8,,,,unidentified_carrier
+offDr,14058,offD,200,PASS,4/4/4,unresolved,0,0,,too_few_releases_with_gaps,ok,ok,ok,8,7.9,,,unidentified_carrier
+offCr,14057,offC,200,PASS,4/4/4,unresolved,0,0,,too_few_releases_with_gaps,ok,ok,ok,7.8,7.7,,,unidentified_carrier
+offBr,14056,offB,200,PASS,4/4/4,unresolved,0,0,,too_few_releases_with_gaps,skipped_too_few_complete,skipped_too_few_complete,too_few_qualified_fits,,,,,unidentified_carrier
+offAr,14055,offA,200,PASS,4/4/4,unresolved,1,1,312#2:1066.822,too_few_releases_with_gaps,ok,ok,ok,7.8,7.7,,,unidentified_carrier
+offBs,14056,offB,200,PASS,4/0/0,spatial_only,0,0,,too_few_releases_with_gaps,,,125_only_sham,,,,,unidentified_carrier
+offQ,14056,offB,200,PASS,4/0/0,spatial_only,0,0,,too_few_releases_with_gaps,,,125_only_sham,,,,,unidentified_carrier

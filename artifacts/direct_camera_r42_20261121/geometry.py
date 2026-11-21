@@ -19,6 +19,7 @@ or a certificate of complete acquisition. Only finalized .dng files are read.
 
 import argparse
 from collections import Counter
+from contextvars import ContextVar
 import csv
 from hashlib import blake2b
 from pathlib import Path
@@ -32,6 +33,8 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from direct_camera_r41_20261121.measure import decode_dng_bytes, extract_metadata
 
 
+# The EXIF tag is an acquisition constraint, not a rotation of the native CFA.
+EXPECTED_ORIENTATION = ContextVar('EXPECTED_ORIENTATION', default=1)
 Y0, Y1, X0, X1 = 630, 1250, 754, 799
 GUARD, RADIUS = 20, 4
 YS = np.arange(Y0-GUARD, Y1+GUARD)
@@ -62,7 +65,7 @@ def read_native(path, exposure_us):
     m = extract_metadata(tags)
     require((m['make'], m['model'], m['focal_length_mm'], m['iso'], m['orientation'],
              m['width'], m['height'], m['cfa_pattern_2x2'], m['white_level'], raw.shape) ==
-            ('Nothing', 'A001', 5.56, 6400, 1, 4080, 3072, [1, 2, 0, 1], 1023, (3072, 4080))
+            ('Nothing', 'A001', 5.56, 6400, EXPECTED_ORIENTATION.get(), 4080, 3072, [1, 2, 0, 1], 1023, (3072, 4080))
             and abs(m['exposure_us']-exposure_us) <= .001, 'wrong native geometry, scale or capture settings')
     b, white = m['black_levels'][0], m['white_level']
     require(np.isfinite(b) and 0 < b < white, 'invalid G1 BlackLevel')

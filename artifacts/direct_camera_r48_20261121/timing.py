@@ -39,6 +39,7 @@ from direct_camera_r43_20261121.windows import read_windows
 from direct_camera_r46_20261121 import strip, timing
 from direct_camera_r47_20261121.field import releases
 from direct_camera_r47_20261121.longcheck import ROI, SHUTTERS
+from direct_camera_r48_20261121.measure import add_orientation, native_orientation
 
 
 DBV = dict(zip(('offA', 'offB', 'offC', 'offD'), range(14055, 14059)))
@@ -213,9 +214,11 @@ def main():
     ap.add_argument('--cal-us', choices=('312', '312.5', '500', '200'), default='312',
                     help='one common four-release CAL shutter (default: 312.5)')
     ap.add_argument('--frames', dest='details', action='store_true', help='emit per-DAY diagnostics instead of states')
+    add_orientation(ap)
     args = ap.parse_args()
     try:
-        states, details = analyze(args.frames, '312' if args.cal_us == '312.5' else args.cal_us)
+        with native_orientation(args.orientation):
+            states, details = analyze(args.frames, '312' if args.cal_us == '312.5' else args.cal_us)
     except (OSError, ValueError) as exc:
         ap.error(str(exc))
     fields, rows = (FRAME, details) if args.details else (SUMMARY, states)

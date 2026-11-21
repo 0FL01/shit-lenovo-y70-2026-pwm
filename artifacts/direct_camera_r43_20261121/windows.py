@@ -16,6 +16,7 @@ import re
 import sys
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from direct_camera_r42_20261121.geometry import EXPECTED_ORIENTATION
 from direct_camera_r42_20261121.measure import decode_dng_bytes, extract_metadata
 from direct_camera_r43_20261121.measure import ROI, phase_info
 from direct_camera_r43_20261121 import state
@@ -199,7 +200,7 @@ def bind_frame(path, size, ns, expected_us, group, label, row, seen_raw):
         m = extract_metadata(tags)
         require((m['make'], m['model'], m['iso'], m['width'], m['height'], m['orientation'],
                  m['cfa_pattern_2x2'], m['focal_length_mm'], raw.shape, m['white_level']) ==
-                ('Nothing', 'A001', 6400, 4080, 3072, 1, [1, 2, 0, 1], 5.56, (3072, 4080), 1023),
+                ('Nothing', 'A001', 6400, 4080, 3072, EXPECTED_ORIENTATION.get(), [1, 2, 0, 1], 5.56, (3072, 4080), 1023),
                 'wrong original DNG camera, ISO, geometry, CFA or lens')
         us = m['exposure_us']
         require(isfinite(us) and abs(1000 * us - ns) <= 1 and abs(us - expected_us) <= .001,

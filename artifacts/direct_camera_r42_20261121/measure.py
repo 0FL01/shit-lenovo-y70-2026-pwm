@@ -21,6 +21,7 @@ from direct_camera_r36_20261120.channels import characterize
 from direct_camera_r41_20261121.measure import (
     SITES, decode_dng_bytes, extract_metadata, inputs, row_notch,
 )
+from direct_camera_r42_20261121.geometry import EXPECTED_ORIENTATION
 
 
 ROI = (630, 1250, 754, 799)  # half-open native 2x2 cells; freeze from CAL
@@ -43,7 +44,7 @@ def read_sites(path, expected_us):
     m = extract_metadata(tags)
     if ((m['make'], m['model'], m['focal_length_mm'], m['orientation'],
          m['width'], m['height'], raw.shape, m['cfa_pattern_2x2'], m['iso']) !=
-            ('Nothing', 'A001', 5.56, 1, 4080, 3072, (3072, 4080), [1, 2, 0, 1], 6400)):
+            ('Nothing', 'A001', 5.56, EXPECTED_ORIENTATION.get(), 4080, 3072, (3072, 4080), [1, 2, 0, 1], 6400)):
         raise ValueError('unexpected camera, native geometry, CFA, lens or ISO')
     us = m['exposure_us']
     if not np.isfinite(us) or us <= 0 or (expected_us is not None and abs(us-expected_us) > .001):

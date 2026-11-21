@@ -24,6 +24,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from direct_camera_r43_20261121 import state, windows as r43
 from direct_camera_r44_20261121 import windows as r44
 from direct_camera_r46_20261121 import windows as r46
+from direct_camera_r48_20261121.measure import add_orientation, native_orientation
 
 
 DBV = {'A': 14055, 'B': 14056, 'C': 14057, 'D': 14058, 'Bs': 14056, 'Q': 14056}
@@ -183,9 +184,11 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument('archive', type=Path, metavar='ARCHIVE')
     ap.add_argument('frames_csv', type=Path, metavar='frames.csv')
+    add_orientation(ap)
     args = ap.parse_args()
     try:
-        rows = bind(args.archive, args.frames_csv)
+        with native_orientation(args.orientation):
+            rows = bind(args.archive, args.frames_csv)
     except (OSError, ValueError, csv.Error) as exc:
         ap.error(f'R48 windows blocked: {exc}')
     out = csv.DictWriter(sys.stdout, fieldnames=rows[0], lineterminator='\n')

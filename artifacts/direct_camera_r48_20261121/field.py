@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 """R48: python3 -B field.py FRAMES --us 312.5 > field.csv
 
+For the resume archive supply --orientation 6 (default 1). This checks the
+exact EXIF tag; the fixed ROI always uses unrotated native Bayer cells.
 Use exactly cal_STATE_312__{1,2,3,4}.dng at 312.5 us by default. R43's
 single-release levels, any-CFA rail counts and lateral test are unchanged.
 Every guard row must be lit across its full width in >=1 of the four releases;
@@ -38,6 +40,7 @@ sys.dont_write_bytecode = True
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from direct_camera_r43_20261121.geometry import GUARD, LEFT, TOP, X0, X1, Y0, Y1, capture, levels
 from direct_camera_r43_20261121.measure import EXPOSURES
+from direct_camera_r48_20261121.measure import add_orientation, native_orientation
 
 
 LEVELS = dict(zip(('offA', 'offB', 'offC', 'offD'), range(14055, 14059)))
@@ -119,6 +122,7 @@ def field(files, state, token, n, seen):
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument('frames', type=Path, metavar='FRAMES')
+    add_orientation(ap)
     ap.add_argument('--us', choices=('500', '312.5', '312', '200'), action='append',
                     help='CAL duration in microseconds (default 312.5; repeat for separate brackets)')
     ap.add_argument('--releases', type=int, choices=(2, 4), default=4,
@@ -136,11 +140,12 @@ def main():
     out = csv.DictWriter(sys.stdout, FIELDS, lineterminator='\n')
     out.writeheader()
     seen, failed = set(), False
-    for token in tokens:
-        for state in states:
-            for row in field(files, state, token, args.releases, seen):
-                out.writerow({k: format(v, '.9g') if isinstance(v, float) else v for k, v in row.items()})
-                failed |= row['state_status'] != 'PASS'
+    with native_orientation(args.orientation):
+        for token in tokens:
+            for state in states:
+                for row in field(files, state, token, args.releases, seen):
+                    out.writerow({k: format(v, '.9g') if isinstance(v, float) else v for k, v in row.items()})
+                    failed |= row['state_status'] != 'PASS'
     return int(failed)
 
 

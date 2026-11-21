@@ -22,6 +22,7 @@ import numpy as np
 sys.dont_write_bytecode = True
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from direct_camera_r46_20261121.width import FIELDS, US, frame, inputs
+from direct_camera_r48_20261121.measure import add_orientation, native_orientation
 
 
 LEGS = ('A', 'B', 'C', 'D', 'Dr', 'Cr', 'Br', 'Ar')
@@ -55,9 +56,11 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument('frames', type=Path, metavar='FRAMES')
     ap.add_argument('--r47-control', action='store_true', help='validate on the archived R47 A/B/C high-drive series')
+    add_orientation(ap)
     args = ap.parse_args()
     try:
-        rows = list(analyze(args.frames, args.r47_control))
+        with native_orientation(args.orientation):
+            rows = list(analyze(args.frames, args.r47_control))
     except (OSError, ValueError) as exc:
         ap.error(str(exc))
     out = csv.DictWriter(sys.stdout, ['bracket_leg', *FIELDS], lineterminator='\n')
