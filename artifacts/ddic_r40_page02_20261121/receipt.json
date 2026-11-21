@@ -1,0 +1,85 @@
+{
+  "new_page_reads": 1,
+  "stop": "unqualified_FE",
+  "windows": [
+    {
+      "step": "initial",
+      "pre_post_mode": [
+        "0",
+        "120.00",
+        "0x3"
+      ],
+      "pre_post_esd": "reg_read",
+      "output": [
+        "CTRL FE=23 80=50 82=00 BA=00 DBV=0400",
+        "R40_OK action=ctrl epoch=32353831 page=0 esd=reg_read"
+      ]
+    },
+    {
+      "step": "fe",
+      "pre_post_mode": [
+        "0",
+        "120.00",
+        "0x3"
+      ],
+      "pre_post_esd": "reg_read",
+      "output": [
+        "DATA 0x02 0x00 0x00",
+        "R40_OK action=fe epoch=32353831 page=0 esd=reg_read"
+      ]
+    },
+    {
+      "step": "final",
+      "pre_post_mode": [
+        "0",
+        "120.00",
+        "0x3"
+      ],
+      "pre_post_esd": "reg_read",
+      "output": [
+        "CTRL FE=23 80=50 82=00 BA=00 DBV=0400",
+        "R40_OK action=ctrl epoch=32353831 page=0 esd=reg_read"
+      ]
+    }
+  ],
+  "framing": {
+    "status": "rejected",
+    "reason": "not_dcs_short1",
+    "transport_verified": true,
+    "framing_qualified": false,
+    "value": null,
+    "header_hex": "1c 03 00 16",
+    "raw_hardware_count": 9,
+    "normalized_count": 9,
+    "returned": 3,
+    "data_length": 3,
+    "ctrl_returns": [
+      0,
+      3,
+      0
+    ],
+    "tx_returns": [
+      0,
+      0
+    ],
+    "profile": {
+      "header": {
+        "hits": 1,
+        "misses": 0
+      },
+      "hardware": {
+        "hits": 1,
+        "misses": 0
+      },
+      "ctrl": {
+        "hits": 3,
+        "misses": 0
+      },
+      "tx": {
+        "hits": 2,
+        "misses": 0
+      }
+    }
+  },
+  "independent_signature": null
+}
