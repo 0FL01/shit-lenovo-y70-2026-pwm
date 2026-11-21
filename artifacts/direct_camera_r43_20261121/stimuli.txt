@@ -1,0 +1,45 @@
+30 fps stock-pipeline stimuli
+R43: synthetic neutral full-raster fields; no overlays or patches.
+Values describe encoded signals and authored metadata, not panel photometry.
+
+ffmpeg version 7.1.5-0+deb13u1 Copyright (c) 2000-2026 the FFmpeg developers
+
+[sdr.mp4] 86971 bytes
+ffprobe: {"codec_type": "video", "codec_name": "hevc", "codec_tag_string": "hvc1", "profile": "Main 10", "width": 720, "height": 1584, "pix_fmt": "yuv420p10le", "color_range": "tv", "color_primaries": "bt709", "color_transfer": "bt709", "color_space": "bt709", "avg_frame_rate": "30/1", "nb_frames": "1200", "duration": "40.000000"}
+first-frame mastering display SEI: null
+first-frame content light level SEI: null
+Decoded full field Y'/Cb/Cr (10-bit): 721/512/512
+Identical complete frames verified: 1200; raw frame MD5: f89b119ce1f6d51dbb6f97587abd9585
+BT.709 non-linear luma: 75% of legal excursion above black
+
+[hdr.mp4] 186977 bytes
+ffprobe: {"codec_type": "video", "codec_name": "hevc", "codec_tag_string": "hvc1", "profile": "Main 10", "width": 720, "height": 1584, "pix_fmt": "yuv420p10le", "color_range": "tv", "color_primaries": "bt2020", "color_transfer": "smpte2084", "color_space": "bt2020nc", "avg_frame_rate": "30/1", "nb_frames": "1200", "duration": "40.000000"}
+first-frame mastering display SEI: {"side_data_type": "Mastering display metadata", "red_x": "35400/50000", "red_y": "14600/50000", "green_x": "8500/50000", "green_y": "39850/50000", "blue_x": "6550/50000", "blue_y": "2300/50000", "white_point_x": "15635/50000", "white_point_y": "16450/50000", "min_luminance": "50/10000", "max_luminance": "2040000/10000"}
+first-frame content light level SEI: {"side_data_type": "Content light level metadata", "max_content": 204, "max_average": 204}
+Decoded full field Y'/Cb/Cr (10-bit): 573/512/512
+Identical complete frames verified: 1200; raw frame MD5: 6f22ef80d48af5c98bf2665b05644cd1
+Nominal reference luminance from ST 2084 EOTF: 203.703 cd/m²
+
+120 fps matching stimuli (source cadence, not measured display refresh)
+R43: synthetic neutral full-raster fields; no overlays or patches.
+Values describe encoded signals and authored metadata, not panel photometry.
+
+ffmpeg version 7.1.5-0+deb13u1 Copyright (c) 2000-2026 the FFmpeg developers
+
+[sdr.mp4] 252574 bytes
+ffprobe: {"codec_type": "video", "codec_name": "hevc", "codec_tag_string": "hvc1", "profile": "Main 10", "width": 720, "height": 1584, "pix_fmt": "yuv420p10le", "color_range": "tv", "color_primaries": "bt709", "color_transfer": "bt709", "color_space": "bt709", "avg_frame_rate": "120/1", "nb_frames": "4800", "duration": "40.000000"}
+first-frame mastering display SEI: null
+first-frame content light level SEI: null
+Decoded full field Y'/Cb/Cr (10-bit): 721/512/512
+Identical complete frames verified: 120; raw frame MD5: f89b119ce1f6d51dbb6f97587abd9585
+All 4800 coded packets verified: 40 identical closed GOPs by per-packet SHA-256; PTS=DTS from 0 in exact 1/120 s steps, duration 1/120 s each; sync packet every 120 packets.
+BT.709 non-linear luma: 75% of legal excursion above black
+
+[hdr.mp4] 352700 bytes
+ffprobe: {"codec_type": "video", "codec_name": "hevc", "codec_tag_string": "hvc1", "profile": "Main 10", "width": 720, "height": 1584, "pix_fmt": "yuv420p10le", "color_range": "tv", "color_primaries": "bt2020", "color_transfer": "smpte2084", "color_space": "bt2020nc", "avg_frame_rate": "120/1", "nb_frames": "4800", "duration": "40.000000"}
+first-frame mastering display SEI: {"side_data_type": "Mastering display metadata", "red_x": "35400/50000", "red_y": "14600/50000", "green_x": "8500/50000", "green_y": "39850/50000", "blue_x": "6550/50000", "blue_y": "2300/50000", "white_point_x": "15635/50000", "white_point_y": "16450/50000", "min_luminance": "50/10000", "max_luminance": "2040000/10000"}
+first-frame content light level SEI: {"side_data_type": "Content light level metadata", "max_content": 204, "max_average": 204}
+Decoded full field Y'/Cb/Cr (10-bit): 573/512/512
+Identical complete frames verified: 120; raw frame MD5: 6f22ef80d48af5c98bf2665b05644cd1
+All 4800 coded packets verified: 40 identical closed GOPs by per-packet SHA-256; PTS=DTS from 0 in exact 1/120 s steps, duration 1/120 s each; sync packet every 120 packets.
+Nominal reference luminance from ST 2084 EOTF: 203.703 cd/m²
