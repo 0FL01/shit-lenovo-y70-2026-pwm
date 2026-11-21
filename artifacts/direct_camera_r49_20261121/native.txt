@@ -1,0 +1,69 @@
+R49: selected literal lines in source order. Section headings identify the private source.
+
+[entry.native]
+receipt=entry profile=stock epoch=103037801 9E=11 A9=0e 9D=0e 80=50 C1=0002be 00:52=0200 page=0
+ESD_RESTORED reg_read io_rc=0
+R49_OK action=stock-check epoch=103037801 page=0 esd=reg_read
+
+[enter.native]
+receipt=entry profile=stock epoch=103037801 9E=11 A9=0e 9D=0e 80=50 C1=0002be 00:52=0200 page=0
+receipt=result profile=A epoch=103037801 9E=11 A9=8e 9D=8e 80=90 C1=000010 00:52=0200 page=0
+ESD_RESTORED reg_read io_rc=0
+R49_OK action=enter epoch=103037801 page=0 esd=reg_read
+
+[dry-revert.native]
+receipt=entry profile=A epoch=103037801 9E=11 A9=8e 9D=8e 80=90 C1=000010 00:52=0200 page=0
+ESD_RESTORED reg_read io_rc=0
+R49_OK action=dry-revert epoch=103037801 page=0 esd=reg_read
+
+[A_post.native]
+receipt=entry profile=A epoch=103037801 9E=11 A9=8e 9D=8e 80=90 C1=000010 00:52=0200 page=0
+R49_OK action=checkA epoch=103037801 page=0 esd=reg_read
+
+[candidate.native]
+receipt=entry profile=A epoch=103037801 9E=11 A9=8e 9D=8e 80=90 C1=000010 00:52=0200 page=0
+TX_OK 24:9E=0x91 page=0
+receipt=result profile=B epoch=103037801 9E=91 A9=8e 9D=8e 80=90 C1=000010 00:52=0200 page=0
+ESD_RESTORED reg_read io_rc=0
+R49_OK action=candidate epoch=103037801 page=0 esd=reg_read
+
+[B_pre.native]
+receipt=entry profile=B epoch=103037801 9E=91 A9=8e 9D=8e 80=90 C1=000010 00:52=0200 page=0
+R49_OK action=checkB epoch=103037801 page=0 esd=reg_read
+
+[revert.native]
+receipt=entry profile=B epoch=103037801 9E=91 A9=8e 9D=8e 80=90 C1=000010 00:52=0200 page=0
+TX_OK 24:9E=0x11 page=0
+receipt=result profile=A epoch=103037801 9E=11 A9=8e 9D=8e 80=90 C1=000010 00:52=0200 page=0
+ESD_RESTORED reg_read io_rc=0
+R49_OK action=revert epoch=103037801 page=0 esd=reg_read
+
+[stock.native]
+receipt=entry profile=A epoch=103037801 9E=11 A9=8e 9D=8e 80=90 C1=000010 00:52=0200 page=0
+receipt=result profile=stock epoch=103037801 9E=11 A9=0e 9D=0e 80=50 C1=0002be 00:52=0200 page=0
+ESD_RESTORED reg_read io_rc=0
+R49_OK action=stock epoch=103037801 page=0 esd=reg_read
+
+[stock-check.native]
+receipt=entry profile=stock epoch=103037801 9E=11 A9=0e 9D=0e 80=50 C1=0002be 00:52=0200 page=0
+R49_OK action=stock-check epoch=103037801 page=0 esd=reg_read
+
+[worker.log]
+READY DRY at=114622 due=114627
+CLOSE DRY deadline at=114627
+DRY_RETURN_VERIFIED
+READY A at=114632 due=114922
+CLOSE A request at=114857
+READY B at=114864 due=115022
+CLOSE B request at=115003
+READY R at=115010 due=115175
+CLOSE R request at=115010
+STOCK_VERIFIED at=115022
+
+[final.log]
+ESD_INDEPENDENT_REG_READ
+R49_STAGING_REMOVED
+active: verified wake=103773662
+IsStatusOverride: false
+Thermal Status: 0
+R49_FINAL_RETURN_OK bl=6692 dc=0 pref=0 wake=103773662

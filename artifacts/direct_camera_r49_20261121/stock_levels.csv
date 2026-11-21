@@ -1,0 +1,3 @@
+role,phase,exposure_us,iso,y0,y1,x0,x1,width,height,orientation,cfa,focal_mm,white_dn,total,nonclipped,railed,mean_dn,min_mean_dn,max_mean_dn,signal_ok,dark_total,dark_nonclipped,dark_mean_dn,net_mean_dn,min_net_dn,max_net_dn,physical_time_status
+stock_context_only,cal_S_25000,25000,6400,630,1250,754,799,4080,3072,6,GBRG,5.56,1023,4,4,0,187.226559,187.095591,187.459498,True,4,4,0.200546595,187.026012,186.872975,187.287383,unresolved
+stock_context_only,day_S_4000,4000,6400,630,1250,754,799,4080,3072,6,GBRG,5.56,1023,4,4,0,29.3054032,28.955448,30.1719355,True,0,0,,,,,unresolved
