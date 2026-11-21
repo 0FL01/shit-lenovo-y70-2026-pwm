@@ -1,0 +1,14 @@
+CAL                ROI_G1_DN_min:max  min_level  min_vs_full  min_margin_L:R
+cal_full__1        376.21:652.21      0.874            -               -
+cal_full__2        350.21:654.21      0.887            -               -
+cal_core__1        373.21:644.21      0.880        0.844           21:34
+cal_core__2        337.21:644.21      0.888        0.826           21:34
+cal_loaded__1      388.21:670.21      0.869        0.847           21:34
+cal_loaded__2      345.21:652.21      0.884        0.860           21:34
+cal_ring__1         -3.79:  9.21          -            -               -
+cal_ring__2         -3.79:  8.21          -            -               -
+cal_dark__1         -4.79:  5.21          -            -               -
+cal_dark__2         -4.79:  5.21          -            -               -
+cal_inverse__1      -2.79: 11.21      0.985            -           22:34
+cal_inverse__2      -2.79: 10.21      0.984            -           22:34
+PASS: 12 CALs, ROI y=[630,1250) x=[754,799); all 660 rows incl. guards; max edge spread L:R=2:2 cells; guarded CFA clip/floor=0/0
