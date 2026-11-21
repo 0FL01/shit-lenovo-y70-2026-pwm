@@ -1,0 +1,19 @@
+kind,phase,tx_tag,wake_epoch,request,previous_bl,settled_bl,toggle,exact_sets,oem_trigger_bl,apl_entries,apl_caller_rc0,basis_tag,history_basis,apl_side,ddic_readback
+window,cal_offN_500,cals_N,91232063,0.726206468,13119,15999,none,,,32,0,inhdr,initial_below_threshold_inference,OFF,none
+window,cal_offZ_500,cals_Z,91232063,0.726275145,15999,16000,none,,,1,0,inhdr,initial_below_threshold_inference,OFF,none
+window,cal_offP_500,cals_P,91232063,0.726412781,16000,16001,APL_ON,tx1-4 APL_ON,16001,1,1,cals_P,corroborated_send_this_epoch,ON,none
+window,cal_offQ_500,cals_Q,91232063,0.726481599,16001,16002,none,,,1,0,cals_P,corroborated_send_this_epoch,ON,none
+down,,cals_down,91232063,0.39799744,16002,13119,APL_OFF,tx1-3 APL_OFF,15982,33,1,cals_down,corroborated_send_this_epoch,OFF,none
+window,day_offLA_312,lower_A,91232063,0.726206468,13119,15999,none,,,32,0,cals_down,corroborated_send_this_epoch,OFF,none
+window,day_offLB_312,lower_B,91232063,0.726275145,15999,16000,none,,,1,0,cals_down,corroborated_send_this_epoch,OFF,none
+window,day_offSham_312,lower_Sham,91232063,0.726275145,16000,16000,none,,,0,0,cals_down,corroborated_send_this_epoch,OFF,none
+window,day_offLC_312,lower_C,91232063,0.726206468,16000,15999,none,,,1,0,cals_down,corroborated_send_this_epoch,OFF,none
+down,,lower_down,91232063,0.39799744,15999,13119,none,,,32,0,cals_down,corroborated_send_this_epoch,OFF,none
+window,day_offUA_312,upper_A,91232063,0.726481599,13119,16002,APL_ON,tx32-35 APL_ON,16002,32,1,upper_A,corroborated_send_this_epoch,ON,none
+window,day_offUB_312,upper_B,91232063,0.726412781,16002,16001,none,,,1,0,upper_A,corroborated_send_this_epoch,ON,none
+window,day_offUC_312,upper_C,91232063,0.726481599,16001,16002,none,,,1,0,upper_A,corroborated_send_this_epoch,ON,none
+down,,upper_down,91232063,0.39799744,16002,13119,APL_OFF,tx1-3 APL_OFF,15947,32,1,upper_down,corroborated_send_this_epoch,OFF,none
+window,day_offRA_312,reverse_A,91232063,0.726412781,13119,16001,APL_ON,tx33-36 APL_ON,16001,33,1,reverse_A,corroborated_send_this_epoch,ON,none
+window,day_offRB_312,reverse_B,91232063,0.726275145,16001,16000,APL_OFF,tx1-3 APL_OFF,16000,1,1,reverse_B,corroborated_send_this_epoch,OFF,none
+window,day_offRC_312,reverse_C,91232063,0.726412781,16000,16001,APL_ON,tx1-4 APL_ON,16001,1,1,reverse_C,corroborated_send_this_epoch,ON,none
+down,,reverse_down,91232063,0.39799744,16001,13119,APL_OFF,tx1-3 APL_OFF,15931,32,1,reverse_down,corroborated_send_this_epoch,OFF,none

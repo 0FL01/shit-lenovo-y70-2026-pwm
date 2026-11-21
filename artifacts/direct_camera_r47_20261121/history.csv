@@ -1,0 +1,21 @@
+kind,phase,tx_tag,wake_epoch,request,previous_bl,settled_bl,toggle,exact_sets,oem_trigger_bl,apl_entries,apl_caller_rc0,basis_tag,history_basis,apl_side,ddic_readback
+window,cal_offA_1250,cal1250_A,90558871,0.726275145,13119,16000,none,,,33,0,inhdr,initial_below_threshold_inference,OFF,none
+window,cal_offB_1250,cal1250_B,90558871,0.726412781,16000,16001,APL_ON,tx1-4 APL_ON,16001,1,1,cal1250_B,corroborated_send_this_epoch,ON,none
+window,cal_offC_1250,cal1250_C,90558871,0.726275145,16001,16000,APL_OFF,tx1-3 APL_OFF,16000,1,1,cal1250_C,corroborated_send_this_epoch,OFF,none
+down,,cal1250_down,90558871,0.39799744,16000,13119,none,,,32,0,cal1250_C,corroborated_send_this_epoch,OFF,none
+window,cal_offA_500,cal500_A,90558871,0.726275145,13119,16000,none,,,33,0,cal1250_C,corroborated_send_this_epoch,OFF,none
+window,cal_offB_500,cal500_B,90558871,0.726412781,16000,16001,APL_ON,tx1-4 APL_ON,16001,1,1,cal500_B,corroborated_send_this_epoch,ON,none
+window,cal_offC_500,cal500_C,90558871,0.726275145,16001,16000,APL_OFF,tx1-3 APL_OFF,16000,1,1,cal500_C,corroborated_send_this_epoch,OFF,none
+down,,cal500_down,90558871,0.39799744,16000,13119,none,,,32,0,cal500_C,corroborated_send_this_epoch,OFF,none
+window,day_offA_125,d125_A,90558871,0.726275145,13119,16000,none,,,32,0,cal500_C,corroborated_send_this_epoch,OFF,none
+window,day_offB_125,d125_B,90558871,0.726412781,16000,16001,APL_ON,tx1-4 APL_ON,16001,1,1,d125_B,corroborated_send_this_epoch,ON,none
+window,day_offC_125,d125_C,90558871,0.726275145,16001,16000,APL_OFF,tx1-3 APL_OFF,16000,1,1,d125_C,corroborated_send_this_epoch,OFF,none
+down,,d125_down,90558871,0.39799744,16000,13119,none,,,32,0,d125_C,corroborated_send_this_epoch,OFF,none
+window,day_offA_200,d200_A,90558871,0.726275145,13119,16000,none,,,32,0,d125_C,corroborated_send_this_epoch,OFF,none
+window,day_offB_200,d200_B,90558871,0.726412781,16000,16001,APL_ON,tx1-4 APL_ON,16001,1,1,d200_B,corroborated_send_this_epoch,ON,none
+window,day_offC_200,d200_C,90558871,0.726275145,16001,16000,APL_OFF,tx1-3 APL_OFF,16000,1,1,d200_C,corroborated_send_this_epoch,OFF,none
+down,,d200_down,90558871,0.39799744,16000,13119,none,,,33,0,d200_C,corroborated_send_this_epoch,OFF,none
+window,day_offA_312,d312_A,90558871,0.726275145,13119,16000,none,,,32,0,d200_C,corroborated_send_this_epoch,OFF,none
+window,day_offB_312,d312_B,90558871,0.726412781,16000,16001,APL_ON,tx1-4 APL_ON,16001,1,1,d312_B,corroborated_send_this_epoch,ON,none
+window,day_offC_312,d312_C,90558871,0.726275145,16001,16000,APL_OFF,tx1-3 APL_OFF,16000,1,1,d312_C,corroborated_send_this_epoch,OFF,none
+down,,d312_down,90558871,0.39799744,16000,13119,none,,,32,0,d312_C,corroborated_send_this_epoch,OFF,none
