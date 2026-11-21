@@ -1,0 +1,5 @@
+probe,request_min,request_peak,user_preferred,sf_base,group_switch,primary_hz,optimized_hz,layer_vote,hwc_id,actual_hz,bl,hdr_sdr_ratio,hbm,panel_dc,provider
+initial120,120,120,1440 3168 120.00001,0,false,120.00:120.00,120.0:120.0,120.00 ExactOrMultiple OnlySeamless,0,120,3593,3.0112665,hdr,0,0
+guardA,120,120,1440 3168 120.00001,0,false,120.00:120.00,120.0:120.0,120.00 ExactOrMultiple OnlySeamless,0,120,3593,3.0112665,hdr,1,1
+guardB,144,144,1440 3168 120.00001,1,false,144.00:144.00,120.0:120.0,120.00 ExactOrMultiple OnlySeamless,1,144,3593,3.0112665,hdr,1,1
+guardC,120,120,1440 3168 120.00001,0,false,120.00:120.00,120.0:120.0,120.00 ExactOrMultiple OnlySeamless,0,120,3593,3.0112665,hdr,1,1

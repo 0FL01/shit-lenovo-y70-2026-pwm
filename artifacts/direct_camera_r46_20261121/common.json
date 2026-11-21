@@ -1,0 +1,87 @@
+{
+  "file": "media-build/common24.mp4",
+  "bytes": 10392998,
+  "use_only_if": "Ordinary settings cannot alternate hardware modes with R45 bright at 120 fps.",
+  "refresh_multipliers": {
+    "120_Hz": 5,
+    "144_Hz": 6
+  },
+  "reference": "R45/bright.mp4",
+  "ffmpeg_version": "ffmpeg version 7.1.5-0+deb13u1 Copyright (c) 2000-2026 the FFmpeg developers",
+  "stream": {
+    "codec_type": "video",
+    "codec_name": "hevc",
+    "profile": "Main 10",
+    "codec_tag_string": "hvc1",
+    "width": 720,
+    "height": 1584,
+    "pix_fmt": "yuv420p10le",
+    "color_range": "tv",
+    "color_space": "bt2020nc",
+    "color_transfer": "smpte2084",
+    "color_primaries": "bt2020",
+    "r_frame_rate": "24/1",
+    "avg_frame_rate": "24/1",
+    "start_pts": 0,
+    "nb_frames": "57600",
+    "level": 150,
+    "duration": "2400.000000",
+    "duration_ts": 36864000,
+    "time_base": "1/15360"
+  },
+  "hevc_clocks": {
+    "vui_tick_rate": "24/1",
+    "vps_tick_rate": "24/1"
+  },
+  "hdr10_sei_matching_reference": {
+    "Mastering display metadata": {
+      "red_x": "35400/50000",
+      "red_y": "14600/50000",
+      "green_x": "8500/50000",
+      "green_y": "39850/50000",
+      "blue_x": "6550/50000",
+      "blue_y": "2300/50000",
+      "white_point_x": "15635/50000",
+      "white_point_y": "16450/50000",
+      "min_luminance": "50/10000",
+      "max_luminance": "2040000/10000"
+    },
+    "Content light level metadata": {
+      "max_content": 204,
+      "max_average": 204
+    }
+  },
+  "decoded_full_raster_samples": [
+    {
+      "frame_index": 0,
+      "pts": 0,
+      "pts_time_s": "0.000000",
+      "full_plane_codes": {
+        "Y": 940,
+        "Cb": 512,
+        "Cr": 512
+      }
+    },
+    {
+      "frame_index": 28800,
+      "pts": 18432000,
+      "pts_time_s": "1200.000000",
+      "full_plane_codes": {
+        "Y": 940,
+        "Cb": 512,
+        "Cr": 512
+      }
+    },
+    {
+      "frame_index": 57599,
+      "pts": 36863360,
+      "pts_time_s": "2399.958333",
+      "full_plane_codes": {
+        "Y": 940,
+        "Cb": 512,
+        "Cr": 512
+      }
+    }
+  ],
+  "verification": "First 24 coded pictures and SEI byte-identical to R45. All 24 decoded to the constant field. All 2400 GOP copies matched by packet SHA-256; 57600 packets at PTS=DTS=n/24 s, each lasting 1/24 s."
+}

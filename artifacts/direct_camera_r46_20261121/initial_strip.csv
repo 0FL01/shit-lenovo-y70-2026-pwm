@@ -1,0 +1,4 @@
+state,status,state_field_status,y0,y1,x0,x1,guard,field_us,primary_status,cal_500_status,qualified_us,primary_clip_n,primary_floor_n,min_pair_score,min_left_guard_score,min_right_guard_score,min_release_quarter_lit_frac,lateral_bad_rows,uncovered_rows
+on120A,FAIL_FIELD_1250,FAIL_FIELD_1250,580,1365,725,790,20,1250,FAIL_FIELD,ABSENT,,0,0,0.85269343,0.9206236,0.96192982,0.72330097,0,53
+on144B,BLOCKED_OTHER_CAL,PASS,580,1365,725,790,20,1250,PASS,ABSENT,1250,0,0,1.0654095,1.1630117,1.1434016,0.78640777,0,0
+on120C,BLOCKED_OTHER_CAL,PASS,580,1365,725,790,20,1250,PASS,ABSENT,1250,0,0,1.0102716,1.0691386,1.0776823,0.89320388,0,0

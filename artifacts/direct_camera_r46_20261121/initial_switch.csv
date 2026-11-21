@@ -1,0 +1,7 @@
+tag,bracket,begin_s,end_s,observed_tx,invalid_tx,loss_notices,tx_issues,exact_120,exact_144,exact_dc_off,exact_dc_on,exact_sets,ambiguous_exact,dcs51_count,dcs51_tx,page00_dbv_count,page00_dbv_tx,requested_mode,trace_status,ctrl_rc_hist,param_rc_hist
+r46_try144,ok,85228.391223,85236.443760,11,0,0,,0,1,0,0,tx1-10 timing@1/144hz,,1,tx11 page=00@tx10 type=0x39 hs 51 0e 09,1,tx11=3593,144,ok,0:11 1:1,
+r46_prepare120,ok,85247.904712,85255.948604,15,0,0,,1,0,0,0,tx1-14 timing@0/120hz,,1,tx15 page=00@tx14 type=0x39 hs 51 0e 09,1,tx15=3593,120,ok,0:15 1:1,
+r46_nativeon,ok,85278.929297,85287.971467,75,0,0,,0,0,0,1,tx1-75 DC_ON,,0,,0,,,ok,0:75 1:1,0:1
+r46_to144,ok,85518.244690,85526.288023,11,0,0,,0,1,0,0,tx1-10 timing@1/144hz,,1,tx11 page=00@tx10 type=0x39 hs 51 0e 09,1,tx11=3593,144,ok,0:11 1:1,
+r46_to120,ok,85749.767828,85757.813683,15,0,0,,1,0,0,0,tx1-14 timing@0/120hz,,1,tx15 page=00@tx14 type=0x39 hs 51 0e 09,1,tx15=3593,120,ok,0:15 1:1,
+r46_nativeoff,ok,85998.344967,86007.382041,75,0,0,,0,0,1,0,tx1-75 DC_OFF,,0,,0,,,ok,0:75 1:1,0:1
