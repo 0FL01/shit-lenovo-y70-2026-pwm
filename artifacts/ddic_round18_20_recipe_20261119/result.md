@@ -1,5 +1,7 @@
 # Rounds 18–20: Entry-Path Bisection → the Minimal 3-Write DC Recipe (`0.6×` DNG, `2026-11-19`)
 
+> **Owner verdict update, 2026-11-22 (`reported`):** after a direct trial of this exact three-write `0x8e` recipe, the owner reported a slight improvement but rejected it for permanent use. The early positive-in-direction observation and proposed next steps below are historical, not current daily-use acceptance. See the [exact quote and trial scope](../recipe_8e_owner_verdict_20261122.md). The technical measurements below are unchanged; a usable final profile has not been established.
+
 ## 1. Purpose and Setup
 
 R9 showed the landing quality depends on the entry path (cumulative fresh entry: shallow dips; `23:80` excursion: deep). R12–R17 showed no compensation knob tunes the events. Rounds 18–20 asked what exactly in the entry sequence carries the shallow landing and searched for the shortest variant that still lands shallow. Every phase entered from a **verified dc-off snapshot restore** (`23:A9=0x0e`, `23:C1` back to the DBV-appropriate PWM telemetry) at sysfs BL `1024` (`00:52=0x04 0x00`) or `256` (`0x01 0xcc`=460); `120 Hz`, `#FFFFFF`, `625 µs` (camera UI set to manual ISO 6400; all campaign DNGs carry EXIF ISO 3200 — see §3.4), guarded `unshare -m` debugfs transactions. All phases except `r20_core3_reapply_from_core2` entered fresh from the dc-off restore; that one phase re-applied on top of the prepared core2 state.
