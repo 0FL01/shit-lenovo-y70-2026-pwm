@@ -12,6 +12,38 @@ Target: **physical Lenovo Legion Y70 (2026) XT2611-1, hardware PVT, running GLOB
 Owner requirement (`reported`): stock flicker makes the phone unusable; only 2000 Hz or higher has been tolerable in experience with three other phones. Baseline estimates belong in `00-facts/device.yaml`; finding ~720 Hz is not success. Required sequence: **bootloader unlock → persistent KernelSU-Next root adapted to this kernel → real OLED PWM >=2000 Hz**; unlocked stock without root is not an acceptable endpoint. Use `https://github.com/KernelSU-Next/KernelSU-Next`, not an unrequested substitute. The frequency requirement is individual, not a universal medical threshold; refresh/UI changes do not meet it.
 Owner explicitly accepts full wipe and irreversible panel/device damage for this objective; user-data/on-phone backups are not required. Owner requests default approval of such experiments (`reported`); this request does not waive the exact-operation confirmation rule below, establish image compatibility, or replace the recovery plan. Record scoped approvals beside the experiment and execute their full checks/return without per-command questions.
 
+## R&D: план — GPS, не рельсы
+- Цель, критерии успеха и аппаратные разрешения задаёт владелец.
+  Маршрут агент меняет самостоятельно внутри этих границ.
+  Изменение плана не является разрешением на аппаратную операцию.
+- Этапы, номера раундов, список веток и «следующий опыт» — текущая
+  карта направлений, не обязательная очередь. Можно переставлять,
+  объединять, пропускать и добавлять шаги ради цели без согласования
+  каждой правки плана.
+- Выбирай следующий шаг по ожидаемому влиянию на решение,
+  различимости результата, цене и риску. Не обязательно самый маленький
+  или следующий по номеру. Полная картография и закрытие всех веток
+  не являются условиями перехода к перспективному кандидату.
+- До опыта кратко зафиксируй вопрос, ожидаемое различие, достаточный
+  контроль и границы операции. При адаптации протокола отделяй данные
+  до/после изменения; не подгоняй критерий успеха под увиденный результат.
+- Неудача метода — повод сменить метод или сузить вывод, а не обязанность
+  бесконечно чинить стенд. Отрицательный результат ограничивает
+  проверенные условия, не все варианты гипотезы.
+- Закрытую ветку можно открыть при новых данных, изменённом механизме
+  или устранении дефекта метода; укажи, что изменилось.
+  Старое или исчерпанное разрешение от этого не возобновляется.
+- Прогресс — новый проверяемый факт или обоснованное изменение решения.
+  Число tool calls, раундов, тестов и отчётов не является прогрессом.
+  При застое пересмотри маршрут, а не наращивай обслуживание процесса.
+- Блокер одной ветки не блокирует проект, пока есть другой разрешённый
+  различающий шаг. Если таких шагов нет — запиши блокер и минимальное
+  нужное решение владельца, без имитации деятельности.
+- После значимого результата обнови один checkpoint в WORKSTATE:
+  факт → вывод → почему меняется маршрут → ближайший вариант.
+  Исторические планы не переопределяют актуальные инструкции владельца
+  и границы разрешённых операций.
+
 ## Operating procedure
 1. The owner authorizes autonomous YOLO-mode testing on both the research target and camera, without per-test approval, including ADB/root diagnostics, camera capture and reversible settings tests with rollback. The owner reports both devices are available 24/7 and unused by others; verify availability and identity each time. One scoped confirmation still covers an exact image experiment and its checks/return; permanent flash, AVB/slot changes and new DSI sequences require their own proposal/confirmation.
 2. XT2611-3 images are compared offline; their applicability to XT2611-1 stays unestablished until cross-model hardware and signer differences are verified.
@@ -28,14 +60,20 @@ Owner explicitly accepts full wipe and irreversible panel/device damage for this
 1. `00-facts/device.yaml` and `00-facts/claims.yaml`.
 2. `02-pixel/hk3_case.md` (implementation template, NOT portable byte sequence).
 3. `artifacts/source_inventory.md` (pinned GKI/KSU build and validation), then `03-investigation/firmware.md`, `03-investigation/code-search.md`.
-4. `04-tasks/tasks.yaml`, `05-safety/gates.md`.
+4. `04-tasks/tasks.yaml` (исторический backlog),
+   `04-tasks/acceptance.md`, `05-safety/optical_measurement.md`.
 
 ## Investigation priorities
-- P0: complete unlock, establish persistent KernelSU-Next root (verify UID 0 after reboot), then pursue real OLED PWM >=2000 Hz. Keep stock display/Enforcing; source/config/reference-CRC and image checks precede RAM trial, actual vendor loading is tested there. Exact panel ID is not a root-only prerequisite.
-- P1: compare genuine Chinese `XT2611-1 RETCN` against global `XT2611-3 RETEU` extracted ROM; locate display mode / DC dimming / anti-flicker logic.
-- P2: Motorola 6.12 source tag; Qualcomm DRM/MSM/DSI stack; related Motorola display repositories; Qualcomm display HAL and vendor overlays.
-- P3: minimally invasive read-only tracing of the real `Flicker prevention` setting, matching firmware functions and DSI sequences.
-- P4: with confirmed panel-specific evidence, implement a runtime override that is off by default and bounded to verified values, plus a reproducible compilation/build check.
+- P0: unresolved physical emission and owner usability.
+  Unlock and persistent KernelSU-Next root are completed, not recurring
+  research prerequisites. Keep Enforcing and the applicable image/recovery
+  checks for any new image experiment.
+- Source/binary reverse, firmware comparison, register mapping, stock modes
+  and direct optics are alternative routes. Choose or add a route by current
+  evidence; no requirement to exhaust the list or complete it in order.
+- Implement the smallest control needed by the current verified candidate.
+  Do not build persistence or a complete UI as a substitute for an optical
+  effect and owner acceptance.
 
 ## Evidence-driven output contract
 Keep one short checkpoint in `WORKSTATE.md`/work journal after a meaningful result, with its evidence; do not synchronize every command across reports. Update the following only when their findings change or at stage completion:
@@ -49,11 +87,17 @@ Keep one short checkpoint in `WORKSTATE.md`/work journal after a meaningful resu
 - If infeasible: a detailed blocker report with missing documentation/module/firmware evidence.
 
 ## Definition of done
-1. Exact owner-device panel path identified OR reason unidentifiable established.
-2. Regional firmware comparison complete, or blockers and next ways to get source stated.
-3. Pixel mechanism translated into a target-specific code design (not command copy).
-4. Either a reproducible, inactive-by-default patch compiled and offline-validated, or rigorously documented inability to patch without guessing.
-5. Writing images to the device is a separate stage: the owner confirms the exact operation, and the recovery plan is verified in advance.
+1. Meet the active technical finish line in `.opencode/horizon-goal.md`
+   on daytime and evening levels. A register value, source build or reduction
+   of camera bands does not substitute for that result.
+2. Obtain the owner's acceptance for regular use.
+   Subjective improvement alone is not acceptance.
+3. Provide verified session-only control, normal brightness/lifecycle behavior
+   and stock reset; persistence remains separately opt-in.
+   Image writes retain exact-operation confirmation and recovery checks.
+4. Source audits, firmware comparisons, builds and blocker reports are
+   intermediate deliverables, not completion of the physical PWM objective.
+   An external blocker is `blocked`, not success.
 
 ## Commit style
 For non-trivial changes, never use a bare one-line commit. Use `<type>(<scope>): <description>` with type `feat`, `fix`, `chore`, `docs`, `refactor` or `test`; after a blank line add an indented `Changes:` section with 2–4 concrete bullets. Describe the changes clearly enough to understand the commit without reconstructing the diff.
