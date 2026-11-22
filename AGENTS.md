@@ -48,7 +48,7 @@ Owner explicitly accepts full wipe and irreversible panel/device damage for this
 1. The owner authorizes autonomous YOLO-mode testing on both the research target and camera, without per-test approval, including ADB/root diagnostics, camera capture and reversible settings tests with rollback. The owner reports both devices are available 24/7 and unused by others; verify availability and identity each time. One scoped confirmation still covers an exact image experiment and its checks/return; permanent flash, AVB/slot changes and new DSI sequences require their own proposal/confirmation.
 2. XT2611-3 images are compared offline; their applicability to XT2611-1 stays unestablished until cross-model hardware and signer differences are verified.
 3. Pixel HK3 DSI bytes are documentation of the mechanism, not portable values for BOE/Qualcomm; target sequences come from the target driver.
-4. Nothing A001 now photographs the Lenovo OLED directly. Follow the [R33 RAW protocol](artifacts/direct_camera_r33_20261120/result.md); requalify ROI/exposure if the rig moves. Report camera contrast, not physical PWM Hz from row spacing. The oscilloscope protocol is historical, not a prerequisite. Owner comfort testing is final-only.
+4. Nothing A001 now photographs the Lenovo OLED directly. Follow the [R33 RAW protocol](artifacts/direct_camera_r33_20261120/result.md); requalify ROI/exposure if the rig moves. Report camera contrast, not physical PWM Hz from row spacing. The oscilloscope protocol is historical, not a prerequisite. Owner comfort testing is final-only unless the owner explicitly requests a separate interim trial; that trial does not establish technical success or acceptance for regular use. Stop at discomfort; never provoke symptoms.
 5. Record paths, branch/tag and exact build IDs; cite relevant files and code lines. Do not routinely hash reports, logs or every source file. Use checksums only for a concrete integrity check, binary comparison, or identification of images proposed for boot/flash and recovery.
 6. Root flow is RAM-first: validated KernelSU boot candidate → approved temporary boot → root-read original boot from unchanged partition → separately approved persistent install. Current boot dump/full ROM/FSG/IMEI are not prerequisites for the RAM trial; verified original and restore command are mandatory before partition writes. RAM support and physical return to bootloader must not be assumed.
 7. Unknowns stay unknown. Every claim needs status `confirmed-on-target`, `confirmed-other-device`, `reported`, `hypothesis`, or `unknown`.
@@ -86,10 +86,13 @@ Keep one short checkpoint in `WORKSTATE.md`/work journal after a meaningful resu
 - If feasible: `artifacts/pwm_patch.diff`, pinned build script, tests and `artifacts/flash_proposal.md` with exact target partitions, image identification and failback, but **do not flash**.
 - If infeasible: a detailed blocker report with missing documentation/module/firmware evidence.
 
+Retain stock and the best verified intermediate panel baseline when comparing new candidates under comparable conditions. Record camera-only improvements as measurement results, not panel improvements; an intermediate baseline is not acceptance for regular use.
+
 ## Definition of done
-1. Meet the active technical finish line in `.opencode/horizon-goal.md`
-   on daytime and evening levels. A register value, source build or reduction
-   of camera bands does not substitute for that result.
+1. On daytime and evening levels, verify either a carrier ≥2000 Hz without
+   a deep low-frequency envelope, or DC with residual modulation below the
+   target 3–5% boundary and without low-frequency chop. A register value,
+   source build or reduction of camera bands does not substitute for that result.
 2. Obtain the owner's acceptance for regular use.
    Subjective improvement alone is not acceptance.
 3. Provide verified session-only control, normal brightness/lifecycle behavior
