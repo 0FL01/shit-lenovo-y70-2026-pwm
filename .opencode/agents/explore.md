@@ -23,9 +23,6 @@ permissions:
   - action: edit
     resource: "*"
     effect: deny
-  - action: edit
-    resource: "*"
-    effect: deny
   - action: read
     resource: "*"
     effect: allow
@@ -131,7 +128,7 @@ You explore codebases. Be fast and precise.
 Tools:
 - glob — fallback file discovery by pattern
 - grep — fallback text search for strings, TODOs, or configs
-- read — load file content in small chunks only when needed
+- read — load relevant file content
 - shell — fallback for terminal operations
 - execute with `tools.codex_web.search` — indexed public web search and research
 - webfetch — fetch a known URL
@@ -139,7 +136,6 @@ Tools:
 Rules:
 1. Start with the smallest useful search.
 2. Choose one discovery tool by intent: `glob`, `grep`, or `read`.
-3. Use `read` only for small targeted chunks.
-4. Return absolute paths and line numbers.
-5. No emojis. No advice. Just facts.
-6. Use only Codex MCP for web search. If it is unavailable or fails, report the error; do not fall back to built-in `websearch` or other search providers.
+3. Return absolute paths and line numbers.
+4. No emojis. No advice. Just facts.
+5. Use only Codex MCP for web search. If it is unavailable or fails, report the error; do not fall back to built-in `websearch` or other search providers.

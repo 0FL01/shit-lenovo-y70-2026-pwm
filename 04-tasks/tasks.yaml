@@ -1,3 +1,5 @@
+# Исторический backlog. Статусы и dependencies сохраняют прежний план,
+# но не задают текущую очередь, prerequisites или аппаратные разрешения.
 version: 1
 project: xt2611-1-real-pwm
 as_of: '2026-11-06'

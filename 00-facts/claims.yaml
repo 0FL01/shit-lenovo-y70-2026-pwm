@@ -1,4 +1,5 @@
-# statuses: user-reported | confirmed-on-target | confirmed-primary-source | reported-secondary-source | hypothesis | unknown | rejected
+# statuses: confirmed-on-target | confirmed-other-device | confirmed-primary-source | reported | user-reported | reported-secondary-source | hypothesis | unknown | rejected
+# Подтверждение по первичному источнику не означает подтверждения на цели.
 claims:
   - id: C01
     statement: 'Owner has physical XT2611-1, hardware PVT, running global Edge 70 Max ROM.'
